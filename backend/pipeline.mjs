@@ -64,7 +64,6 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
       } catch { receipts[key] = { status: 'failed_or_unknown', at: new Date().toISOString() }; }
       await saveJson(output, library);
     }
-    library.automation.completedAt = new Date().toISOString();
     library.automation.modelRequestsThisRun = attempted;
     library.automation.analysisFailures = Object.values(receipts).filter(r => r.status === 'failed_or_unknown' || r.status === 'pending').length;
     await saveJson(output, library);
@@ -75,6 +74,10 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     await saveJson(reportFile, { version: 1, reports });
     const publication = await readJson(path.join(root, 'config/publication.json'), {});
     if (publication.siteUrl) await writeFile(path.join(root, 'dist/feed.xml'), createDailyRss(reports, { siteUrl: publication.siteUrl, translations: catalog }));
+    // Completion covers the generated report/feed too. An interrupted job keeps its receipts
+    // and collected papers, but must not advertise that all local outputs finished.
+    library.automation.completedAt = new Date().toISOString();
+    await saveJson(output, library);
     log(`采集完成：${papers.length} 篇，${papers.filter(p => translationOf(p)).length} 篇中英对照，模型请求 ${attempted} 次；${library.automation.modelStatus === 'not_configured' ? '模型未配置，已跳过自动解读' : '自动解读任务完成'}。`);
     return library;
   } finally { await lock.release(); }

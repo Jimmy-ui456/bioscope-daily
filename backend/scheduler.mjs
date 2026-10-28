@@ -21,7 +21,7 @@ export function startScheduler({ root = PROJECT, run = runPipeline, intervalMs =
       const statusPath = path.join(root, '.data/scheduler.json');
       const status = await readJson(statusPath, {});
       if (status.lastSuccess === slot || (status.slot === slot && status.attempts >= 3) || (status.nextRetryAt && Date.parse(status.nextRetryAt) > clock().getTime())) return;
-      const next = { ...status, slot, attempts: status.slot === slot ? (status.attempts || 0) + 1 : 1, lastAttemptAt: clock().toISOString() };
+      const next = { ...status, slot, attempts: status.slot === slot ? (status.attempts || 0) + 1 : 1, lastAttemptAt: clock().toISOString(), completion: 'running', error: null };
       await saveJson(statusPath, next);
       try {
         const result = await run({ root });
@@ -30,12 +30,12 @@ export function startScheduler({ root = PROJECT, run = runPipeline, intervalMs =
           next.nextRetryAt = new Date(clock().getTime() + 15 * 60000).toISOString();
         } else { next.lastSuccess = slot; next.completion = 'complete'; next.error = null; next.nextRetryAt = null; }
       }
-      catch { next.error = '后台采集未完成，将按重试计划处理'; next.nextRetryAt = new Date(clock().getTime() + 15 * 60000).toISOString(); }
+      catch { next.completion = 'failed'; next.error = '后台采集未完成，将按重试计划处理'; next.nextRetryAt = new Date(clock().getTime() + 15 * 60000).toISOString(); }
       await saveJson(statusPath, next);
     } catch (error) { log(`定时任务：${error.message}`); }
     finally { busy = false; }
   }
   const timer = setInterval(tick, intervalMs);
   timer.unref();
-  return { tick, stop() { stopped = true; clearInterval(timer); } };
+  return { tick, get busy() { return busy; }, stop() { stopped = true; clearInterval(timer); } };
 }

@@ -6,3 +6,7 @@
 @media(max-width:480px){.reader-filter-grid{grid-template-columns:minmax(0,1fr)}.reader-filter-grid select{min-height:41px;font-size:12px}.reading-filters>summary>span{font-size:8px}.reading-status-title{flex-wrap:wrap}.reading-status-title .button{font-size:10px}.reader-condition-text{line-height:1.8}}
 @media print{.reading-filters,.reader-summary,.reading-status{display:none!important}}
 .public-report-section{margin:30px 0 0;font:500 17px/1.7 "Noto Serif SC",serif;color:#48673b;letter-spacing:1px;padding-bottom:9px;border-bottom:1px solid #dce4d0}
+.collection-health{border:1px solid var(--line);border-left:3px solid #68845d;border-radius:7px;background:#fbfcf8;padding:13px 17px;margin:0 0 22px;font-size:12px;line-height:1.7}
+.collection-health-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.collection-health-title time{margin-left:auto;color:#687567;font-size:11px}.collection-health p{margin:5px 0;color:#58695b}.collection-health a{text-decoration:underline;text-underline-offset:3px}.collection-health.warning,.collection-health.unknown{border-left-color:#b47d37;background:#fdfaf2}.collection-health.error{border-left-color:#b55445;background:#fdf7f5}.collection-health.running{border-left-color:#577b9a;background:#f5f9fc}
+@media(max-width:600px){.collection-health-title time{margin-left:0;flex-basis:100%}.collection-health{padding:12px 14px}}
+@media print{#collection-health{display:none!important}}

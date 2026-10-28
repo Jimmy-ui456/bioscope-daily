@@ -11,13 +11,14 @@ const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; ch
 let pipelineBusy = false;
 let scheduler = null;
 let lastJobError = null;
+let lastJobErrorAt = null;
 function json(res, status, data) { res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' }).end(JSON.stringify(data)); }
-export async function readRuntimeStatus({ root: projectRoot = PROJECT, environment = process.env, schedulerEnabled = Boolean(scheduler), jobBusy = pipelineBusy, jobError = lastJobError } = {}) {
+export async function readRuntimeStatus({ root: projectRoot = PROJECT, environment = process.env, schedulerEnabled = Boolean(scheduler), jobBusy = pipelineBusy || Boolean(scheduler?.busy), jobError = lastJobError, jobErrorAt = lastJobErrorAt } = {}) {
   let status = {};
   let statusWarning = null;
   try { status = await readJson(path.join(projectRoot, '.data/scheduler.json'), {}); }
   catch { statusWarning = '后台状态文件暂不可读取，现有文献数据保留；请检查本地运行记录。'; }
-  return { available: true, modelConfigured: configuredModel(modelConfig(environment)), schedulerEnabled, pipelineBusy: jobBusy, lastJobError: jobError, scheduler: status, statusWarning };
+  return { available: true, modelConfigured: configuredModel(modelConfig(environment)), schedulerEnabled, pipelineBusy: jobBusy, lastJobError: jobError, lastJobErrorAt: jobErrorAt, scheduler: status, statusWarning };
 }
 export function resolveAsset(directory, pathname) {
   const base = path.resolve(directory);
@@ -32,9 +33,9 @@ const server = createServer(async (req, res) => {
   }
   if (requestUrl.pathname === '/api/collect' && req.method === 'POST') {
     if (!['127.0.0.1', '::1'].includes(req.socket.remoteAddress) || req.headers.origin !== `http://${req.headers.host}` || !req.headers['content-type']?.startsWith('application/json')) { json(res, 403, { error: '只允许同源本地浏览器启动任务' }); return; }
-    if (pipelineBusy) { json(res, 409, { error: '采集任务已在运行' }); return; }
-    pipelineBusy = true; lastJobError = null;
-    void runPipeline().catch(() => { lastJobError = '后台任务未完成；原数据保留，请检查服务端日志和配置。'; }).finally(() => { pipelineBusy = false; });
+    if (pipelineBusy || scheduler?.busy) { json(res, 409, { error: '采集任务已在运行' }); return; }
+    pipelineBusy = true; lastJobError = null; lastJobErrorAt = null;
+    void runPipeline().catch(() => { lastJobError = '后台任务未完成；原数据保留，请检查服务端日志和配置。'; lastJobErrorAt = new Date().toISOString(); }).finally(() => { pipelineBusy = false; });
     json(res, 202, { ok: true }); return;
   }
   if (!['GET', 'HEAD'].includes(req.method)) { res.writeHead(405).end(); return; }

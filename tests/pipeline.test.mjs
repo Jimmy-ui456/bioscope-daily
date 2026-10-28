@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdir, mkdtemp, rm } from 'node:fs/promises';
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { runPipeline, saveJson, readJson } from '../backend/pipeline.mjs';
 import { normalizePaper } from '../dist/core.js';
@@ -41,6 +41,40 @@ test('全部上游失败时保留上次文献库', async t => {
   const root = await project(t); await saveJson(path.join(root, 'dist/library.json'), { papers: [paper], marker: 'retain-me' });
   await assert.rejects(runPipeline({ root, now, env: {}, collect: async () => { throw new Error('offline'); }, log: () => {} }), /全部主题/);
   assert.equal((await readJson(path.join(root, 'dist/library.json'))).marker, 'retain-me');
+});
+
+test('日报生成未完成时保留文献和回执，但不提前标为整个后台完成', async t => {
+  const root = await project(t);
+  await saveJson(path.join(root, 'dist/library.json'), { papers: [], receipts: { past: { status: 'failed_or_unknown', at: now.toISOString() } }, modelUsage: { date: '2026-10-29', requests: 1 } });
+  await writeFile(path.join(root, 'dist/public-reports.json'), '{broken');
+  await assert.rejects(runPipeline({ root, now, env: {}, collect: collected, log: () => {} }), SyntaxError);
+  const saved = await readJson(path.join(root, 'dist/library.json'));
+  assert.equal(saved.papers.length, 1);
+  assert.ok(saved.automation.lastRunAt);
+  assert.equal(saved.automation.completedAt, undefined);
+  assert.equal(saved.modelUsage.requests, 1);
+  assert.equal(saved.receipts.past.status, 'failed_or_unknown');
+});
+
+test('定时任务运行及失败状态不会残留前次完成标志，忙状态可读取', async t => {
+  const root = await project(t);
+  await saveJson(path.join(root, '.data/scheduler.json'), { completion: 'complete', lastSuccess: '2026-10-28' });
+  let signalStarted;
+  const started = new Promise(resolve => { signalStarted = resolve; });
+  let rejectRun;
+  const scheduler = startScheduler({ root, clock: () => now, run: () => { signalStarted(); return new Promise((_resolve, reject) => { rejectRun = reject; }); }, log: () => {} });
+  t.after(() => scheduler.stop());
+  const task = scheduler.tick();
+  await started;
+  assert.equal(scheduler.busy, true);
+  assert.equal((await readJson(path.join(root, '.data/scheduler.json'))).completion, 'running');
+  rejectRun(new Error('upstream unavailable'));
+  await task;
+  const saved = await readJson(path.join(root, '.data/scheduler.json'));
+  assert.equal(scheduler.busy, false);
+  assert.equal(saved.completion, 'failed');
+  assert.ok(saved.error);
+  assert.equal(saved.lastSuccess, '2026-10-28');
 });
 test('每日模型调用上限在重复运行之间仍生效', async t => {
   const root = await project(t);
