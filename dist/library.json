@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-10-28T16:24:52.003Z",
+  "fetchedAt": "2026-10-28T16:30:40.940Z",
   "papers": [
     {
       "id": "doi:10.1007/10_2026_370",
@@ -3666,9 +3666,9 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "not_configured",
-    "lastRunAt": "2026-10-28T16:24:52.004Z",
+    "lastRunAt": "2026-10-28T16:30:40.940Z",
     "failedTopics": 0,
-    "completedAt": "2026-10-28T16:24:52.008Z",
+    "completedAt": "2026-10-28T16:30:40.943Z",
     "modelRequestsThisRun": 0,
     "analysisFailures": 0
   }
