@@ -12,15 +12,23 @@ let pipelineBusy = false;
 let scheduler = null;
 let lastJobError = null;
 function json(res, status, data) { res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' }).end(JSON.stringify(data)); }
+export async function readRuntimeStatus({ root: projectRoot = PROJECT, environment = process.env, schedulerEnabled = Boolean(scheduler), jobBusy = pipelineBusy, jobError = lastJobError } = {}) {
+  let status = {};
+  let statusWarning = null;
+  try { status = await readJson(path.join(projectRoot, '.data/scheduler.json'), {}); }
+  catch { statusWarning = '后台状态文件暂不可读取，现有文献数据保留；请检查本地运行记录。'; }
+  return { available: true, modelConfigured: configuredModel(modelConfig(environment)), schedulerEnabled, pipelineBusy: jobBusy, lastJobError: jobError, scheduler: status, statusWarning };
+}
 export function resolveAsset(directory, pathname) {
   const base = path.resolve(directory);
   const target = path.resolve(base, '.' + (pathname === '/' ? '/index.html' : pathname));
   return target.startsWith(base + path.sep) ? target : null;
 }
 const server = createServer(async (req, res) => {
-  const requestUrl = new URL(req.url, 'http://localhost');
+  let requestUrl;
+  try { requestUrl = new URL(req.url, 'http://localhost'); } catch { json(res, 400, { error: '无效请求地址' }); return; }
   if (requestUrl.pathname === '/api/status' && req.method === 'GET') {
-    json(res, 200, { available: true, modelConfigured: configuredModel(modelConfig()), schedulerEnabled: Boolean(scheduler), pipelineBusy, lastJobError, scheduler: await readJson(path.join(PROJECT, '.data/scheduler.json'), {}) }); return;
+    json(res, 200, await readRuntimeStatus()); return;
   }
   if (requestUrl.pathname === '/api/collect' && req.method === 'POST') {
     if (!['127.0.0.1', '::1'].includes(req.socket.remoteAddress) || req.headers.origin !== `http://${req.headers.host}` || !req.headers['content-type']?.startsWith('application/json')) { json(res, 403, { error: '只允许同源本地浏览器启动任务' }); return; }

@@ -23,7 +23,13 @@ export function startScheduler({ root = PROJECT, run = runPipeline, intervalMs =
       if (status.lastSuccess === slot || (status.slot === slot && status.attempts >= 3) || (status.nextRetryAt && Date.parse(status.nextRetryAt) > clock().getTime())) return;
       const next = { ...status, slot, attempts: status.slot === slot ? (status.attempts || 0) + 1 : 1, lastAttemptAt: clock().toISOString() };
       await saveJson(statusPath, next);
-      try { await run({ root }); next.lastSuccess = slot; next.error = null; next.nextRetryAt = null; }
+      try {
+        const result = await run({ root });
+        if ((result?.automation?.failedTopics || 0) > 0) {
+          next.completion = 'partial'; next.error = '部分方向尚未更新，将有限重试；已采集数据保留';
+          next.nextRetryAt = new Date(clock().getTime() + 15 * 60000).toISOString();
+        } else { next.lastSuccess = slot; next.completion = 'complete'; next.error = null; next.nextRetryAt = null; }
+      }
       catch { next.error = '后台采集未完成，将按重试计划处理'; next.nextRetryAt = new Date(clock().getTime() + 15 * 60000).toISOString(); }
       await saveJson(statusPath, next);
     } catch (error) { log(`定时任务：${error.message}`); }

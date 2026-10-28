@@ -1,0 +1,335 @@
+{
+  "version": 1,
+  "reports": [
+    {
+      "id": "public-daily-2026-10-29",
+      "kind": "public_daily",
+      "date": "2026-10-29",
+      "windowStart": "2026-10-23",
+      "createdAt": "2026-10-28T16:44:50.582Z",
+      "origin": "live",
+      "papers": [
+        {
+          "id": "doi:10.1007/10_2026_370",
+          "title": "Molecular Biology and Synthetic Biology-Guided Development of Recognition and Reporting Elements of Biosensor.",
+          "abstract": "Microbial cell biosensors are capable of detecting fluctuations in the concentrations of substances both inside and outside the cell, as well as changes in the external environment, and can generate measurable signal outputs. Microbial cell biosensors are characterized by low cost, simple operation, and high specificity. The rapid advancement of synthetic biology has significantly propelled the development and practical application of microbial cell biosensors. In this chapter, we provide a comprehensive summary of the composition and working principles of microbial cell biosensors. Additionally, we introduce various strategies and the latest progress in modifying biorecognition element and reporting elements using molecular biology and synthetic biology techniques in recent years. This book chapter offers new insights and valuable references for the research and development of microbial cell biosensors.",
+          "authors": "Luo Y, Meng C, Wang L, Liang B.",
+          "journal": "Advances in biochemical engineering/biotechnology",
+          "doi": "10.1007/10_2026_370",
+          "pmid": "42944860",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42944860",
+          "url": "https://doi.org/10.1007/10_2026_370",
+          "publishedAt": "2026-10-28",
+          "discoveredAt": "2026-10-28T16:24:49.684Z",
+          "topics": [
+            "synthetic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1073/pnas.2621208123",
+          "title": "Protein resource allocation across subcellular compartments revealed by large-scale absolute quantitative proteomics in yeast.",
+          "abstract": "Subcellular compartmentalization within complex membrane-bound organelles is a hallmark of eukaryal life, enabling metabolic specialization through spatial segregation. Here, we compiled a dataset encompassing 300 absolute quantitative proteomes, the largest to date, across two yeast species under diverse experimental conditions. Leveraging big data analysis, formula fitting, and machine learning, quantitative correlations among protein abundance, resource allocation, and cellular phenotypes were elucidated at a system level. We found that subcellular resource distribution is highly uneven and covaries with specific growth rate. Specifically, at high specific growth rates, the protein mass fraction (PMF) from certain compartments, (e.g., nucleus) is consistently reduced, coinciding with the increasing protein resource demand from ribosomes. Meanwhile, nutrient limitation may induce resource recycling by upregulating protein resources within specific compartments (e.g., vacuole) to sustain stress adaptation. Importantly, our integrative analysis indicates that PMF from a few subcellular compartments (e.g., nucleus and ribosomes) can accurately predict yeast physiological parameters (e.g., specific growth rate, oxygen uptake rate), and a limited protein set (≥ 23) could be used to capture the variation in resource allocation across seven major subcellular compartments. Furthermore, our comparative analysis between Crabtree-positive and Crabtree-negative species across conditions illustrates that subcellular resource allocation could be shaped by multiple factors and the two species differ markedly in their robustness to environmental perturbations. In summary, the high-quality quantitative proteomic dataset for yeast species offers an unprecedented opportunity for understanding the general principles underlying subcellular resource allocation, laying foundations for precision engineering of cell factories in synthetic biology.",
+          "authors": "Lu H, Zhang Z, He S, Zhang Y, Wang Y, Tao F, Nielsen J.",
+          "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+          "doi": "10.1073/pnas.2621208123",
+          "pmid": "42945261",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42945261",
+          "url": "https://doi.org/10.1073/pnas.2621208123",
+          "publishedAt": "2026-10-27",
+          "discoveredAt": "2026-10-28T16:24:49.685Z",
+          "topics": [
+            "synthetic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1093/nar/gkag1073",
+          "title": "SynBioFooDB: a comprehensive resource for synthetic biology-driven food biomanufacturing.",
+          "abstract": "Enabled by synthetic biology and metabolic engineering, microbial biomanufacturing is reshaping the production of food-related compounds by offering sustainable alternatives to resource-intensive extraction and conventional chemical synthesis. However, information linking food-related compounds to biosynthetic pathways and microbial biomanufacturing evidence remains fragmented across the literature and poorly represented in existing food-oriented resources, hindering cross-study comparison, evidence synthesis, and rational design of microbial production systems. Here, we present SynBioFooDB (https://synbiofoodb.biodesign.ac.cn/), a knowledgebase dedicated to synthetic biology-driven food biomanufacturing. SynBioFooDB integrates 74 237 food-related compounds with standardized chemical identities and annotations covering food occurrence, bioactivity, toxicity, and regulatory information. It further provides expert-curated biomanufacturing evidence for 1054 compounds from 5592 publications, linking microbial hosts, substrates, genetic modifications, and quantitative production metrics through structured and traceable records. The database also contains 2002 literature-reported biosynthetic pathways for 971 compounds, enabling comparison of alternative precursors, enzyme combinations, and pathway architectures. For compounds without literature-reported pathways, SynBioFooDB provides computationally predicted candidate pathways to facilitate pathway prioritization and experimental evaluation. By integrating compound-level context, biomanufacturing evidence, and biosynthetic pathway information, SynBioFooDB supports systematic exploration, comparison, and rational design of microbial production strategies for food-related compounds.",
+          "authors": "Wei F, Deng X, Li H, Wang R, Mao Z, Mao Y, Liu Y, Niu Q, Qin Y, Du J, Liao X, Bai Y, Yuan Q, Ma H.",
+          "journal": "Nucleic acids research",
+          "doi": "10.1093/nar/gkag1073",
+          "pmid": "42934175",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42934175",
+          "url": "https://doi.org/10.1093/nar/gkag1073",
+          "publishedAt": "2026-10-27",
+          "discoveredAt": "2026-10-28T16:24:49.685Z",
+          "topics": [
+            "synthetic",
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": "cc by",
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1111/1744-7917.70385",
+          "title": "\"Illuminating\" the silkworm chassis: Synthetic biology-driven evolution of genetic-based sexing circuits.",
+          "abstract": "The silkworm (Bombyx mori), a classical lepidopteran model, is evolving into a highly tractable synthetic biology chassis. In modern sericulture, genetic sexing circuits provide a rational design framework for efficient all-male rearing, effectively overcoming the gene dosage disruptions and fitness costs associated with traditional radiation-induced chromosomal translocations. This review systematically summarizes the construction strategies and industrial applications of these circuits. We outline the optimization of sex determination elements and highlight the advantages of far-red optical markers in penetrating host physical barriers and reducing cytotoxicity. Furthermore, we trace the evolution of genomic manipulation tools from random transposon insertions to targeted CRISPR/Cas9 integration into genomic safe harbors (GSHs). To address circuit instability during multigenerational rearing, protective molecular strategies-including boundary insulators, conditional expression, and automatic excision networks-are evaluated. We also explore the industrial interface that integrates standardized biological optical reporters with artificial intelligence and high-throughput optoelectronic sorting hardware. Ultimately, engineering principles derived from the silkworm chassis can provide a molecular framework for the sterile insect technique in global pest management, with future directions pointing toward footprint-free genome editing and dynamic conditional regulation.",
+          "authors": "Li C, Cao M, Li B.",
+          "journal": "Insect science",
+          "doi": "10.1111/1744-7917.70385",
+          "pmid": "42947535",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42947535",
+          "url": "https://doi.org/10.1111/1744-7917.70385",
+          "publishedAt": "2026-10-27",
+          "discoveredAt": "2026-10-28T16:24:49.685Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1002/bab.70218",
+          "title": "Biomanufacturing of L-Lactic Acid from Inulin Exploiting Kluyveromyces marxianus and Engineered Saccharomyces cerevisiae Cell Factories.",
+          "abstract": "The transition to sustainable lactic acid (LA) biomanufacturing necessitates a shift from first-generation feedstocks toward residual biomass and low-pH fermentation, eliminating the costly, waste-intensive salt purification and acidification steps. This study presents a novel, two-yeast strategy designed to valorize inulin, a fructose polymer also found in cardoon roots, for high-efficiency LA production at a pH below its pKa. The key novelty of this work lies in identifying and pairing the unique physiological strengths of each organism: Kluyveromyces marxianus as the optimal yeast for inulin hydrolysis, and Saccharomyces cerevisiae as the superior host for robust LA production at low pH and high titers. We discovered that if ammonium sulphate is substituted with urea as a nitrogen source for K. marxianus cultivation, the inulinase activity increased by nearly 20-fold, significantly enhancing the initial breakdown of the substrate. Inulinase-enriched K. marxianus supernatant was then used to cultivate S. cerevisiae m850, an engineered homolactic strain, and convert inulin into L-LA. Comparing separate hydrolysis and fermentation (SHF) with simultaneous saccharification and fermentation (SSF), we achieved a maximal yield > 0.77 g/g with a final pH of 2.5. While SSF was limited by pH-induced inulinase inactivation, the SHF process achieved complete substrate conversion. These results demonstrate a promising platform for producing LA from a residual feedstock, drastically reducing impacts and downstream processing costs.",
+          "authors": "Milanesi R, Lorenzo RDD, Porro D, Branduardi P, Serra I.",
+          "journal": "Biotechnology and applied biochemistry",
+          "doi": "10.1002/bab.70218",
+          "pmid": "42947400",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42947400",
+          "url": "https://doi.org/10.1002/bab.70218",
+          "publishedAt": "2026-10-27",
+          "discoveredAt": "2026-10-28T16:24:49.730Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1016/j.jbiotec.2026.10.017",
+          "title": "Multilevel metabolic engineering of Bacillus amyloliquefaciens for enhanced L-tyrosine production.",
+          "abstract": "L-Tyrosine is a valuable aromatic amino acid with diverse applications. Although plasmid-based overexpression has markedly improved L-tyrosine production, the dependence on antibiotic selection and genetic instability under nonselective conditions limits its industrial applicability. To address these issues, this study employed a multi-level metabolic engineering strategy to enhance the L-tyrosine biosynthetic pathway at the genomic level in Bacillus amyloliquefaciens. First, an expression cassette containing the mutant prephenate dehydrogenase (TyrAI309A/E330V) was inserted into the genome of the wild-type strain Z1. When the copy number reached three (strain Z4), L-tyrosine production reached 437.43mg/L. Subsequently, the mutant DAHP synthase (AroAR27A/K38A) was integrated, and the resulting two-copy strain Z7 increased L-tyrosine production to 591.29mg/L. Systematic identification of rate-limiting steps showed that most pathway genes enhanced production to varying extents. A promoter in situ replacement strategy was then applied to construct strain Z21, which further increased the titer to 813.01mg/L. Finally, by optimizing precursor supply, the engineered strain Z32 reached an L-tyrosine titer of 1079.94mg/L. Overall, this plasmid-free and antibiotic-independent platform offers a promising strategy for stable biosynthesis of L-tyrosine and other aromatic amino acids in microbial cell factories.",
+          "authors": "Zhang D, Jiang P, Wang L, Gu J, Ji A, Feng N.",
+          "journal": "Journal of biotechnology",
+          "doi": "10.1016/j.jbiotec.2026.10.017",
+          "pmid": "42946311",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42946311",
+          "url": "https://doi.org/10.1016/j.jbiotec.2026.10.017",
+          "publishedAt": "2026-10-27",
+          "discoveredAt": "2026-10-28T16:24:49.730Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1128/aem.01142-26",
+          "title": "A cryptic lactate cycle in CO fermentation by Clostridium ljungdahlii .",
+          "abstract": "The valorization of C1 gases presents a route toward the utilization of industrial waste gases as resources. Acetogens such as Clostridium ljungdahlii serve as promising microbial cell factories for light-independent carbon fixation and high-value compound production, yet their efficiency is often limited by energy constraints and poorly understood metabolic pathways. Here, we investigated lactate metabolism in C. ljungdahlii during carbon monoxide (CO) fermentation via growth and product profiling, 13 C-labeling, gene knockouts, and transcriptomics. Although lactate cannot serve as the sole source of carbon and energy for C. ljungdahlii 's growth, we found that lactate can be co-fermented with CO into acetate. 13 C-tracing further revealed concurrent lactate production and oxidation during CO fermentation, with the unlabeled lactate fraction increasing from 1.0% (day 2) to 5.0% (day 6), indicating the existence of an active lactate cycle. Genetic and transcriptional analyses showed that lactate production and oxidation were catalyzed by two distinct lactate dehydrogenases: LdhA (CLJU_RS15865) and the electron-bifurcating Ldh/EtfAB_1 complex (CLJU_RS10590-CLJU_RS10600), respectively. Disruption of the lactate cycle, particularly in the Ldh/EtfAB_1 mutant, improved energy metabolism and triggered intracellular metabolic rearrangements. This mutant produced approximately 10-fold more lactate and shifted the acetate/ethanol ratio from 3.7:1 to 2.1:1, accompanied by upregulation of the AOR (aldehyde:ferredoxin oxidoreductase)-mediated ethanol production pathway. Subsequent ldhA overexpression further elevated lactate titer to ~2.5 mM, confirming the potential for lactate production from CO. The results imply that the cryptic lactate cycle dissipates energy but aids in intracellular redox balancing during CO fermentation. These findings provide new insights into the metabolic engineering of acetogens to produce target compounds, such as lactate and ethanol. Importance Acetogens possess a natural carbon fixation pathway, the Wood-Ljungdahl pathway, enabling them to fix CO or CO2 to produce acetate. Among various acetogens, Clostridium ljungdahlii exhibits strong tolerance to CO and thus holds great application potential for the resource utilization of syngas. However, the physiological and metabolic mechanisms underlying its autotrophic fermentation remain incompletely understood, which imposes limitations on metabolic engineering efforts. In this study, we systematically investigated lactate metabolism in C. ljungdahlii and revealed the existence of a cryptic lactate cycle during CO fermentation. By characterizing this cycle's operation and its impacts on energy metabolism and carbon distribution, we elucidated its potential physiological functions. These findings not only expand our understanding of the physiological and metabolic behaviors of acetogens during autotrophic fermentation but also provide theoretical guidance for the future metabolic engineering of lactate, ethanol, and other compounds.",
+          "authors": "Sun H, Yi J, Huang H, Wang S.",
+          "journal": "Applied and environmental microbiology",
+          "doi": "10.1128/aem.01142-26",
+          "pmid": "42937366",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42937366",
+          "url": "https://doi.org/10.1128/aem.01142-26",
+          "publishedAt": "2026-10-27",
+          "discoveredAt": "2026-10-28T16:24:49.731Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": "cc by",
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1016/j.jbiosc.2026.10.001",
+          "title": "Kinetic metabolic modeling of Saccharomyces cerevisiae mutants reveals two major regulatory patterns of glycolytic flux control.",
+          "abstract": "Maintaining a high glycolytic flux is critical for robust ethanol fermentation and metabolic engineering in Saccharomyces cerevisiae. However, the regulatory mechanisms that prevent the excess turbo design structure of glycolysis under genetic perturbations are unknown. In this study, we constructed a kinetic model of yeast central carbon metabolism encompassing 90 reactions and 543 parameters. Using a genetic algorithm, we trained the model ensemble using multi-omics datasets (proteomics, metabolomics, and fluxomics) collected from the wild-type strain and 11 single-gene deletion mutants. Metabolic control analysis (MCA) of the calibrated models revealed that two major regulatory modes governed the glycolytic flux in most of the strains examined under the culture condition used in this study, although gcr2Δ exhibited a distinct control profile and gnd1Δ could not be reproduced by the model. The wild-type, gcn4Δ, and rpe1Δ strains exhibited an HXK-limited control mode, in which lowered hexokinase activity likely acts as a feedback limiter to prevent pathway over-activation. Conversely, seven other mutants shifted to an ATP demand-coupled mode, transferring flux control to energy-dissipating reactions and linking glycolytic flux directly to ATP demand. No single motif was uniformly shared within either group, implying that strain-specific expression adjustments repeatedly resulted in two regulatory modes. These findings elucidate the robust, multimodal control strategies employed by yeast to safeguard its high fermentation capacity and provide a theoretical foundation for targeted metabolic engineering and robust bioprocess design.",
+          "authors": "Sato G, Yamasaki K, Okahashi N, Matsuda F.",
+          "journal": "Journal of bioscience and bioengineering",
+          "doi": "10.1016/j.jbiosc.2026.10.001",
+          "pmid": "42946555",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42946555",
+          "url": "https://doi.org/10.1016/j.jbiosc.2026.10.001",
+          "publishedAt": "2026-10-27",
+          "discoveredAt": "2026-10-28T16:24:50.550Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1016/j.nbt.2026.10.013",
+          "title": "Enhanced violacein production by synthetically engineered mutualistic Escherichia coli co-culture biofilms in a spatially partitioned bioreactor system.",
+          "abstract": "Violacein (VIO) is a bacterial secondary metabolite with potential applications in healthcare, textile, and cosmetic industries. Although modular synthetic E. coli co-cultures are promising for biomanufacturing, VIO production in such systems depends on efficient cross-feeding, which requires spatial proximity and stable interactions among co-culture members. Here, we demonstrate that a spatially partitioned bioreactor can support coexisting suspended and carrier-associated states of a mutualistic recombinant E. coli co-culture, enabling direct comparison of their crude VIO production performance. The co-culture was cultivated in a spatially partitioned bioreactor consisting of an aerobic stirred-tank compartment connected to an oxygen-limited cartridge containing Fibra-Cel® discs as carriers, thereby enabling biomass partitioning into suspended and adherent fractions. Across three biological replicates, the adherent biofilm-associated fraction consistently exhibited higher biomass-normalized crude VIO production than the corresponding suspended fraction, with 4.51-, 20.05-, and 5.51-fold increases. Although the adherent fraction represented only 10.6-24.0% of the total biomass, it contributed 35.4-86.3% of the total crude VIO. These results show that carrier-associated spatial organization within the partitioned bioreactor supported the formation of highly productive biofilm-associated E. coli co-culture populations. The presented concept highlights the potential of spatially organized, carrier-associated co-cultures for the intensification of secondary metabolite production and future biofilm-based bioprocessing applications.",
+          "authors": "Gupta S, Takors R.",
+          "journal": "New biotechnology",
+          "doi": "10.1016/j.nbt.2026.10.013",
+          "pmid": "42946158",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42946158",
+          "url": "https://doi.org/10.1016/j.nbt.2026.10.013",
+          "publishedAt": "2026-10-27",
+          "discoveredAt": "2026-10-28T16:24:49.730Z",
+          "topics": [
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1039/d6lc00512h",
+          "title": "Dynamic tapered nozzle and multiple waveform modulation enable high-speed piezoelectric jetting without satellite droplets across broad fluid property ranges.",
+          "abstract": "Piezoelectric drop-on-demand inkjet printing enables controlled microdroplet deposition in microfluidics, biomanufacturing, and precision manufacturing. However, conventional pressure chamber piezoelectric printheads are susceptible to viscous dissipation and nozzle clogging, exhibit limited adaptability to high-viscosity, low-surface-tension liquids and particle/cell suspensions, and struggle to suppress satellite droplets effectively. These limitations hinder their practical deployment in high-precision and high-stability inkjet applications. Here, a dynamic tapered nozzle generates droplets through local self-pumping induced by geometric deformation rather than pressure-wave propagation in a conventional pressure chamber. Structural optimization enabled droplet velocities of 5.42-12.67 m s -1 and stable ejection at viscosities up to 40.3 mPa s, surface tensions of 24.44-72.75 mN m -1 , and Z values of 1.01-38.11. Mechanistic analysis identified high-frequency residual nozzle oscillations as the primary cause of ligament stretching and secondary breakup. Based on this mechanism, a multiple waveform modulation strategy is devised to dynamically regulate the nozzle displacement response. This strategy effectively suppresses satellite droplets during high-speed ejection while maintaining printing throughput and achieves a 32% reduction in droplet diameter. The satellite-droplet suppression effect is further validated in a 0.5 wt% SiO 2 nanoparticle suspension and a 10 wt% PVP K30 solution. The platform enables high-viability printing of MC3T3 cells and carrier-free intracellular delivery of 70 kDa fluorescein isothiocyanate (FITC)-dextran, establishing a feasible pathway for high-speed and stable ejection across broad fluid property ranges with low clogging risk.",
+          "authors": "Chen J, Xu C, Wang M, Ji S, Dai Y, Chen X.",
+          "journal": "Lab on a chip",
+          "doi": "10.1039/d6lc00512h",
+          "pmid": "42817858",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42817858",
+          "url": "https://doi.org/10.1039/d6lc00512h",
+          "publishedAt": "2026-10-27",
+          "discoveredAt": "2026-10-28T16:24:49.731Z",
+          "topics": [
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        }
+      ],
+      "sections": [
+        {
+          "topicId": "synthetic",
+          "label": "合成生物学",
+          "paperIds": [
+            "doi:10.1007/10_2026_370",
+            "doi:10.1073/pnas.2621208123",
+            "doi:10.1093/nar/gkag1073",
+            "doi:10.1111/1744-7917.70385"
+          ]
+        },
+        {
+          "topicId": "metabolic",
+          "label": "代谢工程",
+          "paperIds": [
+            "doi:10.1002/bab.70218",
+            "doi:10.1016/j.jbiotec.2026.10.017",
+            "doi:10.1128/aem.01142-26"
+          ]
+        },
+        {
+          "topicId": "microbial",
+          "label": "微生物制造",
+          "paperIds": [
+            "doi:10.1016/j.jbiosc.2026.10.001",
+            "doi:10.1016/j.nbt.2026.10.013",
+            "doi:10.1039/d6lc00512h"
+          ]
+        }
+      ],
+      "sourceUpdatedAt": "2026-10-28T16:30:40.940Z",
+      "selectionPolicy": {
+        "version": "publication-calendar-topic-round-robin-v1",
+        "description": "按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。",
+        "dateBasis": "first_publication_date",
+        "windowDays": 7,
+        "limit": 10,
+        "topicOrder": [
+          "synthetic",
+          "metabolic",
+          "microbial"
+        ],
+        "ordering": "各主题按发表日期倒序，轮流取文献后按主题分节；日期相同时按文献标识排序。",
+        "coverageNote": "仅整理当前文献库及配置主题，不代表该领域的全部新文献；未依据下载量或科研质量评分排序。"
+      },
+      "metrics": {
+        "inputCount": 130,
+        "uniqueCount": 130,
+        "candidateCount": 35,
+        "selectedCount": 10,
+        "sectionCount": 3
+      }
+    }
+  ]
+}

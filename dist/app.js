@@ -1,3 +1,4 @@
+import { paperKind, journalName, filterReadingPapers } from './reader.js';
 import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown } from './core.js';
 
 import { attachEnrichment, translationOf, metricGroup, metricLabel, rankDownloads, validateDownloadMetric } from './enrichment.js';
@@ -9,14 +10,24 @@ function read(key, fallback) { try { return JSON.parse(localStorage.getItem(stor
 function write(key, value) { try { localStorage.setItem(storageKey + key, JSON.stringify(value)); return true; } catch { toast('浏览器存储空间不足，本次内容仅保留在当前页面。'); return false; } }
 const savedSettings = read('settings', {});
 const settings = { topics: ['synthetic', 'metabolic', 'microbial'], days: 30, reportDays: 7, ...savedSettings };
-settings.topics = settings.topics.filter(id => TOPICS.some(t => t.id === id));
+settings.topics = (Array.isArray(settings.topics) ? settings.topics : []).filter(id => TOPICS.some(t => t.id === id));
 if (!settings.topics.length) settings.topics = TOPICS.map(t => t.id);
 settings.days = [7, 14, 30, 90].includes(Number(settings.days)) ? Number(settings.days) : 30;
 settings.reportDays = [1, 7, 30].includes(Number(settings.reportDays)) ? Number(settings.reportDays) : 7;
 const storedCache = read('cache', null);
 const cache = storedCache && Array.isArray(storedCache.papers) ? storedCache : null;
-const state = { view: 'overview', topic: 'all', filter: 'all', search: '', page: 1, papers: cache?.papers || [], origin: cache?.origin || 'sample', updatedAt: cache?.updatedAt || null, bookmarks: read('bookmarks', []), selected: read('selected', []), reports: read('reports', []), reportId: null, busy: false, progress: '', error: '', settings, stats: cache?.stats || [] };
+const readerDefaults = { journal: 'all', days: 0, kind: 'all', abstract: 'all' };
+const savedReaderFilters = read('readerFilters', {});
+const readerFilters = {
+  journal: typeof savedReaderFilters?.journal === 'string' ? savedReaderFilters.journal : 'all',
+  days: [0, 1, 7, 30, 90].includes(Number(savedReaderFilters?.days)) ? Number(savedReaderFilters.days) : 0,
+  kind: ['all', 'article', 'review', 'preprint', 'other'].includes(savedReaderFilters?.kind) ? savedReaderFilters.kind : 'all',
+  abstract: ['all', 'available', 'missing'].includes(savedReaderFilters?.abstract) ? savedReaderFilters.abstract : 'all'
+};
+const state = { view: 'overview', topic: 'all', filter: 'all', search: '', page: 1, readerFilters, filtersOpen: Object.keys(readerDefaults).some(key => readerFilters[key] !== readerDefaults[key]), papers: cache?.papers || [], origin: cache?.origin || 'sample', updatedAt: cache?.updatedAt || null, bookmarks: read('bookmarks', []), selected: read('selected', []), reports: read('reports', []), reportId: null, busy: false, progress: '', error: '', settings, stats: cache?.stats || [] };
 let sample = null;
+let publicReports = [];
+function allReports() { return [...publicReports, ...state.reports]; }
 let translations = {};
 let libraryMeta = null;
 let displayMode = read('displayMode', 'bilingual');
@@ -87,7 +98,7 @@ const views = {
 };
 function navItem(view, name, symbol, count) { return `<button class="nav-link ${state.view === view ? 'active' : ''}" data-view="${view}" ${state.view === view ? 'aria-current="page"' : ''}>${icon(symbol, 17)}<span>${name}</span>${count != null ? `<span class="nav-count">${count}</span>` : ''}</button>`; }
 function sidebar() {
-  return `<div class="mobile-shade" data-action="close-menu"></div><aside class="sidebar" aria-label="主要导航"><a href="#overview" class="brand" aria-label="生研观察首页"><img src="./icon.svg" alt=""><div><div class="brand-name">生研观察</div><div class="brand-sub">BIOSCOPE DAILY</div></div></a><div class="sidebar-label">DISCOVER / 发现</div><nav>${navItem('overview', '研究雷达', 'grid')}${navItem('hot', '文献下载量', 'download')}${navItem('daily', '每日简报', 'file', state.reports.length || undefined)}${navItem('bookmarks', '我的收藏', 'bookmark', state.bookmarks.filter(id => state.papers.some(p => p.id === id)).length || undefined)}</nav><div class="sidebar-label">RESEARCH / 研究方向</div><div class="sidebar-topics">${TOPICS.map(t => `<button class="topic-nav" data-topic="${t.id}"><span class="dot ${t.color}"></span>${t.name}</button>`).join('')}</div><div class="sidebar-label">WORKSPACE / 工作台</div><nav>${navItem('topics', '研究主题', 'layers')}${navItem('sources', '信源管理', 'globe')}${navItem('settings', '监控设置', 'settings')}</nav><div class="sidebar-bottom"><div class="local-note"><strong>${icon('leaf', 13)} 为好奇心留一点时间</strong><p>记录证据，保留疑问。<br>让每天的阅读，都更接近研究本身。</p></div><div class="user-row"><span class="user-avatar">研</span><div>个人科研工作台</div><span>V${APP_VERSION}</span></div></div></aside>`;
+  return `<div class="mobile-shade" data-action="close-menu"></div><aside class="sidebar" aria-label="主要导航"><a href="#overview" class="brand" aria-label="生研观察首页"><img src="./icon.svg" alt=""><div><div class="brand-name">生研观察</div><div class="brand-sub">BIOSCOPE DAILY</div></div></a><div class="sidebar-label">DISCOVER / 发现</div><nav>${navItem('overview', '研究雷达', 'grid')}${navItem('hot', '文献下载量', 'download')}${navItem('daily', '每日简报', 'file', allReports().length || undefined)}${navItem('bookmarks', '我的收藏', 'bookmark', state.bookmarks.filter(id => state.papers.some(p => p.id === id)).length || undefined)}</nav><div class="sidebar-label">RESEARCH / 研究方向</div><div class="sidebar-topics">${TOPICS.map(t => `<button class="topic-nav" data-topic="${t.id}"><span class="dot ${t.color}"></span>${t.name}</button>`).join('')}</div><div class="sidebar-label">WORKSPACE / 工作台</div><nav>${navItem('topics', '研究主题', 'layers')}${navItem('sources', '信源管理', 'globe')}${navItem('settings', '监控设置', 'settings')}</nav><div class="sidebar-bottom"><div class="local-note"><strong>${icon('leaf', 13)} 为好奇心留一点时间</strong><p>记录证据，保留疑问。<br>让每天的阅读，都更接近研究本身。</p></div><div class="user-row"><span class="user-avatar">研</span><div>个人科研工作台</div><span>V${APP_VERSION}</span></div></div></aside>`;
 }
 function masthead() {
   const v = views[state.view];
@@ -110,9 +121,12 @@ function paperCard(p) {
   p = attachEnrichment(p, translations);
   return `<article class="paper-card"><div class="paper-top"><div class="tags">${p.topics.slice(0, 2).map(topicTag).join('')}<span class="tag ${p.isPreprint || p.isRetraction ? 'warn' : 'outline'}">${esc(p.type)}</span></div><span class="paper-journal" title="${esc(p.journal)}">${esc(p.journal)}</span></div><button class="paper-title" data-paper="${esc(p.id)}">${paperHeading(p)}</button>${paperAbstract(p, true)}<div class="paper-bottom"><div class="paper-meta"><span>${shortDate(p.publishedAt)}</span><span class="sep">/</span><span>Europe PMC</span><span class="sep scope">/</span><span class="scope">${p.readingScope}</span></div><div class="paper-actions"><button class="paper-action ${state.selected.includes(p.id) ? 'on' : ''}" data-select="${esc(p.id)}" aria-pressed="${state.selected.includes(p.id)}" aria-label="${state.selected.includes(p.id) ? '取消精选' : '加入精选'}：${esc(p.title)}">${icon('check', 13)}${state.selected.includes(p.id) ? '已精选' : '精选'}</button><button class="paper-action ${state.bookmarks.includes(p.id) ? 'on' : ''}" data-bookmark="${esc(p.id)}" aria-pressed="${state.bookmarks.includes(p.id)}" aria-label="${state.bookmarks.includes(p.id) ? '取消收藏' : '收藏'}：${esc(p.title)}">${icon('bookmark', 13)}</button><button class="paper-action" data-paper="${esc(p.id)}" aria-label="查看论文详情">${icon('arrow', 14)}</button></div></div></article>`;
 }
+function readerBasePapers() {
+  const papers = activePapers();
+  return state.view === 'bookmarks' ? papers.filter(p => state.bookmarks.includes(p.id)) : papers;
+}
 function filteredPapers() {
-  let papers = activePapers();
-  if (state.view === 'bookmarks') papers = papers.filter(p => state.bookmarks.includes(p.id));
+  let papers = filterReadingPapers(readerBasePapers(), state.readerFilters);
   if (state.topic !== 'all') papers = papers.filter(p => p.topics.includes(state.topic));
   if (state.filter === 'translated') papers = papers.filter(p => translated(p));
   if (state.filter === 'selected') papers = papers.filter(p => state.selected.includes(p.id));
@@ -122,10 +136,48 @@ function filteredPapers() {
   return papers;
 }
 function empty(title, copy, button = '') { return `<div class="empty"><div class="empty-icon">${icon('inbox', 30)}</div><h3>${title}</h3><p>${copy}</p>${button}</div>`; }
-function tabs() { return `<div class="tabs-row"><div class="tabs" role="group" aria-label="文献筛选">${[['all', '全部研究'], ['translated', '中英对照'], ['selected', '人工精选'], ['research', '期刊论文'], ['preprint', '预印本']].map(([id, label]) => `<button class="tab ${state.filter === id ? 'active' : ''}" data-filter="${id}" aria-pressed="${state.filter === id}">${label}</button>`).join('')}</div><select id="topic-filter" aria-label="选择研究方向"><option value="all">全部方向</option>${TOPICS.map(t => `<option value="${t.id}" ${state.topic === t.id ? 'selected' : ''}>${t.name}</option>`).join('')}</select></div>`; }
+function tabs() { return `<div class="tabs-row"><div class="tabs" role="group" aria-label="文献筛选">${[['all', '全部研究'], ['translated', '中英对照'], ['selected', '人工精选'], ['research', '期刊论文'], ['preprint', '预印本']].map(([id, label]) => `<button class="tab ${state.filter === id ? 'active' : ''}" data-filter="${id}" aria-pressed="${state.filter === id}">${label}${id === 'translated' ? `<span class="reader-tab-count">${readerBasePapers().filter(p => translated(p)).length}</span>` : ''}</button>`).join('')}</div><label class="topic-selector" for="topic-filter"><span>方向</span><select id="topic-filter"><option value="all">全部方向</option>${TOPICS.map(t => `<option value="${t.id}" ${state.topic === t.id ? 'selected' : ''}>${t.name}</option>`).join('')}</select></label></div>`; }
+function activeReaderLabels() {
+  const filters = state.readerFilters;
+  const labels = [];
+  if (filters.journal !== 'all') labels.push(filters.journal);
+  if (filters.days) labels.push(filters.days === 1 ? '北京日期：今天' : `最近 ${filters.days} 个北京日历日`);
+  if (filters.kind !== 'all') labels.push(({ article: '期刊研究论文', review: '综述', preprint: '预印本', other: '其他记录' })[filters.kind]);
+  if (filters.abstract !== 'all') labels.push(filters.abstract === 'available' ? '有摘要' : '仅题录');
+  return labels;
+}
+function hasReaderConditions() { return activeReaderLabels().length || state.topic !== 'all' || state.filter !== 'all' || state.search.trim(); }
+function readerSummaryContent() {
+  const conditions = [state.topic !== 'all' ? topicOf(state.topic).name : '', ({ translated: '中英对照', selected: '人工精选', research: '期刊论文', preprint: '预印本' })[state.filter] || '', ...activeReaderLabels(), state.search.trim() ? `搜索：${state.search.trim()}` : ''].filter(Boolean);
+  return `<div><span class="reader-result-count" role="status" aria-live="polite">找到 <strong>${filteredPapers().length}</strong> 篇 / 当前${state.view === 'bookmarks' ? '收藏' : '关注方向'} ${readerBasePapers().length} 篇</span>${conditions.length ? `<p class="reader-condition-text">筛选：${conditions.map(esc).join(' · ')}</p>` : '<p class="reader-condition-text">按发表日期由新到旧排列；可组合期刊、日期、类型与摘要筛选。</p>'}</div>${hasReaderConditions() ? '<button class="reader-reset" data-action="reset-filters">清除筛选</button>' : ''}`;
+}
+function readerTools() {
+  const filters = state.readerFilters;
+  const counts = new Map();
+  for (const paper of readerBasePapers()) { const journal = journalName(paper); counts.set(journal, (counts.get(journal) || 0) + 1); }
+  if (filters.journal !== 'all' && !counts.has(filters.journal)) counts.set(filters.journal, 0);
+  const journals = [...counts.entries()].sort(([a], [b]) => a.localeCompare(b, 'en'));
+  const activeCount = activeReaderLabels().length;
+  return `<details id="reading-filters" class="reading-filters" ${state.filtersOpen ? 'open' : ''}><summary>${icon('filter', 13)}精细筛选 <span>${activeCount ? `已应用 ${activeCount} 项` : '期刊 · 日期 · 类型 · 摘要'}</span></summary><div class="reader-filter-grid"><label for="reader-journal"><span>期刊 / 来源</span><select id="reader-journal"><option value="all">全部期刊与来源（${journals.length}）</option>${journals.map(([journal, count]) => `<option value="${esc(journal)}" ${filters.journal === journal ? 'selected' : ''}>${esc(journal)} · ${count} 篇</option>`).join('')}</select></label><label for="reader-days"><span>发表日期范围（北京时间）</span><select id="reader-days">${[[0, '全部已载入文献'], [1, '今天'], [7, '最近 7 个日历日'], [30, '最近 30 个日历日'], [90, '最近 90 个日历日']].map(([value, label]) => `<option value="${value}" ${filters.days === value ? 'selected' : ''}>${label}</option>`).join('')}</select></label><label for="reader-kind"><span>内容类型</span><select id="reader-kind">${[['all', '全部类型'], ['article', '期刊研究论文'], ['review', '综述'], ['preprint', '预印本'], ['other', '其他文献记录']].map(([value, label]) => `<option value="${value}" ${filters.kind === value ? 'selected' : ''}>${label}</option>`).join('')}</select></label><label for="reader-abstract"><span>可阅读内容</span><select id="reader-abstract">${[['all', '摘要与题录均显示'], ['available', '只看有摘要的文献'], ['missing', '只看没有摘要的题录']].map(([value, label]) => `<option value="${value}" ${filters.abstract === value ? 'selected' : ''}>${label}</option>`).join('')}</select></label><p class="reader-filter-help">仅筛选当前载入的文献，不触发新采集。选择日期范围后，日期未知的记录不参与结果；预印本和类型来自接口元数据。</p></div></details><div id="reader-summary" class="reader-summary">${readerSummaryContent()}</div>`;
+}
+function formatReaderTime(value) {
+  if (!value || !Number.isFinite(Date.parse(value))) return '暂无记录';
+  return new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(value));
+}
+function readingStatus() {
+  const papers = activePapers();
+  const translatedCount = papers.filter(p => translated(p)).length;
+  const automation = libraryMeta?.automation;
+  const modelConfigured = backendStatus?.modelConfigured ?? automation?.modelConfigured;
+  const modelMessage = modelConfigured === true ? '模型已配置；未翻译文献将按后台任务批次处理。' : modelConfigured === false ? '模型尚未配置，新采集但未翻译的文献暂保留原文，不产生付费解读。' : '未取得模型配置状态，可前往监控设置核对。';
+  return `<section class="reading-status" aria-label="当前文献库与译文状态"><div class="reading-status-title"><strong>${translatedCount} / ${papers.length} 篇可中英对照阅读</strong><button class="button small" data-filter="translated" ${translatedCount ? '' : 'disabled'}>只看中英对照 ${icon('arrow', 11)}</button></div><p>${modelMessage} 现有译文是辅助翻译，尚未由领域专家审核。</p><dl class="reader-update-times"><div><dt>${state.origin === 'sample' ? '样本采集时间' : '当前库更新时间'}</dt><dd>${formatReaderTime(state.updatedAt)}（北京）</dd></div><div><dt>最近后台完成</dt><dd>${automation?.completedAt ? `${formatReaderTime(automation.completedAt)}（北京）` : '尚无完成记录'}</dd></div></dl></section>`;
+}
 function feedList() {
   const papers = filteredPapers();
-  if (!papers.length) return empty(state.view === 'bookmarks' ? '书架，等着你的第一篇研究' : '还没有符合条件的研究', state.view === 'bookmarks' ? '点击论文旁的书签，即可留待稍后阅读。' : '试试切换筛选条件，或更新当前关注方向的文献。', '<button class="button small" data-action="reset-filters">查看全部研究</button>');
+  if (!papers.length) {
+    const noBookmarks = state.view === 'bookmarks' && !readerBasePapers().length;
+    return empty(noBookmarks ? '书架，等着你的第一篇研究' : '没有符合这些条件的文献', noBookmarks ? '点击论文旁的书签，即可留待稍后阅读。' : '当前载入的文献中没有匹配结果。试试放宽日期或类型，或清除筛选条件。', noBookmarks ? '<button class="button small" data-view="overview">浏览全部研究</button>' : '<button class="button small" data-action="reset-filters">清除筛选</button>');
+  }
   return `${papers.slice(0, state.page * 8).map(paperCard).join('')}${papers.length > state.page * 8 ? `<button class="load-more" data-action="more">再看 8 篇研究 ${icon('arrow', 12)} <span>(${Math.min(state.page * 8, papers.length)} / ${papers.length})</span></button>` : `<div class="help" style="text-align:center;padding:20px">已展示 ${papers.length} 篇 · 每个发现，都有出处</div>`}`;
 }
 function sampleNotice() { return state.origin === 'sample' ? `<div class="sample-notice">${icon('info', 12)} <strong>原型文献样本</strong> · 采集于 ${shortDate(state.updatedAt?.slice(0, 10))}，不是今日完整监控。点击「更新文献」可检索近期真实记录。</div>` : `<div class="sample-notice">${icon('check', 12)} <strong>Europe PMC 采集缓存</strong> · 采集记录按 DOI / PMID 去重。分类为关键词匹配，研究价值请人工判断。</div>`; }
@@ -134,8 +186,8 @@ function topicPanel() {
   return `<section class="side-panel"><div class="panel-kicker">RESEARCH LANDSCAPE</div><h2 class="panel-title">研究视野</h2><p class="panel-copy">当前文献库的主题覆盖</p>${TOPICS.map(t => { const n = papers.filter(p => p.topics.includes(t.id)).length; return `<div class="topic-row"><span><i class="dot ${t.color}"></i>${t.name}</span><em>${n} 篇</em></div><div class="track"><i class="${t.color}" style="width:${papers.length ? Math.round(n / papers.length * 100) : 0}%"></i></div>`; }).join('')}<div class="panel-foot">一篇研究可属于多个方向。<br>主题覆盖不代表传播热度或研究质量。</div></section>`;
 }
 function aside() { const n = activePapers().filter(p => state.selected.includes(p.id)).length; return `<aside class="aside" aria-label="研究概览">${topicPanel()}<section class="side-panel daily-panel"><div class="edition">THE DAILY EDITION / 每日一读</div><h2 class="panel-title">将发现，<br>整理成今天的简报。</h2><p class="panel-copy">${n ? `已有 ${n} 篇人工精选。` : '挑选值得读的论文，'}<br>保留原文摘要与出处，随时导出。</p><button class="button small" data-action="generate-report">生成简报 ${icon('arrow', 12)}</button></section><section class="side-panel"><div class="panel-kicker">CONNECTED TO THE SOURCE</div><h2 class="panel-title">信源状态</h2><div class="source-line"><span><i class="status-dot"></i>Europe PMC</span><small>已接入</small></div><div class="source-line planned"><span><i class="status-dot"></i>bioRxiv 直接接口</span><small>待接入</small></div><div class="source-line planned"><span><i class="status-dot"></i>原平台下载量</span><small>按来源可用性</small></div><div class="panel-foot">更新文献后会显示采集结果。<br>已部署云端任务后，关闭网页仍可采集。</div></section></aside>`; }
-function overview() { return `${hero()}${metrics()}<div class="content-grid"><section><div class="section-head"><div class="section-title">最新研究 <span class="en">LATEST RESEARCH</span></div><span class="minor">按发表日期排序 · ${filteredPapers().length} 篇</span></div>${tabs()}${sampleNotice()}<div id="feed-list">${feedList()}</div></section>${aside()}</div>`; }
-function bookmarksPage() { return `<div class="content-grid"><section><div class="section-head"><div class="section-title">留给稍后的阅读 <span class="en">SAVED PAPERS</span></div><span class="minor">保存在当前浏览器</span></div>${tabs()}<div id="feed-list">${feedList()}</div></section>${aside()}</div>`; }
+function overview() { return `${hero()}${metrics()}<div class="content-grid"><section><div class="section-head"><div class="section-title">最新研究 <span class="en">LATEST RESEARCH</span></div><span class="minor">按发表日期排序 · ${filteredPapers().length} 篇</span></div>${readingStatus()}${tabs()}${sampleNotice()}${readerTools()}<div id="feed-list">${feedList()}</div></section>${aside()}</div>`; }
+function bookmarksPage() { return `<div class="content-grid"><section><div class="section-head"><div class="section-title">留给稍后的阅读 <span class="en">SAVED PAPERS</span></div><span class="minor">保存在当前浏览器</span></div>${tabs()}${readerTools()}<div id="feed-list">${feedList()}</div></section>${aside()}</div>`; }
 
 function hotPage() {
   const papers = activePapers();
@@ -157,14 +209,15 @@ function automationPanel() {
 
 function settingsPage() { return `${automationPanel()}<form id="settings-form"><section class="settings-panel"><h2>你的研究坐标</h2><p>下列为当前浏览器的阅读和手动采集偏好。云端后台按仓库 config/monitor.json 运行；模型配置位于服务器环境或 GitHub Secrets。</p><div class="field"><label>关注研究方向</label>${TOPICS.map(t => `<label class="check-row"><input type="checkbox" name="topics" value="${t.id}" ${state.settings.topics.includes(t.id) ? 'checked' : ''}>${t.name}<span class="help">${t.en}</span></label>`).join('')}</div><div class="field"><label for="days">采集发表时间范围</label><select id="days" name="days">${[7, 14, 30, 90].map(d => `<option value="${d}" ${state.settings.days === d ? 'selected' : ''}>最近 ${d} 天</option>`).join('')}</select><p class="help">按论文发表日期检索，每主题最多读取 50 条。切换范围后点击更新文献生效。</p></div><div class="field"><label for="reportDays">简报覆盖范围</label><select id="reportDays" name="reportDays">${[[1, '今天（按北京日期）'], [7, '最近 7 天（适合初期试用）'], [30, '最近 30 天']].map(([d, name]) => `<option value="${d}" ${state.settings.reportDays === d ? 'selected' : ''}>${name}</option>`).join('')}</select><p class="help">仅收录范围内、由你手动精选的文献，按最新发表日期取前 10 篇。未提供精确时间的记录按日期筛选。</p></div><button class="button dark" type="submit">${icon('check', 14)}保存设置</button></section></form><section class="settings-panel"><h2>数据与运行方式</h2><p>真实接口与本地文献样本可以切换。收藏、精选和简报保存在本机浏览器，不会上传到共享数据库，也不会跨设备同步。</p><div class="settings-buttons"><button class="button" data-action="load-sample">载入文献样本</button><button class="button" data-action="restore-live">恢复最近实时采集</button><button class="button" data-action="export-library">${icon('download', 13)}备份个人数据</button><button class="button" data-action="import-library">导入个人数据</button></div><input type="file" id="backup-file" accept=".json,application/json" hidden><p class="help" style="margin-top:20px">已支持后台定时采集与模型解读流程，需部署并配置密钥后启用。个人收藏仍保存在当前浏览器；完整版本、更正撤稿与自动发送待扩展。</p></section>`; }
 function reportPage() {
-  const report = state.reports.find(r => r.id === state.reportId) || state.reports[0];
+  const report = allReports().find(r => r.id === state.reportId) || allReports()[0];
+  const isPublic = report?.kind === 'public_daily';
   if (!report) return `${empty('第一份简报，由你的判断开始', '先在研究雷达中，把值得读的论文加入「精选」。<br>再将符合日期范围的研究，生成一份带原文出处的简报。', '<button class="button dark" data-action="generate-report">'+icon('file', 13)+'生成我的第一份简报</button>')}<div class="report-warning">简报使用你设定的发表日期范围（当前 ${state.settings.reportDays} 天）。它会同时导出已有中英对照及基于摘要的模型解读。缺少译文的记录会明确标注。</div>`;
-  return `<div class="report-tools"><button class="button dark" data-action="generate-report">${icon('refresh', 13)}生成新一期</button><button class="button" data-action="export-report" data-report="${report.id}">${icon('download', 13)}导出 Markdown</button><button class="button" data-action="print-report">${icon('printer', 13)}打印 / PDF</button><select id="report-selector" aria-label="切换简报">${state.reports.map(r => `<option value="${r.id}" ${r.id === report.id ? 'selected' : ''}>${r.date} · ${r.papers.length} 篇 · ${r.origin === 'sample' ? '文献样本' : '实时缓存'}</option>`).join('')}</select></div><article class="report"><div class="report-top"><div class="report-name">生研日报</div><div class="report-number">BIOSCOPE / DAILY BRIEF<br>${shortDate(report.date)} · ${report.papers.length} 篇精选</div></div><div class="eyebrow">RESEARCH WORTH YOUR ATTENTION</div><h2 class="report-lead">今天的阅读，从这些研究开始。</h2><p class="report-desc">覆盖 ${shortDate(report.windowStart)} — ${shortDate(report.date)} 发表的人工精选文献。<br>数据：${report.origin === 'sample' ? '原型附带的真实文献样本，不代表今日完整监控' : 'Europe PMC 采集缓存'} · 保留原文摘要与链接</p>${report.papers.map((p, i) => `<section class="report-entry"><div class="eyebrow">${String(i + 1).padStart(2, '0')} / ${p.topics.map(t => topicOf(t).name).join(' · ')}</div><a class="paper-title" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${paperHeading(p)} ${icon('external', 13)}</a>${paperAbstract(p, true)}<div class="paper-meta">${esc(p.journal)} <span class="sep">/</span>${shortDate(p.publishedAt)} <span class="sep">/</span>${p.status} <span class="sep">/</span>${p.readingScope}</div></section>`).join('')}<div class="report-warning">阅读范围：仅题录或摘要，未进行全文核验。辅助译文和模型解读需核对原文；期刊记录不等于质量认证。生成时间：${esc(new Date(report.createdAt).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }))}。</div></article>`;
+  return `<div class="report-tools"><button class="button dark" data-action="generate-report">${icon('refresh', 13)}生成我的简报</button><button class="button" data-action="export-report" data-report="${report.id}">${icon('download', 13)}导出 Markdown</button><button class="button" data-action="print-report">${icon('printer', 13)}打印 / PDF</button><select id="report-selector" aria-label="切换简报">${allReports().map(r => `<option value="${r.id}" ${r.id === report.id ? 'selected' : ''}>${r.date} · ${r.papers.length} 篇 · ${r.kind === 'public_daily' ? '公共自动日报' : '我的人工精选'}</option>`).join('')}</select></div><article class="report"><div class="report-top"><div class="report-name">${isPublic ? '公共生研日报' : '我的生研日报'}</div><div class="report-number">BIOSCOPE / DAILY BRIEF<br>${shortDate(report.date)} · ${report.papers.length} 篇${isPublic ? '文献' : '精选'}</div></div><div class="eyebrow">RESEARCH WORTH YOUR ATTENTION</div><h2 class="report-lead">今天的阅读，从这些研究开始。</h2><p class="report-desc">覆盖 ${shortDate(report.windowStart)} — ${shortDate(report.date)} 发表的${isPublic ? '自动整理文献' : '人工精选文献'}。<br>数据：${report.origin === 'sample' ? '原型附带的真实文献样本，不代表今日完整监控' : 'Europe PMC 采集缓存'} · 保留原文摘要与链接</p>${isPublic ? `<div class="report-warning"><strong>公共自动日报</strong> · ${esc(report.selectionPolicy?.description || '按规则自动整理，非人工科研价值精选。')}<br>${esc(report.selectionPolicy?.coverageNote || '只覆盖当前文献库。')}</div>` : ''}${report.papers.length ? '' : '<p class="report-desc">本期没有符合日期及主题规则的文献。</p>'}${report.papers.map((p, i) => `${isPublic && report.sections?.find(section => section.paperIds[0] === p.id) ? `<h3 class="public-report-section">${esc(report.sections.find(section => section.paperIds[0] === p.id).label)}</h3>` : ''}<section class="report-entry"><div class="eyebrow">${String(i + 1).padStart(2, '0')} / ${p.topics.map(t => topicOf(t).name).join(' · ')}</div><a class="paper-title" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${paperHeading(p)} ${icon('external', 13)}</a>${paperAbstract(p, true)}<div class="paper-meta">${esc(p.journal)} <span class="sep">/</span>${shortDate(p.publishedAt)} <span class="sep">/</span>${p.status} <span class="sep">/</span>${p.readingScope}</div></section>`).join('')}<div class="report-warning">阅读范围：仅题录或摘要，未进行全文核验。辅助译文和模型解读需核对原文；期刊记录不等于质量认证。生成时间：${esc(new Date(report.createdAt).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }))}。</div></article>`;
 }
 function footer() { return `<footer class="footer"><div><strong>生研观察 BioScope</strong> &nbsp; · &nbsp; 追踪进展，也保留判断。<br>原型 V${APP_VERSION} · 仅题录与摘要 · 每条研究均链接原始出处</div><div class="footer-right"><a href="https://github.com/Jimmy-ui456/bioscope-daily" target="_blank" rel="noopener noreferrer">项目源码 ↗</a><button data-view="sources">信源与边界 ${icon('external', 10)}</button><a href="https://github.com/KKKKhazix/AIHOT" target="_blank" rel="noopener noreferrer">架构参考 AIHOT ${icon('external', 10)}</a></div></footer>`; }
 function render({ keepScroll = true } = {}) {
   const scroll = window.scrollY;
-  $('#app').innerHTML = `${sidebar()}<div class="workspace"><div class="topbar"><div class="breadcrumb"><button class="icon-button mobile-toggle" data-action="menu" aria-label="打开导航">${icon('menu', 19)}</button><span>我的科研工作台</span><span>/</span><b>${views[state.view].name}</b></div><div class="topbar-actions"><span class="version">PROTOTYPE 0.2</span><button class="button small language-toggle" data-action="toggle-language" aria-pressed="${displayMode === 'bilingual'}">${displayMode === 'bilingual' ? '中英对照' : 'English'}</button><label class="global-search">${icon('search', 14)}<input id="search" type="search" placeholder="搜索论文、关键词…" aria-label="搜索论文、关键词" value="${esc(state.search)}"><span class="keycap">/</span></label><button class="icon-button" data-view="settings" aria-label="监控设置">${icon('settings', 17)}</button></div></div><main class="main" id="main">${masthead()}${state.busy ? `<div class="progress-banner" role="status">${icon('refresh', 13, 'spin')} <span id="progress">${esc(state.progress)}</span></div>` : ''}${state.error ? `<div class="error-notice" role="alert">${icon('info', 13)} ${esc(state.error)}</div>` : ''}${({ overview, bookmarks: bookmarksPage, hot: hotPage, topics: topicsPage, sources: sourcesPage, settings: settingsPage, daily: reportPage }[state.view])()}${footer()}</main></div>`;
+  $('#app').innerHTML = `${sidebar()}<div class="workspace"><div class="topbar"><div class="breadcrumb"><button class="icon-button mobile-toggle" data-action="menu" aria-label="打开导航">${icon('menu', 19)}</button><span>我的科研工作台</span><span>/</span><b>${views[state.view].name}</b></div><div class="topbar-actions"><span class="version">PROTOTYPE ${APP_VERSION}</span><button class="button small language-toggle" data-action="toggle-language" aria-pressed="${displayMode === 'bilingual'}">${displayMode === 'bilingual' ? '中英对照' : 'English'}</button><label class="global-search">${icon('search', 14)}<input id="search" type="search" placeholder="搜索论文、关键词…" aria-label="搜索论文、关键词" value="${esc(state.search)}"><span class="keycap">/</span></label><button class="icon-button" data-view="settings" aria-label="监控设置">${icon('settings', 17)}</button></div></div><main class="main" id="main">${masthead()}${state.busy ? `<div class="progress-banner" role="status">${icon('refresh', 13, 'spin')} <span id="progress">${esc(state.progress)}</span></div>` : ''}${state.error ? `<div class="error-notice" role="alert">${icon('info', 13)} ${esc(state.error)}</div>` : ''}${({ overview, bookmarks: bookmarksPage, hot: hotPage, topics: topicsPage, sources: sourcesPage, settings: settingsPage, daily: reportPage }[state.view])()}${footer()}</main></div>`;
   if (keepScroll) window.scrollTo(0, scroll);
   else window.scrollTo(0, 0);
 }
@@ -176,8 +229,24 @@ function navigate(view, { reset = true } = {}) {
   render({ keepScroll: false });
 }
 function updateFeed() {
-  if (!['overview', 'bookmarks'].includes(state.view)) { navigate('overview', { reset: false }); $('#search')?.focus(); }
-  else { $('#feed-list').innerHTML = feedList(); const minor = $('.section-head .minor'); if (minor && state.view === 'overview') minor.textContent = `按发表日期排序 · ${filteredPapers().length} 篇`; }
+  if (!['overview', 'bookmarks'].includes(state.view)) {
+    navigate('overview', { reset: false });
+    const search = $('#search'); search?.focus(); search?.setSelectionRange(search.value.length, search.value.length);
+  } else {
+    $('#feed-list').innerHTML = feedList();
+    const summary = $('#reader-summary'); if (summary) summary.innerHTML = readerSummaryContent();
+    const minor = $('.section-head .minor'); if (minor && state.view === 'overview') minor.textContent = `按发表日期排序 · ${filteredPapers().length} 篇`;
+  }
+}
+function resetReadingFilters() {
+  state.readerFilters = { ...readerDefaults }; state.filtersOpen = false;
+  state.filter = 'all'; state.topic = 'all'; state.search = ''; state.page = 1;
+  write('readerFilters', state.readerFilters);
+}
+function renderReaderControl(id) {
+  render();
+  const control = document.getElementById(id);
+  control?.focus({ preventScroll: true });
 }
 async function collect() {
   if (state.busy) return;
@@ -241,7 +310,11 @@ document.addEventListener('click', async event => {
   if (!target) { if (event.target.classList.contains('mobile-shade')) { $('.sidebar')?.classList.remove('open'); $('.mobile-shade')?.classList.remove('open'); } return; }
   if (target.dataset.view) { navigate(target.dataset.view); return; }
   if (target.dataset.topic) { state.topic = target.dataset.topic; state.filter = 'all'; state.search = ''; navigate('overview', { reset: false }); return; }
-  if (target.dataset.filter) { state.filter = target.dataset.filter; state.page = 1; render(); return; }
+  if (target.dataset.filter) {
+    state.filter = target.dataset.filter; state.page = 1;
+    if (['research', 'preprint'].includes(state.filter)) { state.readerFilters.kind = 'all'; write('readerFilters', state.readerFilters); }
+    render(); $('.tabs .tab.active')?.focus({ preventScroll: true }); return;
+  }
   if (target.dataset.paper) { showPaper(target.dataset.paper); return; }
   if (target.dataset.select) { const paper = state.papers.find(p => p.id === target.dataset.select); if (paper?.isRetraction) { toast('撤稿相关记录不进入人工精选。'); return; } toggleId('selected', target.dataset.select); return; }
   if (target.dataset.bookmark) { toggleId('bookmarks', target.dataset.bookmark); return; }
@@ -250,11 +323,11 @@ document.addEventListener('click', async event => {
     case 'toggle-language': displayMode = displayMode === 'bilingual' ? 'en' : 'bilingual'; write('displayMode', displayMode); render(); break;
     case 'generate-report': generateReport(); break;
     case 'more': state.page++; updateFeed(); break;
-    case 'reset-filters': state.filter = 'all'; state.topic = 'all'; state.search = ''; navigate('overview', { reset: false }); break;
+    case 'reset-filters': resetReadingFilters(); render(); $('#search')?.focus({ preventScroll: true }); break;
     case 'menu': $('.sidebar').classList.add('open'); $('.mobile-shade').classList.add('open'); break;
     case 'close-menu': $('.sidebar').classList.remove('open'); $('.mobile-shade').classList.remove('open'); break;
     case 'close-dialog': $('#paper-dialog').close(); break;
-    case 'export-report': { const report = state.reports.find(r => r.id === target.dataset.report); if (report) { download(reportMarkdown(report, translations), `生研日报-${report.date}.md`, 'text/markdown;charset=utf-8'); toast('已导出 Markdown 简报。'); } break; }
+    case 'export-report': { const report = allReports().find(r => r.id === target.dataset.report); if (report) { download(reportMarkdown(report, translations), `生研日报-${report.date}.md`, 'text/markdown;charset=utf-8'); toast('已导出 Markdown 简报。'); } break; }
     case 'print-report': window.print(); break;
     case 'load-sample': await loadSample(); break;
     case 'restore-live': restoreLive(); break;
@@ -265,8 +338,14 @@ document.addEventListener('click', async event => {
 });
 document.addEventListener('input', event => { if (event.target.id === 'search') { state.search = event.target.value; state.page = 1; updateFeed(); } });
 document.addEventListener('change', async event => {
+  const readerField = { 'reader-journal': 'journal', 'reader-days': 'days', 'reader-kind': 'kind', 'reader-abstract': 'abstract' }[event.target.id];
+  if (readerField) {
+    state.readerFilters[readerField] = readerField === 'days' ? Number(event.target.value) : event.target.value;
+    if (readerField === 'kind' && ['research', 'preprint'].includes(state.filter)) state.filter = 'all';
+    state.page = 1; state.filtersOpen = true; write('readerFilters', state.readerFilters); renderReaderControl(event.target.id); return;
+  }
   if (event.target.id === 'download-group') { downloadGroup = event.target.value; render(); }
-  if (event.target.id === 'topic-filter') { state.topic = event.target.value; state.page = 1; render(); }
+  if (event.target.id === 'topic-filter') { state.topic = event.target.value; state.page = 1; renderReaderControl('topic-filter'); }
   if (event.target.id === 'report-selector') { state.reportId = event.target.value; render(); }
   if (event.target.id === 'backup-file' && event.target.files[0]) {
     try {
@@ -294,6 +373,7 @@ document.addEventListener('change', async event => {
     } catch (error) { toast(`导入失败：${error.message}`); }
   }
 });
+document.addEventListener('toggle', event => { if (event.target.id === 'reading-filters') state.filtersOpen = event.target.open; }, true);
 document.addEventListener('submit', event => {
   if (event.target.id !== 'settings-form') return;
   event.preventDefault();
@@ -308,7 +388,8 @@ window.addEventListener('hashchange', () => { const view = location.hash.slice(1
 
 
 async function fetchJson(url) { try { const response = await fetch(url, { cache: 'no-store' }); return response.ok ? await response.json() : null; } catch { return null; } }
-const [sampleData, translationData, sharedData, statusData] = await Promise.all([fetchJson('./sample.json'), fetchJson('./translations.json'), fetchJson('./library.json'), fetchJson('./api/status')]);
+const [sampleData, translationData, sharedData, statusData, publicData] = await Promise.all([fetchJson('./sample.json'), fetchJson('./translations.json'), fetchJson('./library.json'), fetchJson('./api/status'), fetchJson('./public-reports.json')]);
+publicReports = Array.isArray(publicData?.reports) ? publicData.reports.filter(r => r.kind === 'public_daily' && Array.isArray(r.papers)) : [];
 sample = sampleData;
 translations = translationData?.items || {};
 libraryMeta = sharedData;
@@ -325,6 +406,8 @@ setInterval(async () => {
   const latest = await fetchJson('./library.json');
   if (latest?.fetchedAt && latest.automation?.completedAt && latest.automation.completedAt !== libraryMeta?.automation?.completedAt) {
     libraryMeta = latest;
+    const latestReports = await fetchJson('./public-reports.json');
+    if (Array.isArray(latestReports?.reports)) publicReports = latestReports.reports.filter(r => r.kind === 'public_daily' && Array.isArray(r.papers));
     if (state.origin === 'live') { state.papers = mergePapers(state.papers, latest.papers); state.updatedAt = latest.fetchedAt; state.stats = latest.stats || []; cacheActive(); render(); toast('后台文献库已更新。'); }
   }
 }, 60000);

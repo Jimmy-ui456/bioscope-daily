@@ -1,5 +1,7 @@
 # v0.2 验证记录 · 2026-10-29
 
+后续 v0.2.1：46项离线测试通过，新增公开日报、阅读组合筛选、锁恢复、状态损坏降级和部分任务重试；详见 [更新记录](CHANGELOG.md)。
+
 - 公开网站：<https://jimmy-ui456.github.io/bioscope-daily/>，未登录 HTTP 请求返回200。
 - 源码：<https://github.com/Jimmy-ui456/bioscope-daily>。公开上传未包含 .env、.data、.cache、.openai 或本地探测文件。
 - GitHub Actions 首轮手动任务采集、保存快照、上传 Pages 制品及部署步骤全部成功。首轮记录：<https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/40726625356>。

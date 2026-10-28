@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile, rename, open, unlink } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -6,6 +6,8 @@ import { TOPICS, collectTopic, mergePapers, beijingDay } from '../dist/core.js';
 import { attachEnrichment, translationOf, sourceFingerprint } from '../dist/enrichment.js';
 import { interpretPaper, PROMPT_VERSION } from './interpret.mjs';
 import { applyPublisherMetrics, fetchZenodoMetric } from './downloads.mjs';
+import { acquirePipelineLock } from './lock.mjs';
+import { createPublicReport, updatePublicReportHistory } from './reports.mjs';
 
 export const PROJECT = fileURLToPath(new URL('../', import.meta.url));
 export async function readJson(file, fallback) { try { return JSON.parse(await readFile(file, 'utf8')); } catch (error) { if (error.code === 'ENOENT') return fallback; throw error; } }
@@ -17,9 +19,7 @@ export function requestKey(paper, config) { return createHash('sha256').update([
 export async function runPipeline({ root = PROJECT, collect = collectTopic, interpret = interpretPaper, fetchMetric = fetchZenodoMetric, env = process.env, now = new Date(), log = console.log } = {}) {
   await mkdir(path.join(root, '.data'), { recursive: true });
   const lockPath = path.join(root, '.data/pipeline.lock');
-  let lock;
-  try { lock = await open(lockPath, 'wx'); await lock.writeFile(JSON.stringify({ pid: process.pid, startedAt: new Date().toISOString() })); }
-  catch (error) { if (error.code === 'EEXIST') throw new Error('已有采集任务运行，或上次异常退出遗留锁；请确认无其他任务后移除 .data/pipeline.lock'); throw error; }
+  const lock = await acquirePipelineLock(lockPath);
   try {
     const config = await readJson(path.join(root, 'config/monitor.json'), {});
     const sample = await readJson(path.join(root, 'dist/sample.json'), { papers: [] });
@@ -67,9 +67,13 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     library.automation.modelRequestsThisRun = attempted;
     library.automation.analysisFailures = Object.values(receipts).filter(r => r.status === 'failed_or_unknown' || r.status === 'pending').length;
     await saveJson(output, library);
+    const reportFile = path.join(root, 'dist/public-reports.json');
+    const reportHistory = await readJson(reportFile, { version: 1, reports: [] });
+    const publicReport = createPublicReport(papers, { now, topics, translations: catalog, sourceUpdatedAt: library.fetchedAt });
+    await saveJson(reportFile, { version: 1, reports: updatePublicReportHistory(reportHistory.reports, publicReport) });
     log(`采集完成：${papers.length} 篇，${papers.filter(p => translationOf(p)).length} 篇中英对照，模型请求 ${attempted} 次；${library.automation.modelStatus === 'not_configured' ? '模型未配置，已跳过自动解读' : '自动解读任务完成'}。`);
     return library;
-  } finally { await lock?.close(); await unlink(lockPath).catch(() => {}); }
+  } finally { await lock.release(); }
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try { process.loadEnvFile(path.join(PROJECT, '.env')); } catch (error) { if (error.code !== 'ENOENT') throw error; }

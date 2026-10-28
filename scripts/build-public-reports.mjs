@@ -1,0 +1,12 @@
+import path from 'node:path';
+import { PROJECT, readJson, saveJson } from '../backend/pipeline.mjs';
+import { createPublicReport, updatePublicReportHistory } from '../backend/reports.mjs';
+const library = await readJson(path.join(PROJECT, 'dist/library.json'), null);
+if (!library || !Array.isArray(library.papers)) throw new Error('请先运行采集任务生成文献库');
+const config = await readJson(path.join(PROJECT, 'config/monitor.json'), {});
+const catalog = await readJson(path.join(PROJECT, 'dist/translations.json'), { items: {} });
+const file = path.join(PROJECT, 'dist/public-reports.json');
+const history = await readJson(file, { reports: [] });
+const report = createPublicReport(library.papers, { topics: config.topics, translations: catalog.items, sourceUpdatedAt: library.fetchedAt });
+await saveJson(file, { version: 1, reports: updatePublicReportHistory(history.reports, report) });
+console.log(`已整理公开日报 ${report.date}，${report.papers.length} 篇（按规则自动整理，非人工精选）。`);

@@ -65,3 +65,12 @@ test('已有辅助译文的论文仍可在配置模型后补充结构化解读',
   await runPipeline({ root, now, env, collect: collected, interpret: async p => { calls++; return { titleZh: '测试', abstractZh: '测试摘要', sourceFingerprint: sourceFingerprint(p), origin: 'model' }; }, log: () => {} });
   assert.equal(calls, 1);
 });
+test('本地部分方向失败时保留结果并按间隔有限重试', async t => {
+  const root = await project(t); let calls = 0; let current = new Date(now);
+  const scheduler = startScheduler({ root, clock: () => current, run: async () => { calls++; return { automation: { failedTopics: calls === 1 ? 1 : 0 } }; }, log: () => {} });
+  t.after(() => scheduler.stop());
+  await scheduler.tick(); await scheduler.tick(); assert.equal(calls, 1);
+  let status = await readJson(path.join(root, '.data/scheduler.json')); assert.equal(status.completion, 'partial'); assert.equal(status.lastSuccess, undefined);
+  current = new Date(now.getTime() + 16 * 60000); await scheduler.tick();
+  status = await readJson(path.join(root, '.data/scheduler.json')); assert.equal(calls, 2); assert.equal(status.completion, 'complete'); assert.equal(status.lastSuccess, '2026-10-29');
+});

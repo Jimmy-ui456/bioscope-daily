@@ -34,11 +34,23 @@ jobs:
       - name: Save updated public literature snapshot
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |
-          git add dist/library.json
+          git add dist/library.json dist/public-reports.json
           if ! git diff --cached --quiet; then
             git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Update research snapshot'
+            git fetch origin main
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' rebase origin/main
             git push origin HEAD:main
           fi
+      - name: Preserve generated state if publication fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bioscope-recovery-${{ github.run_id }}
+          path: |
+            dist/library.json
+            dist/public-reports.json
+          if-no-files-found: ignore
+          retention-days: 14
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
