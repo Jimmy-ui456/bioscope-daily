@@ -1,0 +1,11 @@
+{
+  "topics": ["synthetic", "metabolic", "microbial"],
+  "days": 30,
+  "maxPages": 2,
+  "pageSize": 25,
+  "maxPapers": 500,
+  "maxAnalysesPerRun": 10,
+  "maxModelRequestsPerDay": 20,
+  "scheduleBeijing": "07:17",
+  "downloadMetricPolicy": "publisher_only"
+}

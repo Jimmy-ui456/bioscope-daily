@@ -1,0 +1,10 @@
+node_modules/
+.cache/
+europepmc-probe.json
+*.log
+.env
+.env.*
+!.env.example
+.data/
+.openai/
+.DS_Store

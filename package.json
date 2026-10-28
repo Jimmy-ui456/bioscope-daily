@@ -1,0 +1,16 @@
+{
+  "name": "bioscope-research-daily",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check dist/app.js && node --check dist/core.js && node --check dist/enrichment.js && node --check server.mjs && node --check backend/pipeline.mjs && node --check backend/interpret.mjs && node --check backend/downloads.mjs && node --check backend/scheduler.mjs",
+    "collect": "node backend/pipeline.mjs",
+    "worker": "node worker.mjs",
+    "translations": "node scripts/build-translations.mjs",
+    "refresh-sample": "node scripts/refresh-sample.mjs"
+  }
+}
