@@ -43,6 +43,62 @@ test('只分发题名和原文链接，有效中译可对照，原文摘要与�
   assert.equal(rss.includes('FINDING-NOT-FOR-FEED'), false);
 });
 
+test('新增译文目录可补历史题名，保留GUID和首刊时间且不分发摘要解读', () => {
+  const report = issue('2026-10-28');
+  const paper = report.papers[0];
+  const before = createDailyRss([report], { siteUrl });
+  const translations = { [paper.id]: {
+    sourceFingerprint: sourceFingerprint(paper), sourceTitle: paper.title, sourceAbstract: paper.abstract,
+    titleZh: '后来补充的中文题名', abstractZh: 'CATALOG-ABSTRACT-NOT-FOR-FEED',
+    findings: { text: 'CATALOG-FINDING-NOT-FOR-FEED' },
+  } };
+  const after = createDailyRss([report], { siteUrl, translations });
+  assert.equal(before.includes('后来补充的中文题名'), false);
+  assert.match(after, /后来补充的中文题名<br><span lang="en">Original title<\/span>/);
+  for (const tag of ['guid', 'pubDate', 'lastBuildDate']) {
+    const pattern = new RegExp(`<${tag}(?: [^>]*)?>[^<]+<\\/${tag}>`);
+    assert.equal(after.match(pattern)[0], before.match(pattern)[0]);
+  }
+  assert.equal(after.includes('ABSTRACT-NOT-FOR-FEED'), false);
+  assert.equal(after.includes('FINDING-NOT-FOR-FEED'), false);
+});
+
+test('原文题名或摘要变更时拒绝目录和快照中的旧译文', () => {
+  const original = issue('2026-10-28').papers[0];
+  const oldTranslation = {
+    sourceFingerprint: sourceFingerprint(original), sourceTitle: original.title, sourceAbstract: original.abstract,
+    titleZh: '过期中文题名', abstractZh: '过期中文摘要',
+  };
+  for (const field of ['title', 'abstract']) {
+    const changed = { ...original, [field]: `${original[field]} changed`, enrichment: oldTranslation };
+    const report = issue('2026-10-28', { papers: [changed] });
+    const rss = createDailyRss([report], { siteUrl, translations: { [original.id]: oldTranslation } });
+    assert.equal(rss.includes('过期中文题名'), false, `${field} changed`);
+    assert.ok(rss.includes(changed.title));
+    assert.equal(rss.includes('PRIVATE-ABSTRACT-NOT-FOR-FEED'), false);
+  }
+});
+
+test('读取辅助译文不修改冻结日报或译文目录输入', () => {
+  const report = issue('2026-10-28');
+  const paper = report.papers[0];
+  const translations = { [paper.id]: {
+    sourceFingerprint: sourceFingerprint(paper), titleZh: '只读中文题名', abstractZh: '只读中文摘要',
+    findings: { text: '只读解读' },
+  } };
+  const reports = [report];
+  const before = JSON.stringify({ reports, translations });
+  const freeze = value => {
+    for (const child of Object.values(value)) if (child && typeof child === 'object') freeze(child);
+    return Object.freeze(value);
+  };
+  freeze(reports); freeze(translations);
+  const rss = createDailyRss(reports, { siteUrl, translations });
+  assert.match(rss, /只读中文题名/);
+  assert.equal(JSON.stringify({ reports, translations }), before);
+  assert.equal(Object.hasOwn(paper, 'enrichment'), false);
+});
+
 test('XML及嵌入HTML安全转义，移除非法XML字符，不输出危险或含凭据的链接', () => {
   const report = issue('2026-10-29', { selectionPolicy: { description: '规则 & <检查> ]]> "引号"\u0000' }, papers: [
     { title: '<img src=x onerror=bad> & "]]>', url: 'https://example.org/paper?a=1&b=2' },

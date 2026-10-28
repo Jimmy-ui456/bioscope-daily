@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { TOPICS, normalizePaper, cleanDoi, mergePapers, isValidPaper, collectTopic, chooseReportPapers, beijingDay, buildQuery, plainText, reportMarkdown } from '../dist/core.js';
+import { TOPICS, normalizePaper, cleanDoi, mergePapers, mergePapersWithIdMap, isValidPaper, collectTopic, chooseReportPapers, beijingDay, buildQuery, plainText, reportMarkdown } from '../dist/core.js';
 
 const at = new Date('2026-10-27T02:00:00Z');
 const record = { id: '123', source: 'MED', title: '<i>A study</i>', abstractText: '<p>Evidence &amp; conditions.</p>', firstPublicationDate: '2026-10-26', doi: 'https://doi.org/10.1234/ABC', authorString: 'A, B', journalInfo: { journal: { title: 'Example Journal' } }, pubTypeList: { pubType: ['Journal Article'] } };
@@ -75,6 +75,36 @@ test('备份文献字段与链接必须符合约定', () => {
   assert.equal(isValidPaper({ ...p, url: 'https://europepmc.org.attacker.example/x' }), false);
   assert.equal(isValidPaper({ ...p, publishedAt: { bad: true } }), false);
   assert.equal(isValidPaper({ ...p, topics: ['unknown-topic'] }), false);
+});
+
+test('备份中同一 DOI 的不同 ID 收藏映射到已有文献，而不改变输入', () => {
+  const existing = normalizePaper(record, 'metabolic');
+  const imported = { ...normalizePaper(record, 'synthetic'), id: 'other-source', doi: 'https://doi.org/10.1234/ABC' };
+  const before = structuredClone([existing, imported]);
+  const { papers, idMap } = mergePapersWithIdMap([existing], [imported]);
+  const bookmarks = [...new Set([imported.id, existing.id].map(id => idMap.get(id) ?? id))];
+  assert.equal(papers.length, 1);
+  assert.deepEqual(bookmarks, [papers[0].id]);
+  assert.equal(idMap.get(imported.id), existing.id);
+  assert.deepEqual([existing, imported], before);
+});
+
+test('补齐 DOI 的备份精选按 PMID 映射到保留的原 ID', () => {
+  const existing = normalizePaper({ ...record, doi: undefined }, 'metabolic');
+  const imported = normalizePaper(record, 'synthetic');
+  const { papers, idMap } = mergePapersWithIdMap([existing], [imported]);
+  const selected = [imported.id].map(id => idMap.get(id) ?? id);
+  assert.deepEqual(chooseReportPapers(papers, selected, { at, days: 7 }).map(p => p.id), [existing.id]);
+});
+
+test('一条备份同时关联两个已有记录时，原有收藏和新精选均映射到合并 ID', () => {
+  const doiOnly = { ...normalizePaper(record, 'metabolic'), pmid: null };
+  const pmidOnly = normalizePaper({ ...record, doi: undefined }, 'synthetic');
+  const imported = { ...normalizePaper(record, 'synthetic'), id: 'third-source' };
+  const { papers, idMap } = mergePapersWithIdMap([doiOnly, pmidOnly], [imported]);
+  assert.equal(papers.length, 1);
+  for (const id of [doiOnly.id, pmidOnly.id, imported.id]) assert.equal(idMap.get(id), papers[0].id);
+  assert.deepEqual([...new Set([pmidOnly.id, imported.id].map(id => idMap.get(id) ?? id))], [papers[0].id]);
 });
 test('接口异常拒绝采集，不制造成功数据', async () => {
   await assert.rejects(collectTopic(TOPICS[0], { fetchImpl: async () => ({ ok: false, status: 503 }) }), /503/);

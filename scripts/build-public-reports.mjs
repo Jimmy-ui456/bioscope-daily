@@ -13,5 +13,5 @@ const report = createPublicReport(library.papers, { topics: config.topics, trans
 const reports = updatePublicReportHistory(history.reports, report);
 await saveJson(file, { version: 1, reports });
 const publication = await readJson(path.join(PROJECT, 'config/publication.json'), {});
-if (publication.siteUrl) await writeFile(path.join(PROJECT, 'dist/feed.xml'), createDailyRss(reports, { siteUrl: publication.siteUrl }));
+if (publication.siteUrl) await writeFile(path.join(PROJECT, 'dist/feed.xml'), createDailyRss(reports, { siteUrl: publication.siteUrl, translations: catalog.items }));
 console.log(`已整理公开日报 ${report.date}，${report.papers.length} 篇（按规则自动整理，非人工精选）。`);

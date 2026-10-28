@@ -1,4 +1,4 @@
-import { translationOf } from '../dist/enrichment.js';
+import { attachEnrichment, translationOf } from '../dist/enrichment.js';
 
 // RSS 2.0: https://www.rssboard.org/rss-specification
 // Issues expose titles and source links only, not paper abstracts or full text.
@@ -69,6 +69,7 @@ export function publicReportUrl(reportDate, siteUrl) {
 
 export function createDailyRss(reports, {
   siteUrl, title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION, feedPath = 'feed.xml',
+  translations = {},
 } = {}) {
   const site = siteDirectory(siteUrl);
   const self = new URL(feedPath, site);
@@ -76,7 +77,8 @@ export function createDailyRss(reports, {
   const issues = publicIssues(reports);
   const lastBuilt = issues.length ? new Date(Math.max(...issues.map(report => Date.parse(report.createdAt)))).toUTCString() : null;
   const items = issues.map(report => {
-    const papers = report.papers.filter(paper => paper && typeof paper.title === 'string' && paper.title.trim()).slice(0, 10);
+    const papers = report.papers.filter(paper => paper && typeof paper.title === 'string' && paper.title.trim())
+      .slice(0, 10).map(paper => attachEnrichment(paper, translations));
     const link = publicReportUrl(report.date, site.href);
     return `    <item>
       <title>${xmlText(`生研观察 · ${report.date} 公共文献简报（${papers.length} 篇）`)}</title>

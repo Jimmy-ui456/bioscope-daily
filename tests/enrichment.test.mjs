@@ -12,6 +12,12 @@ test('译文仅绑定原文版本，更新摘要后不继续展示旧译文', ()
   assert.equal(translationOf(attachEnrichment(paper, { [paper.id]: translated })).titleZh, translated.titleZh);
   assert.equal(translationOf(attachEnrichment({ ...paper, abstract: paper.abstract + ' New result.' }, { [paper.id]: translated })), null);
 });
+test('完整原文锚点不匹配时，即使指纹字段相同也不能展示译文', () => {
+  const enriched = { ...paper, enrichment: { ...translated, sourceTitle: paper.title, sourceAbstract: paper.abstract + ' changed' } };
+  assert.equal(translationOf(enriched), null);
+  enriched.enrichment.sourceAbstract = paper.abstract;
+  assert.ok(translationOf(enriched));
+});
 test('21篇样本均有与原文匹配的中英对照', async () => {
   const sample = JSON.parse(await readFile(new URL('../dist/sample.json', import.meta.url), 'utf8'));
   const catalog = JSON.parse(await readFile(new URL('../dist/translations.json', import.meta.url), 'utf8'));

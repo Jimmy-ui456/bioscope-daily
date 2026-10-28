@@ -31,5 +31,5 @@ export async function interpretPaper(paper, { baseUrl, apiKey, model, fetchImpl 
   if (choice?.finish_reason === 'length') throw new Error('模型输出被截断，未发布译文');
   let parsed;
   try { parsed = JSON.parse(choice?.message?.content || ''); } catch { throw new Error('模型返回内容不是有效 JSON'); }
-  return { ...validateInterpretation(parsed, paper), sourceFingerprint: sourceFingerprint(paper), origin: 'model', model, promptVersion: PROMPT_VERSION, createdAt: new Date().toISOString(), reviewed: false, scope: 'abstract_only' };
+  return { ...validateInterpretation(parsed, paper), sourceTitle: paper.title, sourceAbstract: paper.abstract, sourceFingerprint: sourceFingerprint(paper), origin: 'model', model, promptVersion: PROMPT_VERSION, createdAt: new Date().toISOString(), reviewed: false, scope: 'abstract_only' };
 }

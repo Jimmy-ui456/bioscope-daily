@@ -74,7 +74,7 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     const reports = updatePublicReportHistory(reportHistory.reports, publicReport);
     await saveJson(reportFile, { version: 1, reports });
     const publication = await readJson(path.join(root, 'config/publication.json'), {});
-    if (publication.siteUrl) await writeFile(path.join(root, 'dist/feed.xml'), createDailyRss(reports, { siteUrl: publication.siteUrl }));
+    if (publication.siteUrl) await writeFile(path.join(root, 'dist/feed.xml'), createDailyRss(reports, { siteUrl: publication.siteUrl, translations: catalog }));
     log(`采集完成：${papers.length} 篇，${papers.filter(p => translationOf(p)).length} 篇中英对照，模型请求 ${attempted} 次；${library.automation.modelStatus === 'not_configured' ? '模型未配置，已跳过自动解读' : '自动解读任务完成'}。`);
     return library;
   } finally { await lock.release(); }

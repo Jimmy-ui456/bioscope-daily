@@ -6,7 +6,10 @@ export function sourceFingerprint(paper) {
   return `${(hash >>> 0).toString(16)}-${text.length}`;
 }
 export function validEnrichment(paper, item) {
-  return !!item && item.sourceFingerprint === sourceFingerprint(paper) && typeof item.titleZh === 'string' && item.titleZh.length > 0 && typeof item.abstractZh === 'string' && item.titleZh.length < 1000 && item.abstractZh.length < 30000;
+  return !!item && item.sourceFingerprint === sourceFingerprint(paper)
+    && (item.sourceTitle === undefined || item.sourceTitle === paper.title)
+    && (item.sourceAbstract === undefined || item.sourceAbstract === (paper.abstract || ''))
+    && typeof item.titleZh === 'string' && item.titleZh.length > 0 && typeof item.abstractZh === 'string' && item.titleZh.length < 1000 && item.abstractZh.length < 30000;
 }
 export function attachEnrichment(paper, catalog = {}) {
   const candidates = [paper.enrichment, catalog[paper.id], paper.doi && catalog[`doi:${paper.doi.toLowerCase()}`], paper.pmid && catalog[`pmid:${paper.pmid}`]];

@@ -1,4 +1,4 @@
-import { translationOf, attachEnrichment } from './enrichment.js?v=0.2.2';
+import { translationOf, attachEnrichment } from './enrichment.js?v=0.2.3';
 
 export const TOPICS = [
   { id: 'synthetic', name: '合成生物学', en: 'Synthetic biology', query: 'TITLE_ABS:"synthetic biology"', words: ['synthetic biology', 'synthetic circuit', 'synthetic gene', 'genome engineering'], color: 'green' },
@@ -6,7 +6,7 @@ export const TOPICS = [
   { id: 'microbial', name: '微生物制造', en: 'Microbial biomanufacturing', query: '(TITLE_ABS:"microbial cell factories" OR TITLE_ABS:"microbial production" OR TITLE_ABS:"biomanufacturing")', words: ['microbial', 'biomanufacturing', 'cell factor', 'bioproduction', 'yeast'], color: 'blue' }
 ];
 export const API_URL = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search';
-export const APP_VERSION = '0.2.2';
+export const APP_VERSION = '0.2.3';
 
 export function plainText(value = '') {
   return String(value).replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&#(\d+);/g, (_, n) => Number(n) <= 0x10ffff ? String.fromCodePoint(Number(n)) : '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -48,11 +48,19 @@ export function normalizePaper(record, topic, fetchedAt = new Date().toISOString
   return { id, title, abstract, authors: plainText(record.authorString || '作者信息未提供'), journal, doi, pmid, pmcid: record.pmcid || null, source: record.source, sourceId: String(record.id), url, publishedAt: date, discoveredAt: fetchedAt, topics: classify(record, topic), type, status: isRetraction ? '撤稿相关' : isPreprint ? '预印本 · 未经同行评审' : '期刊记录 · 待核验', isPreprint, isRetraction, readingScope: abstract ? '仅摘要' : '仅题录', license: record.license || null, version: null, collection: 'Europe PMC' };
 }
 export function mergePapers(existing, incoming) {
+  return mergePapersWithIdMap(existing, incoming).papers;
+}
+// Backup selections may reference a duplicate's old ID, so retain each input ID's destination.
+export function mergePapersWithIdMap(existing, incoming) {
   let out = [];
+  const inputIds = new Map();
   for (const paper of [...existing, ...incoming]) {
     const doi = cleanDoi(paper.doi);
     const matches = out.filter(p => p.id === paper.id || (doi && cleanDoi(p.doi) === doi) || (p.pmid && paper.pmid && p.pmid === paper.pmid));
-    if (!matches.length) { out.push({ ...paper }); continue; }
+    if (!matches.length) {
+      const added = { ...paper };
+      out.push(added); inputIds.set(added, new Set([paper.id])); continue;
+    }
     const previous = matches.reduce((a, b) => ({ ...a, ...b, id: a.id, doi: b.doi || a.doi, pmid: b.pmid || a.pmid, abstract: b.abstract || a.abstract, discoveredAt: a.discoveredAt < b.discoveredAt ? a.discoveredAt : b.discoveredAt, topics: [...new Set([...a.topics, ...b.topics])] }));
     const abstract = paper.abstract || previous.abstract;
     const merged = { ...previous, ...paper, id: previous.id, doi: doi || previous.doi, pmid: paper.pmid || previous.pmid, discoveredAt: previous.discoveredAt < paper.discoveredAt ? previous.discoveredAt : paper.discoveredAt, abstract, readingScope: abstract ? '仅摘要' : '仅题录', topics: [...new Set([...previous.topics, ...paper.topics])] };
@@ -60,10 +68,14 @@ export function mergePapers(existing, incoming) {
     if (paper.isRetraction || matches.some(p => p.isRetraction)) {
       merged.isRetraction = true; merged.type = '撤稿相关'; merged.status = '撤稿相关';
     }
+    inputIds.set(merged, new Set([paper.id, ...matches.flatMap(p => [...inputIds.get(p)])]));
+    matches.forEach(p => inputIds.delete(p));
     out = out.filter(p => !matches.includes(p));
     out.push(merged);
   }
-  return out.sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || '') || a.title.localeCompare(b.title));
+  const idMap = new Map();
+  for (const paper of out) for (const id of inputIds.get(paper)) idMap.set(id, paper.id);
+  return { papers: out.sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || '') || a.title.localeCompare(b.title)), idMap };
 }
 export function isValidPaper(paper) {
   if (!paper || typeof paper !== 'object') return false;
@@ -107,12 +119,21 @@ export function chooseReportPapers(papers, selectedIds, { days = 7, at = new Dat
   return papers.filter(p => selectedIds.includes(p.id) && !p.isRetraction && p.publishedAt && p.publishedAt >= start && p.publishedAt <= end).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)).slice(0, limit);
 }
 function markdownText(value) { return String(value || '').replace(/[\[\]<>]/g, '').replace(/\r?\n/g, ' '); }
-export function reportMarkdown(report, catalog = {}) {
+export function knownRetraction(paper, currentPapers = []) {
+  if (paper.isRetraction) return paper;
+  const doi = cleanDoi(paper.doi);
+  return currentPapers.find(current => current.isRetraction && (current.id === paper.id
+    || (doi && cleanDoi(current.doi) === doi)
+    || (paper.pmid && current.pmid && paper.pmid === current.pmid))) || null;
+}
+export function reportMarkdown(report, catalog = {}, currentPapers = []) {
   const isPublic = report.kind === 'public_daily';
   const lines = [`# 生研观察 · ${report.date} ${isPublic ? '公共文献简报' : '日报'}`, '', `生成时间：${new Date(report.createdAt).toISOString()}（UTC）`, `数据：${report.origin === 'sample' ? '随原型附带的文献样本，不代表今日完整监控' : 'Europe PMC 实时采集缓存'}`, `覆盖：${report.windowStart} 至 ${report.date} 发表、${isPublic ? '按主题覆盖与发表日期规则自动整理' : '由使用者手动精选'}的文献（最多 10 条）`, ...(isPublic ? [report.selectionPolicy?.description || '按规则自动整理，非人工科研价值精选。', report.selectionPolicy?.coverageNote || '只覆盖当前文献库，不代表完整领域监控。'] : []), '阅读范围：仅题录或摘要；未进行全文核验。', '中英对照为辅助译文；自动解读基于摘要，需核对原文。无译文的文献明确保留待翻译状态。', ''];
   report.papers.forEach((p, i) => {
     const t = translationOf(attachEnrichment(p, catalog));
+    const retraction = knownRetraction(p, currentPapers);
     lines.push(`## ${i + 1}. ${markdownText(t?.titleZh || p.title)}`, '', t ? `**English title**: ${markdownText(p.title)}` : '**中文对照：待翻译**', '', `- 出处：${markdownText(p.journal)} · ${p.publishedAt || '日期未知'}`, `- 作者：${markdownText(p.authors)}`, `- 类型／状态：${p.type}／${p.status}`, `- 阅读范围：${p.readingScope}`, `- DOI：${p.doi || '接口未提供'}`, `- PMID：${p.pmid || '不适用／未提供'}`, `- 原文：${p.url}`, '', t ? `**中文摘要（辅助译文，未审核）**\n\n${t.abstractZh}` : '中文摘要：待翻译。', '', p.abstract ? `**原文摘要**\n\n${p.abstract}` : '接口未提供摘要，请阅读原文。', '');
+    if (retraction) lines.push(`**已知撤稿相关信号**：本库已记录此文献的撤稿相关状态；原刊快照保持原样，请核对来源：${retraction.url}`, '');
     if (t?.origin === 'model') for (const [key, label] of [['question', '研究问题'], ['methods', '研究方法'], ['findings', '主要结果']]) {
       if (t[key]) lines.push(`**${label}（基于摘要的 AI 辅助解读）**：${t[key].text}`, `> 原文依据：${t[key].evidence}`, '');
     }
