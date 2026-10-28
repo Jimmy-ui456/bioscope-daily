@@ -1,5 +1,7 @@
 # 生研观察 BioScope · v0.2
 
+[打开公开网站](https://jimmy-ui456.github.io/bioscope-daily/) · [查看采集与发布状态](https://github.com/Jimmy-ui456/bioscope-daily/actions/workflows/pages.yml)
+
 面向合成生物学、代谢工程与微生物制造的科研文献工作台。支持中英对照、基于摘要的自动中文解读、后台定时采集、原出版平台下载量排行和个人日报。
 
 架构参考 [AIHOT](https://github.com/KKKKhazix/AIHOT) 的采集、整理、精选与成刊流程，本项目为独立轻量实现。无需安装 npm 依赖；Node.js 24 即可运行。

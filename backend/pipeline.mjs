@@ -49,7 +49,7 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     await saveJson(output, library);
     let attempted = 0;
     if (configuredModel(configModel)) for (const paper of papers) {
-      if (!paper.abstract || translationOf(paper) || paper.isRetraction) continue;
+      if (!paper.abstract || translationOf(paper)?.origin === 'model' || paper.isRetraction) continue;
       if (attempted >= (config.maxAnalysesPerRun ?? 10) || usage.requests >= (config.maxModelRequestsPerDay ?? 20)) break;
       const key = requestKey(paper, configModel);
       // A pending / unknown request is never retried automatically: it may already have cost money.
