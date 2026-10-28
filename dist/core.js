@@ -1,4 +1,4 @@
-import { translationOf, attachEnrichment } from './enrichment.js?v=0.2.4';
+import { translationOf, attachEnrichment, interpretationOf } from './enrichment.js?v=0.2.5';
 
 export const TOPICS = [
   { id: 'synthetic', name: '合成生物学', en: 'Synthetic biology', query: 'TITLE_ABS:"synthetic biology"', words: ['synthetic biology', 'synthetic circuit', 'synthetic gene', 'genome engineering'], color: 'green' },
@@ -6,7 +6,7 @@ export const TOPICS = [
   { id: 'microbial', name: '微生物制造', en: 'Microbial biomanufacturing', query: '(TITLE_ABS:"microbial cell factories" OR TITLE_ABS:"microbial production" OR TITLE_ABS:"biomanufacturing")', words: ['microbial', 'biomanufacturing', 'cell factor', 'bioproduction', 'yeast'], color: 'blue' }
 ];
 export const API_URL = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search';
-export const APP_VERSION = '0.2.4';
+export const APP_VERSION = '0.2.5';
 
 export function plainText(value = '') {
   return String(value).replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&#(\d+);/g, (_, n) => Number(n) <= 0x10ffff ? String.fromCodePoint(Number(n)) : '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -119,6 +119,19 @@ export function chooseReportPapers(papers, selectedIds, { days = 7, at = new Dat
   return papers.filter(p => selectedIds.includes(p.id) && !p.isRetraction && p.publishedAt && p.publishedAt >= start && p.publishedAt <= end).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)).slice(0, limit);
 }
 function markdownText(value) { return String(value || '').replace(/[\[\]<>]/g, '').replace(/\r?\n/g, ' '); }
+function markdownHtmlText(value) { return String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+function appendInterpretationMarkdown(lines, item) {
+  lines.push('### 基于摘要的中文解读（未审核）', '', '引文与原文逐字匹配，不等于中文结论已经核实；请结合上下文和全文判断。', '');
+  if (item.rejectedFields.length) lines.push('部分解读未通过当前原文证据校验，已隐藏；辅助译文仍需核对。', '');
+  const fields = [['question', '研究问题'], ['methods', '研究方法'], ['findings', '主要结果']];
+  const claims = [...fields.filter(([key]) => item[key]).map(([key, label]) => [label, item[key]]), ...item.limitations.map((claim, i) => [`摘要明确报告的局限 ${i + 1}`, claim])];
+  for (const [label, claim] of claims) {
+    const source = claim.source === 'title' ? '原文题名' : '原文摘要';
+    lines.push(`**${label}**：${markdownHtmlText(claim.text)}`, '', `原文依据（${source}）：`, ...markdownHtmlText(claim.evidence).split(/\r?\n/).map(line => `> ${line}`), '');
+  }
+  if (!item.limitations.length) lines.push('摘要未提供可核对的局限解读；不据此推断研究没有局限。', '');
+  lines.push(`模型：${markdownText(item.model || '记录未注明')} · 生成时间：${markdownText(item.createdAt || '记录未注明')}`, '');
+}
 export function knownRetraction(paper, currentPapers = []) {
   if (paper.isRetraction) return paper;
   const doi = cleanDoi(paper.doi);
@@ -130,14 +143,14 @@ export function reportMarkdown(report, catalog = {}, currentPapers = []) {
   const isPublic = report.kind === 'public_daily';
   const lines = [`# 生研观察 · ${report.date} ${isPublic ? '公共文献简报' : '日报'}`, '', `生成时间：${new Date(report.createdAt).toISOString()}（UTC）`, `数据：${report.origin === 'sample' ? '随原型附带的文献样本，不代表今日完整监控' : 'Europe PMC 实时采集缓存'}`, `覆盖：${report.windowStart} 至 ${report.date} 发表、${isPublic ? '按主题覆盖与发表日期规则自动整理' : '由使用者手动精选'}的文献（最多 10 条）`, ...(isPublic ? [report.selectionPolicy?.description || '按规则自动整理，非人工科研价值精选。', report.selectionPolicy?.coverageNote || '只覆盖当前文献库，不代表完整领域监控。'] : []), '阅读范围：仅题录或摘要；未进行全文核验。', '中英对照为辅助译文；自动解读基于摘要，需核对原文。无译文的文献明确保留待翻译状态。', ''];
   report.papers.forEach((p, i) => {
-    const t = translationOf(attachEnrichment(p, catalog));
+    const enriched = attachEnrichment(p, catalog);
+    const t = translationOf(enriched);
+    const interpretation = interpretationOf(enriched);
     const retraction = knownRetraction(p, currentPapers);
     lines.push(`## ${i + 1}. ${markdownText(t?.titleZh || p.title)}`, '', t ? `**English title**: ${markdownText(p.title)}` : '**中文对照：待翻译**', '', `- 出处：${markdownText(p.journal)} · ${p.publishedAt || '日期未知'}`, `- 作者：${markdownText(p.authors)}`, `- 类型／状态：${p.type}／${p.status}`, `- 阅读范围：${p.readingScope}`, `- DOI：${p.doi || '接口未提供'}`, `- PMID：${p.pmid || '不适用／未提供'}`, `- 原文：${p.url}`, '', t ? `**中文摘要（辅助译文，未审核）**\n\n${t.abstractZh}` : '中文摘要：待翻译。', '', p.abstract ? `**原文摘要**\n\n${p.abstract}` : '接口未提供摘要，请阅读原文。', '');
     if (retraction) lines.push(`**已知撤稿相关信号**：本库已记录此文献的撤稿相关状态；原刊快照保持原样，请核对来源：${retraction.url}`, '');
-    if (t?.origin === 'model') for (const [key, label] of [['question', '研究问题'], ['methods', '研究方法'], ['findings', '主要结果']]) {
-      if (t[key]) lines.push(`**${label}（基于摘要的 AI 辅助解读）**：${t[key].text}`, `> 原文依据：${t[key].evidence}`, '');
-    }
+    if (interpretation) appendInterpretationMarkdown(lines, interpretation);
   });
-  if (!report.papers.length) lines.push('本期没有符合条件的人工精选文献。');
+  if (!report.papers.length) lines.push(isPublic ? '本期没有符合规则的自动整理文献。' : '本期没有符合条件的人工精选文献。');
   return lines.join('\n');
 }

@@ -5,8 +5,18 @@ import { fetchPlosMetric } from './plos.mjs';
 // Europe PMC's citation count and platform-wide bioRxiv usage totals are deliberately not used.
 export function applyPublisherMetrics(papers, records = []) {
   return papers.map(paper => {
-    const record = records.find(r => (cleanDoi(r.doi) && cleanDoi(r.doi) === cleanDoi(paper.doi)) || (r.paperId && r.paperId === paper.id));
-    if (!record || !validateDownloadMetric(record)) return paper;
+    const record = records.find(r => {
+      if (!r || typeof r !== 'object' || Array.isArray(r)) return false;
+      const hasDoi = Object.hasOwn(r, 'doi');
+      const hasPaperId = Object.hasOwn(r, 'paperId');
+      if (!hasDoi && !hasPaperId) return false;
+      // Every supplied identifier must agree; one match must not hide another conflict.
+      if (hasDoi && (typeof r.doi !== 'string' || !cleanDoi(r.doi) || cleanDoi(r.doi) !== cleanDoi(paper.doi))) return false;
+      if (hasPaperId && (typeof r.paperId !== 'string' || !r.paperId || r.paperId !== paper.id)) return false;
+      // A malformed first export must not hide a later valid record for the same paper.
+      return validateDownloadMetric(r);
+    });
+    if (!record) return paper;
     const { doi: _doi, paperId: _id, ...metric } = record;
     return { ...paper, downloadMetric: { ...metric, provenance: 'publisher_export' } };
   });
