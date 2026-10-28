@@ -24,6 +24,18 @@ test('区分预印本、缺失摘要和撤稿类型', () => {
   const retracted = normalizePaper({ ...record, pubTypeList: { pubType: ['Retracted Publication'] } });
   assert.equal(retracted.isRetraction, true);
 });
+test('重复来源中缺少撤稿字段不会抹去已知撤稿信号', () => {
+  const first = normalizePaper({ ...record, pubTypeList: { pubType: ['Retracted Publication'] } }, 'metabolic');
+  const later = normalizePaper(record, 'synthetic');
+  const merged = mergePapers([first], [later]);
+  assert.equal(merged.length, 1); assert.equal(merged[0].isRetraction, true); assert.equal(merged[0].status, '撤稿相关');
+});
+test('实际不存在的日历日期不会当作论文发表时间', () => {
+  const invalid = normalizePaper({ ...record, firstPublicationDate: '2026-02-30' }, 'synthetic');
+  assert.equal(invalid.publishedAt, null);
+  const p = normalizePaper(record, 'synthetic');
+  assert.equal(isValidPaper({ ...p, publishedAt: '2026-02-30' }), false);
+});
 test('同一 DOI 大小写和网址形式的记录合并，保留主题、摘要及首次发现时间', () => {
   const first = normalizePaper(record, 'metabolic', '2026-10-20T00:00:00Z');
   const second = { ...normalizePaper({ ...record, doi: '10.1234/abc', abstractText: '' }, 'synthetic'), id: 'other-source' };

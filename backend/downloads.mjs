@@ -1,5 +1,6 @@
 import { cleanDoi } from '../dist/core.js';
 import { validateDownloadMetric } from '../dist/enrichment.js';
+import { fetchPlosMetric } from './plos.mjs';
 
 // Europe PMC's citation count and platform-wide bioRxiv usage totals are deliberately not used.
 export function applyPublisherMetrics(papers, records = []) {
@@ -23,4 +24,8 @@ export async function fetchZenodoMetric(paper, fetchImpl = fetch) {
   const count = data.stats?.downloads;
   const metric = { count, kind: 'file_downloads', platform: 'Zenodo', window: 'cumulative', sourceUrl: `https://zenodo.org/records/${match[1]}`, fetchedAt: new Date().toISOString(), provenance: 'publisher_api' };
   return validateDownloadMetric(metric) ? metric : null;
+}
+export async function fetchPublisherMetric(paper, fetchImpl = fetch) {
+  if (/^10\.1371\/journal\./i.test(paper.doi || '')) return fetchPlosMetric(paper, fetchImpl);
+  return fetchZenodoMetric(paper, fetchImpl);
 }

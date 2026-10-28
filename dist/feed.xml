@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>生研观察 BioScope · 公共日报</title>
+    <link>https://jimmy-ui456.github.io/bioscope-daily/</link>
+    <description>按规则自动整理的生物科研文献简报，保留题名和原文入口；不是人工科研价值精选。</description>
+    <language>zh-cn</language>
+    <generator>BioScope public daily feed</generator>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    <ttl>60</ttl>
+    <atom:link href="https://jimmy-ui456.github.io/bioscope-daily/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Wed, 28 Oct 2026 16:44:50 GMT</lastBuildDate>
+    <item>
+      <title>生研观察 · 2026-10-29 公共文献简报（10 篇）</title>
+      <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-10-29#daily</link>
+      <guid isPermaLink="false">https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-10-29#daily</guid>
+      <pubDate>Wed, 28 Oct 2026 16:44:50 GMT</pubDate>
+      <description><![CDATA[<p>按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。</p><p>发表日期范围：2026-10-23 — 2026-10-29。</p><ol><li><a href="https://doi.org/10.1007/10_2026_370">Molecular Biology and Synthetic Biology-Guided Development of Recognition and Reporting Elements of Biosensor.</a></li><li><a href="https://doi.org/10.1073/pnas.2621208123">Protein resource allocation across subcellular compartments revealed by large-scale absolute quantitative proteomics in yeast.</a></li><li><a href="https://doi.org/10.1093/nar/gkag1073">SynBioFooDB: a comprehensive resource for synthetic biology-driven food biomanufacturing.</a></li><li><a href="https://doi.org/10.1111/1744-7917.70385">&quot;Illuminating&quot; the silkworm chassis: Synthetic biology-driven evolution of genetic-based sexing circuits.</a></li><li><a href="https://doi.org/10.1002/bab.70218">Biomanufacturing of L-Lactic Acid from Inulin Exploiting Kluyveromyces marxianus and Engineered Saccharomyces cerevisiae Cell Factories.</a></li><li><a href="https://doi.org/10.1016/j.jbiotec.2026.10.017">Multilevel metabolic engineering of Bacillus amyloliquefaciens for enhanced L-tyrosine production.</a></li><li><a href="https://doi.org/10.1128/aem.01142-26">A cryptic lactate cycle in CO fermentation by Clostridium ljungdahlii .</a></li><li><a href="https://doi.org/10.1016/j.jbiosc.2026.10.001">Kinetic metabolic modeling of Saccharomyces cerevisiae mutants reveals two major regulatory patterns of glycolytic flux control.</a></li><li><a href="https://doi.org/10.1016/j.nbt.2026.10.013">Enhanced violacein production by synthetically engineered mutualistic Escherichia coli co-culture biofilms in a spatially partitioned bioreactor system.</a></li><li><a href="https://doi.org/10.1039/d6lc00512h">Dynamic tapered nozzle and multiple waveform modulation enable high-speed piezoelectric jetting without satellite droplets across broad fluid property ranges.</a></li></ol>]]></description>
+    </item>
+  </channel>
+</rss>

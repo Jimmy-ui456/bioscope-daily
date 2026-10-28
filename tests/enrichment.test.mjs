@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { sourceFingerprint, attachEnrichment, translationOf, rankDownloads, metricGroup, validateDownloadMetric } from '../dist/enrichment.js';
+import { sourceFingerprint, attachEnrichment, translationOf, rankDownloads, metricGroup, validateDownloadMetric, rankableDownloadMetric } from '../dist/enrichment.js';
 import { reportMarkdown } from '../dist/core.js';
 import { validateInterpretation, interpretPaper } from '../backend/interpret.mjs';
 import { applyPublisherMetrics, fetchZenodoMetric } from '../backend/downloads.mjs';
@@ -50,6 +50,11 @@ test('Zenodo必须匹配论文自身DOI且不是关联数据集', async () => {
   assert.equal((await fetchZenodoMetric(p, () => fetchRecord('publication-article'))).count, 28);
   assert.equal(await fetchZenodoMetric(p, () => fetchRecord('dataset')), null);
   await assert.rejects(fetchZenodoMetric(p, async () => ({ ok: true, json: async () => ({ doi: '10.5281/zenodo.456' }) })), /DOI/);
+});
+test('缺少部分PDF月份的计数不冒充完整累计排行', () => {
+  const metric = { count: 12, kind: 'pdf_downloads', platform: 'PLOS', window: 'cumulative', sourceUrl: 'https://journals.plos.org/plosone/', fetchedAt: '2026-10-29T00:00:00Z', missingPdfMonths: ['2026-09'] };
+  assert.equal(validateDownloadMetric(metric), true); assert.equal(rankableDownloadMetric(metric), false);
+  assert.equal(rankDownloads([{ ...paper, downloadMetric: metric }]).length, 0);
 });
 test('北京时间定时边界，不依赖运行主机时区', () => {
   assert.equal(dueSlot(new Date('2026-10-28T23:16:59Z')), null);

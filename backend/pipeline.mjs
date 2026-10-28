@@ -5,9 +5,10 @@ import { createHash } from 'node:crypto';
 import { TOPICS, collectTopic, mergePapers, beijingDay } from '../dist/core.js';
 import { attachEnrichment, translationOf, sourceFingerprint } from '../dist/enrichment.js';
 import { interpretPaper, PROMPT_VERSION } from './interpret.mjs';
-import { applyPublisherMetrics, fetchZenodoMetric } from './downloads.mjs';
+import { applyPublisherMetrics, fetchPublisherMetric } from './downloads.mjs';
 import { acquirePipelineLock } from './lock.mjs';
 import { createPublicReport, updatePublicReportHistory } from './reports.mjs';
+import { createDailyRss } from './feeds.mjs';
 
 export const PROJECT = fileURLToPath(new URL('../', import.meta.url));
 export async function readJson(file, fallback) { try { return JSON.parse(await readFile(file, 'utf8')); } catch (error) { if (error.code === 'ENOENT') return fallback; throw error; } }
@@ -16,7 +17,7 @@ export function modelConfig(env = process.env) { return { baseUrl: env.LLM_BASE_
 export function configuredModel(config) { return Boolean(config.apiKey && config.baseUrl && config.model); }
 export function requestKey(paper, config) { return createHash('sha256').update([paper.id, sourceFingerprint(paper), config.baseUrl, config.model, PROMPT_VERSION].join('|')).digest('hex'); }
 
-export async function runPipeline({ root = PROJECT, collect = collectTopic, interpret = interpretPaper, fetchMetric = fetchZenodoMetric, env = process.env, now = new Date(), log = console.log } = {}) {
+export async function runPipeline({ root = PROJECT, collect = collectTopic, interpret = interpretPaper, fetchMetric = fetchPublisherMetric, env = process.env, now = new Date(), log = console.log } = {}) {
   await mkdir(path.join(root, '.data'), { recursive: true });
   const lockPath = path.join(root, '.data/pipeline.lock');
   const lock = await acquirePipelineLock(lockPath);
@@ -34,7 +35,7 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     let papers = mergePapers(previous.papers, good.flatMap(r => r.value.papers)).slice(0, config.maxPapers || 500).map(p => attachEnrichment(p, catalog));
     const publisherRecords = (await readJson(path.join(root, 'config/download-metrics.json'), { records: [] })).records;
     papers = applyPublisherMetrics(papers, publisherRecords);
-    for (const paper of papers.filter(p => /^10\.5281\/zenodo\./i.test(p.doi || '')).slice(0, 20)) {
+    for (const paper of papers.filter(p => /^(10\.5281\/zenodo\.|10\.1371\/journal\.)/i.test(p.doi || '')).slice(0, 20)) {
       try { const metric = await fetchMetric(paper); if (metric) paper.downloadMetric = metric; } catch { /* Unavailable metrics stay unknown, never zero. */ }
     }
     const configModel = modelConfig(env);
@@ -70,7 +71,10 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     const reportFile = path.join(root, 'dist/public-reports.json');
     const reportHistory = await readJson(reportFile, { version: 1, reports: [] });
     const publicReport = createPublicReport(papers, { now, topics, translations: catalog, sourceUpdatedAt: library.fetchedAt });
-    await saveJson(reportFile, { version: 1, reports: updatePublicReportHistory(reportHistory.reports, publicReport) });
+    const reports = updatePublicReportHistory(reportHistory.reports, publicReport);
+    await saveJson(reportFile, { version: 1, reports });
+    const publication = await readJson(path.join(root, 'config/publication.json'), {});
+    if (publication.siteUrl) await writeFile(path.join(root, 'dist/feed.xml'), createDailyRss(reports, { siteUrl: publication.siteUrl }));
     log(`采集完成：${papers.length} 篇，${papers.filter(p => translationOf(p)).length} 篇中英对照，模型请求 ${attempted} 次；${library.automation.modelStatus === 'not_configured' ? '模型未配置，已跳过自动解读' : '自动解读任务完成'}。`);
     return library;
   } finally { await lock.release(); }

@@ -1,4 +1,4 @@
-import { translationOf, attachEnrichment } from './enrichment.js';
+import { translationOf, attachEnrichment } from './enrichment.js?v=0.2.2';
 
 export const TOPICS = [
   { id: 'synthetic', name: '合成生物学', en: 'Synthetic biology', query: 'TITLE_ABS:"synthetic biology"', words: ['synthetic biology', 'synthetic circuit', 'synthetic gene', 'genome engineering'], color: 'green' },
@@ -6,7 +6,7 @@ export const TOPICS = [
   { id: 'microbial', name: '微生物制造', en: 'Microbial biomanufacturing', query: '(TITLE_ABS:"microbial cell factories" OR TITLE_ABS:"microbial production" OR TITLE_ABS:"biomanufacturing")', words: ['microbial', 'biomanufacturing', 'cell factor', 'bioproduction', 'yeast'], color: 'blue' }
 ];
 export const API_URL = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search';
-export const APP_VERSION = '0.2.1';
+export const APP_VERSION = '0.2.2';
 
 export function plainText(value = '') {
   return String(value).replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&#(\d+);/g, (_, n) => Number(n) <= 0x10ffff ? String.fromCodePoint(Number(n)) : '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -20,6 +20,11 @@ export function beijingDay(at = new Date()) {
 }
 export function dayBefore(days, at = new Date()) {
   return beijingDay(new Date(new Date(at).getTime() - days * 86400000));
+}
+export function validPublicationDate(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const parsed = new Date(`${value}T12:00:00Z`);
+  return Number.isFinite(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
 }
 export function classify(record, fallback) {
   const text = `${record.title} ${record.abstractText || ''}`.toLowerCase();
@@ -38,7 +43,7 @@ export function normalizePaper(record, topic, fetchedAt = new Date().toISOString
   const pmid = record.source === 'MED' ? String(record.id) : null;
   const id = doi ? `doi:${doi}` : pmid ? `pmid:${pmid}` : `epmc:${record.source}:${record.id}`;
   const url = doi ? `https://doi.org/${doi}` : `https://europepmc.org/article/${encodeURIComponent(record.source)}/${encodeURIComponent(record.id)}`;
-  const date = /^\d{4}-\d{2}-\d{2}$/.test(record.firstPublicationDate || '') ? record.firstPublicationDate : null;
+  const date = validPublicationDate(record.firstPublicationDate) ? record.firstPublicationDate : null;
   const type = isRetraction ? '撤稿相关' : /review/.test(joinedTypes) ? '综述' : isPreprint ? '预印本' : /journal article|research-article/.test(joinedTypes) ? '期刊论文' : '文献记录';
   return { id, title, abstract, authors: plainText(record.authorString || '作者信息未提供'), journal, doi, pmid, pmcid: record.pmcid || null, source: record.source, sourceId: String(record.id), url, publishedAt: date, discoveredAt: fetchedAt, topics: classify(record, topic), type, status: isRetraction ? '撤稿相关' : isPreprint ? '预印本 · 未经同行评审' : '期刊记录 · 待核验', isPreprint, isRetraction, readingScope: abstract ? '仅摘要' : '仅题录', license: record.license || null, version: null, collection: 'Europe PMC' };
 }
@@ -51,6 +56,10 @@ export function mergePapers(existing, incoming) {
     const previous = matches.reduce((a, b) => ({ ...a, ...b, id: a.id, doi: b.doi || a.doi, pmid: b.pmid || a.pmid, abstract: b.abstract || a.abstract, discoveredAt: a.discoveredAt < b.discoveredAt ? a.discoveredAt : b.discoveredAt, topics: [...new Set([...a.topics, ...b.topics])] }));
     const abstract = paper.abstract || previous.abstract;
     const merged = { ...previous, ...paper, id: previous.id, doi: doi || previous.doi, pmid: paper.pmid || previous.pmid, discoveredAt: previous.discoveredAt < paper.discoveredAt ? previous.discoveredAt : paper.discoveredAt, abstract, readingScope: abstract ? '仅摘要' : '仅题录', topics: [...new Set([...previous.topics, ...paper.topics])] };
+    // Missing metadata in a later discovery cannot undo an earlier retraction signal.
+    if (paper.isRetraction || matches.some(p => p.isRetraction)) {
+      merged.isRetraction = true; merged.type = '撤稿相关'; merged.status = '撤稿相关';
+    }
     out = out.filter(p => !matches.includes(p));
     out.push(merged);
   }
@@ -61,7 +70,7 @@ export function isValidPaper(paper) {
   const strings = ['id', 'title', 'abstract', 'authors', 'journal', 'url', 'status', 'type', 'discoveredAt', 'readingScope'];
   if (!strings.every(k => typeof paper[k] === 'string' && paper[k].length < 100000)) return false;
   if (!Array.isArray(paper.topics) || !paper.topics.every(id => TOPICS.some(t => t.id === id))) return false;
-  if (paper.publishedAt !== null && !/^\d{4}-\d{2}-\d{2}$/.test(paper.publishedAt)) return false;
+  if (paper.publishedAt !== null && !validPublicationDate(paper.publishedAt)) return false;
   if (!Number.isFinite(Date.parse(paper.discoveredAt))) return false;
   if (paper.doi !== null && typeof paper.doi !== 'string') return false;
   if (paper.pmid !== null && typeof paper.pmid !== 'string') return false;

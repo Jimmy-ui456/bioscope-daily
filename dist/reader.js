@@ -1,4 +1,4 @@
-import { beijingDay, dayBefore } from './core.js';
+import { beijingDay, dayBefore, validPublicationDate } from './core.js?v=0.2.2';
 export function paperKind(paper) {
   if (paper.isPreprint) return 'preprint';
   if (paper.type === '综述') return 'review';
@@ -11,7 +11,7 @@ export function filterReadingPapers(papers, filters, now = new Date()) {
   return papers.filter(p =>
     (filters.journal === 'all' || journalName(p) === filters.journal) &&
     (filters.kind === 'all' || paperKind(p) === filters.kind) &&
-    (!start || (p.publishedAt && p.publishedAt >= start && p.publishedAt <= end)) &&
+    (!start || (validPublicationDate(p.publishedAt) && p.publishedAt >= start && p.publishedAt <= end)) &&
     (filters.abstract === 'all' || (filters.abstract === 'available' ? Boolean(p.abstract?.trim()) : !p.abstract?.trim()))
   );
 }

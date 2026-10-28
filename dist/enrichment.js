@@ -29,10 +29,13 @@ export function validateDownloadMetric(metric) {
 export function metricGroup(metric) {
   return `${metric.platform}|${metric.kind}|${metric.window}|${metric.start || ''}|${metric.end || ''}`;
 }
+export function rankableDownloadMetric(metric) {
+  return validateDownloadMetric(metric) && !(Array.isArray(metric.missingPdfMonths) && metric.missingPdfMonths.length);
+}
 export function rankDownloads(papers, group) {
-  return papers.filter(p => validateDownloadMetric(p.downloadMetric) && (!group || metricGroup(p.downloadMetric) === group)).sort((a, b) => b.downloadMetric.count - a.downloadMetric.count);
+  return papers.filter(p => rankableDownloadMetric(p.downloadMetric) && (!group || metricGroup(p.downloadMetric) === group)).sort((a, b) => b.downloadMetric.count - a.downloadMetric.count);
 }
 export function metricLabel(metric) {
   if (!validateDownloadMetric(metric)) return '暂无下载数据';
-  return `${metric.platform} · ${metric.kind === 'pdf_downloads' ? 'PDF 下载' : '文件下载'} · ${metric.window === 'cumulative' ? '累计' : `${metric.start}—${metric.end}`}`;
+  return `${metric.platform} · ${metric.kind === 'pdf_downloads' ? 'PDF 下载' : '文件下载'} · ${metric.window === 'cumulative' ? (metric.platform === 'PLOS' ? '平台返回月份累计' : '累计') : `${metric.start}—${metric.end}`}`;
 }
