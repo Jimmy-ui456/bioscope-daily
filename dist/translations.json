@@ -342,6 +342,17 @@
       "createdAt": "2026-10-29T00:00:00+08:00",
       "reviewed": false,
       "scope": "abstract_only"
+    },
+    "doi:10.1371/journal.pbio.3003778": {
+      "titleZh": "PrimeStack编辑器实现植物中大型多基因载荷的高效、位点特异性整合",
+      "abstractZh": "将大型DNA序列精确、定点地整合到植物基因组中，是作物生物技术和合成生物学长期追求的目标，但随机插入、同源重组效率低以及基因靶向方面的限制仍然存在。本研究提出PrimeStack，这是一种不依赖双链断裂（DSB）的平台，将先导编辑（PE）与单向大型丝氨酸整合酶Bxb1相结合，并利用进化所得的变体增强活性，从而在水稻（Oryza sativa）预先指定的基因组安全港（GSH）中，实现多基因、数千碱基载荷的可编程插入。优化后的先导编辑器首先以高保真性建立具有高遗传性的attP着陆位点，随后通过Bxb1介导的重组，实现遗传信息的不可逆整合。根据连接位点特异性PCR分析，PrimeStack在再生水稻植株中实现了大型载荷的定点整合，效率最高达45%。在所评估的条件下，移栽入土5周后，未观察到这些植株与野生型（WT）植株之间存在明显的形态学差异。研究者通过在一个经实验确认的基因组安全港中定点插入类胡萝卜素基因盒，验证了该平台的实用性。PrimeStack提供了模块化、位点特异性的基因堆叠平台，使基因组安全港中的多基因性状聚合与途径构建具有可预测性，从而加快改良型、抗逆作物品种的开发，并推动可规模化的植物生物制造及强大合成生物学底盘的构建。",
+      "sourceTitle": "PrimeStack editors enable efficient and site-specific integration of large multigene cargos in plants.",
+      "sourceAbstract": "Precise, site-specific integration of large DNA sequences into plant genomes is a long-standing goal of crop biotechnology and synthetic biology, yet remains constrained by random insertion, inefficient homologous recombination, and gene targeting. Here, we present PrimeStack, a DSB-independent platform that integrates PE with the unidirectional large serine integrase Bxb1, leveraging evolved variants for enhanced activity, to achieve the programmable insertion of multigene, multikilobase cargos at predefined genomic safe harbors (GSH) in rice (Oryza sativa). Optimized prime editors first install attP landing sites with high fidelity and heritability followed by Bxb1-mediated recombination that generates irreversible integration of genetic information. PrimeStack enabled targeted large-cargo integration in regenerated rice plants with efficiencies of up to 45%, as determined by junction-specific PCR analyses. No obvious morphological differences from WT plants were observed at 5 weeks after transfer to soil under the evaluated conditions. We validate its utility by achieving targeted insertion of a carotenoid cassette at an experimentally confirmed genomic safe harbor. PrimeStack delivers a modular, site-specific gene stacking platform that enables predictable, multigene trait pyramiding and pathway construction at GSH, thereby accelerating the development of improved and resilient crop varieties, as well as scalable plant-based biomanufacturing and a powerful chassis for synthetic biology.",
+      "sourceFingerprint": "faea736e-1618",
+      "origin": "assistant_translation",
+      "createdAt": "2026-10-29T00:00:00+08:00",
+      "reviewed": false,
+      "scope": "abstract_only"
     }
   }
 }

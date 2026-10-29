@@ -21,4 +21,4 @@ https://counter.plos.org/api/v1.0/stats/doi/{DOI}/format/json
 - bioRxiv：公开 usage 接口是平台汇总，不能作为逐篇数据。[官方API](https://api.biorxiv.org/)
 - PeerJ、bioRxiv的部分官方页面在核查时返回403/429，未绕过限制，未据此编造接口或计数。
 
-当前库130篇尚无PLOS或Zenodo原论文DOI匹配，因此榜单没有可显示的真实计数。后续原始文献进入采集范围时会自动适配，也可以导入有授权的出版社统计。
+2026-10-29 09:22（北京）的手动补采快照新增了 PLOS Biology 论文 `10.1371/journal.pbio.3003778`，发表于2026-10-13。其[官方逐篇接口](https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json)返回2026-10月份 `get-pdf = 265`，没有缺失PDF字段；独立只读复核与快照一致。这里的265次是原平台PDF请求数，不是独立读者、HTML访问或混合total；记录时间之后数值可以变化。这篇文献随后正常进入监控库，并非加入无关旧论文填榜。其余缺少原平台数据的论文仍保持未知。
