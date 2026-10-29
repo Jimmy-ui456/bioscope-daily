@@ -1,4 +1,4 @@
-import { beijingDay, dayBefore, validPublicationDate, isRetracted } from './core.js?v=0.2.9';
+import { beijingDay, dayBefore, validPublicationDate, isRetracted } from './core.js?v=0.2.10';
 export function paperKind(paper) {
   if (paper.isPreprint) return 'preprint';
   if (paper.type === '综述') return 'review';
