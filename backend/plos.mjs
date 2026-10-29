@@ -54,15 +54,26 @@ export async function fetchPlosMetric(paper, fetchImpl = fetch) {
   if (!months.length) return null;
   months.sort();
   missingPdfMonths.sort();
+  const reportedPeriods = [...seenPeriods].sort();
+  const monthIndex = period => Number(period.slice(0, 4)) * 12 + Number(period.slice(5)) - 1;
+  const unreportedMonths = [];
+  // Only infer holes inside the API's own first/last reported months, never from
+  // publication time or the current date. Missing months are not zero downloads.
+  for (let index = monthIndex(reportedPeriods[0]) + 1; index < monthIndex(reportedPeriods.at(-1)); index++) {
+    const period = `${String(Math.floor(index / 12)).padStart(4, '0')}-${String(index % 12 + 1).padStart(2, '0')}`;
+    if (!seenPeriods.has(period)) unreportedMonths.push(period);
+  }
   const journal = JOURNALS[article[1]];
   const sourceUrl = journal ? `https://journals.plos.org/${journal}/article/metrics?id=${encodeURIComponent(doi)}` : dataUrl;
   const metric = {
     count, kind: 'pdf_downloads', platform: 'PLOS', window: 'cumulative', sourceUrl, dataUrl,
     fetchedAt: new Date().toISOString(), provenance: 'publisher_api',
     coverageStart: months[0], coverageEnd: months.at(-1), coverageMonths: months.length,
-    reportedMonths, missingPdfMonths,
+    reportedStart: reportedPeriods[0], reportedEnd: reportedPeriods.at(-1),
+    reportedMonths, missingPdfMonths, unreportedMonths,
     coverageNote: '仅累加接口明确返回的逐篇 get-pdf 月计数，不含 HTML/XML，不代表独立读者；最近数据可能延迟48小时。'
-      + (missingPdfMonths.length ? `另有${missingPdfMonths.length}个报告月份未返回PDF字段，未将缺失推定为0。` : ''),
+      + (missingPdfMonths.length ? `另有${missingPdfMonths.length}个报告月份未返回PDF字段，未将缺失推定为0。` : '')
+      + (unreportedMonths.length ? `平台首末已报告月份之间另有${unreportedMonths.length}个月份完全未返回，未将缺报推定为0。` : ''),
   };
   return validateDownloadMetric(metric) ? metric : null;
 }

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { sourceFingerprint, attachEnrichment, translationOf, rankDownloads, metricGroup, validateDownloadMetric, rankableDownloadMetric } from '../dist/enrichment.js';
+import { sourceFingerprint, attachEnrichment, translationOf, rankDownloads, metricGroup, validateDownloadMetric, rankableDownloadMetric, metricCoverageLabel, metricFetchedAtLabel } from '../dist/enrichment.js';
 import { reportMarkdown } from '../dist/core.js';
 import { validateInterpretation, interpretPaper } from '../backend/interpret.mjs';
 import { applyPublisherMetrics, fetchZenodoMetric } from '../backend/downloads.mjs';
@@ -101,6 +101,27 @@ test('下载统计的期间必须是真实日历日期，拒绝日期回绕且�
   assert.equal(rankDownloads([{ ...paper, downloadMetric: invalid }]).length, 0);
 });
 
+test('累计下载的可选起止字段也拒绝JSON对象和非法日期，兼容未提供范围及明确0次', () => {
+  const metric = { count: 0, kind: 'pdf_downloads', platform: 'Publisher', window: 'cumulative', sourceUrl: 'https://example.org/stats', fetchedAt: '2026-10-29T00:00:00Z' };
+  for (const value of [{ toString: null }, {}, [], 0, false, '2026-02-30']) {
+    for (const field of ['start', 'end']) {
+      const malformed = { ...metric, [field]: value };
+      assert.equal(validateDownloadMetric(malformed), false);
+      assert.equal(rankableDownloadMetric(malformed), false);
+      assert.equal(metricGroup(malformed), null);
+      assert.deepEqual(rankDownloads([{ ...paper, downloadMetric: malformed }]), []);
+    }
+  }
+  assert.equal(validateDownloadMetric({ ...metric, start: '2026-10-29', end: '2026-10-01' }), false);
+  for (const range of [{}, { start: null, end: '' }, { start: '', end: null }, { start: '2024-02-29', end: '2024-03-01' }]) {
+    const valid = { ...metric, ...range };
+    assert.equal(validateDownloadMetric(valid), true);
+    assert.equal(rankableDownloadMetric(valid), true);
+    assert.equal(typeof metricGroup(valid), 'string');
+    assert.equal(rankDownloads([{ ...paper, downloadMetric: valid }])[0].downloadMetric.count, 0);
+  }
+});
+
 test('下载统计采集时间必须是有效日期字符串，出处不得携带登录凭据', () => {
   const metric = { count: 0, kind: 'pdf_downloads', platform: 'Publisher', window: 'cumulative', sourceUrl: 'https://example.org/stats', fetchedAt: '2026-10-29T00:00:00Z' };
   for (const fetchedAt of [0, null, '', '0', 'not-a-date', '2026-02-30T00:00:00Z', '2026-02-29']) {
@@ -126,6 +147,69 @@ test('缺失PDF月份的导入字段不能用错误类型或非法月份绕过�
   assert.equal(validateDownloadMetric({ ...metric, missingPdfMonths: ['2026-09'] }), true);
   assert.equal(rankableDownloadMetric({ ...metric, missingPdfMonths: ['2026-09'] }), false);
   assert.equal(rankableDownloadMetric({ ...metric, missingPdfMonths: [] }), true);
+});
+
+test('下载统计整月缺报字段必须为有效月份数组，旧数据缺字段保持兼容', () => {
+  const metric = { count: 12, kind: 'pdf_downloads', platform: 'Publisher', window: 'cumulative', sourceUrl: 'https://example.org/stats', fetchedAt: '2026-10-29T00:00:00Z' };
+  for (const unreportedMonths of ['2026-09', null, {}, ['2026-13'], ['2026-00'], [202609]]) {
+    const malformed = { ...metric, unreportedMonths };
+    assert.equal(validateDownloadMetric(malformed), false);
+    assert.equal(rankableDownloadMetric(malformed), false);
+  }
+  const partial = { ...metric, unreportedMonths: ['2026-02'] };
+  assert.equal(validateDownloadMetric(partial), true); assert.equal(rankableDownloadMetric(partial), false);
+  assert.equal(rankDownloads([{ ...paper, downloadMetric: partial }]).length, 0);
+  assert.equal(rankableDownloadMetric(metric), true);
+  assert.equal(rankableDownloadMetric({ ...metric, unreportedMonths: [] }), true);
+});
+
+test('旧下载缓存已知月份跨度大于有效计数月数时，缺少新标志也不进入完整排行', () => {
+  const metric = { count: 12, kind: 'pdf_downloads', platform: 'PLOS', window: 'cumulative', sourceUrl: 'https://journals.plos.org/plosone/', fetchedAt: '2026-10-29T00:00:00Z', coverageStart: '2026-01', coverageEnd: '2026-03', coverageMonths: 2, reportedMonths: 2, missingPdfMonths: [] };
+  assert.equal(validateDownloadMetric(metric), true);
+  assert.equal(rankableDownloadMetric(metric), false);
+  assert.equal(rankDownloads([{ ...paper, downloadMetric: metric }]).length, 0);
+  assert.equal(rankableDownloadMetric({ ...metric, coverageStart: '2025-12', coverageEnd: '2026-02' }), false);
+  assert.equal(rankableDownloadMetric({ ...metric, coverageStart: undefined, coverageEnd: undefined, reportedStart: '2026-01', reportedEnd: '2026-03' }), false);
+});
+
+test('旧下载缓存报告月份多于有效PDF月份时排除，真实单月265次及0次仍可排行', () => {
+  const metric = { count: 265, kind: 'pdf_downloads', platform: 'PLOS', window: 'cumulative', sourceUrl: 'https://journals.plos.org/plosbiology/', fetchedAt: '2026-10-29T00:00:00Z', coverageStart: '2026-10', coverageEnd: '2026-10', coverageMonths: 1, reportedMonths: 1, missingPdfMonths: [] };
+  assert.equal(rankableDownloadMetric({ ...metric, reportedMonths: 2 }), false);
+  assert.equal(rankableDownloadMetric(metric), true);
+  assert.equal(rankableDownloadMetric({ ...metric, count: 0 }), true);
+  // An old publication date is outside the known statistic range and proves no gap.
+  assert.equal(rankDownloads([{ ...paper, publishedAt: '2000-01-01', downloadMetric: metric }]).length, 1);
+});
+
+test('下载统计覆盖说明区分报告范围与计数月份，旧单月数据和未提供范围不被夸大', () => {
+  const metric = { count: 12, kind: 'pdf_downloads', platform: 'Publisher', window: 'cumulative', sourceUrl: 'https://example.org/stats', fetchedAt: '2026-10-29T00:00:00Z' };
+  const legacy = { ...metric, coverageStart: '2026-10', coverageEnd: '2026-10', coverageMonths: 1, reportedMonths: 1, missingPdfMonths: [] };
+  assert.match(metricCoverageLabel(legacy), /已知PDF计数月份：2026-10（1个月）/);
+  assert.match(metricCoverageLabel(legacy), /完整起止月份范围未提供/);
+  const partial = { ...metric, reportedStart: '2026-01', reportedEnd: '2026-04', coverageStart: '2026-02', coverageEnd: '2026-02', coverageMonths: 1, missingPdfMonths: ['2026-01', '2026-04'], unreportedMonths: ['2026-03'] };
+  const label = metricCoverageLabel(partial);
+  assert.match(label, /平台返回月份：2026-01—2026-04/);
+  assert.match(label, /已知PDF计数月份：2026-02（1个月）/);
+  assert.match(label, /已报告但缺PDF计数：2026-01、2026-04（未按0计）/);
+  assert.match(label, /整月缺报：2026-03（未按0计）/);
+  assert.equal(metricCoverageLabel({ ...metric, window: 'interval', start: '2026-10-01', end: '2026-10-28' }), '统计期间：2026-10-01—2026-10-28');
+  assert.match(metricCoverageLabel(metric), /范围未提供/);
+  assert.equal(metricCoverageLabel({ ...metric, count: null }), '暂无可核对的统计范围');
+});
+
+test('下载统计完整时区时间换算北京时间并保留到分钟，跨日不丢失', () => {
+  assert.equal(metricFetchedAtLabel({ fetchedAt: '2026-10-29T23:45:30Z' }), '2026-10-30 07:45（北京）');
+  assert.equal(metricFetchedAtLabel({ fetchedAt: '2026-10-30T07:45:30+08:00' }), '2026-10-30 07:45（北京）');
+});
+
+test('下载统计只有日期时不虚构具体时间', () => {
+  assert.equal(metricFetchedAtLabel({ fetchedAt: '2026-10-29' }), '2026-10-29（具体时间未提供）');
+});
+
+test('下载统计无时区时间保留原字串，非法或缺失时间不冒充记录', () => {
+  assert.equal(metricFetchedAtLabel({ fetchedAt: '2026-10-29T07:17:30' }), '2026-10-29T07:17:30（时区未提供）');
+  assert.equal(metricFetchedAtLabel({ fetchedAt: '2026-02-30T07:17:30Z' }), '采集时间未提供');
+  assert.equal(metricFetchedAtLabel(null), '采集时间未提供');
 });
 
 test('未选统计组时只自动排列同口径数据，多平台或不同窗口不混排', () => {

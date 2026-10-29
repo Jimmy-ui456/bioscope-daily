@@ -1,4 +1,4 @@
-import { checkEvidenceClaim } from './evidence.js?v=0.2.6';
+import { checkEvidenceClaim } from './evidence.js?v=0.2.7';
 
 // Shared by the static reader and the unattended collection job. No credentials here.
 export function sourceFingerprint(paper) {
@@ -55,6 +55,9 @@ function validMetricTimestamp(value) {
   const date = /^(\d{4}-\d{2}-\d{2})(?:T|$)/.exec(value);
   return !!date && validMetricDate(date[1]);
 }
+function validMetricMonth(value) {
+  return typeof value === 'string' && /^\d{4}-\d{2}$/.test(value) && validMetricDate(`${value}-01`);
+}
 export function validateDownloadMetric(metric) {
   if (!metric || !Number.isSafeInteger(metric.count) || metric.count < 0) return false;
   if (!['pdf_downloads', 'file_downloads'].includes(metric.kind)) return false;
@@ -63,16 +66,34 @@ export function validateDownloadMetric(metric) {
   if (typeof metric.sourceUrl !== 'string') return false;
   try { const url = new URL(metric.sourceUrl); if (url.protocol !== 'https:' || url.username || url.password) return false; } catch { return false; }
   if (!validMetricTimestamp(metric.fetchedAt)) return false;
-  if (metric.window === 'interval' && (!validMetricDate(metric.start) || !validMetricDate(metric.end) || metric.start > metric.end)) return false;
-  if (metric.missingPdfMonths !== undefined && (!Array.isArray(metric.missingPdfMonths)
-    || !metric.missingPdfMonths.every(month => typeof month === 'string' && /^\d{4}-\d{2}$/.test(month) && validMetricDate(`${month}-01`)))) return false;
+  const hasStart = metric.start !== undefined && metric.start !== null && metric.start !== '';
+  const hasEnd = metric.end !== undefined && metric.end !== null && metric.end !== '';
+  if ((hasStart && !validMetricDate(metric.start)) || (hasEnd && !validMetricDate(metric.end))) return false;
+  if (hasStart && hasEnd && metric.start > metric.end) return false;
+  if (metric.window === 'interval' && (!hasStart || !hasEnd)) return false;
+  for (const field of ['missingPdfMonths', 'unreportedMonths']) {
+    if (metric[field] !== undefined && (!Array.isArray(metric[field]) || !metric[field].every(validMetricMonth))) return false;
+  }
   return true;
 }
 export function metricGroup(metric) {
+  if (!validateDownloadMetric(metric)) return null;
   return `${metric.platform}|${metric.kind}|${metric.window}|${metric.start || ''}|${metric.end || ''}`;
 }
 export function rankableDownloadMetric(metric) {
-  return validateDownloadMetric(metric) && !(Array.isArray(metric.missingPdfMonths) && metric.missingPdfMonths.length);
+  if (!validateDownloadMetric(metric) || metric.missingPdfMonths?.length || metric.unreportedMonths?.length) return false;
+  const countedMonths = metric.coverageMonths;
+  if (Number.isSafeInteger(countedMonths) && countedMonths >= 0) {
+    if (Number.isSafeInteger(metric.reportedMonths) && metric.reportedMonths > countedMonths) return false;
+    for (const [start, end] of [[metric.coverageStart, metric.coverageEnd], [metric.reportedStart, metric.reportedEnd]]) {
+      if (!validMetricMonth(start) || !validMetricMonth(end) || start > end) continue;
+      const monthIndex = value => Number(value.slice(0, 4)) * 12 + Number(value.slice(5)) - 1;
+      // Legacy snapshots may predate explicit missing-month flags. A known internal
+      // span with fewer counted months still proves that this is a partial total.
+      if (monthIndex(end) - monthIndex(start) + 1 > countedMonths) return false;
+    }
+  }
+  return true;
 }
 export function rankDownloads(papers, group) {
   const rankable = papers.filter(p => rankableDownloadMetric(p.downloadMetric));
@@ -83,4 +104,34 @@ export function rankDownloads(papers, group) {
 export function metricLabel(metric) {
   if (!validateDownloadMetric(metric)) return '暂无下载数据';
   return `${metric.platform} · ${metric.kind === 'pdf_downloads' ? 'PDF 下载' : '文件下载'} · ${metric.window === 'cumulative' ? (metric.platform === 'PLOS' ? '平台返回月份累计' : '累计') : `${metric.start}—${metric.end}`}`;
+}
+export function metricCoverageLabel(metric) {
+  if (!validateDownloadMetric(metric)) return '暂无可核对的统计范围';
+  const parts = [];
+  if (metric.window === 'interval') parts.push(`统计期间：${metric.start}—${metric.end}`);
+  else {
+    const hasReportedRange = validMetricMonth(metric.reportedStart) && validMetricMonth(metric.reportedEnd) && metric.reportedStart <= metric.reportedEnd;
+    if (hasReportedRange) parts.push(`平台返回月份：${metric.reportedStart === metric.reportedEnd ? metric.reportedStart : `${metric.reportedStart}—${metric.reportedEnd}`}`);
+    const hasCountRange = validMetricMonth(metric.coverageStart) && validMetricMonth(metric.coverageEnd) && metric.coverageStart <= metric.coverageEnd;
+    const countRange = hasCountRange ? (metric.coverageStart === metric.coverageEnd ? metric.coverageStart : `${metric.coverageStart}—${metric.coverageEnd}`) : null;
+    const kind = metric.kind === 'pdf_downloads' ? 'PDF' : '文件';
+    if (Number.isSafeInteger(metric.coverageMonths) && metric.coverageMonths >= 0) {
+      parts.push(countRange ? `已知${kind}计数月份：${countRange}（${metric.coverageMonths}个月）` : `有效${kind}计数月份：${metric.coverageMonths}个月（起止月份未提供）`);
+    } else if (countRange) parts.push(`已知${kind}计数月份：${countRange}（有效月份数未提供）`);
+    if (!hasReportedRange) parts.push('累计统计的完整起止月份范围未提供');
+  }
+  if (metric.missingPdfMonths?.length) parts.push(`已报告但缺PDF计数：${metric.missingPdfMonths.join('、')}（未按0计）`);
+  if (metric.unreportedMonths?.length) parts.push(`整月缺报：${metric.unreportedMonths.join('、')}（未按0计）`);
+  return parts.join('；');
+}
+export function metricFetchedAtLabel(metric) {
+  const value = metric?.fetchedAt;
+  if (!validMetricTimestamp(value)) return '采集时间未提供';
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return `${value}（具体时间未提供）`;
+  if (!/(?:Z|[+-]\d{2}:?\d{2})$/i.test(value)) return `${value}（时区未提供）`;
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+  }).formatToParts(new Date(value)).map(part => [part.type, part.value]));
+  return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}（北京）`;
 }
