@@ -1,4 +1,65 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>生研观察 · 部署与模型配置</title><link rel="stylesheet" href="./styles.css?v=0.2.10"><link rel="stylesheet" href="./enrichment.css?v=0.2.10"><link rel="icon" href="./icon.svg"></head><body><main class="setup-main"><a href="./index.html">← 返回科研工作台</a><div class="eyebrow" style="margin-top:30px">BIOSCOPE / CONFIGURATION</div><h1>让文献持续更新，也能中英对照阅读。</h1><section class="settings-panel"><h2>1. 自动中文解读的配置入口</h2><p>模型尚未选定时无需填写，采集仍然运行。选择支持 Chat Completions 与 JSON 模式的服务后，将以下三项保存在服务器 .env 或 GitHub 仓库的 Settings → Secrets and variables → Actions → New repository secret。</p><dl class="detail-meta"><div><dt>LLM_BASE_URL</dt><dd>服务商的 API 基础地址，通常含 /v1；不要包含 /chat/completions。</dd></div><div><dt>LLM_MODEL</dt><dd>服务商提供的准确模型名称。</dd></div><div><dt>LLM_API_KEY</dt><dd>仅在服务器环境或 GitHub Secrets 保存；不放在网页、浏览器存储或代码仓库。</dd></div></dl><p>自动任务将生成中文题名、完整中文摘要、研究问题、方法和结果，并附原文证据片段。所有解读仅基于摘要，带有未审核标记。原文变化后旧译文自动失效。每次最多处理10篇，每天最多20次模型请求，可在仓库配置中调整。</p><p>如果模型返回的解读证据不在原摘要中，任务会拒绝发布该结果。请求失败或结果不确定时不会自动重复调用，需管理员核查后再决定是否重试。</p></section><section class="settings-panel"><h2>2. 云端定时采集与公开网址</h2><p>若未看到当天运行记录，可进入仓库 Actions → Collect research and publish website → Run workflow 手动补采。手动入口强制禁用模型，即使已存模型密钥也不发模型请求；定时任务仅在完整配置后启用解读。请核对运行摘要中的失败方向、实际模型请求数及最终发布结果。网页会标明快照来自手动补采或定时采集；计划时间不能证明任务已实际运行。</p><p>上传完整项目到自己的 GitHub 仓库后，在 Settings → Pages → Build and deployment 将 Source 设为 GitHub Actions。网站部署任务会发布 dist/ 中的静态页面。</p><p>在 Actions 中选择 “Collect research and publish website”，点击 Run workflow 可立即采集。默认定时为 UTC 23:17，即北京时间次日07:17；GitHub 可能排队延迟。文献数据经后台更新并发布，访客无需一直打开网页，你的电脑也不需要保持开机。</p><p>仅将 dist/ 作为 GitHub Pages 发布目录。Pages 不能执行 Node.js 后端；自动采集和模型调用在 Actions 中执行。密钥不随页面发送给访客。</p><p>本地可运行 npm start（网页和定时服务）或 npm run worker（仅后台）。本地模式需保持进程运行；电脑休眠或进程关闭时不能采集。</p></section><section class="settings-panel" id="downloads"><h2>3. 原出版平台下载量</h2><p>当前采用原出版平台的逐篇下载次数。缺失数据保持未知，不记为0，不使用引用量、页面浏览或本站点击数。不同平台、PDF/文件下载、累计/期间数据分别排名。</p><p>已提供 PLOS 官方逐篇 PDF 下载统计：只累计 get-pdf 月计数，不使用混合 total；缺失月份不记0，部分统计不参与完整累计排行。监控范围内的原始论文进入文献库后会自动适配；不会为了填榜加入无关旧论文。</p><p>已提供 Zenodo 原论文记录的下载接口适配。仅当论文自身 DOI 与返回记录一致、资源类型为论文/预印本/报告时读取，标注为文件下载；关联数据集、补充文件不会当作论文下载量。</p><p>PMC 逐篇使用报告需要出版社权限；bioRxiv 的公开 usage 接口为平台汇总，不能当作逐篇下载。对于有授权的出版社导出，在仓库 config/download-metrics.json 中添加如下结构，后台采集时会合并。下例为格式模板，不是实际统计：</p><pre>{
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>生研观察 · 部署与模型配置</title>
+<link rel="stylesheet" href="./styles.css?v=0.2.10">
+<link rel="stylesheet" href="./enrichment.css?v=0.2.10">
+<link rel="icon" href="./icon.svg">
+</head>
+<body>
+<main class="setup-main">
+<a href="./index.html">← 返回科研工作台</a>
+<div class="eyebrow" style="margin-top:30px">BIOSCOPE / CONFIGURATION</div>
+<h1>让文献持续更新，也能中英对照阅读。</h1>
+<p>
+<a href="./guide.html">先看使用与项目结构入门 →</a> · <a href="./guide.html#troubleshooting">遇到问题先检查什么 →</a>
+</p>
+<p>本页是配置说明，不会在公开网页里收取或保存模型密钥。尚未选定模型时无需配置，也不会自动选择服务。</p>
+<section class="settings-panel" id="models">
+<h2>1. 自动中文解读的配置入口</h2>
+<p>模型尚未选定时无需填写，采集仍然运行。选择支持 Chat Completions 与 JSON 模式的服务后，将以下三项保存在服务器 .env 或 GitHub 仓库的 Settings → Secrets and variables → Actions → New repository secret。</p>
+<dl class="detail-meta">
+<div>
+<dt>LLM_BASE_URL</dt>
+<dd>服务商的 API 基础地址，通常含 /v1；不要包含 /chat/completions。远程地址须用 HTTPS；本机 localhost 或 127.0.0.1 可使用 HTTP。</dd>
+</div>
+<div>
+<dt>LLM_MODEL</dt>
+<dd>服务商提供的准确模型名称。</dd>
+</div>
+<div>
+<dt>LLM_API_KEY</dt>
+<dd>仅在服务器环境或 GitHub Secrets 保存；不放在网页、浏览器存储或代码仓库。</dd>
+</div>
+</dl>
+<p>自动任务整理中文题名、已返回摘要的中文译文、研究问题、方法、结果及摘要明确报告的局限，并附原文证据片段。没有摘要时跳过解读。所有解读带有未审核标记，原文变化后旧译文失效；接口摘要截断时不补造缺失阈值或结论。</p>
+<p>解读引文必须逐字出现在输入的英文题名或摘要中，否则拒绝发布。页面与导出会再次核对引文；页面可查看上下文，导出保留原文与引文。逐字匹配不等于中文结论已经核实，也不代表读取或核验了全文。</p>
+<p>默认每轮最多10次、每个北京日历日最多20次模型请求，失败或结果未知也计入额度；可在 config/monitor.json 调整。已有回执不自动重试，需管理员先核对供应商记录。任务在保存前被强制终止等情况下，仍不能保证绝对不重复计费。</p>
+</section>
+<section class="settings-panel">
+<h2>2. 云端定时采集与公开网址</h2>
+<p>若未看到当天运行记录，可进入仓库 Actions → Collect research and publish website → Run workflow 手动补采。手动入口强制禁用模型，即使已存模型密钥也不发模型请求；定时任务仅在完整配置后启用解读。请核对运行摘要中的失败方向、实际模型请求数及最终发布结果。网页会标明快照来自手动补采或定时采集；计划时间不能证明任务已实际运行。</p>
+<p>上传完整项目到自己的 GitHub 仓库后，在 Settings → Pages → Build and deployment 将 Source 设为 GitHub Actions。网站部署任务会发布 dist/ 中的静态页面。</p>
+<p>在 Actions 中选择 “Collect research and publish website”，点击 Run workflow 可立即采集。默认定时为 UTC 23:17，即北京时间次日07:17；GitHub 可能排队延迟。文献数据经后台更新并发布，访客无需一直打开网页，你的电脑也不需要保持开机。</p>
+<p>仅将 dist/ 作为 GitHub Pages 发布目录。Pages 不能执行 Node.js 后端；自动采集和模型调用在 Actions 中执行。密钥不随页面发送给访客。</p>
+<p>本地可运行 npm start（网页和定时服务）或 npm run worker（仅后台）。本地模式需保持进程运行；电脑休眠或进程关闭时不能采集。</p>
+<ul>
+<li>公开静态网站的“更新文献”：只更新当前浏览器的文献，不触发云端任务或模型。</li>
+<li>Actions的 Run workflow：更新共享文献并发布，强制禁模。</li>
+<li>本地网页连接后台后的“更新文献”，或 npm run collect：按本机模型配置运行，完整配置时可能调用模型。</li>
+</ul>
+<p>网页监控设置只影响个人阅读及浏览器手动检索偏好；云端后台仍按仓库 config/monitor.json 执行。</p>
+</section>
+<section class="settings-panel" id="downloads">
+<h2>3. 原出版平台下载量</h2>
+<p>当前采用原出版平台的逐篇下载次数。缺失数据保持未知，不记为0，不使用引用量、页面浏览或本站点击数。不同平台、PDF/文件下载、累计/期间数据分别排名。已知撤稿记录不进入排行。</p>
+<p>已提供 PLOS 官方逐篇 PDF 下载统计：只累计 get-pdf 月计数，不使用混合 total；缺失月份不记0，部分统计不参与完整累计排行。监控范围内的原始论文进入文献库后会自动适配；不会为了填榜加入无关旧论文。</p>
+<p>已提供 Zenodo 原论文记录的下载接口适配。仅当论文自身 DOI 与返回记录一致、资源类型为论文/预印本/报告时读取，标注为文件下载；关联数据集、补充文件不会当作论文下载量。</p>
+<p>每轮最多尝试刷新20篇受支持平台记录。详情和榜单在已有记录时区分已更新、请求失败、未返回有效统计和本批未请求。失败时保留旧计数及原采集时间，没有历史计数仍保持未知；文献采集完成不等于每篇下载量都已刷新。累计量受发表时长影响，不代表统一近7日热度或独立读者数。</p>
+<p>PMC 逐篇使用报告需要出版社权限；bioRxiv 的公开 usage 接口为平台汇总，不能当作逐篇下载。对于有授权的出版社导出，在仓库 config/download-metrics.json 中添加如下结构，后台采集时会合并。下例为格式模板，不是实际统计：</p>
+<pre>{
   "records": [{
     "doi": "填写真实论文 DOI",
     "count": 123,
@@ -10,4 +71,26 @@
     "sourceUrl": "https://出版社的统计页面",
     "fetchedAt": "2026-10-29T00:00:00Z"
   }]
-}</pre><p>累计统计使用 window: cumulative，省略 start、end。来源链接和采集时间会在页面显示。人工导入数据仍需核对原平台授权和统计定义。</p><p>官方资料：<a href="https://pmc.ncbi.nlm.nih.gov/about/faq/" target="_blank" rel="noopener">PMC 使用统计说明 ↗</a> · <a href="https://api.biorxiv.org/" target="_blank" rel="noopener">bioRxiv 接口 ↗</a> · <a href="https://support.zenodo.org/help/en-gb/4-usage-statistics/2-why-is-the-views-downloads-count-lower-than-before-the-migration-oct-2023" target="_blank" rel="noopener">Zenodo 使用统计 ↗</a></p></section><section class="settings-panel"><h2>4. 原文、译文与解读</h2><p>初始21篇文献已有辅助中文译文。新采集文献在模型未配置或等待处理时会标为待翻译。页面右上角可切换中英对照与英文。列表、论文详情、简报和 Markdown 导出均保留原文。</p><p>访客收藏和人工精选保存在各自浏览器。自动任务更新的是共享文献库；不会读取或上传访客的本地收藏。</p></section><section class="settings-panel"><h2>5. 订阅公共日报</h2><p>将 <a href="./feed.xml">RSS订阅地址</a> 粘贴到RSS阅读器。每期可通过固定网址直达，也可在日报页复制本期链接。RSS只包含题名、规则与原文入口，不分发论文摘要/全文或个人收藏。</p></section></main></body></html>
+}</pre>
+<p>累计统计使用 window: cumulative，省略 start、end。来源链接和采集时间会在页面显示。人工导入数据仍需核对原平台授权和统计定义。</p>
+<p>官方资料：<a href="https://pmc.ncbi.nlm.nih.gov/about/faq/" target="_blank" rel="noopener">PMC 使用统计说明 ↗</a> · <a href="https://api.biorxiv.org/" target="_blank" rel="noopener">bioRxiv 接口 ↗</a> · <a href="https://support.zenodo.org/help/en-gb/4-usage-statistics/2-why-is-the-views-downloads-count-lower-than-before-the-migration-oct-2023" target="_blank" rel="noopener">Zenodo 使用统计 ↗</a>
+</p>
+</section>
+<section class="settings-panel">
+<h2>4. 原文、译文与解读</h2>
+<p>现有辅助译文随项目更新，当前可对照篇数显示在研究雷达顶部；尚未由领域专家审核。新采集文献在模型未配置或等待处理时保留待翻译。页面右上角可切换中英对照与英文，列表、详情、简报和Markdown导出均保留原文；接口来源提示也随对应英文版本保留。</p>
+<p>访客收藏和人工精选保存在各自浏览器。自动任务更新的是共享文献库；不会读取或上传访客的本地收藏。</p>
+</section>
+<section class="settings-panel">
+<h2>5. 订阅公共日报</h2>
+<p>将 <a href="./feed.xml">RSS订阅地址</a> 粘贴到RSS阅读器。每期可通过固定网址直达，也可在日报页复制本期链接。RSS只包含题名、规则与原文入口，不分发论文摘要/全文或个人收藏。</p>
+</section>
+<section class="settings-panel" id="backup">
+<h2>6. 个人备份与恢复</h2>
+<p>在监控设置 → 数据与运行方式中备份或导入个人数据。备份为JSON文件，导入上限5MB；先完成校验与合并再更新页面。无效日报逐项跳过并提示数量，已有同ID快照优先保留。</p>
+<p>导入独有的论文刷新后继续保留，仍受500篇库上限约束；不会被当作已验证的原型样本。切换到样本前会保存当前库，可用“恢复最近实时采集”按钮恢复最近一次本地保存的文献库。保存失败时保留当前内容。</p>
+<p>浏览器存储空间不足时，数据可能只保留在当前页；请保留原备份，换设备或清理浏览器前先导出。个人数据不自动跨设备同步，也不会上传公共库。更多检查步骤见<a href="./guide.html#troubleshooting">入门与故障排查</a>。</p>
+</section>
+</main>
+</body>
+</html>

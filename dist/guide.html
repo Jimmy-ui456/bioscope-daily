@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="生研观察BioScope入门：阅读文献、理解代码结构、配置更新、核对统计与恢复个人数据。">
+  <title>生研观察 · 使用与项目结构入门</title>
+  <link rel="icon" href="./icon.svg">
+  <link rel="stylesheet" href="./styles.css?v=0.2.10">
+  <link rel="stylesheet" href="./enrichment.css?v=0.2.10">
+  <style>
+    .guide-nav{display:flex;flex-wrap:wrap;gap:10px 20px;margin:24px 0}.guide-nav a,.guide-copy a{color:#275344;text-decoration:underline;text-underline-offset:3px}.guide-copy{line-height:1.9}.guide-copy h2{scroll-margin-top:24px}.guide-copy li{margin:8px 0}.guide-copy code{overflow-wrap:anywhere;font-size:.94em}.table-scroll{overflow-x:auto;margin:18px 0}.table-scroll:focus-visible{outline:3px solid #91ac72;outline-offset:3px}.guide-table{border-collapse:collapse;min-width:650px;width:100%;font-size:13px}.guide-table th,.guide-table td{border:1px solid #dce3d6;padding:12px;text-align:left;vertical-align:top}.guide-table th{background:#eef3e8}.guide-table caption{text-align:left;font-weight:600;margin-bottom:10px}.guide-terms dt{font-weight:600;margin-top:16px}.guide-terms dd{margin:4px 0 0;color:#52634f}.guide-note{padding:12px 16px;background:#eef3e8;border-left:3px solid #718d5d}@media(max-width:600px){.guide-copy{font-size:14px}.guide-table{font-size:12px}.guide-table th,.guide-table td{padding:9px}}@media print{.guide-nav,.guide-links{display:none}.setup-main{max-width:none;margin:0;padding:0}.table-scroll{overflow:visible}.guide-table{min-width:0;font-size:10px}.guide-table th,.guide-table td{padding:6px}.settings-panel{break-inside:auto}.guide-copy a{color:inherit}}
+  </style>
+</head>
+<body>
+  <main class="setup-main guide-copy" id="main">
+    <div class="guide-links"><a href="./index.html">← 返回科研工作台</a> · <a href="./setup.html">部署与模型配置</a> · <a href="https://github.com/Jimmy-ui456/bioscope-daily">GitHub项目</a></div>
+    <div class="eyebrow" style="margin-top:30px">BIOSCOPE / GETTING STARTED</div>
+    <h1>看懂生研观察，也能自己维护。</h1>
+    <p>这份说明对应当前BioScope代码。项目跟踪合成生物学、代谢工程与微生物制造文献；公共日报是按日期和主题整理的清单，阅读价值仍需人工判断。</p>
+    <nav class="guide-nav" aria-label="说明章节"><a href="#reading">怎么阅读</a><a href="#flow">怎么更新</a><a href="#files">文件结构</a><a href="#changes">修改哪里</a><a href="#troubleshooting">遇到问题</a><a href="#terms">术语解释</a></nav>
+
+    <section class="settings-panel" aria-labelledby="reading">
+      <h2 id="reading">1. 先从这几步开始阅读</h2>
+      <ol>
+        <li>在<strong>研究雷达</strong>选择方向，再按期刊、发表日期、文献类型和摘要可用性筛选。“最近7天”指今天及之前6个北京日历日期。</li>
+        <li>打开论文详情核对英文题名、摘要、DOI和原文链接。中译有“未审核”标记；预印本标签表示尚未经过同行评审，期刊标签也不是研究质量保证。</li>
+        <li>有模型解读时，展开英文依据查看原文上下文。逐字找到引文只说明引文存在，不能自动证明中文结论准确。接口摘要截断时只阅读已返回片段，不补猜缺失结果。</li>
+        <li>在<strong>文献下载量</strong>里先选相同平台、格式和窗口，再看次数及采集时间。未知不是0，部分月份不完整的计数不进入完整累计排行；累计量不能当作统一近7日热度。</li>
+        <li>在<strong>每日简报</strong>阅读公共自动日报，或把自己精选的论文生成个人简报。公共日报有可分享网址和RSS；个人简报只在自己的浏览器里，分享需自行导出Markdown或打印为PDF。</li>
+        <li>换设备或清理浏览器前，在<strong>监控设置 → 数据与运行方式</strong>导出个人备份。导入文件上限5MB；保留原备份，尤其要留意“未能完整保存”的提示。</li>
+      </ol>
+      <p class="guide-note">共享内容：文献库、公共日报、RSS。个人内容：收藏、人工精选、个人简报和导入记录。访问公开网址不会把不同访客的个人数据合并。</p>
+    </section>
+
+    <section class="settings-panel" aria-labelledby="flow">
+      <h2 id="flow">2. 网站如何每天更新</h2>
+      <ol>
+        <li><strong>采集：</strong>通过Europe PMC的API读取题录和摘要，按配置限制每次读取数量。全部方向失败时保留旧库；部分失败会标出未更新方向。</li>
+        <li><strong>整理：</strong>统一字段、按DOI和PMID等身份去重，保留已知撤稿信号，再尝试读取受支持平台的逐篇下载统计。</li>
+        <li><strong>可选中文处理：</strong>模型未配置时跳过，不影响采集。配置完整后才会按预算处理；请求先留回执，失败或结果未知也计入请求额度。</li>
+        <li><strong>成刊：</strong>从近期文献中按主题轮流取文献，公共日报最多10篇。同一北京日期首次成刊后保留原快照，后续补采不重写它。</li>
+        <li><strong>发布：</strong>将保存好的网页和JSON数据发布到GitHub Pages。访客打开网址读取这些文件，个人电脑不必为云端任务保持开机。</li>
+      </ol>
+      <p>云端定时由GitHub Actions执行，计划为北京时间07:17；平台可能延迟。页面能确认的是已发布快照，实时排队和失败需查看对应<a href="https://github.com/Jimmy-ui456/bioscope-daily/actions/workflows/pages.yml">Actions运行记录</a>。本地定时器则要求本机Node.js进程持续运行。</p>
+      <div class="table-scroll" role="region" aria-label="四种更新入口" tabindex="0">
+        <table class="guide-table">
+          <caption>同名的更新入口，执行位置不同</caption>
+          <thead><tr><th scope="col">入口</th><th scope="col">更新什么</th><th scope="col">模型行为</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">公开静态网站的“更新文献”</th><td>在当前浏览器读取近期文献，不替他人更新公共库，也不触发云端任务。</td><td>浏览器不持有模型密钥，不调用模型。</td></tr>
+            <tr><th scope="row">Actions → Run workflow</th><td>云端手动补采、保存公共快照并发布。</td><td>手动补采强制禁模，即使仓库已有模型配置。</td></tr>
+            <tr><th scope="row">云端定时任务</th><td>按仓库配置采集并发布。</td><td>完整配置后才按预算调用；尚未选定模型时跳过。</td></tr>
+            <tr><th scope="row">本地后台按钮或 npm run collect</th><td>由本机后台采集。本地网页能连接后台时，按钮会启动后台任务。</td><td>按本机模型配置运行，完整配置时可能调用模型。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="settings-panel" aria-labelledby="files">
+      <h2 id="files">3. 主要文件负责什么，为什么保留</h2>
+      <p><code>dist/</code>是发布给访客的网页和数据；<code>backend/</code>是执行采集的后台程序。文件名中的<code>.js</code>和<code>.mjs</code>都是JavaScript程序。<code>.mjs</code>明确指定按模块方式加载；模块是可分别保存、相互引用的程序部分，本项目的<code>.js</code>也按此方式组织。</p>
+      <div class="table-scroll" role="region" aria-label="项目文件与功能对应表" tabindex="0">
+        <table class="guide-table">
+          <caption>点击文件名可查看仓库源码</caption>
+          <thead><tr><th scope="col">文件或目录</th><th scope="col">功能与必要性</th><th scope="col">运行位置</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/dist/index.html">dist/index.html</a>及样式、图标</th><td>HTML提供网页骨架，CSS负责颜色和排版，SVG保存可缩放图标；这些文件组成阅读界面的外观。</td><td>浏览器</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/dist/app.js">dist/app.js</a></th><td>网页接待员：显示列表、响应按钮、保存个人收藏和简报。</td><td>访客浏览器</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/dist/core.js">dist/core.js</a></th><td>共用工具箱：检索、统一字段、去重、北京日期与Markdown导出，避免网页和后台采用不同规则。</td><td>浏览器与后台</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/dist/reader.js">dist/reader.js</a></th><td>阅读筛选与中文输入处理；下载排行排除已知撤稿记录。</td><td>浏览器</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/dist/enrichment.js">dist/enrichment.js</a></th><td>确认译文对应当前原文，核验下载量格式和统计口径，避免贴错译文或混排。</td><td>浏览器与后台</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/dist/evidence.js">dist/evidence.js</a></th><td>核对英文引文并定位上下文，让中文解读可以追溯到输入题名或摘要。</td><td>浏览器与后台</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/dist/backup.js">dist/backup.js</a></th><td>先检查和准备个人备份，再更新页面；保留导入论文及收藏关系，防止刷新时丢失。</td><td>浏览器</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/dist/health.js">dist/health.js</a> / <a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/dist/accessibility.js">accessibility.js</a></th><td>解释快照与本地状态，处理菜单和焦点，帮助读者分辨后台情况并用键盘操作。</td><td>浏览器</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/backend/pipeline.mjs">backend/pipeline.mjs</a></th><td>后台总调度：把采集、统计刷新、可选解读、成刊和保存按顺序串起来。</td><td>Actions或本地后台</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/backend/interpret.mjs">backend/interpret.mjs</a></th><td>向已配置的模型发出请求，并校验返回字段和原文依据。配置为空时不会自动选择服务。</td><td>后台</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/backend/scheduler.mjs">backend/scheduler.mjs</a> / <a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/backend/lock.mjs">lock.mjs</a></th><td>本地闹钟和任务锁：有限重试，避免任务并发；不擅自清除无法确认的锁或损坏状态。</td><td>本地后台；任务锁也用于采集程序</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/backend/reports.mjs">backend/reports.mjs</a> / <a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/backend/feeds.mjs">feeds.mjs</a></th><td>按明确规则生成公共日报和RSS，保留首刊及原文入口。</td><td>后台</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/backend/downloads.mjs">backend/downloads.mjs</a> / <a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/backend/plos.mjs">plos.mjs</a></th><td>匹配原平台统计，读取PLOS/Zenodo适配数据并记录逐篇刷新结果；不拿引用或浏览量代替。</td><td>后台</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/tree/main/config">config/</a></th><td>监控范围、预算、公开站点信息、授权统计和辅助译文的设置表，减少直接改程序的需要。</td><td>由后台或整理脚本读取</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/.github/workflows/pages.yml">.github/workflows/pages.yml</a></th><td>云端任务清单：检查代码，按事件决定是否采集，再发布网站。</td><td>GitHub Actions</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/server.mjs">server.mjs</a> / <a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/worker.mjs">worker.mjs</a></th><td>本地启动入口：前者提供网页、状态接口和定时后台，后者只运行后台。只使用云端网站时不必在自己的电脑启动它们。</td><td>本机Node.js</td></tr>
+            <tr><th scope="row"><a href="https://github.com/Jimmy-ui456/bioscope-daily/tree/main/scripts">scripts/</a> / <a href="https://github.com/Jimmy-ui456/bioscope-daily/tree/main/tests">tests/</a></th><td>维护脚本负责整理译文和同步资源；测试用离线样例检查去重、未知下载量等规则，不代表真实模型、手机或读屏已经实测。</td><td>维护时或Actions检查时</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><code>dist/library.json</code>是共享文献快照，<code>dist/translations.json</code>是译文目录，<code>dist/public-reports.json</code>是公共历史日报。它们是程序保存的结果，不能通过手改次数来伪造下载排行。</p>
+      <p><code>README.md</code>和<code>docs/</code>保存说明与更新记录，不负责执行任务。<code>.env</code>、<code>.data/</code>、<code>.cache/</code>和<code>.openai/</code>是本地配置或辅助文件，不应提交到公开仓库。</p>
+    </section>
+
+    <section class="settings-panel" aria-labelledby="changes">
+      <h2 id="changes">4. 想调整功能，修改哪里</h2>
+      <ul>
+        <li><strong>只想换阅读范围：</strong>使用网页筛选和监控设置，影响自己的浏览器偏好；不会改仓库里的云端采集方向。</li>
+        <li><strong>调整云端现有方向和读取上限：</strong>修改<code>config/monitor.json</code>。新增方向还需在<code>dist/core.js</code>的<code>TOPICS</code>中定义名称、检索条件和分类词。</li>
+        <li><strong>接入中文模型：</strong>先选服务，再按<a href="./setup.html#models">配置入口</a>保存三个模型配置项。不要在公开网页输入密钥；未配置时保留英文和现有辅助译文即可。</li>
+        <li><strong>增加下载来源：</strong>需要能确认属于本篇论文的原出版平台数据，再新增后台适配或授权导出。修改引用量、网页浏览量或本站点击统计不能满足逐篇下载口径。</li>
+        <li><strong>调整日刊选文：</strong>看<code>backend/reports.mjs</code>的日期、主题轮取和数量规则。已经成刊的日期不会因后来改规则自动重写。</li>
+        <li><strong>只改文字、外观或修复程序：</strong>推送仓库后会检查并发布；单次代码推送本身不触发采集。更改程序版本后运行<code>npm run assets</code>同步网页资源版本，再运行<code>npm run check</code>和<code>npm test</code>。</li>
+      </ul>
+      <p>换成其他生物方向时，文献整理、证据核对、备份、成刊和发布流程可继续使用。通常需要改检索条件与主题词，补充目标期刊或平台的统计来源；模型服务仍按自己的选择配置。</p>
+    </section>
+
+    <section class="settings-panel" aria-labelledby="troubleshooting">
+      <h2 id="troubleshooting">5. 看到这些提示，先检查什么</h2>
+      <ul>
+        <li><strong>待翻译：</strong>先看页面模型配置状态。未选模型时属正常情况，不能据此判断论文没有摘要或后台失败。</li>
+        <li><strong>没有下载量或榜单为空：</strong>先看是否有原平台逐篇统计及可比窗口。没有数据保持未知；明确报告0次才显示0。</li>
+        <li><strong>下载刷新失败：</strong>核对次数的原采集时间。失败会保留旧计数；文献采集成功不代表每篇下载统计都更新了。</li>
+        <li><strong>快照较旧或某方向未更新：</strong>打开快照对应的运行记录，区分排队、采集部分失败和发布失败。运行计划或旧的成功记录不能证明本次已完成。</li>
+        <li><strong>模型失败或结果未知：</strong>不要反复启动付费请求。管理员应先检查请求回执、供应商记录及Actions恢复附件，再决定如何处理。</li>
+        <li><strong>导入跳过日报：</strong>保留原文件，核对日期、时间和文献字段。已有同ID日报优先保留。导入只影响本机，不会改公共日报。</li>
+        <li><strong>未能完整保存：</strong>内容可能只在当前页面，关闭前先导出备份。清理浏览器数据会影响个人内容，不会删除公共网站。</li>
+      </ul>
+      <p>更详细的参数和下载统计格式见<a href="./setup.html">部署与模型配置</a>；运行、修复和已知边界见仓库<a href="https://github.com/Jimmy-ui456/bioscope-daily/blob/main/README.md">README</a>。</p>
+    </section>
+
+    <section class="settings-panel" aria-labelledby="terms">
+      <h2 id="terms">6. 术语随手查</h2>
+      <dl class="guide-terms">
+        <dt>前端 / 后端</dt><dd>前端是在浏览器里供人操作的页面；后端是在后台执行采集、整理和保存的程序。</dd>
+        <dt>JavaScript / Node.js</dt><dd>JavaScript是本项目使用的编程语言；Node.js让这类程序能在电脑或云端执行，不局限于网页里。</dd>
+        <dt>仓库 / 提交 / 推送</dt><dd>仓库保存项目文件及修改历史；提交记录一批改动；推送把本地提交同步到GitHub。</dd>
+        <dt>GitHub Pages / Actions / 工作流</dt><dd>Pages把已准备好的文件展示为网站；Actions在云端执行任务；工作流是这些任务的触发方式和执行步骤。</dd>
+        <dt>API / API密钥</dt><dd>API是程序向平台获取数据或调用服务的接口；密钥是使用某些服务的凭据，不能随网页公开。</dd>
+        <dt>JSON / .env / Secrets</dt><dd>JSON是按字段保存配置和数据的文本格式；.env是本地程序读取的环境配置文件；GitHub Secrets用于保存云端任务的配置凭据。</dd>
+        <dt>DOI / PMID</dt><dd>DOI是论文等成果的数字标识；PMID是PubMed记录编号。项目用这些标识辅助匹配和去重，它们本身不代表研究质量。</dd>
+        <dt>快照 / 回执</dt><dd>快照是某次保存的数据版本；回执记录模型请求已开始、完成或结果未知，帮助避免未经核查就重复请求。</dd>
+        <dt>RSS / Markdown / PDF</dt><dd>RSS供阅读器订阅更新；Markdown是可用纯文本保存的排版格式；PDF适合固定版式保存和打印。</dd>
+      </dl>
+    </section>
+  </main>
+</body>
+</html>
