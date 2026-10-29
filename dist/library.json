@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-10-28T16:51:28.711Z",
+  "fetchedAt": "2026-10-29T01:22:24.401Z",
   "papers": [
     {
       "id": "doi:10.1007/10_2026_370",
@@ -28,7 +28,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "分子生物学与合成生物学指导的生物传感器识别元件和报告元件开发",
+        "abstractZh": "微生物细胞生物传感器能够检测细胞内外物质浓度的波动以及外部环境变化，并产生可测量的信号输出。这类传感器具有成本低、操作简单和特异性高等特点。合成生物学的快速发展显著推动了微生物细胞生物传感器的开发和实际应用。本章全面总结微生物细胞生物传感器的组成及工作原理，并介绍近年来利用分子生物学和合成生物学技术改造生物识别元件与报告元件的多种策略及最新进展，为微生物细胞生物传感器的研究与开发提供新的认识和参考。",
+        "sourceTitle": "Molecular Biology and Synthetic Biology-Guided Development of Recognition and Reporting Elements of Biosensor.",
+        "sourceAbstract": "Microbial cell biosensors are capable of detecting fluctuations in the concentrations of substances both inside and outside the cell, as well as changes in the external environment, and can generate measurable signal outputs. Microbial cell biosensors are characterized by low cost, simple operation, and high specificity. The rapid advancement of synthetic biology has significantly propelled the development and practical application of microbial cell biosensors. In this chapter, we provide a comprehensive summary of the composition and working principles of microbial cell biosensors. Additionally, we introduce various strategies and the latest progress in modifying biorecognition element and reporting elements using molecular biology and synthetic biology techniques in recent years. This book chapter offers new insights and valuable references for the research and development of microbial cell biosensors.",
+        "sourceFingerprint": "7558a086-1028",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1111/1744-7917.70385",
@@ -54,7 +65,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "“点亮”家蚕底盘：合成生物学驱动的遗传性别分选电路演进",
+        "abstractZh": "家蚕（Bombyx mori）是经典的鳞翅目模式生物，正发展为一种易于操作的合成生物学底盘。在现代养蚕业中，遗传性别分选电路为高效全雄饲养提供了理性设计框架，可有效克服传统辐射诱导染色体易位造成的基因剂量失衡和适合度代价。本综述系统总结这些电路的构建策略与工业应用，概述性别决定元件的优化，并强调远红光标记在穿透宿主物理屏障和降低细胞毒性方面的优势。文章进一步梳理基因组操作工具从转座子随机插入向利用CRISPR/Cas9在基因组安全港（GSH）进行定点整合的演进。针对多代饲养中的电路不稳定问题，综述评估了边界绝缘子、条件性表达和自动切除网络等保护性分子策略，并探讨将标准化生物光学报告元件、人工智能与高通量光电分选硬件相整合的工业接口。最终，从家蚕底盘获得的工程原则可为全球害虫管理中的不育昆虫技术提供分子框架，未来方向包括无痕基因组编辑和动态条件调控。",
+        "sourceTitle": "\"Illuminating\" the silkworm chassis: Synthetic biology-driven evolution of genetic-based sexing circuits.",
+        "sourceAbstract": "The silkworm (Bombyx mori), a classical lepidopteran model, is evolving into a highly tractable synthetic biology chassis. In modern sericulture, genetic sexing circuits provide a rational design framework for efficient all-male rearing, effectively overcoming the gene dosage disruptions and fitness costs associated with traditional radiation-induced chromosomal translocations. This review systematically summarizes the construction strategies and industrial applications of these circuits. We outline the optimization of sex determination elements and highlight the advantages of far-red optical markers in penetrating host physical barriers and reducing cytotoxicity. Furthermore, we trace the evolution of genomic manipulation tools from random transposon insertions to targeted CRISPR/Cas9 integration into genomic safe harbors (GSHs). To address circuit instability during multigenerational rearing, protective molecular strategies-including boundary insulators, conditional expression, and automatic excision networks-are evaluated. We also explore the industrial interface that integrates standardized biological optical reporters with artificial intelligence and high-throughput optoelectronic sorting hardware. Ultimately, engineering principles derived from the silkworm chassis can provide a molecular framework for the sterile insect technique in global pest management, with future directions pointing toward footprint-free genome editing and dynamic conditional regulation.",
+        "sourceFingerprint": "b6412a34-1596",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1128/aem.01142-26",
@@ -81,7 +103,18 @@
       "readingScope": "仅摘要",
       "license": "cc by",
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "杨氏梭菌 CO 发酵中隐蔽的乳酸循环",
+        "abstractZh": "将 C1 气体转化为高价值产物，为工业废气资源化提供了一条途径。杨氏梭菌（Clostridium ljungdahlii）等产乙酸菌，是用于非光依赖型固碳及高价值化合物生产的有前景的微生物细胞工厂，但其效率往往受到能量限制及尚未充分认识的代谢途径制约。本研究通过生长与产物分析、¹³C 标记、基因敲除和转录组学，考察了杨氏梭菌在一氧化碳（CO）发酵过程中的乳酸代谢。虽然乳酸不能作为该菌生长的唯一碳源和能源，但研究者发现乳酸可与 CO 共发酵，转化为乙酸。¹³C 示踪进一步揭示，CO 发酵期间乳酸的生成和氧化同时发生；未标记乳酸的比例从第2天的1.0%增加到第6天的5.0%，表明存在活跃的乳酸循环。遗传和转录分析表明，乳酸生成与氧化分别由两种不同的乳酸脱氢酶催化：LdhA（CLJU_RS15865）及电子分岔型 Ldh/EtfAB_1 复合物（CLJU_RS10590—CLJU_RS10600）。破坏乳酸循环，尤其是在 Ldh/EtfAB_1 突变株中，可改善能量代谢并引起细胞内代谢重排。该突变株的乳酸产量约提高至10倍，乙酸/乙醇比从3.7:1变为2.1:1，同时 AOR（醛：铁氧还蛋白氧化还原酶）介导的乙醇生成途径上调。随后过表达 ldhA，使乳酸滴度进一步提高至约2.5 mM，证实了利用 CO 生产乳酸的潜力。结果提示，该隐蔽的乳酸循环在 CO 发酵期间消耗能量，但有助于维持细胞内氧化还原平衡。这些发现为通过产乙酸菌代谢工程生产乳酸、乙醇等目标化合物提供了新认识。\n\n重要性：产乙酸菌具有天然固碳途径，即伍德—隆达尔途径，能够固定 CO 或 CO₂ 并生产乙酸。在不同产乙酸菌中，杨氏梭菌对 CO 具有较强耐受性，因此在合成气资源化方面拥有较大应用潜力。然而，其自养发酵的生理和代谢机制仍未得到充分认识，限制了代谢工程改造。本研究系统考察杨氏梭菌的乳酸代谢，揭示了 CO 发酵过程中隐蔽的乳酸循环。通过表征该循环的运行及其对能量代谢和碳分配的影响，研究者阐明了其潜在生理功能。这些发现不仅拓展了对产乙酸菌自养发酵生理代谢行为的认识，也为未来乳酸、乙醇及其他化合物的代谢工程改造提供了理论指导。",
+        "sourceTitle": "A cryptic lactate cycle in CO fermentation by Clostridium ljungdahlii .",
+        "sourceAbstract": "The valorization of C1 gases presents a route toward the utilization of industrial waste gases as resources. Acetogens such as Clostridium ljungdahlii serve as promising microbial cell factories for light-independent carbon fixation and high-value compound production, yet their efficiency is often limited by energy constraints and poorly understood metabolic pathways. Here, we investigated lactate metabolism in C. ljungdahlii during carbon monoxide (CO) fermentation via growth and product profiling, 13 C-labeling, gene knockouts, and transcriptomics. Although lactate cannot serve as the sole source of carbon and energy for C. ljungdahlii 's growth, we found that lactate can be co-fermented with CO into acetate. 13 C-tracing further revealed concurrent lactate production and oxidation during CO fermentation, with the unlabeled lactate fraction increasing from 1.0% (day 2) to 5.0% (day 6), indicating the existence of an active lactate cycle. Genetic and transcriptional analyses showed that lactate production and oxidation were catalyzed by two distinct lactate dehydrogenases: LdhA (CLJU_RS15865) and the electron-bifurcating Ldh/EtfAB_1 complex (CLJU_RS10590-CLJU_RS10600), respectively. Disruption of the lactate cycle, particularly in the Ldh/EtfAB_1 mutant, improved energy metabolism and triggered intracellular metabolic rearrangements. This mutant produced approximately 10-fold more lactate and shifted the acetate/ethanol ratio from 3.7:1 to 2.1:1, accompanied by upregulation of the AOR (aldehyde:ferredoxin oxidoreductase)-mediated ethanol production pathway. Subsequent ldhA overexpression further elevated lactate titer to ~2.5 mM, confirming the potential for lactate production from CO. The results imply that the cryptic lactate cycle dissipates energy but aids in intracellular redox balancing during CO fermentation. These findings provide new insights into the metabolic engineering of acetogens to produce target compounds, such as lactate and ethanol. Importance Acetogens possess a natural carbon fixation pathway, the Wood-Ljungdahl pathway, enabling them to fix CO or CO2 to produce acetate. Among various acetogens, Clostridium ljungdahlii exhibits strong tolerance to CO and thus holds great application potential for the resource utilization of syngas. However, the physiological and metabolic mechanisms underlying its autotrophic fermentation remain incompletely understood, which imposes limitations on metabolic engineering efforts. In this study, we systematically investigated lactate metabolism in C. ljungdahlii and revealed the existence of a cryptic lactate cycle during CO fermentation. By characterizing this cycle's operation and its impacts on energy metabolism and carbon distribution, we elucidated its potential physiological functions. These findings not only expand our understanding of the physiological and metabolic behaviors of acetogens during autotrophic fermentation but also provide theoretical guidance for the future metabolic engineering of lactate, ethanol, and other compounds.",
+        "sourceFingerprint": "4873d04b-3122",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1002/bab.70218",
@@ -108,7 +141,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "利用马克斯克鲁维酵母与工程酿酒酵母细胞工厂从菊粉生物制造L-乳酸",
+        "abstractZh": "向可持续乳酸（LA）生物制造转型，需要从第一代原料转向剩余生物质及低pH发酵，以省去成本高、废物产生量大的盐纯化和酸化步骤。本研究提出一种新的双酵母策略，利用菊粉这种也存在于刺蓟（cardoon）根部的果糖聚合物，在低于乳酸pKa的pH条件下高效生产乳酸。工作的主要创新在于识别并配合利用两种微生物各自独特的生理优势：马克斯克鲁维酵母（Kluyveromyces marxianus）是菊粉水解的最佳酵母，酿酒酵母（Saccharomyces cerevisiae）则是更适合在低pH下稳健、高滴度生产乳酸的宿主。研究发现，培养K. marxianus时，如果以尿素替代硫酸铵作为氮源，菊粉酶活性可提高近20倍，从而显著增强底物的初始分解。随后，利用富含菊粉酶的K. marxianus培养上清培养同型乳酸发酵工程菌株S. cerevisiae m850，将菊粉转化为L-乳酸。在比较分步水解与发酵（SHF）和同步糖化与发酵（SSF）后，研究者获得了>0.77 g/g的最高得率，最终pH为2.5。SSF受到pH引起的菊粉酶失活限制，而SHF工艺实现了底物完全转化。这些结果展示了利用剩余原料生产乳酸的有前景平台，可显著降低相关影响及下游加工成本。",
+        "sourceTitle": "Biomanufacturing of L-Lactic Acid from Inulin Exploiting Kluyveromyces marxianus and Engineered Saccharomyces cerevisiae Cell Factories.",
+        "sourceAbstract": "The transition to sustainable lactic acid (LA) biomanufacturing necessitates a shift from first-generation feedstocks toward residual biomass and low-pH fermentation, eliminating the costly, waste-intensive salt purification and acidification steps. This study presents a novel, two-yeast strategy designed to valorize inulin, a fructose polymer also found in cardoon roots, for high-efficiency LA production at a pH below its pKa. The key novelty of this work lies in identifying and pairing the unique physiological strengths of each organism: Kluyveromyces marxianus as the optimal yeast for inulin hydrolysis, and Saccharomyces cerevisiae as the superior host for robust LA production at low pH and high titers. We discovered that if ammonium sulphate is substituted with urea as a nitrogen source for K. marxianus cultivation, the inulinase activity increased by nearly 20-fold, significantly enhancing the initial breakdown of the substrate. Inulinase-enriched K. marxianus supernatant was then used to cultivate S. cerevisiae m850, an engineered homolactic strain, and convert inulin into L-LA. Comparing separate hydrolysis and fermentation (SHF) with simultaneous saccharification and fermentation (SSF), we achieved a maximal yield > 0.77 g/g with a final pH of 2.5. While SSF was limited by pH-induced inulinase inactivation, the SHF process achieved complete substrate conversion. These results demonstrate a promising platform for producing LA from a residual feedstock, drastically reducing impacts and downstream processing costs.",
+        "sourceFingerprint": "750a0700-1682",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.21203/rs.3.rs-11458557/v1",
@@ -188,7 +232,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "动态锥形喷嘴与多波形调制实现宽流体性质范围内无卫星液滴的高速压电喷射",
+        "abstractZh": "压电按需喷墨打印能够在微流控、生物制造和精密制造中实现微液滴的可控沉积。然而，传统压力腔式压电打印头易受黏性耗散和喷嘴堵塞影响，对高黏度、低表面张力液体及颗粒/细胞悬浮液的适应性有限，也难以有效抑制卫星液滴。这些限制阻碍了其在高精度、高稳定性喷墨应用中的实际部署。本研究通过动态锥形喷嘴，利用几何变形诱导的局部自泵送作用生成液滴，而非依赖传统压力腔中的压力波传播。结构优化使液滴速度达到5.42—12.67 m/s，并可在黏度最高40.3 mPa·s、表面张力24.44—72.75 mN/m及 Z 值1.01—38.11的条件下稳定喷射。机制分析确定，喷嘴的高频残余振动是液丝拉伸及二次破裂的主要原因。基于该机制，研究者设计了多波形调制策略，以动态调节喷嘴的位移响应。该策略在保持打印通量的同时，有效抑制高速喷射中的卫星液滴，并使液滴直径减小32%。对0.5 wt% SiO₂ 纳米颗粒悬浮液及10 wt% PVP K30 溶液的试验进一步验证了卫星液滴抑制效果。该平台可实现 MC3T3 细胞的高存活率打印，并将70 kDa 异硫氰酸荧光素（FITC）-葡聚糖无载体递送至细胞内，为在宽流体性质范围内以较低堵塞风险实现高速、稳定喷射提供了一条可行路径。",
+        "sourceTitle": "Dynamic tapered nozzle and multiple waveform modulation enable high-speed piezoelectric jetting without satellite droplets across broad fluid property ranges.",
+        "sourceAbstract": "Piezoelectric drop-on-demand inkjet printing enables controlled microdroplet deposition in microfluidics, biomanufacturing, and precision manufacturing. However, conventional pressure chamber piezoelectric printheads are susceptible to viscous dissipation and nozzle clogging, exhibit limited adaptability to high-viscosity, low-surface-tension liquids and particle/cell suspensions, and struggle to suppress satellite droplets effectively. These limitations hinder their practical deployment in high-precision and high-stability inkjet applications. Here, a dynamic tapered nozzle generates droplets through local self-pumping induced by geometric deformation rather than pressure-wave propagation in a conventional pressure chamber. Structural optimization enabled droplet velocities of 5.42-12.67 m s -1 and stable ejection at viscosities up to 40.3 mPa s, surface tensions of 24.44-72.75 mN m -1 , and Z values of 1.01-38.11. Mechanistic analysis identified high-frequency residual nozzle oscillations as the primary cause of ligament stretching and secondary breakup. Based on this mechanism, a multiple waveform modulation strategy is devised to dynamically regulate the nozzle displacement response. This strategy effectively suppresses satellite droplets during high-speed ejection while maintaining printing throughput and achieves a 32% reduction in droplet diameter. The satellite-droplet suppression effect is further validated in a 0.5 wt% SiO 2 nanoparticle suspension and a 10 wt% PVP K30 solution. The platform enables high-viability printing of MC3T3 cells and carrier-free intracellular delivery of 70 kDa fluorescein isothiocyanate (FITC)-dextran, establishing a feasible pathway for high-speed and stable ejection across broad fluid property ranges with low clogging risk.",
+        "sourceFingerprint": "1b5772c1-1951",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1016/j.nbt.2026.10.013",
@@ -214,7 +269,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "在空间分隔生物反应器中利用合成工程化互利大肠杆菌共培养生物膜提高紫色杆菌素产量",
+        "abstractZh": "紫色杆菌素（violacein，VIO）是一种细菌次级代谢物，在医疗保健、纺织和化妆品行业具有潜在应用。虽然模块化合成大肠杆菌（E. coli）共培养体系有望用于生物制造，但其中 VIO 的生产依赖高效的交叉供养，而这需要共培养成员在空间上接近并维持稳定相互作用。本研究表明，空间分隔生物反应器可使互利重组大肠杆菌共培养体系同时以悬浮态和载体附着态共存，从而能够直接比较两种状态的粗制 VIO 生产性能。该共培养体系在空间分隔生物反应器中培养：好氧搅拌罐室与一个限氧柱式单元连接，后者装有作为载体的 Fibra-Cel® 圆片，使生物量分为悬浮组分与黏附组分。在3个生物学重复中，黏附于生物膜的组分按生物量归一化的粗制 VIO 产量均高于相应悬浮组分，分别达到其4.51倍、20.05倍和5.51倍。尽管黏附组分只占总生物量的10.6%—24.0%，却贡献了总粗制 VIO 的35.4%—86.3%。这些结果表明，分隔反应器内与载体关联的空间组织方式，支持形成高生产能力的生物膜相关大肠杆菌共培养群体。该概念展示了空间组织化、载体附着型共培养体系在强化次级代谢物生产，以及未来基于生物膜的生物加工应用中的潜力。",
+        "sourceTitle": "Enhanced violacein production by synthetically engineered mutualistic Escherichia coli co-culture biofilms in a spatially partitioned bioreactor system.",
+        "sourceAbstract": "Violacein (VIO) is a bacterial secondary metabolite with potential applications in healthcare, textile, and cosmetic industries. Although modular synthetic E. coli co-cultures are promising for biomanufacturing, VIO production in such systems depends on efficient cross-feeding, which requires spatial proximity and stable interactions among co-culture members. Here, we demonstrate that a spatially partitioned bioreactor can support coexisting suspended and carrier-associated states of a mutualistic recombinant E. coli co-culture, enabling direct comparison of their crude VIO production performance. The co-culture was cultivated in a spatially partitioned bioreactor consisting of an aerobic stirred-tank compartment connected to an oxygen-limited cartridge containing Fibra-Cel® discs as carriers, thereby enabling biomass partitioning into suspended and adherent fractions. Across three biological replicates, the adherent biofilm-associated fraction consistently exhibited higher biomass-normalized crude VIO production than the corresponding suspended fraction, with 4.51-, 20.05-, and 5.51-fold increases. Although the adherent fraction represented only 10.6-24.0% of the total biomass, it contributed 35.4-86.3% of the total crude VIO. These results show that carrier-associated spatial organization within the partitioned bioreactor supported the formation of highly productive biofilm-associated E. coli co-culture populations. The presented concept highlights the potential of spatially organized, carrier-associated co-cultures for the intensification of secondary metabolite production and future biofilm-based bioprocessing applications.",
+        "sourceFingerprint": "9eb7003a-1808",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.64898/2026.10.25.761636",
@@ -267,7 +333,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "酿酒酵母突变株的动力学代谢建模揭示糖酵解通量控制的两种主要调控模式",
+        "abstractZh": "维持高糖酵解通量，对酿酒酵母（Saccharomyces cerevisiae）稳健的乙醇发酵及代谢工程至关重要。然而，在遗传扰动下，防止糖酵解“涡轮式设计”结构过度激活的调控机制仍不清楚。本研究构建了包含90个反应和543个参数的酵母中心碳代谢动力学模型。研究者利用遗传算法，使用野生型菌株和11个单基因缺失突变株的多组学数据集（蛋白质组学、代谢组学及通量组学）训练模型集合。对校准模型开展代谢控制分析（MCA）发现，在本研究采用的培养条件下，所考察的大多数菌株主要由两种调控模式控制糖酵解通量；不过，gcr2Δ 表现出不同的控制特征，而模型无法重现 gnd1Δ 的行为。野生型、gcn4Δ 和 rpe1Δ 菌株表现为己糖激酶（HXK）受限的控制模式：降低的己糖激酶活性可能发挥反馈限流作用，以防止途径过度激活。相反，另外7个突变株转向 ATP 需求耦合模式，将通量控制转移到耗能反应，使糖酵解通量直接与 ATP 需求相联系。两组内部均未发现一致共享的单一调控基序，这意味着不同菌株各自的表达调整反复形成了这两种调控模式。这些发现阐明了酵母为维持高发酵能力而采用的稳健、多模式控制策略，并为靶向代谢工程和稳健生物工艺设计提供了理论基础。",
+        "sourceTitle": "Kinetic metabolic modeling of Saccharomyces cerevisiae mutants reveals two major regulatory patterns of glycolytic flux control.",
+        "sourceAbstract": "Maintaining a high glycolytic flux is critical for robust ethanol fermentation and metabolic engineering in Saccharomyces cerevisiae. However, the regulatory mechanisms that prevent the excess turbo design structure of glycolysis under genetic perturbations are unknown. In this study, we constructed a kinetic model of yeast central carbon metabolism encompassing 90 reactions and 543 parameters. Using a genetic algorithm, we trained the model ensemble using multi-omics datasets (proteomics, metabolomics, and fluxomics) collected from the wild-type strain and 11 single-gene deletion mutants. Metabolic control analysis (MCA) of the calibrated models revealed that two major regulatory modes governed the glycolytic flux in most of the strains examined under the culture condition used in this study, although gcr2Δ exhibited a distinct control profile and gnd1Δ could not be reproduced by the model. The wild-type, gcn4Δ, and rpe1Δ strains exhibited an HXK-limited control mode, in which lowered hexokinase activity likely acts as a feedback limiter to prevent pathway over-activation. Conversely, seven other mutants shifted to an ATP demand-coupled mode, transferring flux control to energy-dissipating reactions and linking glycolytic flux directly to ATP demand. No single motif was uniformly shared within either group, implying that strain-specific expression adjustments repeatedly resulted in two regulatory modes. These findings elucidate the robust, multimodal control strategies employed by yeast to safeguard its high fermentation capacity and provide a theoretical foundation for targeted metabolic engineering and robust bioprocess design.",
+        "sourceFingerprint": "9d50603a-1787",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.64898/2026.10.23.761469",
@@ -320,7 +397,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "通过多层次代谢工程提高解淀粉芽孢杆菌的 L-酪氨酸产量",
+        "abstractZh": "L-酪氨酸是一种具有多种应用的高价值芳香族氨基酸。尽管基于质粒的过表达显著提高了 L-酪氨酸产量，但对抗生素筛选的依赖，以及非选择性条件下的遗传不稳定性，限制了其工业适用性。为解决这些问题，本研究采用多层次代谢工程策略，在解淀粉芽孢杆菌（Bacillus amyloliquefaciens）的基因组水平增强 L-酪氨酸生物合成途径。首先，将含有突变型预苯酸脱氢酶（TyrAI309A/E330V）的表达盒插入野生型菌株 Z1 的基因组。当拷贝数达到3个时，所得菌株 Z4 的 L-酪氨酸滴度达到437.43 mg/L。随后整合突变型 DAHP 合酶（AroAR27A/K38A），所得双拷贝菌株 Z7 的 L-酪氨酸滴度提高至591.29 mg/L。对限速步骤的系统性鉴定表明，大多数途径基因均能不同程度地提高产量。研究者进一步采用启动子原位替换策略构建菌株 Z21，使滴度提高至813.01 mg/L。最后，通过优化前体供应，工程菌株 Z32 的 L-酪氨酸滴度达到1079.94 mg/L。总体而言，这一无质粒、不依赖抗生素的平台，为微生物细胞工厂稳定合成 L-酪氨酸及其他芳香族氨基酸提供了有前景的策略。",
+        "sourceTitle": "Multilevel metabolic engineering of Bacillus amyloliquefaciens for enhanced L-tyrosine production.",
+        "sourceAbstract": "L-Tyrosine is a valuable aromatic amino acid with diverse applications. Although plasmid-based overexpression has markedly improved L-tyrosine production, the dependence on antibiotic selection and genetic instability under nonselective conditions limits its industrial applicability. To address these issues, this study employed a multi-level metabolic engineering strategy to enhance the L-tyrosine biosynthetic pathway at the genomic level in Bacillus amyloliquefaciens. First, an expression cassette containing the mutant prephenate dehydrogenase (TyrAI309A/E330V) was inserted into the genome of the wild-type strain Z1. When the copy number reached three (strain Z4), L-tyrosine production reached 437.43mg/L. Subsequently, the mutant DAHP synthase (AroAR27A/K38A) was integrated, and the resulting two-copy strain Z7 increased L-tyrosine production to 591.29mg/L. Systematic identification of rate-limiting steps showed that most pathway genes enhanced production to varying extents. A promoter in situ replacement strategy was then applied to construct strain Z21, which further increased the titer to 813.01mg/L. Finally, by optimizing precursor supply, the engineered strain Z32 reached an L-tyrosine titer of 1079.94mg/L. Overall, this plasmid-free and antibiotic-independent platform offers a promising strategy for stable biosynthesis of L-tyrosine and other aromatic amino acids in microbial cell factories.",
+        "sourceFingerprint": "bcc66d06-1520",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1073/pnas.2621208123",
@@ -347,7 +435,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "酵母大规模绝对定量蛋白质组学揭示亚细胞区室间的蛋白质资源分配",
+        "abstractZh": "由复杂膜结合细胞器形成的亚细胞区室化是真核生命的重要特征，可通过空间分隔实现代谢功能特化。本研究汇编了涵盖300个绝对定量蛋白质组的数据集，是迄今规模最大的此类数据集，覆盖两种酵母及多种实验条件。通过大数据分析、公式拟合和机器学习，研究者在系统层面解析了蛋白质丰度、资源分配与细胞表型之间的定量关联。结果发现，亚细胞资源分布高度不均，并随比生长速率共同变化。具体而言，在较高比生长速率下，某些区室（如细胞核）的蛋白质质量分数（PMF）持续降低，同时核糖体对蛋白质资源的需求增加。另一方面，营养限制可能通过上调特定区室（如液泡）中的蛋白质资源来促进资源回收，从而维持胁迫适应。综合分析表明，少数亚细胞区室（如细胞核和核糖体）的PMF可准确预测酵母生理参数，例如比生长速率和摄氧速率；有限的蛋白质集合（≥23种）即可用于捕捉7个主要亚细胞区室间资源分配的变化。此外，对Crabtree效应阳性和阴性物种在不同条件下的比较显示，亚细胞资源分配可能受多种因素影响，两种酵母对环境扰动的稳健性存在明显差异。总体而言，这一高质量酵母定量蛋白质组数据集为理解亚细胞资源分配的一般原理提供了前所未有的机会，并为合成生物学中细胞工厂的精准工程改造奠定基础。",
+        "sourceTitle": "Protein resource allocation across subcellular compartments revealed by large-scale absolute quantitative proteomics in yeast.",
+        "sourceAbstract": "Subcellular compartmentalization within complex membrane-bound organelles is a hallmark of eukaryal life, enabling metabolic specialization through spatial segregation. Here, we compiled a dataset encompassing 300 absolute quantitative proteomes, the largest to date, across two yeast species under diverse experimental conditions. Leveraging big data analysis, formula fitting, and machine learning, quantitative correlations among protein abundance, resource allocation, and cellular phenotypes were elucidated at a system level. We found that subcellular resource distribution is highly uneven and covaries with specific growth rate. Specifically, at high specific growth rates, the protein mass fraction (PMF) from certain compartments, (e.g., nucleus) is consistently reduced, coinciding with the increasing protein resource demand from ribosomes. Meanwhile, nutrient limitation may induce resource recycling by upregulating protein resources within specific compartments (e.g., vacuole) to sustain stress adaptation. Importantly, our integrative analysis indicates that PMF from a few subcellular compartments (e.g., nucleus and ribosomes) can accurately predict yeast physiological parameters (e.g., specific growth rate, oxygen uptake rate), and a limited protein set (≥ 23) could be used to capture the variation in resource allocation across seven major subcellular compartments. Furthermore, our comparative analysis between Crabtree-positive and Crabtree-negative species across conditions illustrates that subcellular resource allocation could be shaped by multiple factors and the two species differ markedly in their robustness to environmental perturbations. In summary, the high-quality quantitative proteomic dataset for yeast species offers an unprecedented opportunity for understanding the general principles underlying subcellular resource allocation, laying foundations for precision engineering of cell factories in synthetic biology.",
+        "sourceFingerprint": "b271cc0a-2085",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1515/jib-2026-0037",
@@ -401,7 +500,18 @@
       "readingScope": "仅摘要",
       "license": "cc by",
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "SynBioFooDB：合成生物学驱动食品生物制造的综合资源库",
+        "abstractZh": "在合成生物学和代谢工程的推动下，微生物生物制造正通过提供可持续替代路线，改变食品相关化合物的生产方式，以减少对资源密集型提取和传统化学合成的依赖。然而，将食品相关化合物与生物合成途径及微生物生物制造证据关联起来的信息仍分散在文献中，现有食品导向资源对这些信息的覆盖也不足，阻碍了跨研究比较、证据整合及微生物生产系统的理性设计。本文介绍专门面向合成生物学驱动食品生物制造的知识库SynBioFooDB（https://synbiofoodb.biodesign.ac.cn/）。该库整合了74 237种食品相关化合物，提供标准化化学身份标识，以及食品中存在情况、生物活性、毒性和监管信息等注释。数据库还提供了专家从5592篇出版物中整理的1054种化合物的生物制造证据，通过结构化、可追溯记录关联微生物宿主、底物、遗传改造和定量生产指标。此外，数据库收录了971种化合物的2002条文献报道生物合成途径，可用于比较替代前体、酶组合和途径架构。对于尚无文献报道途径的化合物，SynBioFooDB提供计算预测的候选途径，以辅助途径优选和实验评估。通过整合化合物层面的背景、生物制造证据和生物合成途径信息，该库支持对食品相关化合物微生物生产策略的系统探索、比较与理性设计。",
+        "sourceTitle": "SynBioFooDB: a comprehensive resource for synthetic biology-driven food biomanufacturing.",
+        "sourceAbstract": "Enabled by synthetic biology and metabolic engineering, microbial biomanufacturing is reshaping the production of food-related compounds by offering sustainable alternatives to resource-intensive extraction and conventional chemical synthesis. However, information linking food-related compounds to biosynthetic pathways and microbial biomanufacturing evidence remains fragmented across the literature and poorly represented in existing food-oriented resources, hindering cross-study comparison, evidence synthesis, and rational design of microbial production systems. Here, we present SynBioFooDB (https://synbiofoodb.biodesign.ac.cn/), a knowledgebase dedicated to synthetic biology-driven food biomanufacturing. SynBioFooDB integrates 74 237 food-related compounds with standardized chemical identities and annotations covering food occurrence, bioactivity, toxicity, and regulatory information. It further provides expert-curated biomanufacturing evidence for 1054 compounds from 5592 publications, linking microbial hosts, substrates, genetic modifications, and quantitative production metrics through structured and traceable records. The database also contains 2002 literature-reported biosynthetic pathways for 971 compounds, enabling comparison of alternative precursors, enzyme combinations, and pathway architectures. For compounds without literature-reported pathways, SynBioFooDB provides computationally predicted candidate pathways to facilitate pathway prioritization and experimental evaluation. By integrating compound-level context, biomanufacturing evidence, and biosynthetic pathway information, SynBioFooDB supports systematic exploration, comparison, and rational design of microbial production strategies for food-related compounds.",
+        "sourceFingerprint": "b3fc198e-1846",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.21203/rs.3.rs-11272552/v1",
@@ -2944,6 +3054,33 @@
       "collection": "Europe PMC"
     },
     {
+      "id": "doi:10.3390/microorganisms14102360",
+      "title": "AI-Facilitated Discovery of Microbiome-Originated Antimicrobial Peptides: A Perspective on Combating Antibiotic Resistance Within Public Health and Food Safety Frameworks.",
+      "abstract": "The escalating crisis of antimicrobial resistance (AMR) demands innovative therapeutic strategies beyond conventional antibiotics. Antimicrobial peptides (AMPs), particularly those originating from the human, animal, and environmental microbiome, represent a promising frontier within public health microbiology and microbial food safety. Recent advances in artificial intelligence (AI) and machine learning (ML) have revolutionized the discovery pipeline, enabling high-throughput mining of metagenomic data and de novo generation of novel peptide sequences. This perspective review synthesizes recent breakthroughs in AI-driven discovery of microbiome-originated AMPs, examines their preclinical efficacy against multidrug-resistant (MDR) pathogens under One Health and climate-sensitive frameworks and application in infectious disease treatment and discusses translational challenges including pharmacokinetics, toxicity, manufacturing scalability, and applications in food preservation and water safety. We argue that the convergence of microbiome science, deep learning, and synthetic biology positions AI-discovered AMPs as viable next-generation interventions against antibiotic resistance across human, animal, and environmental domains.",
+      "authors": "Atuahene PY, Stevenson B, Sang Y.",
+      "journal": "Microorganisms",
+      "doi": "10.3390/microorganisms14102360",
+      "pmid": "42943597",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42943597",
+      "url": "https://doi.org/10.3390/microorganisms14102360",
+      "publishedAt": "2026-10-15",
+      "discoveredAt": "2026-10-29T01:22:23.804Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1093/nar/gkag1003",
       "title": "CLEAN Database: providing enzyme function coverage for over 55 million sequences.",
       "abstract": "Enzyme function annotation is critical for decoding biological systems and enabling rational enzyme design. However, experimentally characterized enzyme functions remain available for only a small fraction of known protein sequences, resulting in a widening gap between rapidly expanding sequence space and reliable functional assignments. Recent advances in artificial intelligence (AI) have accelerated enzyme function annotation by facilitating accurate and high-throughput prediction from protein sequences. Here, we present CLEAN Database (CLEAN DB), a comprehensive resource encompassing >55 million enzyme function annotations across 1 098 305 strains, predicted by the CLEAN AI model. The database features an intuitive web interface that enables users to efficiently search, explore, and download enzyme function data through flexible query options. Additionally, powered by a protein language model, CLEAN DB supports mutation effect prediction through interactive heatmaps, structural overlays, and tabular data visualizations. We anticipate that CLEAN DB will serve as a valuable platform for advancing enzyme discovery and applications in synthetic biology, metabolic engineering, enzyme engineering, retrosynthesis, and drug discovery. The database is freely available at https://cleandb.platform.moleculemaker.org/.",
@@ -2989,6 +3126,33 @@
         "microbial"
       ],
       "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.plaphy.2026.111850",
+      "title": "Endophytes for climate-resilient agriculture: Mechanisms and systems-level insights.",
+      "abstract": "Endophytic bacteria and fungi that asymptomatically colonise plant tissues represent promising biological resources for developing sustainable and climate-resilient agricultural systems. These beneficial microorganisms establish intimate associations with crops and modulate plant growth, nutrient acquisition, immune responses, and stress physiology through diverse biochemical and molecular mechanisms. Endophytes enhance crop performance by producing phytohormones, solubilising and mobilising essential nutrients, improving nutrient-use efficiency, suppressing phytopathogens, inducing systemic resistance, and regulating plant metabolic and antioxidant responses. These functions can improve crop tolerance to major climate-associated stresses, including drought, salinity, heat, and nutrient limitations, while contributing to stable growth and yield under changing environmental conditions. Their potential as biofertilizers, biocontrol agents, biostimulants, and components of integrated crop management offers opportunities to reduce dependence on synthetic fertilisers and pesticides and promote environmentally sustainable agricultural production. This review critically synthesises current knowledge of endophyte diversity, crop colonisation, host specificity, plant-microbe signalling, and mechanisms underlying growth promotion, disease suppression, nutrient acquisition, and abiotic stress tolerance. Particular emphasis is placed on multi-omics and systems-level approaches that reveal endophyte-mediated regulation of plant metabolism, immunity, and microbiome assembly. The review also evaluates major constraints limiting agricultural translation, including inconsistent field performance, environmental adaptability, formulation and delivery, host microbe compatibility, ecological interactions, biosafety, and regulatory requirements. Finally, integration of multi-omics, microbiome engineering, synthetic biology, and precision agriculture is proposed as a pathway for developing robust endophyte-based technologies and microbial consortia. Such approaches could facilitate the transition toward low-input, resource-efficient, productive, and climate-resilient agriculture while strengthening long-term food security.",
+      "authors": "Singh N, Mohanta YK, Priyadarshi N, Das D, Sharifi-Rad M.",
+      "journal": "Plant physiology and biochemistry : PPB",
+      "doi": "10.1016/j.plaphy.2026.111850",
+      "pmid": "42901084",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42901084",
+      "url": "https://doi.org/10.1016/j.plaphy.2026.111850",
+      "publishedAt": "2026-10-15",
+      "discoveredAt": "2026-10-29T01:22:23.804Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "综述",
       "status": "期刊记录 · 待核验",
       "isPreprint": false,
       "isRetraction": false,
@@ -3150,6 +3314,33 @@
       "type": "期刊论文",
       "status": "期刊记录 · 待核验",
       "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.20944/preprints202610.1461.v1",
+      "title": "Therapeutic Horizons of CRISPR/Cas9 Genome Editing in Overcoming Bacterial Antimicrobial Resistance: A Comprehensive Narrative Review",
+      "abstract": "Bacterial antimicrobial resistance (AMR) represents a global public health crisis that threatens to render conventional antibiotic regimens obsolete. The clustered regularly interspaced short palindromic repeats-associated protein 9 (CRISPR/Cas9) system has emerged as a revolutionary tool in molecular biology, offering unmatched sequence-specific genome-editing capabilities. By leveraging custom single-guide RNAs (sgRNAs), CRISPR/Cas9 can precisely target, cleave, or modify specific genomic and plasmid-borne resistance determinants, thereby neutralizing resistance pathways or directly inducing lethal double-strand breaks in pathogenic bacteria. Beyond simple gene disruption, CRISPR-based tools can eliminate resistance-carrying plasmids, block horizontal gene transfer (HGT), impair virulence pathways, and dismantle biofilm architectures while preserving commensal microflora. This narrative review provides a rigorous, updated synthesis of the structural and mechanical framework of CRISPR/Cas9, its targeted application across major multidrug-resistant (MDR) pathogens, a side-by-side analysis of various delivery systems, and the current balance of therapeutic promise against biological, ecological, and translational safety risks. Furthermore, we outline synergistic integrations with advanced nanocarriers, bacteriophage platforms, synthetic biology, and antimicrobial peptides (AMPs), laying out a prospective roadmap toward publishable clinical translation.",
+      "authors": "Mehari MG.",
+      "journal": "预印本平台",
+      "doi": "10.20944/preprints202610.1461.v1",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1339230",
+      "url": "https://doi.org/10.20944/preprints202610.1461.v1",
+      "publishedAt": "2026-10-15",
+      "discoveredAt": "2026-10-29T01:22:23.804Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
       "isRetraction": false,
       "readingScope": "仅摘要",
       "license": null,
@@ -3449,6 +3640,101 @@
       "collection": "Europe PMC"
     },
     {
+      "id": "doi:10.21203/rs.3.rs-9654696/v2",
+      "title": "Multi-omics analyses reveal environmentally adaptive cell-state remodeling during human iPSC biomanufacturing",
+      "abstract": "Abstract Human induced pluripotent stem cells can retain conventional markers of pluripotency while acquiring environmentally dependent molecular states that may influence their developmental competence. Yet, how biomanufacturing conditions reorganize the interconnected networks governing cell state remains poorly characterized. Here, we first examined compensation of hiPSCs to static aggregation and dynamic agitation by proteomics. We then examined hiPSCs during single-passage culture in stirred-suspension bioprocesses under varying oxygen and agitation conditions. Intracellular metabolomic and transcriptomic profiling revealed distinct responses across culture configuration, hydrodynamic exposure, and oxygenation. Transition into dynamic culture broadly remodeled mitochondrial organization, carbon allocation, mechanotransduction, proteostasis, and developmental regulation. Increasing agitation produced a persistent response involving cellular architecture, growth-factor signaling, genome maintenance, and Epiblast- and lineage-aligned programs, whereas oxygenation elicited a smaller and more transient metabolic and transcriptional response. Through comparison with a human gastrulation reference, we show that these adaptations intersect with natural developmental programs without reproducing coherent epiblast state or lineage commitment. These findings demonstrate that bioprocess conditions can preserve core pluripotent identity while remodeling broader molecular states associated with developmental responsiveness, providing perspective on evaluating and optimizing hiPSC quality in biomanufacturing beyond restricted marker panels.",
+      "authors": "Colter J, Dang T, Gysel EJ, Young D, Dufour A, Lewis I, Murari K, Kallos MS.",
+      "journal": "预印本平台",
+      "doi": "10.21203/rs.3.rs-9654696/v2",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1341098",
+      "url": "https://doi.org/10.21203/rs.3.rs-9654696/v2",
+      "publishedAt": "2026-10-13",
+      "discoveredAt": "2026-10-29T01:22:23.815Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1088/1758-5090/aea7dc",
+      "title": "Optogenetic-enabled biomanufacturing of long-projecting motor tracts for neural reconstruction.",
+      "abstract": "Tissue-engineered spinal tracts (TE-STs), a subclass of micro-tissue-engineered neural networks, are designed to replace long-range axonal pathways but are limited by the slow intrinsic growth of many neuronal subtypes, particularly spinal motor neurons. Optogenetic stimulation provides cell-type-specific, precise control of activity that may accelerate neurite extension during biofabrication. Accordingly, this study evaluates whether integrating optogenetic stimulation into the biomanufacturing process enhances motor axonal outgrowth within tailored hydrogel micro-columns in vitro. Motor neuron aggregates from embryonic rat spinal cord were generated by forced aggregation and encased within agarose micro-columns (701 µ m OD, ∼300 µ m ID; 3-12 mm length) to create TE-STs. Neurons were transduced to express the red-shifted channelrhodopsin ChrimsonR. Stimulation parameters were first optimized in planar cultures, where a 1-hour red-light train at 10 Hz (625 nm) maximized neurite outgrowth without significant heating. TE-STs were then stimulated at 10 Hz for 1 h at 7 d in vitro (DIV) and then fixed at 21 DIV. Groups included transduced and non-transduced neurons, each with and without light stimulation. Axonal extension was quantified within the micro-column lumen, and two-way analysis of variance was used for analysis. TE-STs exhibited robust axonal growth with organized tract architecture, preserved neuronal health, and stable motor neuron phenotype. Transduced neurons with and without light stimulation extended axons faster than non-transduced controls, whereas no differences were observed between non-transduced neurons with or without light. Notably, transduced neurons exposed to a single round of optogenetic stimulation at 7 DIV reached ∼5.5 mm of growth by 21 DIV, representing a ∼2.5-fold increase over baseline controls. Brief, targeted optogenetic activation is sufficient to accelerate axonal growth of engineered spinal motor tracts during in vitro biomanufacturing. These findings establish optogenetic stimulation as a programmable biomanufacturing input that accelerates axonal assembly through activity-dependent mechanisms while remaining compatible with scalable three-dimensional tissue fabrication.",
+      "authors": "Burrell JC, Tien VJ, Vu PT, Clizbe DR, Spadola M, Ghenbot Y, Ozturk AK, Cullen DK.",
+      "journal": "Biofabrication",
+      "doi": "10.1088/1758-5090/aea7dc",
+      "pmid": "42743986",
+      "pmcid": "PMC13659052",
+      "source": "MED",
+      "sourceId": "42743986",
+      "url": "https://doi.org/10.1088/1758-5090/aea7dc",
+      "publishedAt": "2026-10-13",
+      "discoveredAt": "2026-10-29T01:22:23.815Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": "cc by",
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1371/journal.pbio.3003778",
+      "title": "PrimeStack editors enable efficient and site-specific integration of large multigene cargos in plants.",
+      "abstract": "Precise, site-specific integration of large DNA sequences into plant genomes is a long-standing goal of crop biotechnology and synthetic biology, yet remains constrained by random insertion, inefficient homologous recombination, and gene targeting. Here, we present PrimeStack, a DSB-independent platform that integrates PE with the unidirectional large serine integrase Bxb1, leveraging evolved variants for enhanced activity, to achieve the programmable insertion of multigene, multikilobase cargos at predefined genomic safe harbors (GSH) in rice (Oryza sativa). Optimized prime editors first install attP landing sites with high fidelity and heritability followed by Bxb1-mediated recombination that generates irreversible integration of genetic information. PrimeStack enabled targeted large-cargo integration in regenerated rice plants with efficiencies of up to 45%, as determined by junction-specific PCR analyses. No obvious morphological differences from WT plants were observed at 5 weeks after transfer to soil under the evaluated conditions. We validate its utility by achieving targeted insertion of a carotenoid cassette at an experimentally confirmed genomic safe harbor. PrimeStack delivers a modular, site-specific gene stacking platform that enables predictable, multigene trait pyramiding and pathway construction at GSH, thereby accelerating the development of improved and resilient crop varieties, as well as scalable plant-based biomanufacturing and a powerful chassis for synthetic biology.",
+      "authors": "Sánchez E, Sedeek K, Butt H, Mahfouz M.",
+      "journal": "PLoS biology",
+      "doi": "10.1371/journal.pbio.3003778",
+      "pmid": "42868167",
+      "pmcid": "PMC13693989",
+      "source": "MED",
+      "sourceId": "42868167",
+      "url": "https://doi.org/10.1371/journal.pbio.3003778",
+      "publishedAt": "2026-10-13",
+      "discoveredAt": "2026-10-29T01:22:23.815Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": "cc by",
+      "version": null,
+      "collection": "Europe PMC",
+      "downloadMetric": {
+        "count": 265,
+        "kind": "pdf_downloads",
+        "platform": "PLOS",
+        "window": "cumulative",
+        "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
+        "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
+        "fetchedAt": "2026-10-29T01:22:24.399Z",
+        "provenance": "publisher_api",
+        "coverageStart": "2026-10",
+        "coverageEnd": "2026-10",
+        "coverageMonths": 1,
+        "reportedMonths": 1,
+        "missingPdfMonths": [],
+        "coverageNote": "仅累加接口明确返回的逐篇 get-pdf 月计数，不含 HTML/XML，不代表独立读者；最近数据可能延迟48小时。"
+      }
+    },
+    {
       "id": "doi:10.1007/s11274-026-05339-5",
       "title": "Recent progress in microbial succinic acid production: integrating genome engineering and fermentation strategies.",
       "abstract": "Succinic acid is a four-carbon dicarboxylic acid and important platform chemical with diverse applications in food and feed, pharmaceutical, textile, and bio-based polymer industries. Growing demand for sustainable and economically viable production routes has stimulated increasing interest in microbial routes for succinic acid biosynthesis as an alternative to conventional petrochemical processes. This mini-review summarizes recent advances in microbial succinic acid production, with particular emphasis on strain development, metabolic engineering, and fermentation-process optimization. Significant progress has been achieved through engineering of both native producers, Actinobacillus succinogenes, Mannheimia succiniciproducens, and Corynebacterium glutamicum and non-native production hosts, such as Escherichia coli, Klebsiella oxytoca, and several yeast species, leading to marked improvements in succinate concentration, yield, and productivity. Emerging approaches, including adaptive-laboratory evolution, systems-level omics, and CRISPR-Cas9, have enabled more precise control of carbon flux toward succinic acid biosynthesis while improving cellular tolerance to low pH and elevated succinic acid concentrations. In parallel, advances in fermentation and bioprocess strategies, particularly low-pH fermentation and enhanced CO₂ fixation, together with the valorization of renewable feedstocks such as lignocellulosic hydrolysates, offer promising opportunities to improve process feasibility and sustainability. However, their economic competitiveness remains strongly influenced by feedstock pretreatment, hydrolysis, detoxification, fermentation performance, and downstream processing requirements. Finally, current challenges and future perspectives for industrial-scale succinic acid production are discussed, highlighting the importance of integrating strain engineering with innovative bioprocess design to develop robust, economically competitive, and environmentally sustainable production platforms.",
@@ -3635,24 +3921,76 @@
       "license": null,
       "version": null,
       "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.3389/fpls.2026.2003419",
+      "title": "Editorial: Biosynthetic pathways and metabolic engineering of bioactive natural products from medicinal plants.",
+      "abstract": "",
+      "authors": "Xie L.",
+      "journal": "Frontiers in plant science",
+      "doi": "10.3389/fpls.2026.2003419",
+      "pmid": "42923217",
+      "pmcid": "PMC13687251",
+      "source": "MED",
+      "sourceId": "42923217",
+      "url": "https://doi.org/10.3389/fpls.2026.2003419",
+      "publishedAt": "2026-10-08",
+      "discoveredAt": "2026-10-29T01:22:23.886Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "文献记录",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅题录",
+      "license": "cc by",
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1080/15592324.2026.2720310",
+      "title": "Mapping the proteome landscape in Euglena gracilis : global, phospho, and ubiquitin proteomes under anaerobic response.",
+      "abstract": "The photosynthetic flagellate Euglena gracilis (Euglena) exhibits a remarkable metabolic flexibility, enabling the dynamic coordination of energy production and resource partitioning during anaerobic adaptation. While the wax ester synthesis under hypoxia is well-documented, the regulatory interplay between protein abundance and post-translational modifications (PTMs) remains unexplored. A definitive understanding of this metabolic remodeling is hindered by the lack of high-depth proteomic resources and the fragmented genome annotations, which fail to capture Euglena's proteomic diversity and plasticity. Here, we provide a comprehensive Euglena proteome landscape through advanced LC-MS/MS analysis. By leveraging the recently refined proteome annotation, we identified 9,122 protein groups, 12,027 phospho-peptides, and 3,346 ubiquitinated peptides, establishing a comprehensive Euglena's proteome reference. Our results demonstrate that anaerobic adaptation is characterized by distinct phosphorylation and ubiquitination signatures that often occur independently of changes in global protein abundance, revealing a layer of PTM-mediated control over central metabolism during anaerobic adaptation in Euglena. This study provides a foundational resource that bridges the gap between genomic potential and functional metabolic in Euglena. By resolving the interplay between protein levels and PTM-driven regulation, our work offers a new resource for investigating environmental adaptation and provides a rigorous framework for future metabolic engineering in Euglena.",
+      "authors": "Yosua, Tamaki S, Nishino K, Ezoe A, Minami A, Kim JS, Firdaus ARR, Subroto T, Kosako H, Mochida K.",
+      "journal": "Plant signaling & behavior",
+      "doi": "10.1080/15592324.2026.2720310",
+      "pmid": "42850892",
+      "pmcid": "PMC13660438",
+      "source": "MED",
+      "sourceId": "42850892",
+      "url": "https://doi.org/10.1080/15592324.2026.2720310",
+      "publishedAt": "2026-10-08",
+      "discoveredAt": "2026-10-29T01:22:23.887Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": "cc by",
+      "version": null,
+      "collection": "Europe PMC"
     }
   ],
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 135,
+      "hitCount": 130,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 97,
+      "hitCount": 95,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 126,
+      "hitCount": 123,
       "count": 50,
       "truncated": true
     }
@@ -3666,10 +4004,14 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "not_configured",
-    "lastRunAt": "2026-10-28T16:51:28.711Z",
+    "lastRunAt": "2026-10-29T01:22:24.401Z",
     "failedTopics": 0,
-    "completedAt": "2026-10-28T16:51:28.715Z",
+    "collectionSource": {
+      "trigger": "workflow_dispatch",
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/40799999055"
+    },
     "modelRequestsThisRun": 0,
-    "analysisFailures": 0
+    "analysisFailures": 0,
+    "completedAt": "2026-10-29T01:22:24.473Z"
   }
 }
