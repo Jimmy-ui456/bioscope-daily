@@ -1,5 +1,5 @@
-import { translationOf, attachEnrichment, interpretationOf } from './enrichment.js?v=0.2.7';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.7';
+import { translationOf, attachEnrichment, interpretationOf } from './enrichment.js?v=0.2.8';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.8';
 
 export const TOPICS = [
   { id: 'synthetic', name: '合成生物学', en: 'Synthetic biology', query: 'TITLE_ABS:"synthetic biology"', words: ['synthetic biology', 'synthetic circuit', 'synthetic gene', 'genome engineering'], color: 'green' },
@@ -7,7 +7,7 @@ export const TOPICS = [
   { id: 'microbial', name: '微生物制造', en: 'Microbial biomanufacturing', query: '(TITLE_ABS:"microbial cell factories" OR TITLE_ABS:"microbial production" OR TITLE_ABS:"biomanufacturing")', words: ['microbial', 'biomanufacturing', 'cell factor', 'bioproduction', 'yeast'], color: 'blue' }
 ];
 export const API_URL = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search';
-export const APP_VERSION = '0.2.7';
+export const APP_VERSION = '0.2.8';
 
 export function plainText(value = '') {
   return String(value).replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&#(\d+);/g, (_, n) => Number(n) <= 0x10ffff ? String.fromCodePoint(Number(n)) : '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -32,12 +32,21 @@ export function classify(record, fallback) {
   const tags = TOPICS.filter(t => t.words.some(w => text.includes(w))).map(t => t.id);
   return [...new Set([...tags, ...(fallback ? [fallback] : [])])];
 }
+export function isRetracted(paper) {
+  if (!paper || typeof paper !== 'object') return false;
+  if (paper.isRetraction === true) return true;
+  // Only explicit metadata labels count. A title mentioning retraction, or a
+  // status such as "未发现撤稿" / "No retraction found", is not a positive signal.
+  const positiveLabel = /^(?:撤稿相关|已撤稿|撤稿(?:通知|论文)?|已撤回|撤回通知|retracted(?: publication| article)?|retraction(?: of publication| notice)?|withdrawn(?: publication| article)?|withdrawal notice)(?:$|\s*[(:：（])/i;
+  return ['type', 'status'].some(field => typeof paper[field] === 'string'
+    && paper[field].split(/[·|/;；,，\n]+/).some(label => positiveLabel.test(label.trim().replace(/\s+/g, ' '))));
+}
 export function normalizePaper(record, topic, fetchedAt = new Date().toISOString()) {
   const doi = cleanDoi(record.doi);
   const publicationTypes = record.pubTypeList?.pubType || [];
   const joinedTypes = publicationTypes.join(' ').toLowerCase();
   const isPreprint = /preprint/i.test(joinedTypes) || record.source === 'PPR';
-  const isRetraction = /retraction of publication|retracted publication/.test(joinedTypes);
+  const isRetraction = isRetracted({ type: publicationTypes.join('; ') });
   const journal = plainText(record.journalInfo?.journal?.title || (isPreprint ? '预印本平台' : '期刊信息未提供'));
   const abstract = plainText(record.abstractText || '');
   const title = plainText(record.title || '未提供标题');
@@ -60,13 +69,14 @@ export function mergePapersWithIdMap(existing, incoming) {
     const matches = out.filter(p => p.id === paper.id || (doi && cleanDoi(p.doi) === doi) || (p.pmid && paper.pmid && p.pmid === paper.pmid));
     if (!matches.length) {
       const added = { ...paper };
+      if (isRetracted(paper)) { added.isRetraction = true; added.type = '撤稿相关'; added.status = '撤稿相关'; }
       out.push(added); inputIds.set(added, new Set([paper.id])); continue;
     }
     const previous = matches.reduce((a, b) => ({ ...a, ...b, id: a.id, doi: b.doi || a.doi, pmid: b.pmid || a.pmid, abstract: b.abstract || a.abstract, discoveredAt: a.discoveredAt < b.discoveredAt ? a.discoveredAt : b.discoveredAt, topics: [...new Set([...a.topics, ...b.topics])] }));
     const abstract = paper.abstract || previous.abstract;
     const merged = { ...previous, ...paper, id: previous.id, doi: doi || previous.doi, pmid: paper.pmid || previous.pmid, discoveredAt: previous.discoveredAt < paper.discoveredAt ? previous.discoveredAt : paper.discoveredAt, abstract, readingScope: abstract ? '仅摘要' : '仅题录', topics: [...new Set([...previous.topics, ...paper.topics])] };
     // Missing metadata in a later discovery cannot undo an earlier retraction signal.
-    if (paper.isRetraction || matches.some(p => p.isRetraction)) {
+    if (isRetracted(paper) || matches.some(isRetracted)) {
       merged.isRetraction = true; merged.type = '撤稿相关'; merged.status = '撤稿相关';
     }
     inputIds.set(merged, new Set([paper.id, ...matches.flatMap(p => [...inputIds.get(p)])]));
@@ -80,6 +90,7 @@ export function mergePapersWithIdMap(existing, incoming) {
 }
 export function isValidPaper(paper) {
   if (!paper || typeof paper !== 'object') return false;
+  if (['isRetraction', 'isPreprint'].some(key => Object.hasOwn(paper, key) && typeof paper[key] !== 'boolean')) return false;
   const strings = ['id', 'title', 'abstract', 'authors', 'journal', 'url', 'status', 'type', 'discoveredAt', 'readingScope'];
   if (!strings.every(k => typeof paper[k] === 'string' && paper[k].length < 100000)) return false;
   if (!Array.isArray(paper.topics) || !paper.topics.every(id => TOPICS.some(t => t.id === id))) return false;
@@ -117,7 +128,7 @@ export async function collectTopic(topic, { days = 30, maxPages = 2, pageSize = 
 export function chooseReportPapers(papers, selectedIds, { days = 7, at = new Date(), limit = 10 } = {}) {
   const start = dayBefore(Math.max(0, days - 1), at);
   const end = beijingDay(at);
-  return papers.filter(p => selectedIds.includes(p.id) && !p.isRetraction && p.publishedAt && p.publishedAt >= start && p.publishedAt <= end).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)).slice(0, limit);
+  return papers.filter(p => selectedIds.includes(p.id) && !isRetracted(p) && p.publishedAt && p.publishedAt >= start && p.publishedAt <= end).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)).slice(0, limit);
 }
 function markdownText(value) { return String(value || '').replace(/[\[\]<>]/g, '').replace(/\r?\n/g, ' '); }
 function markdownHtmlText(value) { return String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
@@ -142,9 +153,9 @@ function appendInterpretationMarkdown(lines, item) {
   lines.push(`模型：${markdownText(item.model || '记录未注明')} · 生成时间：${markdownText(item.createdAt || '记录未注明')}`, '');
 }
 export function knownRetraction(paper, currentPapers = []) {
-  if (paper.isRetraction) return paper;
+  if (isRetracted(paper)) return paper;
   const doi = cleanDoi(paper.doi);
-  return currentPapers.find(current => current.isRetraction && (current.id === paper.id
+  return currentPapers.find(current => isRetracted(current) && (current.id === paper.id
     || (doi && cleanDoi(current.doi) === doi)
     || (paper.pmid && current.pmid && paper.pmid === current.pmid))) || null;
 }
@@ -157,7 +168,7 @@ export function reportMarkdown(report, catalog = {}, currentPapers = []) {
     const t = translationOf(enriched);
     const interpretation = interpretationOf(enriched);
     const retraction = knownRetraction(p, currentPapers);
-    lines.push(`## ${i + 1}. ${markdownText(t?.titleZh || p.title)}`, '', t ? `**English title**: ${markdownText(p.title)}` : '**中文对照：待翻译**', '', `- 出处：${markdownText(p.journal)} · ${p.publishedAt || '日期未知'}`, `- 作者：${markdownText(p.authors)}`, `- 类型／状态：${p.type}／${p.status}`, `- 阅读范围：${p.readingScope}`, `- DOI：${p.doi || '接口未提供'}`, `- PMID：${p.pmid || '不适用／未提供'}`, `- 原文：${p.url}`, '', t ? `**中文摘要（辅助译文，未审核）**\n\n${t.abstractZh}` : '中文摘要：待翻译。', '', p.abstract ? `**原文摘要**\n\n${p.abstract}` : '接口未提供摘要，请阅读原文。', '');
+    lines.push(`## ${i + 1}. ${markdownText(t?.titleZh || p.title)}`, '', t ? `**English title**: ${markdownText(p.title)}` : '**中文对照：待翻译**', '', `- 出处：${markdownText(p.journal)} · ${p.publishedAt || '日期未知'}`, `- 作者：${markdownText(p.authors)}`, `- 类型／状态：${p.type}／${p.status}`, `- 阅读范围：${p.readingScope}`, `- DOI：${p.doi || '接口未提供'}`, `- PMID：${p.pmid || '不适用／未提供'}`, `- 原文：${p.url}`, '', ...(t?.sourceNote ? [`**原文来源提示：${markdownText(t.sourceNote)}**`, ''] : []), t ? `**中文摘要（辅助译文，未审核）**\n\n${t.abstractZh}` : '中文摘要：待翻译。', '', p.abstract ? `**原文摘要**\n\n${p.abstract}` : '接口未提供摘要，请阅读原文。', '');
     if (retraction) lines.push(`**已知撤稿相关信号**：本库已记录此文献的撤稿相关状态；原刊快照保持原样，请核对来源：${retraction.url}`, '');
     if (interpretation) appendInterpretationMarkdown(lines, interpretation);
   });

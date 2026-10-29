@@ -1,4 +1,4 @@
-import { TOPICS, beijingDay, cleanDoi, dayBefore, mergePapers } from '../dist/core.js';
+import { TOPICS, beijingDay, cleanDoi, dayBefore, mergePapers, isRetracted } from '../dist/core.js';
 import { attachEnrichment } from '../dist/enrichment.js';
 import { validWorkflowRunUrl } from '../dist/collection-source.js';
 
@@ -28,10 +28,6 @@ function identityAliases(paper) {
     cleanDoi(paper.doi) && `doi:${cleanDoi(paper.doi)}`,
     paper.pmid && `pmid:${paper.pmid}`,
   ].filter(Boolean);
-}
-
-function isRetracted(paper) {
-  return Boolean(paper.isRetraction) || /撤稿|retracted publication|retraction of publication/i.test(`${paper.type || ''} ${paper.status || ''}`);
 }
 
 function usableRecord(paper) {

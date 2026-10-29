@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { TOPICS, collectTopic, mergePapers, beijingDay } from '../dist/core.js';
+import { TOPICS, collectTopic, mergePapers, beijingDay, isRetracted } from '../dist/core.js';
 import { attachEnrichment, translationOf, sourceFingerprint } from '../dist/enrichment.js';
 import { interpretPaper, PROMPT_VERSION } from './interpret.mjs';
 import { applyPublisherMetrics, fetchPublisherMetric } from './downloads.mjs';
@@ -52,7 +52,7 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     await saveJson(output, library);
     let attempted = 0;
     if (configuredModel(configModel)) for (const paper of papers) {
-      if (!paper.abstract || translationOf(paper)?.origin === 'model' || paper.isRetraction) continue;
+      if (!paper.abstract || translationOf(paper)?.origin === 'model' || isRetracted(paper)) continue;
       if (attempted >= (config.maxAnalysesPerRun ?? 10) || usage.requests >= (config.maxModelRequestsPerDay ?? 20)) break;
       const key = requestKey(paper, configModel);
       // A pending / unknown request is never retried automatically: it may already have cost money.

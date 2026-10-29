@@ -1,4 +1,4 @@
-import { checkEvidenceClaim } from './evidence.js?v=0.2.7';
+import { checkEvidenceClaim } from './evidence.js?v=0.2.8';
 
 // Shared by the static reader and the unattended collection job. No credentials here.
 export function sourceFingerprint(paper) {
@@ -15,8 +15,16 @@ export function validEnrichment(paper, item) {
 }
 export function attachEnrichment(paper, catalog = {}) {
   const candidates = [paper.enrichment, catalog[paper.id], paper.doi && catalog[`doi:${paper.doi.toLowerCase()}`], paper.pmid && catalog[`pmid:${paper.pmid}`]];
-  const candidate = candidates.find(item => validEnrichment(paper, item));
-  if (candidate) return { ...paper, enrichment: candidate };
+  const valid = candidates.filter(item => validEnrichment(paper, item));
+  const candidate = valid[0];
+  if (candidate) {
+    // Source warnings survive a newer translation, but only for the same exact
+    // title and abstract. They describe the supplied source, not study quality.
+    const noted = valid.find(item => item.sourceTitle === paper.title && item.sourceAbstract === (paper.abstract || '')
+      && typeof item.sourceNote === 'string' && item.sourceNote.trim() && item.sourceNote.length <= 1000);
+    const { sourceNote: _unchecked, ...enrichment } = candidate;
+    return { ...paper, enrichment: { ...enrichment, ...(noted ? { sourceNote: noted.sourceNote.trim() } : {}) } };
+  }
   const { enrichment: _stale, ...clean } = paper;
   return clean;
 }

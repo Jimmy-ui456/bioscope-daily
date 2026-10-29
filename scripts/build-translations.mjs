@@ -18,7 +18,9 @@ for (const row of rows) {
     : source.papers.find(p => p.doi === row.doi);
   if (!paper) throw new Error(`译文找不到对应原文：${row.doi}`);
   if (typeof row.titleZh !== 'string' || !row.titleZh.trim() || typeof row.abstractZh !== 'string' || !row.abstractZh.trim()) throw new Error(`辅助译文缺失：${paper.id}`);
-  items[paper.id] = { titleZh: row.titleZh, abstractZh: row.abstractZh, sourceTitle: paper.title, sourceAbstract: paper.abstract, sourceFingerprint: sourceFingerprint(paper), origin: 'assistant_translation', createdAt: '2026-10-29T00:00:00+08:00', reviewed: false, scope: 'abstract_only' };
+  if (row.sourceNote !== undefined && (typeof row.sourceNote !== 'string' || row.sourceNote.length > 1000)) throw new Error(`原文来源提示无效：${paper.id}`);
+  const sourceNote = row.sourceNote?.trim();
+  items[paper.id] = { titleZh: row.titleZh, abstractZh: row.abstractZh, sourceTitle: paper.title, sourceAbstract: paper.abstract, sourceFingerprint: sourceFingerprint(paper), origin: 'assistant_translation', createdAt: '2026-10-29T00:00:00+08:00', reviewed: false, scope: 'abstract_only', ...(sourceNote ? { sourceNote } : {}) };
 }
 await writeFile(new URL('../dist/translations.json', import.meta.url), JSON.stringify({ version: 1, note: '原型附带的辅助译文，尚未由领域专家审核；原始题名或摘要变化后自动失效。', items }, null, 2) + '\n');
 console.log(`已生成 ${Object.keys(items).length} 篇中英对照。`);

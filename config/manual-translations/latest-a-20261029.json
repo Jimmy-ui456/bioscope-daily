@@ -1,0 +1,27 @@
+[
+  {
+    "doi": "10.1515/jib-2026-0037",
+    "paperId": "doi:10.1515/jib-2026-0037",
+    "sourceTitle": "Standards in systems and synthetic biology: status, developments, and tools in 2026.",
+    "sourceAbstract": "For over a decade, the Journal of Integrative Bioinformatics has published special issues providing updated specifications for standards in systems biology and synthetic biology. Beginning in 2024, the special issues expanded to include novel or refined tools that leverage these standards or play a key role in their implementation. The current special issue contains four updated specifications and two tools or libraries. In addition, this document functions as a comprehensive reference for all COMBINE standard specifications, ensuring researchers and practitioners can access the most up-to-date versions available in the field.",
+    "titleZh": "系统生物学与合成生物学标准：2026年的现状、进展与工具",
+    "abstractZh": "十多年来，《Journal of Integrative Bioinformatics》持续出版专刊，提供系统生物学与合成生物学标准的更新规范。从2024年起，专刊的收录范围扩展至新开发或改进的工具，这些工具利用上述标准，或在标准实施中发挥关键作用。本期专刊包含4项更新规范以及2项工具或程序库。此外，本文还为全部COMBINE标准规范提供综合参考，确保研究者和实践人员能够获取该领域最新的可用版本。"
+  },
+  {
+    "doi": "10.21203/rs.3.rs-11272552/v1",
+    "paperId": "doi:10.21203/rs.3.rs-11272552/v1",
+    "sourceTitle": "Synthetic Whole-Cell Biosensor for Early Transplant Rejection Detection",
+    "sourceAbstract": "Abstract Early detection of transplant rejection remains a major unmet clinical need because histopathology is invasive, episodic, and subject to sampling error, whereas serum creatinine and other routine chemistries often rise only after injury is established [1–4]. Here we describe a synthetic whole-cell biosensor that converts rejection-associated urinary nucleic acid signatures into a quantifiable fluorescent output using engineered Escherichia coli Nissle 1917. The system integrates three clinically relevant input classes—urinary CXCL10/IP-10 , CXCL9 , and donor-derived cell-free DNA (dd-cfDNA) surrogate amplicons—through orthogonal toehold switches and ribocomputing-inspired logic gates to improve specificity relative to single-marker assays [3–10]. Using synthetic transcripts, the individual sensing modules showed limits of detection of 3.1 × 10^2 to 8.9 × 10^2 copies per reaction and ON/OFF dynamic ranges of 10.8- to 17.4-fold. The multiplex AND gate produced an 18.6 ± 2.9-fold signal increase only when rejection-like biomarker combinations were present, while suppressing single-marker false positives to",
+    "titleZh": "用于早期移植排斥检测的合成全细胞生物传感器",
+    "abstractZh": "摘要：移植排斥的早期检测仍是一项尚未得到充分满足的重要临床需求，因为组织病理学检查具有侵入性、只能间断进行，且易受取样误差影响，而血清肌酐及其他常规生化指标往往在损伤已经发生后才升高[1–4]。本文介绍一种合成全细胞生物传感器，利用工程化大肠杆菌Nissle 1917（Escherichia coli Nissle 1917），将尿液中与排斥相关的核酸特征转化为可定量的荧光输出。该系统通过正交的toehold开关和受RNA计算（ribocomputing）启发的逻辑门，整合三类具有临床相关性的输入——尿液CXCL10/IP-10、CXCL9以及供体来源游离DNA（dd-cfDNA）的替代扩增子，以相较于单标志物检测提高特异性[3–10]。使用合成转录本时，各独立传感模块的检测限为每反应3.1 × 10^2至8.9 × 10^2拷贝，开启/关闭（ON/OFF）动态范围为10.8至17.4倍。仅在存在类似排斥反应的生物标志物组合时，多重与门（AND门）才产生18.6 ± 2.9倍的信号增强，同时将单标志物假阳性抑制至……",
+    "sourceNote": "原接口摘要在句中截断，本译文仅覆盖已返回片段；末尾阈值和完整研究结果尚无法据此核对。"
+  },
+  {
+    "doi": "10.21203/rs.3.rs-11458557/v1",
+    "paperId": "doi:10.21203/rs.3.rs-11458557/v1",
+    "sourceTitle": "Carbon-Convergent Co-utilization of Ethanol and CO2 Enables Efficient 3-Hydroxypropionic Acid Biosynthesis in Komagataella phaffii",
+    "sourceAbstract": "Abstract CO 2 is an abundant feedstock for biomanufacturing, but its high oxidation state demands substantial reducing power for multicarbon biosynthesis. Here, we establish a carbon-convergent strategy for producing 3-hydroxypropionic acid (3-HP) through the co-utilization of ethanol and inorganic carbon in engineered Komagataella phaffii. Ethanol serves as a nexus molecule that supplies a conserved C2 backbone together with reducing equivalents, enabling a \"2+1=3\" route to 3-HP through inorganic C1 incorporation. Coordinated engineering of ethanol assimilation, acetate activation, carboxylation, cofactor supply, and energy metabolism generated strain LT-28, which produced 127.04 g/L 3-HP, the highest titer reported so far for CO 2 -based biosynthesis. 13C tracing verified the joint contribution of ethanol-derived C2 carbon and inorganic C1 carbon to the product skeleton. LT-28 also converted an unpurified ethanol-rich stream from thermocatalytic CO2 reduction into 3-HP. These findings demonstrate the feasibility of coupling chemical CO 2 reduction with microbial 3-HP biosynthesis through ethanol-mediated carbon convergence.",
+    "titleZh": "乙醇与CO₂的碳汇聚协同利用实现Komagataella phaffii中3-羟基丙酸的高效生物合成",
+    "abstractZh": "摘要：CO₂是一种丰富的生物制造原料，但其高氧化态使多碳化合物的生物合成需要大量还原力。本研究在工程化Komagataella phaffii中建立了一种碳汇聚策略，通过协同利用乙醇和无机碳生产3-羟基丙酸（3-HP）。乙醇作为枢纽分子，在提供得以保留的C2骨架的同时提供还原当量，从而通过并入无机C1碳，实现通向3-HP的“2+1=3”路线。通过协同改造乙醇同化、乙酸活化、羧化、辅因子供应及能量代谢，研究者获得了LT-28菌株，其3-HP滴度达到127.04 g/L，是迄今报道的基于CO₂生物合成的最高滴度。¹³C示踪证实，乙醇来源的C2碳和无机C1碳共同参与构成产物骨架。LT-28还将来自CO₂热催化还原的、未经纯化的富乙醇物料流转化为3-HP。这些发现证明，通过乙醇介导的碳汇聚，将CO₂化学还原与微生物3-HP生物合成相耦合是可行的。"
+  }
+]
