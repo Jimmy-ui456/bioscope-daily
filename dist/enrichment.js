@@ -1,4 +1,4 @@
-import { checkEvidenceClaim } from './evidence.js?v=0.2.8';
+import { checkEvidenceClaim } from './evidence.js?v=0.2.9';
 
 // Shared by the static reader and the unattended collection job. No credentials here.
 export function sourceFingerprint(paper) {
@@ -142,4 +142,16 @@ export function metricFetchedAtLabel(metric) {
     hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
   }).formatToParts(new Date(value)).map(part => [part.type, part.value]));
   return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}（北京）`;
+}
+export function downloadRefreshLabel(paper) {
+  const refresh = paper?.downloadRefresh;
+  if (!refresh || typeof refresh !== 'object' || Array.isArray(refresh)) return '';
+  const retained = validateDownloadMetric(paper.downloadMetric) ? '保留原先计数及其采集时间，不代表本次已更新。' : '下载量保持未知，不记为0。';
+  if (refresh.status === 'skipped' && refresh.reason === 'batch_limit') return `最近下载统计批次达到上限，此篇未请求。${retained}`;
+  if (!validMetricTimestamp(refresh.checkedAt)) return '';
+  const at = metricFetchedAtLabel({ fetchedAt: refresh.checkedAt });
+  if (refresh.status === 'updated' && validateDownloadMetric(paper.downloadMetric)) return `最近逐篇刷新：${at}，取得有效原平台统计。`;
+  if (refresh.status === 'failed') return `最近逐篇刷新：${at}，下载统计请求失败。${retained}`;
+  if (refresh.status === 'not_available') return `最近逐篇刷新：${at}，未返回有效的原平台逐篇统计。${retained}`;
+  return '';
 }

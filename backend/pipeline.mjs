@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 import { TOPICS, collectTopic, mergePapers, beijingDay, isRetracted } from '../dist/core.js';
 import { attachEnrichment, translationOf, sourceFingerprint } from '../dist/enrichment.js';
 import { interpretPaper, PROMPT_VERSION } from './interpret.mjs';
-import { applyPublisherMetrics, fetchPublisherMetric } from './downloads.mjs';
+import { applyPublisherMetrics, fetchPublisherMetric, refreshPublisherMetrics } from './downloads.mjs';
 import { acquirePipelineLock } from './lock.mjs';
 import { createPublicReport, updatePublicReportHistory } from './reports.mjs';
 import { createDailyRss } from './feeds.mjs';
@@ -36,9 +36,7 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     let papers = mergePapers(previous.papers, good.flatMap(r => r.value.papers)).slice(0, config.maxPapers || 500).map(p => attachEnrichment(p, catalog));
     const publisherRecords = (await readJson(path.join(root, 'config/download-metrics.json'), { records: [] })).records;
     papers = applyPublisherMetrics(papers, publisherRecords);
-    for (const paper of papers.filter(p => /^(10\.5281\/zenodo\.|10\.1371\/journal\.)/i.test(p.doi || '')).slice(0, 20)) {
-      try { const metric = await fetchMetric(paper); if (metric) paper.downloadMetric = metric; } catch { /* Unavailable metrics stay unknown, never zero. */ }
-    }
+    papers = await refreshPublisherMetrics(papers, { fetchMetric });
     const configModel = modelConfig(env);
     const today = beijingDay(now);
     const usage = previous.modelUsage?.date === today ? { ...previous.modelUsage } : { date: today, requests: 0 };

@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { beijingDay } from '../dist/core.js';
 import { PROJECT, readJson, saveJson, runPipeline } from './pipeline.mjs';
+import { assertSchedulerState } from './scheduler-state.mjs';
 
 export function dueSlot(now, clock = '07:17') {
   const match = /^(\d{2}):(\d{2})$/.exec(clock);
@@ -19,7 +20,7 @@ export function startScheduler({ root = PROJECT, run = runPipeline, intervalMs =
       const slot = dueSlot(clock(), config.scheduleBeijing || '07:17');
       if (!slot) return;
       const statusPath = path.join(root, '.data/scheduler.json');
-      const status = await readJson(statusPath, {});
+      const status = assertSchedulerState(await readJson(statusPath, {}));
       if (status.lastSuccess === slot || (status.slot === slot && status.attempts >= 3) || (status.nextRetryAt && Date.parse(status.nextRetryAt) > clock().getTime())) return;
       const next = { ...status, slot, attempts: status.slot === slot ? (status.attempts || 0) + 1 : 1, lastAttemptAt: clock().toISOString(), completion: 'running', error: null };
       await saveJson(statusPath, next);

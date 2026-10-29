@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { readJson, runPipeline, modelConfig, configuredModel, PROJECT } from './backend/pipeline.mjs';
 import { startScheduler } from './backend/scheduler.mjs';
+import { assertSchedulerState } from './backend/scheduler-state.mjs';
 
 const root = path.resolve(fileURLToPath(new URL('./dist/', import.meta.url)));
 const port = Number(process.env.PORT || 4173);
@@ -16,8 +17,8 @@ function json(res, status, data) { res.writeHead(status, { 'Content-Type': 'appl
 export async function readRuntimeStatus({ root: projectRoot = PROJECT, environment = process.env, schedulerEnabled = Boolean(scheduler), jobBusy = pipelineBusy || Boolean(scheduler?.busy), jobError = lastJobError, jobErrorAt = lastJobErrorAt } = {}) {
   let status = {};
   let statusWarning = null;
-  try { status = await readJson(path.join(projectRoot, '.data/scheduler.json'), {}); }
-  catch { statusWarning = '后台状态文件暂不可读取，现有文献数据保留；请检查本地运行记录。'; }
+  try { status = assertSchedulerState(await readJson(path.join(projectRoot, '.data/scheduler.json'), {})); }
+  catch { statusWarning = '后台状态文件暂不可读取或格式无效，现有文献数据保留；请检查本地运行记录。'; }
   return { available: true, modelConfigured: configuredModel(modelConfig(environment)), schedulerEnabled, pipelineBusy: jobBusy, lastJobError: jobError, lastJobErrorAt: jobErrorAt, scheduler: status, statusWarning };
 }
 export function resolveAsset(directory, pathname) {

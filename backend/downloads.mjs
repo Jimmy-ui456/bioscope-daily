@@ -39,3 +39,24 @@ export async function fetchPublisherMetric(paper, fetchImpl = fetch) {
   if (/^10\.1371\/journal\./i.test(paper.doi || '')) return fetchPlosMetric(paper, fetchImpl);
   return fetchZenodoMetric(paper, fetchImpl);
 }
+
+export async function refreshPublisherMetrics(papers, { fetchMetric = fetchPublisherMetric, limit = 20, checkedAt = new Date().toISOString() } = {}) {
+  if (!Number.isSafeInteger(limit) || limit < 0) throw new Error('下载统计批次上限无效');
+  let attempted = 0;
+  const output = [];
+  for (const paper of papers) {
+    if (!/^(10\.5281\/zenodo\.|10\.1371\/journal\.)/i.test(paper.doi || '')) { output.push(paper); continue; }
+    if (attempted >= limit) { output.push({ ...paper, downloadRefresh: { status: 'skipped', reason: 'batch_limit' } }); continue; }
+    attempted++;
+    try {
+      const metric = await fetchMetric(paper);
+      const valid = validateDownloadMetric(metric);
+      output.push({ ...paper, ...(valid ? { downloadMetric: metric } : {}), downloadRefresh: { status: valid ? 'updated' : 'not_available', checkedAt } });
+    } catch {
+      // Preserve both the count and its original collection time. The new
+      // attempt is recorded separately and never copies upstream error text.
+      output.push({ ...paper, downloadRefresh: { status: 'failed', checkedAt } });
+    }
+  }
+  return output;
+}

@@ -1,12 +1,12 @@
-import { collectionHealth } from './health.js?v=0.2.8';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.8';
-import { evidenceContext } from './evidence.js?v=0.2.8';
-import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.8';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController } from './reader.js?v=0.2.8';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.8';
-import { TOPICS, APP_VERSION, collectTopic, mergePapers, mergePapersWithIdMap, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.8';
+import { collectionHealth } from './health.js?v=0.2.9';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.9';
+import { evidenceContext } from './evidence.js?v=0.2.9';
+import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.9';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking } from './reader.js?v=0.2.9';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.9';
+import { TOPICS, APP_VERSION, collectTopic, mergePapers, mergePapersWithIdMap, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.9';
 
-import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric } from './enrichment.js?v=0.2.8';
+import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel } from './enrichment.js?v=0.2.9';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -240,8 +240,12 @@ function aside() { const n = activePapers().filter(p => state.selected.includes(
 function overview() { return `${hero()}${metrics()}<div class="content-grid"><section><div class="section-head"><div class="section-title">最新研究 <span class="en">LATEST RESEARCH</span></div><span class="minor">按发表日期排序 · ${filteredPapers().length} 篇</span></div>${readingStatus()}${tabs()}${sampleNotice()}${readerTools()}<div id="feed-list">${feedList()}</div></section>${aside()}</div>`; }
 function bookmarksPage() { return `<div class="content-grid"><section><div class="section-head"><div class="section-title">留给稍后的阅读 <span class="en">SAVED PAPERS</span></div><span class="minor">保存在当前浏览器</span></div>${tabs()}${readerTools()}<div id="feed-list">${feedList()}</div></section>${aside()}</div>`; }
 
+function downloadRefreshNote(paper) {
+  const label = downloadRefreshLabel(paper);
+  return label ? '<p class="help download-refresh">' + esc(label) + '</p>' : '';
+}
 function downloadDetails(paper) {
-  const heading = '<section class="detail-section download-statistics"><h3>' + icon('download', 15) + '原平台文献下载量</h3>';
+  const heading = '<section class="detail-section download-statistics"><h3>' + icon('download', 15) + '原平台文献下载量</h3>' + downloadRefreshNote(paper);
   const metric = paper.downloadMetric;
   if (!validateDownloadMetric(metric)) return heading + '<p class="help">尚无可核对的原出版平台逐篇下载数据，保持未知，不记为0，也不以引用或浏览量替代。</p></section>';
   const partial = !rankableDownloadMetric(metric);
@@ -249,7 +253,7 @@ function downloadDetails(paper) {
   return heading + '<p class="download-detail-count"><strong>' + metric.count.toLocaleString('zh-CN') + '</strong> 次' + (partial ? '（部分计数）' : '') + '</p><p class="help">' + esc(metricLabel(metric)) + '</p><p class="help">' + esc(metricCoverageLabel(metric)) + '</p><p class="help">采集时间：' + esc(metricFetchedAtLabel(metric)) + '</p>' + warning + '<a class="button small" href="' + esc(metric.sourceUrl) + '" target="_blank" rel="noopener noreferrer">核对原平台统计 ↗</a>' + (typeof metric.coverageNote === 'string' && metric.coverageNote ? '<p class="help">' + esc(metric.coverageNote) + '</p>' : '') + '<p class="help">累计量受发表时长和可用记录范围影响，不代表统一近7日下载量或独立读者数。</p></section>';
 }
 function hotPage() {
-  const papers = activePapers();
+  const papers = papersForDownloadRanking(activePapers());
   const available = papers.filter(p => rankableDownloadMetric(p.downloadMetric));
   const knownCount = papers.filter(p => validateDownloadMetric(p.downloadMetric)).length;
   const partialCount = knownCount - available.length, unknownCount = papers.length - knownCount;
@@ -258,7 +262,7 @@ function hotPage() {
   const groups = [...new Map(available.map(p => [metricGroup(p.downloadMetric), p.downloadMetric])).entries()];
   if (!groups.some(([key]) => key === downloadGroup)) downloadGroup = groups[0]?.[0] || '';
   const ranked = downloadGroup ? rankDownloads(papers, downloadGroup) : [];
-  return '<p class="page-intro">统计口径：原出版平台逐篇下载量。不同平台、PDF／文件下载及不同统计窗口分别排名；引用量、浏览量与本站点击不计入。</p>' + (groups.length ? '<div class="report-tools"><label>统计来源与窗口 <select id="download-group" aria-label="下载统计口径">' + groups.map(([key, metric]) => '<option value="' + esc(key) + '" ' + (key === downloadGroup ? 'selected' : '') + '>' + esc(metricLabel(metric)) + '</option>').join('') + '</select></label></div>' : '') + '<div class="content-grid"><section>' + (ranked.length ? ranked.map((p, i) => '<article class="download-row"><div class="download-rank">' + String(i + 1).padStart(2, '0') + '</div><div><button class="paper-title" data-paper="' + esc(p.id) + '">' + paperHeading(p) + '</button><div class="paper-meta">' + esc(p.downloadMetric.platform) + ' · ' + esc(metricLabel(p.downloadMetric)) + '</div><a class="help" href="' + esc(p.downloadMetric.sourceUrl) + '" target="_blank" rel="noopener">统计出处 ↗ · 采集于 ' + esc(metricFetchedAtLabel(p.downloadMetric)) + '</a>' + '<p class="help download-coverage">' + esc(metricCoverageLabel(p.downloadMetric)) + '</p>' + (typeof p.downloadMetric.coverageNote === 'string' && p.downloadMetric.coverageNote ? '<p class="help">' + esc(p.downloadMetric.coverageNote) + '</p>' : '') + '</div><div class="download-number">' + p.downloadMetric.count.toLocaleString('zh-CN') + '<small>次下载</small></div></article>').join('') : empty(emptyDownloadTitle, emptyDownloadCopy, '<a class="button small" href="./setup.html#downloads" target="_blank" rel="noopener">查看支持的数据接入方式</a>')) + '<div class="sample-notice">当前文献 ' + papers.length + ' 篇，其中 ' + available.length + ' 篇有可排行下载数据，' + partialCount + ' 篇有部分计数，' + unknownCount + ' 篇暂无可核对数据。PLOS 官方 PDF 月计数与 Zenodo 原论文记录支持接口同步；出版社导出可按配置导入。月份缺失的部分统计不参与完整累计排行。数据集或补充材料下载量不会冒充论文下载量。</div></section>' + aside() + '</div>';
+  return '<p class="page-intro">统计口径：原出版平台逐篇下载量。已知撤稿记录不进入此排行。不同平台、PDF／文件下载及不同统计窗口分别排名；引用量、浏览量与本站点击不计入。</p>' + (groups.length ? '<div class="report-tools"><label>统计来源与窗口 <select id="download-group" aria-label="下载统计口径">' + groups.map(([key, metric]) => '<option value="' + esc(key) + '" ' + (key === downloadGroup ? 'selected' : '') + '>' + esc(metricLabel(metric)) + '</option>').join('') + '</select></label></div>' : '') + '<div class="content-grid"><section>' + (ranked.length ? ranked.map((p, i) => '<article class="download-row"><div class="download-rank">' + String(i + 1).padStart(2, '0') + '</div><div><button class="paper-title" data-paper="' + esc(p.id) + '">' + paperHeading(p) + '</button><div class="paper-meta">' + esc(p.downloadMetric.platform) + ' · ' + esc(metricLabel(p.downloadMetric)) + '</div><a class="help" href="' + esc(p.downloadMetric.sourceUrl) + '" target="_blank" rel="noopener">统计出处 ↗ · 采集于 ' + esc(metricFetchedAtLabel(p.downloadMetric)) + '</a>' + '<p class="help download-coverage">' + esc(metricCoverageLabel(p.downloadMetric)) + '</p>' + downloadRefreshNote(p) + (typeof p.downloadMetric.coverageNote === 'string' && p.downloadMetric.coverageNote ? '<p class="help">' + esc(p.downloadMetric.coverageNote) + '</p>' : '') + '</div><div class="download-number">' + p.downloadMetric.count.toLocaleString('zh-CN') + '<small>次下载</small></div></article>').join('') : empty(emptyDownloadTitle, emptyDownloadCopy, '<a class="button small" href="./setup.html#downloads" target="_blank" rel="noopener">查看支持的数据接入方式</a>')) + '<div class="sample-notice">当前文献 ' + papers.length + ' 篇，其中 ' + available.length + ' 篇有可排行下载数据，' + partialCount + ' 篇有部分计数，' + unknownCount + ' 篇暂无可核对数据。PLOS 官方 PDF 月计数与 Zenodo 原论文记录支持接口同步；出版社导出可按配置导入。月份缺失的部分统计不参与完整累计排行。数据集或补充材料下载量不会冒充论文下载量。</div></section>' + aside() + '</div>';
 }
 
 function topicsPage() { return `<p class="page-intro">暂以三个方向搭建研究视野。主题根据题名和摘要中的关键词匹配，一篇论文可能同时出现在多个方向；分类仍需人工核对。</p><div class="topic-cards">${TOPICS.map((t, i) => `<article class="topic-card"><div class="topic-icon">${icon(['leaf', 'layers', 'globe'][i], 30)}</div><div class="eyebrow">0${i + 1} / RESEARCH FIELD</div><h2>${t.name}</h2><p>${t.en}</p><div class="topic-total">${state.papers.filter(p => p.topics.includes(t.id)).length}<small>篇文献</small></div><button class="button small" data-topic="${t.id}">查看研究 ${icon('arrow', 13)}</button></article>`).join('')}</div><div class="sample-notice" style="margin-top:25px">关注方向可在「监控设置」里启停。更细的基因、菌株、机构等主题，将在后续版本扩展。</div>`; }

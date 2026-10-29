@@ -1,4 +1,4 @@
-import { beijingDay, dayBefore, validPublicationDate } from './core.js?v=0.2.8';
+import { beijingDay, dayBefore, validPublicationDate, isRetracted } from './core.js?v=0.2.9';
 export function paperKind(paper) {
   if (paper.isPreprint) return 'preprint';
   if (paper.type === '综述') return 'review';
@@ -9,6 +9,9 @@ export function readingBasePapers(papers, { view, topics, bookmarks }) {
   return view === 'bookmarks'
     ? papers.filter(paper => bookmarks.includes(paper.id))
     : papers.filter(paper => paper.topics.some(topic => topics.includes(topic)));
+}
+export function papersForDownloadRanking(papers) {
+  return papers.filter(paper => !isRetracted(paper));
 }
 
 // Keep the composing input node in place. Browsers differ on whether the final
