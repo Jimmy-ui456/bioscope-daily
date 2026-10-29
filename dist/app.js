@@ -1,13 +1,13 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.10';
-import { collectionHealth } from './health.js?v=0.2.10';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.10';
-import { evidenceContext } from './evidence.js?v=0.2.10';
-import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.10';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking } from './reader.js?v=0.2.10';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.10';
-import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.10';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.11';
+import { collectionHealth } from './health.js?v=0.2.11';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.11';
+import { evidenceContext } from './evidence.js?v=0.2.11';
+import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.11';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.11';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.11';
+import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.11';
 
-import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel } from './enrichment.js?v=0.2.10';
+import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel } from './enrichment.js?v=0.2.11';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -167,8 +167,7 @@ function filteredPapers() {
   if (state.filter === 'selected') papers = papers.filter(p => state.selected.includes(p.id));
   if (state.filter === 'preprint') papers = papers.filter(p => p.isPreprint);
   if (state.filter === 'research') papers = papers.filter(p => p.type === '期刊论文');
-  if (state.search.trim()) { const q = state.search.trim().toLowerCase(); papers = papers.filter(p => `${p.title} ${p.abstract} ${translated(p)?.titleZh || ''} ${translated(p)?.abstractZh || ''} ${p.authors} ${p.journal} ${p.doi || ''} ${p.pmid || ''} ${p.topics.map(t => topicOf(t).name).join(' ')}`.toLowerCase().includes(q)); }
-  return papers;
+  return searchReadingPapers(papers, state.search, translations);
 }
 function empty(title, copy, button = '') { return `<div class="empty"><div class="empty-icon">${icon('inbox', 30)}</div><h3>${title}</h3><p>${copy}</p>${button}</div>`; }
 function tabs() { return `<div class="tabs-row"><div class="tabs" role="group" aria-label="文献筛选">${[['all', '全部研究'], ['translated', '中英对照'], ['selected', '人工精选'], ['research', '期刊论文'], ['preprint', '预印本']].map(([id, label]) => `<button class="tab ${state.filter === id ? 'active' : ''}" data-filter="${id}" aria-pressed="${state.filter === id}">${label}${id === 'translated' ? `<span class="reader-tab-count">${readerBasePapers().filter(p => translated(p)).length}</span>` : ''}</button>`).join('')}</div><label class="topic-selector" for="topic-filter"><span>方向</span><select id="topic-filter"><option value="all">全部方向</option>${TOPICS.map(t => `<option value="${t.id}" ${state.topic === t.id ? 'selected' : ''}>${t.name}</option>`).join('')}</select></label></div>`; }
@@ -314,7 +313,7 @@ function render({ keepScroll = true, preserveFocus = true } = {}) {
   const scroll = window.scrollY;
   const previousFocus = preserveFocus ? focusSnapshot($('#app')) : null;
   const healthMarkup = collectionStatusMarkup();
-  $('#app').innerHTML = `${sidebar()}<div class="workspace"><div class="topbar"><div class="breadcrumb"><button id="navigation-toggle" class="icon-button mobile-toggle" data-action="menu" aria-label="打开导航" aria-controls="primary-navigation" aria-expanded="${navigationMedia.matches && mobileMenuOpen}">${icon('menu', 19)}</button><span class="breadcrumb-workspace">我的科研工作台</span><span>/</span><b>${views[state.view].name}</b></div><div class="topbar-actions"><span class="version">PROTOTYPE ${APP_VERSION}</span><button class="button small language-toggle" data-action="toggle-language" aria-pressed="${displayMode === 'bilingual'}">${displayMode === 'bilingual' ? '中英对照' : 'English'}</button><label class="global-search">${icon('search', 14)}<input id="search" type="search" placeholder="搜索论文、关键词…" aria-label="搜索论文、关键词" value="${esc(state.search)}"><span class="keycap">/</span></label><button class="icon-button" data-view="settings" aria-label="监控设置">${icon('settings', 17)}</button></div></div><main class="main" id="main" tabindex="-1">${masthead()}<div id="collection-health" role="status" aria-live="polite" aria-atomic="true">${healthMarkup}</div>${state.busy ? `<div class="progress-banner" role="status">${icon('refresh', 13, 'spin')} <span id="progress">${esc(state.progress)}</span></div>` : ''}${state.error ? `<div class="error-notice" role="alert">${icon('info', 13)} ${esc(state.error)}</div>` : ''}${({ overview, bookmarks: bookmarksPage, hot: hotPage, topics: topicsPage, sources: sourcesPage, settings: settingsPage, daily: reportPage }[state.view])()}${footer()}</main></div>`;
+  $('#app').innerHTML = `${sidebar()}<div class="workspace"><div class="topbar"><div class="breadcrumb"><button id="navigation-toggle" class="icon-button mobile-toggle" data-action="menu" aria-label="打开导航" aria-controls="primary-navigation" aria-expanded="${navigationMedia.matches && mobileMenuOpen}">${icon('menu', 19)}</button><span class="breadcrumb-workspace">我的科研工作台</span><span>/</span><b>${views[state.view].name}</b></div><div class="topbar-actions"><span class="version">PROTOTYPE ${APP_VERSION}</span><button class="button small language-toggle" data-action="toggle-language" aria-pressed="${displayMode === 'bilingual'}">${displayMode === 'bilingual' ? '中英对照' : 'English'}</button><label class="global-search">${icon('search', 14)}<input id="search" type="search" placeholder="论文、关键词、DOI / PMID" aria-label="搜索已载入文献的题名、关键词、DOI或PMID" value="${esc(state.search)}"><span class="keycap">/</span></label><button class="icon-button" data-view="settings" aria-label="监控设置">${icon('settings', 17)}</button></div></div><main class="main" id="main" tabindex="-1">${masthead()}<div id="collection-health" role="status" aria-live="polite" aria-atomic="true">${healthMarkup}</div>${state.busy ? `<div class="progress-banner" role="status">${icon('refresh', 13, 'spin')} <span id="progress">${esc(state.progress)}</span></div>` : ''}${state.error ? `<div class="error-notice" role="alert">${icon('info', 13)} ${esc(state.error)}</div>` : ''}${({ overview, bookmarks: bookmarksPage, hot: hotPage, topics: topicsPage, sources: sourcesPage, settings: settingsPage, daily: reportPage }[state.view])()}${footer()}</main></div>`;
   syncNavigation();
   healthMarkupByNode.set($('#collection-health'), healthMarkup);
   if (!$('#paper-dialog').open) restoreFocus($('#app'), previousFocus);
