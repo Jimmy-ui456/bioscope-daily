@@ -9,6 +9,7 @@ import { applyPublisherMetrics, fetchPublisherMetric } from './downloads.mjs';
 import { acquirePipelineLock } from './lock.mjs';
 import { createPublicReport, updatePublicReportHistory } from './reports.mjs';
 import { createDailyRss } from './feeds.mjs';
+import { publicCollectionSource } from '../dist/collection-source.js';
 
 export const PROJECT = fileURLToPath(new URL('../', import.meta.url));
 export async function readJson(file, fallback) { try { return JSON.parse(await readFile(file, 'utf8')); } catch (error) { if (error.code === 'ENOENT') return fallback; throw error; } }
@@ -17,7 +18,7 @@ export function modelConfig(env = process.env) { return { baseUrl: env.LLM_BASE_
 export function configuredModel(config) { return Boolean(config.apiKey && config.baseUrl && config.model); }
 export function requestKey(paper, config) { return createHash('sha256').update([paper.id, sourceFingerprint(paper), config.baseUrl, config.model, PROMPT_VERSION].join('|')).digest('hex'); }
 
-export async function runPipeline({ root = PROJECT, collect = collectTopic, interpret = interpretPaper, fetchMetric = fetchPublisherMetric, env = process.env, now = new Date(), log = console.log } = {}) {
+export async function runPipeline({ root = PROJECT, collect = collectTopic, interpret = interpretPaper, fetchMetric = fetchPublisherMetric, env = process.env, sourceEnv = process.env, now = new Date(), log = console.log } = {}) {
   await mkdir(path.join(root, '.data'), { recursive: true });
   const lockPath = path.join(root, '.data/pipeline.lock');
   const lock = await acquirePipelineLock(lockPath);
@@ -45,7 +46,8 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     // Seed copies provide translations only; samples are not inserted as newly collected papers.
     const sampleCatalog = Object.fromEntries(sample.papers.filter(p => p.enrichment).map(p => [p.id, p.enrichment]));
     papers = papers.map(p => attachEnrichment(p, { ...sampleCatalog, ...catalog }));
-    const library = { schemaVersion: 2, origin: 'live', fetchedAt: new Date().toISOString(), papers, stats, modelUsage: usage, receipts, automation: { scheduleBeijing: config.scheduleBeijing || '07:17', modelConfigured: configuredModel(configModel), modelStatus: configuredModel(configModel) ? 'ready' : 'not_configured', lastRunAt: new Date().toISOString(), failedTopics: stats.filter(s => s.error).length } };
+    const collectionSource = publicCollectionSource(sourceEnv);
+    const library = { schemaVersion: 2, origin: 'live', fetchedAt: new Date().toISOString(), papers, stats, modelUsage: usage, receipts, automation: { scheduleBeijing: config.scheduleBeijing || '07:17', modelConfigured: configuredModel(configModel), modelStatus: configuredModel(configModel) ? 'ready' : 'not_configured', lastRunAt: new Date().toISOString(), failedTopics: stats.filter(s => s.error).length, collectionSource } };
     const output = path.join(root, 'dist/library.json');
     await saveJson(output, library);
     let attempted = 0;
@@ -69,7 +71,9 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     await saveJson(output, library);
     const reportFile = path.join(root, 'dist/public-reports.json');
     const reportHistory = await readJson(reportFile, { version: 1, reports: [] });
-    const publicReport = createPublicReport(papers, { now, topics, translations: catalog, sourceUpdatedAt: library.fetchedAt });
+    const failedTopics = stats.filter(stat => stat.error).map(stat => stat.topic);
+    const publicReport = createPublicReport(papers, { now, topics, translations: catalog, sourceUpdatedAt: library.fetchedAt,
+      sourceCollection: { status: failedTopics.length ? 'partial' : 'complete', failedTopics, ...collectionSource } });
     const reports = updatePublicReportHistory(reportHistory.reports, publicReport);
     await saveJson(reportFile, { version: 1, reports });
     const publication = await readJson(path.join(root, 'config/publication.json'), {});

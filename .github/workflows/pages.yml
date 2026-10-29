@@ -24,13 +24,13 @@ jobs:
           node-version: '24'
       - name: Check code
         run: npm run check && npm test
-      - name: Collect, translate, and interpret
+      - name: Collect literature (manual runs never call models)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-        run: npm run collect
+        run: node scripts/collect-workflow.mjs
       - name: Save updated public literature snapshot
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |

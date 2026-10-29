@@ -1,5 +1,6 @@
 import { TOPICS, beijingDay, cleanDoi, dayBefore, mergePapers } from '../dist/core.js';
 import { attachEnrichment } from '../dist/enrichment.js';
+import { validWorkflowRunUrl } from '../dist/collection-source.js';
 
 export const PUBLIC_REPORT_RULE_VERSION = 'publication-calendar-topic-round-robin-v1';
 export const PUBLIC_REPORT_DESCRIPTION = '按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。';
@@ -44,10 +45,21 @@ function comparePublications(a, b) {
   return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
 }
 
+function collectionSnapshot(source) {
+  if (!source || !['complete', 'partial'].includes(source.status) || !Array.isArray(source.failedTopics)
+    || !source.failedTopics.every(topic => typeof topic === 'string' && topic.trim() && topic.length <= 200)) return null;
+  return {
+    status: source.status,
+    failedTopics: [...source.failedTopics],
+    trigger: ['schedule', 'workflow_dispatch', 'local'].includes(source.trigger) ? source.trigger : 'unknown',
+    runUrl: validWorkflowRunUrl(source.runUrl) ? source.runUrl : null,
+  };
+}
+
 // A daily issue is a source snapshot, not a model-written evaluation or ranking.
 export function createPublicReport(papers, {
   now = new Date(), date, days = 7, limit = 10, topics = TOPICS,
-  translations = {}, origin = 'live', sourceUpdatedAt = null,
+  translations = {}, origin = 'live', sourceUpdatedAt = null, sourceCollection = null,
 } = {}) {
   const generatedAt = new Date(now);
   if (!Number.isFinite(generatedAt.getTime())) throw new Error('无效的日报生成时间');
@@ -103,6 +115,7 @@ export function createPublicReport(papers, {
     papers: selected,
     sections,
     sourceUpdatedAt,
+    sourceCollection: collectionSnapshot(sourceCollection),
     selectionPolicy: {
       version: PUBLIC_REPORT_RULE_VERSION,
       description: PUBLIC_REPORT_DESCRIPTION,

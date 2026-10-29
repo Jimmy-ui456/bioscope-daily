@@ -77,6 +77,37 @@ test('同日期快照只保留首次发表版本，既有历史不会被修改�
   assert.equal(first.papers[0].title, 'Source title first');
 });
 
+test('首刊采集来源为冻结白名单拷贝，后续输入或重采不能改变部分采集事实', () => {
+  const sourceCollection = { status: 'partial', failedTopics: ['代谢工程'], trigger: 'schedule', runUrl: 'https://github.com/Example/bioscope-daily/actions/runs/123', secret: 'test-extra-must-not-publish' };
+  const first = createPublicReport([paper('partial')], { now, sourceUpdatedAt: now.toISOString(), sourceCollection });
+  const expected = { status: 'partial', failedTopics: ['代谢工程'], trigger: 'schedule', runUrl: 'https://github.com/Example/bioscope-daily/actions/runs/123' };
+  assert.deepEqual(first.sourceCollection, expected);
+  const markdown = reportMarkdown(first);
+  assert.match(markdown, /本期采集：部分方向未更新：代谢工程/);
+  assert.match(markdown, /触发方式：定时采集/);
+  assert.match(markdown, /https:\/\/github.com\/Example\/bioscope-daily\/actions\/runs\/123/);
+  sourceCollection.failedTopics.push('合成生物学'); sourceCollection.trigger = 'workflow_dispatch'; sourceCollection.runUrl = 'https://github.com/Example/bioscope-daily/actions/runs/456';
+  assert.deepEqual(first.sourceCollection, expected);
+  const later = createPublicReport([paper('complete')], { now: '2026-10-29T03:00:00Z', sourceCollection: { status: 'complete', failedTopics: [], trigger: 'workflow_dispatch', runUrl: sourceCollection.runUrl } });
+  const history = updatePublicReportHistory([first], later);
+  assert.deepEqual(history[0].sourceCollection, expected);
+  history[0].sourceCollection.failedTopics.push('Changed output');
+  assert.deepEqual(first.sourceCollection, expected);
+  assert.equal(JSON.stringify(first).includes('test-extra-must-not-publish'), false);
+});
+
+test('缺失采集来源的旧刊保持未知，不从后续任务回填或接受危险任务链接', () => {
+  const legacy = createPublicReport([paper('legacy')], { now });
+  assert.equal(legacy.sourceCollection, null);
+  delete legacy.sourceCollection;
+  assert.match(reportMarkdown(legacy), /本期首刊未记录采集运行来源/);
+  const later = createPublicReport([paper('later-source')], { now: '2026-10-29T03:00:00Z', sourceCollection: { status: 'complete', failedTopics: [], trigger: 'local', runUrl: 'javascript:alert(1)' } });
+  assert.equal(later.sourceCollection.runUrl, null);
+  const history = updatePublicReportHistory([legacy], later);
+  assert.equal(Object.hasOwn(history[0], 'sourceCollection'), false);
+  assert.equal(history[0].papers[0].id, legacy.papers[0].id);
+});
+
 test('历史保留最近14个日历日而非14份任意旧刊，空结果也如实成刊', () => {
   const make = (date, id) => createPublicReport([paper(id, date)], { now: `${date}T08:00:00+08:00`, date });
   const history = [make('2026-10-15', 'too-old'), make('2026-10-16', 'boundary'), make('2026-10-20', 'mid')];

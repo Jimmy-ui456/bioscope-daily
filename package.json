@@ -1,13 +1,13 @@
 {
   "name": "bioscope-research-daily",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check dist/app.js && node --check dist/core.js && node --check dist/enrichment.js && node --check dist/evidence.js && node --check server.mjs && node --check backend/pipeline.mjs && node --check backend/interpret.mjs && node --check backend/downloads.mjs && node --check backend/scheduler.mjs && node --check backend/lock.mjs && node --check backend/reports.mjs && node --check worker.mjs && node --check backend/feeds.mjs && node --check backend/plos.mjs && node --check dist/reader.js && node --check dist/report-navigation.js && node --check dist/health.js && node --check dist/accessibility.js && node scripts/sync-assets.mjs --check",
+    "check": "node --check dist/app.js && node --check dist/core.js && node --check dist/enrichment.js && node --check dist/evidence.js && node --check dist/collection-source.js && node --check scripts/collect-workflow.mjs && node --check server.mjs && node --check backend/pipeline.mjs && node --check backend/interpret.mjs && node --check backend/downloads.mjs && node --check backend/scheduler.mjs && node --check backend/lock.mjs && node --check backend/reports.mjs && node --check worker.mjs && node --check backend/feeds.mjs && node --check backend/plos.mjs && node --check dist/reader.js && node --check dist/report-navigation.js && node --check dist/health.js && node --check dist/accessibility.js && node scripts/sync-assets.mjs --check",
     "assets": "node scripts/sync-assets.mjs",
     "reports": "node scripts/build-public-reports.mjs",
     "collect": "node backend/pipeline.mjs",

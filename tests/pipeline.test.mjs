@@ -23,6 +23,37 @@ test('未配置模型仍采集并保存，绝不调用付费模型', async t => 
   const result = await runPipeline({ root, now, env: {}, collect: collected, interpret: () => { throw new Error('must not call'); }, log: () => {} });
   assert.equal(result.papers.length, 1); assert.equal(result.automation.modelStatus, 'not_configured'); assert.equal(result.modelUsage.requests, 0);
 });
+
+test('模型env为空时默认仍从进程GitHub环境读取白名单采集来源', async t => {
+  const root = await project(t);
+  const sourceEnvironment = { GITHUB_ACTIONS: 'true', GITHUB_EVENT_NAME: 'schedule', GITHUB_SERVER_URL: 'https://github.com', GITHUB_REPOSITORY: 'Example/bioscope-daily', GITHUB_RUN_ID: '123456' };
+  const previous = Object.fromEntries(Object.keys(sourceEnvironment).map(key => [key, process.env[key]]));
+  t.after(() => { for (const [key, value] of Object.entries(previous)) { if (value === undefined) delete process.env[key]; else process.env[key] = value; } });
+  Object.assign(process.env, sourceEnvironment);
+  const result = await runPipeline({ root, now, env: {}, collect: collected, interpret: () => { throw new Error('No model call allowed'); }, log: () => {} });
+  const source = { trigger: 'schedule', runUrl: 'https://github.com/Example/bioscope-daily/actions/runs/123456' };
+  assert.deepEqual(result.automation.collectionSource, source);
+  assert.equal(result.automation.modelConfigured, false);
+  const report = (await readJson(path.join(root, 'dist/public-reports.json'))).reports[0];
+  assert.deepEqual(report.sourceCollection, { status: 'complete', failedTopics: [], ...source });
+  assert.equal(report.sourceUpdatedAt, result.fetchedAt);
+});
+
+test('部分成功首刊记录失败方向与原始任务，后续完整补采不改写首刊来源', async t => {
+  const root = await project(t);
+  await saveJson(path.join(root, 'config/monitor.json'), { topics: ['synthetic', 'metabolic'] });
+  const sourceEnv = { GITHUB_ACTIONS: 'true', GITHUB_EVENT_NAME: 'schedule', GITHUB_SERVER_URL: 'https://github.com', GITHUB_REPOSITORY: 'Example/bioscope-daily', GITHUB_RUN_ID: '123', LLM_API_KEY: 'test-source-secret-never-publish' };
+  const partial = await runPipeline({ root, now, env: {}, sourceEnv, collect: async topic => { if (topic.id === 'synthetic') throw new Error('unavailable'); return collected(); }, log: () => {} });
+  assert.equal(partial.automation.failedTopics, 1);
+  const first = (await readJson(path.join(root, 'dist/public-reports.json'))).reports[0];
+  assert.deepEqual(first.sourceCollection, { status: 'partial', failedTopics: ['合成生物学'], trigger: 'schedule', runUrl: 'https://github.com/Example/bioscope-daily/actions/runs/123' });
+  const next = await runPipeline({ root, now, env: {}, sourceEnv: { ...sourceEnv, GITHUB_EVENT_NAME: 'workflow_dispatch', GITHUB_RUN_ID: '456' }, collect: collected, log: () => {} });
+  assert.equal(next.automation.failedTopics, 0);
+  assert.equal(next.automation.collectionSource.trigger, 'workflow_dispatch');
+  assert.equal(next.automation.collectionSource.runUrl, 'https://github.com/Example/bioscope-daily/actions/runs/456');
+  assert.deepEqual((await readJson(path.join(root, 'dist/public-reports.json'))).reports[0], first);
+  assert.equal(JSON.stringify({ partial, first, next }).includes('test-source-secret-never-publish'), false);
+});
 test('已完成的同一输入不会重复付费', async t => {
   const root = await project(t); let calls = 0;
   const interpret = async p => { calls++; return { titleZh: '测试研究', abstractZh: '对酵母改造并测量生长。', sourceFingerprint: sourceFingerprint(p), origin: 'model' }; };
