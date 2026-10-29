@@ -1,0 +1,11 @@
+[
+  {
+    "doi": "10.1016/j.mcpro.2026.101695",
+    "paperId": "doi:10.1016/j.mcpro.2026.101695",
+    "sourceTitle": "High-throughput protein interactome identifies LSD1 as a regulator of SARS-CoV-2 production through lysine demethylation of viral nucleocapsid protein.",
+    "sourceAbstract": "High-throughput identification and imaging of protein-protein interactions (PPIs) under physiological conditions remains a significant challenge. Concurrently, the SARS-CoV-2 nucleocapsid (N) protein, the most abundant viral protein, plays an essential role in viral production. To advance the understanding of viral mechanisms and support antiviral development, we developed the brightest and smallest near-infrared bimolecular fluorescence complementation (NIR-BiFC) system using split miRFP670nano3. By integrating this system with next-generation sequencing (NGS), we established NIR-BiFC-Seq for the high-throughput mapping of protein interactomes. Applying this method, we systematically investigated interactions between the SARS-CoV-2 N protein and host cellular proteins. Our findings reveal that lysine-specific demethylase-1 (LSD1) demethylates the N protein at lysine 233 (K233), thereby enhancing viral production through the potentiation of multiple N protein functions. These include N protein dimerization, interaction with Nsp12, binding to viral RNA, and liquid-liquid phase separation (LLPS). Notably, inhibitors targeting the K233 site significantly suppressed SARS-CoV-2 production. This study establishes NIR-BiFC-Seq as a sensitive synthetic biology platform for interactome mapping and identifies LSD1-mediated regulatory mechanisms as promising targets for antiviral therapy.",
+    "titleZh": "高通量蛋白质相互作用组分析揭示LSD1通过病毒核衣壳蛋白赖氨酸去甲基化调控SARS-CoV-2产生",
+    "abstractZh": "在生理条件下，高通量鉴定蛋白质-蛋白质相互作用（PPI）并对其成像，仍是一项重大挑战。同时，SARS-CoV-2核衣壳（N）蛋白是含量最高的病毒蛋白，在病毒产生中发挥关键作用。为增进对病毒机制的认识并支持抗病毒开发，研究者使用拆分的miRFP670nano3，开发了亮度最高且体积最小的近红外双分子荧光互补（NIR-BiFC）系统。通过将该系统与新一代测序（NGS）相整合，研究者建立了NIR-BiFC-Seq，用于高通量绘制蛋白质相互作用组。应用这一方法，研究者系统考察了SARS-CoV-2 N蛋白与宿主细胞蛋白之间的相互作用。结果揭示，赖氨酸特异性去甲基化酶1（LSD1）使N蛋白第233位赖氨酸（K233）去甲基化，从而通过增强N蛋白的多种功能促进病毒产生。这些功能包括N蛋白二聚化、与Nsp12相互作用、与病毒RNA结合，以及液-液相分离（LLPS）。值得注意的是，靶向K233位点的抑制剂显著抑制了SARS-CoV-2的产生。本研究建立了NIR-BiFC-Seq这一用于相互作用组绘制的灵敏合成生物学平台，并将LSD1介导的调控机制确定为有前景的抗病毒治疗靶点。",
+    "createdAt": "2026-10-29T18:06:15.693Z"
+  }
+]
