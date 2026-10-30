@@ -1,13 +1,13 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.12';
-import { collectionHealth } from './health.js?v=0.2.12';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.12';
-import { evidenceContext } from './evidence.js?v=0.2.12';
-import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.12';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.12';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.12';
-import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.12';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.13';
+import { collectionHealth } from './health.js?v=0.2.13';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.13';
+import { evidenceContext } from './evidence.js?v=0.2.13';
+import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.13';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.13';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.13';
+import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.13';
 
-import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.12';
+import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.13';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));

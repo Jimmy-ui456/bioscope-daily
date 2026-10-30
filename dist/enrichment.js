@@ -1,4 +1,4 @@
-import { checkEvidenceClaim } from './evidence.js?v=0.2.12';
+import { checkEvidenceClaim } from './evidence.js?v=0.2.13';
 
 // Shared by the static reader and the unattended collection job. No credentials here.
 export function sourceFingerprint(paper) {
@@ -7,6 +7,9 @@ export function sourceFingerprint(paper) {
   for (let i = 0; i < text.length; i++) hash = Math.imul(hash ^ text.charCodeAt(i), 16777619);
   return `${(hash >>> 0).toString(16)}-${text.length}`;
 }
+export function translationVersionKey(paper, id = paper.id) {
+  return `version:${id}:${sourceFingerprint(paper)}`;
+}
 export function validEnrichment(paper, item) {
   return !!item && item.sourceFingerprint === sourceFingerprint(paper)
     && (item.sourceTitle === undefined || item.sourceTitle === paper.title)
@@ -14,7 +17,8 @@ export function validEnrichment(paper, item) {
     && typeof item.titleZh === 'string' && item.titleZh.length > 0 && typeof item.abstractZh === 'string' && item.titleZh.length < 1000 && item.abstractZh.length < 30000;
 }
 export function attachEnrichment(paper, catalog = {}) {
-  const candidates = [paper.enrichment, catalog[paper.id], paper.doi && catalog[`doi:${paper.doi.toLowerCase()}`], paper.pmid && catalog[`pmid:${paper.pmid}`]];
+  const ids = [...new Set([paper.id, typeof paper.doi === 'string' && `doi:${paper.doi.toLowerCase()}`, paper.pmid && `pmid:${paper.pmid}`].filter(Boolean))];
+  const candidates = [paper.enrichment, ...ids.flatMap(id => [catalog[id], catalog[translationVersionKey(paper, id)]])];
   const valid = candidates.filter(item => validEnrichment(paper, item));
   const candidate = valid[0];
   if (candidate) {

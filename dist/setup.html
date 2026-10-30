@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>生研观察 · 部署与模型配置</title>
-<link rel="stylesheet" href="./styles.css?v=0.2.12">
-<link rel="stylesheet" href="./enrichment.css?v=0.2.12">
+<link rel="stylesheet" href="./styles.css?v=0.2.13">
+<link rel="stylesheet" href="./enrichment.css?v=0.2.13">
 <link rel="icon" href="./icon.svg">
 </head>
 <body>
@@ -34,7 +34,7 @@
 <dd>仅在服务器环境或 GitHub Secrets 保存；不放在网页、浏览器存储或代码仓库。</dd>
 </div>
 </dl>
-<p>自动任务整理中文题名、已返回摘要的中文译文、研究问题、方法、结果及摘要明确报告的局限，并附原文证据片段。没有摘要时跳过解读。所有解读带有未审核标记，原文变化后旧译文失效；接口摘要截断时不补造缺失阈值或结论。</p>
+<p>自动任务整理中文题名、已返回摘要的中文译文、研究问题、方法、结果及摘要明确报告的局限，并附原文证据片段。没有摘要时跳过解读。所有解读带有未审核标记，译文按完整英文版本匹配，新原文不套用旧译文；旧版仍可匹配历史快照。接口摘要截断时不补造缺失阈值或结论，原文数值差异也分别保留并提示。</p>
 <p>解读引文必须逐字出现在输入的英文题名或摘要中，否则拒绝发布。页面与导出会再次核对引文；页面可查看上下文，导出保留原文与引文。逐字匹配不等于中文结论已经核实，也不代表读取或核验了全文。</p>
 <p>默认每轮最多10次、每个北京日历日最多20次模型请求，失败或结果未知也计入额度；可在 config/monitor.json 调整。已有回执不自动重试，需管理员先核对供应商记录。任务在保存前被强制终止等情况下，仍不能保证绝对不重复计费。</p>
 </section>
