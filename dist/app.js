@@ -1,13 +1,13 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.11';
-import { collectionHealth } from './health.js?v=0.2.11';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.11';
-import { evidenceContext } from './evidence.js?v=0.2.11';
-import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.11';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.11';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.11';
-import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.11';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.12';
+import { collectionHealth } from './health.js?v=0.2.12';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.12';
+import { evidenceContext } from './evidence.js?v=0.2.12';
+import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.12';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.12';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.12';
+import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.12';
 
-import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel } from './enrichment.js?v=0.2.11';
+import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.12';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -204,7 +204,7 @@ function collectionStatusMarkup() {
   const source = libraryMeta?.automation?.collectionSource;
   const runUrl = validWorkflowRunUrl(source?.runUrl) ? source.runUrl : null;
   const link = runUrl || 'https://github.com/Jimmy-ui456/bioscope-daily/actions/workflows/pages.yml';
-  return '<section class="collection-health ' + health.level + '" aria-label="后台采集状态"><div class="collection-health-title">' + icon(health.level === 'running' ? 'refresh' : health.level === 'ok' ? 'check' : 'info', 14, health.level === 'running' ? 'spin' : '') + '<strong>' + esc(health.label) + '</strong>' + time + '</div><p>' + esc(health.message) + '</p><p class="help">快照来源：' + esc(collectionSourceLabel(source)) + ' · <a href="' + esc(link) + '" target="_blank" rel="noopener noreferrer">' + (runUrl ? '查看该快照的运行记录' : '查看云端采集与发布记录') + ' ↗</a></p></section>';
+  return '<section class="collection-health ' + health.level + '" aria-label="后台采集状态"><div class="collection-health-title">' + icon(health.level === 'running' ? 'refresh' : health.level === 'ok' ? 'check' : 'info', 14, health.level === 'running' ? 'spin' : '') + '<strong>' + esc(health.label) + '</strong>' + time + '</div><p>' + esc(health.message) + '</p><p class="help">快照来源：' + esc(collectionSourceLabel(source)) + ' · <a href="' + esc(link) + '" target="_blank" rel="noopener noreferrer">' + (runUrl ? '查看该快照的运行记录' : '查看云端采集与发布记录') + ' ↗</a></p><p class="help download-refresh-summary">逐篇统计刷新：' + esc(downloadRefreshSummaryLabel(libraryMeta?.automation?.downloadRefresh)) + '</p></section>';
 }
 function updateHealthDisplay() {
   const node = $('#collection-health');

@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TOPICS } from '../dist/core.js';
 import { runPipeline } from '../backend/pipeline.mjs';
+import { downloadRefreshSummaryLabel, validateDownloadRefreshSummary } from '../dist/enrichment.js';
 
 const knownTopics = new Set(TOPICS.map(topic => topic.name));
 function topicName(stat) { return knownTopics.has(stat.topic) ? stat.topic : '未识别方向'; }
@@ -15,6 +16,7 @@ export function workflowCollectionSummary(library, eventName) {
   const modelPolicy = eventName === 'schedule' ? '仅按既有模型配置运行；未配置则跳过。' : '本次强制禁用模型，不读取模型密钥配置。';
   return {
     failedCount: failed.length, completedCount: completed.length,
+    downloadFailedCount: validateDownloadRefreshSummary(library.automation?.downloadRefresh) ? library.automation.downloadRefresh.failed : null,
     markdown: [
       '## BioScope 文献采集', '',
       `- 触发方式：${eventLabel}`,
@@ -22,6 +24,7 @@ export function workflowCollectionSummary(library, eventName) {
       `- 完成方向：${completed.length} 个（${completed.map(topicName).join('、') || '无'}）`,
       `- 失败方向：${failed.length} 个（${failed.map(topicName).join('、') || '无'}）`,
       `- 当前文献库：${Array.isArray(library.papers) ? library.papers.length : '未提供'} 篇`,
+      `- 原平台逐篇统计刷新：${downloadRefreshSummaryLabel(library.automation?.downloadRefresh)}`,
       `- 本次模型请求：${countLabel(library.automation?.modelRequestsThisRun)} 次`,
       `- 模型策略：${modelPolicy}`,
       ...(failed.length ? ['', '部分方向未更新；已保留其他方向及已有文献，后续继续发布本次快照。'] : []),
@@ -46,6 +49,7 @@ export async function runWorkflowCollection({
     catch { warn('::warning title=采集摘要未写入::采集结果已保留；无法写入本次运行摘要，后续继续发布。'); }
   }
   if (summary.failedCount) warn(`::warning title=文献采集部分失败::本次有 ${summary.failedCount} 个方向采集失败，${summary.completedCount} 个方向完成；已保留已有文献，后续继续发布。`);
+  if (summary.downloadFailedCount > 0) warn(`::warning title=下载统计部分未刷新::有 ${summary.downloadFailedCount} 篇原平台统计请求失败；旧计数及原采集时间保留，文献采集与发布继续。`);
   return library;
 }
 

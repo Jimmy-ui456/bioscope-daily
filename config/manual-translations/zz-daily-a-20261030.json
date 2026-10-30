@@ -1,0 +1,29 @@
+[
+  {
+    "doi": "10.64898/2026.10.27.762313",
+    "paperId": "doi:10.64898/2026.10.27.762313",
+    "sourceTitle": "Engineered probiotics target granulomas to treat mycobacterial infection",
+    "sourceAbstract": "Granulomas are a pathological niche for mycobacteria that remain difficult to access with conventional therapies. Here we show that probiotic Escherichia coli Nissle 1917 (EcN) infiltrates and colonizes granulomas and can be engineered as a delivery system that senses the local microenvironment and releases antimycobacterial payloads. Specifically, we leveraged the hypoxic microenvironment of necrotic granulomas to restrict bacterial growth, and developed a dual-mode lysis circuit combining intracellular and extracellular killing for sustained payload release with limited evolutionary escape. We further engineered EcN to express a mycobacteriophage-derived enzyme, generating a strain that suppressed drug-sensitive and drug-resistant mycobacteria in vitro and potentiated conventional antibiotic activity. Engineered probiotics also reduced mycobacterial burden in vivo, and in a murine model of rifampicin-resistant infection, combination treatment with pretomanid achieved greater bacterial reduction than either monotherapy. Together, these results establish a synthetic biology framework for targeting granulomatous infections with programmable living microbes.",
+    "titleZh": "工程化益生菌靶向肉芽肿，用于治疗分枝杆菌感染",
+    "abstractZh": "肉芽肿是分枝杆菌的一种病理性生存微环境，常规疗法仍难以到达。本研究表明，益生菌大肠杆菌Nissle 1917（Escherichia coli Nissle 1917，EcN）能够浸润并定植于肉芽肿，还可被改造成感知局部微环境并释放抗分枝杆菌载荷的递送系统。具体而言，研究者利用坏死性肉芽肿的低氧微环境限制细菌生长，并开发了结合细胞内与细胞外杀伤的双模式裂解回路，以实现载荷持续释放，同时限制进化逃逸。研究者进一步改造EcN，使其表达一种来源于分枝杆菌噬菌体的酶，获得的菌株在体外抑制了药物敏感型和耐药型分枝杆菌，并增强了常规抗生素的活性。工程化益生菌还降低了体内分枝杆菌负荷；在利福平耐药感染的小鼠模型中，与pretomanid联合治疗实现的菌量下降幅度大于任一单药治疗。这些结果共同建立了一个利用可编程活微生物靶向肉芽肿性感染的合成生物学框架。",
+    "createdAt": "2026-10-30T02:51:38.379Z"
+  },
+  {
+    "doi": "10.1016/j.stem.2026.10.003",
+    "paperId": "doi:10.1016/j.stem.2026.10.003",
+    "sourceTitle": "Organoids and organs-on-a-chip as new approach methodologies at the convergence of cell biology and bioengineering.",
+    "sourceAbstract": "The rapid growth of new approach methodologies (NAMs), including organoids and organs-on-a-chip (OOCs), has revealed a need for interdisciplinary dialogue between cell biologists and bioengineers to develop human models that can best complement therapeutic development. Stem cell-derived and bioengineered human tissue models are redefining how we understand human physiology and pathophysiology, offering control that traditional preclinical models cannot provide. By recapitulating complex tissue microenvironments, multi-organ interactions, and patient-specific biology, these systems are bridging long-standing gaps in the drug development and clinical application pipelines. Here, we synthesize advances in organoids, OOCs, and other bioengineered technologies for translational medicine to identify remaining gaps, including challenges in reproducibility, validation, and regulatory acceptance. Emerging opportunities at the intersection of synthetic biology, multi-omics, machine learning, and genetic engineering are positioning NAMs not merely as improved experimental tools but as foundational platforms for accelerating therapeutic discovery and enabling personalized medicine at scale.",
+    "titleZh": "细胞生物学与生物工程交汇处的新方法学：类器官与器官芯片",
+    "abstractZh": "包括类器官和器官芯片（OOC）在内的新方法学（NAM）的快速发展，凸显了细胞生物学家与生物工程师开展跨学科对话的必要性，以开发最能辅助治疗手段研发的人源模型。干细胞来源及生物工程构建的人体组织模型正在重塑人们对人体生理与病理生理的理解，并提供传统临床前模型所不能实现的可控性。通过再现复杂组织微环境、多器官相互作用及患者个体特异性的生物学特征，这些系统正在弥合药物研发与临床应用流程中长期存在的缺口。本文综合梳理了类器官、器官芯片及其他用于转化医学的生物工程技术的进展，以识别仍然存在的不足，包括可重复性、验证及监管认可方面的挑战。合成生物学、多组学、机器学习与基因工程交叉领域涌现的机遇，正推动新方法学不仅成为改进的实验工具，也成为加快治疗手段发现、支持规模化个体化医疗的基础平台。",
+    "createdAt": "2026-10-30T02:51:38.379Z"
+  },
+  {
+    "doi": "10.1002/adhm.71906",
+    "paperId": "doi:10.1002/adhm.71906",
+    "sourceTitle": "Artificial Cells and Biomimetic Cells: Intelligent Systems Driving a Paradigm Shift in Drug Discovery and Delivery.",
+    "sourceAbstract": "The convergence of synthetic biology, materials science, and artificial intelligence drives a transformative shift in biopharmaceutical research, advancing from passive drug carriers to intelligent, programmable therapeutics. This review evaluates artificial and biomimetic cells as a framework that connects fundamental biological discovery with clinical translation. It examines five key technological pathways: membrane-engineered artificial cells, membraneless organelle (MLO) systems, multicompartmental artificial cells, protocell communication networks, and virtual cells. These platforms enable precise regulation of drug stability, targeting, biosynthesis, and adaptive responsiveness. Recent progress includes microenvironment-triggered release, logic-gated intercellular communication, and virtual cell-assisted high-throughput screening and toxicity prediction. Despite these advances, challenges remain in scalable manufacturing, long-term stability, and regulatory adaptation. The integration of closed-loop learning, interpretable models, and advanced biomanufacturing will be essential to position artificial and biomimetic cell systems at the forefront of next-generation precision medicine.",
+    "titleZh": "人工细胞与仿生细胞：推动药物发现和递送范式转变的智能系统",
+    "abstractZh": "合成生物学、材料科学与人工智能的融合正推动生物制药研究发生变革，使其从被动药物载体发展为智能、可编程的治疗系统。本综述将人工细胞与仿生细胞作为连接基础生物学发现和临床转化的框架进行评估，并考察了5条关键技术路径：膜工程化人工细胞、无膜细胞器（MLO）系统、多区室人工细胞、原始细胞通讯网络及虚拟细胞。这些平台能够精确调控药物稳定性、靶向性、生物合成及适应性响应能力。近期进展包括微环境触发释放、逻辑门控的细胞间通讯，以及虚拟细胞辅助的高通量筛选和毒性预测。尽管取得这些进展，可规模化制造、长期稳定性及监管适配仍面临挑战。将闭环学习、可解释模型与先进生物制造相整合，将是推动人工细胞与仿生细胞系统走向下一代精准医学前沿的关键。",
+    "createdAt": "2026-10-30T02:51:38.379Z"
+  }
+]

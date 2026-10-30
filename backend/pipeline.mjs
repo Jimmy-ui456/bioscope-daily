@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 import { TOPICS, collectTopic, mergePapers, beijingDay, isRetracted } from '../dist/core.js';
 import { attachEnrichment, translationOf, sourceFingerprint } from '../dist/enrichment.js';
 import { interpretPaper, PROMPT_VERSION } from './interpret.mjs';
-import { applyPublisherMetrics, fetchPublisherMetric, refreshPublisherMetrics } from './downloads.mjs';
+import { applyPublisherMetrics, fetchPublisherMetric, refreshPublisherMetrics, summarizePublisherRefresh } from './downloads.mjs';
 import { acquirePipelineLock } from './lock.mjs';
 import { createPublicReport, updatePublicReportHistory } from './reports.mjs';
 import { createDailyRss } from './feeds.mjs';
@@ -37,6 +37,7 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     const publisherRecords = (await readJson(path.join(root, 'config/download-metrics.json'), { records: [] })).records;
     papers = applyPublisherMetrics(papers, publisherRecords);
     papers = await refreshPublisherMetrics(papers, { fetchMetric });
+    const downloadRefresh = summarizePublisherRefresh(papers);
     const configModel = modelConfig(env);
     const today = beijingDay(now);
     const usage = previous.modelUsage?.date === today ? { ...previous.modelUsage } : { date: today, requests: 0 };
@@ -45,7 +46,7 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     const sampleCatalog = Object.fromEntries(sample.papers.filter(p => p.enrichment).map(p => [p.id, p.enrichment]));
     papers = papers.map(p => attachEnrichment(p, { ...sampleCatalog, ...catalog }));
     const collectionSource = publicCollectionSource(sourceEnv);
-    const library = { schemaVersion: 2, origin: 'live', fetchedAt: new Date().toISOString(), papers, stats, modelUsage: usage, receipts, automation: { scheduleBeijing: config.scheduleBeijing || '07:17', modelConfigured: configuredModel(configModel), modelStatus: configuredModel(configModel) ? 'ready' : 'not_configured', lastRunAt: new Date().toISOString(), failedTopics: stats.filter(s => s.error).length, collectionSource } };
+    const library = { schemaVersion: 2, origin: 'live', fetchedAt: new Date().toISOString(), papers, stats, modelUsage: usage, receipts, automation: { scheduleBeijing: config.scheduleBeijing || '07:17', modelConfigured: configuredModel(configModel), modelStatus: configuredModel(configModel) ? 'ready' : 'not_configured', lastRunAt: new Date().toISOString(), failedTopics: stats.filter(s => s.error).length, collectionSource, downloadRefresh } };
     const output = path.join(root, 'dist/library.json');
     await saveJson(output, library);
     let attempted = 0;

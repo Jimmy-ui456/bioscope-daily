@@ -1,4 +1,4 @@
-import { checkEvidenceClaim } from './evidence.js?v=0.2.11';
+import { checkEvidenceClaim } from './evidence.js?v=0.2.12';
 
 // Shared by the static reader and the unattended collection job. No credentials here.
 export function sourceFingerprint(paper) {
@@ -154,4 +154,18 @@ export function downloadRefreshLabel(paper) {
   if (refresh.status === 'failed') return `最近逐篇刷新：${at}，下载统计请求失败。${retained}`;
   if (refresh.status === 'not_available') return `最近逐篇刷新：${at}，未返回有效的原平台逐篇统计。${retained}`;
   return '';
+}
+export function validateDownloadRefreshSummary(summary) {
+  if (!summary || typeof summary !== 'object' || Array.isArray(summary)) return false;
+  const keys = ['supported', 'attempted', 'updated', 'failed', 'notAvailable', 'skipped'];
+  if (!keys.every(key => Number.isSafeInteger(summary[key]) && summary[key] >= 0)) return false;
+  const attempted = summary.updated + summary.failed + summary.notAvailable;
+  const supported = summary.attempted + summary.skipped;
+  return Number.isSafeInteger(attempted) && Number.isSafeInteger(supported)
+    && attempted === summary.attempted && supported === summary.supported;
+}
+export function downloadRefreshSummaryLabel(summary) {
+  if (summary == null) return '本快照未记录运行级汇总，可查看逐篇结果或运行记录。';
+  if (!validateDownloadRefreshSummary(summary)) return '运行级汇总格式无效，请核对逐篇结果和运行记录。';
+  return `本次可自动查询的平台记录 ${summary.supported} 篇，已请求 ${summary.attempted} 篇；有效返回 ${summary.updated}、请求失败 ${summary.failed}、本次无有效返回 ${summary.notAvailable}、批次未请求 ${summary.skipped}。以上是文献篇数，不是下载次数。`;
 }

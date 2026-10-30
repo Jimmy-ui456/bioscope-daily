@@ -2,6 +2,9 @@ import { cleanDoi } from '../dist/core.js';
 import { validateDownloadMetric } from '../dist/enrichment.js';
 import { fetchPlosMetric } from './plos.mjs';
 
+const supportedPublisherDoi = /^(10\.5281\/zenodo\.|10\.1371\/journal\.)/i;
+function supportsPublisherRefresh(paper) { return supportedPublisherDoi.test(paper?.doi || ''); }
+
 // Europe PMC's citation count and platform-wide bioRxiv usage totals are deliberately not used.
 export function applyPublisherMetrics(papers, records = []) {
   return papers.map(paper => {
@@ -45,7 +48,7 @@ export async function refreshPublisherMetrics(papers, { fetchMetric = fetchPubli
   let attempted = 0;
   const output = [];
   for (const paper of papers) {
-    if (!/^(10\.5281\/zenodo\.|10\.1371\/journal\.)/i.test(paper.doi || '')) { output.push(paper); continue; }
+    if (!supportsPublisherRefresh(paper)) { output.push(paper); continue; }
     if (attempted >= limit) { output.push({ ...paper, downloadRefresh: { status: 'skipped', reason: 'batch_limit' } }); continue; }
     attempted++;
     try {
@@ -59,4 +62,30 @@ export async function refreshPublisherMetrics(papers, { fetchMetric = fetchPubli
     }
   }
   return output;
+}
+
+// Counts paper records from the completed refresh, never download events.
+// Older/malformed per-paper results cannot prove how this batch was handled.
+export function summarizePublisherRefresh(papers) {
+  if (!Array.isArray(papers)) return null;
+  const summary = { supported: 0, attempted: 0, updated: 0, failed: 0, notAvailable: 0, skipped: 0 };
+  for (const paper of papers) {
+    if (!supportsPublisherRefresh(paper)) continue;
+    const refresh = paper.downloadRefresh;
+    if (!refresh || typeof refresh !== 'object' || Array.isArray(refresh)) return null;
+    if (refresh.status !== 'skipped' && (typeof refresh.checkedAt !== 'string'
+      || !/^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(refresh.checkedAt)
+      || !Number.isFinite(Date.parse(refresh.checkedAt))
+      || new Date(refresh.checkedAt.slice(0, 10) + 'T12:00:00Z').toISOString().slice(0, 10) !== refresh.checkedAt.slice(0, 10))) return null;
+    summary.supported++;
+    if (refresh.status === 'updated') {
+      if (!validateDownloadMetric(paper.downloadMetric)) return null;
+      summary.updated++;
+    } else if (refresh.status === 'failed') summary.failed++;
+    else if (refresh.status === 'not_available') summary.notAvailable++;
+    else if (refresh.status === 'skipped' && refresh.reason === 'batch_limit') summary.skipped++;
+    else return null;
+  }
+  summary.attempted = summary.updated + summary.failed + summary.notAvailable;
+  return summary;
 }
