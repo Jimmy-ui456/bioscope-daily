@@ -9,7 +9,14 @@
     <docs>https://www.rssboard.org/rss-specification</docs>
     <ttl>60</ttl>
     <atom:link href="https://jimmy-ui456.github.io/bioscope-daily/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 28 Oct 2026 16:44:50 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 02:37:30 GMT</lastBuildDate>
+    <item>
+      <title>生研观察 · 2026-10-30 公共文献简报（10 篇）</title>
+      <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-10-30#daily</link>
+      <guid isPermaLink="false">https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-10-30#daily</guid>
+      <pubDate>Fri, 30 Oct 2026 02:37:30 GMT</pubDate>
+      <description><![CDATA[<p>按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。</p><p>发表日期范围：2026-10-24 — 2026-10-30。</p><ol><li><a href="https://doi.org/10.64898/2026.10.27.762313">Engineered probiotics target granulomas to treat mycobacterial infection</a></li><li><a href="https://doi.org/10.1007/10_2026_370">分子生物学与合成生物学指导的生物传感器识别元件和报告元件开发<br><span lang="en">Molecular Biology and Synthetic Biology-Guided Development of Recognition and Reporting Elements of Biosensor.</span></a></li><li><a href="https://doi.org/10.1016/j.stem.2026.10.003">Organoids and organs-on-a-chip as new approach methodologies at the convergence of cell biology and bioengineering.</a></li><li><a href="https://doi.org/10.1073/pnas.2621208123">酵母大规模绝对定量蛋白质组学揭示亚细胞区室间的蛋白质资源分配<br><span lang="en">Protein resource allocation across subcellular compartments revealed by large-scale absolute quantitative proteomics in yeast.</span></a></li><li><a href="https://doi.org/10.1002/adhm.71906">Artificial Cells and Biomimetic Cells: Intelligent Systems Driving a Paradigm Shift in Drug Discovery and Delivery.</a></li><li><a href="https://doi.org/10.21203/rs.3.rs-11324733/v1">Metabolic engineering of Escherichia coli to enhance L-serine biosynthesis</a></li><li><a href="https://doi.org/10.64898/2026.10.26.761776">Development of a CRISPR-Cas9 genome editing system for the extremely thermophilic bacterium Anaerocellum bescii</a></li><li><a href="https://doi.org/10.64898/2026.10.28.762476">Metabolism-Informed Bioreactor Model for Transferring Knowledge from Fed-batch to Continuous Biomanufacturing</a></li><li><a href="https://doi.org/10.1002/bab.70218">利用马克斯克鲁维酵母与工程酿酒酵母细胞工厂从菊粉生物制造L-乳酸<br><span lang="en">Biomanufacturing of L-Lactic Acid from Inulin Exploiting Kluyveromyces marxianus and Engineered Saccharomyces cerevisiae Cell Factories.</span></a></li><li><a href="https://doi.org/10.1016/j.jbiosc.2026.10.001">酿酒酵母突变株的动力学代谢建模揭示糖酵解通量控制的两种主要调控模式<br><span lang="en">Kinetic metabolic modeling of Saccharomyces cerevisiae mutants reveals two major regulatory patterns of glycolytic flux control.</span></a></li></ol>]]></description>
+    </item>
     <item>
       <title>生研观察 · 2026-10-29 公共文献简报（10 篇）</title>
       <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-10-29#daily</link>

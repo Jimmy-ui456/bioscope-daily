@@ -1,8 +1,140 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-10-29T02:28:05.815Z",
+  "fetchedAt": "2026-10-30T02:37:32.662Z",
   "papers": [
+    {
+      "id": "doi:10.64898/2026.10.27.762313",
+      "title": "Engineered probiotics target granulomas to treat mycobacterial infection",
+      "abstract": "Granulomas are a pathological niche for mycobacteria that remain difficult to access with conventional therapies. Here we show that probiotic Escherichia coli Nissle 1917 (EcN) infiltrates and colonizes granulomas and can be engineered as a delivery system that senses the local microenvironment and releases antimycobacterial payloads. Specifically, we leveraged the hypoxic microenvironment of necrotic granulomas to restrict bacterial growth, and developed a dual-mode lysis circuit combining intracellular and extracellular killing for sustained payload release with limited evolutionary escape. We further engineered EcN to express a mycobacteriophage-derived enzyme, generating a strain that suppressed drug-sensitive and drug-resistant mycobacteria in vitro and potentiated conventional antibiotic activity. Engineered probiotics also reduced mycobacterial burden in vivo, and in a murine model of rifampicin-resistant infection, combination treatment with pretomanid achieved greater bacterial reduction than either monotherapy. Together, these results establish a synthetic biology framework for targeting granulomatous infections with programmable living microbes.",
+      "authors": "Chen Y, Harimoto T, Makafe GG, Coker C, Kim H, Im J, Jing Y, Jin H, Hu X, Zutshi S, Raneri MR, Weinrick B, Danino T.",
+      "journal": "预印本平台",
+      "doi": "10.64898/2026.10.27.762313",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1353244",
+      "url": "https://doi.org/10.64898/2026.10.27.762313",
+      "publishedAt": "2026-10-29",
+      "discoveredAt": "2026-10-30T02:37:31.909Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.64898/2026.10.28.762476",
+      "title": "Metabolism-Informed Bioreactor Model for Transferring Knowledge from Fed-batch to Continuous Biomanufacturing",
+      "abstract": "Chinese hamster ovary (CHO) cells remain the dominant platform for monoclonal antibody (mAb) manufacturing, and rising demand is pushing the industry from fed-batch toward continuous operation. Continuous cultures promise sustained high cell densities and volumetric productivities, but their operation depends on reliable real-time monitoring, prediction and control. Limited intracellular observability and sparse extracellular measurements hinder this, leaving a persistent gap between mechanistic understanding and predictive deployment. Here we describe a metabolism-informed model for mAb production that embeds reactor- and intracellular-level mass balances directly within a learning architecture, while deliberately avoiding predefined kinetic rate laws and explicit steady-state assumptions. Because conservation relationships remain invariant across operating modes, this formulation provides a principled structural prior for cross-regime generalisation, positioning the model as a soft sensor for continuous bioprocesses: inferring unmeasured intracellular fluxes and one-step ahead forecasting extracellular concentrations to support process monitoring and control. Benchmarking two metabolic network sizes and three metabolic optimisation strategies, concentration predictions are indistinguishable across network sizes. Exchange flux fidelity is agnostic to solver choice, with network size mattering only for intracellular interpretability. Transferring the developed model from fed-batch to continuous operation with fine-tuning outperforming other transfer learning variants. This is consistent with the metabolic structure being invariant to mode of operation. Predicted fluxes reveal growth rate in fed-batch, rather than operating mode, as the dominant axis of metabolic variation, and identify potential regime-shift signals to guide experimental design for continuous culture characterisation. These results chart a route towards digital models sufficiently grounded in first-principles knowledge, yet adaptive for deployment under regime shifts.",
+      "authors": "Monteiro M, Bediako S, Tecson R, Nierode G, Kotidis P, Kontoravdi C.",
+      "journal": "预印本平台",
+      "doi": "10.64898/2026.10.28.762476",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1353336",
+      "url": "https://doi.org/10.64898/2026.10.28.762476",
+      "publishedAt": "2026-10-29",
+      "discoveredAt": "2026-10-30T02:37:32.012Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1002/adhm.71906",
+      "title": "Artificial Cells and Biomimetic Cells: Intelligent Systems Driving a Paradigm Shift in Drug Discovery and Delivery.",
+      "abstract": "The convergence of synthetic biology, materials science, and artificial intelligence drives a transformative shift in biopharmaceutical research, advancing from passive drug carriers to intelligent, programmable therapeutics. This review evaluates artificial and biomimetic cells as a framework that connects fundamental biological discovery with clinical translation. It examines five key technological pathways: membrane-engineered artificial cells, membraneless organelle (MLO) systems, multicompartmental artificial cells, protocell communication networks, and virtual cells. These platforms enable precise regulation of drug stability, targeting, biosynthesis, and adaptive responsiveness. Recent progress includes microenvironment-triggered release, logic-gated intercellular communication, and virtual cell-assisted high-throughput screening and toxicity prediction. Despite these advances, challenges remain in scalable manufacturing, long-term stability, and regulatory adaptation. The integration of closed-loop learning, interpretable models, and advanced biomanufacturing will be essential to position artificial and biomimetic cell systems at the forefront of next-generation precision medicine.",
+      "authors": "Xiang M, Su B, Jiang C, Sun T.",
+      "journal": "Advanced healthcare materials",
+      "doi": "10.1002/adhm.71906",
+      "pmid": "42952019",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42952019",
+      "url": "https://doi.org/10.1002/adhm.71906",
+      "publishedAt": "2026-10-28",
+      "discoveredAt": "2026-10-30T02:37:31.910Z",
+      "topics": [
+        "synthetic",
+        "metabolic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.64898/2026.10.26.761776",
+      "title": "Development of a CRISPR-Cas9 genome editing system for the extremely thermophilic bacterium Anaerocellum bescii",
+      "abstract": "Anaerocellum (f. Caldicellulosiruptor) bescii is an extremely thermophilic (Topt 75-78 °C) anaerobic bacterium and is also a highly efficient degrader of lignocellulose, making it a promising platform for metabolic engineering. To date, chromosomal genetic manipulations in A. bescii have required multistep procedures involving homologous recombination with integrating vectors and counterselection. Here, we demonstrate the first implementation of CRISPR-Cas9 genome editing in A. bescii facilitated by a thermostable Cas9 enzyme from Geobacillus stearothermophilus (GeoCas9). Delivery of heterologous CRISPR machinery via a replicating vector enabled us to individually and sequentially delete genes for lactate dehydrogenase (ldh) and pyrE in A. bescii. We then deployed this system to delete a novel target, tryptophan synthase (trpBA), generating a tryptophan auxotrophic strain of A. bescii. Using this strain, we show trpBA complementation enables selection and maintenance of a replicating vector expressing a heterologous enzymatic reporter gene.",
+      "authors": "Galindo JL, Conway JM.",
+      "journal": "预印本平台",
+      "doi": "10.64898/2026.10.26.761776",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1353464",
+      "url": "https://doi.org/10.64898/2026.10.26.761776",
+      "publishedAt": "2026-10-28",
+      "discoveredAt": "2026-10-30T02:37:32.049Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.21203/rs.3.rs-11324733/v1",
+      "title": "Metabolic engineering of Escherichia coli to enhance L-serine biosynthesis",
+      "abstract": "Abstract L-serine, an important non-essential amino acid, is widely used in the food, pharmaceutical, feed, and cosmetic industries. However, previous studies on fermentative L-serine production by Escherichia coli have mainly focused on improving titer, whereas insufficient attention has been paid to the conversion yield, limiting its industrial economic feasibility. In this study, systematic metabolic engineering was performed to improve L-serine yield. Using H5 as the parental strain, the L-serine re-uptake-related genes sstT and tdcC were deleted based on the CRISPR/Cas9 system to generate strain H8, in which the L-serine titer increased to 5.58 g/L and the conversion yield reached 0.37 g/g. Subsequently, the L-serine biosynthetic module, L-serine transport module, and cofactor supply module were individually enhanced in H8, resulting in recombinant strains H8- abc , H8- be , and H8- pntab , respectively. The resulting strains H8- abc , H8- be , and H8- pntab produced 6.40, 5.89, and 5.59 g/L L-serine, with yields of 0.43, 0.39, and 0.37 g/g, respectively. Further combination of effective strategies in the H8 chassis generated strain H8- abc-be ; however, its L-serine production decreased. Finally, H8- abc was selected for fermentation medium optimization. After optimization, the L-serine titer reached 7.20 g/L in shake-flask fermentation, with a yield of 0.48 g/g, representing a 71.84% increase compared with the starting strain H5. These results provide a useful reference for the development of efficient E. coli strains for industrial L-serine production.",
+      "authors": "Xiao K, Huang Y, Xu M, Xu G, Zhang X, Li H, Shi J, Xu Z, Zhang X.",
+      "journal": "预印本平台",
+      "doi": "10.21203/rs.3.rs-11324733/v1",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1351963",
+      "url": "https://doi.org/10.21203/rs.3.rs-11324733/v1",
+      "publishedAt": "2026-10-28",
+      "discoveredAt": "2026-10-30T02:37:32.049Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": "cc by",
+      "version": null,
+      "collection": "Europe PMC"
+    },
     {
       "id": "doi:10.1007/10_2026_370",
       "title": "Molecular Biology and Synthetic Biology-Guided Development of Recognition and Reporting Elements of Biosensor.",
@@ -40,6 +172,32 @@
         "reviewed": false,
         "scope": "abstract_only"
       }
+    },
+    {
+      "id": "doi:10.1016/j.stem.2026.10.003",
+      "title": "Organoids and organs-on-a-chip as new approach methodologies at the convergence of cell biology and bioengineering.",
+      "abstract": "The rapid growth of new approach methodologies (NAMs), including organoids and organs-on-a-chip (OOCs), has revealed a need for interdisciplinary dialogue between cell biologists and bioengineers to develop human models that can best complement therapeutic development. Stem cell-derived and bioengineered human tissue models are redefining how we understand human physiology and pathophysiology, offering control that traditional preclinical models cannot provide. By recapitulating complex tissue microenvironments, multi-organ interactions, and patient-specific biology, these systems are bridging long-standing gaps in the drug development and clinical application pipelines. Here, we synthesize advances in organoids, OOCs, and other bioengineered technologies for translational medicine to identify remaining gaps, including challenges in reproducibility, validation, and regulatory acceptance. Emerging opportunities at the intersection of synthetic biology, multi-omics, machine learning, and genetic engineering are positioning NAMs not merely as improved experimental tools but as foundational platforms for accelerating therapeutic discovery and enabling personalized medicine at scale.",
+      "authors": "Tavakol DN, Mendonca D, Baldassarri I, Maletic-Savatic M, Vunjak-Novakovic G.",
+      "journal": "Cell stem cell",
+      "doi": "10.1016/j.stem.2026.10.003",
+      "pmid": "42950820",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42950820",
+      "url": "https://doi.org/10.1016/j.stem.2026.10.003",
+      "publishedAt": "2026-10-28",
+      "discoveredAt": "2026-10-30T02:37:31.910Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1111/1744-7917.70385",
@@ -117,6 +275,33 @@
       }
     },
     {
+      "id": "doi:10.64898/2026.10.26.761992",
+      "title": "Analysis of genome sequences of marine isolates of Saccharomyces cerevisiae",
+      "abstract": "Saccharomyces cerevisiae is the workhorse of the fermentation industry, as well as a dominant laboratory model organism and chassis for synthetic biology. The great majority of known isolates are from terrestrial sources, but a number of strains are reported to have been isolated from seawater and marine sediments and organisms. Marine strains may have superior tolerance to salt and fermentation inhibitors, and other properties which may be useful in industry, especially in processes based on seawater and marine biomass, as well as casting new light on the physiology and evolution of this species. We have recently reported the isolation of several marine strains of S. cerevisiae and comparisons with terrestrial strains for ethanol production. Here we describe the genome sequences of three marine S. cerevisiae strains, AZ65, AZ118 and AZ123. To the best of our knowledge, these are the first genome sequences of marine S. cerevisiae strains for which published isolation data are available. Superior salt and inhibitor tolerance of the strains, compared to multiple terrestrial and industrial comparators, was confirmed. Analysis of the ENA locus, believed to be related to salt tolerance in S. cerevisiae, did not show strong evidence for modification of copy number, protein sequence, or promoter sequence of this locus in response to a marine habitat. The physiological and genetic basis of salt and inhibitor tolerance thus remains to be determined.",
+      "authors": "Aslam MF, Zaky A, Hou X, Chen Y, Hu Y, French CE.",
+      "journal": "预印本平台",
+      "doi": "10.64898/2026.10.26.761992",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1352524",
+      "url": "https://doi.org/10.64898/2026.10.26.761992",
+      "publishedAt": "2026-10-27",
+      "discoveredAt": "2026-10-30T02:37:31.910Z",
+      "topics": [
+        "synthetic",
+        "metabolic"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": "cc by-nc-nd",
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1002/bab.70218",
       "title": "Biomanufacturing of L-Lactic Acid from Inulin Exploiting Kluyveromyces marxianus and Engineered Saccharomyces cerevisiae Cell Factories.",
       "abstract": "The transition to sustainable lactic acid (LA) biomanufacturing necessitates a shift from first-generation feedstocks toward residual biomass and low-pH fermentation, eliminating the costly, waste-intensive salt purification and acidification steps. This study presents a novel, two-yeast strategy designed to valorize inulin, a fructose polymer also found in cardoon roots, for high-efficiency LA production at a pH below its pKa. The key novelty of this work lies in identifying and pairing the unique physiological strengths of each organism: Kluyveromyces marxianus as the optimal yeast for inulin hydrolysis, and Saccharomyces cerevisiae as the superior host for robust LA production at low pH and high titers. We discovered that if ammonium sulphate is substituted with urea as a nitrogen source for K. marxianus cultivation, the inulinase activity increased by nearly 20-fold, significantly enhancing the initial breakdown of the substrate. Inulinase-enriched K. marxianus supernatant was then used to cultivate S. cerevisiae m850, an engineered homolactic strain, and convert inulin into L-LA. Comparing separate hydrolysis and fermentation (SHF) with simultaneous saccharification and fermentation (SSF), we achieved a maximal yield > 0.77 g/g with a final pH of 2.5. While SSF was limited by pH-induced inulinase inactivation, the SHF process achieved complete substrate conversion. These results demonstrate a promising platform for producing LA from a residual feedstock, drastically reducing impacts and downstream processing costs.",
@@ -139,7 +324,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc",
       "version": null,
       "collection": "Europe PMC",
       "enrichment": {
@@ -179,7 +364,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "乙醇与CO₂的碳汇聚协同利用实现Komagataella phaffii中3-羟基丙酸的高效生物合成",
+        "abstractZh": "摘要：CO₂是一种丰富的生物制造原料，但其高氧化态使多碳化合物的生物合成需要大量还原力。本研究在工程化Komagataella phaffii中建立了一种碳汇聚策略，通过协同利用乙醇和无机碳生产3-羟基丙酸（3-HP）。乙醇作为枢纽分子，在提供得以保留的C2骨架的同时提供还原当量，从而通过并入无机C1碳，实现通向3-HP的“2+1=3”路线。通过协同改造乙醇同化、乙酸活化、羧化、辅因子供应及能量代谢，研究者获得了LT-28菌株，其3-HP滴度达到127.04 g/L，是迄今报道的基于CO₂生物合成的最高滴度。¹³C示踪证实，乙醇来源的C2碳和无机C1碳共同参与构成产物骨架。LT-28还将来自CO₂热催化还原的、未经纯化的富乙醇物料流转化为3-HP。这些发现证明，通过乙醇介导的碳汇聚，将CO₂化学还原与微生物3-HP生物合成相耦合是可行的。",
+        "sourceTitle": "Carbon-Convergent Co-utilization of Ethanol and CO2 Enables Efficient 3-Hydroxypropionic Acid Biosynthesis in Komagataella phaffii",
+        "sourceAbstract": "Abstract CO 2 is an abundant feedstock for biomanufacturing, but its high oxidation state demands substantial reducing power for multicarbon biosynthesis. Here, we establish a carbon-convergent strategy for producing 3-hydroxypropionic acid (3-HP) through the co-utilization of ethanol and inorganic carbon in engineered Komagataella phaffii. Ethanol serves as a nexus molecule that supplies a conserved C2 backbone together with reducing equivalents, enabling a \"2+1=3\" route to 3-HP through inorganic C1 incorporation. Coordinated engineering of ethanol assimilation, acetate activation, carboxylation, cofactor supply, and energy metabolism generated strain LT-28, which produced 127.04 g/L 3-HP, the highest titer reported so far for CO 2 -based biosynthesis. 13C tracing verified the joint contribution of ethanol-derived C2 carbon and inorganic C1 carbon to the product skeleton. LT-28 also converted an unpurified ethanol-rich stream from thermocatalytic CO2 reduction into 3-HP. These findings demonstrate the feasibility of coupling chemical CO 2 reduction with microbial 3-HP biosynthesis through ethanol-mediated carbon convergence.",
+        "sourceFingerprint": "6c6bae00-1274",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.64898/2026.10.23.761364",
@@ -206,7 +402,18 @@
       "readingScope": "仅摘要",
       "license": "cc by",
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "比较多组学揭示酵母源细胞外囊泡中保守的膜结构与代谢活性载荷的选择性富集",
+        "abstractZh": "细胞外囊泡（EV）是各生命界细胞间通讯的基本介质，但我们对其生物学的认识主要来自哺乳动物系统。相比之下，尽管酵母源细胞外囊泡（YDEV）有潜力成为可规模化、非致病性的生物技术与代谢工程平台，其特征仍缺乏充分研究。本研究将高产量分离流程与比较多组学相结合，界定了来自3个酵母物种、4个菌株的细胞外囊泡中的代谢活性载荷与膜组成：传统模式酵母酿酒酵母（Saccharomyces cerevisiae，SC）、非模式产油酵母 Rhodotorula toruloides（RT-88），以及解脂耶氏酵母（Yarrowia lipolytica）的野生型W29及其工程化衍生菌株Po1f。研究者采用切向流过滤结合超速离心，可重复地从所有菌株中分离出完整、由双层膜包裹的囊泡。尽管各菌株的囊泡产量存在显著差异，这些囊泡仍具有保守的纳米尺度形态。比较代谢组学揭示了不同代谢活性载荷的选择性富集，包括SC中的核苷酸代谢物、RT-88中的脂肪酸与酰基肉碱，以及解脂耶氏酵母菌株中特有的代谢物。值得注意的是，烟酰胺腺嘌呤二核苷酸（NAD⁺）在SC和RT-88的细胞外囊泡中富集，但在解脂耶氏酵母来源的囊泡中几乎不存在。这提示一种可能性：囊泡包封或可为这种本身不能透过膜的辅因子提供受保护的运输。与载荷组成的差异形成对照，比较脂质组学表明，所有菌株的囊泡膜结构总体保守，仅特定脂质类别及膜不饱和度谱发生定量层面的重塑。综合而言，这些发现支持这样一种组织原则：酵母源细胞外囊泡在维持保守膜结构的同时，选择性富集具有代谢活性的载荷，由此建立了一个比较框架，用于理解进化上具有多样性的酵母物种中的细胞外囊泡生物学。",
+        "sourceTitle": "Comparative Multi-omics Reveals Conserved Membrane Architecture and Selective Metabolic Cargo Enrichment Across Yeast-Derived Extracellular Vesicles",
+        "sourceAbstract": "Extracellular vesicles (EVs) are fundamental mediators of intercellular communication across all kingdoms of life, yet our understanding of EV biology has been derived predominantly from mammalian systems. In contrast, yeast-derived extracellular vesicles (YDEVs) remain poorly characterized despite their potential as scalable, non-pathogenic platforms for biotechnology and metabolic engineering. Here, we combined a high-yield isolation workflow with comparative multi-omics to define the metabolically active cargo and membrane composition of EVs derived from three yeast species and four strains: the conventional model yeast Saccharomyces cerevisiae (SC), the non-model oleaginous yeast Rhodotorula toruloides (RT-88), and two Yarrowia lipolytica strains, wild-type W29 and its engineered derivative Po1f. Using tangential flow filtration coupled with ultracentrifugation, we reproducibly isolated intact, bilayer-enclosed vesicles with conserved nanoscale morphology across all strains despite marked differences in EV yield. Comparative metabolomics revealed selective enrichment of distinct metabolically active cargo, including nucleotide metabolites in SC, fatty acids and acyl-carnitines in RT-88, and strain-specific metabolites within the Yarrowia isolates. Notably, nicotinamide adenine dinucleotide (NAD⁺) was enriched in SC and RT-88 EVs but was nearly absent from Yarrowia-derived vesicles, raising the possibility that EV encapsulation may facilitate protected transport of this otherwise membrane-impermeable cofactor. In contrast to these differences in cargo composition, comparative lipidomics demonstrated a broadly conserved membrane architecture across all strains, with only quantitative remodeling of specific lipid classes and membrane unsaturation profiles. Together, these findings support an organizational principle in which yeast-derived extracellular vesicles preserve a conserved membrane architecture while selectively enriching metabolically active cargo, establishing a comparative framework for understanding EV biology across evolutionarily diverse yeast species.",
+        "sourceFingerprint": "6d2c6fad-2253",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1039/d6lc00512h",
@@ -306,7 +513,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "遗传控制将不依赖TGFβ的多能干细胞自我更新与跨胚层的确定性正向编程相耦合",
+        "abstractZh": "要可重复、可规模化地制造人诱导多能干细胞（hiPSC）衍生细胞，需要控制其扩增与分化。转录因子介导的正向编程可使hiPSC分化受到遗传控制，但扩增仍依赖外源补充生长因子，从而增加工艺复杂性及对操作者的依赖。本研究提出GERALT，即遗传增强的自我更新与自主谱系转分化（Genetically Enhanced Renewal and Autonomous Lineage Transdifferentiation）。这是一种通过靶向安全港位点整合而组装的推拉式基因回路，将由NANOG支持、不依赖TGFβ的自我更新，与多西环素诱导的谱系编程及同步发生的NANOG沉默相耦合。在长时间撤除TGFβ的条件下，GERALT在贴壁培养与悬浮培养中均能维持多能性，同时仍可被编程为肌源性、神经元及肝细胞命运。在肌生成方面，与已建立的OPTi-OX平台相比，GERALT能够在简化培养基中实现分化，同时使命运决定过程更加定向并加快这一过程。GERALT还支持在悬浮培养中直接进行肌源性编程，并能将hiPSC直接浇注到水凝胶中，随后在组织内进行编程，获得能够对电刺激作出反应的工程化肌肉组织。这些结果将遗传控制向上游延伸至干细胞自我更新，有助于新方法学（new approach methodologies）及其他生物制造应用的实施。",
+        "sourceTitle": "Genetic control couples TGFβ-independent pluripotent stem cell renewal to deterministic forward programming across germ layers",
+        "sourceAbstract": "Reproducible and scalable manufacture of human induced pluripotent stem cell (hiPSC) derivatives requires control over expansion and differentiation. Transcription factor-mediated forward programming can place hiPSC differentiation under genetic control, but expansion still relies on extracellular growth-factor supplementation, increasing process complexity and operator dependence. Here we introduce GERALT (Genetically Enhanced Renewal and Autonomous Lineage Transdifferentiation), a push-pull genetic circuit assembled through targeted safe-harbour integration that couples NANOG-supported, TGFβ-independent renewal to doxycycline-inducible lineage programming and simultaneous NANOG silencing. GERALT maintained pluripotency during extended TGFβ withdrawal in both adherent and suspension culture, yet remained programmable towards myogenic, neuronal, and hepatic fates. Compared with the established OPTi-OX platform in myogenesis, GERALT enabled differentiation in simplified medium while canalising and accelerating commitment. GERALT also supported direct myogenic programming in suspension and enabled direct casting of hiPSCs into hydrogel followed by in-tissue programming, yielding electrically responsive engineered muscle tissues. These results extend genetic control upstream into stem cell renewal, facilitating deployment of new approach methodologies and other biomanufacturing applications.",
+        "sourceFingerprint": "c8d7efb-1538",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1016/j.jbiosc.2026.10.001",
@@ -370,12 +588,23 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "仿骨髓熔融静电直写支架重现幼红细胞岛，用于培养红细胞的高密度生物制造",
+        "abstractZh": "生物制造的细胞疗法正在给现代医学带来显著进步，但高成本阻碍了其广泛应用。培养红细胞（cRBC）是一类正处于临床试验阶段、拟用于即用型输血的细胞治疗产品；然而，一次输血所需的数万亿个红细胞（RBC）的制造成本极高，仍然限制着其应用。如果培养平台能够像骨髓中那样，以更高密度培养细胞，使每个细胞所需的培养基更少、昂贵生长因子的使用浓度更低，则可能降低这些成本。研究者通过熔融静电直写（MEW）制造聚己内酯（PCL）支架，使其几何形状模仿骨髓中的骨小梁结构，随后经等离子体处理，以支持外周血单个核细胞（PB MNC）附着。PB MNC中的单核细胞首先黏附于支架，并迅速分化为CD68⁺巨噬细胞样细胞。这些负载巨噬细胞的支架进一步黏附CD71⁺幼红细胞；在红系诱导培养条件下，幼红细胞的比例从第4天的10%增加至第8天的25%，并在第20天产生CD235a⁺红系细胞。与传统的MEW交叉网格几何形状相比，仿骨小梁几何形状的MEW PCL支架具有更大的表面积，可黏附更多巨噬细胞，并生成更多幼红细胞。MEW支架持续将黏附性较弱的细胞释放到培养上清中；在细胞接种数量与培养基体积相同的条件下，其上清细胞数比液体悬浮培养对照增加74%。高细胞密度支架表现出更活跃的代谢，并内源性产生支持自身生长的细胞因子，这可能为未来通过优化培养基降低成本提供机会。本研究报告了仿骨髓骨小梁结构的MEW PCL设计，能够选择性黏附外周血单个核细胞，形成覆盖巨噬细胞的支架，为培养红细胞的生产提供物理与旁分泌支持。这一高细胞密度培养平台可能适用于未来的细胞治疗生物制造流程。",
+        "sourceTitle": "Marrow-mimicry MEW scaffolds recapitulate erythroblastic islands for high-density cRBC biomanufacturing",
+        "sourceAbstract": "Biomanufactured cell therapies are delivering a step-change in modern medicine, but their high costs have prevented widespread adoption. Cultured red blood cells (cRBCs) are one type of cell therapy in clinical trials for off-the-shelf blood transfusion but remain limited by the exorbitant costs of manufacturing trillions of RBCs required for a blood transfusion. These costs could be mitigated if culture platforms could grow cells at higher density, like those found in the bone marrow, requiring less media and lower concentrations of expensive growth factors per cell. We engineered melt electrowritten (MEW) polycaprolactone (PCL) scaffolds in geometries which imitate marrow trabeculae structures and were then plasma-treated to enable peripheral blood mononuclear cells (PB MNC) attachment. PB MNC monocytes first adhered to the scaffold and rapidly differentiated into CD68 + macrophage-like cells. These macrophage-loaded scaffolds adhered CD71 + erythroblasts, which then grew from 10 to 25% between days 4 and 8 and produced CD235a + erythroid cells by day 20, under erythrogenic culture conditions. MEW PCL scaffolds in trabecular-like geometries had greater surface area, adhered more macrophages, and generated more erythroblasts than traditional MEW crosshatch geometries. The MEW scaffolds continuously released less-adherent cells to the supernatant, providing a 74% increase in supernatant cell numbers versus liquid suspension controls with identical cell seeding numbers and media volumes. High-cell-density scaffolds exhibited increased metabolism and endogenous production of self-supportive cytokines, which may offer cost-saving opportunities through future media optimisation. This study reports marrow trabeculae-mimetic MEW PCL designs capable of selectively adhering PB MN cells to develop macrophage-coated scaffolds, which provided physical and paracrine support for cRBC production. This high-cell-density culture platform may be useful for future cell therapy biomanufacturing protocols.",
+        "sourceFingerprint": "93ac5ffb-2125",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1016/j.jbiotec.2026.10.017",
       "title": "Multilevel metabolic engineering of Bacillus amyloliquefaciens for enhanced L-tyrosine production.",
-      "abstract": "L-Tyrosine is a valuable aromatic amino acid with diverse applications. Although plasmid-based overexpression has markedly improved L-tyrosine production, the dependence on antibiotic selection and genetic instability under nonselective conditions limits its industrial applicability. To address these issues, this study employed a multi-level metabolic engineering strategy to enhance the L-tyrosine biosynthetic pathway at the genomic level in Bacillus amyloliquefaciens. First, an expression cassette containing the mutant prephenate dehydrogenase (TyrAI309A/E330V) was inserted into the genome of the wild-type strain Z1. When the copy number reached three (strain Z4), L-tyrosine production reached 437.43mg/L. Subsequently, the mutant DAHP synthase (AroAR27A/K38A) was integrated, and the resulting two-copy strain Z7 increased L-tyrosine production to 591.29mg/L. Systematic identification of rate-limiting steps showed that most pathway genes enhanced production to varying extents. A promoter in situ replacement strategy was then applied to construct strain Z21, which further increased the titer to 813.01mg/L. Finally, by optimizing precursor supply, the engineered strain Z32 reached an L-tyrosine titer of 1079.94mg/L. Overall, this plasmid-free and antibiotic-independent platform offers a promising strategy for stable biosynthesis of L-tyrosine and other aromatic amino acids in microbial cell factories.",
+      "abstract": "L-Tyrosine is a valuable aromatic amino acid with diverse applications. Although plasmid-based overexpression has markedly improved L-tyrosine production, the dependence on antibiotic selection and genetic instability under nonselective conditions limits its industrial applicability. To address these issues, this study employed a multi-level metabolic engineering strategy to enhance the L-tyrosine biosynthetic pathway at the genomic level in Bacillus amyloliquefaciens. First, an expression cassette containing the mutant prephenate dehydrogenase (TyrA I309A/E330V ) was inserted into the genome of the wild-type strain Z1. When the copy number reached three (strain Z4), L-tyrosine production reached 437.43mg/L. Subsequently, the mutant DAHP synthase (AroA R27A/K38A ) was integrated, and the resulting two-copy strain Z7 increased L-tyrosine production to 591.29mg/L. Systematic identification of rate-limiting steps showed that most pathway genes enhanced production to varying extents. A promoter in situ replacement strategy was then applied to construct strain Z21, which further increased the titer to 813.01mg/L. Finally, by optimizing precursor supply, the engineered strain Z32 reached an L-tyrosine titer of 1079.94mg/L. Overall, this plasmid-free and antibiotic-independent platform offers a promising strategy for stable biosynthesis of L-tyrosine and other aromatic amino acids in microbial cell factories.",
       "authors": "Zhang D, Jiang P, Wang L, Gu J, Ji A, Feng N.",
       "journal": "Journal of biotechnology",
       "doi": "10.1016/j.jbiotec.2026.10.017",
@@ -397,18 +626,7 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC",
-      "enrichment": {
-        "titleZh": "通过多层次代谢工程提高解淀粉芽孢杆菌的 L-酪氨酸产量",
-        "abstractZh": "L-酪氨酸是一种具有多种应用的高价值芳香族氨基酸。尽管基于质粒的过表达显著提高了 L-酪氨酸产量，但对抗生素筛选的依赖，以及非选择性条件下的遗传不稳定性，限制了其工业适用性。为解决这些问题，本研究采用多层次代谢工程策略，在解淀粉芽孢杆菌（Bacillus amyloliquefaciens）的基因组水平增强 L-酪氨酸生物合成途径。首先，将含有突变型预苯酸脱氢酶（TyrAI309A/E330V）的表达盒插入野生型菌株 Z1 的基因组。当拷贝数达到3个时，所得菌株 Z4 的 L-酪氨酸滴度达到437.43 mg/L。随后整合突变型 DAHP 合酶（AroAR27A/K38A），所得双拷贝菌株 Z7 的 L-酪氨酸滴度提高至591.29 mg/L。对限速步骤的系统性鉴定表明，大多数途径基因均能不同程度地提高产量。研究者进一步采用启动子原位替换策略构建菌株 Z21，使滴度提高至813.01 mg/L。最后，通过优化前体供应，工程菌株 Z32 的 L-酪氨酸滴度达到1079.94 mg/L。总体而言，这一无质粒、不依赖抗生素的平台，为微生物细胞工厂稳定合成 L-酪氨酸及其他芳香族氨基酸提供了有前景的策略。",
-        "sourceTitle": "Multilevel metabolic engineering of Bacillus amyloliquefaciens for enhanced L-tyrosine production.",
-        "sourceAbstract": "L-Tyrosine is a valuable aromatic amino acid with diverse applications. Although plasmid-based overexpression has markedly improved L-tyrosine production, the dependence on antibiotic selection and genetic instability under nonselective conditions limits its industrial applicability. To address these issues, this study employed a multi-level metabolic engineering strategy to enhance the L-tyrosine biosynthetic pathway at the genomic level in Bacillus amyloliquefaciens. First, an expression cassette containing the mutant prephenate dehydrogenase (TyrAI309A/E330V) was inserted into the genome of the wild-type strain Z1. When the copy number reached three (strain Z4), L-tyrosine production reached 437.43mg/L. Subsequently, the mutant DAHP synthase (AroAR27A/K38A) was integrated, and the resulting two-copy strain Z7 increased L-tyrosine production to 591.29mg/L. Systematic identification of rate-limiting steps showed that most pathway genes enhanced production to varying extents. A promoter in situ replacement strategy was then applied to construct strain Z21, which further increased the titer to 813.01mg/L. Finally, by optimizing precursor supply, the engineered strain Z32 reached an L-tyrosine titer of 1079.94mg/L. Overall, this plasmid-free and antibiotic-independent platform offers a promising strategy for stable biosynthesis of L-tyrosine and other aromatic amino acids in microbial cell factories.",
-        "sourceFingerprint": "bcc66d06-1520",
-        "origin": "assistant_translation",
-        "createdAt": "2026-10-29T00:00:00+08:00",
-        "reviewed": false,
-        "scope": "abstract_only"
-      }
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1073/pnas.2621208123",
@@ -466,6 +684,43 @@
         "synthetic"
       ],
       "type": "文献记录",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "系统生物学与合成生物学标准：2026年的现状、进展与工具",
+        "abstractZh": "十多年来，《Journal of Integrative Bioinformatics》持续出版专刊，提供系统生物学与合成生物学标准的更新规范。从2024年起，专刊的收录范围扩展至新开发或改进的工具，这些工具利用上述标准，或在标准实施中发挥关键作用。本期专刊包含4项更新规范以及2项工具或程序库。此外，本文还为全部COMBINE标准规范提供综合参考，确保研究者和实践人员能够获取该领域最新的可用版本。",
+        "sourceTitle": "Standards in systems and synthetic biology: status, developments, and tools in 2026.",
+        "sourceAbstract": "For over a decade, the Journal of Integrative Bioinformatics has published special issues providing updated specifications for standards in systems biology and synthetic biology. Beginning in 2024, the special issues expanded to include novel or refined tools that leverage these standards or play a key role in their implementation. The current special issue contains four updated specifications and two tools or libraries. In addition, this document functions as a comprehensive reference for all COMBINE standard specifications, ensuring researchers and practitioners can access the most up-to-date versions available in the field.",
+        "sourceFingerprint": "8b1537b1-719",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
+    },
+    {
+      "id": "doi:10.1016/j.micres.2026.128799",
+      "title": "Substantiation of CcmB as heme extruder exploitable for microbial production of secretory heme.",
+      "abstract": "Heme, a redox-active cofactor for vital processes across all domains of life, has widespread applications in healthcare and food supplement industries. However, heme in excess not only inhibits its own synthesis but also is highly cytotoxic, becoming a hindrance for microbial production of heme. In order to pin down heme exporters exploitable for production of secretory heme in bacteria, in this study, we carried out a comprehensive comparative study of heme exporters known to date, CydDC, HrtAB, and CcmABC(D). While CydDC proteins are ubiquitous, homologs of HrtAB and CcmABC(D) are restricted to Gram + and proteobacteria respectively. We substantiate that CcmB, rather than CcmC or CcmCD, are able to extrude heme out of the membrane, a mechanism shared by HrtB and HrtAB but not CydDC. By expressing CcmB in engineered high-performance heme-producing strains of Escherichia coli, secretory heme production is substantially improved. Our findings offer a solution for high-yield microbial bioproduction of secretory heme with industrial and medical applications.",
+      "authors": "Yang H, Zhang F, Gu J, Gao H.",
+      "journal": "Microbiological research",
+      "doi": "10.1016/j.micres.2026.128799",
+      "pmid": "42950486",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42950486",
+      "url": "https://doi.org/10.1016/j.micres.2026.128799",
+      "publishedAt": "2026-10-27",
+      "discoveredAt": "2026-10-30T02:37:32.013Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "期刊论文",
       "status": "期刊记录 · 待核验",
       "isPreprint": false,
       "isRetraction": false,
@@ -538,7 +793,19 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "用于早期移植排斥检测的合成全细胞生物传感器",
+        "abstractZh": "摘要：移植排斥的早期检测仍是一项尚未得到充分满足的重要临床需求，因为组织病理学检查具有侵入性、只能间断进行，且易受取样误差影响，而血清肌酐及其他常规生化指标往往在损伤已经发生后才升高[1–4]。本文介绍一种合成全细胞生物传感器，利用工程化大肠杆菌Nissle 1917（Escherichia coli Nissle 1917），将尿液中与排斥相关的核酸特征转化为可定量的荧光输出。该系统通过正交的toehold开关和受RNA计算（ribocomputing）启发的逻辑门，整合三类具有临床相关性的输入——尿液CXCL10/IP-10、CXCL9以及供体来源游离DNA（dd-cfDNA）的替代扩增子，以相较于单标志物检测提高特异性[3–10]。使用合成转录本时，各独立传感模块的检测限为每反应3.1 × 10^2至8.9 × 10^2拷贝，开启/关闭（ON/OFF）动态范围为10.8至17.4倍。仅在存在类似排斥反应的生物标志物组合时，多重与门（AND门）才产生18.6 ± 2.9倍的信号增强，同时将单标志物假阳性抑制至……",
+        "sourceTitle": "Synthetic Whole-Cell Biosensor for Early Transplant Rejection Detection",
+        "sourceAbstract": "Abstract Early detection of transplant rejection remains a major unmet clinical need because histopathology is invasive, episodic, and subject to sampling error, whereas serum creatinine and other routine chemistries often rise only after injury is established [1–4]. Here we describe a synthetic whole-cell biosensor that converts rejection-associated urinary nucleic acid signatures into a quantifiable fluorescent output using engineered Escherichia coli Nissle 1917. The system integrates three clinically relevant input classes—urinary CXCL10/IP-10 , CXCL9 , and donor-derived cell-free DNA (dd-cfDNA) surrogate amplicons—through orthogonal toehold switches and ribocomputing-inspired logic gates to improve specificity relative to single-marker assays [3–10]. Using synthetic transcripts, the individual sensing modules showed limits of detection of 3.1 × 10^2 to 8.9 × 10^2 copies per reaction and ON/OFF dynamic ranges of 10.8- to 17.4-fold. The multiplex AND gate produced an 18.6 ± 2.9-fold signal increase only when rejection-like biomarker combinations were present, while suppressing single-marker false positives to",
+        "sourceFingerprint": "11db7c75-1201",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T00:00:00+08:00",
+        "reviewed": false,
+        "scope": "abstract_only",
+        "sourceNote": "原接口摘要在句中截断，本译文仅覆盖已返回片段；末尾阈值和完整研究结果尚无法据此核对。"
+      }
     },
     {
       "id": "doi:10.1016/j.mcpro.2026.101695",
@@ -564,7 +831,18 @@
       "readingScope": "仅摘要",
       "license": "cc by",
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "高通量蛋白质相互作用组分析揭示LSD1通过病毒核衣壳蛋白赖氨酸去甲基化调控SARS-CoV-2产生",
+        "abstractZh": "在生理条件下，高通量鉴定蛋白质-蛋白质相互作用（PPI）并对其成像，仍是一项重大挑战。同时，SARS-CoV-2核衣壳（N）蛋白是含量最高的病毒蛋白，在病毒产生中发挥关键作用。为增进对病毒机制的认识并支持抗病毒开发，研究者使用拆分的miRFP670nano3，开发了亮度最高且体积最小的近红外双分子荧光互补（NIR-BiFC）系统。通过将该系统与新一代测序（NGS）相整合，研究者建立了NIR-BiFC-Seq，用于高通量绘制蛋白质相互作用组。应用这一方法，研究者系统考察了SARS-CoV-2 N蛋白与宿主细胞蛋白之间的相互作用。结果揭示，赖氨酸特异性去甲基化酶1（LSD1）使N蛋白第233位赖氨酸（K233）去甲基化，从而通过增强N蛋白的多种功能促进病毒产生。这些功能包括N蛋白二聚化、与Nsp12相互作用、与病毒RNA结合，以及液-液相分离（LLPS）。值得注意的是，靶向K233位点的抑制剂显著抑制了SARS-CoV-2的产生。本研究建立了NIR-BiFC-Seq这一用于相互作用组绘制的灵敏合成生物学平台，并将LSD1介导的调控机制确定为有前景的抗病毒治疗靶点。",
+        "sourceTitle": "High-throughput protein interactome identifies LSD1 as a regulator of SARS-CoV-2 production through lysine demethylation of viral nucleocapsid protein.",
+        "sourceAbstract": "High-throughput identification and imaging of protein-protein interactions (PPIs) under physiological conditions remains a significant challenge. Concurrently, the SARS-CoV-2 nucleocapsid (N) protein, the most abundant viral protein, plays an essential role in viral production. To advance the understanding of viral mechanisms and support antiviral development, we developed the brightest and smallest near-infrared bimolecular fluorescence complementation (NIR-BiFC) system using split miRFP670nano3. By integrating this system with next-generation sequencing (NGS), we established NIR-BiFC-Seq for the high-throughput mapping of protein interactomes. Applying this method, we systematically investigated interactions between the SARS-CoV-2 N protein and host cellular proteins. Our findings reveal that lysine-specific demethylase-1 (LSD1) demethylates the N protein at lysine 233 (K233), thereby enhancing viral production through the potentiation of multiple N protein functions. These include N protein dimerization, interaction with Nsp12, binding to viral RNA, and liquid-liquid phase separation (LLPS). Notably, inhibitors targeting the K233 site significantly suppressed SARS-CoV-2 production. This study establishes NIR-BiFC-Seq as a sensitive synthetic biology platform for interactome mapping and identifies LSD1-mediated regulatory mechanisms as promising targets for antiviral therapy.",
+        "sourceFingerprint": "6be6d2df-1552",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T18:06:15.693Z",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1002/adma.75118",
@@ -626,7 +904,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "小基因组，大启示：病毒如何帮助我们认识基于结构的RNA调控",
+        "abstractZh": "RNA病毒在同一分子中编码多层信息，该分子既是蛋白质合成的模板，也作为具有特定结构的调控性RNA发挥作用。这些结构控制病毒基因表达的关键环节，调节与宿主的相互作用，并介导免疫逃逸。尽管RNA结构在病毒基因组中的普遍存在已得到充分认识，但直到最近，功能与机制研究才开始揭示这些元件如何作为调控模块影响感染结局。RNA病毒具有紧凑的基因组和便于开展实验研究的生命周期，因此成为有力的模式系统，可用于揭示RNA调控的基本构成要素，以及真核生物中保守的基因控制原则。本文综述了目前对不同病毒科中基于RNA结构的调控机制的认识，并将其与真核生物转录组中由结构介导的基因控制进行对照，强调RNA结构是基因表达的一个核心调控层面，在治疗与合成生物学方面具有广泛潜力。",
+        "sourceTitle": "Small genomes, big lessons: What viruses teach us about structure-based riboregulation.",
+        "sourceAbstract": "RNA viruses encode multiple layers of information within a single molecule, which functions simultaneously as a template for protein synthesis and as a structured regulatory RNA. These structures control key aspects of viral gene expression, govern host interactions, and mediate immune evasion. Although the prevalence of RNA structure in viral genomes is now well established, only recently have functional and mechanistic studies begun to uncover how these elements act as regulatory modules that shape infection outcomes. With their compact genomes and experimentally tractable life cycles, RNA viruses represent powerful model systems for uncovering the fundamental building blocks of riboregulation and illuminating principles of gene control conserved across eukaryotes. Here, we review current mechanistic understanding of RNA structure-based regulation across diverse viral families and draw parallels to structure-mediated gene control in eukaryotic transcriptomes, highlighting RNA structure as a central regulatory layer in gene expression with broad therapeutic and synthetic biology potential.",
+        "sourceFingerprint": "9dc0306b-1195",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-29T18:06:15.693Z",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1080/07388551.2026.2741611",
@@ -737,7 +1026,7 @@
     },
     {
       "id": "doi:10.1016/j.ijbiomac.2026.155040",
-      "title": "Transglycosidases from aspergillus genus and their applications in food processing: Advances in enzyme mining and smart biocatalysis.",
+      "title": "Transglycosidases from Aspergillus genus and their applications in food processing: Advances in enzyme mining and smart biocatalysis.",
       "abstract": "Transglycosidases (TGs) constitute a family of glycoside hydrolases that perform glycosyl transfer via intra- and intermolecular substitution. A. niger, A. oryzae, and other Aspergillus strains represent the major industrial sources of TGs, which are widely applied in food processing. However, prominent bottlenecks still restrict the optimization of enzyme performance, industrial adaptation, and the construction of synergistic catalytic systems. This comprehensive review expounds the application potential of Aspergillus-derived TGs in food processing, analyzes the scientific basis of artificial intelligence (AI) regulation on enzyme catalytic performance, systematically summarizes the molecular modification and multi-enzyme synergistic mechanisms, and illustrates their application effects in the fields of prebiotic oligosaccharides, dairy products, brewing, and baking. Furthermore, it promotes the in-depth integration of AI and food biomanufacturing, and advances the high-quality development of the green functional food processing industry, showing sustainable and bright prospects in smart bioprocessing and big-health food research.",
       "authors": "Zhu W, Tang J, Song X, Jia X, Deng W, Chen X, Tang M, Liu X, Shi H, Zhou J, Tan Z.",
       "journal": "International journal of biological macromolecules",
@@ -759,16 +1048,7 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC",
-      "enrichment": {
-        "titleZh": "曲霉属转糖苷酶及其在食品加工中的应用：酶挖掘与智能生物催化进展",
-        "abstractZh": "转糖苷酶（TGs）属于糖苷水解酶家族，可通过分子内或分子间取代完成糖基转移。黑曲霉、米曲霉及其他曲霉菌株是工业转糖苷酶的主要来源，这类酶广泛应用于食品加工。不过，酶性能优化、工业适应及协同催化体系构建仍受到明显瓶颈制约。本综述阐述曲霉来源转糖苷酶在食品加工中的应用潜力，分析利用人工智能调控酶催化性能的科学依据，系统总结分子改造和多酶协同机制，并介绍其在益生元低聚糖、乳制品、酿造和烘焙等领域的应用效果。文章进一步讨论人工智能与食品生物制造的融合，以及绿色功能食品加工、智能生物加工和大健康食品研究的发展前景。",
-        "sourceFingerprint": "f6db3861-1284",
-        "origin": "assistant_translation",
-        "createdAt": "2026-10-29T00:00:00+08:00",
-        "reviewed": false,
-        "scope": "abstract_only"
-      }
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1186/s13568-026-02130-5",
@@ -979,8 +1259,8 @@
     {
       "id": "doi:10.64898/2026.10.21.760811",
       "title": "Metabolic engineering of Yarrowia lipolytica for higher fatty alcohol production",
-      "abstract": "Fatty alcohols are versatile chemicals with growing demand across a broad range of industries, yet conventional production methods pose environmental challenges. Microbial biosynthesis offers a promising alternative, if hosts can be engineered to achieve high product titers. The industrially relevant oleaginous yeast Yarrowia lipolytica is well suited to this challenge because of its natural capacity for lipid metabolism. Here, we engineered Y. lipolytica W29 for fatty alcohol production by disrupting pathways involved in lipogenesis and fatty alcohol oxidation, identifying fatty alcohol oxidation as a major constraint on product accumulation. Initial engineering yielded fatty alcohol titers of 2.5 g/L from 40 g/L glucose. Subsequent optimization of media supplements and nutrient concentrations, combined with deletion of the citrate transporter CEX1 and addition of 1% Tergitol to the extractive culture medium, increased titers to 10.9 g/L in shake flasks with 80 g/L glucose and a carbon-to-nitrogen ratio of 60. Scaling the process to fed-batch bioreactor cultivation further increased titers to 19.4 g/L. These results demonstrate that combining metabolic engineering with medium and process optimization enables high-titer fatty alcohol production in Y. lipolytica.",
-      "authors": "Joseph E, Eminli F, Tohidifar P, Jagtap SS, Rao CV.",
+      "abstract": "Fatty alcohols are versatile chemicals with growing demand across a broad range of industries, yet conventional production methods pose environmental challenges. Microbial biosynthesis offers a promising alternative, if hosts can be engineered to achieve high product titers. The industrially relevant oleaginous yeast Yarrowia lipolytica is well suited to this challenge because of its natural capacity for lipid metabolism. Here, we engineered Y. lipolytica W29 for fatty alcohol production by disrupting pathways involved in lipogenesis and fatty alcohol oxidation, identifying fatty alcohol oxidation as a major constraint on product accumulation. Initial engineering yielded fatty alcohol titers of 2.5 g/L from 40 g/L glucose. Subsequent optimization of media supplements and nutrient concentrations, combined with deletion of the citrate transporter CEX1 and addition of 1% Tergitol to the extractive culture medium, increased titers to 10.9 g/L in shake flasks with 80 g/L glucose and a carbon-to-nitrogen ratio of 60. Scaling the process to fed-batch bioreactor cultivation further increased titers to 19.4 g/L. These results demonstrate that combining metabolic engineering with medium and process optimization enables high-titer fatty alcohol production in Y. lipolytica . Highlights Increased fatty alcohol titers by disrupting lipogenesis, fatty alcohol oxidation, and citrate export Dodecane and Tergitol addition increased flask fermentation titers to 10.7 g/L Fed-batch fermentation in bioreactors was performed with Tergitol to 19.4 g/L",
+      "authors": "Joseph E, Eminli F, Tohidifar P, Jagtap S, Rao CV.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.10.21.760811",
       "pmid": null,
@@ -1001,16 +1281,7 @@
       "readingScope": "仅摘要",
       "license": "cc by-nc",
       "version": null,
-      "collection": "Europe PMC",
-      "enrichment": {
-        "titleZh": "通过代谢工程提高解脂耶氏酵母的脂肪醇产量",
-        "abstractZh": "脂肪醇是多种行业需求不断增长的通用化学品，但传统生产方式带来环境问题。如果能通过宿主工程实现高滴度，微生物合成可成为有前景的替代方案。具有工业应用价值的产油酵母解脂耶氏酵母具备天然脂质代谢能力，适合承担这一任务。本研究改造 Yarrowia lipolytica W29，通过破坏脂质合成及脂肪醇氧化相关途径，确定脂肪醇氧化是限制产物积累的主要因素。初步改造后，以40 g/L葡萄糖为底物，脂肪醇滴度达到2.5 g/L。随后优化培养基添加物和营养浓度，同时删除柠檬酸转运蛋白基因 CEX1，并在萃取培养基中加入1% Tergitol，使摇瓶培养在80 g/L葡萄糖、碳氮比60的条件下达到10.9 g/L。放大至补料分批生物反应器后，滴度进一步提高至19.4 g/L。这些结果表明，将代谢工程与培养基及工艺优化相结合，可实现解脂耶氏酵母的高滴度脂肪醇生产。",
-        "sourceFingerprint": "26961565-1363",
-        "origin": "assistant_translation",
-        "createdAt": "2026-10-29T00:00:00+08:00",
-        "reviewed": false,
-        "scope": "abstract_only"
-      }
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1007/s00284-026-05200-w",
@@ -3718,19 +3989,22 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 265,
+        "count": 271,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-10-29T02:28:05.814Z",
+        "fetchedAt": "2026-10-30T02:37:32.660Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-10",
         "coverageMonths": 1,
+        "reportedStart": "2026-10",
+        "reportedEnd": "2026-10",
         "reportedMonths": 1,
         "missingPdfMonths": [],
+        "unreportedMonths": [],
         "coverageNote": "仅累加接口明确返回的逐篇 get-pdf 月计数，不含 HTML/XML，不代表独立读者；最近数据可能延迟48小时。"
       },
       "enrichment": {
@@ -3743,6 +4017,10 @@
         "createdAt": "2026-10-29T00:00:00+08:00",
         "reviewed": false,
         "scope": "abstract_only"
+      },
+      "downloadRefresh": {
+        "status": "updated",
+        "checkedAt": "2026-10-30T02:37:32.355Z"
       }
     },
     {
@@ -3989,25 +4267,25 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 130,
+      "hitCount": 136,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 95,
+      "hitCount": 100,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 123,
+      "hitCount": 130,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-10-29",
+    "date": "2026-10-30",
     "requests": 0
   },
   "receipts": {},
@@ -4015,14 +4293,14 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "not_configured",
-    "lastRunAt": "2026-10-29T02:28:05.815Z",
+    "lastRunAt": "2026-10-30T02:37:32.662Z",
     "failedTopics": 0,
     "collectionSource": {
       "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/40806498925"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/40992758730"
     },
     "modelRequestsThisRun": 0,
     "analysisFailures": 0,
-    "completedAt": "2026-10-29T02:28:05.833Z"
+    "completedAt": "2026-10-30T02:37:32.673Z"
   }
 }

@@ -2,6 +2,384 @@
   "version": 1,
   "reports": [
     {
+      "id": "public-daily-2026-10-30",
+      "kind": "public_daily",
+      "date": "2026-10-30",
+      "windowStart": "2026-10-24",
+      "createdAt": "2026-10-30T02:37:30.598Z",
+      "origin": "live",
+      "papers": [
+        {
+          "id": "doi:10.64898/2026.10.27.762313",
+          "title": "Engineered probiotics target granulomas to treat mycobacterial infection",
+          "abstract": "Granulomas are a pathological niche for mycobacteria that remain difficult to access with conventional therapies. Here we show that probiotic Escherichia coli Nissle 1917 (EcN) infiltrates and colonizes granulomas and can be engineered as a delivery system that senses the local microenvironment and releases antimycobacterial payloads. Specifically, we leveraged the hypoxic microenvironment of necrotic granulomas to restrict bacterial growth, and developed a dual-mode lysis circuit combining intracellular and extracellular killing for sustained payload release with limited evolutionary escape. We further engineered EcN to express a mycobacteriophage-derived enzyme, generating a strain that suppressed drug-sensitive and drug-resistant mycobacteria in vitro and potentiated conventional antibiotic activity. Engineered probiotics also reduced mycobacterial burden in vivo, and in a murine model of rifampicin-resistant infection, combination treatment with pretomanid achieved greater bacterial reduction than either monotherapy. Together, these results establish a synthetic biology framework for targeting granulomatous infections with programmable living microbes.",
+          "authors": "Chen Y, Harimoto T, Makafe GG, Coker C, Kim H, Im J, Jing Y, Jin H, Hu X, Zutshi S, Raneri MR, Weinrick B, Danino T.",
+          "journal": "预印本平台",
+          "doi": "10.64898/2026.10.27.762313",
+          "pmid": null,
+          "pmcid": null,
+          "source": "PPR",
+          "sourceId": "PPR1353244",
+          "url": "https://doi.org/10.64898/2026.10.27.762313",
+          "publishedAt": "2026-10-29",
+          "discoveredAt": "2026-10-30T02:37:31.909Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "预印本",
+          "status": "预印本 · 未经同行评审",
+          "isPreprint": true,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1007/10_2026_370",
+          "title": "Molecular Biology and Synthetic Biology-Guided Development of Recognition and Reporting Elements of Biosensor.",
+          "abstract": "Microbial cell biosensors are capable of detecting fluctuations in the concentrations of substances both inside and outside the cell, as well as changes in the external environment, and can generate measurable signal outputs. Microbial cell biosensors are characterized by low cost, simple operation, and high specificity. The rapid advancement of synthetic biology has significantly propelled the development and practical application of microbial cell biosensors. In this chapter, we provide a comprehensive summary of the composition and working principles of microbial cell biosensors. Additionally, we introduce various strategies and the latest progress in modifying biorecognition element and reporting elements using molecular biology and synthetic biology techniques in recent years. This book chapter offers new insights and valuable references for the research and development of microbial cell biosensors.",
+          "authors": "Luo Y, Meng C, Wang L, Liang B.",
+          "journal": "Advances in biochemical engineering/biotechnology",
+          "doi": "10.1007/10_2026_370",
+          "pmid": "42944860",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42944860",
+          "url": "https://doi.org/10.1007/10_2026_370",
+          "publishedAt": "2026-10-28",
+          "discoveredAt": "2026-10-28T16:24:49.684Z",
+          "topics": [
+            "synthetic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC",
+          "enrichment": {
+            "titleZh": "分子生物学与合成生物学指导的生物传感器识别元件和报告元件开发",
+            "abstractZh": "微生物细胞生物传感器能够检测细胞内外物质浓度的波动以及外部环境变化，并产生可测量的信号输出。这类传感器具有成本低、操作简单和特异性高等特点。合成生物学的快速发展显著推动了微生物细胞生物传感器的开发和实际应用。本章全面总结微生物细胞生物传感器的组成及工作原理，并介绍近年来利用分子生物学和合成生物学技术改造生物识别元件与报告元件的多种策略及最新进展，为微生物细胞生物传感器的研究与开发提供新的认识和参考。",
+            "sourceTitle": "Molecular Biology and Synthetic Biology-Guided Development of Recognition and Reporting Elements of Biosensor.",
+            "sourceAbstract": "Microbial cell biosensors are capable of detecting fluctuations in the concentrations of substances both inside and outside the cell, as well as changes in the external environment, and can generate measurable signal outputs. Microbial cell biosensors are characterized by low cost, simple operation, and high specificity. The rapid advancement of synthetic biology has significantly propelled the development and practical application of microbial cell biosensors. In this chapter, we provide a comprehensive summary of the composition and working principles of microbial cell biosensors. Additionally, we introduce various strategies and the latest progress in modifying biorecognition element and reporting elements using molecular biology and synthetic biology techniques in recent years. This book chapter offers new insights and valuable references for the research and development of microbial cell biosensors.",
+            "sourceFingerprint": "7558a086-1028",
+            "origin": "assistant_translation",
+            "createdAt": "2026-10-29T00:00:00+08:00",
+            "reviewed": false,
+            "scope": "abstract_only"
+          }
+        },
+        {
+          "id": "doi:10.1016/j.stem.2026.10.003",
+          "title": "Organoids and organs-on-a-chip as new approach methodologies at the convergence of cell biology and bioengineering.",
+          "abstract": "The rapid growth of new approach methodologies (NAMs), including organoids and organs-on-a-chip (OOCs), has revealed a need for interdisciplinary dialogue between cell biologists and bioengineers to develop human models that can best complement therapeutic development. Stem cell-derived and bioengineered human tissue models are redefining how we understand human physiology and pathophysiology, offering control that traditional preclinical models cannot provide. By recapitulating complex tissue microenvironments, multi-organ interactions, and patient-specific biology, these systems are bridging long-standing gaps in the drug development and clinical application pipelines. Here, we synthesize advances in organoids, OOCs, and other bioengineered technologies for translational medicine to identify remaining gaps, including challenges in reproducibility, validation, and regulatory acceptance. Emerging opportunities at the intersection of synthetic biology, multi-omics, machine learning, and genetic engineering are positioning NAMs not merely as improved experimental tools but as foundational platforms for accelerating therapeutic discovery and enabling personalized medicine at scale.",
+          "authors": "Tavakol DN, Mendonca D, Baldassarri I, Maletic-Savatic M, Vunjak-Novakovic G.",
+          "journal": "Cell stem cell",
+          "doi": "10.1016/j.stem.2026.10.003",
+          "pmid": "42950820",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42950820",
+          "url": "https://doi.org/10.1016/j.stem.2026.10.003",
+          "publishedAt": "2026-10-28",
+          "discoveredAt": "2026-10-30T02:37:31.910Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1073/pnas.2621208123",
+          "title": "Protein resource allocation across subcellular compartments revealed by large-scale absolute quantitative proteomics in yeast.",
+          "abstract": "Subcellular compartmentalization within complex membrane-bound organelles is a hallmark of eukaryal life, enabling metabolic specialization through spatial segregation. Here, we compiled a dataset encompassing 300 absolute quantitative proteomes, the largest to date, across two yeast species under diverse experimental conditions. Leveraging big data analysis, formula fitting, and machine learning, quantitative correlations among protein abundance, resource allocation, and cellular phenotypes were elucidated at a system level. We found that subcellular resource distribution is highly uneven and covaries with specific growth rate. Specifically, at high specific growth rates, the protein mass fraction (PMF) from certain compartments, (e.g., nucleus) is consistently reduced, coinciding with the increasing protein resource demand from ribosomes. Meanwhile, nutrient limitation may induce resource recycling by upregulating protein resources within specific compartments (e.g., vacuole) to sustain stress adaptation. Importantly, our integrative analysis indicates that PMF from a few subcellular compartments (e.g., nucleus and ribosomes) can accurately predict yeast physiological parameters (e.g., specific growth rate, oxygen uptake rate), and a limited protein set (≥ 23) could be used to capture the variation in resource allocation across seven major subcellular compartments. Furthermore, our comparative analysis between Crabtree-positive and Crabtree-negative species across conditions illustrates that subcellular resource allocation could be shaped by multiple factors and the two species differ markedly in their robustness to environmental perturbations. In summary, the high-quality quantitative proteomic dataset for yeast species offers an unprecedented opportunity for understanding the general principles underlying subcellular resource allocation, laying foundations for precision engineering of cell factories in synthetic biology.",
+          "authors": "Lu H, Zhang Z, He S, Zhang Y, Wang Y, Tao F, Nielsen J.",
+          "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+          "doi": "10.1073/pnas.2621208123",
+          "pmid": "42945261",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42945261",
+          "url": "https://doi.org/10.1073/pnas.2621208123",
+          "publishedAt": "2026-10-27",
+          "discoveredAt": "2026-10-28T16:24:49.685Z",
+          "topics": [
+            "synthetic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC",
+          "enrichment": {
+            "titleZh": "酵母大规模绝对定量蛋白质组学揭示亚细胞区室间的蛋白质资源分配",
+            "abstractZh": "由复杂膜结合细胞器形成的亚细胞区室化是真核生命的重要特征，可通过空间分隔实现代谢功能特化。本研究汇编了涵盖300个绝对定量蛋白质组的数据集，是迄今规模最大的此类数据集，覆盖两种酵母及多种实验条件。通过大数据分析、公式拟合和机器学习，研究者在系统层面解析了蛋白质丰度、资源分配与细胞表型之间的定量关联。结果发现，亚细胞资源分布高度不均，并随比生长速率共同变化。具体而言，在较高比生长速率下，某些区室（如细胞核）的蛋白质质量分数（PMF）持续降低，同时核糖体对蛋白质资源的需求增加。另一方面，营养限制可能通过上调特定区室（如液泡）中的蛋白质资源来促进资源回收，从而维持胁迫适应。综合分析表明，少数亚细胞区室（如细胞核和核糖体）的PMF可准确预测酵母生理参数，例如比生长速率和摄氧速率；有限的蛋白质集合（≥23种）即可用于捕捉7个主要亚细胞区室间资源分配的变化。此外，对Crabtree效应阳性和阴性物种在不同条件下的比较显示，亚细胞资源分配可能受多种因素影响，两种酵母对环境扰动的稳健性存在明显差异。总体而言，这一高质量酵母定量蛋白质组数据集为理解亚细胞资源分配的一般原理提供了前所未有的机会，并为合成生物学中细胞工厂的精准工程改造奠定基础。",
+            "sourceTitle": "Protein resource allocation across subcellular compartments revealed by large-scale absolute quantitative proteomics in yeast.",
+            "sourceAbstract": "Subcellular compartmentalization within complex membrane-bound organelles is a hallmark of eukaryal life, enabling metabolic specialization through spatial segregation. Here, we compiled a dataset encompassing 300 absolute quantitative proteomes, the largest to date, across two yeast species under diverse experimental conditions. Leveraging big data analysis, formula fitting, and machine learning, quantitative correlations among protein abundance, resource allocation, and cellular phenotypes were elucidated at a system level. We found that subcellular resource distribution is highly uneven and covaries with specific growth rate. Specifically, at high specific growth rates, the protein mass fraction (PMF) from certain compartments, (e.g., nucleus) is consistently reduced, coinciding with the increasing protein resource demand from ribosomes. Meanwhile, nutrient limitation may induce resource recycling by upregulating protein resources within specific compartments (e.g., vacuole) to sustain stress adaptation. Importantly, our integrative analysis indicates that PMF from a few subcellular compartments (e.g., nucleus and ribosomes) can accurately predict yeast physiological parameters (e.g., specific growth rate, oxygen uptake rate), and a limited protein set (≥ 23) could be used to capture the variation in resource allocation across seven major subcellular compartments. Furthermore, our comparative analysis between Crabtree-positive and Crabtree-negative species across conditions illustrates that subcellular resource allocation could be shaped by multiple factors and the two species differ markedly in their robustness to environmental perturbations. In summary, the high-quality quantitative proteomic dataset for yeast species offers an unprecedented opportunity for understanding the general principles underlying subcellular resource allocation, laying foundations for precision engineering of cell factories in synthetic biology.",
+            "sourceFingerprint": "b271cc0a-2085",
+            "origin": "assistant_translation",
+            "createdAt": "2026-10-29T00:00:00+08:00",
+            "reviewed": false,
+            "scope": "abstract_only"
+          }
+        },
+        {
+          "id": "doi:10.1002/adhm.71906",
+          "title": "Artificial Cells and Biomimetic Cells: Intelligent Systems Driving a Paradigm Shift in Drug Discovery and Delivery.",
+          "abstract": "The convergence of synthetic biology, materials science, and artificial intelligence drives a transformative shift in biopharmaceutical research, advancing from passive drug carriers to intelligent, programmable therapeutics. This review evaluates artificial and biomimetic cells as a framework that connects fundamental biological discovery with clinical translation. It examines five key technological pathways: membrane-engineered artificial cells, membraneless organelle (MLO) systems, multicompartmental artificial cells, protocell communication networks, and virtual cells. These platforms enable precise regulation of drug stability, targeting, biosynthesis, and adaptive responsiveness. Recent progress includes microenvironment-triggered release, logic-gated intercellular communication, and virtual cell-assisted high-throughput screening and toxicity prediction. Despite these advances, challenges remain in scalable manufacturing, long-term stability, and regulatory adaptation. The integration of closed-loop learning, interpretable models, and advanced biomanufacturing will be essential to position artificial and biomimetic cell systems at the forefront of next-generation precision medicine.",
+          "authors": "Xiang M, Su B, Jiang C, Sun T.",
+          "journal": "Advanced healthcare materials",
+          "doi": "10.1002/adhm.71906",
+          "pmid": "42952019",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42952019",
+          "url": "https://doi.org/10.1002/adhm.71906",
+          "publishedAt": "2026-10-28",
+          "discoveredAt": "2026-10-30T02:37:31.910Z",
+          "topics": [
+            "synthetic",
+            "metabolic",
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.21203/rs.3.rs-11324733/v1",
+          "title": "Metabolic engineering of Escherichia coli to enhance L-serine biosynthesis",
+          "abstract": "Abstract L-serine, an important non-essential amino acid, is widely used in the food, pharmaceutical, feed, and cosmetic industries. However, previous studies on fermentative L-serine production by Escherichia coli have mainly focused on improving titer, whereas insufficient attention has been paid to the conversion yield, limiting its industrial economic feasibility. In this study, systematic metabolic engineering was performed to improve L-serine yield. Using H5 as the parental strain, the L-serine re-uptake-related genes sstT and tdcC were deleted based on the CRISPR/Cas9 system to generate strain H8, in which the L-serine titer increased to 5.58 g/L and the conversion yield reached 0.37 g/g. Subsequently, the L-serine biosynthetic module, L-serine transport module, and cofactor supply module were individually enhanced in H8, resulting in recombinant strains H8- abc , H8- be , and H8- pntab , respectively. The resulting strains H8- abc , H8- be , and H8- pntab produced 6.40, 5.89, and 5.59 g/L L-serine, with yields of 0.43, 0.39, and 0.37 g/g, respectively. Further combination of effective strategies in the H8 chassis generated strain H8- abc-be ; however, its L-serine production decreased. Finally, H8- abc was selected for fermentation medium optimization. After optimization, the L-serine titer reached 7.20 g/L in shake-flask fermentation, with a yield of 0.48 g/g, representing a 71.84% increase compared with the starting strain H5. These results provide a useful reference for the development of efficient E. coli strains for industrial L-serine production.",
+          "authors": "Xiao K, Huang Y, Xu M, Xu G, Zhang X, Li H, Shi J, Xu Z, Zhang X.",
+          "journal": "预印本平台",
+          "doi": "10.21203/rs.3.rs-11324733/v1",
+          "pmid": null,
+          "pmcid": null,
+          "source": "PPR",
+          "sourceId": "PPR1351963",
+          "url": "https://doi.org/10.21203/rs.3.rs-11324733/v1",
+          "publishedAt": "2026-10-28",
+          "discoveredAt": "2026-10-30T02:37:32.049Z",
+          "topics": [
+            "metabolic"
+          ],
+          "type": "预印本",
+          "status": "预印本 · 未经同行评审",
+          "isPreprint": true,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": "cc by",
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.64898/2026.10.26.761776",
+          "title": "Development of a CRISPR-Cas9 genome editing system for the extremely thermophilic bacterium Anaerocellum bescii",
+          "abstract": "Anaerocellum (f. Caldicellulosiruptor) bescii is an extremely thermophilic (Topt 75-78 °C) anaerobic bacterium and is also a highly efficient degrader of lignocellulose, making it a promising platform for metabolic engineering. To date, chromosomal genetic manipulations in A. bescii have required multistep procedures involving homologous recombination with integrating vectors and counterselection. Here, we demonstrate the first implementation of CRISPR-Cas9 genome editing in A. bescii facilitated by a thermostable Cas9 enzyme from Geobacillus stearothermophilus (GeoCas9). Delivery of heterologous CRISPR machinery via a replicating vector enabled us to individually and sequentially delete genes for lactate dehydrogenase (ldh) and pyrE in A. bescii. We then deployed this system to delete a novel target, tryptophan synthase (trpBA), generating a tryptophan auxotrophic strain of A. bescii. Using this strain, we show trpBA complementation enables selection and maintenance of a replicating vector expressing a heterologous enzymatic reporter gene.",
+          "authors": "Galindo JL, Conway JM.",
+          "journal": "预印本平台",
+          "doi": "10.64898/2026.10.26.761776",
+          "pmid": null,
+          "pmcid": null,
+          "source": "PPR",
+          "sourceId": "PPR1353464",
+          "url": "https://doi.org/10.64898/2026.10.26.761776",
+          "publishedAt": "2026-10-28",
+          "discoveredAt": "2026-10-30T02:37:32.049Z",
+          "topics": [
+            "metabolic"
+          ],
+          "type": "预印本",
+          "status": "预印本 · 未经同行评审",
+          "isPreprint": true,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.64898/2026.10.28.762476",
+          "title": "Metabolism-Informed Bioreactor Model for Transferring Knowledge from Fed-batch to Continuous Biomanufacturing",
+          "abstract": "Chinese hamster ovary (CHO) cells remain the dominant platform for monoclonal antibody (mAb) manufacturing, and rising demand is pushing the industry from fed-batch toward continuous operation. Continuous cultures promise sustained high cell densities and volumetric productivities, but their operation depends on reliable real-time monitoring, prediction and control. Limited intracellular observability and sparse extracellular measurements hinder this, leaving a persistent gap between mechanistic understanding and predictive deployment. Here we describe a metabolism-informed model for mAb production that embeds reactor- and intracellular-level mass balances directly within a learning architecture, while deliberately avoiding predefined kinetic rate laws and explicit steady-state assumptions. Because conservation relationships remain invariant across operating modes, this formulation provides a principled structural prior for cross-regime generalisation, positioning the model as a soft sensor for continuous bioprocesses: inferring unmeasured intracellular fluxes and one-step ahead forecasting extracellular concentrations to support process monitoring and control. Benchmarking two metabolic network sizes and three metabolic optimisation strategies, concentration predictions are indistinguishable across network sizes. Exchange flux fidelity is agnostic to solver choice, with network size mattering only for intracellular interpretability. Transferring the developed model from fed-batch to continuous operation with fine-tuning outperforming other transfer learning variants. This is consistent with the metabolic structure being invariant to mode of operation. Predicted fluxes reveal growth rate in fed-batch, rather than operating mode, as the dominant axis of metabolic variation, and identify potential regime-shift signals to guide experimental design for continuous culture characterisation. These results chart a route towards digital models sufficiently grounded in first-principles knowledge, yet adaptive for deployment under regime shifts.",
+          "authors": "Monteiro M, Bediako S, Tecson R, Nierode G, Kotidis P, Kontoravdi C.",
+          "journal": "预印本平台",
+          "doi": "10.64898/2026.10.28.762476",
+          "pmid": null,
+          "pmcid": null,
+          "source": "PPR",
+          "sourceId": "PPR1353336",
+          "url": "https://doi.org/10.64898/2026.10.28.762476",
+          "publishedAt": "2026-10-29",
+          "discoveredAt": "2026-10-30T02:37:32.012Z",
+          "topics": [
+            "microbial"
+          ],
+          "type": "预印本",
+          "status": "预印本 · 未经同行评审",
+          "isPreprint": true,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1002/bab.70218",
+          "title": "Biomanufacturing of L-Lactic Acid from Inulin Exploiting Kluyveromyces marxianus and Engineered Saccharomyces cerevisiae Cell Factories.",
+          "abstract": "The transition to sustainable lactic acid (LA) biomanufacturing necessitates a shift from first-generation feedstocks toward residual biomass and low-pH fermentation, eliminating the costly, waste-intensive salt purification and acidification steps. This study presents a novel, two-yeast strategy designed to valorize inulin, a fructose polymer also found in cardoon roots, for high-efficiency LA production at a pH below its pKa. The key novelty of this work lies in identifying and pairing the unique physiological strengths of each organism: Kluyveromyces marxianus as the optimal yeast for inulin hydrolysis, and Saccharomyces cerevisiae as the superior host for robust LA production at low pH and high titers. We discovered that if ammonium sulphate is substituted with urea as a nitrogen source for K. marxianus cultivation, the inulinase activity increased by nearly 20-fold, significantly enhancing the initial breakdown of the substrate. Inulinase-enriched K. marxianus supernatant was then used to cultivate S. cerevisiae m850, an engineered homolactic strain, and convert inulin into L-LA. Comparing separate hydrolysis and fermentation (SHF) with simultaneous saccharification and fermentation (SSF), we achieved a maximal yield > 0.77 g/g with a final pH of 2.5. While SSF was limited by pH-induced inulinase inactivation, the SHF process achieved complete substrate conversion. These results demonstrate a promising platform for producing LA from a residual feedstock, drastically reducing impacts and downstream processing costs.",
+          "authors": "Milanesi R, Lorenzo RDD, Porro D, Branduardi P, Serra I.",
+          "journal": "Biotechnology and applied biochemistry",
+          "doi": "10.1002/bab.70218",
+          "pmid": "42947400",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42947400",
+          "url": "https://doi.org/10.1002/bab.70218",
+          "publishedAt": "2026-10-27",
+          "discoveredAt": "2026-10-28T16:24:49.730Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": "cc by-nc",
+          "version": null,
+          "collection": "Europe PMC",
+          "enrichment": {
+            "titleZh": "利用马克斯克鲁维酵母与工程酿酒酵母细胞工厂从菊粉生物制造L-乳酸",
+            "abstractZh": "向可持续乳酸（LA）生物制造转型，需要从第一代原料转向剩余生物质及低pH发酵，以省去成本高、废物产生量大的盐纯化和酸化步骤。本研究提出一种新的双酵母策略，利用菊粉这种也存在于刺蓟（cardoon）根部的果糖聚合物，在低于乳酸pKa的pH条件下高效生产乳酸。工作的主要创新在于识别并配合利用两种微生物各自独特的生理优势：马克斯克鲁维酵母（Kluyveromyces marxianus）是菊粉水解的最佳酵母，酿酒酵母（Saccharomyces cerevisiae）则是更适合在低pH下稳健、高滴度生产乳酸的宿主。研究发现，培养K. marxianus时，如果以尿素替代硫酸铵作为氮源，菊粉酶活性可提高近20倍，从而显著增强底物的初始分解。随后，利用富含菊粉酶的K. marxianus培养上清培养同型乳酸发酵工程菌株S. cerevisiae m850，将菊粉转化为L-乳酸。在比较分步水解与发酵（SHF）和同步糖化与发酵（SSF）后，研究者获得了>0.77 g/g的最高得率，最终pH为2.5。SSF受到pH引起的菊粉酶失活限制，而SHF工艺实现了底物完全转化。这些结果展示了利用剩余原料生产乳酸的有前景平台，可显著降低相关影响及下游加工成本。",
+            "sourceTitle": "Biomanufacturing of L-Lactic Acid from Inulin Exploiting Kluyveromyces marxianus and Engineered Saccharomyces cerevisiae Cell Factories.",
+            "sourceAbstract": "The transition to sustainable lactic acid (LA) biomanufacturing necessitates a shift from first-generation feedstocks toward residual biomass and low-pH fermentation, eliminating the costly, waste-intensive salt purification and acidification steps. This study presents a novel, two-yeast strategy designed to valorize inulin, a fructose polymer also found in cardoon roots, for high-efficiency LA production at a pH below its pKa. The key novelty of this work lies in identifying and pairing the unique physiological strengths of each organism: Kluyveromyces marxianus as the optimal yeast for inulin hydrolysis, and Saccharomyces cerevisiae as the superior host for robust LA production at low pH and high titers. We discovered that if ammonium sulphate is substituted with urea as a nitrogen source for K. marxianus cultivation, the inulinase activity increased by nearly 20-fold, significantly enhancing the initial breakdown of the substrate. Inulinase-enriched K. marxianus supernatant was then used to cultivate S. cerevisiae m850, an engineered homolactic strain, and convert inulin into L-LA. Comparing separate hydrolysis and fermentation (SHF) with simultaneous saccharification and fermentation (SSF), we achieved a maximal yield > 0.77 g/g with a final pH of 2.5. While SSF was limited by pH-induced inulinase inactivation, the SHF process achieved complete substrate conversion. These results demonstrate a promising platform for producing LA from a residual feedstock, drastically reducing impacts and downstream processing costs.",
+            "sourceFingerprint": "750a0700-1682",
+            "origin": "assistant_translation",
+            "createdAt": "2026-10-29T00:00:00+08:00",
+            "reviewed": false,
+            "scope": "abstract_only"
+          }
+        },
+        {
+          "id": "doi:10.1016/j.jbiosc.2026.10.001",
+          "title": "Kinetic metabolic modeling of Saccharomyces cerevisiae mutants reveals two major regulatory patterns of glycolytic flux control.",
+          "abstract": "Maintaining a high glycolytic flux is critical for robust ethanol fermentation and metabolic engineering in Saccharomyces cerevisiae. However, the regulatory mechanisms that prevent the excess turbo design structure of glycolysis under genetic perturbations are unknown. In this study, we constructed a kinetic model of yeast central carbon metabolism encompassing 90 reactions and 543 parameters. Using a genetic algorithm, we trained the model ensemble using multi-omics datasets (proteomics, metabolomics, and fluxomics) collected from the wild-type strain and 11 single-gene deletion mutants. Metabolic control analysis (MCA) of the calibrated models revealed that two major regulatory modes governed the glycolytic flux in most of the strains examined under the culture condition used in this study, although gcr2Δ exhibited a distinct control profile and gnd1Δ could not be reproduced by the model. The wild-type, gcn4Δ, and rpe1Δ strains exhibited an HXK-limited control mode, in which lowered hexokinase activity likely acts as a feedback limiter to prevent pathway over-activation. Conversely, seven other mutants shifted to an ATP demand-coupled mode, transferring flux control to energy-dissipating reactions and linking glycolytic flux directly to ATP demand. No single motif was uniformly shared within either group, implying that strain-specific expression adjustments repeatedly resulted in two regulatory modes. These findings elucidate the robust, multimodal control strategies employed by yeast to safeguard its high fermentation capacity and provide a theoretical foundation for targeted metabolic engineering and robust bioprocess design.",
+          "authors": "Sato G, Yamasaki K, Okahashi N, Matsuda F.",
+          "journal": "Journal of bioscience and bioengineering",
+          "doi": "10.1016/j.jbiosc.2026.10.001",
+          "pmid": "42946555",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42946555",
+          "url": "https://doi.org/10.1016/j.jbiosc.2026.10.001",
+          "publishedAt": "2026-10-27",
+          "discoveredAt": "2026-10-28T16:24:50.550Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC",
+          "enrichment": {
+            "titleZh": "酿酒酵母突变株的动力学代谢建模揭示糖酵解通量控制的两种主要调控模式",
+            "abstractZh": "维持高糖酵解通量，对酿酒酵母（Saccharomyces cerevisiae）稳健的乙醇发酵及代谢工程至关重要。然而，在遗传扰动下，防止糖酵解“涡轮式设计”结构过度激活的调控机制仍不清楚。本研究构建了包含90个反应和543个参数的酵母中心碳代谢动力学模型。研究者利用遗传算法，使用野生型菌株和11个单基因缺失突变株的多组学数据集（蛋白质组学、代谢组学及通量组学）训练模型集合。对校准模型开展代谢控制分析（MCA）发现，在本研究采用的培养条件下，所考察的大多数菌株主要由两种调控模式控制糖酵解通量；不过，gcr2Δ 表现出不同的控制特征，而模型无法重现 gnd1Δ 的行为。野生型、gcn4Δ 和 rpe1Δ 菌株表现为己糖激酶（HXK）受限的控制模式：降低的己糖激酶活性可能发挥反馈限流作用，以防止途径过度激活。相反，另外7个突变株转向 ATP 需求耦合模式，将通量控制转移到耗能反应，使糖酵解通量直接与 ATP 需求相联系。两组内部均未发现一致共享的单一调控基序，这意味着不同菌株各自的表达调整反复形成了这两种调控模式。这些发现阐明了酵母为维持高发酵能力而采用的稳健、多模式控制策略，并为靶向代谢工程和稳健生物工艺设计提供了理论基础。",
+            "sourceTitle": "Kinetic metabolic modeling of Saccharomyces cerevisiae mutants reveals two major regulatory patterns of glycolytic flux control.",
+            "sourceAbstract": "Maintaining a high glycolytic flux is critical for robust ethanol fermentation and metabolic engineering in Saccharomyces cerevisiae. However, the regulatory mechanisms that prevent the excess turbo design structure of glycolysis under genetic perturbations are unknown. In this study, we constructed a kinetic model of yeast central carbon metabolism encompassing 90 reactions and 543 parameters. Using a genetic algorithm, we trained the model ensemble using multi-omics datasets (proteomics, metabolomics, and fluxomics) collected from the wild-type strain and 11 single-gene deletion mutants. Metabolic control analysis (MCA) of the calibrated models revealed that two major regulatory modes governed the glycolytic flux in most of the strains examined under the culture condition used in this study, although gcr2Δ exhibited a distinct control profile and gnd1Δ could not be reproduced by the model. The wild-type, gcn4Δ, and rpe1Δ strains exhibited an HXK-limited control mode, in which lowered hexokinase activity likely acts as a feedback limiter to prevent pathway over-activation. Conversely, seven other mutants shifted to an ATP demand-coupled mode, transferring flux control to energy-dissipating reactions and linking glycolytic flux directly to ATP demand. No single motif was uniformly shared within either group, implying that strain-specific expression adjustments repeatedly resulted in two regulatory modes. These findings elucidate the robust, multimodal control strategies employed by yeast to safeguard its high fermentation capacity and provide a theoretical foundation for targeted metabolic engineering and robust bioprocess design.",
+            "sourceFingerprint": "9d50603a-1787",
+            "origin": "assistant_translation",
+            "createdAt": "2026-10-29T00:00:00+08:00",
+            "reviewed": false,
+            "scope": "abstract_only"
+          }
+        }
+      ],
+      "sections": [
+        {
+          "topicId": "synthetic",
+          "label": "合成生物学",
+          "paperIds": [
+            "doi:10.64898/2026.10.27.762313",
+            "doi:10.1007/10_2026_370",
+            "doi:10.1016/j.stem.2026.10.003",
+            "doi:10.1073/pnas.2621208123"
+          ]
+        },
+        {
+          "topicId": "metabolic",
+          "label": "代谢工程",
+          "paperIds": [
+            "doi:10.1002/adhm.71906",
+            "doi:10.21203/rs.3.rs-11324733/v1",
+            "doi:10.64898/2026.10.26.761776"
+          ]
+        },
+        {
+          "topicId": "microbial",
+          "label": "微生物制造",
+          "paperIds": [
+            "doi:10.64898/2026.10.28.762476",
+            "doi:10.1002/bab.70218",
+            "doi:10.1016/j.jbiosc.2026.10.001"
+          ]
+        }
+      ],
+      "sourceUpdatedAt": "2026-10-30T02:37:32.662Z",
+      "sourceCollection": {
+        "status": "complete",
+        "failedTopics": [],
+        "trigger": "schedule",
+        "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/40992758730"
+      },
+      "selectionPolicy": {
+        "version": "publication-calendar-topic-round-robin-v1",
+        "description": "按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。",
+        "dateBasis": "first_publication_date",
+        "windowDays": 7,
+        "limit": 10,
+        "topicOrder": [
+          "synthetic",
+          "metabolic",
+          "microbial"
+        ],
+        "ordering": "各主题按发表日期倒序，轮流取文献后按主题分节；日期相同时按文献标识排序。",
+        "coverageNote": "仅整理当前文献库及配置主题，不代表该领域的全部新文献；未依据下载量或科研质量评分排序。"
+      },
+      "metrics": {
+        "inputCount": 146,
+        "uniqueCount": 146,
+        "candidateCount": 33,
+        "selectedCount": 10,
+        "sectionCount": 3
+      }
+    },
+    {
       "id": "public-daily-2026-10-29",
       "kind": "public_daily",
       "date": "2026-10-29",
