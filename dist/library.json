@@ -1,8 +1,61 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-10-30T03:02:16.988Z",
+  "fetchedAt": "2026-10-31T02:24:38.721Z",
   "papers": [
+    {
+      "id": "doi:10.1007/10_2026_368",
+      "title": "Beyond Cell Factory: In Vitro Biotransformation (ivBT): A Paradigm-Shifting Biomanufacturing Platform.",
+      "abstract": "The paradigm of industrial biomanufacturing is shifting rapidly. Microbial fermentation mediated by cell factories is the dominant platform of biomanufacturing and has a history of thousands of years. However, their inherent properties, such as self-proliferation, cellular complexity, maintenance, and bioenergetic limits, could prevent them from being the best winner of biomanufacturing, especially for biocommodities and bioenergy. In this book chapter, we introduce a new concept of in vitro biotransformation (ivBT) as an emerging biomanufacturing platform that can surpass microbial cell factory. The development of ivBT is driven by the urgent great needs of food security and a new carbon-neutral energy society in the future. In theory, ivBT can have the theoretical yield and very high volumetric productivity and could have low-cost biomanufacturing costs. Furthermore, we highlight several representative applications, such as artificial photosynthesis for CO2-to-starch synthesis, in vitro respiration that can produce hydrogen under anaerobic conditions and electricity under aerobic conditions, directed glycosidic bond rearrangement (i.e., ATP-free or low-ATP biotransformation of cellulose to starch), and healthy sugars. Industrial biomanufacturing of myo-inositol, D-tagatose, and cellulosic starch would wipe off any prejudice (e.g., costly enzymes and short lifetime) and demonstrate transformative potential of ivBT. ivBT would be a paradigm-shifting biomanufacturing platform because it is like a dimensional reduction attack that can simplify extremely complicated cell factories by decreasing their dimensions.",
+      "authors": "Song Z, Job Zhang YP.",
+      "journal": "Advances in biochemical engineering/biotechnology",
+      "doi": "10.1007/10_2026_368",
+      "pmid": "42955337",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42955337",
+      "url": "https://doi.org/10.1007/10_2026_368",
+      "publishedAt": "2026-10-30",
+      "discoveredAt": "2026-10-31T02:24:38.080Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1080/1061186x.2026.2755447",
+      "title": "Advanced cannabidiol delivery platforms: smart biomaterials, controlled release systems, and 3D-bioprinted therapeutic technologies.",
+      "abstract": "Cannabidiol (CBD), a non-psychoactive phytocannabinoid derived from Cannabis sativa L. has gained significant attention in biomedical research due to its broad spectrum of therapeutic properties, including anti-inflammatory, antimicrobial, antioxidant, neuroprotective, and anticancer activities. However, its clinical translation remains limited by poor aqueous solubility, low bioavailability, rapid metabolism, and instability under physiological conditions. To overcome these challenges, advanced drug delivery platforms based on 3D bioprinting technologies have emerged as promising strategies for controlled and site-specific delivery of CBD. This review provides a comprehensive overview of state-of-the-art CBD delivery systems, including polymeric biomaterials such as PLGA, PEG derivatives, chitosan, alginate, and cellulose-based hybrids, which enhance drug stability and enable sustained release profiles. Nano- and microstructured systems, including liposomes, nanoparticles, nanoemulsions, microspheres, and electrospun nanofibers, are discussed for their ability to improve bioavailability and facilitate targeted delivery at the cellular level. Hydrogel-based platforms, particularly injectable and stimuli-responsive systems, are highlighted for their role in localised therapy and tissue engineering applications. Furthermore, the integration of 3D bioprinting technologies enables the fabrication of patient-specific scaffolds and implantable constructs for precision medicine and regenerative therapies. Stimuli-responsive systems, including pH-, temperature-, enzyme-, and externally triggered release platforms, further enhance on-demand drug release in diseased microenvironments. The biomedical applications of CBD-based systems are critically evaluated in antimicrobial therapy, wound healing, tumour-targeted cancer therapy, immunomodulation, microbiome regulation, and regenerative medicine. Finally, this review addresses current translational challenges such as drug loading efficiency, stability issues, scalability, and regulatory barriers, while highlighting future perspectives involving artificial intelligence-guided design, personalised nanomedicine, and advanced biomanufacturing technologies. Overall, CBD-based smart biomaterial platforms represent a highly promising approach for next-generation therapeutic systems with improved efficacy, safety, and clinical potential.",
+      "authors": "Shabbir A, Parvinzadeh Gashti M.",
+      "journal": "Journal of drug targeting",
+      "doi": "10.1080/1061186x.2026.2755447",
+      "pmid": "42956359",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42956359",
+      "url": "https://doi.org/10.1080/1061186x.2026.2755447",
+      "publishedAt": "2026-10-29",
+      "discoveredAt": "2026-10-31T02:24:38.080Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
     {
       "id": "doi:10.64898/2026.10.27.762313",
       "title": "Engineered probiotics target granulomas to treat mycobacterial infection",
@@ -41,6 +94,59 @@
       }
     },
     {
+      "id": "doi:10.1016/j.biotechadv.2026.109086",
+      "title": "Engineering Methylobacterium as a C1 biomanufacturing platform: Metabolic architecture, regulatory networks, and synthetic biology strategies.",
+      "abstract": "Methanol is emerging as a sustainable and energy-dense one carbon (C1) feedstock for next-generation biomanufacturing, owing to its superior energy density, abundance, water miscibility, and decoupling from food supply chains. Methylobacterium species are facultative methylotrophs that have evolved sophisticated metabolic and regulatory networks for efficient methanol utilization. This review highlights the transition of Methylobacterium from a model organism for dissecting methylotrophy to a programmable C1 chassis for synthetic biology. We provide a unique overview of its core metabolic architecture, focusing on the lanthanide-switchable pyrroloquinoline quinone (PQQ)-dependent methanol oxidation, the tetrahydromethanopterin (H₄MPT)-mediated formaldehyde buffering system, and the tight coupling of the serine cycle with the ethylmalonyl-CoA (EMC) pathway, which together govern carbon flux, redox balance, and energy efficiency. Building on this intrinsic framework, we survey how these traits are leveraged to produce high-value chemicals, such as folate derivatives, redox cofactors, organic acids, terpenoids, bioplastics, and single-cell protein. Furthermore, we discuss advanced engineering strategies for systematic chassis optimization including global transcriptional regulation, metabolic valve control, and photo-methylotrophic configurations, along with a comprehensive evaluation of Methylobacterium chassis advantages and disadvantages, concrete product-chassis matching rules, common engineering bottlenecks, and diversified low-cost feedstock options. Finally, we propose a product-chassis matching framework and outline future directions centered on regulatory control, flux coordination, and robustness enhancement to overcome current limitations in titer, yield, and scale-up, while also leveraging agricultural applications and low-cost feedstocks, thereby positioning Methylobacterium as a cornerstone of sustainable low-carbon biotechnology.",
+      "authors": "Yao L, Ma Z, Liu Z, Tan L, Yang S.",
+      "journal": "Biotechnology advances",
+      "doi": "10.1016/j.biotechadv.2026.109086",
+      "pmid": "42957139",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42957139",
+      "url": "https://doi.org/10.1016/j.biotechadv.2026.109086",
+      "publishedAt": "2026-10-29",
+      "discoveredAt": "2026-10-31T02:24:37.464Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1002/bit.70425",
+      "title": "Metabolic Remodelingof the NOG Pathway and Glyoxylate Cycle for High-Yield L-Homoserine Biosynthesis.",
+      "abstract": "L‑homoserine is a valuable C4 amino acid with broad applications in agriculture, pharmaceuticals, and daily chemicals. However, existing high‑yielding strains have mainly been evaluated at laboratory scale, and their scale‑up feasibility has not yet been sufficiently verified, leaving industrial production without a direct engineering basis. In this study, a non-auxotrophic, scalable L‑homoserine high‑producer was constructed by targeting carbon loss, rewiring the metabolic network, and maintaining cofactor balance. Specifically, the threonine branch was dynamically attenuated to reduce product degradation, while the non‑oxidative glycolysis (NOG) pathway was introduced and coupled with the glyoxylate shunt to conserve carbon and redirect flux toward the aspartate pathway, thereby increasing precursor availability. The main biosynthetic pathway and cofactor regeneration were further strengthened to accelerate L‑homoserine synthesis. Ultimately, strain HS25 achieved a titer of 126.5 g/L L‑homoserine,a yield of 0.58 g/g glucose, and a productivity of 1.77 g/L/hin 50 L fermentation. These metabolic engineering strategies are scalable and may serve as a generalizable framework for the industrial production of other aspartate‑derived amino acids and their derivatives.",
+      "authors": "Shan Q, Zhang J, Gong R, Zhou Y, Xu J, Liu Z, Zheng Y.",
+      "journal": "Biotechnology and bioengineering",
+      "doi": "10.1002/bit.70425",
+      "pmid": "42954037",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42954037",
+      "url": "https://doi.org/10.1002/bit.70425",
+      "publishedAt": "2026-10-29",
+      "discoveredAt": "2026-10-31T02:24:37.511Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.64898/2026.10.28.762476",
       "title": "Metabolism-Informed Bioreactor Model for Transferring Knowledge from Fed-batch to Continuous Biomanufacturing",
       "abstract": "Chinese hamster ovary (CHO) cells remain the dominant platform for monoclonal antibody (mAb) manufacturing, and rising demand is pushing the industry from fed-batch toward continuous operation. Continuous cultures promise sustained high cell densities and volumetric productivities, but their operation depends on reliable real-time monitoring, prediction and control. Limited intracellular observability and sparse extracellular measurements hinder this, leaving a persistent gap between mechanistic understanding and predictive deployment. Here we describe a metabolism-informed model for mAb production that embeds reactor- and intracellular-level mass balances directly within a learning architecture, while deliberately avoiding predefined kinetic rate laws and explicit steady-state assumptions. Because conservation relationships remain invariant across operating modes, this formulation provides a principled structural prior for cross-regime generalisation, positioning the model as a soft sensor for continuous bioprocesses: inferring unmeasured intracellular fluxes and one-step ahead forecasting extracellular concentrations to support process monitoring and control. Benchmarking two metabolic network sizes and three metabolic optimisation strategies, concentration predictions are indistinguishable across network sizes. Exchange flux fidelity is agnostic to solver choice, with network size mattering only for intracellular interpretability. Transferring the developed model from fed-batch to continuous operation with fine-tuning outperforming other transfer learning variants. This is consistent with the metabolic structure being invariant to mode of operation. Predicted fluxes reveal growth rate in fed-batch, rather than operating mode, as the dominant axis of metabolic variation, and identify potential regime-shift signals to guide experimental design for continuous culture characterisation. These results chart a route towards digital models sufficiently grounded in first-principles knowledge, yet adaptive for deployment under regime shifts.",
@@ -62,7 +168,7 @@
       "isPreprint": true,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc",
       "version": null,
       "collection": "Europe PMC",
       "enrichment": {
@@ -76,6 +182,87 @@
         "reviewed": false,
         "scope": "abstract_only"
       }
+    },
+    {
+      "id": "doi:10.1007/s11274-026-05366-2",
+      "title": "Microbial bioherbicides: Integrating bioprocessing, mechanisms of action and protein engineering for sustainable weed management.",
+      "abstract": "The widespread use of synthetic herbicides in agriculture has intensified concerns regarding environmental sustainability and human health, while the evolution of herbicide resistance has outpaced the discovery of new modes of action. Bioherbicides have consequently emerged as a viable alternative, comprising biologically derived compounds capable of suppressing weed growth. This review adopts an integrated perspective on microbially derived bioherbicides, following the active biomolecules from the producing strain and its fermentation conditions to their physiological targets in the plant and to the molecular strategies available for their optimization. Unlike previous reviews, which address these dimensions separately and focus mainly on secondary metabolites, particular emphasis is placed here on enzymes with herbicidal activity and on protein engineering approaches. Based on a structured literature search, 39 original studies were analyzed. Phytopathogenic fungi, mainly Fusarium, Diaporthe, Phoma, Alternaria and Trichoderma, predominate as producing organisms, followed by bacteria of the genera Streptomyces, Pseudomonas and Bacillus, and submerged fermentation using low-cost agro-industrial substrates is the prevailing production strategy. Enzymatic classes such as cutinases, lipases, cellulases, pectinases and proteases act primarily by degrading the cuticle and the cell wall, whereas secondary metabolites frequently target the photosynthetic apparatus, particularly photosystem II; most of these compounds, however, still lack a defined mode of action within established herbicide classification systems. Molecular approaches, including heterologous expression, molecular docking and metabolic engineering, remain comparatively underexplored despite their potential to enhance activity, stability and specificity. Advances in formulation stability, bioprocess scalability, mechanistic characterization and regulatory harmonization are identified as the key requirements to translate these biomolecules into commercially viable products for sustainable weed management.",
+      "authors": "Krein DDC, Conterato AAM, Plucinski R, Dotto GL, Dettmer A.",
+      "journal": "World journal of microbiology & biotechnology",
+      "doi": "10.1007/s11274-026-05366-2",
+      "pmid": "42955540",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42955540",
+      "url": "https://doi.org/10.1007/s11274-026-05366-2",
+      "publishedAt": "2026-10-29",
+      "discoveredAt": "2026-10-31T02:24:37.511Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1080/17460913.2026.2752147",
+      "title": "Natural and engineered bacteriophages against multidrug-resistant ESKAPE pathogens: current landscape and clinical translation.",
+      "abstract": "The worldwide emergence of antimicrobial resistance and the need for non-conventional alternatives to conventional antibiotics have been increased by multidrug-resistant ESKAPE pathogens, which cause the majority of nosocomial infections and are starting to develop resistance to even the most potent drugs. Engineered bacteriophages are promising precision antimicrobials because of their ability to selectively infect and lyse bacterial hosts, multiply at infection sites, and co-evolve with bacterial populations to overcome resistance. Advances in synthetic biology, such as tail fiber modification, depolymerase and endolysin enhancement, genome editing using the clustered regularly interspaced short palindromic repeats (CRISPR), and computationally designed phage cocktails, have opened new possibilities for therapeutics that were hindered by the limitations of natural phages. These engineering strategies expand host range, enhance biofilm penetration, and target resistance genes. In spite of promising evidence in preclinical models, the use of engineered phages in routine clinical practice remains difficult. Specific key challenges include unclear regulations, lack of good manufacturing practice (GMP)grade production, variable pharmacokinetics and limited clinical trial data. This review critically examines engineering approaches to improve phage activity against ESKAPE pathogens, identifies the scientific and regulatory barriers limiting clinical use, and outlines the key steps needed for wider adoption.",
+      "authors": "Nautiyal D, Sahu M, Jain U.",
+      "journal": "Future microbiology",
+      "doi": "10.1080/17460913.2026.2752147",
+      "pmid": "42953984",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42953984",
+      "url": "https://doi.org/10.1080/17460913.2026.2752147",
+      "publishedAt": "2026-10-29",
+      "discoveredAt": "2026-10-31T02:24:37.465Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1002/bit.70432",
+      "title": "Yeast Surface Display of Artificial Multienzyme Complexes for Enhanced Production of Rebaudioside M.",
+      "abstract": "Rebaudioside M (Reb M) is an ideal low-calorie natural sweetener with excellent sensory properties and well-established safety profile. Industrial production of Reb M is limited by low natural abundance and the bottlenecks of existing biomanufacturing strategies, including low productivity, intermediate accumulation and high enzyme costs. Here, a novel biosynthetic platform based on yeast surface display of artificial multienzyme complexes was established for efficient Reb M production. The artificial protein scaffold containing multiple orthogonal cohesin modules was displayed on the surface of Pichia pastoris via the AGA1 anchoring motif. Through orthogonal cohesin-dockerin interactions, Reb M biosynthetic pathway enzymes (PgUGTMut, AtSUS1 and UGT76G1Mut) with the corresponding dockerin modules were assembled on the artificial protein scaffold to form multienzyme complexes. The catalytic activity of crude glycosyltransferases was improved by isozyme screening and expression optimization with molecular chaperones. This surface-displayed system demonstrated multiple advantages. First, the multienzyme complex assembled on the yeast surface showed higher catalytic efficiency than free enzymes. Additionally, fructose was consumed by P. pastoris to drive the reaction toward Reb M biosynthesis. Furthermore, the whole-cell catalyst showed promising reusability. Ultimately, this platform enabled the production of 36.88 g/L Reb M with a yield of 91.9% from rebaudioside A (Reb A) in a 10 mL reaction system. This work provided a feasible strategy to address the key bottlenecks in Reb M biomanufacturing and offered a reference for producing other high-value natural products via multi-enzyme cascade catalysis.",
+      "authors": "Bao J, Qiao C, Li M, Gao J, Gao D, Ye C, Jiang X, Lian J.",
+      "journal": "Biotechnology and bioengineering",
+      "doi": "10.1002/bit.70432",
+      "pmid": "42954068",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42954068",
+      "url": "https://doi.org/10.1002/bit.70432",
+      "publishedAt": "2026-10-29",
+      "discoveredAt": "2026-10-31T02:24:38.080Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1002/adhm.71906",
@@ -264,6 +451,33 @@
         "reviewed": false,
         "scope": "abstract_only"
       }
+    },
+    {
+      "id": "doi:10.1007/s00449-026-03455-y",
+      "title": "Repeated xylitol production by immobilized Gluconobacter oxydans using diatom frustule-alginate composite carriers.",
+      "abstract": "Xylitol, a common sugar substitute in food and pharmaceuticals, can be produced microbially using glucose as the primary substrate. Our earlier study established an efficient one-step biotransformation system in Gluconobacter oxydans that converts D-arabitol to xylitol. To improve the reusability of resting cells, recombinant G. oxydans was immobilized in a composite matrix of Cyclotella meneghiniana frustules and solium alginate. The combined approach not only enhanced the mechanical strength and stability of the beads but may also have facilitated oxygen transfer within the immobilization matrix. Compared with frustules adsorption and alginate encapsulation alone, the combined immobilized cells exhibited increases in catalytic activity of 32.8% and 17.3%, respectively. An in-situ immobilization protocol, adding 2.0 g/L frustules to the fermentation medium with a 22-h culture time, further improved immobilized cell activity by 17.3%. Moreover, frustule-adsorbed cells cross-linked with 0.5% glutaraldehyde (GA) exhibited enhanced catalytic performance in continuous batch operation. Finally, the repeated biotransformation was carried out by immobilized G. oxydans, achieving an average xylitol titer of 15.44 g/L over six consecutive batch cycles. This study presents a practical immobilization strategy for xylitol production and offers a reference for microbial production of other biochemicals.",
+      "authors": "Liu D, Guo JC, Liu L, Su JH, Cao SN, Yang BH, Zhang HL.",
+      "journal": "Bioprocess and biosystems engineering",
+      "doi": "10.1007/s00449-026-03455-y",
+      "pmid": "42955111",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42955111",
+      "url": "https://doi.org/10.1007/s00449-026-03455-y",
+      "publishedAt": "2026-10-28",
+      "discoveredAt": "2026-10-31T02:24:38.080Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1111/1744-7917.70385",
@@ -692,7 +906,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "以多层次代谢工程提高解淀粉芽孢杆菌的L-酪氨酸产量",
+        "abstractZh": "L-酪氨酸是一种用途广泛的高价值芳香族氨基酸。虽然基于质粒的过表达已经明显提高了L-酪氨酸产量，但依赖抗生素筛选，以及在非选择性条件下存在遗传不稳定性，限制了其工业应用。为解决这些问题，本研究采用多层次代谢工程策略，在解淀粉芽孢杆菌（Bacillus amyloliquefaciens）的基因组层面增强L-酪氨酸生物合成途径。首先，将含有突变型预苯酸脱氢酶TyrA（I309A/E330V）的表达盒插入野生型菌株Z1的基因组。当拷贝数达到3个时，所得菌株Z4的L-酪氨酸滴度达到437.43 mg/L。随后整合突变型DAHP合酶AroA（R27A/K38A），所得双拷贝菌株Z7的L-酪氨酸滴度提高至591.29 mg/L。对限速步骤的系统性辨识表明，大多数途径基因都能不同程度地提高产量。接着，研究者通过启动子原位替换构建菌株Z21，使滴度进一步提高到813.01 mg/L。最后，通过优化前体供应，工程菌株Z32的L-酪氨酸滴度达到1079.94 mg/L。总体而言，这一无质粒、不依赖抗生素的平台，为微生物细胞工厂稳定生物合成L-酪氨酸及其他芳香族氨基酸提供了一种有前景的策略。",
+        "sourceTitle": "Multilevel metabolic engineering of Bacillus amyloliquefaciens for enhanced L-tyrosine production.",
+        "sourceAbstract": "L-Tyrosine is a valuable aromatic amino acid with diverse applications. Although plasmid-based overexpression has markedly improved L-tyrosine production, the dependence on antibiotic selection and genetic instability under nonselective conditions limits its industrial applicability. To address these issues, this study employed a multi-level metabolic engineering strategy to enhance the L-tyrosine biosynthetic pathway at the genomic level in Bacillus amyloliquefaciens. First, an expression cassette containing the mutant prephenate dehydrogenase (TyrA I309A/E330V ) was inserted into the genome of the wild-type strain Z1. When the copy number reached three (strain Z4), L-tyrosine production reached 437.43mg/L. Subsequently, the mutant DAHP synthase (AroA R27A/K38A ) was integrated, and the resulting two-copy strain Z7 increased L-tyrosine production to 591.29mg/L. Systematic identification of rate-limiting steps showed that most pathway genes enhanced production to varying extents. A promoter in situ replacement strategy was then applied to construct strain Z21, which further increased the titer to 813.01mg/L. Finally, by optimizing precursor supply, the engineered strain Z32 reached an L-tyrosine titer of 1079.94mg/L. Overall, this plasmid-free and antibiotic-independent platform offers a promising strategy for stable biosynthesis of L-tyrosine and other aromatic amino acids in microbial cell factories.",
+        "sourceFingerprint": "c5cb5906-1524",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-30T04:14:10.785Z",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1073/pnas.2621208123",
@@ -731,6 +956,34 @@
         "reviewed": false,
         "scope": "abstract_only"
       }
+    },
+    {
+      "id": "doi:10.1007/s13205-026-05113-2",
+      "title": "Recent biotechnological advances and technology readiness level of natural products derived from marine fungi.",
+      "abstract": "Bioprospecting involves the systematic exploration of natural resources to identify bioactive secondary metabolites with potential for development into commercially valuable products. In this review, more than a hundred bioactive compounds derived from marine fungi were analysed, with emphasis on their chemical diversity, biological activities, commercialisation status, economic relevance, and Technology Readiness Levels (TRLs). The compounds represented diverse metabolite classes, including polyketides, alkaloids, terpenoids, peptides, azaphilones, and other bioactive secondary metabolites with pharmaceutical, nutraceutical, cosmeceutical, industrial, and environmental applications. Among the reviewed compounds, only approximately 10-20 have been marketed, while the majority remain at early stages of development. TRL assessment showed that most marine fungal-derived products are concentrated at TRL 1-3, a smaller number of compounds and bioprocesses have progressed to TRL 4-5, and highly commercialised products reach TRL 9. In India, pharmaceutical applications involving anticancer, antimicrobial, and antiviral compounds were assessed at TRL 3-5, nutraceuticals at TRL 5-7, cosmeceuticals at TRL 6-8, and industrial enzymes at TRL 7-9. The main barriers to commercialisation were low and unstable metabolite yields, structural complexity, regulatory and bioprospecting constraints, inadequate translational investment and industrial infrastructure, and high financial and technical risks during late-stage development. Integrated approaches including strain improvement, fermentation optimization, chemoenzymatic synthesis, OSMAC, in-situ product removal, genome mining, metabolic engineering, Chemi-genomic approaches, and CRISPR/Cas-based pathway engineering offer opportunities to improve production and increase TRLs. Overall, the findings demonstrate a substantial discovery-to-commercialization gap in marine fungal biotechnology. Advancing strain development, scalable bioprocessing, safety and regulatory validation, synthetic biology, industrial partnerships, and translational infrastructure is essential to convert promising low-TRL discoveries into commercially viable products and strengthen the contribution of marine fungi to a sustainable circular bioeconomy.",
+      "authors": "Chetapalli C, Karuppaiah ND, Garlapati D, Veeraragavan S, Sreeharsha RV, Valsalan VN, Gopal D, Ramakrishnan B.",
+      "journal": "3 Biotech",
+      "doi": "10.1007/s13205-026-05113-2",
+      "pmid": "42952969",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42952969",
+      "url": "https://doi.org/10.1007/s13205-026-05113-2",
+      "publishedAt": "2026-10-27",
+      "discoveredAt": "2026-10-31T02:24:37.465Z",
+      "topics": [
+        "synthetic",
+        "metabolic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1515/jib-2026-0037",
@@ -1114,7 +1367,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "曲霉属来源的转糖苷酶及其在食品加工中的应用：酶挖掘与智能生物催化研究进展",
+        "abstractZh": "转糖苷酶（TGs）属于糖苷水解酶家族，可通过分子内或分子间取代完成糖基转移。黑曲霉、米曲霉及其他曲霉菌株是工业转糖苷酶的主要来源，这类酶广泛应用于食品加工。不过，酶性能优化、工业适应及协同催化体系构建仍受到明显瓶颈制约。本综述阐述曲霉来源转糖苷酶在食品加工中的应用潜力，分析利用人工智能调控酶催化性能的科学依据，系统总结分子改造和多酶协同机制，并介绍其在益生元低聚糖、乳制品、酿造和烘焙等领域的应用效果。文章进一步讨论人工智能与食品生物制造的融合，以及绿色功能食品加工、智能生物加工和大健康食品研究的发展前景。",
+        "sourceTitle": "Transglycosidases from Aspergillus genus and their applications in food processing: Advances in enzyme mining and smart biocatalysis.",
+        "sourceAbstract": "Transglycosidases (TGs) constitute a family of glycoside hydrolases that perform glycosyl transfer via intra- and intermolecular substitution. A. niger, A. oryzae, and other Aspergillus strains represent the major industrial sources of TGs, which are widely applied in food processing. However, prominent bottlenecks still restrict the optimization of enzyme performance, industrial adaptation, and the construction of synergistic catalytic systems. This comprehensive review expounds the application potential of Aspergillus-derived TGs in food processing, analyzes the scientific basis of artificial intelligence (AI) regulation on enzyme catalytic performance, systematically summarizes the molecular modification and multi-enzyme synergistic mechanisms, and illustrates their application effects in the fields of prebiotic oligosaccharides, dairy products, brewing, and baking. Furthermore, it promotes the in-depth integration of AI and food biomanufacturing, and advances the high-quality development of the green functional food processing industry, showing sustainable and bright prospects in smart bioprocessing and big-health food research.",
+        "sourceFingerprint": "d06ad101-1284",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-30T04:14:10.785Z",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1186/s13568-026-02130-5",
@@ -1284,7 +1548,18 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "基于无细胞代谢工程构建异戊烯醇利用途径及其在多酶级联合成中的应用",
+        "abstractZh": "类异戊二烯化合物的常规微生物生物合成途径通常需要复杂的代谢平衡和多基因调控，这不仅耗时，还容易受到宿主细胞代谢的干扰，以及有毒代谢中间体或终产物的反馈抑制。本研究开发了一种新型无细胞多酶催化体系，用于合成具有代表性的类异戊二烯化合物番茄红素。通过将异戊烯醇利用途径与无细胞代谢工程策略相结合，该体系无需复杂的体内遗传改造，并避免了细胞固有代谢的干扰。体外反应直接使用7种酶，无需依赖昂贵的底物异戊烯基焦磷酸（IPP）和二甲基烯丙基焦磷酸（DMAPP），即可实现番茄红素的快速、高效生产。优化后的无细胞反应混合物包含isoprenol和prenol（摩尔比3:1，15 mM）、7种关键酶（各自浓度为0.6 mg/mL）、8 mM Mg²⁺、1 mM NAD、1 mM ATP、1 mM CoA以及0.05%（w/v）Tween 20，以30 mM Bis-Tris缓冲液（pH 6.5）为反应介质。在30 °C下孵育20 h后，番茄红素滴度达到128.04 mg/L。进一步的体内验证获得了270.0 mg/L的最终番茄红素滴度。这一新方法为克服复杂天然类异戊二烯生物合成途径构建和调控中的常见难题，提供了有前景的替代策略。",
+        "sourceTitle": "Development of isopentenol utilization pathway based on cell-free metabolic engineering and its application in multienzyme cascades synthesis.",
+        "sourceAbstract": "Conventional microbial biosynthetic pathways for isoprenoid often require intricate metabolic balancing and multigene regulation, which are not only time-consuming but also prone to interference from host cellular metabolism and feedback inhibition by toxic intermediate metabolites or end-products. In this study, we developed a novel cell-free multienzyme catalytic system for the synthesis of lycopene, a representative isoprenoid. By integrating the isopentenol utilization pathway with cell-free metabolic engineering strategies, the system eliminates the need for complex in vivo genetic modifications and avoids inherent cellular metabolic interference. The in vitro reaction employs seven enzymes directly, enabling rapid and efficient lycopene production without relying on costly substrates isopentenyl pyrophosphate (IPP) and dimethylallyl pyrophosphate (DMAPP). The optimized cell-free reaction mixture consisted of isoprenol and prenol (3:1 molar ratio, 15 mM), seven key enzymes (each at a concentration of 0.6 mg/mL), 8 mM Mg 2 + , 1 mM NAD, 1 mM ATP, 1 mM CoA, and 0.05% (w/v) Tween 20 in 30 mM Bis-Tris buffer (pH 6.5). After incubation at 30 °C for 20 h, the lycopene titer reached 128.04 mg/L. Further in vivo validation achieved a final lycopene titer of 270.0 mg/L. This novel approach offers a promising alternative strategy to overcome common challenges associated with the construction and regulation of complex natural isoprenoid biosynthetic pathways.",
+        "sourceFingerprint": "7fc7cf74-1620",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-30T04:14:10.785Z",
+        "reviewed": false,
+        "scope": "abstract_only"
+      }
     },
     {
       "id": "doi:10.1016/j.ijpharm.2026.127586",
@@ -1347,7 +1622,19 @@
       "readingScope": "仅摘要",
       "license": "cc by-nc",
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "通过代谢工程提高解脂耶氏酵母的脂肪醇产量",
+        "abstractZh": "脂肪醇是用途广泛的化学品，众多行业对其需求不断增长，但传统生产方法带来环境方面的挑战。如果能够通过宿主工程实现较高的产物滴度，微生物生物合成便是一种有前景的替代途径。具有工业应用价值的产油酵母解脂耶氏酵母（Yarrowia lipolytica）天然具备脂质代谢能力，因而适合承担这一任务。本研究对Y. lipolytica W29进行工程改造，通过破坏参与脂质合成和脂肪醇氧化的途径来生产脂肪醇，并确定脂肪醇氧化是限制产物积累的主要因素。初步改造后，使用40 g/L葡萄糖时，脂肪醇滴度达到2.5 g/L。随后，研究者优化培养基添加物及营养成分浓度，结合删除柠檬酸转运蛋白基因CEX1，并在萃取培养基中加入1% Tergitol，使摇瓶培养在80 g/L葡萄糖、碳氮比60的条件下，脂肪醇滴度提高至10.9 g/L。将工艺放大到补料分批生物反应器培养后，滴度进一步提高至19.4 g/L。这些结果表明，将代谢工程与培养基及工艺优化相结合，能够实现解脂耶氏酵母中脂肪醇的高滴度生产。\n\n研究亮点（Highlights）：\n通过破坏脂质合成、脂肪醇氧化和柠檬酸外排，提高脂肪醇滴度。\n加入十二烷和Tergitol使摇瓶发酵滴度提高至10.7 g/L。\n在添加Tergitol的生物反应器中开展补料分批发酵，滴度达到19.4 g/L。",
+        "sourceTitle": "Metabolic engineering of Yarrowia lipolytica for higher fatty alcohol production",
+        "sourceAbstract": "Fatty alcohols are versatile chemicals with growing demand across a broad range of industries, yet conventional production methods pose environmental challenges. Microbial biosynthesis offers a promising alternative, if hosts can be engineered to achieve high product titers. The industrially relevant oleaginous yeast Yarrowia lipolytica is well suited to this challenge because of its natural capacity for lipid metabolism. Here, we engineered Y. lipolytica W29 for fatty alcohol production by disrupting pathways involved in lipogenesis and fatty alcohol oxidation, identifying fatty alcohol oxidation as a major constraint on product accumulation. Initial engineering yielded fatty alcohol titers of 2.5 g/L from 40 g/L glucose. Subsequent optimization of media supplements and nutrient concentrations, combined with deletion of the citrate transporter CEX1 and addition of 1% Tergitol to the extractive culture medium, increased titers to 10.9 g/L in shake flasks with 80 g/L glucose and a carbon-to-nitrogen ratio of 60. Scaling the process to fed-batch bioreactor cultivation further increased titers to 19.4 g/L. These results demonstrate that combining metabolic engineering with medium and process optimization enables high-titer fatty alcohol production in Y. lipolytica . Highlights Increased fatty alcohol titers by disrupting lipogenesis, fatty alcohol oxidation, and citrate export Dodecane and Tergitol addition increased flask fermentation titers to 10.7 g/L Fed-batch fermentation in bioreactors was performed with Tergitol to 19.4 g/L",
+        "sourceFingerprint": "a1c62d8e-1634",
+        "origin": "assistant_translation",
+        "createdAt": "2026-10-30T04:14:10.785Z",
+        "reviewed": false,
+        "scope": "abstract_only",
+        "sourceNote": "原接口当前摘要的正文报告摇瓶滴度为10.9 g/L，Highlights中写为10.7 g/L；译文按各自位置保留原值，未独立核实这一差异的原因。"
+      }
     },
     {
       "id": "doi:10.1007/s00284-026-05200-w",
@@ -1774,7 +2061,7 @@
       "journal": "Journal of fungi (Basel, Switzerland)",
       "doi": "10.3390/jof12100795",
       "pmid": "42930760",
-      "pmcid": null,
+      "pmcid": "PMC13706028",
       "source": "MED",
       "sourceId": "42930760",
       "url": "https://doi.org/10.3390/jof12100795",
@@ -2103,7 +2390,7 @@
       "journal": "Microbial cell factories",
       "doi": "10.1186/s12934-026-03159-8",
       "pmid": "42934725",
-      "pmcid": null,
+      "pmcid": "PMC13700402",
       "source": "MED",
       "sourceId": "42934725",
       "url": "https://doi.org/10.1186/s12934-026-03159-8",
@@ -2117,7 +2404,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -2286,7 +2573,7 @@
       "journal": "Molecules (Basel, Switzerland)",
       "doi": "10.3390/molecules31203746",
       "pmid": "42943815",
-      "pmcid": null,
+      "pmcid": "PMC13707897",
       "source": "MED",
       "sourceId": "42943815",
       "url": "https://doi.org/10.3390/molecules31203746",
@@ -2301,7 +2588,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -2522,7 +2809,7 @@
       "journal": "Viruses",
       "doi": "10.3390/v18101159",
       "pmid": "42944078",
-      "pmcid": null,
+      "pmcid": "PMC13709724",
       "source": "MED",
       "sourceId": "42944078",
       "url": "https://doi.org/10.3390/v18101159",
@@ -2536,7 +2823,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -2922,7 +3209,7 @@
       "journal": "Life (Basel, Switzerland)",
       "doi": "10.3390/life16101742",
       "pmid": "42942328",
-      "pmcid": null,
+      "pmcid": "PMC13706592",
       "source": "MED",
       "sourceId": "42942328",
       "url": "https://doi.org/10.3390/life16101742",
@@ -2936,7 +3223,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -3107,7 +3394,7 @@
       "journal": "International journal of molecular sciences",
       "doi": "10.3390/ijms27209203",
       "pmid": "42941973",
-      "pmcid": null,
+      "pmcid": "PMC13705519",
       "source": "MED",
       "sourceId": "42941973",
       "url": "https://doi.org/10.3390/ijms27209203",
@@ -3123,7 +3410,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -3135,7 +3422,7 @@
       "journal": "Biology",
       "doi": "10.3390/biology15201865",
       "pmid": "42939466",
-      "pmcid": null,
+      "pmcid": "PMC13701856",
       "source": "MED",
       "sourceId": "42939466",
       "url": "https://doi.org/10.3390/biology15201865",
@@ -3149,7 +3436,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -3161,7 +3448,7 @@
       "journal": "Biology",
       "doi": "10.3390/biology15201859",
       "pmid": "42939460",
-      "pmcid": null,
+      "pmcid": "PMC13701434",
       "source": "MED",
       "sourceId": "42939460",
       "url": "https://doi.org/10.3390/biology15201859",
@@ -3175,7 +3462,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -3293,7 +3580,7 @@
       "journal": "International journal of molecular sciences",
       "doi": "10.3390/ijms27209187",
       "pmid": "42941956",
-      "pmcid": null,
+      "pmcid": "PMC13705265",
       "source": "MED",
       "sourceId": "42941956",
       "url": "https://doi.org/10.3390/ijms27209187",
@@ -3307,7 +3594,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -3567,6 +3854,33 @@
       "publishedAt": "2026-10-15",
       "discoveredAt": "2026-10-28T16:24:50.309Z",
       "topics": [
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.4014/jmb.2608.08032",
+      "title": "Host-Specific Metabolic Engineering for Microbial Production of Fucosyllactoses.",
+      "abstract": "Human milk oligosaccharides (HMOs) are a diverse group of bioactive glycans that play important roles in infant health by modulating the gut microbiota, inhibiting pathogen adhesion, and promoting immune development. Among them, 2'-fucosyllactose (2'-FL) and 3-fucosyllactose (3-FL) have attracted considerable attention owing to their established health benefits and increasing applications in infant formula and functional foods. Microbial biosynthesis has emerged as a sustainable and scalable alternative to chemical synthesis and enzymatic production. This review summarizes recent advances in microbial FL production using Escherichia coli, Saccharomyces cerevisiae, and Yarrowia lipolytica, with emphasis on host-specific metabolic engineering strategies. Key engineering approaches, including GDP-L-fucose biosynthesis, lactose uptake, fucosyltransferase (FT) optimization, transporter engineering, and fermentation process development, are systematically discussed and compared across microbial hosts. The review highlights the distinct advantages and limitations of bacterial and yeast platforms, including product secretion, intracellular FL accumulation, carbon flux distribution, and redox balance. Finally, current bottlenecks and future engineering opportunities are discussed, including transporter optimization, host-specific metabolic regulation, and industrial process development. These advances provide valuable insights into the development of efficient, safe, and economically viable microbial cell factories for the sustainable production of FL and other fucosylated HMOs.",
+      "authors": "Kim BM, Jang YJ, Song HY, Jung SC, Shin J, Lee JW.",
+      "journal": "Journal of microbiology and biotechnology",
+      "doi": "10.4014/jmb.2608.08032",
+      "pmid": "42954021",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42954021",
+      "url": "https://doi.org/10.4014/jmb.2608.08032",
+      "publishedAt": "2026-10-15",
+      "discoveredAt": "2026-10-31T02:24:37.830Z",
+      "topics": [
+        "metabolic",
         "microbial"
       ],
       "type": "综述",
@@ -3931,7 +4245,7 @@
       "journal": "Current issues in molecular biology",
       "doi": "10.3390/cimb48101054",
       "pmid": "42939592",
-      "pmcid": null,
+      "pmcid": "PMC13703760",
       "source": "MED",
       "sourceId": "42939592",
       "url": "https://doi.org/10.3390/cimb48101054",
@@ -3945,7 +4259,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -4055,13 +4369,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 272,
+        "count": 279,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-10-30T03:02:16.984Z",
+        "fetchedAt": "2026-10-31T02:24:38.714Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-10",
@@ -4086,7 +4400,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-10-30T03:02:16.811Z"
+        "checkedAt": "2026-10-31T02:24:38.455Z"
       }
     },
     {
@@ -4333,25 +4647,25 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 136,
+      "hitCount": 109,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 100,
+      "hitCount": 74,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 130,
+      "hitCount": 104,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-10-30",
+    "date": "2026-10-31",
     "requests": 0
   },
   "receipts": {},
@@ -4359,11 +4673,11 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "not_configured",
-    "lastRunAt": "2026-10-30T03:02:16.988Z",
+    "lastRunAt": "2026-10-31T02:24:38.721Z",
     "failedTopics": 0,
     "collectionSource": {
-      "trigger": "workflow_dispatch",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/40995065066"
+      "trigger": "schedule",
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/41159862684"
     },
     "downloadRefresh": {
       "supported": 1,
@@ -4375,6 +4689,6 @@
     },
     "modelRequestsThisRun": 0,
     "analysisFailures": 0,
-    "completedAt": "2026-10-30T03:02:17.006Z"
+    "completedAt": "2026-10-31T02:24:38.748Z"
   }
 }

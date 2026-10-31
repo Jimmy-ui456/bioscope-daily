@@ -2,6 +2,375 @@
   "version": 1,
   "reports": [
     {
+      "id": "public-daily-2026-10-31",
+      "kind": "public_daily",
+      "date": "2026-10-31",
+      "windowStart": "2026-10-25",
+      "createdAt": "2026-10-31T02:24:35.691Z",
+      "origin": "live",
+      "papers": [
+        {
+          "id": "doi:10.1016/j.biotechadv.2026.109086",
+          "title": "Engineering Methylobacterium as a C1 biomanufacturing platform: Metabolic architecture, regulatory networks, and synthetic biology strategies.",
+          "abstract": "Methanol is emerging as a sustainable and energy-dense one carbon (C1) feedstock for next-generation biomanufacturing, owing to its superior energy density, abundance, water miscibility, and decoupling from food supply chains. Methylobacterium species are facultative methylotrophs that have evolved sophisticated metabolic and regulatory networks for efficient methanol utilization. This review highlights the transition of Methylobacterium from a model organism for dissecting methylotrophy to a programmable C1 chassis for synthetic biology. We provide a unique overview of its core metabolic architecture, focusing on the lanthanide-switchable pyrroloquinoline quinone (PQQ)-dependent methanol oxidation, the tetrahydromethanopterin (H₄MPT)-mediated formaldehyde buffering system, and the tight coupling of the serine cycle with the ethylmalonyl-CoA (EMC) pathway, which together govern carbon flux, redox balance, and energy efficiency. Building on this intrinsic framework, we survey how these traits are leveraged to produce high-value chemicals, such as folate derivatives, redox cofactors, organic acids, terpenoids, bioplastics, and single-cell protein. Furthermore, we discuss advanced engineering strategies for systematic chassis optimization including global transcriptional regulation, metabolic valve control, and photo-methylotrophic configurations, along with a comprehensive evaluation of Methylobacterium chassis advantages and disadvantages, concrete product-chassis matching rules, common engineering bottlenecks, and diversified low-cost feedstock options. Finally, we propose a product-chassis matching framework and outline future directions centered on regulatory control, flux coordination, and robustness enhancement to overcome current limitations in titer, yield, and scale-up, while also leveraging agricultural applications and low-cost feedstocks, thereby positioning Methylobacterium as a cornerstone of sustainable low-carbon biotechnology.",
+          "authors": "Yao L, Ma Z, Liu Z, Tan L, Yang S.",
+          "journal": "Biotechnology advances",
+          "doi": "10.1016/j.biotechadv.2026.109086",
+          "pmid": "42957139",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42957139",
+          "url": "https://doi.org/10.1016/j.biotechadv.2026.109086",
+          "publishedAt": "2026-10-29",
+          "discoveredAt": "2026-10-31T02:24:37.464Z",
+          "topics": [
+            "synthetic",
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1080/17460913.2026.2752147",
+          "title": "Natural and engineered bacteriophages against multidrug-resistant ESKAPE pathogens: current landscape and clinical translation.",
+          "abstract": "The worldwide emergence of antimicrobial resistance and the need for non-conventional alternatives to conventional antibiotics have been increased by multidrug-resistant ESKAPE pathogens, which cause the majority of nosocomial infections and are starting to develop resistance to even the most potent drugs. Engineered bacteriophages are promising precision antimicrobials because of their ability to selectively infect and lyse bacterial hosts, multiply at infection sites, and co-evolve with bacterial populations to overcome resistance. Advances in synthetic biology, such as tail fiber modification, depolymerase and endolysin enhancement, genome editing using the clustered regularly interspaced short palindromic repeats (CRISPR), and computationally designed phage cocktails, have opened new possibilities for therapeutics that were hindered by the limitations of natural phages. These engineering strategies expand host range, enhance biofilm penetration, and target resistance genes. In spite of promising evidence in preclinical models, the use of engineered phages in routine clinical practice remains difficult. Specific key challenges include unclear regulations, lack of good manufacturing practice (GMP)grade production, variable pharmacokinetics and limited clinical trial data. This review critically examines engineering approaches to improve phage activity against ESKAPE pathogens, identifies the scientific and regulatory barriers limiting clinical use, and outlines the key steps needed for wider adoption.",
+          "authors": "Nautiyal D, Sahu M, Jain U.",
+          "journal": "Future microbiology",
+          "doi": "10.1080/17460913.2026.2752147",
+          "pmid": "42953984",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42953984",
+          "url": "https://doi.org/10.1080/17460913.2026.2752147",
+          "publishedAt": "2026-10-29",
+          "discoveredAt": "2026-10-31T02:24:37.465Z",
+          "topics": [
+            "synthetic",
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.64898/2026.10.27.762313",
+          "title": "Engineered probiotics target granulomas to treat mycobacterial infection",
+          "abstract": "Granulomas are a pathological niche for mycobacteria that remain difficult to access with conventional therapies. Here we show that probiotic Escherichia coli Nissle 1917 (EcN) infiltrates and colonizes granulomas and can be engineered as a delivery system that senses the local microenvironment and releases antimycobacterial payloads. Specifically, we leveraged the hypoxic microenvironment of necrotic granulomas to restrict bacterial growth, and developed a dual-mode lysis circuit combining intracellular and extracellular killing for sustained payload release with limited evolutionary escape. We further engineered EcN to express a mycobacteriophage-derived enzyme, generating a strain that suppressed drug-sensitive and drug-resistant mycobacteria in vitro and potentiated conventional antibiotic activity. Engineered probiotics also reduced mycobacterial burden in vivo, and in a murine model of rifampicin-resistant infection, combination treatment with pretomanid achieved greater bacterial reduction than either monotherapy. Together, these results establish a synthetic biology framework for targeting granulomatous infections with programmable living microbes.",
+          "authors": "Chen Y, Harimoto T, Makafe GG, Coker C, Kim H, Im J, Jing Y, Jin H, Hu X, Zutshi S, Raneri MR, Weinrick B, Danino T.",
+          "journal": "预印本平台",
+          "doi": "10.64898/2026.10.27.762313",
+          "pmid": null,
+          "pmcid": null,
+          "source": "PPR",
+          "sourceId": "PPR1353244",
+          "url": "https://doi.org/10.64898/2026.10.27.762313",
+          "publishedAt": "2026-10-29",
+          "discoveredAt": "2026-10-30T02:37:31.909Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "预印本",
+          "status": "预印本 · 未经同行评审",
+          "isPreprint": true,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC",
+          "enrichment": {
+            "titleZh": "工程化益生菌靶向肉芽肿，用于治疗分枝杆菌感染",
+            "abstractZh": "肉芽肿是分枝杆菌的一种病理性生存微环境，常规疗法仍难以到达。本研究表明，益生菌大肠杆菌Nissle 1917（Escherichia coli Nissle 1917，EcN）能够浸润并定植于肉芽肿，还可被改造成感知局部微环境并释放抗分枝杆菌载荷的递送系统。具体而言，研究者利用坏死性肉芽肿的低氧微环境限制细菌生长，并开发了结合细胞内与细胞外杀伤的双模式裂解回路，以实现载荷持续释放，同时限制进化逃逸。研究者进一步改造EcN，使其表达一种来源于分枝杆菌噬菌体的酶，获得的菌株在体外抑制了药物敏感型和耐药型分枝杆菌，并增强了常规抗生素的活性。工程化益生菌还降低了体内分枝杆菌负荷；在利福平耐药感染的小鼠模型中，与pretomanid联合治疗实现的菌量下降幅度大于任一单药治疗。这些结果共同建立了一个利用可编程活微生物靶向肉芽肿性感染的合成生物学框架。",
+            "sourceTitle": "Engineered probiotics target granulomas to treat mycobacterial infection",
+            "sourceAbstract": "Granulomas are a pathological niche for mycobacteria that remain difficult to access with conventional therapies. Here we show that probiotic Escherichia coli Nissle 1917 (EcN) infiltrates and colonizes granulomas and can be engineered as a delivery system that senses the local microenvironment and releases antimycobacterial payloads. Specifically, we leveraged the hypoxic microenvironment of necrotic granulomas to restrict bacterial growth, and developed a dual-mode lysis circuit combining intracellular and extracellular killing for sustained payload release with limited evolutionary escape. We further engineered EcN to express a mycobacteriophage-derived enzyme, generating a strain that suppressed drug-sensitive and drug-resistant mycobacteria in vitro and potentiated conventional antibiotic activity. Engineered probiotics also reduced mycobacterial burden in vivo, and in a murine model of rifampicin-resistant infection, combination treatment with pretomanid achieved greater bacterial reduction than either monotherapy. Together, these results establish a synthetic biology framework for targeting granulomatous infections with programmable living microbes.",
+            "sourceFingerprint": "ce56ffb0-1247",
+            "origin": "assistant_translation",
+            "createdAt": "2026-10-30T02:51:38.379Z",
+            "reviewed": false,
+            "scope": "abstract_only"
+          }
+        },
+        {
+          "id": "doi:10.1007/10_2026_370",
+          "title": "Molecular Biology and Synthetic Biology-Guided Development of Recognition and Reporting Elements of Biosensor.",
+          "abstract": "Microbial cell biosensors are capable of detecting fluctuations in the concentrations of substances both inside and outside the cell, as well as changes in the external environment, and can generate measurable signal outputs. Microbial cell biosensors are characterized by low cost, simple operation, and high specificity. The rapid advancement of synthetic biology has significantly propelled the development and practical application of microbial cell biosensors. In this chapter, we provide a comprehensive summary of the composition and working principles of microbial cell biosensors. Additionally, we introduce various strategies and the latest progress in modifying biorecognition element and reporting elements using molecular biology and synthetic biology techniques in recent years. This book chapter offers new insights and valuable references for the research and development of microbial cell biosensors.",
+          "authors": "Luo Y, Meng C, Wang L, Liang B.",
+          "journal": "Advances in biochemical engineering/biotechnology",
+          "doi": "10.1007/10_2026_370",
+          "pmid": "42944860",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42944860",
+          "url": "https://doi.org/10.1007/10_2026_370",
+          "publishedAt": "2026-10-28",
+          "discoveredAt": "2026-10-28T16:24:49.684Z",
+          "topics": [
+            "synthetic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC",
+          "enrichment": {
+            "titleZh": "分子生物学与合成生物学指导的生物传感器识别元件和报告元件开发",
+            "abstractZh": "微生物细胞生物传感器能够检测细胞内外物质浓度的波动以及外部环境变化，并产生可测量的信号输出。这类传感器具有成本低、操作简单和特异性高等特点。合成生物学的快速发展显著推动了微生物细胞生物传感器的开发和实际应用。本章全面总结微生物细胞生物传感器的组成及工作原理，并介绍近年来利用分子生物学和合成生物学技术改造生物识别元件与报告元件的多种策略及最新进展，为微生物细胞生物传感器的研究与开发提供新的认识和参考。",
+            "sourceTitle": "Molecular Biology and Synthetic Biology-Guided Development of Recognition and Reporting Elements of Biosensor.",
+            "sourceAbstract": "Microbial cell biosensors are capable of detecting fluctuations in the concentrations of substances both inside and outside the cell, as well as changes in the external environment, and can generate measurable signal outputs. Microbial cell biosensors are characterized by low cost, simple operation, and high specificity. The rapid advancement of synthetic biology has significantly propelled the development and practical application of microbial cell biosensors. In this chapter, we provide a comprehensive summary of the composition and working principles of microbial cell biosensors. Additionally, we introduce various strategies and the latest progress in modifying biorecognition element and reporting elements using molecular biology and synthetic biology techniques in recent years. This book chapter offers new insights and valuable references for the research and development of microbial cell biosensors.",
+            "sourceFingerprint": "7558a086-1028",
+            "origin": "assistant_translation",
+            "createdAt": "2026-10-29T00:00:00+08:00",
+            "reviewed": false,
+            "scope": "abstract_only"
+          }
+        },
+        {
+          "id": "doi:10.1007/10_2026_368",
+          "title": "Beyond Cell Factory: In Vitro Biotransformation (ivBT): A Paradigm-Shifting Biomanufacturing Platform.",
+          "abstract": "The paradigm of industrial biomanufacturing is shifting rapidly. Microbial fermentation mediated by cell factories is the dominant platform of biomanufacturing and has a history of thousands of years. However, their inherent properties, such as self-proliferation, cellular complexity, maintenance, and bioenergetic limits, could prevent them from being the best winner of biomanufacturing, especially for biocommodities and bioenergy. In this book chapter, we introduce a new concept of in vitro biotransformation (ivBT) as an emerging biomanufacturing platform that can surpass microbial cell factory. The development of ivBT is driven by the urgent great needs of food security and a new carbon-neutral energy society in the future. In theory, ivBT can have the theoretical yield and very high volumetric productivity and could have low-cost biomanufacturing costs. Furthermore, we highlight several representative applications, such as artificial photosynthesis for CO2-to-starch synthesis, in vitro respiration that can produce hydrogen under anaerobic conditions and electricity under aerobic conditions, directed glycosidic bond rearrangement (i.e., ATP-free or low-ATP biotransformation of cellulose to starch), and healthy sugars. Industrial biomanufacturing of myo-inositol, D-tagatose, and cellulosic starch would wipe off any prejudice (e.g., costly enzymes and short lifetime) and demonstrate transformative potential of ivBT. ivBT would be a paradigm-shifting biomanufacturing platform because it is like a dimensional reduction attack that can simplify extremely complicated cell factories by decreasing their dimensions.",
+          "authors": "Song Z, Job Zhang YP.",
+          "journal": "Advances in biochemical engineering/biotechnology",
+          "doi": "10.1007/10_2026_368",
+          "pmid": "42955337",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42955337",
+          "url": "https://doi.org/10.1007/10_2026_368",
+          "publishedAt": "2026-10-30",
+          "discoveredAt": "2026-10-31T02:24:38.080Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1002/bit.70425",
+          "title": "Metabolic Remodelingof the NOG Pathway and Glyoxylate Cycle for High-Yield L-Homoserine Biosynthesis.",
+          "abstract": "L‑homoserine is a valuable C4 amino acid with broad applications in agriculture, pharmaceuticals, and daily chemicals. However, existing high‑yielding strains have mainly been evaluated at laboratory scale, and their scale‑up feasibility has not yet been sufficiently verified, leaving industrial production without a direct engineering basis. In this study, a non-auxotrophic, scalable L‑homoserine high‑producer was constructed by targeting carbon loss, rewiring the metabolic network, and maintaining cofactor balance. Specifically, the threonine branch was dynamically attenuated to reduce product degradation, while the non‑oxidative glycolysis (NOG) pathway was introduced and coupled with the glyoxylate shunt to conserve carbon and redirect flux toward the aspartate pathway, thereby increasing precursor availability. The main biosynthetic pathway and cofactor regeneration were further strengthened to accelerate L‑homoserine synthesis. Ultimately, strain HS25 achieved a titer of 126.5 g/L L‑homoserine,a yield of 0.58 g/g glucose, and a productivity of 1.77 g/L/hin 50 L fermentation. These metabolic engineering strategies are scalable and may serve as a generalizable framework for the industrial production of other aspartate‑derived amino acids and their derivatives.",
+          "authors": "Shan Q, Zhang J, Gong R, Zhou Y, Xu J, Liu Z, Zheng Y.",
+          "journal": "Biotechnology and bioengineering",
+          "doi": "10.1002/bit.70425",
+          "pmid": "42954037",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42954037",
+          "url": "https://doi.org/10.1002/bit.70425",
+          "publishedAt": "2026-10-29",
+          "discoveredAt": "2026-10-31T02:24:37.511Z",
+          "topics": [
+            "metabolic"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1002/adhm.71906",
+          "title": "Artificial Cells and Biomimetic Cells: Intelligent Systems Driving a Paradigm Shift in Drug Discovery and Delivery.",
+          "abstract": "The convergence of synthetic biology, materials science, and artificial intelligence drives a transformative shift in biopharmaceutical research, advancing from passive drug carriers to intelligent, programmable therapeutics. This review evaluates artificial and biomimetic cells as a framework that connects fundamental biological discovery with clinical translation. It examines five key technological pathways: membrane-engineered artificial cells, membraneless organelle (MLO) systems, multicompartmental artificial cells, protocell communication networks, and virtual cells. These platforms enable precise regulation of drug stability, targeting, biosynthesis, and adaptive responsiveness. Recent progress includes microenvironment-triggered release, logic-gated intercellular communication, and virtual cell-assisted high-throughput screening and toxicity prediction. Despite these advances, challenges remain in scalable manufacturing, long-term stability, and regulatory adaptation. The integration of closed-loop learning, interpretable models, and advanced biomanufacturing will be essential to position artificial and biomimetic cell systems at the forefront of next-generation precision medicine.",
+          "authors": "Xiang M, Su B, Jiang C, Sun T.",
+          "journal": "Advanced healthcare materials",
+          "doi": "10.1002/adhm.71906",
+          "pmid": "42952019",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42952019",
+          "url": "https://doi.org/10.1002/adhm.71906",
+          "publishedAt": "2026-10-28",
+          "discoveredAt": "2026-10-30T02:37:31.910Z",
+          "topics": [
+            "synthetic",
+            "metabolic",
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC",
+          "enrichment": {
+            "titleZh": "人工细胞与仿生细胞：推动药物发现和递送范式转变的智能系统",
+            "abstractZh": "合成生物学、材料科学与人工智能的融合正推动生物制药研究发生变革，使其从被动药物载体发展为智能、可编程的治疗系统。本综述将人工细胞与仿生细胞作为连接基础生物学发现和临床转化的框架进行评估，并考察了5条关键技术路径：膜工程化人工细胞、无膜细胞器（MLO）系统、多区室人工细胞、原始细胞通讯网络及虚拟细胞。这些平台能够精确调控药物稳定性、靶向性、生物合成及适应性响应能力。近期进展包括微环境触发释放、逻辑门控的细胞间通讯，以及虚拟细胞辅助的高通量筛选和毒性预测。尽管取得这些进展，可规模化制造、长期稳定性及监管适配仍面临挑战。将闭环学习、可解释模型与先进生物制造相整合，将是推动人工细胞与仿生细胞系统走向下一代精准医学前沿的关键。",
+            "sourceTitle": "Artificial Cells and Biomimetic Cells: Intelligent Systems Driving a Paradigm Shift in Drug Discovery and Delivery.",
+            "sourceAbstract": "The convergence of synthetic biology, materials science, and artificial intelligence drives a transformative shift in biopharmaceutical research, advancing from passive drug carriers to intelligent, programmable therapeutics. This review evaluates artificial and biomimetic cells as a framework that connects fundamental biological discovery with clinical translation. It examines five key technological pathways: membrane-engineered artificial cells, membraneless organelle (MLO) systems, multicompartmental artificial cells, protocell communication networks, and virtual cells. These platforms enable precise regulation of drug stability, targeting, biosynthesis, and adaptive responsiveness. Recent progress includes microenvironment-triggered release, logic-gated intercellular communication, and virtual cell-assisted high-throughput screening and toxicity prediction. Despite these advances, challenges remain in scalable manufacturing, long-term stability, and regulatory adaptation. The integration of closed-loop learning, interpretable models, and advanced biomanufacturing will be essential to position artificial and biomimetic cell systems at the forefront of next-generation precision medicine.",
+            "sourceFingerprint": "dca9b567-1324",
+            "origin": "assistant_translation",
+            "createdAt": "2026-10-30T02:51:38.379Z",
+            "reviewed": false,
+            "scope": "abstract_only"
+          }
+        },
+        {
+          "id": "doi:10.1002/bit.70432",
+          "title": "Yeast Surface Display of Artificial Multienzyme Complexes for Enhanced Production of Rebaudioside M.",
+          "abstract": "Rebaudioside M (Reb M) is an ideal low-calorie natural sweetener with excellent sensory properties and well-established safety profile. Industrial production of Reb M is limited by low natural abundance and the bottlenecks of existing biomanufacturing strategies, including low productivity, intermediate accumulation and high enzyme costs. Here, a novel biosynthetic platform based on yeast surface display of artificial multienzyme complexes was established for efficient Reb M production. The artificial protein scaffold containing multiple orthogonal cohesin modules was displayed on the surface of Pichia pastoris via the AGA1 anchoring motif. Through orthogonal cohesin-dockerin interactions, Reb M biosynthetic pathway enzymes (PgUGTMut, AtSUS1 and UGT76G1Mut) with the corresponding dockerin modules were assembled on the artificial protein scaffold to form multienzyme complexes. The catalytic activity of crude glycosyltransferases was improved by isozyme screening and expression optimization with molecular chaperones. This surface-displayed system demonstrated multiple advantages. First, the multienzyme complex assembled on the yeast surface showed higher catalytic efficiency than free enzymes. Additionally, fructose was consumed by P. pastoris to drive the reaction toward Reb M biosynthesis. Furthermore, the whole-cell catalyst showed promising reusability. Ultimately, this platform enabled the production of 36.88 g/L Reb M with a yield of 91.9% from rebaudioside A (Reb A) in a 10 mL reaction system. This work provided a feasible strategy to address the key bottlenecks in Reb M biomanufacturing and offered a reference for producing other high-value natural products via multi-enzyme cascade catalysis.",
+          "authors": "Bao J, Qiao C, Li M, Gao J, Gao D, Ye C, Jiang X, Lian J.",
+          "journal": "Biotechnology and bioengineering",
+          "doi": "10.1002/bit.70432",
+          "pmid": "42954068",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42954068",
+          "url": "https://doi.org/10.1002/bit.70432",
+          "publishedAt": "2026-10-29",
+          "discoveredAt": "2026-10-31T02:24:38.080Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1007/s11274-026-05366-2",
+          "title": "Microbial bioherbicides: Integrating bioprocessing, mechanisms of action and protein engineering for sustainable weed management.",
+          "abstract": "The widespread use of synthetic herbicides in agriculture has intensified concerns regarding environmental sustainability and human health, while the evolution of herbicide resistance has outpaced the discovery of new modes of action. Bioherbicides have consequently emerged as a viable alternative, comprising biologically derived compounds capable of suppressing weed growth. This review adopts an integrated perspective on microbially derived bioherbicides, following the active biomolecules from the producing strain and its fermentation conditions to their physiological targets in the plant and to the molecular strategies available for their optimization. Unlike previous reviews, which address these dimensions separately and focus mainly on secondary metabolites, particular emphasis is placed here on enzymes with herbicidal activity and on protein engineering approaches. Based on a structured literature search, 39 original studies were analyzed. Phytopathogenic fungi, mainly Fusarium, Diaporthe, Phoma, Alternaria and Trichoderma, predominate as producing organisms, followed by bacteria of the genera Streptomyces, Pseudomonas and Bacillus, and submerged fermentation using low-cost agro-industrial substrates is the prevailing production strategy. Enzymatic classes such as cutinases, lipases, cellulases, pectinases and proteases act primarily by degrading the cuticle and the cell wall, whereas secondary metabolites frequently target the photosynthetic apparatus, particularly photosystem II; most of these compounds, however, still lack a defined mode of action within established herbicide classification systems. Molecular approaches, including heterologous expression, molecular docking and metabolic engineering, remain comparatively underexplored despite their potential to enhance activity, stability and specificity. Advances in formulation stability, bioprocess scalability, mechanistic characterization and regulatory harmonization are identified as the key requirements to translate these biomolecules into commercially viable products for sustainable weed management.",
+          "authors": "Krein DDC, Conterato AAM, Plucinski R, Dotto GL, Dettmer A.",
+          "journal": "World journal of microbiology & biotechnology",
+          "doi": "10.1007/s11274-026-05366-2",
+          "pmid": "42955540",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42955540",
+          "url": "https://doi.org/10.1007/s11274-026-05366-2",
+          "publishedAt": "2026-10-29",
+          "discoveredAt": "2026-10-31T02:24:37.511Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1080/1061186x.2026.2755447",
+          "title": "Advanced cannabidiol delivery platforms: smart biomaterials, controlled release systems, and 3D-bioprinted therapeutic technologies.",
+          "abstract": "Cannabidiol (CBD), a non-psychoactive phytocannabinoid derived from Cannabis sativa L. has gained significant attention in biomedical research due to its broad spectrum of therapeutic properties, including anti-inflammatory, antimicrobial, antioxidant, neuroprotective, and anticancer activities. However, its clinical translation remains limited by poor aqueous solubility, low bioavailability, rapid metabolism, and instability under physiological conditions. To overcome these challenges, advanced drug delivery platforms based on 3D bioprinting technologies have emerged as promising strategies for controlled and site-specific delivery of CBD. This review provides a comprehensive overview of state-of-the-art CBD delivery systems, including polymeric biomaterials such as PLGA, PEG derivatives, chitosan, alginate, and cellulose-based hybrids, which enhance drug stability and enable sustained release profiles. Nano- and microstructured systems, including liposomes, nanoparticles, nanoemulsions, microspheres, and electrospun nanofibers, are discussed for their ability to improve bioavailability and facilitate targeted delivery at the cellular level. Hydrogel-based platforms, particularly injectable and stimuli-responsive systems, are highlighted for their role in localised therapy and tissue engineering applications. Furthermore, the integration of 3D bioprinting technologies enables the fabrication of patient-specific scaffolds and implantable constructs for precision medicine and regenerative therapies. Stimuli-responsive systems, including pH-, temperature-, enzyme-, and externally triggered release platforms, further enhance on-demand drug release in diseased microenvironments. The biomedical applications of CBD-based systems are critically evaluated in antimicrobial therapy, wound healing, tumour-targeted cancer therapy, immunomodulation, microbiome regulation, and regenerative medicine. Finally, this review addresses current translational challenges such as drug loading efficiency, stability issues, scalability, and regulatory barriers, while highlighting future perspectives involving artificial intelligence-guided design, personalised nanomedicine, and advanced biomanufacturing technologies. Overall, CBD-based smart biomaterial platforms represent a highly promising approach for next-generation therapeutic systems with improved efficacy, safety, and clinical potential.",
+          "authors": "Shabbir A, Parvinzadeh Gashti M.",
+          "journal": "Journal of drug targeting",
+          "doi": "10.1080/1061186x.2026.2755447",
+          "pmid": "42956359",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42956359",
+          "url": "https://doi.org/10.1080/1061186x.2026.2755447",
+          "publishedAt": "2026-10-29",
+          "discoveredAt": "2026-10-31T02:24:38.080Z",
+          "topics": [
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        }
+      ],
+      "sections": [
+        {
+          "topicId": "synthetic",
+          "label": "合成生物学",
+          "paperIds": [
+            "doi:10.1016/j.biotechadv.2026.109086",
+            "doi:10.1080/17460913.2026.2752147",
+            "doi:10.64898/2026.10.27.762313",
+            "doi:10.1007/10_2026_370"
+          ]
+        },
+        {
+          "topicId": "metabolic",
+          "label": "代谢工程",
+          "paperIds": [
+            "doi:10.1007/10_2026_368",
+            "doi:10.1002/bit.70425",
+            "doi:10.1002/adhm.71906"
+          ]
+        },
+        {
+          "topicId": "microbial",
+          "label": "微生物制造",
+          "paperIds": [
+            "doi:10.1002/bit.70432",
+            "doi:10.1007/s11274-026-05366-2",
+            "doi:10.1080/1061186x.2026.2755447"
+          ]
+        }
+      ],
+      "sourceUpdatedAt": "2026-10-31T02:24:38.721Z",
+      "sourceCollection": {
+        "status": "complete",
+        "failedTopics": [],
+        "trigger": "schedule",
+        "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/41159862684"
+      },
+      "selectionPolicy": {
+        "version": "publication-calendar-topic-round-robin-v1",
+        "description": "按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。",
+        "dateBasis": "first_publication_date",
+        "windowDays": 7,
+        "limit": 10,
+        "topicOrder": [
+          "synthetic",
+          "metabolic",
+          "microbial"
+        ],
+        "ordering": "各主题按发表日期倒序，轮流取文献后按主题分节；日期相同时按文献标识排序。",
+        "coverageNote": "仅整理当前文献库及配置主题，不代表该领域的全部新文献；未依据下载量或科研质量评分排序。"
+      },
+      "metrics": {
+        "inputCount": 156,
+        "uniqueCount": 156,
+        "candidateCount": 40,
+        "selectedCount": 10,
+        "sectionCount": 3
+      }
+    },
+    {
       "id": "public-daily-2026-10-30",
       "kind": "public_daily",
       "date": "2026-10-30",

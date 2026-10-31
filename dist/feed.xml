@@ -9,7 +9,14 @@
     <docs>https://www.rssboard.org/rss-specification</docs>
     <ttl>60</ttl>
     <atom:link href="https://jimmy-ui456.github.io/bioscope-daily/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 30 Oct 2026 02:37:30 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 02:24:35 GMT</lastBuildDate>
+    <item>
+      <title>生研观察 · 2026-10-31 公共文献简报（10 篇）</title>
+      <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-10-31#daily</link>
+      <guid isPermaLink="false">https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-10-31#daily</guid>
+      <pubDate>Sat, 31 Oct 2026 02:24:35 GMT</pubDate>
+      <description><![CDATA[<p>按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。</p><p>发表日期范围：2026-10-25 — 2026-10-31。</p><ol><li><a href="https://doi.org/10.1016/j.biotechadv.2026.109086">Engineering Methylobacterium as a C1 biomanufacturing platform: Metabolic architecture, regulatory networks, and synthetic biology strategies.</a></li><li><a href="https://doi.org/10.1080/17460913.2026.2752147">Natural and engineered bacteriophages against multidrug-resistant ESKAPE pathogens: current landscape and clinical translation.</a></li><li><a href="https://doi.org/10.64898/2026.10.27.762313">工程化益生菌靶向肉芽肿，用于治疗分枝杆菌感染<br><span lang="en">Engineered probiotics target granulomas to treat mycobacterial infection</span></a></li><li><a href="https://doi.org/10.1007/10_2026_370">分子生物学与合成生物学指导的生物传感器识别元件和报告元件开发<br><span lang="en">Molecular Biology and Synthetic Biology-Guided Development of Recognition and Reporting Elements of Biosensor.</span></a></li><li><a href="https://doi.org/10.1007/10_2026_368">Beyond Cell Factory: In Vitro Biotransformation (ivBT): A Paradigm-Shifting Biomanufacturing Platform.</a></li><li><a href="https://doi.org/10.1002/bit.70425">Metabolic Remodelingof the NOG Pathway and Glyoxylate Cycle for High-Yield L-Homoserine Biosynthesis.</a></li><li><a href="https://doi.org/10.1002/adhm.71906">人工细胞与仿生细胞：推动药物发现和递送范式转变的智能系统<br><span lang="en">Artificial Cells and Biomimetic Cells: Intelligent Systems Driving a Paradigm Shift in Drug Discovery and Delivery.</span></a></li><li><a href="https://doi.org/10.1002/bit.70432">Yeast Surface Display of Artificial Multienzyme Complexes for Enhanced Production of Rebaudioside M.</a></li><li><a href="https://doi.org/10.1007/s11274-026-05366-2">Microbial bioherbicides: Integrating bioprocessing, mechanisms of action and protein engineering for sustainable weed management.</a></li><li><a href="https://doi.org/10.1080/1061186x.2026.2755447">Advanced cannabidiol delivery platforms: smart biomaterials, controlled release systems, and 3D-bioprinted therapeutic technologies.</a></li></ol>]]></description>
+    </item>
     <item>
       <title>生研观察 · 2026-10-30 公共文献简报（10 篇）</title>
       <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-10-30#daily</link>
