@@ -2,6 +2,341 @@
   "version": 1,
   "reports": [
     {
+      "id": "public-daily-2026-11-01",
+      "kind": "public_daily",
+      "date": "2026-11-01",
+      "windowStart": "2026-10-26",
+      "createdAt": "2026-11-01T02:14:57.967Z",
+      "origin": "live",
+      "papers": [
+        {
+          "id": "doi:10.1002/cbic.70572",
+          "title": "Expression of Human CYP2D6 in Artificial Cells Based on Polymer-Lipid Hybrid Vesicles.",
+          "abstract": "Artificial cells with the ability to express functional, biomedically relevant enzymes have long been a goal in the field of bottom-up synthetic biology. Here, we demonstrate the expression of human cytochrome P450 2D6 (CYP2D6) within the lumen of giant hybrid vesicle-based artificial cells using a cell-free protein expression system based on the protozoan Leishmania tarentolae. The vesicle membranes comprise 1,2-dioleoyl-sn-glycero-3-phosphocholine and amphiphilic block copolymers containing poly(cholesteryl methacrylate-co-butyl methacrylate) with either poly(galactose methacrylate) (pGalacMA) or poly(carboxyethyl acrylate) as the hydrophilic block. The amount and composition of the block copolymer incorporated into the giant hybrid vesicle membrane altered the artificial cells' ability to support functional protein expression, likely through changes in membrane properties. In particular, giant hybrid vesicles containing pGalacMA supported production of enzymatically active CYP2D6. Overall, the reported approach advances the development of artificial cells capable of producing functional, biomedically relevant enzymes. Further, the effort highlights complex interplay between polymer properties and performance of biological components in the functional complexity achievable in polymer-lipid hybrid vesicles.",
+          "authors": "Dahl S, De Dios Andres P, Beaune G, Timonen JVI, Behrendorff J, Alexandrov K, Johnston W, Städler B.",
+          "journal": "Chembiochem : a European journal of chemical biology",
+          "doi": "10.1002/cbic.70572",
+          "pmid": "42960696",
+          "pmcid": "PMC13720967",
+          "source": "MED",
+          "sourceId": "42960696",
+          "url": "https://doi.org/10.1002/cbic.70572",
+          "publishedAt": "2026-11-01",
+          "discoveredAt": "2026-11-01T02:14:59.568Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": "cc by-nc",
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1007/s44307-026-00140-9",
+          "title": "Strain engineering of Aspergillus species for industrial enzymes bioproduction: a comprehensive review.",
+          "abstract": "Filamentous fungi of the genus Aspergillus, because of their exceptional secretory capacity and metabolic versatility have been extensively applied in traditional food fermentation and industrial biotechnology for production of diverse bioproducts. Their history of domestication and industrial application has enabled major progress in enzyme production; however, challenges associated with the filamentous growth and strain engineering for future biomanufacturing development still remain. This review summarizes the advances across the spectrum of strain-improvement methodologies, from classical mutagenesis, protoplast fusion, genome shuffling, and adaptive laboratory evolution to the modern era of CRISPR enabled genome editing, synthetic biology, and systems-level metabolic engineering. Previous reviews have primarily focused on individual Aspergillus species, specific industrial products or particular strain improvement approaches. In this review, we provide a comprehensive overview of classical and modern strain engineering technologies and industrial scale up across a wide range of Aspergillus species for industrial enzyme production. In particular, emerging non-GMO evolution tools such as atmospheric and room temperature plasma (ARTP) mutagenesis, and modern molecular biotechnology coupled with microdroplet-based ultrahigh-throughput screening, now allow the researchers to generate and screen a large number of Aspergillus species mutants with single-cell precision. The discovery of high-performance strains with enhanced secretion, stress tolerance, substrate utilization, and favorable enzymatic profiles for food and bioprocessing applications has been accelerated by the strain innovations. Collectively, these advances establish A. oryzae and the related species as increasingly reliable, scalable, and programmable hosts that can meet the biomanufacturing requirements of future circular and sustainable bioeconomies.",
+          "authors": "Ullah I, Zhang Z, Geng D, Zhou Q, Zou Y, Xu B, Zhang C, Xing XH.",
+          "journal": "Advanced biotechnology",
+          "doi": "10.1007/s44307-026-00140-9",
+          "pmid": "42961608",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42961608",
+          "url": "https://doi.org/10.1007/s44307-026-00140-9",
+          "publishedAt": "2026-10-30",
+          "discoveredAt": "2026-11-01T02:14:59.569Z",
+          "topics": [
+            "synthetic",
+            "metabolic",
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1073/pnas.2624087123",
+          "title": "Deep mutational scanning of the GPCR rhodopsin reveals pleiotropic mutational effects and their roles in modulating receptor signaling.",
+          "abstract": "Biophysical pleiotropy, the phenomenon in which a mutation affects multiple protein properties, underlies many genetic diseases and shapes protein evolution, yet remains poorly understood, limiting synthetic biology and therapeutic development. Although extensively studied in soluble proteins, little is known about how pleiotropic effects shaped the evolution of receptor protein functions. Here, we developed a cell-based assay designed to assess pleiotropic effects in G protein-coupled receptors (GPCRs), the largest receptor class in eukaryotes. Because our assay allows for multiple GPCR molecular phenotypes (basal activity, ligand-dependent signaling, and cellular receptor abundance) to be simultaneously assessed, we applied it to study rhodopsin, a visual GPCR that evolved for high phototransduction capabilities by maximizing light-driven responses while minimizing noise. To investigate this, we integrated our assay with deep mutational scanning to test the impacts of ~2,000 single-residue substitutions in rhodopsin across all three molecular phenotypes (~6,000 measurements). By analyzing these data in the context of rhodopsin's protein structures, we found complex pleiotropic effects that act asymmetrically to impose joint constraints, restricting mutational tolerance in rhodopsin's retinal binding pocket and G protein interaction interface. A dose-response analysis of rhodopsin signaling revealed that these pleiotropic constraints arise from the dual functions of its chromophore, which acts as an agonist upon light-driven isomerization but also an inverse agonist in darkness. Because these constraints reflect mechanistically driven limitations in the evolution of receptor signaling, these findings reveal a role for biophysical pleiotropy in shaping the signaling capabilities of receptor proteins.",
+          "authors": "Chen SK, Liu J, Chang BSW.",
+          "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+          "doi": "10.1073/pnas.2624087123",
+          "pmid": "42961938",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42961938",
+          "url": "https://doi.org/10.1073/pnas.2624087123",
+          "publishedAt": "2026-10-30",
+          "discoveredAt": "2026-11-01T02:14:59.568Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1093/femsyr/foag058",
+          "title": "Yeast-Based Platforms for Next-Generation Human Health Applications.",
+          "abstract": "Yeast platforms are rapidly transitioning from traditional eukaryotic model organisms to versatile, programmable chassis for next-generation human health applications. This review systematically examines the translational evolution of conventional and non-conventional yeasts including Saccharomyces cerevisiae, Komagataella phaffii, Saccharomyces boulardii, and Yarrowia lipolytica and redefines them as scalable biomanufacturing factories and advanced living therapeutics. We highlight milestone advancements in synthetic biology toolkits that lower technical barriers, such as CRISPR-mediated multiplex editing, modular cloning frameworks, and high-throughput secretion screening. We focus on sophisticated glycoengineering strategies for humanized N-glycosylation, alongside data-driven paradigms that leverage artificial intelligence to predict gene expression and streamline strain design. In clinical domains, we detail the established success of yeast in producing subunit or virus-like particle vaccines (e.g. HBV and HPV) and therapeutic enzymes (e.g. ecallantide), alongside its emerging role as gut-adapted live biotherapeutic products (LBPs) engineered for in situ delivery and biosensing. Finally, we explore specialized non-conventional platforms, focusing on lipid- and acetyl-CoA-rich hosts for lipophilic drug discovery, and stress-tolerant systems optimized for economical, feedstock-flexible bioprocesses. In summary, this review underscores the integrated value of yeast systems across disease modeling, industrial manufacturing, and clinical intervention, charting future directions to address global health challenges.",
+          "authors": "Yook S, Lee JW, Park M, Koh HG, Shin J.",
+          "journal": "FEMS yeast research",
+          "doi": "10.1093/femsyr/foag058",
+          "pmid": "42961032",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42961032",
+          "url": "https://doi.org/10.1093/femsyr/foag058",
+          "publishedAt": "2026-10-30",
+          "discoveredAt": "2026-11-01T02:14:59.569Z",
+          "topics": [
+            "synthetic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1111/1541-4337.70679",
+          "title": "Recent Advances in Microbial Community Composition of Fermented Soy Whey and Its Mechanism for Biotransformation of Soybean Isoflavones.",
+          "abstract": "Fermented soy whey (FSW), a traditional natural tofu coagulant, harbors complex microbial communities that drive soy-protein coagulation via organic-acid secretion and enhance the bioavailability of soybean isoflavones, conferring desirable flavor characteristics and health-beneficial bioactivities. However, several critical knowledge gaps restrict its scaled-up industrial deployment. The dynamic regulatory connections between microbial community temporal succession and metabolite biosynthesis during spontaneous FSW fermentation have not been fully deciphered. Interspecies interactions inside highly heterogeneous microbial consortia remain ambiguous, and the whole-fermentation system is exceptionally sensitive to fluctuating environmental conditions. This review synthesizes prior literature together with cutting-edge multi-omics datasets to systematically dissect the temporal dynamics of FSW microbial ecosystems. Enzymatic mechanistic analysis delineates key catalytic and metabolic pathways responsible for transforming soy isoflavone glucosides into aglycones and subsequent bioactive derivatives. We critically evaluate promising technical strategies, covering targeted synthetic-biology modification, integrated intelligent control systems, artificial intelligence, and digital-twin modeling, to advance the transition from experience-driven spontaneous fermentation to precision manufacturing. Selective manipulation of functional microbes or rate-limiting catalytic enzymes enables directional enrichment of high-activity isoflavone metabolites. This framework mitigates bioavailability drawbacks of native isoflavones and builds solid scientific foundations for zero-waste valorization of soy-processing by-products, circular food manufacturing, and innovative high-value-added functional-food development.",
+          "authors": "Li Z, Yan J, Zhang Z, Deng Y.",
+          "journal": "Comprehensive reviews in food science and food safety",
+          "doi": "10.1111/1541-4337.70679",
+          "pmid": "42928523",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42928523",
+          "url": "https://doi.org/10.1111/1541-4337.70679",
+          "publishedAt": "2026-11-01",
+          "discoveredAt": "2026-11-01T02:14:59.568Z",
+          "topics": [
+            "metabolic",
+            "microbial",
+            "synthetic"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1111/1751-7915.70460",
+          "title": "Functional Characterization and Application of Yarrowia lipolytica YlYxc1 for Enhanced Production of Sphingoid Bases.",
+          "abstract": "Long-chain bases (LCBs; sphingoid bases), derived from ceramide metabolism, are valuable sphingolipid intermediates for industrial applications. Here, we functionally characterized a putative ceramidase from Yarrowia lipolytica (YlYxc1) and evaluated its potential to enhance LCB production. YlYxc1 contains a conserved alkaline ceramidase motif with seven transmembrane helices and shares ~42% amino acid identity with Saccharomyces cerevisiae alkaline ceramidases ScYpc1 and ScYdc1. Despite lacking a canonical ER retention motif, YlYxc1 localized to the ER membrane. Deletion of YlYXC1 caused no major growth or lipid profile changes. Heterologous overexpression of YlYXC1 in S. cerevisiae wild-type and Scypc1Δydc1Δ strains increased phytosphingosine (PHS) production over dihydrosphingosine (DHS), mimicking ScYPC1 overexpression. In vitro activity assays using microsomal fractions from Scypc1Δydc1Δ cells expressing YlYXC1 revealed preferential hydrolysis of phytoceramide with an alkaline pH optimum. Furthermore, YlYXC1 expression in an engineered Y. lipolytica strain expressing heterologous acetyltransferases WcSLI1 and WcATF2 remarkably enhanced acetylated LCB production. Multi-copy integration of YlYXC1 into the Ylsur2Δsld1Δ strain also increased the secretory production of non-acetylated DHS. These findings establish YlYxc1 as a promising metabolic engineering target for producing value-added LCBs for pharmaceutical and cosmeceutical applications.",
+          "authors": "Shin SH, Jeon EJ, Moon HY, Go GY, Yoo YS, Lee JK, Jeon CO, Kang HA.",
+          "journal": "Microbial biotechnology",
+          "doi": "10.1111/1751-7915.70460",
+          "pmid": "42947429",
+          "pmcid": "PMC13714454",
+          "source": "MED",
+          "sourceId": "42947429",
+          "url": "https://doi.org/10.1111/1751-7915.70460",
+          "publishedAt": "2026-11-01",
+          "discoveredAt": "2026-11-01T02:14:59.602Z",
+          "topics": [
+            "metabolic"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": "cc by-nc-nd",
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1007/s00253-026-14051-1",
+          "title": "Next-generation precision fermentation: integrating engineered cell factories, bioprocess intensification, and smart bioprocessing.",
+          "abstract": "Precision fermentation (PF) uses engineered microbial cell factories to manufacture defined products under controlled bioprocess conditions. In this review, PF is treated operationally as the integration of engineered hosts with metabolic engineering and process control, while traditional food fermentations without engineered production strains are excluded. The field now spans pharmaceuticals, food ingredients, industrial enzymes, specialty chemicals, and biopolymers, but commercial translation remains constrained by biological non-linearity, substrate and feedstock variability, mass-transfer limitations at scale, downstream recovery, and the cost gap with incumbent processes. This mini-review examines five connected layers: engineered microbial chassis; design build test learn (DBTL) and multi-omics-guided metabolic engineering; bioreactor intensification; Process Analytical Technology (PAT), soft sensors and AI-enabled control; and techno-economic and life cycle assessment. Quantitative case studies illustrate both the progress and the remaining scale-up gaps, including semi-synthetic artemisinin, recombinant insulin, lactic acid, succinic acid, QS-21, and polyhydroxyalkanoates. The central argument is that the next phase of PF will depend less on isolated improvements in strain performance than on coordinated integration of strain design, intensified operation, real-time process understanding, and rigorous economic and environmental assessment. This integration is essential for translating laboratory performance into reproducible, scalable, and commercially credible biomanufacturing. KEY POINTS: PF requires integration of cell-factory engineering with scalable bioprocessing rather than optimisation of any single layer. DBTL and multi-omics improve strain performance, but laboratory titres do not guarantee industrial scalability. Bioprocess intensification and real-time monitoring are required to convert strain performance into robust production. PAT, soft sensors, and AI strengthen process control when supported by reliable online data and qualified models. TEA and LCA should be integrated early to filter commercial and environmental feasibility before scale-up.",
+          "authors": "Mahmoud YA, El-Badry AM.",
+          "journal": "Applied microbiology and biotechnology",
+          "doi": "10.1007/s00253-026-14051-1",
+          "pmid": "42961475",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42961475",
+          "url": "https://doi.org/10.1007/s00253-026-14051-1",
+          "publishedAt": "2026-10-30",
+          "discoveredAt": "2026-11-01T02:14:59.602Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.2337/dci26-0114",
+          "title": "Fecal Short-Chain Fatty Acids in Early Islet Autoimmunity: Limited Prognostic Value or an Incomplete Measure of Microbial Production?",
+          "abstract": "",
+          "authors": "Igudesman D.",
+          "journal": "Diabetes care",
+          "doi": "10.2337/dci26-0114",
+          "pmid": "42900824",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42900824",
+          "url": "https://doi.org/10.2337/dci26-0114",
+          "publishedAt": "2026-11-01",
+          "discoveredAt": "2026-11-01T02:14:59.629Z",
+          "topics": [
+            "microbial"
+          ],
+          "type": "文献记录",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅题录",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1007/10_2026_368",
+          "title": "Beyond Cell Factory: In Vitro Biotransformation (ivBT): A Paradigm-Shifting Biomanufacturing Platform.",
+          "abstract": "The paradigm of industrial biomanufacturing is shifting rapidly. Microbial fermentation mediated by cell factories is the dominant platform of biomanufacturing and has a history of thousands of years. However, their inherent properties, such as self-proliferation, cellular complexity, maintenance, and bioenergetic limits, could prevent them from being the best winner of biomanufacturing, especially for biocommodities and bioenergy. In this book chapter, we introduce a new concept of in vitro biotransformation (ivBT) as an emerging biomanufacturing platform that can surpass microbial cell factory. The development of ivBT is driven by the urgent great needs of food security and a new carbon-neutral energy society in the future. In theory, ivBT can have the theoretical yield and very high volumetric productivity and could have low-cost biomanufacturing costs. Furthermore, we highlight several representative applications, such as artificial photosynthesis for CO 2 -to-starch synthesis, in vitro respiration that can produce hydrogen under anaerobic conditions and electricity under aerobic conditions, directed glycosidic bond rearrangement (i.e., ATP-free or low-ATP biotransformation of cellulose to starch), and healthy sugars. Industrial biomanufacturing of myo-inositol, D-tagatose, and cellulosic starch would wipe off any prejudice (e.g., costly enzymes and short lifetime) and demonstrate transformative potential of ivBT. ivBT would be a paradigm-shifting biomanufacturing platform because it is like a dimensional reduction attack that can simplify extremely complicated cell factories by decreasing their dimensions.",
+          "authors": "Song Z, Job Zhang YP.",
+          "journal": "Advances in biochemical engineering/biotechnology",
+          "doi": "10.1007/10_2026_368",
+          "pmid": "42955337",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42955337",
+          "url": "https://doi.org/10.1007/10_2026_368",
+          "publishedAt": "2026-10-30",
+          "discoveredAt": "2026-10-31T02:24:38.080Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1016/j.biortech.2026.136135",
+          "title": "Valorizing watermelon rind waste into Plant-Based scaffolds for Proof-of-Concept cultivated meat production in a dynamic Fixed-Bed bioreactor.",
+          "abstract": "Cultivated meat (CM) biomanufacturing faces major challenges in cost and in scaling adherent-cell processes from the laboratory toward pilot and industrial production. This study presents a proof-of-concept (POC) in which watermelon rind, an agricultural waste by-product, was valorized into decellularized plant scaffolds (vDPS) and evaluated in a dynamic fixed-bed reactor (FBR). By replacing Triton® X-100 (1% v/v) with Tween-20 (10% v/v), we achieved effective decellularization, reducing residual DNA to below 25 ng/mg while eliminating the use of the toxic Triton X-100, making the scaffolds more suitable for CM applications. The resulting scaffolds exhibited high porosity (85.6%) and a Young's modulus of 36.8 ± 5.9 kPa, confirming their suitability for use as CM scaffolds. For dynamic bioreactor evaluation, the scaffolds were coated with Corning® Synthemax® II SC substrate and cultured with murine myoblast C2C12 cells under the process control capabilities of the Corning Ascent® fixed bed reactor (FBR) system. Over seven days, cells attached, proliferated, and differentiated; relative to static culture, the dynamic condition showed higher metabolic activity and denser cell coverage. Myogenic differentiation was confirmed by Myosin heavy chain and Desmin expression, and cross-sectional imaging showed cell penetration into the scaffold. The prototypes remained structurally stable after cooking. Overall, this work demonstrates the feasibility of integrating waste-valorized scaffolds into a dynamic FBR system, providing a POC foundation for future scale-up studies.",
+          "authors": "Suntornnond R, Xu S, Murugan P, Yap WS, Ng SK, Sharma AK, Choudhury D.",
+          "journal": "Bioresource technology",
+          "doi": "10.1016/j.biortech.2026.136135",
+          "pmid": "42962731",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42962731",
+          "url": "https://doi.org/10.1016/j.biortech.2026.136135",
+          "publishedAt": "2026-10-30",
+          "discoveredAt": "2026-11-01T02:14:59.629Z",
+          "topics": [
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        }
+      ],
+      "sections": [
+        {
+          "topicId": "synthetic",
+          "label": "合成生物学",
+          "paperIds": [
+            "doi:10.1002/cbic.70572",
+            "doi:10.1007/s44307-026-00140-9",
+            "doi:10.1073/pnas.2624087123",
+            "doi:10.1093/femsyr/foag058"
+          ]
+        },
+        {
+          "topicId": "metabolic",
+          "label": "代谢工程",
+          "paperIds": [
+            "doi:10.1111/1541-4337.70679",
+            "doi:10.1111/1751-7915.70460",
+            "doi:10.1007/s00253-026-14051-1"
+          ]
+        },
+        {
+          "topicId": "microbial",
+          "label": "微生物制造",
+          "paperIds": [
+            "doi:10.2337/dci26-0114",
+            "doi:10.1007/10_2026_368",
+            "doi:10.1016/j.biortech.2026.136135"
+          ]
+        }
+      ],
+      "sourceUpdatedAt": "2026-11-01T02:15:00.096Z",
+      "sourceCollection": {
+        "status": "complete",
+        "failedTopics": [],
+        "trigger": "schedule",
+        "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/41264375401"
+      },
+      "selectionPolicy": {
+        "version": "publication-calendar-topic-round-robin-v1",
+        "description": "按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。",
+        "dateBasis": "first_publication_date",
+        "windowDays": 7,
+        "limit": 10,
+        "topicOrder": [
+          "synthetic",
+          "metabolic",
+          "microbial"
+        ],
+        "ordering": "各主题按发表日期倒序，轮流取文献后按主题分节；日期相同时按文献标识排序。",
+        "coverageNote": "仅整理当前文献库及配置主题，不代表该领域的全部新文献；未依据下载量或科研质量评分排序。"
+      },
+      "metrics": {
+        "inputCount": 174,
+        "uniqueCount": 174,
+        "candidateCount": 54,
+        "selectedCount": 10,
+        "sectionCount": 3
+      }
+    },
+    {
       "id": "public-daily-2026-10-31",
       "kind": "public_daily",
       "date": "2026-10-31",

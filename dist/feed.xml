@@ -9,7 +9,14 @@
     <docs>https://www.rssboard.org/rss-specification</docs>
     <ttl>60</ttl>
     <atom:link href="https://jimmy-ui456.github.io/bioscope-daily/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 31 Oct 2026 02:24:35 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 01 Nov 2026 02:14:57 GMT</lastBuildDate>
+    <item>
+      <title>生研观察 · 2026-11-01 公共文献简报（10 篇）</title>
+      <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-01#daily</link>
+      <guid isPermaLink="false">https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-01#daily</guid>
+      <pubDate>Sun, 01 Nov 2026 02:14:57 GMT</pubDate>
+      <description><![CDATA[<p>按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。</p><p>发表日期范围：2026-10-26 — 2026-11-01。</p><ol><li><a href="https://doi.org/10.1002/cbic.70572">Expression of Human CYP2D6 in Artificial Cells Based on Polymer-Lipid Hybrid Vesicles.</a></li><li><a href="https://doi.org/10.1007/s44307-026-00140-9">Strain engineering of Aspergillus species for industrial enzymes bioproduction: a comprehensive review.</a></li><li><a href="https://doi.org/10.1073/pnas.2624087123">Deep mutational scanning of the GPCR rhodopsin reveals pleiotropic mutational effects and their roles in modulating receptor signaling.</a></li><li><a href="https://doi.org/10.1093/femsyr/foag058">Yeast-Based Platforms for Next-Generation Human Health Applications.</a></li><li><a href="https://doi.org/10.1111/1541-4337.70679">Recent Advances in Microbial Community Composition of Fermented Soy Whey and Its Mechanism for Biotransformation of Soybean Isoflavones.</a></li><li><a href="https://doi.org/10.1111/1751-7915.70460">Functional Characterization and Application of Yarrowia lipolytica YlYxc1 for Enhanced Production of Sphingoid Bases.</a></li><li><a href="https://doi.org/10.1007/s00253-026-14051-1">Next-generation precision fermentation: integrating engineered cell factories, bioprocess intensification, and smart bioprocessing.</a></li><li><a href="https://doi.org/10.2337/dci26-0114">Fecal Short-Chain Fatty Acids in Early Islet Autoimmunity: Limited Prognostic Value or an Incomplete Measure of Microbial Production?</a></li><li><a href="https://doi.org/10.1007/10_2026_368">Beyond Cell Factory: In Vitro Biotransformation (ivBT): A Paradigm-Shifting Biomanufacturing Platform.</a></li><li><a href="https://doi.org/10.1016/j.biortech.2026.136135">Valorizing watermelon rind waste into Plant-Based scaffolds for Proof-of-Concept cultivated meat production in a dynamic Fixed-Bed bioreactor.</a></li></ol>]]></description>
+    </item>
     <item>
       <title>生研观察 · 2026-10-31 公共文献简报（10 篇）</title>
       <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-10-31#daily</link>
