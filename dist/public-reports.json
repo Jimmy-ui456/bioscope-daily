@@ -2,6 +2,337 @@
   "version": 1,
   "reports": [
     {
+      "id": "public-daily-2026-11-02",
+      "kind": "public_daily",
+      "date": "2026-11-02",
+      "windowStart": "2026-10-27",
+      "createdAt": "2026-11-02T02:32:59.676Z",
+      "origin": "live",
+      "papers": [
+        {
+          "id": "doi:10.1002/cbic.70572",
+          "title": "Expression of Human CYP2D6 in Artificial Cells Based on Polymer-Lipid Hybrid Vesicles.",
+          "abstract": "Artificial cells with the ability to express functional, biomedically relevant enzymes have long been a goal in the field of bottom-up synthetic biology. Here, we demonstrate the expression of human cytochrome P450 2D6 (CYP2D6) within the lumen of giant hybrid vesicle-based artificial cells using a cell-free protein expression system based on the protozoan Leishmania tarentolae. The vesicle membranes comprise 1,2-dioleoyl-sn-glycero-3-phosphocholine and amphiphilic block copolymers containing poly(cholesteryl methacrylate-co-butyl methacrylate) with either poly(galactose methacrylate) (pGalacMA) or poly(carboxyethyl acrylate) as the hydrophilic block. The amount and composition of the block copolymer incorporated into the giant hybrid vesicle membrane altered the artificial cells' ability to support functional protein expression, likely through changes in membrane properties. In particular, giant hybrid vesicles containing pGalacMA supported production of enzymatically active CYP2D6. Overall, the reported approach advances the development of artificial cells capable of producing functional, biomedically relevant enzymes. Further, the effort highlights complex interplay between polymer properties and performance of biological components in the functional complexity achievable in polymer-lipid hybrid vesicles.",
+          "authors": "Dahl S, De Dios Andres P, Beaune G, Timonen JVI, Behrendorff J, Alexandrov K, Johnston W, Städler B.",
+          "journal": "Chembiochem : a European journal of chemical biology",
+          "doi": "10.1002/cbic.70572",
+          "pmid": "42960696",
+          "pmcid": "PMC13720967",
+          "source": "MED",
+          "sourceId": "42960696",
+          "url": "https://doi.org/10.1002/cbic.70572",
+          "publishedAt": "2026-11-01",
+          "discoveredAt": "2026-11-01T02:14:59.568Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": "cc by-nc",
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1002/smll.76336",
+          "title": "Engineering an Enzymatically Active Granular Matrix for On-Chip Modeling of Bone-Like Mineralization.",
+          "abstract": "Controlled biomineralization is central to engineering physiologically relevant hard-tissue models, yet achieving spatially organized, three-dimensional (3D) mineral deposition in microfluidic on-chip systems remains challenging. While cell-based bone-on-chip platforms offer biological complexity, they couple mineral initiation to matrix remodeling and paracrine signaling, complicating isolation of the earliest biochemical drivers of mineralization. Inspired by bottom-up synthetic biology, we engineered an enzymatically active granular matrix that recapitulates a key osteogenic function within a perfusable 3D microenvironment. Alkaline phosphatase (ALP), the key driver of native bone formation, was covalently conjugated to poly(ethylene glycol)-based (PEG) microgels via thiol-ene photochemistry, retaining over 90% of its initial activity after 24 h. These monodisperse microgels were assembled into a jammed, perfusable matrix on-chip, enabling independent control over enzyme loading and substrate delivery. The system supported in situ mineralization (24-48 h), yielding a calcium-deficient, poorly crystalline apatite-like phase characteristic of early-stage bone mineral. We demonstrate 3D localization of enzymatic activity to the granular matrix, which, coupled with interstitial perfusion, enabled mineral formation whose spatial distribution depended on the perfusion regime. This mechanistically defined, acellular platform provides a tunable foundation for investigating ALP-driven 3D mineralization and establishes a modular route toward hybrid biosynthetic models of (patho)physiological tissue mineralization.",
+          "authors": "Sanaei F, Zandieh D, Hofman D, Joziasse L, van den Beucken JJJP, Leeuwenburgh SCG, Diba M.",
+          "journal": "Small (Weinheim an der Bergstrasse, Germany)",
+          "doi": "10.1002/smll.76336",
+          "pmid": "42965952",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42965952",
+          "url": "https://doi.org/10.1002/smll.76336",
+          "publishedAt": "2026-10-31",
+          "discoveredAt": "2026-11-02T02:33:00.960Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1016/j.celrep.2026.118254",
+          "title": "Arbitrium crosstalk enables shared signaling among phages.",
+          "abstract": "The arbitrium system has transformed our understanding of phage biology by demonstrating that temperate phages communicate through extracellular peptides to coordinate lysis-lysogeny decisions. Initially considered a highly specific signaling pathway restricted to individual phage lineages, arbitrium communication has now been shown to extend beyond lineage boundaries in some phage systems. Recent studies have shown that non-cognate arbitrium peptides can interact with heterologous receptors, providing evidence of inter-phage crosstalk. Here, we synthesize current knowledge of the molecular basis of arbitrium signaling, the structural determinants of peptide-receptor specificity, and the potential ecological and evolutionary consequences of inter-phage communication. We suggest that arbitrium crosstalk may shape phage ecology by mediating competitive and potentially cooperative interactions within shared signaling environments. We also discuss its potential uses in engineered phage systems, synthetic biology, and microbiome engineering. Collectively, the available evidence broadens the concept of viral communication beyond lineage-specific signaling, while the ecological significance and practical applications of arbitrium crosstalk remain to be established.",
+          "authors": "Lomeli-Ortega CO, Balcázar JL.",
+          "journal": "Cell reports",
+          "doi": "10.1016/j.celrep.2026.118254",
+          "pmid": "42965863",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42965863",
+          "url": "https://doi.org/10.1016/j.celrep.2026.118254",
+          "publishedAt": "2026-10-31",
+          "discoveredAt": "2026-11-02T02:33:00.960Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1093/femsre/fuag056",
+          "title": "Prokaryotes bridging the lipid divide.",
+          "abstract": "The fundamental biochemical and stereochemical difference in how cell membrane lipids are built between Archaea on one side, and Bacteria and Eukarya on the other is known as the lipid divide. It is often assumed to translate in the impossibility of combining membranes of both types. It was established early when little sampling of the biodiversity was available. Since then, exceptions have been revealed and accumulated. Here, we review those exceptions and complement them with a broad survey, revealing diverse bacteria with mixed membrane-lipid features. Together with liposome assays and synthetic-biology experiments, studies on these organisms suggest that the lipid divide can be bridged. We conclude by discussing the evolutionary implications for LUCA, the origin of the prokaryotic domains and eukaryogenesis.",
+          "authors": "García-Domínguez R, Devos DP.",
+          "journal": "FEMS microbiology reviews",
+          "doi": "10.1093/femsre/fuag056",
+          "pmid": "42965973",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42965973",
+          "url": "https://doi.org/10.1093/femsre/fuag056",
+          "publishedAt": "2026-10-31",
+          "discoveredAt": "2026-11-02T02:33:00.960Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1111/1541-4337.70679",
+          "title": "Recent Advances in Microbial Community Composition of Fermented Soy Whey and Its Mechanism for Biotransformation of Soybean Isoflavones.",
+          "abstract": "Fermented soy whey (FSW), a traditional natural tofu coagulant, harbors complex microbial communities that drive soy-protein coagulation via organic-acid secretion and enhance the bioavailability of soybean isoflavones, conferring desirable flavor characteristics and health-beneficial bioactivities. However, several critical knowledge gaps restrict its scaled-up industrial deployment. The dynamic regulatory connections between microbial community temporal succession and metabolite biosynthesis during spontaneous FSW fermentation have not been fully deciphered. Interspecies interactions inside highly heterogeneous microbial consortia remain ambiguous, and the whole-fermentation system is exceptionally sensitive to fluctuating environmental conditions. This review synthesizes prior literature together with cutting-edge multi-omics datasets to systematically dissect the temporal dynamics of FSW microbial ecosystems. Enzymatic mechanistic analysis delineates key catalytic and metabolic pathways responsible for transforming soy isoflavone glucosides into aglycones and subsequent bioactive derivatives. We critically evaluate promising technical strategies, covering targeted synthetic-biology modification, integrated intelligent control systems, artificial intelligence, and digital-twin modeling, to advance the transition from experience-driven spontaneous fermentation to precision manufacturing. Selective manipulation of functional microbes or rate-limiting catalytic enzymes enables directional enrichment of high-activity isoflavone metabolites. This framework mitigates bioavailability drawbacks of native isoflavones and builds solid scientific foundations for zero-waste valorization of soy-processing by-products, circular food manufacturing, and innovative high-value-added functional-food development.",
+          "authors": "Li Z, Yan J, Zhang Z, Deng Y.",
+          "journal": "Comprehensive reviews in food science and food safety",
+          "doi": "10.1111/1541-4337.70679",
+          "pmid": "42928523",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42928523",
+          "url": "https://doi.org/10.1111/1541-4337.70679",
+          "publishedAt": "2026-11-01",
+          "discoveredAt": "2026-11-01T02:14:59.568Z",
+          "topics": [
+            "metabolic",
+            "microbial",
+            "synthetic"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1111/1751-7915.70460",
+          "title": "Functional Characterization and Application of Yarrowia lipolytica YlYxc1 for Enhanced Production of Sphingoid Bases.",
+          "abstract": "Long-chain bases (LCBs; sphingoid bases), derived from ceramide metabolism, are valuable sphingolipid intermediates for industrial applications. Here, we functionally characterized a putative ceramidase from Yarrowia lipolytica (YlYxc1) and evaluated its potential to enhance LCB production. YlYxc1 contains a conserved alkaline ceramidase motif with seven transmembrane helices and shares ~42% amino acid identity with Saccharomyces cerevisiae alkaline ceramidases ScYpc1 and ScYdc1. Despite lacking a canonical ER retention motif, YlYxc1 localized to the ER membrane. Deletion of YlYXC1 caused no major growth or lipid profile changes. Heterologous overexpression of YlYXC1 in S. cerevisiae wild-type and Scypc1Δydc1Δ strains increased phytosphingosine (PHS) production over dihydrosphingosine (DHS), mimicking ScYPC1 overexpression. In vitro activity assays using microsomal fractions from Scypc1Δydc1Δ cells expressing YlYXC1 revealed preferential hydrolysis of phytoceramide with an alkaline pH optimum. Furthermore, YlYXC1 expression in an engineered Y. lipolytica strain expressing heterologous acetyltransferases WcSLI1 and WcATF2 remarkably enhanced acetylated LCB production. Multi-copy integration of YlYXC1 into the Ylsur2Δsld1Δ strain also increased the secretory production of non-acetylated DHS. These findings establish YlYxc1 as a promising metabolic engineering target for producing value-added LCBs for pharmaceutical and cosmeceutical applications.",
+          "authors": "Shin SH, Jeon EJ, Moon HY, Go GY, Yoo YS, Lee JK, Jeon CO, Kang HA.",
+          "journal": "Microbial biotechnology",
+          "doi": "10.1111/1751-7915.70460",
+          "pmid": "42947429",
+          "pmcid": "PMC13714454",
+          "source": "MED",
+          "sourceId": "42947429",
+          "url": "https://doi.org/10.1111/1751-7915.70460",
+          "publishedAt": "2026-11-01",
+          "discoveredAt": "2026-11-01T02:14:59.602Z",
+          "topics": [
+            "metabolic"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": "cc by-nc-nd",
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1007/s00203-026-05292-9",
+          "title": "Structure-guided engineering of medium- and long-chain triglycerides:​Fermentation-assisted biosynthesis, structural control and future perspective.",
+          "abstract": "Medium- and long-chain triglycerides (MLCTs) are triacylglycerols (TAGs) that have medium-chain fatty acids (MCFAs) and long-chain fatty acids (LCFAs) linked together on a single glycerol backbone. The positioning of the components, such as the MCFA-LCFA-MCFA (MLM-type) positioning, can affect lipase-mediated hydrolysis, release of fatty acids (FAs), absorption and metabolic behavior, however, structure-function relationships requires experimental validation. This review presents a comparison between chemical interesterification, lipase-catalyzed interesterification and fermentation-assisted biosynthesis of MLCT. Chemical interesterification will redistribute fatty acyl groups, but offers​ limited positional control, while lipase-catalyzed synthesis provides more positional selectivity but is susceptible to acyl migration. Fermentation-​assisted biosynthesis is a prospective approach that connects FA chain-length control, acyl-CoA supply and TAG assembly more strongly. However, there is currently more evidence that strongly supports the production of tailored FAs by microbes than demonstrated positional control of MLCT molecular species. Structural validation requires intact TAG molecular species analysis, positional analysis, and stereospecific analysis. An integrated framework combining applications of structural analysis, selective biocatalysis, fermentation optimization, metabolic engineering and functional evaluation is proposed.",
+          "authors": "Naseem A, Zhang L, Sun S.",
+          "journal": "Archives of microbiology",
+          "doi": "10.1007/s00203-026-05292-9",
+          "pmid": "42965697",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42965697",
+          "url": "https://doi.org/10.1007/s00203-026-05292-9",
+          "publishedAt": "2026-10-31",
+          "discoveredAt": "2026-11-02T02:33:01.029Z",
+          "topics": [
+            "metabolic"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.2337/dci26-0114",
+          "title": "Fecal Short-Chain Fatty Acids in Early Islet Autoimmunity: Limited Prognostic Value or an Incomplete Measure of Microbial Production?",
+          "abstract": "",
+          "authors": "Igudesman D.",
+          "journal": "Diabetes care",
+          "doi": "10.2337/dci26-0114",
+          "pmid": "42900824",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42900824",
+          "url": "https://doi.org/10.2337/dci26-0114",
+          "publishedAt": "2026-11-01",
+          "discoveredAt": "2026-11-01T02:14:59.629Z",
+          "topics": [
+            "microbial"
+          ],
+          "type": "文献记录",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅题录",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1007/s00449-026-03447-y",
+          "title": "CultureBoost: an intelligent framework for retrospective analysis of commercial cell culture processes.",
+          "abstract": "Commercial-scale monoclonal antibody manufacturing requires stringent productivity control to maximize profitability. However, final productivity is frequently compromised by subtle process deviations beyond standard operating procedures, such as minor pH shifts, gas sparging variations, and nutrient consumption fluctuations. Although modern Industrial Internet of Things systems generate abundant inline and offline data, actionable process insights remain underexploited. To tackle the critical challenge of productivity fluctuations, identification of root causes is urgent. Therefore, this study proposes an intelligent retrospective data analysis framework for commercial-scale cell culture processes, integrating three core modules: inline data processing, offline data processing, and discriminative information extraction. It enables end-to-end automated historical data mining, quantifies factor contributions to batch quality variations, facilitates rapid potential root-cause identification with minimal data science expertise, and guides timely process optimization. Practical efficacy was demonstrated through two commercial-scale case studies manufacturing biosimilars to adalimumab (HS016) and trastuzumab (HS022), with data from over 30 batches collected per product. Critical factors possibly driving productivity declines were identified from early-batch data and successfully validated through targeted operational optimizations in subsequent runs. By converting latent process data into actionable insights, this scalable and operator-friendly framework provides a practical AI/ML-driven solution for continuous batch quality enhancement in GMP-regulated commercial biomanufacturing.",
+          "authors": "Chen H, Zhang S, Wan Y, Qu H.",
+          "journal": "Bioprocess and biosystems engineering",
+          "doi": "10.1007/s00449-026-03447-y",
+          "pmid": "42965661",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42965661",
+          "url": "https://doi.org/10.1007/s00449-026-03447-y",
+          "publishedAt": "2026-10-31",
+          "discoveredAt": "2026-11-02T02:33:00.954Z",
+          "topics": [
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1007/s00449-026-03453-0",
+          "title": "Improving aerobic fermentation performance of glucose to gluconic acid production by cooperating with Gluconobacter oxydans and diatoms.",
+          "abstract": "Gluconic acid (GA) and its derivatives are widely demanded in construction, food and pharmaceutical industries. To mitigate food resource competition, the enzymatic hydrolysate of lignocellulosic agricultural waste (corncob) is regarded as a sustainable alternative feedstock for the GA bioproduction by Gluconobacter oxydans (G. oxydans). However, high‑solid hydrolysate causes dissolved‑oxygen deficiency due to increased broth viscosity, inhibiting the aerobic metabolism of this obligate aerobe. Herein, an economical diatom co‑cultivation system was constructed to supply oxygen in‑situ through photosynthesis. The neutralizer CaCO3 neutralizes GA and generates CO2 to partially sustain diatom photosynthesis, forming a chemically coupled interaction cycle (rather than strict mutualistic symbiosis). Experimental results demonstrated that diatom addition can effectively improve GA productivity. For corncob hydrolysate containing 100 g/L initial glucose, up to 32% higher GA yield was obtained. Such performance improvement is condition‑dependent, and limited enhancement was observed in high‑viscosity hydrolysate under high‑substrate loadings. This strategy partially mitigates oxygen‑transfer bottlenecks for lignocellulose‑derived GA production and provides a complementary low‑cost route for aerobic biomanufacturing of sugar acids from non‑food biomass.",
+          "authors": "Lu Z, Li F, Ouyang S, Zhang R, Zhou X.",
+          "journal": "Bioprocess and biosystems engineering",
+          "doi": "10.1007/s00449-026-03453-0",
+          "pmid": "42965662",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42965662",
+          "url": "https://doi.org/10.1007/s00449-026-03453-0",
+          "publishedAt": "2026-10-31",
+          "discoveredAt": "2026-11-02T02:33:00.953Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        }
+      ],
+      "sections": [
+        {
+          "topicId": "synthetic",
+          "label": "合成生物学",
+          "paperIds": [
+            "doi:10.1002/cbic.70572",
+            "doi:10.1002/smll.76336",
+            "doi:10.1016/j.celrep.2026.118254",
+            "doi:10.1093/femsre/fuag056"
+          ]
+        },
+        {
+          "topicId": "metabolic",
+          "label": "代谢工程",
+          "paperIds": [
+            "doi:10.1111/1541-4337.70679",
+            "doi:10.1111/1751-7915.70460",
+            "doi:10.1007/s00203-026-05292-9"
+          ]
+        },
+        {
+          "topicId": "microbial",
+          "label": "微生物制造",
+          "paperIds": [
+            "doi:10.2337/dci26-0114",
+            "doi:10.1007/s00449-026-03447-y",
+            "doi:10.1007/s00449-026-03453-0"
+          ]
+        }
+      ],
+      "sourceUpdatedAt": "2026-11-02T02:33:02.802Z",
+      "sourceCollection": {
+        "status": "complete",
+        "failedTopics": [],
+        "trigger": "schedule",
+        "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/41378309062"
+      },
+      "selectionPolicy": {
+        "version": "publication-calendar-topic-round-robin-v1",
+        "description": "按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。",
+        "dateBasis": "first_publication_date",
+        "windowDays": 7,
+        "limit": 10,
+        "topicOrder": [
+          "synthetic",
+          "metabolic",
+          "microbial"
+        ],
+        "ordering": "各主题按发表日期倒序，轮流取文献后按主题分节；日期相同时按文献标识排序。",
+        "coverageNote": "仅整理当前文献库及配置主题，不代表该领域的全部新文献；未依据下载量或科研质量评分排序。"
+      },
+      "metrics": {
+        "inputCount": 182,
+        "uniqueCount": 182,
+        "candidateCount": 58,
+        "selectedCount": 10,
+        "sectionCount": 3
+      }
+    },
+    {
       "id": "public-daily-2026-11-01",
       "kind": "public_daily",
       "date": "2026-11-01",

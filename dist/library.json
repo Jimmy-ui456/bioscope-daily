@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-01T02:15:00.096Z",
+  "fetchedAt": "2026-11-02T02:33:02.802Z",
   "papers": [
     {
       "id": "doi:10.1002/cbic.70572",
@@ -110,14 +110,171 @@
       "collection": "Europe PMC"
     },
     {
+      "id": "doi:10.1016/j.celrep.2026.118254",
+      "title": "Arbitrium crosstalk enables shared signaling among phages.",
+      "abstract": "The arbitrium system has transformed our understanding of phage biology by demonstrating that temperate phages communicate through extracellular peptides to coordinate lysis-lysogeny decisions. Initially considered a highly specific signaling pathway restricted to individual phage lineages, arbitrium communication has now been shown to extend beyond lineage boundaries in some phage systems. Recent studies have shown that non-cognate arbitrium peptides can interact with heterologous receptors, providing evidence of inter-phage crosstalk. Here, we synthesize current knowledge of the molecular basis of arbitrium signaling, the structural determinants of peptide-receptor specificity, and the potential ecological and evolutionary consequences of inter-phage communication. We suggest that arbitrium crosstalk may shape phage ecology by mediating competitive and potentially cooperative interactions within shared signaling environments. We also discuss its potential uses in engineered phage systems, synthetic biology, and microbiome engineering. Collectively, the available evidence broadens the concept of viral communication beyond lineage-specific signaling, while the ecological significance and practical applications of arbitrium crosstalk remain to be established.",
+      "authors": "Lomeli-Ortega CO, Balcázar JL.",
+      "journal": "Cell reports",
+      "doi": "10.1016/j.celrep.2026.118254",
+      "pmid": "42965863",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42965863",
+      "url": "https://doi.org/10.1016/j.celrep.2026.118254",
+      "publishedAt": "2026-10-31",
+      "discoveredAt": "2026-11-02T02:33:00.960Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1007/s00449-026-03447-y",
+      "title": "CultureBoost: an intelligent framework for retrospective analysis of commercial cell culture processes.",
+      "abstract": "Commercial-scale monoclonal antibody manufacturing requires stringent productivity control to maximize profitability. However, final productivity is frequently compromised by subtle process deviations beyond standard operating procedures, such as minor pH shifts, gas sparging variations, and nutrient consumption fluctuations. Although modern Industrial Internet of Things systems generate abundant inline and offline data, actionable process insights remain underexploited. To tackle the critical challenge of productivity fluctuations, identification of root causes is urgent. Therefore, this study proposes an intelligent retrospective data analysis framework for commercial-scale cell culture processes, integrating three core modules: inline data processing, offline data processing, and discriminative information extraction. It enables end-to-end automated historical data mining, quantifies factor contributions to batch quality variations, facilitates rapid potential root-cause identification with minimal data science expertise, and guides timely process optimization. Practical efficacy was demonstrated through two commercial-scale case studies manufacturing biosimilars to adalimumab (HS016) and trastuzumab (HS022), with data from over 30 batches collected per product. Critical factors possibly driving productivity declines were identified from early-batch data and successfully validated through targeted operational optimizations in subsequent runs. By converting latent process data into actionable insights, this scalable and operator-friendly framework provides a practical AI/ML-driven solution for continuous batch quality enhancement in GMP-regulated commercial biomanufacturing.",
+      "authors": "Chen H, Zhang S, Wan Y, Qu H.",
+      "journal": "Bioprocess and biosystems engineering",
+      "doi": "10.1007/s00449-026-03447-y",
+      "pmid": "42965661",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42965661",
+      "url": "https://doi.org/10.1007/s00449-026-03447-y",
+      "publishedAt": "2026-10-31",
+      "discoveredAt": "2026-11-02T02:33:00.954Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1002/smll.76336",
+      "title": "Engineering an Enzymatically Active Granular Matrix for On-Chip Modeling of Bone-Like Mineralization.",
+      "abstract": "Controlled biomineralization is central to engineering physiologically relevant hard-tissue models, yet achieving spatially organized, three-dimensional (3D) mineral deposition in microfluidic on-chip systems remains challenging. While cell-based bone-on-chip platforms offer biological complexity, they couple mineral initiation to matrix remodeling and paracrine signaling, complicating isolation of the earliest biochemical drivers of mineralization. Inspired by bottom-up synthetic biology, we engineered an enzymatically active granular matrix that recapitulates a key osteogenic function within a perfusable 3D microenvironment. Alkaline phosphatase (ALP), the key driver of native bone formation, was covalently conjugated to poly(ethylene glycol)-based (PEG) microgels via thiol-ene photochemistry, retaining over 90% of its initial activity after 24 h. These monodisperse microgels were assembled into a jammed, perfusable matrix on-chip, enabling independent control over enzyme loading and substrate delivery. The system supported in situ mineralization (24-48 h), yielding a calcium-deficient, poorly crystalline apatite-like phase characteristic of early-stage bone mineral. We demonstrate 3D localization of enzymatic activity to the granular matrix, which, coupled with interstitial perfusion, enabled mineral formation whose spatial distribution depended on the perfusion regime. This mechanistically defined, acellular platform provides a tunable foundation for investigating ALP-driven 3D mineralization and establishes a modular route toward hybrid biosynthetic models of (patho)physiological tissue mineralization.",
+      "authors": "Sanaei F, Zandieh D, Hofman D, Joziasse L, van den Beucken JJJP, Leeuwenburgh SCG, Diba M.",
+      "journal": "Small (Weinheim an der Bergstrasse, Germany)",
+      "doi": "10.1002/smll.76336",
+      "pmid": "42965952",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42965952",
+      "url": "https://doi.org/10.1002/smll.76336",
+      "publishedAt": "2026-10-31",
+      "discoveredAt": "2026-11-02T02:33:00.960Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1007/s00449-026-03453-0",
+      "title": "Improving aerobic fermentation performance of glucose to gluconic acid production by cooperating with Gluconobacter oxydans and diatoms.",
+      "abstract": "Gluconic acid (GA) and its derivatives are widely demanded in construction, food and pharmaceutical industries. To mitigate food resource competition, the enzymatic hydrolysate of lignocellulosic agricultural waste (corncob) is regarded as a sustainable alternative feedstock for the GA bioproduction by Gluconobacter oxydans (G. oxydans). However, high‑solid hydrolysate causes dissolved‑oxygen deficiency due to increased broth viscosity, inhibiting the aerobic metabolism of this obligate aerobe. Herein, an economical diatom co‑cultivation system was constructed to supply oxygen in‑situ through photosynthesis. The neutralizer CaCO3 neutralizes GA and generates CO2 to partially sustain diatom photosynthesis, forming a chemically coupled interaction cycle (rather than strict mutualistic symbiosis). Experimental results demonstrated that diatom addition can effectively improve GA productivity. For corncob hydrolysate containing 100 g/L initial glucose, up to 32% higher GA yield was obtained. Such performance improvement is condition‑dependent, and limited enhancement was observed in high‑viscosity hydrolysate under high‑substrate loadings. This strategy partially mitigates oxygen‑transfer bottlenecks for lignocellulose‑derived GA production and provides a complementary low‑cost route for aerobic biomanufacturing of sugar acids from non‑food biomass.",
+      "authors": "Lu Z, Li F, Ouyang S, Zhang R, Zhou X.",
+      "journal": "Bioprocess and biosystems engineering",
+      "doi": "10.1007/s00449-026-03453-0",
+      "pmid": "42965662",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42965662",
+      "url": "https://doi.org/10.1007/s00449-026-03453-0",
+      "publishedAt": "2026-10-31",
+      "discoveredAt": "2026-11-02T02:33:00.953Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1093/femsre/fuag056",
+      "title": "Prokaryotes bridging the lipid divide.",
+      "abstract": "The fundamental biochemical and stereochemical difference in how cell membrane lipids are built between Archaea on one side, and Bacteria and Eukarya on the other is known as the lipid divide. It is often assumed to translate in the impossibility of combining membranes of both types. It was established early when little sampling of the biodiversity was available. Since then, exceptions have been revealed and accumulated. Here, we review those exceptions and complement them with a broad survey, revealing diverse bacteria with mixed membrane-lipid features. Together with liposome assays and synthetic-biology experiments, studies on these organisms suggest that the lipid divide can be bridged. We conclude by discussing the evolutionary implications for LUCA, the origin of the prokaryotic domains and eukaryogenesis.",
+      "authors": "García-Domínguez R, Devos DP.",
+      "journal": "FEMS microbiology reviews",
+      "doi": "10.1093/femsre/fuag056",
+      "pmid": "42965973",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42965973",
+      "url": "https://doi.org/10.1093/femsre/fuag056",
+      "publishedAt": "2026-10-31",
+      "discoveredAt": "2026-11-02T02:33:00.960Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1007/s00203-026-05292-9",
+      "title": "Structure-guided engineering of medium- and long-chain triglycerides:​Fermentation-assisted biosynthesis, structural control and future perspective.",
+      "abstract": "Medium- and long-chain triglycerides (MLCTs) are triacylglycerols (TAGs) that have medium-chain fatty acids (MCFAs) and long-chain fatty acids (LCFAs) linked together on a single glycerol backbone. The positioning of the components, such as the MCFA-LCFA-MCFA (MLM-type) positioning, can affect lipase-mediated hydrolysis, release of fatty acids (FAs), absorption and metabolic behavior, however, structure-function relationships requires experimental validation. This review presents a comparison between chemical interesterification, lipase-catalyzed interesterification and fermentation-assisted biosynthesis of MLCT. Chemical interesterification will redistribute fatty acyl groups, but offers​ limited positional control, while lipase-catalyzed synthesis provides more positional selectivity but is susceptible to acyl migration. Fermentation-​assisted biosynthesis is a prospective approach that connects FA chain-length control, acyl-CoA supply and TAG assembly more strongly. However, there is currently more evidence that strongly supports the production of tailored FAs by microbes than demonstrated positional control of MLCT molecular species. Structural validation requires intact TAG molecular species analysis, positional analysis, and stereospecific analysis. An integrated framework combining applications of structural analysis, selective biocatalysis, fermentation optimization, metabolic engineering and functional evaluation is proposed.",
+      "authors": "Naseem A, Zhang L, Sun S.",
+      "journal": "Archives of microbiology",
+      "doi": "10.1007/s00203-026-05292-9",
+      "pmid": "42965697",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42965697",
+      "url": "https://doi.org/10.1007/s00203-026-05292-9",
+      "publishedAt": "2026-10-31",
+      "discoveredAt": "2026-11-02T02:33:01.029Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1126/sciadv.aeh7105",
       "title": "A dual-targeting lipid nanoparticle delivery system for precision phage therapy against multidrug-resistant Gram-negative bacteria.",
-      "abstract": "The escalating crisis of antimicrobial resistance, particularly among Gram-negative bacteria, demands innovative therapeutic strategies. Here, we present a dual-targeting lipid nanoparticle-chimeric phage (AbLCP) system engineered to combat multidrug-resistant (MDR) Gram-negative bacteria. Our design integrates a genetically modified M13 phage displaying anti-lipopolysaccharide (LPS) antibodies with polymyxin B conjugation, which is further encapsulated within anti-LPS antibody-functionalized lipid nanoparticles. This system overcomes the fundamental limitations of conventional phage therapy, enabling efficient cellular internalization, endosomal escape, and potent intracellular bactericidal activity. In murine models of Pseudomonas aeruginosa infection, AbLCP achieved superior bacterial clearance and up to 103-fold reduction in bacterial burden at a 103-fold lower effective dose than free polymyxin B, with 67-fold selective accumulation at infection sites, and attenuated systemic inflammation and preservation of gut microbiota. Mechanistically, AbLCP neutralized LPS to suppress inflammation and induced a lethal bacterial stress response. This work establishes a transformative nanophage platform that merges synthetic biology with nanomedicine, offering a promising strategy against MDR bacterial infections.",
+      "abstract": "The escalating crisis of antimicrobial resistance, particularly among Gram-negative bacteria, demands innovative therapeutic strategies. Here, we present a dual-targeting lipid nanoparticle-chimeric phage (AbLCP) system engineered to combat multidrug-resistant (MDR) Gram-negative bacteria. Our design integrates a genetically modified M13 phage displaying anti-lipopolysaccharide (LPS) antibodies with polymyxin B conjugation, which is further encapsulated within anti-LPS antibody-functionalized lipid nanoparticles. This system overcomes the fundamental limitations of conventional phage therapy, enabling efficient cellular internalization, endosomal escape, and potent intracellular bactericidal activity. In murine models of Pseudomonas aeruginosa infection, AbLCP achieved superior bacterial clearance and up to 10 3 -fold reduction in bacterial burden at a 10 3 -fold lower effective dose than free polymyxin B, with 67-fold selective accumulation at infection sites, and attenuated systemic inflammation and preservation of gut microbiota. Mechanistically, AbLCP neutralized LPS to suppress inflammation and induced a lethal bacterial stress response. This work establishes a transformative nanophage platform that merges synthetic biology with nanomedicine, offering a promising strategy against MDR bacterial infections.",
       "authors": "Chen Z, Hu W, Nie H, Zhang Y, Tang W, Yu Z, Cao J, Zhu X, Liu X, Chen M, Qimron U, Pich A, Peng H, Liu J.",
       "journal": "Science advances",
       "doi": "10.1126/sciadv.aeh7105",
       "pmid": "42962024",
-      "pmcid": null,
+      "pmcid": "PMC13721973",
       "source": "MED",
       "sourceId": "42962024",
       "url": "https://doi.org/10.1126/sciadv.aeh7105",
@@ -132,7 +289,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -244,7 +401,7 @@
     {
       "id": "doi:10.1016/j.jare.2026.10.044",
       "title": "From discovery to engineering: revealing and optimizing the indigoids biosynthesis by FMO from Indigofera tinctoria.",
-      "abstract": "Indigo-producing plants have been used for millennia as natural dyes and traditional medicines. Despite evolutionary divergence, these species converge on a conserved indigo biosynthesis pathway, yet the molecular basis for differences in catalytic efficiency remains largely unknown. This study aimed to identify and characterize the key genes involved in indigoid biosynthesisfrom Indigofera tinctoria, and to elucidate the structural determinants underlying their catalytic properties. We performed transcriptome mining and functional screening of candidate genes fromI. tinctoria, followed by enzyme kinetic characterization, substrate specificity profiling, molecular dynamics (MD) simulations using the catalytically competent state, alanine scanning mutagenesis, and metabolic engineering through co-expression and co-cultivation strategies in Escherichia coli. Three genes, Flavin-containing monooxygenase (ItFMO),Tryptophan synthase α-subunit (ItTSA), and Indole synthase(ItINS), were identified and functionally validated. ItFMO exhibited higher catalytic efficiency (kcat/Km = 0.22 ± 0.05 s⁻1*mM⁻1) toward indole than other plant FMOs tested, and converted 16 substituted indoles into variously colored indigoids. When 2-oxindole was supplied, ItFMO co-produced indirubin (∼70% of total pigments) via condensation of enzymatically generated indoxyl with 2-oxindole. Co-expression of ItFMO with E. coli TnaA (Tryptophanase) yielded the highest indigo titer (41.27 ± 0.84 mg/L), followed by ItINS (30.54 ± 0.33 mg/L) and ItFMO alone (27.58 ± 0.19 mg/L), whereas ItTSA severely reduced production (5.68 ± 0.20 mg/L). Co-cultivation of the two strains achieved a 2.7-fold increase over the monoculture, with a titer of 60.03 ± 0.82 mg/L. MD simulations and alanine scanning identified Q51, Y160, K212, S213, F373, and N427 as critical residues governing ItFMO catalysis, and which were authenticated by site-directed mutagenesis. Our findings establish a mechanistic basis for understanding FMO-mediated indigo formation in plants and provide a structural insight for engineering plant-derived enzymes in microbial systems.",
+      "abstract": "Introduction Indigo-producing plants have been used for millennia as natural dyes and traditional medicines. Despite evolutionary divergence, these species converge on a conserved indigo biosynthesis pathway, yet the molecular basis for differences in catalytic efficiency remains largely unknown. Objectives This study aimed to identify and characterize the key genes involved in indigoid biosynthesisfrom Indigofera tinctoria, and to elucidate the structural determinants underlying their catalytic properties. Methods We performed transcriptome mining and functional screening of candidate genes fromI. tinctoria, followed by enzyme kinetic characterization, substrate specificity profiling, molecular dynamics (MD) simulations using the catalytically competent state, alanine scanning mutagenesis, and metabolic engineering through co-expression and co-cultivation strategies in Escherichia coli. Results Three genes, Flavin-containing monooxygenase (ItFMO),Tryptophan synthase α-subunit (ItTSA), and Indole synthase(ItINS), were identified and functionally validated. ItFMO exhibited higher catalytic efficiency (k cat /K m = 0.22 ± 0.05 s⁻ 1 *mM⁻ 1 ) toward indole than other plant FMOs tested, and converted 16 substituted indoles into variously colored indigoids. When 2-oxindole was supplied, ItFMO co-produced indirubin (∼70% of total pigments) via condensation of enzymatically generated indoxyl with 2-oxindole. Co-expression of ItFMO with E. coli TnaA (Tryptophanase) yielded the highest indigo titer (41.27 ± 0.84 mg/L), followed by ItINS (30.54 ± 0.33 mg/L) and ItFMO alone (27.58 ± 0.19 mg/L), whereas ItTSA severely reduced production (5.68 ± 0.20 mg/L). Co-cultivation of the two strains achieved a 2.7-fold increase over the monoculture, with a titer of 60.03 ± 0.82 mg/L. MD simulations and alanine scanning identified Q51, Y160, K212, S213, F373, and N427 as critical residues governing ItFMO catalysis, and which were authenticated by site-directed mutagenesis. Conclusion Our findings establish a mechanistic basis for understanding FMO-mediated indigo formation in plants and provide a structural insight for engineering plant-derived enzymes in microbial systems.",
       "authors": "Liu C, Zhang D, Zhang M, Chang S, Cheng M, Lou Y, Tan H.",
       "journal": "Journal of advanced research",
       "doi": "10.1016/j.jare.2026.10.044",
@@ -302,7 +459,7 @@
       "journal": "Applied microbiology and biotechnology",
       "doi": "10.1007/s00253-026-14051-1",
       "pmid": "42961475",
-      "pmcid": null,
+      "pmcid": "PMC13722665",
       "source": "MED",
       "sourceId": "42961475",
       "url": "https://doi.org/10.1007/s00253-026-14051-1",
@@ -317,7 +474,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc-nd",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -329,7 +486,7 @@
       "journal": "Advanced biotechnology",
       "doi": "10.1007/s44307-026-00140-9",
       "pmid": "42961608",
-      "pmcid": null,
+      "pmcid": "PMC13722657",
       "source": "MED",
       "sourceId": "42961608",
       "url": "https://doi.org/10.1007/s44307-026-00140-9",
@@ -345,7 +502,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -458,7 +615,7 @@
     {
       "id": "doi:10.1016/j.jhazmat.2026.144068",
       "title": "Biodegradable polylactic acid microplastics pose greater field nitrous oxide emission risks than conventional polyethylene by reshaping microbial production-reduction pathways in a wheat-maize rotation system.",
-      "abstract": "Microplastic contamination in agroecosystems is increasing, yet the field-scale effects of biodegradable microplastics on soil nitrous oxide (N2O) emissions remain unclear. We conducted a wheat-maize rotation field experiment to compare conventional polyethylene microplastics (PE-MPs) and biodegradable polylactic acid microplastics (PLA-MPs) at three application levels. Measurements included N2O fluxes, soil physicochemical properties, N-transformation enzyme activities, potential nitrification and denitrification rates, functional gene abundances, N2O/(N2O+N2) product ratios, 15N-18O-based N2O production pathways. Two-way ANOVA showed that microplastic type was the most consistent determinant of key responses, whereas concentration and interaction effects varied among indicators and seasons. PE-MPs caused weak and variable changes in soil N cycling and cumulative N2O emissions. In contrast, PLA-MPs increased cumulative N2O emissions by 38.9-61.1%, increased dissolved organic carbon, lowered pH, suppressed ammonia monooxygenase activity and nitrification, and stimulated nitrite reductase activity, potential denitrification, and nirK/nirS abundances. Increased N2O/(N2O+N2) and (nirK+nirS)/nosZ ratios indicated a stronger imbalance between N2O production and nosZ-mediated reduction. Dual-isotope tracing further showed that microplastics reduced nitrifier nitrification and shifted N2O production toward nitrifier denitrification, coupled nitrification-denitrification, and heterotrophic denitrification, with the strongest shift under PLA-MPs. These results demonstrate PLA-MPs pose greater N2O emission risks than PE-MPs, biodegradability does not necessarily imply environmental safety.",
+      "abstract": "Microplastic contamination in agroecosystems is increasing, yet the field-scale effects of biodegradable microplastics on soil nitrous oxide (N 2 O) emissions remain unclear. We conducted a wheat-maize rotation field experiment to compare conventional polyethylene microplastics (PE-MPs) and biodegradable polylactic acid microplastics (PLA-MPs) at three application levels. Measurements included N 2 O fluxes, soil physicochemical properties, N-transformation enzyme activities, potential nitrification and denitrification rates, functional gene abundances, N 2 O/(N 2 O+N 2 ) product ratios, 15N-18O-based N 2 O production pathways. Two-way ANOVA showed that microplastic type was the most consistent determinant of key responses, whereas concentration and interaction effects varied among indicators and seasons. PE-MPs caused weak and variable changes in soil N cycling and cumulative N 2 O emissions. In contrast, PLA-MPs increased cumulative N 2 O emissions by 38.9-61.1%, increased dissolved organic carbon, lowered pH, suppressed ammonia monooxygenase activity and nitrification, and stimulated nitrite reductase activity, potential denitrification, and nirK/nirS abundances. Increased N 2 O/(N 2 O+N 2 ) and (nirK+nirS)/nosZ ratios indicated a stronger imbalance between N 2 O production and nosZ-mediated reduction. Dual-isotope tracing further showed that microplastics reduced nitrifier nitrification and shifted N 2 O production toward nitrifier denitrification, coupled nitrification-denitrification, and heterotrophic denitrification, with the strongest shift under PLA-MPs. These results demonstrate PLA-MPs pose greater N 2 O emission risks than PE-MPs, biodegradability does not necessarily imply environmental safety.",
       "authors": "Wang C, He R, Wang L, Li Y, Li R, Dai Y, He X, Wang B, Yang M, Wang X.",
       "journal": "Journal of hazardous materials",
       "doi": "10.1016/j.jhazmat.2026.144068",
@@ -757,7 +914,7 @@
     {
       "id": "doi:10.64898/2026.10.26.761776",
       "title": "Development of a CRISPR-Cas9 genome editing system for the extremely thermophilic bacterium Anaerocellum bescii",
-      "abstract": "Anaerocellum (f. Caldicellulosiruptor) bescii is an extremely thermophilic (Topt 75-78 °C) anaerobic bacterium and is also a highly efficient degrader of lignocellulose, making it a promising platform for metabolic engineering. To date, chromosomal genetic manipulations in A. bescii have required multistep procedures involving homologous recombination with integrating vectors and counterselection. Here, we demonstrate the first implementation of CRISPR-Cas9 genome editing in A. bescii facilitated by a thermostable Cas9 enzyme from Geobacillus stearothermophilus (GeoCas9). Delivery of heterologous CRISPR machinery via a replicating vector enabled us to individually and sequentially delete genes for lactate dehydrogenase (ldh) and pyrE in A. bescii. We then deployed this system to delete a novel target, tryptophan synthase (trpBA), generating a tryptophan auxotrophic strain of A. bescii. Using this strain, we show trpBA complementation enables selection and maintenance of a replicating vector expressing a heterologous enzymatic reporter gene.",
+      "abstract": "Anaerocellum (f. Caldicellulosiruptor ) bescii is an extremely thermophilic (T opt 75-78 ℃) anaerobic bacterium and is also a highly efficient degrader of lignocellulose, making it a promising platform for metabolic engineering. To date, chromosomal genetic manipulations in A. bescii have required multistep procedures involving homologous recombination with integrating vectors and counterselection. Here, we demonstrate the first implementation of CRISPR-Cas9 genome editing in A. bescii facilitated by a thermostable Cas9 enzyme from Geobacillus stearothermophilus (GeoCas9). Delivery of heterologous CRISPR machinery via a replicating vector enabled us to individually and sequentially delete genes for lactate dehydrogenase ( ldh ) and pyrE in A. bescii . We then deployed this system to delete a novel target, tryptophan synthase ( trpBA ), generating a tryptophan auxotrophic strain of A. bescii . Using this strain, we show trpBA complementation enables selection and maintenance of a replicating vector expressing a heterologous enzymatic reporter gene. Importance Extreme thermophiles, especially species that can naturally break down recalcitrant lignocellulose, such as Anaerocellum (f. Caldicellulosiruptor ) bescii , represent compelling chassis for next-generation bioprocessing, offering the capability to convert inexpensive and plentiful renewable feedstocks into fuels and industrial chemicals. However, engineering these non-model organisms for bioprocessing applications requires robust genetic engineering tools, as techniques developed in mesophilic model organisms often translate poorly. CRISPR-Cas genome editing, now widely used in biotechnology, is one such tool that faces limitations at the extreme native temperatures of these organisms. Here we establish a CRISPR-Cas9-based genome editing system in A. bescii , expanding the genetic toolbox available for this extremely thermophilic bacterium. By streamlining targeted genetic modifications, this approach has the potential to accelerate the construction of engineered strains for metabolic engineering and bioprocess applications.",
       "authors": "Galindo JL, Conway JM.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.10.26.761776",
@@ -776,20 +933,9 @@
       "isPreprint": true,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
-      "collection": "Europe PMC",
-      "enrichment": {
-        "titleZh": "极端嗜热细菌Anaerocellum bescii的CRISPR-Cas9基因组编辑系统开发",
-        "abstractZh": "Anaerocellum bescii（原称Caldicellulosiruptor bescii）是一种极端嗜热的厌氧细菌，最适温度（Topt）为75—78 °C；它还能够高效降解木质纤维素，因此有望成为代谢工程平台。迄今为止，A. bescii的染色体遗传操作需要通过整合型载体介导的同源重组和反向筛选等多步骤程序完成。本研究借助来自Geobacillus stearothermophilus的热稳定Cas9酶（GeoCas9），首次在A. bescii中实现了CRISPR-Cas9基因组编辑。通过可复制载体递送异源CRISPR系统，研究者能够在A. bescii中分别及依次删除乳酸脱氢酶基因（ldh）和pyrE。随后，研究者利用该系统删除一个新的靶标——色氨酸合酶基因（trpBA），获得了A. bescii的色氨酸营养缺陷型菌株。利用这一菌株，研究者表明，trpBA互补可支持对表达异源酶类报告基因的可复制载体进行筛选和维持。",
-        "sourceTitle": "Development of a CRISPR-Cas9 genome editing system for the extremely thermophilic bacterium Anaerocellum bescii",
-        "sourceAbstract": "Anaerocellum (f. Caldicellulosiruptor) bescii is an extremely thermophilic (Topt 75-78 °C) anaerobic bacterium and is also a highly efficient degrader of lignocellulose, making it a promising platform for metabolic engineering. To date, chromosomal genetic manipulations in A. bescii have required multistep procedures involving homologous recombination with integrating vectors and counterselection. Here, we demonstrate the first implementation of CRISPR-Cas9 genome editing in A. bescii facilitated by a thermostable Cas9 enzyme from Geobacillus stearothermophilus (GeoCas9). Delivery of heterologous CRISPR machinery via a replicating vector enabled us to individually and sequentially delete genes for lactate dehydrogenase (ldh) and pyrE in A. bescii. We then deployed this system to delete a novel target, tryptophan synthase (trpBA), generating a tryptophan auxotrophic strain of A. bescii. Using this strain, we show trpBA complementation enables selection and maintenance of a replicating vector expressing a heterologous enzymatic reporter gene.",
-        "sourceFingerprint": "bcc1feb7-1168",
-        "origin": "assistant_translation",
-        "createdAt": "2026-10-30T02:51:38.379Z",
-        "reviewed": false,
-        "scope": "abstract_only"
-      }
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.21203/rs.3.rs-11324733/v1",
@@ -1136,6 +1282,32 @@
       "collection": "Europe PMC"
     },
     {
+      "id": "doi:10.1016/j.watres.2026.127227",
+      "title": "Coupled physicochemical and microbial recovery of aged premise plumbing following water-supply interruption.",
+      "abstract": "Water-supply interruptions can cause pronounced deterioration of premise-plumbing water quality, yet the coordinated responses of bacterial communities, antibiotic resistance, bacteriophages, and microbial functional potential during water-supply resumption remain poorly resolved. Here, a full-scale 24-h water-supply interruption in an approximately 25-year-old cast-iron premise-plumbing system was investigated by integrating physicochemical measurements, quantitative PCR, metagenomics, virus-host prediction, and functional analyses. At 1 min after water supply resumption, residual chlorine was undetectable, whereas turbidity and total iron ranged from 149.9 to 155.3 NTU and 13.4 to 13.8 mg/L, respectively. By 40 min, residual chlorine reached 0.52 to 0.56 mg/L, while turbidity and total iron declined to levels of 0.56 to 0.61 NTU and 0.028 to 0.041 mg/L, respectively. Concurrently, Legionella pneumophila decreased from 4.12 to 0.83 log10 (gene copies/mL), and mexA from 5.55 to 1.77 log10 (gene copies/mL). Metagenomic analyses revealed pronounced succession of bacterial communities, putative human pathogen-associated taxa, and the resistome. Caudoviricetes dominated the viral community and showed coordinated temporal changes with predicted bacterial hosts. Biofilm-associated functional genes, extracellular polymeric substances (EPS), and putative phage-encoded auxiliary metabolic genes were more abundant in the initially discharged water and generally decreased following water supply resumption. The elevated EPS may have reflected both microbial production and detachment of pre-existing biofilm-associated material. Collectively, the results identify the initially discharged water as a distinct post-stagnation physicochemical and microbiological state. Water-supply resumption represents a rapid ecological transition in which restoration of disinfectant residual and displacement of stagnant/pipe-associated material jointly restructure the microbiome, resistome, and virome.",
+      "authors": "Mi X, Wang Z, Ran M, Shi B, Wang H.",
+      "journal": "Water research",
+      "doi": "10.1016/j.watres.2026.127227",
+      "pmid": "42966262",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42966262",
+      "url": "https://doi.org/10.1016/j.watres.2026.127227",
+      "publishedAt": "2026-10-27",
+      "discoveredAt": "2026-11-02T02:33:00.956Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1039/d6lc00512h",
       "title": "Dynamic tapered nozzle and multiple waveform modulation enable high-speed piezoelectric jetting without satellite droplets across broad fluid property ranges.",
       "abstract": "Piezoelectric drop-on-demand inkjet printing enables controlled microdroplet deposition in microfluidics, biomanufacturing, and precision manufacturing. However, conventional pressure chamber piezoelectric printheads are susceptible to viscous dissipation and nozzle clogging, exhibit limited adaptability to high-viscosity, low-surface-tension liquids and particle/cell suspensions, and struggle to suppress satellite droplets effectively. These limitations hinder their practical deployment in high-precision and high-stability inkjet applications. Here, a dynamic tapered nozzle generates droplets through local self-pumping induced by geometric deformation rather than pressure-wave propagation in a conventional pressure chamber. Structural optimization enabled droplet velocities of 5.42-12.67 m s -1 and stable ejection at viscosities up to 40.3 mPa s, surface tensions of 24.44-72.75 mN m -1 , and Z values of 1.01-38.11. Mechanistic analysis identified high-frequency residual nozzle oscillations as the primary cause of ligament stretching and secondary breakup. Based on this mechanism, a multiple waveform modulation strategy is devised to dynamically regulate the nozzle displacement response. This strategy effectively suppresses satellite droplets during high-speed ejection while maintaining printing throughput and achieves a 32% reduction in droplet diameter. The satellite-droplet suppression effect is further validated in a 0.5 wt% SiO 2 nanoparticle suspension and a 10 wt% PVP K30 solution. The platform enables high-viability printing of MC3T3 cells and carrier-free intracellular delivery of 70 kDa fluorescein isothiocyanate (FITC)-dextran, establishing a feasible pathway for high-speed and stable ejection across broad fluid property ranges with low clogging risk.",
@@ -1277,7 +1449,7 @@
       "id": "doi:10.64898/2026.10.23.761469",
       "title": "Marrow-mimicry MEW scaffolds recapitulate erythroblastic islands for high-density cRBC biomanufacturing",
       "abstract": "Biomanufactured cell therapies are delivering a step-change in modern medicine, but their high costs have prevented widespread adoption. Cultured red blood cells (cRBCs) are one type of cell therapy in clinical trials for off-the-shelf blood transfusion but remain limited by the exorbitant costs of manufacturing trillions of RBCs required for a blood transfusion. These costs could be mitigated if culture platforms could grow cells at higher density, like those found in the bone marrow, requiring less media and lower concentrations of expensive growth factors per cell. We engineered melt electrowritten (MEW) polycaprolactone (PCL) scaffolds in geometries which imitate marrow trabeculae structures and were then plasma-treated to enable peripheral blood mononuclear cells (PB MNC) attachment. PB MNC monocytes first adhered to the scaffold and rapidly differentiated into CD68 + macrophage-like cells. These macrophage-loaded scaffolds adhered CD71 + erythroblasts, which then grew from 10 to 25% between days 4 and 8 and produced CD235a + erythroid cells by day 20, under erythrogenic culture conditions. MEW PCL scaffolds in trabecular-like geometries had greater surface area, adhered more macrophages, and generated more erythroblasts than traditional MEW crosshatch geometries. The MEW scaffolds continuously released less-adherent cells to the supernatant, providing a 74% increase in supernatant cell numbers versus liquid suspension controls with identical cell seeding numbers and media volumes. High-cell-density scaffolds exhibited increased metabolism and endogenous production of self-supportive cytokines, which may offer cost-saving opportunities through future media optimisation. This study reports marrow trabeculae-mimetic MEW PCL designs capable of selectively adhering PB MN cells to develop macrophage-coated scaffolds, which provided physical and paracrine support for cRBC production. This high-cell-density culture platform may be useful for future cell therapy biomanufacturing protocols.",
-      "authors": "Nausa Galeano GA, Costa Maia SA, Paxton NC, Bisht K, Garcia Marin Y, McKinnon R, de Nys CM, Tao K, Moroni L, Cooper-White JJ, Woodruff MA, Franco RA, Murphy AR, Griffiths RE, Allenby MC.",
+      "authors": "Nausa Galeano GA, Costa Maia SA, Paxton NC, Bisht K, Marin YG, McKinnon R, de Nys CM, Tao K, Moroni L, Cooper-White JJ, Woodruff MA, Franco RA, Murphy AR, Griffiths RE, Allenby MC.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.10.23.761469",
       "pmid": null,
@@ -1295,7 +1467,7 @@
       "isPreprint": true,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC",
       "enrichment": {
@@ -1835,6 +2007,33 @@
         "reviewed": false,
         "scope": "abstract_only"
       }
+    },
+    {
+      "id": "doi:10.1093/synbio/ysag012",
+      "title": "Bilateral exchange in synthetic biology: experiences, challenges, and opportunities for training and research.",
+      "abstract": "Synthetic biology and the emerging field of biomanufacturing provide new research concepts that should be incorporated into the training of the next generation of scientists. Key elements of synthetic biology are the standardization, modularization, and characterization of biological parts. Defined parts can be assembled into functional transcription units to pathways of multiple units, chromosomes, and/or whole genomes. Here, we highlight the importance of global exchange and state-of-the-art training in the Global South to empower research and reduce the gap between countries. Based on initial seed funding, we established a multidisciplinary bilateral exchange program between Germany and Colombia, including lecture series, experimental workshops, and bilateral exchanges in training and research. The elements are adaptable and our hands-on courses can be carried out with limited resources while covering aspects of synthetic biology. Importantly, this initiative will allow early-career researchers to build an international network, opening up opportunities in research collaboration and paving the way for greater equity.",
+      "authors": "Sánchez Olmos MDC, Medina ML, Ramírez Rojas AA, Millán Aldana NA, Siaucho Unriza PM, Londoño Sanchez NO, Flórez Téllez V, Rua Lopez VH, Del Portillo P, Chaib De Mares M, Villegas-Torres MF, Schindler D, Zambrano MM.",
+      "journal": "Synthetic biology (Oxford, England)",
+      "doi": "10.1093/synbio/ysag012",
+      "pmid": "42967090",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42967090",
+      "url": "https://doi.org/10.1093/synbio/ysag012",
+      "publishedAt": "2026-10-24",
+      "discoveredAt": "2026-11-02T02:33:01.238Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1186/s13568-026-02130-5",
@@ -4825,13 +5024,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 284,
+        "count": 288,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-01T02:15:00.093Z",
+        "fetchedAt": "2026-11-02T02:33:02.795Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -4856,7 +5055,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-01T02:14:59.939Z"
+        "checkedAt": "2026-11-02T02:33:02.556Z"
       }
     },
     {
@@ -5103,25 +5302,25 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 112,
+      "hitCount": 111,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 79,
+      "hitCount": 78,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 113,
+      "hitCount": 115,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-11-01",
+    "date": "2026-11-02",
     "requests": 0
   },
   "receipts": {},
@@ -5129,11 +5328,11 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "not_configured",
-    "lastRunAt": "2026-11-01T02:15:00.096Z",
+    "lastRunAt": "2026-11-02T02:33:02.802Z",
     "failedTopics": 0,
     "collectionSource": {
       "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/41264375401"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/41378309062"
     },
     "downloadRefresh": {
       "supported": 1,
@@ -5145,6 +5344,6 @@
     },
     "modelRequestsThisRun": 0,
     "analysisFailures": 0,
-    "completedAt": "2026-11-01T02:15:00.113Z"
+    "completedAt": "2026-11-02T02:33:02.826Z"
   }
 }
