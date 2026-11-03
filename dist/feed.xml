@@ -9,7 +9,14 @@
     <docs>https://www.rssboard.org/rss-specification</docs>
     <ttl>60</ttl>
     <atom:link href="https://jimmy-ui456.github.io/bioscope-daily/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 02 Nov 2026 02:32:59 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2026 03:56:22 GMT</lastBuildDate>
+    <item>
+      <title>生研观察 · 2026-11-03 公共文献简报（10 篇）</title>
+      <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-03#daily</link>
+      <guid isPermaLink="false">https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-03#daily</guid>
+      <pubDate>Tue, 03 Nov 2026 03:56:22 GMT</pubDate>
+      <description><![CDATA[<p>按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。</p><p>发表日期范围：2026-10-28 — 2026-11-03。</p><ol><li><a href="https://doi.org/10.1002/cbic.70572">Expression of Human CYP2D6 in Artificial Cells Based on Polymer-Lipid Hybrid Vesicles.</a></li><li><a href="https://doi.org/10.1002/smll.76336">Engineering an Enzymatically Active Granular Matrix for On-Chip Modeling of Bone-Like Mineralization.</a></li><li><a href="https://doi.org/10.1016/j.celrep.2026.118254">Arbitrium crosstalk enables shared signaling among phages.</a></li><li><a href="https://doi.org/10.1093/femsre/fuag056">Prokaryotes bridging the lipid divide.</a></li><li><a href="https://doi.org/10.1111/1541-4337.70679">Recent Advances in Microbial Community Composition of Fermented Soy Whey and Its Mechanism for Biotransformation of Soybean Isoflavones.</a></li><li><a href="https://doi.org/10.1111/1751-7915.70460">Functional Characterization and Application of Yarrowia lipolytica YlYxc1 for Enhanced Production of Sphingoid Bases.</a></li><li><a href="https://doi.org/10.1007/s00203-026-05292-9">Structure-guided engineering of medium- and long-chain triglycerides:​Fermentation-assisted biosynthesis, structural control and future perspective.</a></li><li><a href="https://doi.org/10.2337/dci26-0114">Fecal Short-Chain Fatty Acids in Early Islet Autoimmunity: Limited Prognostic Value or an Incomplete Measure of Microbial Production?</a></li><li><a href="https://doi.org/10.1007/s00449-026-03447-y">CultureBoost: an intelligent framework for retrospective analysis of commercial cell culture processes.</a></li><li><a href="https://doi.org/10.1007/s00449-026-03453-0">Improving aerobic fermentation performance of glucose to gluconic acid production by cooperating with Gluconobacter oxydans and diatoms.</a></li></ol>]]></description>
+    </item>
     <item>
       <title>生研观察 · 2026-11-02 公共文献简报（10 篇）</title>
       <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-02#daily</link>
