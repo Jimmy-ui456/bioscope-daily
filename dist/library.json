@@ -1,8 +1,273 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-03T03:56:24.954Z",
+  "fetchedAt": "2026-11-04T03:00:26.781Z",
   "papers": [
+    {
+      "id": "doi:10.64898/2026.10.31.762157",
+      "title": "Biosensor-guided genome-wide CRISPR screens enable cis,cis-muconic acid overproduction in yeast",
+      "abstract": "Classical pathway metabolic engineering relies on enhancing strain productivity through the introduction of rationally identified genetic perturbations, which while useful, are time-consuming and miss unintuitive targets. Genome-wide CRISPR screens offer an alternative by efficiently sampling genomes, enabling the engineering of novel phenotypes, and are further enhanced when combined with high-throughput strain interrogation methods. Here, using Saccharomyces cerevisiae, we engineered small molecule biosensors into population enrichment tools using zeocin resistance and fluorescence as signal outputs. We then introduced the multi-functional genome-wide CRISPR (MAGIC) library that targets every gene for activation, interference, or deletion, thus creating biosensor-aided MAGIC, or senMAGIC. As a case study, we utilized senMAGIC to identify single genetic determinants that improve productivity of the nylon precursors protocatechuic and cis,cis-muconic acids (PCA and ccM). These were then randomly assembled as triple gRNA-tRNA arrays for multiplexed gene perturbations to identify combinatorial effects. Top gRNA hits were then confirmed using direct genomic integrations in senMAGIC-free production strains, resulting in identifying known as well as novel targets that increase PCA and ccM titres. Our results demonstrate senMAGIC as a robust automation-friendly whole-genome evolution tool and highlight limitations of the method, providing a roadmap for future multifunctional CRISPR screens to optimize host metabolism for efficient bioprocesses.",
+      "authors": "Nasr MA, Knoops A, Thornbury M, Davies M, Kwan DH, Martin VJ.",
+      "journal": "预印本平台",
+      "doi": "10.64898/2026.10.31.762157",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1357676",
+      "url": "https://doi.org/10.64898/2026.10.31.762157",
+      "publishedAt": "2026-11-03",
+      "discoveredAt": "2026-11-04T03:00:26.028Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.64898/2026.10.31.763318",
+      "title": "N-GLYcanyzer monitoring of a microperfusion process reveals critical parameters' impact on Trastuzumab biosimilar N-glycoform time evolution",
+      "abstract": "Controlling monoclonal antibody (mAb) N-glycosylation as a critical quality attribute (CQA) remains challenging in continuous and intensified biomanufacturing, where conventional end-point analyses obscure dynamic pathway responses. Here, we deployed the N-GLYcanyzer process analytical technology (PAT) for automated monitoring of a microperfusion process that reveals critical parameters' impact on Trastuzumab biosimilar N-glycoform time evolution across a 20-day culture duration of Chinese Hamster Ovary (CHO) cells in a ~2 mL scale-down microbioreactor perfusion platform. Using offline PAT assays combined with our integrated at-line PAT workflow, we systematically screened six perfusion process parameters: carbon source, viable cell density (VCD), perfusion rate, temperature, and pH. While nutrient limitation and thermal/acidic stress significantly disrupted N-glycans maturation, notably triggering high-mannose (Man5) accumulation and severe productivity penalties under pH 6.7 and 39 °C operation, targeted feed supplementation with galactose and MnCl 2 consistently shifted glycoform profiles away from G0F toward galactosylated species (G1F, G1F′, G2F). Crucially, coupling this combined feed strategy with an intensified perfusion rate (1.2 VVD) achieved a sustained, desired galactosylation shift without a productivity cost. These findings demonstrate that nutrient feed composition and perfusion rate are primary levers for steering continuous intensified microperfusion processes for biologics production with desired N-glycoform states and highlight the utility of automated at-line PAT like N-GLYcanyzer for enabling real-time attribute-based control in continuous biomanufacturing.",
+      "authors": "Narvekar A, Harrison M, Thakur R, Khot P, Semira P, Lee K, Chundawat SP.",
+      "journal": "预印本平台",
+      "doi": "10.64898/2026.10.31.763318",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1357702",
+      "url": "https://doi.org/10.64898/2026.10.31.763318",
+      "publishedAt": "2026-11-03",
+      "discoveredAt": "2026-11-04T03:00:26.253Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1039/d6cs00978f",
+      "title": "Artificial photosynthetic cells: bridging chemical energization with biological functionalization.",
+      "abstract": "Artificial photosynthetic cells are nature-inspired systems that reproduce photosynthetic functions within cell/cell-mimetic compartments. Unlike discrete photocatalytic platforms, they integrate light harvesting, charge separation, multistep catalysis, selective transport, and compartmentalization to convert isolated photochemical reactions into coordinated cell-like functions. Driven by needs in carbon-neutral manufacturing, sustainable solar conversion, and precision medicine, the field is advancing from simple photocatalytic vesicles toward integrated and increasingly synthetic-cell platforms. In this review, we systematically elaborate on the rational design principles and emergent functional landscapes of artificial photosynthetic cells from a bioinspired perspective. We first decode the fundamental operational logic of natural photosynthesis, serving as a design blueprint. We then summarize the core construction modules of artificial photosynthetic cells, including cell-mimetic chassis, high-performance light-harvesting engines, multi-level catalytic networks, and precise interfacial engineering strategies. Furthermore, we categorize assembly paradigms into three mainstream branches: semi-artificial biohybrid systems, bottom-up reconstituted synthetic systems, and fully abiotic photosynthetic mimics. We further highlight a series of current and prospective functionalities, ranging from solar-driven CO 2 fixation and high-value chemical synthesis to in situ biomedical drug generation, as well as primitive life-like characteristics including intercellular communication, motility, and compartment division. Finally, we pinpoint the key technical bottlenecks, common pitfalls and outline opportunities enabled by the deep integration of synthetic biology, functional materials chemistry, and systematic bioengineering.",
+      "authors": "Gao F, Li D, Chen Y, Chen A, Liu G, Wang Y, Gao C, Xiong Y.",
+      "journal": "Chemical Society reviews",
+      "doi": "10.1039/d6cs00978f",
+      "pmid": "42895175",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42895175",
+      "url": "https://doi.org/10.1039/d6cs00978f",
+      "publishedAt": "2026-11-02",
+      "discoveredAt": "2026-10-28T16:24:50.320Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1093/qjmed/hcag306",
+      "title": "Beyond the Stool: Circulating Short-Chain Fatty Acids Better Predict Human Gut-Related Diseases.",
+      "abstract": "Background Short-chain fatty acids (SCFAs) mediate host-microbiota interactions and are typically measured in feces as markers of gut microbial activity. However, whether fecal SCFAs adequately reflect disease-associated host-microbiota dysfunction remains unclear. We hypothesized that circulating SCFAs, which integrate microbial production, intestinal absorption, barrier function, and host metabolism, provide a more informative representation of gut-related diseases. Methods Seven fecal and serum SCFAs were quantified by gas chromatography-mass spectrometry in 193 individuals, including patients with colorectal cancer (CRC, n = 30), celiac disease (CD, n = 35), obesity (OB, n = 33), and healthy controls (HCs, n = 95). We developed an interpretable machine-learning framework combining stacking ensembles, bootstrap validation, permutation testing, SHAP and LIME analyses. Cross-compartment predictive modeling was used to assess the reciprocal informativeness of fecal and circulating SCFAs. Results Circulating SCFAs exhibited markedly stronger disease-associated signatures than fecal SCFAs across all groups. Serum-based models achieved excellent classification performance (95% accuracy; multiclass ROC-AUC 1.00), whereas fecal SCFAs provided substantially lower predictive power (59% accuracy). Combining serum and fecal datasets yielded only marginal improvement (97.4% accuracy), indicating most diagnostic relevant information was already captured in circulation. Valeric, propionic, 2-methylbutyric, and isovaleric acids were consistently identified as the main contributors to disease discrimination. Cross-compartment modeling revealed weak predictive relationships between fecal and serum SCFAs, indicating these pools are largely non-redundant and reflect distinct biological processes. Conclusions Circulating SCFAs outperform fecal SCFAs as biomarkers of gut-related diseases, capturing the integrated effects of microbial activity and host physiology. These findings support blood-based SCFA profiling as a promising approach for precision diagnostics in microbiota-associated disorders.",
+      "authors": "Baldi S, Rotelli A, Cei F, Bertorello S, Bongianni A, Menicatti M, Calabrò AS, Cianchi F, Colombini B, Sofi F, Niccolai E, Bartolucci G, Iadanza E, Amedei A.",
+      "journal": "QJM : monthly journal of the Association of Physicians",
+      "doi": "10.1093/qjmed/hcag306",
+      "pmid": "42969389",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42969389",
+      "url": "https://doi.org/10.1093/qjmed/hcag306",
+      "publishedAt": "2026-11-02",
+      "discoveredAt": "2026-11-04T03:00:26.253Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1055/a-2995-3627",
+      "title": "Cyclotides from Clitoria ternatea: Genomic Organization, Biosynthesis, and Roles in Plant Defense.",
+      "abstract": "Clitoria ternatea, commonly known as butterfly pea, is a perennial legume widely recognized for its ornamental and medicinal value. Beyond its characteristic anthocyanin-rich blue flowers, the plant produces cyclotides, a type of ultra-stable, cyclic cystine-knot peptide, with exceptional biological functions. Unlike other cyclotide-bearing families that carry independent cyclotide genes, C. ternatea integrates cyclotide domains into albumin-1 genes, replacing β-chain domains through divergent or convergent evolution. Genomic and transcriptomic studies reveal a large repertoire of albumin-1 loci and associated biosynthetic enzymes, including asparaginyl endopeptidases (butelase-1), protein disulphide isomerases, and peptidyl-prolyl isomerases, which orchestrate the cyclization, folding, and stabilization of cyclotides. Transcriptome analyses further demonstrate tissue-specific expression patterns, with distinct cyclotides such as cliotides T2 and T3 enriched in flowers and pods, and cliotides T8-T10 specialized in seeds, reflecting adaptive responses to localized biotic stress. Functionally, C. ternatea cyclotides exhibit broad-spectrum defense properties, including insecticidal, bactericidal, nematicidal, and antifungal activities, primarily through membrane permeabilization and disruption of lipid bilayers. Their preferential affinity for phosphatidylethanolamine-rich membranes highlights their selective toxicity toward insect and microbial targets. Recent advances in synthetic biology exploit cyclotides' structural stability as molecular scaffolds for therapeutic peptide design, with applications in immunomodulatory, antimicrobial, and anticancer drug development. This review consolidates genomic, transcriptomic, and functional insights into cyclotide biosynthesis and activity in C. ternatea, highlighting its evolutionary distinctiveness and biotechnological potential. Future research integrating multi-omics and spatial single-cell analyses can further unravel regulatory networks, defense dynamics, and translational applications of these unique plant peptides.",
+      "authors": "Kumar R, Yeo LM, Singaram N, Mah SH, Bunawan H, Lee KW, Yap WHH.",
+      "journal": "Planta medica",
+      "doi": "10.1055/a-2995-3627",
+      "pmid": "42971258",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42971258",
+      "url": "https://doi.org/10.1055/a-2995-3627",
+      "publishedAt": "2026-11-02",
+      "discoveredAt": "2026-11-04T03:00:25.991Z",
+      "topics": [
+        "synthetic",
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.64898/2026.10.30.763118",
+      "title": "Fluidized Bed Cathodes Enable High-Rate CO2 to Formate Production and In Situ Microbial Growth",
+      "abstract": "Electrochemical CO2 Reduction Reaction (eCO2RR) to formate offers a sustainable and promising route for storing renewable electricity in a microbial energy substrate. Conventional CO2 electrolyzers rely on flat electrodes with limited catalytic surface area, mass-transfer constraints, and electrolytes that are incompatible with microbial growth, preventing direct coupling of electrochemical formate production with biological conversion. Here, we developed a biocompatible CO2 electrolysis configuration that uses fluidized particles of Sn, Bi, and In as electrocatalysts to enhance CO2 to formate conversion while supporting microbial utilization in the same chamber. The fluidized configuration enabled high formate production rates up to 0.24 mmol cm2 with Faradaic efficiencies of 86 to 92%, representing a two fold improvement over static electrodes. The system also achieved a carbon conversion efficiency of 42%, approaching the theoretical limit for co-generation of formate and bicarbonate. Importantly, electrolysis was performed in a biocompatible medium that supported direct in situ cultivation of Cupriavidus necator within the cathode chamber using only electricity and CO2/O2 as fed substrates. C. necator continuously consumed electro-generated formate for 5 to 6 days under aerobic conditions, demonstrating integrated CO2 to biomass conversion. This work establishes a fluidized electrocatalytic platform for simultaneous electrosynthesis and microbial upgrading in a single reactor, providing a scalable strategy for renewable carbon fixation and sustainable biomanufacturing.",
+      "authors": "Zakaria B, Lanzilotti A, Sundstrom E, Tejedor Sanz S.",
+      "journal": "预印本平台",
+      "doi": "10.64898/2026.10.30.763118",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1355721",
+      "url": "https://doi.org/10.64898/2026.10.30.763118",
+      "publishedAt": "2026-11-02",
+      "discoveredAt": "2026-11-04T03:00:26.253Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.64898/2026.10.30.763198",
+      "title": "Machine learning guided design of strong transcriptional activation domains",
+      "abstract": "Artificial intelligence has accelerated the design of structured proteins, but it remains difficult to design functional intrinsically disordered proteins because of weak structural constraints and poorly defined sequence-to-function relationships1. Activation domains (ADs), transcription factor regions that recruit coactivators, are an excellent test case for the de novo design of intrinsically disordered sequences. ADs are one of the oldest groups of functional intrinsically disordered sequences2 and designed ADs have applications in synthetic biology, biotechnology, and agriculture. We computationally generated 500,000 candidate sequences that resembled known ADs and predicted AD function with extant machine learning models, including three neural networks. From high-scoring sequences, we selected 18,750 for experimental validation in yeast. Surprisingly, >90% of the 16,770 well-measured sequences function as ADs. Sequences predicted to be active by multiple models were stronger, motivating development of a fast and accurate consensus AD predictor, MADRIGAL. A number of our designed ADs retain functionality across fungi, plants, and human cells. This work illustrates a generalizable paradigm for incorporating sequence-to-function models into the design loop to efficiently generate functional intrinsically disordered sequences.",
+      "authors": "Zintel MA, LeBlanc CJ, Kotha SR, Soriano M, Bansal RJ, Aguilera D, Majidi T, Ornelas I, Kirkpatrick LD, Udupa A, Hu G, Agarwal P, Lam AWY, Nunez JK, Shih PM, Sozzani R, Strader LC, Staller MV.",
+      "journal": "预印本平台",
+      "doi": "10.64898/2026.10.30.763198",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1355735",
+      "url": "https://doi.org/10.64898/2026.10.30.763198",
+      "publishedAt": "2026-11-02",
+      "discoveredAt": "2026-11-04T03:00:25.992Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.biotechadv.2026.109089",
+      "title": "Research progress in the production, purification, and applications of long single-stranded DNA.",
+      "abstract": "Long single-stranded DNA (long ssDNA) plays important roles in cutting-edge fields such as DNA origami, gene therapy, and synthetic biology. However, the production, preparation, and purification of long ssDNA remain technically challenging. This review systematically summarizes current strategies for long ssDNA production and preparation, including phage-E. coli-based biological production, template-dependent enzymatic amplification, and viral-vector-based generation of ssDNA genomes. CRISPR-Cas-assisted approaches are discussed separately as complementary tools for post-synthetic processing, sequence-selective cleavage, enrichment, and quality control, whereas other enzymatic approaches are considered for post-synthetic strand conversion. We compare the characteristics and limitations of these production and preparation strategies, discuss purification techniques for long ssDNA, and summarize its applications in DNA origami nanotechnology and gene therapy. This review comprehensively synthesizes the bottlenecks in long ssDNA production, preparation, and purification, and outlines further development trends. We highlight template-independent de novo enzymatic DNA synthesis, automated DNA manufacturing, synthetic biology-based production systems, and AI-assisted sequence optimization. These developments are expected to accelerate the transition of long ssDNA technologies from laboratory research toward scalable manufacturing and practical applications.",
+      "authors": "Wang X, Wu Y, Zhang X, Du Y, Liu N, Wang Z, Zhang H, Gao X, Zheng A.",
+      "journal": "Biotechnology advances",
+      "doi": "10.1016/j.biotechadv.2026.109089",
+      "pmid": "42971416",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42971416",
+      "url": "https://doi.org/10.1016/j.biotechadv.2026.109089",
+      "publishedAt": "2026-11-02",
+      "discoveredAt": "2026-11-04T03:00:25.990Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1021/acsabm.6c01394",
+      "title": "Additive Manufacturing of Metabolically Active Living Materials with Enhanced Biocontainment.",
+      "abstract": "Additive manufacturing of engineered living materials (ELMs) enables the spatial patterning of living cells or organisms within three-dimensional (3D) polymer matrices. However, effective biocontainment, defined as the ability to retain cells within 3D-printed matrices during the application period, remains a key limitation for ELMs requiring physical confinement. While synthetic biology provides cell-specific biocontainment strategies, materials-based approaches can enable generic cell retention capabilities. Therefore, we applied a materials-based strategy that combines pre-printing formulation development and post-printing processing to increase the retention of yeast Saccharomyces cerevisiae in Pluronic F127-bisurethane methacrylate (F127-BUM) hydrogels. F127-BUM precursor solutions were formulated with the comonomers methacrylic acid (MAA) and/or 2-(dimethylamino)ethyl methacrylate (DMAEMA), extrusion-printed, UV-cross-linked, and immersed in 70 vol % ethanol for 60 or 300 s before cultivation. Comonomer addition preserved dimensional fidelity, thermoresponsiveness, and shear-thinning behavior for 3D printing. After immobilization and cross-linking, DMAEMA and higher concentrations of MAA considerably reduced yeast viability, whereas a 70-80% viability was observed for 0.03 and 0.06 mol L-1 MAA. With 0.06 mol L-1 MAA and 300 s ethanol immersion, the yeast retention time reached 98 ± 12 h, which was approximately 48% longer than that of the correspondingly treated F127-BUM-only control and represented about a 465% increase relative to the untreated F127-BUM-only control. After ethanol immersion, a peripheral growth-free zone developed around a metabolically active core, enhancing cell retention and contributing to delayed cell escape. The selected MAA-containing ELMs remained metabolically active and showed nearly 38% higher apparent glucose-to-ethanol conversion than treated F127-BUM-only controls. The suspension cultures fermented faster and achieved higher yield. Our method achieved enhanced biocontainment, with an operational window of about 4-5 days. In conclusion, we demonstrate that combining pre-printing and post-printing processes can enhance biocontainment for different ELM applications. We suggest the integration of this method with synthetic-biology strategies to further extend biocontainment duration for metabolically active living materials.",
+      "authors": "Hamacek HSDR, Daily S, Le L, Khalid S, Spuul P, Lahtvee PJ, Nelson A, Kumar R.",
+      "journal": "ACS applied bio materials",
+      "doi": "10.1021/acsabm.6c01394",
+      "pmid": "42897788",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42897788",
+      "url": "https://doi.org/10.1021/acsabm.6c01394",
+      "publishedAt": "2026-11-01",
+      "discoveredAt": "2026-10-28T16:24:50.320Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": "cc by",
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1021/acsabm.6c01073",
+      "title": "EPOTF-Enabled Scalable Production of Structurally Intact Lemon-Derived Extracellular Vesicles with Enhanced Bioactivity.",
+      "abstract": "Lemon-derived extracellular vesicles (LDEVs) have attracted increasing attention as promising bioactive nanovesicles for cosmetic and skin engineering applications owing to their biocompatibility, bioactive cargo, and skin-friendly lipid bilayer structure. However, the lack of standardized purification methods and limited scalability remain critical bottlenecks for the practical application and industrial translation of LDEVs. In this study, we developed an electrophoretic oscillation-assisted tangential flow filtration (EPOTF) platform using a SiNx membrane nanofilter for the scalable and high-purity purification of structurally intact LDEVs. The EPOTF process effectively suppressed membrane cake formation and membrane fouling, enabling stable size-selective purification under large-volume conditions. EPOTF-purified LDEVs exhibited stable physicochemical characteristics, high recovery yield, and excellent batch-to-batch reproducibility. Cryo-TEM analysis confirmed preservation of a distinct lipid bilayer structure and near-ideal spherical morphology with low spherical deviation, indicating minimal structural damage during purification. Furthermore, EPOTF-purified LDEVs significantly enhanced hydration, antioxidant activity, skin barrier recovery, and anti-inflammatory responses in an ex vivo human skin explant model. Taken together, these findings establish EPOTF as a robust and scalable purification platform for the biomanufacturing of high-quality LDEVs, with strong potential for cosmetic and skin-engineering applications.",
+      "authors": "Ko M, Jung H, Shin K, Kim S, Lee KN, Lee YK, Jeong S, Do YR.",
+      "journal": "ACS applied bio materials",
+      "doi": "10.1021/acsabm.6c01073",
+      "pmid": "42613798",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42613798",
+      "url": "https://doi.org/10.1021/acsabm.6c01073",
+      "publishedAt": "2026-11-01",
+      "discoveredAt": "2026-11-04T03:00:26.253Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
     {
       "id": "doi:10.1002/cbic.70572",
       "title": "Expression of Human CYP2D6 in Artificial Cells Based on Polymer-Lipid Hybrid Vesicles.",
@@ -131,7 +396,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -190,7 +455,7 @@
     {
       "id": "doi:10.1007/s00449-026-03453-0",
       "title": "Improving aerobic fermentation performance of glucose to gluconic acid production by cooperating with Gluconobacter oxydans and diatoms.",
-      "abstract": "Gluconic acid (GA) and its derivatives are widely demanded in construction, food and pharmaceutical industries. To mitigate food resource competition, the enzymatic hydrolysate of lignocellulosic agricultural waste (corncob) is regarded as a sustainable alternative feedstock for the GA bioproduction by Gluconobacter oxydans (G. oxydans). However, high‑solid hydrolysate causes dissolved‑oxygen deficiency due to increased broth viscosity, inhibiting the aerobic metabolism of this obligate aerobe. Herein, an economical diatom co‑cultivation system was constructed to supply oxygen in‑situ through photosynthesis. The neutralizer CaCO3 neutralizes GA and generates CO2 to partially sustain diatom photosynthesis, forming a chemically coupled interaction cycle (rather than strict mutualistic symbiosis). Experimental results demonstrated that diatom addition can effectively improve GA productivity. For corncob hydrolysate containing 100 g/L initial glucose, up to 32% higher GA yield was obtained. Such performance improvement is condition‑dependent, and limited enhancement was observed in high‑viscosity hydrolysate under high‑substrate loadings. This strategy partially mitigates oxygen‑transfer bottlenecks for lignocellulose‑derived GA production and provides a complementary low‑cost route for aerobic biomanufacturing of sugar acids from non‑food biomass.",
+      "abstract": "Gluconic acid (GA) and its derivatives are widely demanded in construction, food and pharmaceutical industries. To mitigate food resource competition, the enzymatic hydrolysate of lignocellulosic agricultural waste (corncob) is regarded as a sustainable alternative feedstock for the GA bioproduction by Gluconobacter oxydans (G. oxydans). However, high‑solid hydrolysate causes dissolved‑oxygen deficiency due to increased broth viscosity, inhibiting the aerobic metabolism of this obligate aerobe. Herein, an economical diatom co‑cultivation system was constructed to supply oxygen in‑situ through photosynthesis. The neutralizer CaCO 3 neutralizes GA and generates CO 2 to partially sustain diatom photosynthesis, forming a chemically coupled interaction cycle (rather than strict mutualistic symbiosis). Experimental results demonstrated that diatom addition can effectively improve GA productivity. For corncob hydrolysate containing 100 g/L initial glucose, up to 32% higher GA yield was obtained. Such performance improvement is condition‑dependent, and limited enhancement was observed in high‑viscosity hydrolysate under high‑substrate loadings. This strategy partially mitigates oxygen‑transfer bottlenecks for lignocellulose‑derived GA production and provides a complementary low‑cost route for aerobic biomanufacturing of sugar acids from non‑food biomass.",
       "authors": "Lu Z, Li F, Ouyang S, Zhang R, Zhou X.",
       "journal": "Bioprocess and biosystems engineering",
       "doi": "10.1007/s00449-026-03453-0",
@@ -375,8 +640,8 @@
     {
       "id": "doi:10.64898/2026.10.29.762894",
       "title": "EverGreen: A Calcium Sensing Fluorescent Protein with Ultra-Slow Response Properties",
-      "abstract": "Fluorescent calcium indicators are typically optimized for fast kinetics, but for some bio-engineering projects in synthetic biology slower indicators with long decay time constants may be more practical and easier to apply. We here present a green fluorescent protein calcium biosensor with unusually slow response kinetics. By molecular engineering we were able to extend a slow component of the decay time to 6.1 min. The fluorescence in EverGreen could thus be detected for minutes after the underlying calcium fluctuation had already dissipated. This may be useful when constraints in instrumentation and methodology do not allow close coupling of physiological activation of cells and read-out of signals, facilitating directed evolution projects run via plate readers or cell sorters.",
-      "authors": "Griesbeck O, Valiente-Gabioud A.",
+      "abstract": "ABSTRACT Fluorescent calcium indicators are typically optimized for fast kinetics, but for some bio-engineering projects in synthetic biology slower indicators with long decay time constants may be more practical and easier to apply. We here present a green fluorescent protein calcium biosensor with unusually slow response kinetics. By molecular engineering we were able to extend a slow component of the decay t 1/2 to 6.1 min. The fluorescence in “EverGreen” could thus be detected for minutes after the underlying calcium fluctuation had already dissipated. This may be useful when constraints in instrumentation and methodology do not allow close coupling of physiological activation of cells and read-out of signals, facilitating directed evolution projects run via plate readers or cell sorters.",
+      "authors": "Valiente-Gabioud A, Griesbeck O.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.10.29.762894",
       "pmid": null,
@@ -608,7 +873,7 @@
       "isPreprint": true,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc-nd",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -731,7 +996,7 @@
     {
       "id": "doi:10.64898/2026.10.28.762476",
       "title": "Metabolism-Informed Bioreactor Model for Transferring Knowledge from Fed-batch to Continuous Biomanufacturing",
-      "abstract": "Chinese hamster ovary (CHO) cells remain the dominant platform for monoclonal antibody (mAb) manufacturing, and rising demand is pushing the industry from fed-batch toward continuous operation. Continuous cultures promise sustained high cell densities and volumetric productivities, but their operation depends on reliable real-time monitoring, prediction and control. Limited intracellular observability and sparse extracellular measurements hinder this, leaving a persistent gap between mechanistic understanding and predictive deployment. Here we describe a metabolism-informed model for mAb production that embeds reactor- and intracellular-level mass balances directly within a learning architecture, while deliberately avoiding predefined kinetic rate laws and explicit steady-state assumptions. Because conservation relationships remain invariant across operating modes, this formulation provides a principled structural prior for cross-regime generalisation, positioning the model as a soft sensor for continuous bioprocesses: inferring unmeasured intracellular fluxes and one-step ahead forecasting extracellular concentrations to support process monitoring and control. Benchmarking two metabolic network sizes and three metabolic optimisation strategies, concentration predictions are indistinguishable across network sizes. Exchange flux fidelity is agnostic to solver choice, with network size mattering only for intracellular interpretability. Transferring the developed model from fed-batch to continuous operation with fine-tuning outperforming other transfer learning variants. This is consistent with the metabolic structure being invariant to mode of operation. Predicted fluxes reveal growth rate in fed-batch, rather than operating mode, as the dominant axis of metabolic variation, and identify potential regime-shift signals to guide experimental design for continuous culture characterisation. These results chart a route towards digital models sufficiently grounded in first-principles knowledge, yet adaptive for deployment under regime shifts.",
+      "abstract": "Chinese Hamster Ovary (CHO) cells remain the dominant platform for monoclonal antibody (mAb) manufacturing, and rising demand is pushing the industry from fed-batch toward continuous operation. Continuous cultures promise sustained high cell densities and volumetric productivities, but their operation depends on reliable real-time monitoring, prediction and control. Limited intracellular observability and sparse extracellular measurements hinder this, leaving a persistent gap between mechanistic understanding and predictive deployment. Here we describe a metabolism-informed model for mAb production that embeds reactor- and intracellular-level mass balances directly within a learning architecture, while deliberately avoiding predefined kinetic rate laws and explicit steady-state assumptions. Because conservation relationships remain invariant across operating modes, this formulation provides a principled structural prior for cross-regime generalisation, positioning the model as a soft sensor for continuous bioprocesses: inferring unmeasured intracellular fluxes and one-step ahead forecasting extracellular concentrations to support process monitoring and control. Benchmarking two metabolic network sizes and three metabolic optimisation strategies, concentration predictions are indistinguishable across network sizes. Exchange flux fidelity is agnostic to solver choice, with network size mattering only for intracellular interpretability. Transferring the developed model from fed-batch to continuous operation with fine-tuning outperforming other transfer learning variants. This is consistent with the metabolic structure being invariant to mode of operation. Predicted fluxes reveal growth rate in fed-batch, rather than operating mode, as the dominant axis of metabolic variation, and identify potential regime-shift signals to guide experimental design for continuous culture characterisation. These results chart a route towards digital models sufficiently grounded in first-principles knowledge, yet adaptive for deployment under regime shifts.",
       "authors": "Monteiro M, Bediako S, Tecson R, Nierode G, Kotidis P, Kontoravdi C.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.10.28.762476",
@@ -752,18 +1017,7 @@
       "readingScope": "仅摘要",
       "license": "cc by-nc",
       "version": null,
-      "collection": "Europe PMC",
-      "enrichment": {
-        "titleZh": "代谢知识引导的生物反应器模型：将补料分批工艺的知识迁移至连续生物制造",
-        "abstractZh": "中国仓鼠卵巢（CHO）细胞仍是单克隆抗体（mAb）制造的主要平台，不断增长的需求正推动该行业从补料分批运行转向连续运行。连续培养有望维持高细胞密度和高体积生产率，但其运行依赖可靠的实时监测、预测与控制。细胞内状态的可观测性有限，细胞外测量又较为稀疏，阻碍了这一目标的实现，使机制认识与预测模型的实际部署之间持续存在差距。本研究提出一种由代谢知识引导的mAb生产模型，将反应器层面和细胞内层面的质量衡算直接嵌入学习架构，同时避免预设动力学速率定律和显式稳态假设。由于守恒关系在不同运行模式下保持不变，这一表述为跨工况泛化提供了基于原理的结构先验，并将模型定位为连续生物过程的软传感器：推断未测量的细胞内通量，并提前一步预测细胞外浓度，以支持过程监测和控制。研究者对两种代谢网络规模与三种代谢优化策略进行了基准比较，发现不同网络规模下的浓度预测结果无可区分的差异。交换通量的保真度与求解器选择无关，网络规模仅影响细胞内过程的可解释性。将所开发的模型从补料分批运行迁移至连续运行时，微调的表现优于其他迁移学习方案。这与代谢结构不随运行模式改变的认识一致。预测通量显示，补料分批培养中的生长速率，而非运行模式，是代谢变化的主导维度；模型还识别出可能提示工况转换的信号，可为连续培养表征的实验设计提供指导。这些结果为构建既充分建立在第一性原理知识之上、又能适应工况转换下部署的数字模型提供了一条路径。",
-        "sourceTitle": "Metabolism-Informed Bioreactor Model for Transferring Knowledge from Fed-batch to Continuous Biomanufacturing",
-        "sourceAbstract": "Chinese hamster ovary (CHO) cells remain the dominant platform for monoclonal antibody (mAb) manufacturing, and rising demand is pushing the industry from fed-batch toward continuous operation. Continuous cultures promise sustained high cell densities and volumetric productivities, but their operation depends on reliable real-time monitoring, prediction and control. Limited intracellular observability and sparse extracellular measurements hinder this, leaving a persistent gap between mechanistic understanding and predictive deployment. Here we describe a metabolism-informed model for mAb production that embeds reactor- and intracellular-level mass balances directly within a learning architecture, while deliberately avoiding predefined kinetic rate laws and explicit steady-state assumptions. Because conservation relationships remain invariant across operating modes, this formulation provides a principled structural prior for cross-regime generalisation, positioning the model as a soft sensor for continuous bioprocesses: inferring unmeasured intracellular fluxes and one-step ahead forecasting extracellular concentrations to support process monitoring and control. Benchmarking two metabolic network sizes and three metabolic optimisation strategies, concentration predictions are indistinguishable across network sizes. Exchange flux fidelity is agnostic to solver choice, with network size mattering only for intracellular interpretability. Transferring the developed model from fed-batch to continuous operation with fine-tuning outperforming other transfer learning variants. This is consistent with the metabolic structure being invariant to mode of operation. Predicted fluxes reveal growth rate in fed-batch, rather than operating mode, as the dominant axis of metabolic variation, and identify potential regime-shift signals to guide experimental design for continuous culture characterisation. These results chart a route towards digital models sufficiently grounded in first-principles knowledge, yet adaptive for deployment under regime shifts.",
-        "sourceFingerprint": "f5217349-2180",
-        "origin": "assistant_translation",
-        "createdAt": "2026-10-30T02:51:38.379Z",
-        "reviewed": false,
-        "scope": "abstract_only"
-      }
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1007/s11274-026-05366-2",
@@ -1284,7 +1538,7 @@
     {
       "id": "doi:10.1016/j.watres.2026.127227",
       "title": "Coupled physicochemical and microbial recovery of aged premise plumbing following water-supply interruption.",
-      "abstract": "Water-supply interruptions can cause pronounced deterioration of premise-plumbing water quality, yet the coordinated responses of bacterial communities, antibiotic resistance, bacteriophages, and microbial functional potential during water-supply resumption remain poorly resolved. Here, a full-scale 24-h water-supply interruption in an approximately 25-year-old cast-iron premise-plumbing system was investigated by integrating physicochemical measurements, quantitative PCR, metagenomics, virus-host prediction, and functional analyses. At 1 min after water supply resumption, residual chlorine was undetectable, whereas turbidity and total iron ranged from 149.9 to 155.3 NTU and 13.4 to 13.8 mg/L, respectively. By 40 min, residual chlorine reached 0.52 to 0.56 mg/L, while turbidity and total iron declined to levels of 0.56 to 0.61 NTU and 0.028 to 0.041 mg/L, respectively. Concurrently, Legionella pneumophila decreased from 4.12 to 0.83 log10 (gene copies/mL), and mexA from 5.55 to 1.77 log10 (gene copies/mL). Metagenomic analyses revealed pronounced succession of bacterial communities, putative human pathogen-associated taxa, and the resistome. Caudoviricetes dominated the viral community and showed coordinated temporal changes with predicted bacterial hosts. Biofilm-associated functional genes, extracellular polymeric substances (EPS), and putative phage-encoded auxiliary metabolic genes were more abundant in the initially discharged water and generally decreased following water supply resumption. The elevated EPS may have reflected both microbial production and detachment of pre-existing biofilm-associated material. Collectively, the results identify the initially discharged water as a distinct post-stagnation physicochemical and microbiological state. Water-supply resumption represents a rapid ecological transition in which restoration of disinfectant residual and displacement of stagnant/pipe-associated material jointly restructure the microbiome, resistome, and virome.",
+      "abstract": "Water-supply interruptions can cause pronounced deterioration of premise-plumbing water quality, yet the coordinated responses of bacterial communities, antibiotic resistance, bacteriophages, and microbial functional potential during water-supply resumption remain poorly resolved. Here, a full-scale 24-h water-supply interruption in an approximately 25-year-old cast-iron premise-plumbing system was investigated by integrating physicochemical measurements, quantitative PCR, metagenomics, virus-host prediction, and functional analyses. At 1 min after water supply resumption, residual chlorine was undetectable, whereas turbidity and total iron ranged from 149.9 to 155.3 NTU and 13.4 to 13.8 mg/L, respectively. By 40 min, residual chlorine reached 0.52 to 0.56 mg/L, while turbidity and total iron declined to levels of 0.56 to 0.61 NTU and 0.028 to 0.041 mg/L, respectively. Concurrently, Legionella pneumophila decreased from 4.12 to 0.83 log 10 (gene copies/mL), and mexA from 5.55 to 1.77 log 10 (gene copies/mL). Metagenomic analyses revealed pronounced succession of bacterial communities, putative human pathogen-associated taxa, and the resistome. Caudoviricetes dominated the viral community and showed coordinated temporal changes with predicted bacterial hosts. Biofilm-associated functional genes, extracellular polymeric substances (EPS), and putative phage-encoded auxiliary metabolic genes were more abundant in the initially discharged water and generally decreased following water supply resumption. The elevated EPS may have reflected both microbial production and detachment of pre-existing biofilm-associated material. Collectively, the results identify the initially discharged water as a distinct post-stagnation physicochemical and microbiological state. Water-supply resumption represents a rapid ecological transition in which restoration of disinfectant residual and displacement of stagnant/pipe-associated material jointly restructure the microbiome, resistome, and virome.",
       "authors": "Mi X, Wang Z, Ran M, Shi B, Wang H.",
       "journal": "Water research",
       "doi": "10.1016/j.watres.2026.127227",
@@ -1485,7 +1739,7 @@
     {
       "id": "doi:10.1016/j.jbiotec.2026.10.017",
       "title": "Multilevel metabolic engineering of Bacillus amyloliquefaciens for enhanced L-tyrosine production.",
-      "abstract": "L-Tyrosine is a valuable aromatic amino acid with diverse applications. Although plasmid-based overexpression has markedly improved L-tyrosine production, the dependence on antibiotic selection and genetic instability under nonselective conditions limits its industrial applicability. To address these issues, this study employed a multi-level metabolic engineering strategy to enhance the L-tyrosine biosynthetic pathway at the genomic level in Bacillus amyloliquefaciens. First, an expression cassette containing the mutant prephenate dehydrogenase (TyrA I309A/E330V ) was inserted into the genome of the wild-type strain Z1. When the copy number reached three (strain Z4), L-tyrosine production reached 437.43mg/L. Subsequently, the mutant DAHP synthase (AroA R27A/K38A ) was integrated, and the resulting two-copy strain Z7 increased L-tyrosine production to 591.29mg/L. Systematic identification of rate-limiting steps showed that most pathway genes enhanced production to varying extents. A promoter in situ replacement strategy was then applied to construct strain Z21, which further increased the titer to 813.01mg/L. Finally, by optimizing precursor supply, the engineered strain Z32 reached an L-tyrosine titer of 1079.94mg/L. Overall, this plasmid-free and antibiotic-independent platform offers a promising strategy for stable biosynthesis of L-tyrosine and other aromatic amino acids in microbial cell factories.",
+      "abstract": "L-Tyrosine is a valuable aromatic amino acid with diverse applications. Although plasmid-based overexpression has markedly improved L-tyrosine production, the dependence on antibiotic selection and genetic instability under nonselective conditions limits its industrial applicability. To address these issues, this study employed a multi-level metabolic engineering strategy to enhance the L-tyrosine biosynthetic pathway at the genomic level in Bacillus amyloliquefaciens. First, an expression cassette containing the mutant prephenate dehydrogenase (TyrA I309A/E330V ) was inserted into the genome of the wild-type strain Z1. When the copy number reached three (strain Z4), L-tyrosine production reached 437.43 mg/L. Subsequently, the mutant DAHP synthase (AroA R27A/K38A ) was integrated, and the resulting two-copy strain Z7 increased L-tyrosine production to 591.29 mg/L. Systematic identification of rate-limiting steps showed that most pathway genes enhanced production to varying extents. A promoter in situ replacement strategy was then applied to construct strain Z21, which further increased the titer to 813.01 mg/L. Finally, by optimizing precursor supply, the engineered strain Z32 reached an L-tyrosine titer of 1079.94 mg/L. Overall, this plasmid-free and antibiotic-independent platform offers a promising strategy for stable biosynthesis of L-tyrosine and other aromatic amino acids in microbial cell factories.",
       "authors": "Zhang D, Jiang P, Wang L, Gu J, Ji A, Feng N.",
       "journal": "Journal of biotechnology",
       "doi": "10.1016/j.jbiotec.2026.10.017",
@@ -1507,18 +1761,7 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC",
-      "enrichment": {
-        "titleZh": "以多层次代谢工程提高解淀粉芽孢杆菌的L-酪氨酸产量",
-        "abstractZh": "L-酪氨酸是一种用途广泛的高价值芳香族氨基酸。虽然基于质粒的过表达已经明显提高了L-酪氨酸产量，但依赖抗生素筛选，以及在非选择性条件下存在遗传不稳定性，限制了其工业应用。为解决这些问题，本研究采用多层次代谢工程策略，在解淀粉芽孢杆菌（Bacillus amyloliquefaciens）的基因组层面增强L-酪氨酸生物合成途径。首先，将含有突变型预苯酸脱氢酶TyrA（I309A/E330V）的表达盒插入野生型菌株Z1的基因组。当拷贝数达到3个时，所得菌株Z4的L-酪氨酸滴度达到437.43 mg/L。随后整合突变型DAHP合酶AroA（R27A/K38A），所得双拷贝菌株Z7的L-酪氨酸滴度提高至591.29 mg/L。对限速步骤的系统性辨识表明，大多数途径基因都能不同程度地提高产量。接着，研究者通过启动子原位替换构建菌株Z21，使滴度进一步提高到813.01 mg/L。最后，通过优化前体供应，工程菌株Z32的L-酪氨酸滴度达到1079.94 mg/L。总体而言，这一无质粒、不依赖抗生素的平台，为微生物细胞工厂稳定生物合成L-酪氨酸及其他芳香族氨基酸提供了一种有前景的策略。",
-        "sourceTitle": "Multilevel metabolic engineering of Bacillus amyloliquefaciens for enhanced L-tyrosine production.",
-        "sourceAbstract": "L-Tyrosine is a valuable aromatic amino acid with diverse applications. Although plasmid-based overexpression has markedly improved L-tyrosine production, the dependence on antibiotic selection and genetic instability under nonselective conditions limits its industrial applicability. To address these issues, this study employed a multi-level metabolic engineering strategy to enhance the L-tyrosine biosynthetic pathway at the genomic level in Bacillus amyloliquefaciens. First, an expression cassette containing the mutant prephenate dehydrogenase (TyrA I309A/E330V ) was inserted into the genome of the wild-type strain Z1. When the copy number reached three (strain Z4), L-tyrosine production reached 437.43mg/L. Subsequently, the mutant DAHP synthase (AroA R27A/K38A ) was integrated, and the resulting two-copy strain Z7 increased L-tyrosine production to 591.29mg/L. Systematic identification of rate-limiting steps showed that most pathway genes enhanced production to varying extents. A promoter in situ replacement strategy was then applied to construct strain Z21, which further increased the titer to 813.01mg/L. Finally, by optimizing precursor supply, the engineered strain Z32 reached an L-tyrosine titer of 1079.94mg/L. Overall, this plasmid-free and antibiotic-independent platform offers a promising strategy for stable biosynthesis of L-tyrosine and other aromatic amino acids in microbial cell factories.",
-        "sourceFingerprint": "c5cb5906-1524",
-        "origin": "assistant_translation",
-        "createdAt": "2026-10-30T04:14:10.785Z",
-        "reviewed": false,
-        "scope": "abstract_only"
-      }
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1073/pnas.2621208123",
@@ -1635,7 +1878,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC",
       "enrichment": {
@@ -2016,7 +2259,7 @@
       "journal": "Synthetic biology (Oxford, England)",
       "doi": "10.1093/synbio/ysag012",
       "pmid": "42967090",
-      "pmcid": null,
+      "pmcid": "PMC13723260",
       "source": "MED",
       "sourceId": "42967090",
       "url": "https://doi.org/10.1093/synbio/ysag012",
@@ -2031,7 +2274,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -2349,7 +2592,7 @@
       "isPreprint": true,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC",
       "enrichment": {
@@ -3244,59 +3487,6 @@
       "isRetraction": false,
       "readingScope": "仅摘要",
       "license": "cc by",
-      "version": null,
-      "collection": "Europe PMC"
-    },
-    {
-      "id": "doi:10.1021/acsabm.6c01394",
-      "title": "Additive Manufacturing of Metabolically Active Living Materials with Enhanced Biocontainment.",
-      "abstract": "Additive manufacturing of engineered living materials (ELMs) enables the spatial patterning of living cells or organisms within three-dimensional (3D) polymer matrices. However, effective biocontainment, defined as the ability to retain cells within 3D-printed matrices during the application period, remains a key limitation for ELMs requiring physical confinement. While synthetic biology provides cell-specific biocontainment strategies, materials-based approaches can enable generic cell retention capabilities. Therefore, we applied a materials-based strategy that combines pre-printing formulation development and post-printing processing to increase the retention of yeast Saccharomyces cerevisiae in Pluronic F127-bisurethane methacrylate (F127-BUM) hydrogels. F127-BUM precursor solutions were formulated with the comonomers methacrylic acid (MAA) and/or 2-(dimethylamino)ethyl methacrylate (DMAEMA), extrusion-printed, UV-cross-linked, and immersed in 70 vol % ethanol for 60 or 300 s before cultivation. Comonomer addition preserved dimensional fidelity, thermoresponsiveness, and shear-thinning behavior for 3D printing. After immobilization and cross-linking, DMAEMA and higher concentrations of MAA considerably reduced yeast viability, whereas a 70-80% viability was observed for 0.03 and 0.06 mol L-1 MAA. With 0.06 mol L-1 MAA and 300 s ethanol immersion, the yeast retention time reached 98 ± 12 h, which was approximately 48% longer than that of the correspondingly treated F127-BUM-only control and represented about a 465% increase relative to the untreated F127-BUM-only control. After ethanol immersion, a peripheral growth-free zone developed around a metabolically active core, enhancing cell retention and contributing to delayed cell escape. The selected MAA-containing ELMs remained metabolically active and showed nearly 38% higher apparent glucose-to-ethanol conversion than treated F127-BUM-only controls. The suspension cultures fermented faster and achieved higher yield. Our method achieved enhanced biocontainment, with an operational window of about 4-5 days. In conclusion, we demonstrate that combining pre-printing and post-printing processes can enhance biocontainment for different ELM applications. We suggest the integration of this method with synthetic-biology strategies to further extend biocontainment duration for metabolically active living materials.",
-      "authors": "Hamacek HSDR, Daily S, Le L, Khalid S, Spuul P, Lahtvee PJ, Nelson A, Kumar R.",
-      "journal": "ACS applied bio materials",
-      "doi": "10.1021/acsabm.6c01394",
-      "pmid": "42897788",
-      "pmcid": null,
-      "source": "MED",
-      "sourceId": "42897788",
-      "url": "https://doi.org/10.1021/acsabm.6c01394",
-      "publishedAt": "2026-10-19",
-      "discoveredAt": "2026-10-28T16:24:50.320Z",
-      "topics": [
-        "synthetic",
-        "microbial"
-      ],
-      "type": "期刊论文",
-      "status": "期刊记录 · 待核验",
-      "isPreprint": false,
-      "isRetraction": false,
-      "readingScope": "仅摘要",
-      "license": null,
-      "version": null,
-      "collection": "Europe PMC"
-    },
-    {
-      "id": "doi:10.1039/d6cs00978f",
-      "title": "Artificial photosynthetic cells: bridging chemical energization with biological functionalization.",
-      "abstract": "Artificial photosynthetic cells are nature-inspired systems that reproduce photosynthetic functions within cell/cell-mimetic compartments. Unlike discrete photocatalytic platforms, they integrate light harvesting, charge separation, multistep catalysis, selective transport, and compartmentalization to convert isolated photochemical reactions into coordinated cell-like functions. Driven by needs in carbon-neutral manufacturing, sustainable solar conversion, and precision medicine, the field is advancing from simple photocatalytic vesicles toward integrated and increasingly synthetic-cell platforms. In this review, we systematically elaborate on the rational design principles and emergent functional landscapes of artificial photosynthetic cells from a bioinspired perspective. We first decode the fundamental operational logic of natural photosynthesis, serving as a design blueprint. We then summarize the core construction modules of artificial photosynthetic cells, including cell-mimetic chassis, high-performance light-harvesting engines, multi-level catalytic networks, and precise interfacial engineering strategies. Furthermore, we categorize assembly paradigms into three mainstream branches: semi-artificial biohybrid systems, bottom-up reconstituted synthetic systems, and fully abiotic photosynthetic mimics. We further highlight a series of current and prospective functionalities, ranging from solar-driven CO 2 fixation and high-value chemical synthesis to in situ biomedical drug generation, as well as primitive life-like characteristics including intercellular communication, motility, and compartment division. Finally, we pinpoint the key technical bottlenecks, common pitfalls and outline opportunities enabled by the deep integration of synthetic biology, functional materials chemistry, and systematic bioengineering.",
-      "authors": "Gao F, Li D, Chen Y, Chen A, Liu G, Wang Y, Gao C, Xiong Y.",
-      "journal": "Chemical Society reviews",
-      "doi": "10.1039/d6cs00978f",
-      "pmid": "42895175",
-      "pmcid": null,
-      "source": "MED",
-      "sourceId": "42895175",
-      "url": "https://doi.org/10.1039/d6cs00978f",
-      "publishedAt": "2026-10-19",
-      "discoveredAt": "2026-10-28T16:24:50.320Z",
-      "topics": [
-        "synthetic"
-      ],
-      "type": "综述",
-      "status": "期刊记录 · 待核验",
-      "isPreprint": false,
-      "isRetraction": false,
-      "readingScope": "仅摘要",
-      "license": null,
       "version": null,
       "collection": "Europe PMC"
     },
@@ -5024,13 +5214,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 304,
+        "count": 309,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-03T03:56:24.950Z",
+        "fetchedAt": "2026-11-04T03:00:26.776Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -5055,7 +5245,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-03T03:56:24.703Z"
+        "checkedAt": "2026-11-04T03:00:26.521Z"
       }
     },
     {
@@ -5302,7 +5492,7 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 108,
+      "hitCount": 107,
       "count": 50,
       "truncated": true
     },
@@ -5314,13 +5504,13 @@
     },
     {
       "topic": "微生物制造",
-      "hitCount": 113,
+      "hitCount": 112,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-11-03",
+    "date": "2026-11-04",
     "requests": 0
   },
   "receipts": {},
@@ -5328,11 +5518,11 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "not_configured",
-    "lastRunAt": "2026-11-03T03:56:24.954Z",
+    "lastRunAt": "2026-11-04T03:00:26.781Z",
     "failedTopics": 0,
     "collectionSource": {
       "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/41575133684"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/41764317469"
     },
     "downloadRefresh": {
       "supported": 1,
@@ -5344,6 +5534,6 @@
     },
     "modelRequestsThisRun": 0,
     "analysisFailures": 0,
-    "completedAt": "2026-11-03T03:56:24.968Z"
+    "completedAt": "2026-11-04T03:00:26.806Z"
   }
 }

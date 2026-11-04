@@ -9,7 +9,14 @@
     <docs>https://www.rssboard.org/rss-specification</docs>
     <ttl>60</ttl>
     <atom:link href="https://jimmy-ui456.github.io/bioscope-daily/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 03 Nov 2026 03:56:22 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 03:00:24 GMT</lastBuildDate>
+    <item>
+      <title>生研观察 · 2026-11-04 公共文献简报（10 篇）</title>
+      <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-04#daily</link>
+      <guid isPermaLink="false">https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-04#daily</guid>
+      <pubDate>Wed, 04 Nov 2026 03:00:24 GMT</pubDate>
+      <description><![CDATA[<p>按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。</p><p>发表日期范围：2026-10-29 — 2026-11-04。</p><ol><li><a href="https://doi.org/10.1016/j.biotechadv.2026.109089">Research progress in the production, purification, and applications of long single-stranded DNA.</a></li><li><a href="https://doi.org/10.1039/d6cs00978f">Artificial photosynthetic cells: bridging chemical energization with biological functionalization.</a></li><li><a href="https://doi.org/10.64898/2026.10.30.763198">Machine learning guided design of strong transcriptional activation domains</a></li><li><a href="https://doi.org/10.1002/cbic.70572">Expression of Human CYP2D6 in Artificial Cells Based on Polymer-Lipid Hybrid Vesicles.</a></li><li><a href="https://doi.org/10.64898/2026.10.31.762157">Biosensor-guided genome-wide CRISPR screens enable cis,cis-muconic acid overproduction in yeast</a></li><li><a href="https://doi.org/10.1055/a-2995-3627">Cyclotides from Clitoria ternatea: Genomic Organization, Biosynthesis, and Roles in Plant Defense.</a></li><li><a href="https://doi.org/10.1111/1541-4337.70679">Recent Advances in Microbial Community Composition of Fermented Soy Whey and Its Mechanism for Biotransformation of Soybean Isoflavones.</a></li><li><a href="https://doi.org/10.64898/2026.10.31.763318">N-GLYcanyzer monitoring of a microperfusion process reveals critical parameters&apos; impact on Trastuzumab biosimilar N-glycoform time evolution</a></li><li><a href="https://doi.org/10.1093/qjmed/hcag306">Beyond the Stool: Circulating Short-Chain Fatty Acids Better Predict Human Gut-Related Diseases.</a></li><li><a href="https://doi.org/10.64898/2026.10.30.763118">Fluidized Bed Cathodes Enable High-Rate CO2 to Formate Production and In Situ Microbial Growth</a></li></ol>]]></description>
+    </item>
     <item>
       <title>生研观察 · 2026-11-03 公共文献简报（10 篇）</title>
       <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-03#daily</link>

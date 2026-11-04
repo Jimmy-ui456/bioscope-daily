@@ -2,6 +2,340 @@
   "version": 1,
   "reports": [
     {
+      "id": "public-daily-2026-11-04",
+      "kind": "public_daily",
+      "date": "2026-11-04",
+      "windowStart": "2026-10-29",
+      "createdAt": "2026-11-04T03:00:24.962Z",
+      "origin": "live",
+      "papers": [
+        {
+          "id": "doi:10.1016/j.biotechadv.2026.109089",
+          "title": "Research progress in the production, purification, and applications of long single-stranded DNA.",
+          "abstract": "Long single-stranded DNA (long ssDNA) plays important roles in cutting-edge fields such as DNA origami, gene therapy, and synthetic biology. However, the production, preparation, and purification of long ssDNA remain technically challenging. This review systematically summarizes current strategies for long ssDNA production and preparation, including phage-E. coli-based biological production, template-dependent enzymatic amplification, and viral-vector-based generation of ssDNA genomes. CRISPR-Cas-assisted approaches are discussed separately as complementary tools for post-synthetic processing, sequence-selective cleavage, enrichment, and quality control, whereas other enzymatic approaches are considered for post-synthetic strand conversion. We compare the characteristics and limitations of these production and preparation strategies, discuss purification techniques for long ssDNA, and summarize its applications in DNA origami nanotechnology and gene therapy. This review comprehensively synthesizes the bottlenecks in long ssDNA production, preparation, and purification, and outlines further development trends. We highlight template-independent de novo enzymatic DNA synthesis, automated DNA manufacturing, synthetic biology-based production systems, and AI-assisted sequence optimization. These developments are expected to accelerate the transition of long ssDNA technologies from laboratory research toward scalable manufacturing and practical applications.",
+          "authors": "Wang X, Wu Y, Zhang X, Du Y, Liu N, Wang Z, Zhang H, Gao X, Zheng A.",
+          "journal": "Biotechnology advances",
+          "doi": "10.1016/j.biotechadv.2026.109089",
+          "pmid": "42971416",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42971416",
+          "url": "https://doi.org/10.1016/j.biotechadv.2026.109089",
+          "publishedAt": "2026-11-02",
+          "discoveredAt": "2026-11-04T03:00:25.990Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1039/d6cs00978f",
+          "title": "Artificial photosynthetic cells: bridging chemical energization with biological functionalization.",
+          "abstract": "Artificial photosynthetic cells are nature-inspired systems that reproduce photosynthetic functions within cell/cell-mimetic compartments. Unlike discrete photocatalytic platforms, they integrate light harvesting, charge separation, multistep catalysis, selective transport, and compartmentalization to convert isolated photochemical reactions into coordinated cell-like functions. Driven by needs in carbon-neutral manufacturing, sustainable solar conversion, and precision medicine, the field is advancing from simple photocatalytic vesicles toward integrated and increasingly synthetic-cell platforms. In this review, we systematically elaborate on the rational design principles and emergent functional landscapes of artificial photosynthetic cells from a bioinspired perspective. We first decode the fundamental operational logic of natural photosynthesis, serving as a design blueprint. We then summarize the core construction modules of artificial photosynthetic cells, including cell-mimetic chassis, high-performance light-harvesting engines, multi-level catalytic networks, and precise interfacial engineering strategies. Furthermore, we categorize assembly paradigms into three mainstream branches: semi-artificial biohybrid systems, bottom-up reconstituted synthetic systems, and fully abiotic photosynthetic mimics. We further highlight a series of current and prospective functionalities, ranging from solar-driven CO 2 fixation and high-value chemical synthesis to in situ biomedical drug generation, as well as primitive life-like characteristics including intercellular communication, motility, and compartment division. Finally, we pinpoint the key technical bottlenecks, common pitfalls and outline opportunities enabled by the deep integration of synthetic biology, functional materials chemistry, and systematic bioengineering.",
+          "authors": "Gao F, Li D, Chen Y, Chen A, Liu G, Wang Y, Gao C, Xiong Y.",
+          "journal": "Chemical Society reviews",
+          "doi": "10.1039/d6cs00978f",
+          "pmid": "42895175",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42895175",
+          "url": "https://doi.org/10.1039/d6cs00978f",
+          "publishedAt": "2026-11-02",
+          "discoveredAt": "2026-10-28T16:24:50.320Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.64898/2026.10.30.763198",
+          "title": "Machine learning guided design of strong transcriptional activation domains",
+          "abstract": "Artificial intelligence has accelerated the design of structured proteins, but it remains difficult to design functional intrinsically disordered proteins because of weak structural constraints and poorly defined sequence-to-function relationships1. Activation domains (ADs), transcription factor regions that recruit coactivators, are an excellent test case for the de novo design of intrinsically disordered sequences. ADs are one of the oldest groups of functional intrinsically disordered sequences2 and designed ADs have applications in synthetic biology, biotechnology, and agriculture. We computationally generated 500,000 candidate sequences that resembled known ADs and predicted AD function with extant machine learning models, including three neural networks. From high-scoring sequences, we selected 18,750 for experimental validation in yeast. Surprisingly, >90% of the 16,770 well-measured sequences function as ADs. Sequences predicted to be active by multiple models were stronger, motivating development of a fast and accurate consensus AD predictor, MADRIGAL. A number of our designed ADs retain functionality across fungi, plants, and human cells. This work illustrates a generalizable paradigm for incorporating sequence-to-function models into the design loop to efficiently generate functional intrinsically disordered sequences.",
+          "authors": "Zintel MA, LeBlanc CJ, Kotha SR, Soriano M, Bansal RJ, Aguilera D, Majidi T, Ornelas I, Kirkpatrick LD, Udupa A, Hu G, Agarwal P, Lam AWY, Nunez JK, Shih PM, Sozzani R, Strader LC, Staller MV.",
+          "journal": "预印本平台",
+          "doi": "10.64898/2026.10.30.763198",
+          "pmid": null,
+          "pmcid": null,
+          "source": "PPR",
+          "sourceId": "PPR1355735",
+          "url": "https://doi.org/10.64898/2026.10.30.763198",
+          "publishedAt": "2026-11-02",
+          "discoveredAt": "2026-11-04T03:00:25.992Z",
+          "topics": [
+            "synthetic",
+            "microbial"
+          ],
+          "type": "预印本",
+          "status": "预印本 · 未经同行评审",
+          "isPreprint": true,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1002/cbic.70572",
+          "title": "Expression of Human CYP2D6 in Artificial Cells Based on Polymer-Lipid Hybrid Vesicles.",
+          "abstract": "Artificial cells with the ability to express functional, biomedically relevant enzymes have long been a goal in the field of bottom-up synthetic biology. Here, we demonstrate the expression of human cytochrome P450 2D6 (CYP2D6) within the lumen of giant hybrid vesicle-based artificial cells using a cell-free protein expression system based on the protozoan Leishmania tarentolae. The vesicle membranes comprise 1,2-dioleoyl-sn-glycero-3-phosphocholine and amphiphilic block copolymers containing poly(cholesteryl methacrylate-co-butyl methacrylate) with either poly(galactose methacrylate) (pGalacMA) or poly(carboxyethyl acrylate) as the hydrophilic block. The amount and composition of the block copolymer incorporated into the giant hybrid vesicle membrane altered the artificial cells' ability to support functional protein expression, likely through changes in membrane properties. In particular, giant hybrid vesicles containing pGalacMA supported production of enzymatically active CYP2D6. Overall, the reported approach advances the development of artificial cells capable of producing functional, biomedically relevant enzymes. Further, the effort highlights complex interplay between polymer properties and performance of biological components in the functional complexity achievable in polymer-lipid hybrid vesicles.",
+          "authors": "Dahl S, De Dios Andres P, Beaune G, Timonen JVI, Behrendorff J, Alexandrov K, Johnston W, Städler B.",
+          "journal": "Chembiochem : a European journal of chemical biology",
+          "doi": "10.1002/cbic.70572",
+          "pmid": "42960696",
+          "pmcid": "PMC13720967",
+          "source": "MED",
+          "sourceId": "42960696",
+          "url": "https://doi.org/10.1002/cbic.70572",
+          "publishedAt": "2026-11-01",
+          "discoveredAt": "2026-11-01T02:14:59.568Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": "cc by-nc",
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.64898/2026.10.31.762157",
+          "title": "Biosensor-guided genome-wide CRISPR screens enable cis,cis-muconic acid overproduction in yeast",
+          "abstract": "Classical pathway metabolic engineering relies on enhancing strain productivity through the introduction of rationally identified genetic perturbations, which while useful, are time-consuming and miss unintuitive targets. Genome-wide CRISPR screens offer an alternative by efficiently sampling genomes, enabling the engineering of novel phenotypes, and are further enhanced when combined with high-throughput strain interrogation methods. Here, using Saccharomyces cerevisiae, we engineered small molecule biosensors into population enrichment tools using zeocin resistance and fluorescence as signal outputs. We then introduced the multi-functional genome-wide CRISPR (MAGIC) library that targets every gene for activation, interference, or deletion, thus creating biosensor-aided MAGIC, or senMAGIC. As a case study, we utilized senMAGIC to identify single genetic determinants that improve productivity of the nylon precursors protocatechuic and cis,cis-muconic acids (PCA and ccM). These were then randomly assembled as triple gRNA-tRNA arrays for multiplexed gene perturbations to identify combinatorial effects. Top gRNA hits were then confirmed using direct genomic integrations in senMAGIC-free production strains, resulting in identifying known as well as novel targets that increase PCA and ccM titres. Our results demonstrate senMAGIC as a robust automation-friendly whole-genome evolution tool and highlight limitations of the method, providing a roadmap for future multifunctional CRISPR screens to optimize host metabolism for efficient bioprocesses.",
+          "authors": "Nasr MA, Knoops A, Thornbury M, Davies M, Kwan DH, Martin VJ.",
+          "journal": "预印本平台",
+          "doi": "10.64898/2026.10.31.762157",
+          "pmid": null,
+          "pmcid": null,
+          "source": "PPR",
+          "sourceId": "PPR1357676",
+          "url": "https://doi.org/10.64898/2026.10.31.762157",
+          "publishedAt": "2026-11-03",
+          "discoveredAt": "2026-11-04T03:00:26.028Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "预印本",
+          "status": "预印本 · 未经同行评审",
+          "isPreprint": true,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1055/a-2995-3627",
+          "title": "Cyclotides from Clitoria ternatea: Genomic Organization, Biosynthesis, and Roles in Plant Defense.",
+          "abstract": "Clitoria ternatea, commonly known as butterfly pea, is a perennial legume widely recognized for its ornamental and medicinal value. Beyond its characteristic anthocyanin-rich blue flowers, the plant produces cyclotides, a type of ultra-stable, cyclic cystine-knot peptide, with exceptional biological functions. Unlike other cyclotide-bearing families that carry independent cyclotide genes, C. ternatea integrates cyclotide domains into albumin-1 genes, replacing β-chain domains through divergent or convergent evolution. Genomic and transcriptomic studies reveal a large repertoire of albumin-1 loci and associated biosynthetic enzymes, including asparaginyl endopeptidases (butelase-1), protein disulphide isomerases, and peptidyl-prolyl isomerases, which orchestrate the cyclization, folding, and stabilization of cyclotides. Transcriptome analyses further demonstrate tissue-specific expression patterns, with distinct cyclotides such as cliotides T2 and T3 enriched in flowers and pods, and cliotides T8-T10 specialized in seeds, reflecting adaptive responses to localized biotic stress. Functionally, C. ternatea cyclotides exhibit broad-spectrum defense properties, including insecticidal, bactericidal, nematicidal, and antifungal activities, primarily through membrane permeabilization and disruption of lipid bilayers. Their preferential affinity for phosphatidylethanolamine-rich membranes highlights their selective toxicity toward insect and microbial targets. Recent advances in synthetic biology exploit cyclotides' structural stability as molecular scaffolds for therapeutic peptide design, with applications in immunomodulatory, antimicrobial, and anticancer drug development. This review consolidates genomic, transcriptomic, and functional insights into cyclotide biosynthesis and activity in C. ternatea, highlighting its evolutionary distinctiveness and biotechnological potential. Future research integrating multi-omics and spatial single-cell analyses can further unravel regulatory networks, defense dynamics, and translational applications of these unique plant peptides.",
+          "authors": "Kumar R, Yeo LM, Singaram N, Mah SH, Bunawan H, Lee KW, Yap WHH.",
+          "journal": "Planta medica",
+          "doi": "10.1055/a-2995-3627",
+          "pmid": "42971258",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42971258",
+          "url": "https://doi.org/10.1055/a-2995-3627",
+          "publishedAt": "2026-11-02",
+          "discoveredAt": "2026-11-04T03:00:25.991Z",
+          "topics": [
+            "synthetic",
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1111/1541-4337.70679",
+          "title": "Recent Advances in Microbial Community Composition of Fermented Soy Whey and Its Mechanism for Biotransformation of Soybean Isoflavones.",
+          "abstract": "Fermented soy whey (FSW), a traditional natural tofu coagulant, harbors complex microbial communities that drive soy-protein coagulation via organic-acid secretion and enhance the bioavailability of soybean isoflavones, conferring desirable flavor characteristics and health-beneficial bioactivities. However, several critical knowledge gaps restrict its scaled-up industrial deployment. The dynamic regulatory connections between microbial community temporal succession and metabolite biosynthesis during spontaneous FSW fermentation have not been fully deciphered. Interspecies interactions inside highly heterogeneous microbial consortia remain ambiguous, and the whole-fermentation system is exceptionally sensitive to fluctuating environmental conditions. This review synthesizes prior literature together with cutting-edge multi-omics datasets to systematically dissect the temporal dynamics of FSW microbial ecosystems. Enzymatic mechanistic analysis delineates key catalytic and metabolic pathways responsible for transforming soy isoflavone glucosides into aglycones and subsequent bioactive derivatives. We critically evaluate promising technical strategies, covering targeted synthetic-biology modification, integrated intelligent control systems, artificial intelligence, and digital-twin modeling, to advance the transition from experience-driven spontaneous fermentation to precision manufacturing. Selective manipulation of functional microbes or rate-limiting catalytic enzymes enables directional enrichment of high-activity isoflavone metabolites. This framework mitigates bioavailability drawbacks of native isoflavones and builds solid scientific foundations for zero-waste valorization of soy-processing by-products, circular food manufacturing, and innovative high-value-added functional-food development.",
+          "authors": "Li Z, Yan J, Zhang Z, Deng Y.",
+          "journal": "Comprehensive reviews in food science and food safety",
+          "doi": "10.1111/1541-4337.70679",
+          "pmid": "42928523",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42928523",
+          "url": "https://doi.org/10.1111/1541-4337.70679",
+          "publishedAt": "2026-11-01",
+          "discoveredAt": "2026-11-01T02:14:59.568Z",
+          "topics": [
+            "metabolic",
+            "microbial",
+            "synthetic"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.64898/2026.10.31.763318",
+          "title": "N-GLYcanyzer monitoring of a microperfusion process reveals critical parameters' impact on Trastuzumab biosimilar N-glycoform time evolution",
+          "abstract": "Controlling monoclonal antibody (mAb) N-glycosylation as a critical quality attribute (CQA) remains challenging in continuous and intensified biomanufacturing, where conventional end-point analyses obscure dynamic pathway responses. Here, we deployed the N-GLYcanyzer process analytical technology (PAT) for automated monitoring of a microperfusion process that reveals critical parameters' impact on Trastuzumab biosimilar N-glycoform time evolution across a 20-day culture duration of Chinese Hamster Ovary (CHO) cells in a ~2 mL scale-down microbioreactor perfusion platform. Using offline PAT assays combined with our integrated at-line PAT workflow, we systematically screened six perfusion process parameters: carbon source, viable cell density (VCD), perfusion rate, temperature, and pH. While nutrient limitation and thermal/acidic stress significantly disrupted N-glycans maturation, notably triggering high-mannose (Man5) accumulation and severe productivity penalties under pH 6.7 and 39 °C operation, targeted feed supplementation with galactose and MnCl 2 consistently shifted glycoform profiles away from G0F toward galactosylated species (G1F, G1F′, G2F). Crucially, coupling this combined feed strategy with an intensified perfusion rate (1.2 VVD) achieved a sustained, desired galactosylation shift without a productivity cost. These findings demonstrate that nutrient feed composition and perfusion rate are primary levers for steering continuous intensified microperfusion processes for biologics production with desired N-glycoform states and highlight the utility of automated at-line PAT like N-GLYcanyzer for enabling real-time attribute-based control in continuous biomanufacturing.",
+          "authors": "Narvekar A, Harrison M, Thakur R, Khot P, Semira P, Lee K, Chundawat SP.",
+          "journal": "预印本平台",
+          "doi": "10.64898/2026.10.31.763318",
+          "pmid": null,
+          "pmcid": null,
+          "source": "PPR",
+          "sourceId": "PPR1357702",
+          "url": "https://doi.org/10.64898/2026.10.31.763318",
+          "publishedAt": "2026-11-03",
+          "discoveredAt": "2026-11-04T03:00:26.253Z",
+          "topics": [
+            "microbial"
+          ],
+          "type": "预印本",
+          "status": "预印本 · 未经同行评审",
+          "isPreprint": true,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1093/qjmed/hcag306",
+          "title": "Beyond the Stool: Circulating Short-Chain Fatty Acids Better Predict Human Gut-Related Diseases.",
+          "abstract": "Background Short-chain fatty acids (SCFAs) mediate host-microbiota interactions and are typically measured in feces as markers of gut microbial activity. However, whether fecal SCFAs adequately reflect disease-associated host-microbiota dysfunction remains unclear. We hypothesized that circulating SCFAs, which integrate microbial production, intestinal absorption, barrier function, and host metabolism, provide a more informative representation of gut-related diseases. Methods Seven fecal and serum SCFAs were quantified by gas chromatography-mass spectrometry in 193 individuals, including patients with colorectal cancer (CRC, n = 30), celiac disease (CD, n = 35), obesity (OB, n = 33), and healthy controls (HCs, n = 95). We developed an interpretable machine-learning framework combining stacking ensembles, bootstrap validation, permutation testing, SHAP and LIME analyses. Cross-compartment predictive modeling was used to assess the reciprocal informativeness of fecal and circulating SCFAs. Results Circulating SCFAs exhibited markedly stronger disease-associated signatures than fecal SCFAs across all groups. Serum-based models achieved excellent classification performance (95% accuracy; multiclass ROC-AUC 1.00), whereas fecal SCFAs provided substantially lower predictive power (59% accuracy). Combining serum and fecal datasets yielded only marginal improvement (97.4% accuracy), indicating most diagnostic relevant information was already captured in circulation. Valeric, propionic, 2-methylbutyric, and isovaleric acids were consistently identified as the main contributors to disease discrimination. Cross-compartment modeling revealed weak predictive relationships between fecal and serum SCFAs, indicating these pools are largely non-redundant and reflect distinct biological processes. Conclusions Circulating SCFAs outperform fecal SCFAs as biomarkers of gut-related diseases, capturing the integrated effects of microbial activity and host physiology. These findings support blood-based SCFA profiling as a promising approach for precision diagnostics in microbiota-associated disorders.",
+          "authors": "Baldi S, Rotelli A, Cei F, Bertorello S, Bongianni A, Menicatti M, Calabrò AS, Cianchi F, Colombini B, Sofi F, Niccolai E, Bartolucci G, Iadanza E, Amedei A.",
+          "journal": "QJM : monthly journal of the Association of Physicians",
+          "doi": "10.1093/qjmed/hcag306",
+          "pmid": "42969389",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42969389",
+          "url": "https://doi.org/10.1093/qjmed/hcag306",
+          "publishedAt": "2026-11-02",
+          "discoveredAt": "2026-11-04T03:00:26.253Z",
+          "topics": [
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.64898/2026.10.30.763118",
+          "title": "Fluidized Bed Cathodes Enable High-Rate CO2 to Formate Production and In Situ Microbial Growth",
+          "abstract": "Electrochemical CO2 Reduction Reaction (eCO2RR) to formate offers a sustainable and promising route for storing renewable electricity in a microbial energy substrate. Conventional CO2 electrolyzers rely on flat electrodes with limited catalytic surface area, mass-transfer constraints, and electrolytes that are incompatible with microbial growth, preventing direct coupling of electrochemical formate production with biological conversion. Here, we developed a biocompatible CO2 electrolysis configuration that uses fluidized particles of Sn, Bi, and In as electrocatalysts to enhance CO2 to formate conversion while supporting microbial utilization in the same chamber. The fluidized configuration enabled high formate production rates up to 0.24 mmol cm2 with Faradaic efficiencies of 86 to 92%, representing a two fold improvement over static electrodes. The system also achieved a carbon conversion efficiency of 42%, approaching the theoretical limit for co-generation of formate and bicarbonate. Importantly, electrolysis was performed in a biocompatible medium that supported direct in situ cultivation of Cupriavidus necator within the cathode chamber using only electricity and CO2/O2 as fed substrates. C. necator continuously consumed electro-generated formate for 5 to 6 days under aerobic conditions, demonstrating integrated CO2 to biomass conversion. This work establishes a fluidized electrocatalytic platform for simultaneous electrosynthesis and microbial upgrading in a single reactor, providing a scalable strategy for renewable carbon fixation and sustainable biomanufacturing.",
+          "authors": "Zakaria B, Lanzilotti A, Sundstrom E, Tejedor Sanz S.",
+          "journal": "预印本平台",
+          "doi": "10.64898/2026.10.30.763118",
+          "pmid": null,
+          "pmcid": null,
+          "source": "PPR",
+          "sourceId": "PPR1355721",
+          "url": "https://doi.org/10.64898/2026.10.30.763118",
+          "publishedAt": "2026-11-02",
+          "discoveredAt": "2026-11-04T03:00:26.253Z",
+          "topics": [
+            "microbial"
+          ],
+          "type": "预印本",
+          "status": "预印本 · 未经同行评审",
+          "isPreprint": true,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        }
+      ],
+      "sections": [
+        {
+          "topicId": "synthetic",
+          "label": "合成生物学",
+          "paperIds": [
+            "doi:10.1016/j.biotechadv.2026.109089",
+            "doi:10.1039/d6cs00978f",
+            "doi:10.64898/2026.10.30.763198",
+            "doi:10.1002/cbic.70572"
+          ]
+        },
+        {
+          "topicId": "metabolic",
+          "label": "代谢工程",
+          "paperIds": [
+            "doi:10.64898/2026.10.31.762157",
+            "doi:10.1055/a-2995-3627",
+            "doi:10.1111/1541-4337.70679"
+          ]
+        },
+        {
+          "topicId": "microbial",
+          "label": "微生物制造",
+          "paperIds": [
+            "doi:10.64898/2026.10.31.763318",
+            "doi:10.1093/qjmed/hcag306",
+            "doi:10.64898/2026.10.30.763118"
+          ]
+        }
+      ],
+      "sourceUpdatedAt": "2026-11-04T03:00:26.781Z",
+      "sourceCollection": {
+        "status": "complete",
+        "failedTopics": [],
+        "trigger": "schedule",
+        "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/41764317469"
+      },
+      "selectionPolicy": {
+        "version": "publication-calendar-topic-round-robin-v1",
+        "description": "按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。",
+        "dateBasis": "first_publication_date",
+        "windowDays": 7,
+        "limit": 10,
+        "topicOrder": [
+          "synthetic",
+          "metabolic",
+          "microbial"
+        ],
+        "ordering": "各主题按发表日期倒序，轮流取文献后按主题分节；日期相同时按文献标识排序。",
+        "coverageNote": "仅整理当前文献库及配置主题，不代表该领域的全部新文献；未依据下载量或科研质量评分排序。"
+      },
+      "metrics": {
+        "inputCount": 190,
+        "uniqueCount": 190,
+        "candidateCount": 42,
+        "selectedCount": 10,
+        "sectionCount": 3
+      }
+    },
+    {
       "id": "public-daily-2026-11-03",
       "kind": "public_daily",
       "date": "2026-11-03",
