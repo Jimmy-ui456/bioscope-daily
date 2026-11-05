@@ -2,6 +2,341 @@
   "version": 1,
   "reports": [
     {
+      "id": "public-daily-2026-11-05",
+      "kind": "public_daily",
+      "date": "2026-11-05",
+      "windowStart": "2026-10-30",
+      "createdAt": "2026-11-05T03:30:36.278Z",
+      "origin": "live",
+      "papers": [
+        {
+          "id": "doi:10.1017/pls.2026.10031",
+          "title": "Global health security and smallpox: A strategic review of post-eradication biosafety and preparedness.",
+          "abstract": "The global biosecurity framework faces a potential critical transition driven by synthetic biology advancements and declining population-level immunity. This review evaluates smallpox as a central case study for contemporary pathogen governance and biopolitical preparedness. We analyze the convergence of two primary risks: the technical feasibility of de novo orthopoxvirus synthesis and the expanding immunity gap following the cessation of routine vaccination. The 2022 mpox resurgence is assessed as a sentinel event revealing strategic vulnerabilities in cross-protective immunity. Ultimately, this perspective argues that smallpox reemergence risk is not merely a technological byproduct, but a fundamental global governance crisis. To mitigate these threats, we propose a multidimensional framework integrated with One Health principles and transnational coordination. Maintaining strategic vigilance and institutional memory is presented as a critical political capacity for post-eradication health security.",
+          "authors": "Bülbül A, Kara A.",
+          "journal": "Politics and the life sciences : the journal of the Association for Politics and the Life Sciences",
+          "doi": "10.1017/pls.2026.10031",
+          "pmid": "42978405",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42978405",
+          "url": "https://doi.org/10.1017/pls.2026.10031",
+          "publishedAt": "2026-11-04",
+          "discoveredAt": "2026-11-05T03:30:38.232Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1093/milmed/usag514",
+          "title": "Biological Warfare, Bioterrorism, and Biocrime: A Systematic Review with Evidence-Based Historical Tiering (1763-2019).",
+          "abstract": "Biological warfare involves the deliberate use of microorganisms or toxins to cause disease and death in humans, animals, or plants, and has occurred across state warfare, bioterrorism, biocrime, and accidental laboratory release. Despite a substantial historical literature, many commonly cited events lack rigorous primary-source documentation, and secondary reviews frequently perpetuate unverified claims. This review applies explicit evidentiary criteria to distinguish well-documented incidents from contested allegations and unsubstantiated claims, using Carus's typology to categorize events by actor and intent. Following PRISMA guidelines (PROSPERO CRD42024592724), we searched PubMed, Web of Science, and Scopus up to April 4, 2024, supplemented by grey literature and expert consultation. Two reviewers applied predefined inclusion and exclusion criteria to title/abstract and full-text screening. A 3-tier evidentiary framework (well-documented, contested, and unsubstantiated), adapted from elements of ROBIS and PRISMA, was applied to 48 candidate events identified between pre-historic times and 2019, with adjudication by subject-matter experts. Quantitative analysis was restricted to the 19 well-documented events to anchor findings to corroborated evidence from primary archival sources, forensic investigations, and specialist scholarship. The 19 well-documented events caused at minimum 21,595 injuries and 10,079 deaths, comprising 17 deliberate uses (89.5%) and 2 major accidental releases (10.5%). Deliberate events comprised 6 biocrimes (31.6%), 5 acts of warfare (26.3%), 4 bioterrorist attacks (21.1%), and 2 State-sponsored acts (10.5%). Fourteen biological agents were employed across 31 agent instances. CDC Category B agents predominated (58.1%, n = 18), followed by Category A (35.5%, n = 11); 2 agents did not fit into the CDC classification (6.5%), and no Category C agents were identified. Bacillus anthracis was the most frequently used agent (22.6%, n = 7), followed by ricin (12.9%, n = 4) and Vibrio cholerae (9.7%, n = 3). The principal dispersal methods were contaminated food and beverages (29.2%, n = 7) and direct inoculation and infected animals or insect vectors (12.5%, n = 3), respectively. Events occurred across 9 countries, with the United States most frequently affected (31.6%, n = 6). Perpetrators originated from 10 countries, with the United States, United Kingdom, and Japan together accounting for over half of the well-documented events. Fewer than half of the events identified across the historical literature (n = 19; 39.6%) met the criteria for well-documented status, underscoring the need for consistent evidentiary standards in biosecurity research. Biological warfare remains a significant concern given its covert nature, the accessibility of low-technology dispersal methods, and emerging risks from synthetic biology, dual-use research, and artificial intelligence. Prevention, early detection, and rapid response, supported by ethical research oversight and open-source surveillance, are essential to mitigating these threats.",
+          "authors": "Honeyman DA, Akhtar Z, Heslop DJ, MacIntyre CR.",
+          "journal": "Military medicine",
+          "doi": "10.1093/milmed/usag514",
+          "pmid": "42981110",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42981110",
+          "url": "https://doi.org/10.1093/milmed/usag514",
+          "publishedAt": "2026-11-04",
+          "discoveredAt": "2026-11-05T03:30:38.232Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1016/j.ymben.2026.102577",
+          "title": "Advancing Terpenoid Biosynthesis in Saccharomyces cerevisiae: Synthetic Biology Approaches for Efficient Longifolene Production.",
+          "abstract": "The sustainable microbial production of high-value terpenoids like longifolene represents a critical frontier in green manufacturing, yet it is often hindered by systemic metabolic inefficiencies in microbial hosts. To address this, we present a comprehensive systems metabolic engineering framework in Saccharomyces cerevisiae that integrates three complementary modules to overcome the key bottlenecks of enzyme catalysis, cofactor supply, and precursor availability. First, we enhanced the catalytic module by employing the RII dimerization/docking domain-RI anchoring disruptor (RIDD-RIAD) peptide-mediated enzyme assembly and structure-guided Pinus sylvestris longifolene synthase (psTPS) variant screening, `which improved whole-cell longifolene production under the tested conditions. Second, to resolve nicotinamide adenine dinucleotide phosphate (NADPH) cofactor imbalance, we engineered a dual-regeneration system by introducing an exogenous formate dehydrogenase (FDH) and simultaneously amplifying endogenous pentose phosphate pathway (PPP) flux. Third, we reprogrammed central carbon metabolism by integrating the non-oxidative glycolysis (NOG) pathway and deleting the transcriptional repressors DOS2 and YNR063W, and was associated with a larger steady-state cytosolic acetyl-CoA pool, the essential terpenoid precursor. This multi-pronged strategy culminated in a highly optimized strain that achieved a titer of 92.84 mg/L in shake-flask cultures. Critically, the process was successfully scaled to a 5 L bioreactor under fed-batch conditions, yielding 4181.51 mg/L total longifolene at 204 h (3484.79 mg/L extracellular and 696.72 mg/L cell-associated), the highest total titer among the microbial reports identified in Supplementary Table S4. Differences in product recovery and cultivation protocols limit direct process comparisons. Our work demonstrates that coordinated optimization of enzyme assembly, cofactor regeneration, and carbon-flow reprogramming can substantially improve longifolene biosynthesis in S. cerevisiae. This study provides a longifolene-focused case study for modular pathway optimization, while broader application of this strategy to other terpenoids or natural products will require further pathway-specific validation.",
+          "authors": "Zhang W, Xin Y, Li S, Shen X, Zhang J, He H, Xiang S, Ba L, Liu Y.",
+          "journal": "Metabolic engineering",
+          "doi": "10.1016/j.ymben.2026.102577",
+          "pmid": "42977118",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42977118",
+          "url": "https://doi.org/10.1016/j.ymben.2026.102577",
+          "publishedAt": "2026-11-03",
+          "discoveredAt": "2026-11-05T03:30:38.153Z",
+          "topics": [
+            "synthetic",
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1038/s41467-026-78361-8",
+          "title": "Ca 2+ signature gates responsiveness to exogenous auxin in Arabidopsis roots.",
+          "abstract": "Plants must continually balance growth with arrest, especially under stress. Auxin signaling acts as a central regulatory hub in this process, yet the mechanisms that dynamically tune auxin signaling in real time remain unknown. Here, we use the light-gated, Ca 2+ -permeable Channelrhodopsin 2 variant XXM2.0 to optogenetically impose defined Ca 2+ signatures on Arabidopsis root cells. Repetitive light activation triggers cytosolic Ca 2+ signals that in turn suppress membrane depolarization and Ca 2+ transients triggered by exogenous auxin. Moreover, prolonged optogenetic Ca 2+ stimulation affects auxin-responsive transcriptional reprogramming. As phenotypic output, reversible inhibition of root growth by suppressing cell division and elongation is observed. We further identify a candidate CaM7-CNGC14 module that likely mediates Ca 2+ -dependent gating of responsiveness to exogenous auxin as well as Ca 2+ -dependent root growth inhibition. Our study thus introduces a synthetic biology approach to decompose calcium-auxin crosstalk in plant cells, and demonstrates that optogenetically imposed cytosolic Ca 2+ signals act as dynamic regulators of auxin susceptibility in roots.",
+          "authors": "Song H, Baudon A, Freund M, Randuch M, Pěnčík A, Novák O, He Z, Kaufmann K, Li N, Gilliham M, Friml J, Hedrich R, Huang S.",
+          "journal": "Nature communications",
+          "doi": "10.1038/s41467-026-78361-8",
+          "pmid": "42977750",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42977750",
+          "url": "https://doi.org/10.1038/s41467-026-78361-8",
+          "publishedAt": "2026-11-03",
+          "discoveredAt": "2026-11-05T03:30:38.232Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1007/s00203-026-05273-y",
+          "title": "Bacillus-mediated selenium nanoparticle biosynthesis: reduction pathways, cellular processes, and applications.",
+          "abstract": "Selenium nanoparticles (SeNPs) have attracted considerable interest due to their unique physicochemical properties, low toxicity compared with inorganic selenium (Se) compounds, and diverse biological activities. Microorganisms, particularly species of the genus Bacillus, represent efficient biological platforms for SeNP synthesis because of their tolerance to selenium oxyanions and their ability to reduce selenite Se (IV) to elemental selenium (Se0) under mild conditions. Selenate-reduction is relatively poorly understood in this genus, so the candidate selenate-reductase system proposed here is inferred from selenium-respiring organisms and has not been genetically confirmed in Bacillus. This review summarizes current knowledge on Bacillus-mediated SeNP biosynthesis with an emphasis on microbial selenium transformation, cellular responses, and biochemical processes involved in nanoparticle formation. The roles of redox-associated pathways, reducing equivalents, candidate enzymes, metabolites, and extracellular biomolecules in selenium reduction, nucleation, and stabilization are critically discussed, while highlighting the limitations of current mechanistic understanding and the need for further genetic validation. In addition, this review examines how bacterial strain characteristics and cultivation conditions influence SeNP properties, including particle size, surface chemistry, stability, and biological activity. The applications of Bacillus-derived SeNPs, including antimicrobial, antioxidant, anticancer, agricultural, and environmental applications, are discussed in relation to the nanoparticle characteristics and biological performance. Throughout the review, evidence is explicitly attributed to the relevant source system, distinguishing among Bacillus-derived, other microbial, chemically synthesized, plant-derived, and general SeNP literature. Current biomedical evidence for Bacillus-mediated SeNPs is based predominantly on in-vitro studies. Finally, emerging approaches for improving microbial SeNP production through strain selection, metabolic engineering, and process optimization are highlighted. This review provides an integrated perspective on Bacillus-mediated SeNP biosynthesis, identifies future research directions and offers insights for researchers in microbiology, bioprocess engineering, animal nutrition and agricultural biotechnology.",
+          "authors": "Nawaz S, Anayat M, Nawaz N, Tao Z, Iftikhar M, Wang F.",
+          "journal": "Archives of microbiology",
+          "doi": "10.1007/s00203-026-05273-y",
+          "pmid": "42980857",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42980857",
+          "url": "https://doi.org/10.1007/s00203-026-05273-y",
+          "publishedAt": "2026-11-04",
+          "discoveredAt": "2026-11-05T03:30:38.160Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1016/j.molp.2026.10.019",
+          "title": "Metabolic shuttles between mitochondria and plastids: Roles of key transporters in coordinating carbon-nitrogen metabolism.",
+          "abstract": "Carbon and nitrogen metabolism in plant cells is distributed across multiple organelles, requiring extensive metabolite exchange to coordinate growth, development and environmental responses. Mitochondria and plastids function as interconnected metabolic hubs linked through the transport of carbon skeletons, amino acids, organic acids, and redox equivalents across organellar membranes. These transport processes are essential for integrating energy conversion processes, nitrogen assimilation, and biosynthetic metabolism. In this review, we integrate current knowledge of mitochondrial and plastid envelope transporters that mediate carbon-nitrogen exchange between organelles, focusing on recent characterisation of transporters with confirmed substrates. We discuss how these transporters contribute to the coordination of cellular metabolism, highlight emerging concepts regarding their regulation and integration, and identify major knowledge gaps in our understanding of interorganellar metabolic communication. Understanding how these transport systems collectively shape carbon-nitrogen fluxes is essential for deciphering metabolic flexibility and guiding metabolic engineering strategies in plants.",
+          "authors": "Le XH, Millar AH, Kuhnert F.",
+          "journal": "Molecular plant",
+          "doi": "10.1016/j.molp.2026.10.019",
+          "pmid": "42978224",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42978224",
+          "url": "https://doi.org/10.1016/j.molp.2026.10.019",
+          "publishedAt": "2026-11-04",
+          "discoveredAt": "2026-11-05T03:30:38.160Z",
+          "topics": [
+            "metabolic"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1007/s11274-026-05376-0",
+          "title": "Green production of short-chain diols through microbial fermentation and bioconversion: Current advances, challenges, and future perspectives.",
+          "abstract": "Short-chain diols (C2-C5) are important platform chemicals used in polymers, textiles, pharmaceuticals, cosmetics, and specialty chemicals. Their conventional petrochemical production is associated with fossil-resource dependence and substantial energy requirements, motivating the development of bio-based alternatives. However, existing knowledge remains fragmented across individual diols, microbial hosts, metabolic pathways, and production technologies, limiting systematic assessment of their relative performance and industrial feasibility. This review addresses these gaps through a product-oriented comparative analysis of microbial production of ethylene glycol, propanediols, butanediols, and pentanediols. It examines metabolic pathway design, host engineering, renewable feedstock utilization, and fermentation strategies, highlighting how precursor availability, intermediate toxicity, redox balance, and cofactor requirements influence product yield, titer, and productivity. The review further evaluates downstream recovery options and their implications for purification costs, alongside reported techno-economic and life-cycle assessment findings. Particular attention is given to the challenges of comparing studies with different process conditions, economic assumptions, and environmental system boundaries. Finally, the review distinguishes comparatively mature bio-based production platforms from emerging pathways and identifies priorities for improving process integration, economic competitiveness, and environmental performance. This integrated perspective provides a basis for evaluating research progress and guiding the development of commercially viable and environmentally sustainable short-chain diol production systems.",
+          "authors": "Bhatia SK, Gurav R, Joo JC, Yang YH.",
+          "journal": "World journal of microbiology & biotechnology",
+          "doi": "10.1007/s11274-026-05376-0",
+          "pmid": "42975742",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42975742",
+          "url": "https://doi.org/10.1007/s11274-026-05376-0",
+          "publishedAt": "2026-11-03",
+          "discoveredAt": "2026-11-05T03:30:38.153Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.64898/2026.11.03.763959",
+          "title": "Metabolic engineering of Saccharomyces cerevisiae for improved polyphosphate production",
+          "abstract": "Finite high-grade phosphate rock reserves and rising legislative demand for phosphorus recycling create a need for processes converting phosphorus-containing residual streams into valuable products. Microbial synthesis of inorganic polyphosphate (polyP) could complement its energy-intensive chemical manufacturing while enabling phosphorus recovery in a value-added product with applications ranging from food processing to flame retardants and fertilizer. After orthophosphate (Pi) starvation and refeeding, Saccharomyces cerevisiae naturally accumulates polyP as a cellular Pi reserve, but the current multistage process complicates industrial implementation. Here, we identified metabolic interventions that uncouple polyP accumulation from Pi starvation by systematic evaluation of 57 engineered S. cerevisiae CEN.PK113-7D strains. Constitutive activation of the PHO regulon produced the strongest increase in polyP, whereas disruption of inositol pyrophosphate synthesis, Pi import, or the vacuolar transporter chaperone complex impaired accumulation. This pattern indicates that efficient polyP accumulation depends on coordinated activation of Pi acquisition and vacuolar polymerization. Notably, deletion of PHO80 converted a transient starvation response into a constitutive production phenotype, enabling high polyP accumulation during growth. Optimization of the growth medium increased the polyP content further, and efficient use of the supplied Pi was demonstrated, while electron microscopy paired with energy-dispersive X-ray spectroscopy supported increased vacuolar storage. During aerobic exponential fed-batch cultivation, pho80Δ simultaneously formed biomass and polyP, reaching a polyP content of 22.1% of cell dry weight and a titer of 8.2 g/L, both expressed as KPO3 equivalents. These findings establish S. cerevisiae pho80Δ as a promising platform for biological polyP production and phosphorus recovery.",
+          "authors": "Baier M, Karmainski T, Buhl EM, Deitert A, Eerlings R, Voelker F, Brans L, Deis E, Demling P, Blank LM.",
+          "journal": "预印本平台",
+          "doi": "10.64898/2026.11.03.763959",
+          "pmid": null,
+          "pmcid": null,
+          "source": "PPR",
+          "sourceId": "PPR1358826",
+          "url": "https://doi.org/10.64898/2026.11.03.763959",
+          "publishedAt": "2026-11-04",
+          "discoveredAt": "2026-11-05T03:30:38.160Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "预印本",
+          "status": "预印本 · 未经同行评审",
+          "isPreprint": true,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1002/advs.78608",
+          "title": "Combinatorial Tuning of Multigene Biosynthetic Pathways based on RNA Interference.",
+          "abstract": "Fine-tuning the expression level of multigene pathways remains a major challenge in engineering eukaryotic microbial cell factories. Modifications to individual pathway genes and CRISPR-based approaches often require repeated genome reconstruction, large regulatory components, or complex guide-array assembly. Here, we developed a lightweight, post-transcriptional RNAi-based strategy that enables fine-tuning gene expression without iterative genome editing. Size-selected small-RNA sequencing and functional testing were used to identify endogenous Pol III promoters spanning graded transcriptional strengths in Schizochytrium sp. Combining promoter strength with multiple short hairpin RNA (shRNA) target positions expanded the accessible repression range and enabled high-resolution gene-dosage tuning. The RNAi-based combined regulation strategy was applied to the three-gene carotenoid pathway of Schizochytrium sp. and the nine-gene docosahexaenoic acid (DHA) pathway of Yarrowia lipolytica, significantly enhancing the product production in both hosts. Integration of RNAi screening and dosage optimization further identified and tuned bypass pathways, increasing the ratio of DHA to docosapentaenoic acid (DPA) by 4.50-fold versus wild type. These gains were maintained during 5-L fermentation and serial passaging. This work establishes a compact and scalable regulatory framework for engineering complex biosynthetic pathways in eukaryotic microbial hosts.",
+          "authors": "Zhang Z, Xu Y, Li Z, Du F, Ma W, Yang G, Sun X.",
+          "journal": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+          "doi": "10.1002/advs.78608",
+          "pmid": "42977532",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42977532",
+          "url": "https://doi.org/10.1002/advs.78608",
+          "publishedAt": "2026-11-03",
+          "discoveredAt": "2026-11-05T03:30:38.152Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1016/j.biotechadv.2026.109081",
+          "title": "Decoding the landscape in biomanufacturing of xylose: metabolic bottlenecks and computation-assisted strategies.",
+          "abstract": "As the second most abundant sugar in lignocellulose, xylose suffers from low utilization efficiency due to carbon catabolite repression and the scarcity of natural metabolic pathways. This bottleneck leads to the wastage of nearly 40% of available carbohydrate sources, undermining the economic competitiveness of biorefineries. Overcoming these metabolic barriers is essential for the transition toward large-scale, sustainable biomanufacturing. This review comprehensively summarizes the main pathways of xylose metabolism, with a particular focus on its major metabolic products, rate-limiting enzymes, cofactor preferences, feedback regulation, and compartmentalization. Special attention is given to the significance of modifying rate-limiting enzymes for enhancing carbon flux in the xylose metabolic pathway. The study aims to integrate current knowledge, and to provide support for further research. While enzyme limitations and redox imbalances persist, this review highlights how integrating AI-driven protein engineering with genome-scale metabolic models offers precise solutions. By optimizing key enzymes and correcting cofactor dependencies, these computational strategies provide a robust framework for overcoming metabolic bottlenecks. Ultimately, synergistic AI-metabolic modeling accelerates the efficient conversion of xylose, unlocking its transformative potential for the green bioeconomy.",
+          "authors": "Zou L, Rashwan AK, Fozi V, Yahia ZO, Xie L, Chen W.",
+          "journal": "Biotechnology advances",
+          "doi": "10.1016/j.biotechadv.2026.109081",
+          "pmid": "42977199",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "42977199",
+          "url": "https://doi.org/10.1016/j.biotechadv.2026.109081",
+          "publishedAt": "2026-11-03",
+          "discoveredAt": "2026-11-05T03:30:38.153Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        }
+      ],
+      "sections": [
+        {
+          "topicId": "synthetic",
+          "label": "合成生物学",
+          "paperIds": [
+            "doi:10.1017/pls.2026.10031",
+            "doi:10.1093/milmed/usag514",
+            "doi:10.1016/j.ymben.2026.102577",
+            "doi:10.1038/s41467-026-78361-8"
+          ]
+        },
+        {
+          "topicId": "metabolic",
+          "label": "代谢工程",
+          "paperIds": [
+            "doi:10.1007/s00203-026-05273-y",
+            "doi:10.1016/j.molp.2026.10.019",
+            "doi:10.1007/s11274-026-05376-0"
+          ]
+        },
+        {
+          "topicId": "microbial",
+          "label": "微生物制造",
+          "paperIds": [
+            "doi:10.64898/2026.11.03.763959",
+            "doi:10.1002/advs.78608",
+            "doi:10.1016/j.biotechadv.2026.109081"
+          ]
+        }
+      ],
+      "sourceUpdatedAt": "2026-11-05T03:30:38.782Z",
+      "sourceCollection": {
+        "status": "complete",
+        "failedTopics": [],
+        "trigger": "schedule",
+        "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/41962001758"
+      },
+      "selectionPolicy": {
+        "version": "publication-calendar-topic-round-robin-v1",
+        "description": "按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。",
+        "dateBasis": "first_publication_date",
+        "windowDays": 7,
+        "limit": 10,
+        "topicOrder": [
+          "synthetic",
+          "metabolic",
+          "microbial"
+        ],
+        "ordering": "各主题按发表日期倒序，轮流取文献后按主题分节；日期相同时按文献标识排序。",
+        "coverageNote": "仅整理当前文献库及配置主题，不代表该领域的全部新文献；未依据下载量或科研质量评分排序。"
+      },
+      "metrics": {
+        "inputCount": 212,
+        "uniqueCount": 212,
+        "candidateCount": 52,
+        "selectedCount": 10,
+        "sectionCount": 3
+      }
+    },
+    {
       "id": "public-daily-2026-11-04",
       "kind": "public_daily",
       "date": "2026-11-04",
