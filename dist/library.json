@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-05T03:30:38.782Z",
+  "fetchedAt": "2026-11-06T03:26:45.806Z",
   "papers": [
     {
       "id": "doi:10.1007/s00203-026-05273-y",
@@ -405,8 +405,8 @@
     },
     {
       "id": "doi:10.64898/2026.10.31.763318",
-      "title": "N-GLYcanyzer monitoring of a microperfusion process reveals critical parameters' impact on Trastuzumab biosimilar N-glycoform time evolution",
-      "abstract": "Controlling monoclonal antibody (mAb) N-glycosylation as a critical quality attribute (CQA) remains challenging in continuous and intensified biomanufacturing, where conventional end-point analyses obscure dynamic pathway responses. Here, we deployed the N-GLYcanyzer process analytical technology (PAT) for automated monitoring of a microperfusion process that reveals critical parameters' impact on Trastuzumab biosimilar N-glycoform time evolution across a 20-day culture duration of Chinese Hamster Ovary (CHO) cells in a ~2 mL scale-down microbioreactor perfusion platform. Using offline PAT assays combined with our integrated at-line PAT workflow, we systematically screened six perfusion process parameters: carbon source, viable cell density (VCD), perfusion rate, temperature, and pH. While nutrient limitation and thermal/acidic stress significantly disrupted N-glycans maturation, notably triggering high-mannose (Man5) accumulation and severe productivity penalties under pH 6.7 and 39 °C operation, targeted feed supplementation with galactose and MnCl 2 consistently shifted glycoform profiles away from G0F toward galactosylated species (G1F, G1F′, G2F). Crucially, coupling this combined feed strategy with an intensified perfusion rate (1.2 VVD) achieved a sustained, desired galactosylation shift without a productivity cost. These findings demonstrate that nutrient feed composition and perfusion rate are primary levers for steering continuous intensified microperfusion processes for biologics production with desired N-glycoform states and highlight the utility of automated at-line PAT like N-GLYcanyzer for enabling real-time attribute-based control in continuous biomanufacturing.",
+      "title": "N-GLYcanyzer monitoring of a microperfusion process reveals critical parameters’ impact on Trastuzumab biosimilar N-glycoform time evolution",
+      "abstract": "Controlling monoclonal antibody (mAb) N-glycosylation as a critical quality attribute (CQA) remains challenging in continuous and intensified biomanufacturing, where conventional end-point analyses obscure dynamic pathway responses. Here, we deployed the N-GLYcanyzer process analytical technology (PAT) for automated monitoring of a microperfusion process that reveals critical parameters’ impact on Trastuzumab biosimilar N- glycoform time evolution across a 20-day culture duration of Chinese Hamster Ovary (CHO) cells in a ∼2 mL scale-down microbioreactor perfusion platform. Using offline PAT assays combined with our integrated at-line PAT workflow, we systematically screened six perfusion process parameters: carbon source, viable cell density (VCD), perfusion rate, temperature, and pH. While nutrient limitation and thermal/acidic stress significantly disrupted N-glycans maturation, notably triggering high-mannose (Man5) accumulation and severe productivity penalties under pH 6.7 and 39 °C operation, targeted feed supplementation with galactose and MnCl consistently shifted glycoform profiles away from G0F toward galactosylated species (G1F, G1F′, G2F). Crucially, coupling this combined feed strategy with an intensified perfusion rate (1.2 VVD) achieved a sustained, desired galactosylation shift without a productivity cost. These findings demonstrate that nutrient feed composition and perfusion rate are primary levers for steering continuous intensified microperfusion processes for biologics production with desired N-glycoform states and highlight the utility of automated at-line PAT like N-GLYcanyzer for enabling real-time attribute-based control in continuous biomanufacturing.",
       "authors": "Narvekar A, Harrison M, Thakur R, Khot P, Semira P, Lee K, Chundawat SP.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.10.31.763318",
@@ -425,7 +425,7 @@
       "isPreprint": true,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc-nd",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -511,9 +511,9 @@
     },
     {
       "id": "doi:10.64898/2026.10.30.763118",
-      "title": "Fluidized Bed Cathodes Enable High-Rate CO2 to Formate Production and In Situ Microbial Growth",
-      "abstract": "Electrochemical CO2 Reduction Reaction (eCO2RR) to formate offers a sustainable and promising route for storing renewable electricity in a microbial energy substrate. Conventional CO2 electrolyzers rely on flat electrodes with limited catalytic surface area, mass-transfer constraints, and electrolytes that are incompatible with microbial growth, preventing direct coupling of electrochemical formate production with biological conversion. Here, we developed a biocompatible CO2 electrolysis configuration that uses fluidized particles of Sn, Bi, and In as electrocatalysts to enhance CO2 to formate conversion while supporting microbial utilization in the same chamber. The fluidized configuration enabled high formate production rates up to 0.24 mmol cm2 with Faradaic efficiencies of 86 to 92%, representing a two fold improvement over static electrodes. The system also achieved a carbon conversion efficiency of 42%, approaching the theoretical limit for co-generation of formate and bicarbonate. Importantly, electrolysis was performed in a biocompatible medium that supported direct in situ cultivation of Cupriavidus necator within the cathode chamber using only electricity and CO2/O2 as fed substrates. C. necator continuously consumed electro-generated formate for 5 to 6 days under aerobic conditions, demonstrating integrated CO2 to biomass conversion. This work establishes a fluidized electrocatalytic platform for simultaneous electrosynthesis and microbial upgrading in a single reactor, providing a scalable strategy for renewable carbon fixation and sustainable biomanufacturing.",
-      "authors": "Zakaria B, Lanzilotti A, Sundstrom E, Tejedor Sanz S.",
+      "title": "Fluidized Bed Cathodes Enable High-Rate CO 2 to Formate Production and In Situ Microbial Growth",
+      "abstract": "ABSTRACT Electrochemical CO 2 Reduction Reaction (eCO 2 RR) to formate offers a sustainable and promising route for storing renewable electricity in a microbial energy substrate. Conventional CO 2 electrolyzers rely on flat electrodes with limited catalytic surface area, mass-transfer constraints, and electrolytes that are incompatible with microbial growth, preventing direct coupling of electrochemical formate production with biological conversion. Here, we developed a biocompatible CO 2 electrolysis configuration that uses fluidized particles of Sn, Bi, and In as electrocatalysts to enhance CO□-to-formate conversion while supporting microbial utilization in the same chamber. The fluidized configuration enabled high formate production rates up to 0.24 mmol h□¹ cm□² with Faradaic efficiencies of 86–92%, representing a two-fold improvement over static electrodes. The system also achieved a carbon conversion efficiency of 42%, approaching the theoretical limit for co-generation of formate and bicarbonate. Importantly, electrolysis was performed in a biocompatible medium that supported direct in situ cultivation of Cupriavidus necator within the cathode chamber using only electricity and CO 2 /O 2 as fed substrates. C. necator continuously consumed electro-generated formate for 5-6 days under aerobic conditions, demonstrating integrated CO 2 -to-biomass conversion. This work establishes a fluidized electrocatalytic platform for simultaneous electrosynthesis and microbial upgrading in a single reactor, providing a scalable strategy for renewable carbon fixation and sustainable biomanufacturing. TOC GRAPHIC",
+      "authors": "Zakaria B, Lanzilotti A, Sundstrom E, Tejedor-Sanz S.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.10.30.763118",
       "pmid": null,
@@ -538,8 +538,8 @@
     {
       "id": "doi:10.64898/2026.10.30.763198",
       "title": "Machine learning guided design of strong transcriptional activation domains",
-      "abstract": "Artificial intelligence has accelerated the design of structured proteins, but it remains difficult to design functional intrinsically disordered proteins because of weak structural constraints and poorly defined sequence-to-function relationships1. Activation domains (ADs), transcription factor regions that recruit coactivators, are an excellent test case for the de novo design of intrinsically disordered sequences. ADs are one of the oldest groups of functional intrinsically disordered sequences2 and designed ADs have applications in synthetic biology, biotechnology, and agriculture. We computationally generated 500,000 candidate sequences that resembled known ADs and predicted AD function with extant machine learning models, including three neural networks. From high-scoring sequences, we selected 18,750 for experimental validation in yeast. Surprisingly, >90% of the 16,770 well-measured sequences function as ADs. Sequences predicted to be active by multiple models were stronger, motivating development of a fast and accurate consensus AD predictor, MADRIGAL. A number of our designed ADs retain functionality across fungi, plants, and human cells. This work illustrates a generalizable paradigm for incorporating sequence-to-function models into the design loop to efficiently generate functional intrinsically disordered sequences.",
-      "authors": "Zintel MA, LeBlanc CJ, Kotha SR, Soriano M, Bansal RJ, Aguilera D, Majidi T, Ornelas I, Kirkpatrick LD, Udupa A, Hu G, Agarwal P, Lam AWY, Nunez JK, Shih PM, Sozzani R, Strader LC, Staller MV.",
+      "abstract": "Summary Artificial intelligence has accelerated the design of structured proteins, but it remains difficult to design functional intrinsically disordered proteins because of weak structural constraints and poorly defined sequence-to-function relationships 1 . Activation domains (ADs), transcription factor regions that recruit coactivators, are an excellent test case for the de novo design of intrinsically disordered sequences. ADs are one of the oldest groups of functional intrinsically disordered sequences 2 and designed ADs have applications in synthetic biology, biotechnology, and agriculture. We computationally generated 500,000 candidate sequences that resembled known ADs and predicted AD function with extant machine learning models, including three neural networks. From high-scoring sequences, we selected 18,750 for experimental validation in yeast. Surprisingly, >90% of the 16,770 well-measured sequences function as ADs. Sequences predicted to be active by multiple models were stronger, motivating development of a fast and accurate consensus AD predictor, MADRIGAL. A number of our designed ADs retain functionality across fungi, plants, and human cells. This work illustrates a generalizable paradigm for incorporating sequence-to-function models into the design loop to efficiently generate functional intrinsically disordered sequences.",
+      "authors": "Zintel MA, LeBlanc CJ, Kotha SR, Soriano M, Bansal RJ, Aguilera D, Majidi T, Ornelas I, Kirkpatrick LD, Udupa A, Hu G, Agarwal P, Lam AWY, Nuñez JK, Shih PM, Sozzani R, Strader LC, Staller MV.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.10.30.763198",
       "pmid": null,
@@ -1221,7 +1221,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -2358,7 +2358,7 @@
       "journal": "Proceedings of the National Academy of Sciences of the United States of America",
       "doi": "10.1073/pnas.2621208123",
       "pmid": "42945261",
-      "pmcid": null,
+      "pmcid": "PMC13732038",
       "source": "MED",
       "sourceId": "42945261",
       "url": "https://doi.org/10.1073/pnas.2621208123",
@@ -2373,7 +2373,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc-nd",
       "version": null,
       "collection": "Europe PMC",
       "enrichment": {
@@ -3968,7 +3968,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc-nd",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -5801,13 +5801,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 328,
+        "count": 332,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-05T03:30:38.775Z",
+        "fetchedAt": "2026-11-06T03:26:45.799Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -5832,7 +5832,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-05T03:30:38.634Z"
+        "checkedAt": "2026-11-06T03:26:45.650Z"
       }
     },
     {
@@ -6079,25 +6079,25 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 115,
+      "hitCount": 101,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 81,
+      "hitCount": 69,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 114,
+      "hitCount": 101,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-11-05",
+    "date": "2026-11-06",
     "requests": 0
   },
   "receipts": {},
@@ -6105,11 +6105,11 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "not_configured",
-    "lastRunAt": "2026-11-05T03:30:38.782Z",
+    "lastRunAt": "2026-11-06T03:26:45.806Z",
     "failedTopics": 0,
     "collectionSource": {
       "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/41962001758"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/42156578267"
     },
     "downloadRefresh": {
       "supported": 1,
@@ -6121,6 +6121,6 @@
     },
     "modelRequestsThisRun": 0,
     "analysisFailures": 0,
-    "completedAt": "2026-11-05T03:30:38.811Z"
+    "completedAt": "2026-11-06T03:26:45.838Z"
   }
 }
