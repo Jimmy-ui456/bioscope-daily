@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-07T02:50:29.796Z",
+  "fetchedAt": "2026-11-08T02:30:28.210Z",
   "papers": [
     {
       "id": "doi:10.1007/s00203-026-05273-y",
@@ -191,8 +191,8 @@
     },
     {
       "id": "doi:10.64898/2026.10.31.762157",
-      "title": "Biosensor-guided genome-wide CRISPR screens enable cis,cis-muconic acid overproduction in yeast",
-      "abstract": "Classical pathway metabolic engineering relies on enhancing strain productivity through the introduction of rationally identified genetic perturbations, which while useful, are time-consuming and miss unintuitive targets. Genome-wide CRISPR screens offer an alternative by efficiently sampling genomes, enabling the engineering of novel phenotypes, and are further enhanced when combined with high-throughput strain interrogation methods. Here, using Saccharomyces cerevisiae, we engineered small molecule biosensors into population enrichment tools using zeocin resistance and fluorescence as signal outputs. We then introduced the multi-functional genome-wide CRISPR (MAGIC) library that targets every gene for activation, interference, or deletion, thus creating biosensor-aided MAGIC, or senMAGIC. As a case study, we utilized senMAGIC to identify single genetic determinants that improve productivity of the nylon precursors protocatechuic and cis,cis-muconic acids (PCA and ccM). These were then randomly assembled as triple gRNA-tRNA arrays for multiplexed gene perturbations to identify combinatorial effects. Top gRNA hits were then confirmed using direct genomic integrations in senMAGIC-free production strains, resulting in identifying known as well as novel targets that increase PCA and ccM titres. Our results demonstrate senMAGIC as a robust automation-friendly whole-genome evolution tool and highlight limitations of the method, providing a roadmap for future multifunctional CRISPR screens to optimize host metabolism for efficient bioprocesses.",
+      "title": "Biosensor-guided genome-wide CRISPR screens enable cis , cis -muconic acid overproduction in yeast",
+      "abstract": "ABSTRACT Classical pathway metabolic engineering relies on enhancing strain productivity through the introduction of rationally identified genetic perturbations, which while useful, are time-consuming and miss unintuitive targets. Genome-wide CRISPR screens offer an alternative by efficiently sampling genomes, enabling the engineering of novel phenotypes, and are further enhanced when combined with high-throughput strain interrogation methods. Here, using Saccharomyces cerevisiae , we engineered small molecule biosensors into population enrichment tools using zeocin resistance and fluorescence as signal outputs. We then introduced the multi-functional genome-wide CRISPR (MAGIC) library that targets every gene for activation, interference, or deletion, thus creating biosensor-aided MAGIC, or senMAGIC. As a case study, we utilized senMAGIC to identify single genetic determinants that improve productivity of the nylon precursors protocatechuic and cis , cis -muconic acids (PCA and ccM). These were then randomly assembled as triple gRNA-tRNA arrays for multiplexed gene perturbations to identify combinatorial effects. Top gRNA hits were then confirmed using direct genomic integrations in senMAGIC-free production strains, resulting in identifying known as well as novel targets that increase PCA and ccM titres. Our results demonstrate senMAGIC as a robust automation-friendly whole-genome evolution tool and highlight limitations of the method, providing a roadmap for future multifunctional CRISPR screens to optimize host metabolism for efficient bioprocesses.",
       "authors": "Nasr MA, Knoops A, Thornbury M, Davies M, Kwan DH, Martin VJ.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.10.31.762157",
@@ -212,7 +212,7 @@
       "isPreprint": true,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc-nd",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -650,7 +650,7 @@
       "journal": "Analytical chemistry",
       "doi": "10.1021/acs.analchem.6c01820",
       "pmid": "42975179",
-      "pmcid": null,
+      "pmcid": "PMC13737998",
       "source": "MED",
       "sourceId": "42975179",
       "url": "https://doi.org/10.1021/acs.analchem.6c01820",
@@ -1381,7 +1381,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -2679,7 +2679,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC",
       "enrichment": {
@@ -4446,6 +4446,32 @@
       "collection": "Europe PMC"
     },
     {
+      "id": "doi:10.1016/j.tips.2026.09.009",
+      "title": "Engineering monocytes and macrophages for therapeutic control.",
+      "abstract": "Engineered monocytes and macrophages are emerging as therapeutic platforms for eliminating pathological targets, remodeling diseased tissues, and coordinating local immune responses. Early clinical studies support their feasibility, but target recognition alone does not ensure sustained function after tissue entry. Recent advances in myeloid-adapted receptors, context-responsive circuits, checkpoint and metabolic engineering, in vivo mRNA delivery, and stem-cell-derived platforms have expanded the strategies available to improve tissue tracking, control cellular plasticity, and sustain effector capacity. Previous reviews have commonly organized the field by disease, target, or platform. Here, we examine engineered monocyte and macrophage therapies as integrated pharmacological systems structured across four coupled layers-sensing, signal integration, actuation, and delivery-and discuss how their coordination determines tissue exposure, functional durability, and pharmacodynamic readouts across therapeutic settings.",
+      "authors": "Chen Y, Brown CE, Shi Y, Feng M.",
+      "journal": "Trends in pharmacological sciences",
+      "doi": "10.1016/j.tips.2026.09.009",
+      "pmid": "42888047",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "42888047",
+      "url": "https://doi.org/10.1016/j.tips.2026.09.009",
+      "publishedAt": "2026-10-17",
+      "discoveredAt": "2026-10-28T16:24:51.993Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1016/j.biotechadv.2026.109079",
       "title": "From oleaginous microalga to marine chassis: synthetic biology and process-aware biomanufacturing in Nannochloropsis.",
       "abstract": "Nannochloropsis has developed from an oleaginous marine microalga valued mainly for eicosapentaenoic acid (EPA)-rich lipids into a credible candidate for marine photosynthetic biomanufacturing. Its toolkit now spans genome resources, efficient nuclear transformation, homologous recombination, CRISPR/Cas editing, marker recycling, defined integration sites, and modular multigene assembly. Researchers have used these capabilities to alter carbon allocation, triacylglycerol accumulation, EPA synthesis and lipid-class partitioning, carotenoid metabolism, recombinant-protein production, specialty-metabolite formation, and cultivation robustness. This review assesses whether these advances are sufficient to support Nannochloropsis as a predictable, reusable, and process-aware chassis. The evidence shows that the genus has moved beyond basic transformability. Targeted genome modification and pathway construction are feasible, and native and non-native products have reached biologically relevant and, in some cases, process-relevant levels. However, outcomes remain strongly influenced by genomic locus, strain background, intracellular compartment, physiological state, and cultivation regime. Platform maturation will therefore depend on reusable genomic architectures, reliable organelle-targeting rules, dynamic regulation, and phenotyping suited to iterative design-build-test-learn workflows. Strain design must also be coupled more closely to cultivation, harvesting, product recovery, and deployment. Product-specific chassis configurations are likely to be more practical than a universal strain for EPA-rich oils, pigments, recombinant products, and specialty metabolites. Nannochloropsis thus provides a useful test of how an industrially relevant, non-model photosynthetic eukaryote can become a more designable marine production host.",
@@ -4756,32 +4782,6 @@
       "discoveredAt": "2026-10-28T16:24:50.321Z",
       "topics": [
         "synthetic"
-      ],
-      "type": "综述",
-      "status": "期刊记录 · 待核验",
-      "isPreprint": false,
-      "isRetraction": false,
-      "readingScope": "仅摘要",
-      "license": null,
-      "version": null,
-      "collection": "Europe PMC"
-    },
-    {
-      "id": "doi:10.1016/j.tips.2026.09.009",
-      "title": "Engineering monocytes and macrophages for therapeutic control.",
-      "abstract": "Engineered monocytes and macrophages are emerging as therapeutic platforms for eliminating pathological targets, remodeling diseased tissues, and coordinating local immune responses. Early clinical studies support their feasibility, but target recognition alone does not ensure sustained function after tissue entry. Recent advances in myeloid-adapted receptors, context-responsive circuits, checkpoint and metabolic engineering, in vivo mRNA delivery, and stem-cell-derived platforms have expanded the strategies available to improve tissue tracking, control cellular plasticity, and sustain effector capacity. Previous reviews have commonly organized the field by disease, target, or platform. Here, we examine engineered monocyte and macrophage therapies as integrated pharmacological systems structured across four coupled layers-sensing, signal integration, actuation, and delivery-and discuss how their coordination determines tissue exposure, functional durability, and pharmacodynamic readouts across therapeutic settings.",
-      "authors": "Chen Y, Brown CE, Shi Y, Feng M.",
-      "journal": "Trends in pharmacological sciences",
-      "doi": "10.1016/j.tips.2026.09.009",
-      "pmid": "42888047",
-      "pmcid": null,
-      "source": "MED",
-      "sourceId": "42888047",
-      "url": "https://doi.org/10.1016/j.tips.2026.09.009",
-      "publishedAt": "2026-10-16",
-      "discoveredAt": "2026-10-28T16:24:51.993Z",
-      "topics": [
-        "metabolic"
       ],
       "type": "综述",
       "status": "期刊记录 · 待核验",
@@ -5801,13 +5801,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 343,
+        "count": 345,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-07T02:50:29.794Z",
+        "fetchedAt": "2026-11-08T02:30:28.205Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -5832,7 +5832,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-07T02:50:29.686Z"
+        "checkedAt": "2026-11-08T02:30:28.052Z"
       }
     },
     {
@@ -6079,21 +6079,25 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "error": "上游请求失败，本方向结果未更新"
+      "hitCount": 90,
+      "count": 50,
+      "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 66,
+      "hitCount": 62,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "error": "上游请求失败，本方向结果未更新"
+      "hitCount": 92,
+      "count": 50,
+      "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "requests": 0
   },
   "receipts": {},
@@ -6101,11 +6105,11 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "not_configured",
-    "lastRunAt": "2026-11-07T02:50:29.796Z",
-    "failedTopics": 2,
+    "lastRunAt": "2026-11-08T02:30:28.210Z",
+    "failedTopics": 0,
     "collectionSource": {
       "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/42331147039"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/42438801815"
     },
     "downloadRefresh": {
       "supported": 1,
@@ -6117,6 +6121,6 @@
     },
     "modelRequestsThisRun": 0,
     "analysisFailures": 0,
-    "completedAt": "2026-11-07T02:50:29.818Z"
+    "completedAt": "2026-11-08T02:30:28.248Z"
   }
 }
