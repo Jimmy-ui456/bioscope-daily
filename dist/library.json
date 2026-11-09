@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-08T02:30:28.210Z",
+  "fetchedAt": "2026-11-09T02:41:03.041Z",
   "papers": [
     {
       "id": "doi:10.1007/s00203-026-05273-y",
@@ -5801,13 +5801,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 345,
+        "count": 351,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-08T02:30:28.205Z",
+        "fetchedAt": "2026-11-09T02:41:03.036Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -5832,7 +5832,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-08T02:30:28.052Z"
+        "checkedAt": "2026-11-09T02:41:02.969Z"
       }
     },
     {
@@ -6079,25 +6079,23 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 90,
+      "hitCount": 89,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 62,
-      "count": 50,
-      "truncated": true
+      "error": "上游请求失败，本方向结果未更新"
     },
     {
       "topic": "微生物制造",
-      "hitCount": 92,
+      "hitCount": 91,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-11-08",
+    "date": "2026-11-09",
     "requests": 0
   },
   "receipts": {},
@@ -6105,11 +6103,11 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "not_configured",
-    "lastRunAt": "2026-11-08T02:30:28.210Z",
-    "failedTopics": 0,
+    "lastRunAt": "2026-11-09T02:41:03.041Z",
+    "failedTopics": 1,
     "collectionSource": {
       "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/42438801815"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/42552223971"
     },
     "downloadRefresh": {
       "supported": 1,
@@ -6121,6 +6119,6 @@
     },
     "modelRequestsThisRun": 0,
     "analysisFailures": 0,
-    "completedAt": "2026-11-08T02:30:28.248Z"
+    "completedAt": "2026-11-09T02:41:03.085Z"
   }
 }

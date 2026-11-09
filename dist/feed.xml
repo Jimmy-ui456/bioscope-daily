@@ -9,7 +9,14 @@
     <docs>https://www.rssboard.org/rss-specification</docs>
     <ttl>60</ttl>
     <atom:link href="https://jimmy-ui456.github.io/bioscope-daily/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sun, 08 Nov 2026 02:30:13 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 02:40:36 GMT</lastBuildDate>
+    <item>
+      <title>生研观察 · 2026-11-09 公共文献简报（10 篇）</title>
+      <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-09#daily</link>
+      <guid isPermaLink="false">https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-09#daily</guid>
+      <pubDate>Mon, 09 Nov 2026 02:40:36 GMT</pubDate>
+      <description><![CDATA[<p>按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。</p><p>发表日期范围：2026-11-03 — 2026-11-09。</p><ol><li><a href="https://doi.org/10.1017/pls.2026.10031">Global health security and smallpox: A strategic review of post-eradication biosafety and preparedness.</a></li><li><a href="https://doi.org/10.1093/milmed/usag514">Biological Warfare, Bioterrorism, and Biocrime: A Systematic Review with Evidence-Based Historical Tiering (1763-2019).</a></li><li><a href="https://doi.org/10.1016/j.ymben.2026.102577">Advancing Terpenoid Biosynthesis in Saccharomyces cerevisiae: Synthetic Biology Approaches for Efficient Longifolene Production.</a></li><li><a href="https://doi.org/10.1038/s41467-026-78361-8">Ca 2+ signature gates responsiveness to exogenous auxin in Arabidopsis roots.</a></li><li><a href="https://doi.org/10.1007/s00203-026-05273-y">Bacillus-mediated selenium nanoparticle biosynthesis: reduction pathways, cellular processes, and applications.</a></li><li><a href="https://doi.org/10.1016/j.molp.2026.10.019">Metabolic shuttles between mitochondria and plastids: Roles of key transporters in coordinating carbon-nitrogen metabolism.</a></li><li><a href="https://doi.org/10.1007/s11274-026-05376-0">Green production of short-chain diols through microbial fermentation and bioconversion: Current advances, challenges, and future perspectives.</a></li><li><a href="https://doi.org/10.64898/2026.11.03.763959">Metabolic engineering of Saccharomyces cerevisiae for improved polyphosphate production</a></li><li><a href="https://doi.org/10.1002/advs.78608">Combinatorial Tuning of Multigene Biosynthetic Pathways based on RNA Interference.</a></li><li><a href="https://doi.org/10.1016/j.biotechadv.2026.109081">Decoding the landscape in biomanufacturing of xylose: metabolic bottlenecks and computation-assisted strategies.</a></li></ol>]]></description>
+    </item>
     <item>
       <title>生研观察 · 2026-11-08 公共文献简报（10 篇）</title>
       <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-08#daily</link>
