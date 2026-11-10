@@ -9,7 +9,14 @@
     <docs>https://www.rssboard.org/rss-specification</docs>
     <ttl>60</ttl>
     <atom:link href="https://jimmy-ui456.github.io/bioscope-daily/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 09 Nov 2026 02:40:36 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 04:38:02 GMT</lastBuildDate>
+    <item>
+      <title>生研观察 · 2026-11-10 公共文献简报（10 篇）</title>
+      <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-10#daily</link>
+      <guid isPermaLink="false">https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-10#daily</guid>
+      <pubDate>Tue, 10 Nov 2026 04:38:02 GMT</pubDate>
+      <description><![CDATA[<p>按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。</p><p>发表日期范围：2026-11-04 — 2026-11-10。</p><ol><li><a href="https://doi.org/10.1016/j.tibtech.2026.10.012">Biotechnology has outgrown the organism.</a></li><li><a href="https://doi.org/10.1128/msystems.00888-26">Physiological, behavioral, and genetic factors that shape interactions in the plant growth-promoting maize rhizosphere synthetic community.</a></li><li><a href="https://doi.org/10.1371/journal.pcbi.1014881">kinGEMs: A robust and scalable framework for resource-constraint models through stochastic tuning of deep learning-predicted kinetic parameters.</a></li><li><a href="https://doi.org/10.1016/j.pbiomolbio.2026.101967">AI-enhanced CRISPR-Cas9 therapeutics: Advances in precision, safety, and delivery.</a></li><li><a href="https://doi.org/10.1007/s00253-026-14083-7">L-Threonine production from acetate by metabolically engineered Corynebacterium glutamicum using a pH-controlled fed-batch process.</a></li><li><a href="https://doi.org/10.1021/acsabm.6c01317">Biomimetic Nanosystems as Emerging Catalysts for Translational Innovation in Healthcare.</a></li><li><a href="https://doi.org/10.1016/j.ymben.2026.102578">Engineering all human milk oligosaccharide fucosidic linkages in planta.</a></li><li><a href="https://doi.org/10.1126/sciadv.aeg5924">Spatial control of enzyme orientation at the lipid droplet interface enables regio- and chemoselective metabolic flux.</a></li><li><a href="https://doi.org/10.1016/j.biotechadv.2026.109091">Chloroplast genome engineering: Recent advances, pathways towards commercialization and future directions.</a></li><li><a href="https://doi.org/10.1016/j.biotechadv.2026.109092">Cell culture tightrope: Balancing amino acids and dipeptides to optimize media formulation and biomanufacturing performance.</a></li></ol>]]></description>
+    </item>
     <item>
       <title>生研观察 · 2026-11-09 公共文献简报（10 篇）</title>
       <link>https://jimmy-ui456.github.io/bioscope-daily/?report=public-daily-2026-11-09#daily</link>
