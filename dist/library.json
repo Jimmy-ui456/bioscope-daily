@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-11T02:48:09.339Z",
+  "fetchedAt": "2026-11-12T03:49:41.774Z",
   "papers": [
     {
       "id": "doi:10.1016/j.tibtech.2026.10.012",
@@ -82,13 +82,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 173,
+        "count": 194,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/ploscompbiol/article/metrics?id=10.1371%2Fjournal.pcbi.1014881",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pcbi.1014881/format/json",
-        "fetchedAt": "2026-11-11T02:48:09.282Z",
+        "fetchedAt": "2026-11-12T03:49:41.487Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-11",
         "coverageEnd": "2026-11",
@@ -102,7 +102,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-11T02:48:08.935Z"
+        "checkedAt": "2026-11-12T03:49:41.337Z"
       }
     },
     {
@@ -6459,13 +6459,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 378,
+        "count": 388,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-11T02:48:09.335Z",
+        "fetchedAt": "2026-11-12T03:49:41.772Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -6490,7 +6490,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-11T02:48:08.935Z"
+        "checkedAt": "2026-11-12T03:49:41.337Z"
       }
     },
     {
@@ -6737,25 +6737,25 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 108,
+      "hitCount": 104,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 76,
+      "hitCount": 73,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 101,
+      "hitCount": 96,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-11-11",
+    "date": "2026-11-12",
     "requests": 0
   },
   "receipts": {},
@@ -6763,11 +6763,11 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "not_configured",
-    "lastRunAt": "2026-11-11T02:48:09.339Z",
+    "lastRunAt": "2026-11-12T03:49:41.774Z",
     "failedTopics": 0,
     "collectionSource": {
       "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/42948413443"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/43150740838"
     },
     "downloadRefresh": {
       "supported": 2,
@@ -6779,6 +6779,6 @@
     },
     "modelRequestsThisRun": 0,
     "analysisFailures": 0,
-    "completedAt": "2026-11-11T02:48:09.377Z"
+    "completedAt": "2026-11-12T03:49:41.793Z"
   }
 }
