@@ -1,37 +1,33 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.15';
-import { collectionHealth } from './health.js?v=0.2.15';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.15';
-import { evidenceContext } from './evidence.js?v=0.2.15';
-import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.15';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.15';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.15';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.15';
-import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.15';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.16';
+import { collectionHealth } from './health.js?v=0.2.16';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.16';
+import { evidenceContext } from './evidence.js?v=0.2.16';
+import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.16';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.16';
+import { readLocalReaderState, persistLocalRecovery } from './local-state.js?v=0.2.16';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.16';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.16';
+import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.16';
 
-import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.15';
+import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.16';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const storageKey = 'bioscope.v1.';
 function read(key, fallback) { try { return JSON.parse(localStorage.getItem(storageKey + key)) ?? fallback; } catch { return fallback; } }
-function write(key, value) { try { localStorage.setItem(storageKey + key, JSON.stringify(value)); return true; } catch { toast('浏览器存储空间不足，本次内容仅保留在当前页面。'); return false; } }
-const savedSettings = read('settings', {});
-const settings = { topics: ['synthetic', 'metabolic', 'microbial'], days: 30, reportDays: 7, ...savedSettings };
-settings.topics = (Array.isArray(settings.topics) ? settings.topics : []).filter(id => TOPICS.some(t => t.id === id));
-if (!settings.topics.length) settings.topics = TOPICS.map(t => t.id);
-settings.days = [7, 14, 30, 90].includes(Number(settings.days)) ? Number(settings.days) : 30;
-settings.reportDays = [1, 7, 30].includes(Number(settings.reportDays)) ? Number(settings.reportDays) : 7;
-const storedCache = read('cache', null);
-const cache = storedCache && Array.isArray(storedCache.papers) ? storedCache : null;
+const localState = readLocalReaderState({ getItem: key => localStorage.getItem(key) }, storageKey);
+const protectedStorageKeys = new Set(localState.protectedKeys);
+let localRecoveryMessage = '';
+function write(key, value) {
+  if (protectedStorageKeys.has(key)) { toast('该本机记录需要核对，原始内容尚未覆盖；请先处理页面上的本机数据恢复提示，本次改动仅保留在当前页面。'); return false; }
+  try { localStorage.setItem(storageKey + key, JSON.stringify(value)); return true; }
+  catch { toast('浏览器存储空间不足或未允许保存，本次内容仅保留在当前页面。'); return false; }
+}
+const settings = localState.settings;
+const cache = localState.cache;
 const readerDefaults = { journal: 'all', days: 0, kind: 'all', abstract: 'all' };
-const savedReaderFilters = read('readerFilters', {});
-const readerFilters = {
-  journal: typeof savedReaderFilters?.journal === 'string' ? savedReaderFilters.journal : 'all',
-  days: [0, 1, 7, 30, 90].includes(Number(savedReaderFilters?.days)) ? Number(savedReaderFilters.days) : 0,
-  kind: ['all', 'article', 'review', 'preprint', 'other'].includes(savedReaderFilters?.kind) ? savedReaderFilters.kind : 'all',
-  abstract: ['all', 'available', 'missing'].includes(savedReaderFilters?.abstract) ? savedReaderFilters.abstract : 'all'
-};
-const state = { view: 'overview', topic: 'all', filter: 'all', search: '', page: 1, readerFilters, filtersOpen: Object.keys(readerDefaults).some(key => readerFilters[key] !== readerDefaults[key]), papers: cache?.papers || [], origin: cache?.origin || 'sample', containsImported: cache?.containsImported === true, updatedAt: cache?.updatedAt || null, bookmarks: read('bookmarks', []), selected: read('selected', []), reports: read('reports', []), reportId: null, busy: false, progress: '', error: '', settings, stats: cache?.stats || [] };
+const readerFilters = localState.readerFilters;
+const state = { view: 'overview', topic: 'all', filter: 'all', search: '', page: 1, readerFilters, filtersOpen: Object.keys(readerDefaults).some(key => readerFilters[key] !== readerDefaults[key]), papers: cache?.papers || [], origin: cache?.origin || 'sample', containsImported: cache?.containsImported === true, updatedAt: cache?.updatedAt || null, bookmarks: localState.bookmarks, selected: localState.selected, reports: localState.reports, reportId: null, busy: false, progress: '', error: '', settings, stats: cache?.stats || [] };
 let sample = null;
 let publicReports = [];
 let publicArchive = { reports: [], status: 'unavailable', skipped: 0 };
@@ -39,7 +35,7 @@ let publicArchiveBusy = false;
 function allReports() { return [...publicReports, ...state.reports]; }
 let translations = {};
 let libraryMeta = null;
-let displayMode = read('displayMode', 'bilingual');
+let displayMode = localState.displayMode;
 let downloadGroup = '';
 let backendStatus = null;
 let sharedAvailable = false;
@@ -92,6 +88,12 @@ function toast(message) {
 }
 function cacheValue() { return { papers: state.papers, origin: state.origin, containsImported: state.containsImported === true, updatedAt: state.updatedAt, stats: state.stats }; }
 function cacheActive() { return write('cache', cacheValue()); }
+function localRecoveryMarkup() {
+  if (!protectedStorageKeys.size) return '';
+  const issues = localState.issues.filter(issue => protectedStorageKeys.has(issue.key));
+  const labels = { settings: '监控设置', cache: '文献缓存', readerFilters: '阅读筛选', bookmarks: '收藏', selected: '精选', reports: '个人简报', displayMode: '中英显示' };
+  return '<section class="report-warning" role="status" aria-live="polite" aria-label="本机数据恢复提示"><strong>部分本机数据需要核对</strong><p>已恢复可读内容，异常原始记录尚未覆盖。请先导出原始副本，再决定是否用当前恢复内容替换异常记录；确认前，相关改动仅保留在当前页面。收藏编号不会因论文暂未载入而删除。</p><details><summary>查看恢复情况</summary><ul>' + issues.map(issue => '<li><strong>' + esc(labels[issue.key] || '本机记录') + '：</strong>' + esc(issue.message) + '</li>').join('') + '</ul></details>' + (localRecoveryMessage ? '<p>' + esc(localRecoveryMessage) + '</p>' : '') + '<div class="settings-buttons"><button class="button small" data-action="export-local-recovery">导出原始副本</button><button class="button small" data-action="resume-local-storage">用恢复内容替换异常记录</button></div></section>';
+}
 
 
 function manualCollectionOnly() { return typeof backendStatus?.modelConfigured !== 'boolean' && libraryMeta?.automation?.collectionSource?.trigger === 'workflow_dispatch' && libraryMeta.automation.modelConfigured === false; }
@@ -270,7 +272,7 @@ function hotPage() {
 }
 
 function topicsPage() { return `<p class="page-intro">暂以三个方向搭建研究视野。主题根据题名和摘要中的关键词匹配，一篇论文可能同时出现在多个方向；分类仍需人工核对。</p><div class="topic-cards">${TOPICS.map((t, i) => `<article class="topic-card"><div class="topic-icon">${icon(['leaf', 'layers', 'globe'][i], 30)}</div><div class="eyebrow">0${i + 1} / RESEARCH FIELD</div><h2>${t.name}</h2><p>${t.en}</p><div class="topic-total">${state.papers.filter(p => p.topics.includes(t.id)).length}<small>篇文献</small></div><button class="button small" data-topic="${t.id}">查看研究 ${icon('arrow', 13)}</button></article>`).join('')}</div><div class="sample-notice" style="margin-top:25px">关注方向可在「监控设置」里启停。更细的基因、菌株、机构等主题，将在后续版本扩展。</div>`; }
-function sourcesPage() { return `<section class="settings-panel"><h2>可靠的起点，清晰的出处</h2><p>第一版使用官方学术接口读取题录和摘要。不采集或转载受限论文全文；每条记录都保留原文入口。</p><div class="source-card"><div><h3>Europe PMC</h3><p>已接入官方 REST 接口：检索三个研究方向，读取题名、作者、期刊、日期、DOI、PMID、摘要及文献类型。每个主题每次最多读取 50 条，支持分页和编号去重。</p><p>当前载入：${originLabel()} · ${state.papers.length} 篇；最近载入时间：${state.updatedAt ? esc(new Date(state.updatedAt).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })) : '尚未采集'}。</p><a href="https://europepmc.org/RestfulWebService" target="_blank" rel="noopener noreferrer">查看官方接口说明 ${icon('external', 11)}</a></div><span class="source-state">已接入</span></div><div class="source-card"><div><h3>bioRxiv / medRxiv</h3><p>后续可接入预印本版本、正式发表关联和更详细的状态。当前可能通过 Europe PMC 获取部分预印本记录，尚未直接同步平台的全部数据。</p><a href="https://api.biorxiv.org/" target="_blank" rel="noopener noreferrer">查看官方接口 ${icon('external', 11)}</a></div><span class="source-state off">计划接入</span></div><div class="source-card"><div><h3>原出版平台下载量</h3><p>已接入 PLOS 官方逐篇 PDF 月计数与 Zenodo 原论文记录下载统计；其他出版社可导入有授权的逐篇记录。仅匹配文献自身的原平台数据，缺失保持未知。</p></div><span class="source-state">接口已接入</span></div><div class="settings-buttons"><button class="button dark" data-action="collect" ${state.busy ? 'disabled' : ''}>${icon('refresh', 13)}更新文献</button><button class="button" data-view="settings">设置采集范围</button></div></section>${state.stats.length ? `<section class="settings-panel"><h2>最近一次采集</h2>${state.stats.map(s => `<div class="source-card"><div><h3>${esc(s.topic)}</h3><p>${s.error ? esc(s.error) : `接口命中 ${s.hitCount} 条，本次读取 ${s.count} 条${s.truncated ? '（达到每主题上限，尚未遍历全部结果）' : ''}。`}</p></div><span class="source-state ${s.error ? 'off' : ''}">${s.error ? '失败' : '完成'}</span></div>`).join('')}</section>` : ''}`; }
+function sourcesPage() { return `<section class="settings-panel"><h2>可靠的起点，清晰的出处</h2><p>第一版使用官方学术接口读取题录和摘要。不采集或转载受限论文全文；每条记录都保留原文入口。</p><div class="source-card"><div><h3>Europe PMC</h3><p>已接入官方 REST 接口：检索三个研究方向，读取题名、作者、期刊、日期、DOI、PMID、摘要及文献类型。每个主题每次最多读取 50 条，支持分页和编号去重。</p><p>当前载入：${originLabel()} · ${state.papers.length} 篇；最近载入时间：${state.updatedAt ? esc(new Date(state.updatedAt).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })) : '尚未采集'}。</p><a href="https://europepmc.org/RestfulWebService" target="_blank" rel="noopener noreferrer">查看官方接口说明 ${icon('external', 11)}</a></div><span class="source-state">已接入</span></div><div class="source-card"><div><h3>bioRxiv / medRxiv</h3><p>后续可接入预印本版本、正式发表关联和更详细的状态。当前可能通过 Europe PMC 获取部分预印本记录，尚未直接同步平台的全部数据。</p><a href="https://api.biorxiv.org/" target="_blank" rel="noopener noreferrer">查看官方接口 ${icon('external', 11)}</a></div><span class="source-state off">计划接入</span></div><div class="source-card"><div><h3>原出版平台下载量</h3><p>已接入 PLOS 官方逐篇 PDF 月计数与 Zenodo 原论文记录下载统计；其他出版社可导入有授权的逐篇记录。仅匹配文献自身的原平台数据，缺失保持未知。</p></div><span class="source-state">接口已接入</span></div><div class="settings-buttons"><button class="button dark" data-action="collect" ${state.busy ? 'disabled' : ''}>${icon('refresh', 13)}更新文献</button><button class="button" data-view="settings">设置采集范围</button></div></section>${state.stats.length ? `<section class="settings-panel"><h2>最近一次采集</h2>${state.stats.map(s => `<div class="source-card"><div><h3>${esc(s.topic)}</h3><p>${s.error ? esc(s.error) : `接口命中 ${Number.isSafeInteger(s.hitCount) ? s.hitCount : '未记录'} 条，本次读取 ${Number.isSafeInteger(s.count) ? s.count : '未记录'} 条${s.truncated === true ? '（达到每主题上限，尚未遍历全部结果）' : s.truncated === false ? '' : '（遍历状态未记录）'}。`}</p></div><span class="source-state ${s.error ? 'off' : ''}">${s.error ? '失败' : '完成'}</span></div>`).join('')}</section>` : ''}`; }
 
 function automationPanel() {
   const a = libraryMeta?.automation;
@@ -326,7 +328,7 @@ function render({ keepScroll = true, preserveFocus = true } = {}) {
   const scroll = window.scrollY;
   const previousFocus = preserveFocus ? focusSnapshot($('#app')) : null;
   const healthMarkup = collectionStatusMarkup();
-  $('#app').innerHTML = `${sidebar()}<div class="workspace"><div class="topbar"><div class="breadcrumb"><button id="navigation-toggle" class="icon-button mobile-toggle" data-action="menu" aria-label="打开导航" aria-controls="primary-navigation" aria-expanded="${navigationMedia.matches && mobileMenuOpen}">${icon('menu', 19)}</button><span class="breadcrumb-workspace">我的科研工作台</span><span>/</span><b>${views[state.view].name}</b></div><div class="topbar-actions"><span class="version">PROTOTYPE ${APP_VERSION}</span><button class="button small language-toggle" data-action="toggle-language" aria-pressed="${displayMode === 'bilingual'}">${displayMode === 'bilingual' ? '中英对照' : 'English'}</button><label class="global-search">${icon('search', 14)}<input id="search" type="search" placeholder="论文、关键词、DOI / PMID" aria-label="搜索已载入文献的题名、关键词、DOI或PMID" value="${esc(state.search)}"><span class="keycap">/</span></label><button class="icon-button" data-view="settings" aria-label="监控设置">${icon('settings', 17)}</button></div></div><main class="main" id="main" tabindex="-1">${masthead()}<div id="collection-health" role="status" aria-live="polite" aria-atomic="true">${healthMarkup}</div>${state.busy ? `<div class="progress-banner" role="status">${icon('refresh', 13, 'spin')} <span id="progress">${esc(state.progress)}</span></div>` : ''}${state.error ? `<div class="error-notice" role="alert">${icon('info', 13)} ${esc(state.error)}</div>` : ''}${({ overview, bookmarks: bookmarksPage, hot: hotPage, topics: topicsPage, sources: sourcesPage, settings: settingsPage, daily: reportPage }[state.view])()}${footer()}</main></div>`;
+  $('#app').innerHTML = `${sidebar()}<div class="workspace"><div class="topbar"><div class="breadcrumb"><button id="navigation-toggle" class="icon-button mobile-toggle" data-action="menu" aria-label="打开导航" aria-controls="primary-navigation" aria-expanded="${navigationMedia.matches && mobileMenuOpen}">${icon('menu', 19)}</button><span class="breadcrumb-workspace">我的科研工作台</span><span>/</span><b>${views[state.view].name}</b></div><div class="topbar-actions"><span class="version">PROTOTYPE ${APP_VERSION}</span><button class="button small language-toggle" data-action="toggle-language" aria-pressed="${displayMode === 'bilingual'}">${displayMode === 'bilingual' ? '中英对照' : 'English'}</button><label class="global-search">${icon('search', 14)}<input id="search" type="search" placeholder="论文、关键词、DOI / PMID" aria-label="搜索已载入文献的题名、关键词、DOI或PMID" value="${esc(state.search)}"><span class="keycap">/</span></label><button class="icon-button" data-view="settings" aria-label="监控设置">${icon('settings', 17)}</button></div></div><main class="main" id="main" tabindex="-1">${masthead()}<div id="collection-health" role="status" aria-live="polite" aria-atomic="true">${healthMarkup}</div>${localRecoveryMarkup()}${state.busy ? `<div class="progress-banner" role="status">${icon('refresh', 13, 'spin')} <span id="progress">${esc(state.progress)}</span></div>` : ''}${state.error ? `<div class="error-notice" role="alert">${icon('info', 13)} ${esc(state.error)}</div>` : ''}${({ overview, bookmarks: bookmarksPage, hot: hotPage, topics: topicsPage, sources: sourcesPage, settings: settingsPage, daily: reportPage }[state.view])()}${footer()}</main></div>`;
   syncNavigation();
   healthMarkupByNode.set($('#collection-health'), healthMarkup);
   if (!$('#paper-dialog').open) restoreFocus($('#app'), previousFocus);
@@ -420,8 +422,9 @@ function generateReport() {
   if (!papers.length) { toast(`请先精选最近 ${state.settings.reportDays} 天发表的研究；也可在监控设置中调整范围。`); return; }
   const now = new Date().toISOString();
   const report = { id: `brief-${Date.now()}`, date: beijingDay(), windowStart: dayBefore(state.settings.reportDays - 1), createdAt: now, origin: state.origin, papers: structuredClone(papers.map(p => attachEnrichment(p, translations))) };
-  state.reports = [report, ...state.reports].slice(0, 14); state.reportId = report.id; write('reports', state.reports);
-  navigate('daily'); toast(`已生成 ${papers.length} 篇人工精选简报，保留原文摘要与出处。`);
+  state.reports = [report, ...state.reports].slice(0, 14); state.reportId = report.id;
+  const saved = write('reports', state.reports);
+  navigate('daily'); toast(saved ? `已生成并保存 ${papers.length} 篇人工精选简报，保留原文摘要与出处。` : '简报已在当前页面生成，但尚未保存；请导出简报或个人备份，并处理本机保存提示。');
 }
 function download(content, name, type) { const link = document.createElement('a'); const url = URL.createObjectURL(new Blob([content], { type })); link.href = url; link.download = name; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); }
 async function loadSample() {
@@ -435,10 +438,12 @@ async function loadSample() {
 }
 function restoreLive() {
   const live = read('liveCache', null);
-  if (!live || !Array.isArray(live.papers) || !live.papers.every(isValidPaper) || !(live.origin === 'live' || live.containsImported === true)) {
+  const recovered = readLocalReaderState({ getItem: key => key === storageKey + 'cache' ? JSON.stringify(live) : null }, storageKey);
+  const safe = recovered.cache;
+  if (!safe || recovered.protectedKeys.includes('cache') || !(safe.origin === 'live' || safe.containsImported === true)) {
     toast('未找到可恢复的文献库；当前内容已保留，请核对原备份。'); return;
   }
-  Object.assign(state, { papers: sharedLibraryPapers(live, []), origin: live.containsImported === true ? 'sample' : 'live', containsImported: live.containsImported === true, updatedAt: live.updatedAt, stats: Array.isArray(live.stats) ? live.stats : [], error: '' });
+  Object.assign(state, { papers: sharedLibraryPapers(safe, []), origin: safe.containsImported === true ? 'sample' : 'live', containsImported: safe.containsImported === true, updatedAt: safe.updatedAt, stats: safe.stats, error: '' });
   cacheActive(); navigate('overview'); toast('已恢复最近一次本地保存的文献库。');
 }
 
@@ -462,6 +467,17 @@ document.addEventListener('click', async event => {
     case 'collect': await collect(); break;
     case 'toggle-language': displayMode = displayMode === 'bilingual' ? 'en' : 'bilingual'; write('displayMode', displayMode); render(); break;
     case 'generate-report': generateReport(); break;
+    case 'export-local-recovery': {
+      download(JSON.stringify({ app: 'bioscope-raw-recovery', version: 1, exportedAt: new Date().toISOString(), note: '原始本机恢复副本，保留原始字符串供核对；不是常规可直接导入的个人备份。', records: localState.rawRecords }, null, 2), `bioscope-原始恢复副本-${beijingDay()}.json`, 'application/json');
+      toast('已请求导出原始副本，请确认下载完成后妥善保存。'); break;
+    }
+    case 'resume-local-storage': {
+      const values = { settings: state.settings, cache: cacheValue(), readerFilters: state.readerFilters, bookmarks: state.bookmarks, selected: state.selected, reports: state.reports, displayMode };
+      const result = persistLocalRecovery({ getItem: key => localStorage.getItem(key), setItem: (key, value) => localStorage.setItem(key, value) }, values, { protectedKeys: [...protectedStorageKeys], rawRecords: localState.rawRecords, prefix: storageKey });
+      result.saved.forEach(key => protectedStorageKeys.delete(key));
+      localRecoveryMessage = [result.changed.length ? '部分本机记录已在其他页面变化，为避免覆盖，请刷新后重新核对。' : '', result.failed.length ? '部分恢复内容未能保存，原记录继续保护；请保留原始副本并检查浏览器存储权限或空间。' : ''].filter(Boolean).join(' ');
+      render(); toast(localRecoveryMessage || '已按你的选择保存恢复内容，相关本机记录可继续正常保存。'); break;
+    }
     case 'retry-public-reports': {
       if (publicArchiveBusy) break;
       await refreshPublicArchive();
@@ -523,7 +539,8 @@ document.addEventListener('submit', event => {
   const form = new FormData(event.target); const topics = form.getAll('topics');
   if (!topics.length) { toast('请至少选择一个关注方向。'); return; }
   state.settings = { topics, days: Number(form.get('days')), reportDays: Number(form.get('reportDays')) };
-  write('settings', state.settings); toast('监控设置已保存，下次采集使用新的范围。'); render();
+  const saved = write('settings', state.settings);
+  toast(saved ? '监控设置已保存，下次采集使用新的范围。' : '设置已更新到当前页面，但尚未保存；请处理本机数据恢复提示或检查浏览器存储。'); render();
 });
 document.addEventListener('keydown', event => {
   if (mobileMenuOpen && navigationMedia.matches && !$('#paper-dialog').open) {
