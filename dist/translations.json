@@ -1,8 +1,8 @@
 {
   "version": 1,
   "note": "原型附带的辅助译文，尚未由领域专家审核；仅匹配对应的完整英文版本，保留旧版供相同原文的历史快照核对。",
-  "paperCount": 52,
-  "sourceVersionCount": 61,
+  "paperCount": 56,
+  "sourceVersionCount": 65,
   "items": {
     "doi:10.1002/adma.75118": {
       "titleZh": "可编程工程活体载体：用于骨髓炎协同治疗与骨再生的自主生物工厂",
@@ -510,6 +510,50 @@
       "sourceFingerprint": "faea736e-1618",
       "origin": "assistant_translation",
       "createdAt": "2026-10-29T00:00:00+08:00",
+      "reviewed": false,
+      "scope": "abstract_only"
+    },
+    "doi:10.1016/j.pbiomolbio.2026.101967": {
+      "titleZh": "人工智能增强的CRISPR-Cas9治疗技术：精准性、安全性与递送的研究进展",
+      "abstractZh": "CRISPR-Cas9基因组编辑已经改变了生物医学研究，并正向临床转化推进。人工智能（AI）的引入有助于提高向导RNA设计、脱靶预测与递送优化的精准性。本综述综合了CRISPR-Cas9医学应用的近期进展，涵盖其核心机制、工程化变体、碱基编辑器与先导编辑器（prime editors），以及嵌合抗原受体T细胞（CAR-T）和嵌合抗原受体自然杀伤细胞（CAR-NK）工程改造、遗传性疾病、感染性疾病及再生医学等治疗应用。文章评估了递送策略，重点关注由AI驱动的优化。所讨论的AI应用包括：用于向导RNA设计的深度学习架构；OpenCRISPR-1等由AI设计的核酸酶；结合结构指导与AI辅助，设计紧凑型、高保真SaCas9变体；利用强化学习优化流程；以及AI在CAR-T细胞治疗和安全性评估中的作用。综述还考察了脱靶效应、染色体重排、免疫原性及监管方面的安全挑战。未来方向重点包括多尺度建模、可解释AI、临床验证，以及与合成生物学、单细胞测序、类器官和纳米材料相结合。AI与CRISPR-Cas9的融合为个体化医疗带来了很大潜力。",
+      "sourceTitle": "AI-enhanced CRISPR-Cas9 therapeutics: Advances in precision, safety, and delivery.",
+      "sourceAbstract": "CRISPR-Cas9 genome editing has transformed biomedical research and is advancing toward clinical translation. The integration of artificial intelligence (AI) offers improved precision in guide RNA design, off-target prediction, and delivery optimization. This review synthesizes recent advances in CRISPR-Cas9 for medical applications, covering core mechanisms, engineered variants, base and prime editors, and therapeutic applications including CAR T-cell and CAR-NK engineering, genetic disorders, infectious diseases, and regenerative medicine. Delivery strategies are evaluated with emphasis on AI-driven optimization. AI applications are highlighted across deep learning architectures for guide RNA design, AI-designed nucleases such as OpenCRISPR-1, structure-guided and AI-assisted design of compact high-fidelity SaCas9 variants, reinforcement learning for pipeline optimization, and roles in CAR T-cell therapy and safety assessment. Safety challenges are examined, including off-target effects, chromosomal rearrangements, immunogenicity, and regulatory concerns. Future directions emphasize multi-scale modeling, explainable AI, clinical validation, and integration with synthetic biology, single-cell sequencing, organoids, and nanomaterials. The convergence of AI and CRISPR-Cas9 holds substantial potential for personalized medicine.",
+      "sourceFingerprint": "9f671822-1429",
+      "origin": "assistant_translation",
+      "createdAt": "2026-11-12T19:04:16.676Z",
+      "reviewed": false,
+      "scope": "abstract_only"
+    },
+    "doi:10.1016/j.ymben.2026.102578": {
+      "titleZh": "在植物体内工程化构建母乳寡糖的全部岩藻糖苷键类型",
+      "abstractZh": "母乳寡糖（HMOs）是母乳的一种组分，可通过调节免疫反应、抑制病原体黏附和促进健康的肠道微生物群，改善婴儿的健康结局。尽管这些作用已有充分报道，但接受过临床或生化研究的HMO种类仍很少，因为在超过200种HMO中，目前只有少数结构最简单的种类能够通过化学合成，或在微生物宿主中利用代谢工程生产。相比之下，植物天然具备生物合成多种复杂多糖的能力，近期也已被用作HMO生产的异源体系。不过，HMOs中的许多结构类型尚未在植物中构建出来，尤其是岩藻糖基化结构。岩藻糖基化HMO中存在4种岩藻糖苷键，但此前仅有Fucα1-2Gal在植物体内实现了生物合成。本研究以模式植物本氏烟草（Nicotiana benthamiana）筛选细菌来源的岩藻糖基转移酶，生产了3-岩藻糖基乳糖（3-fucosyllactose，Fucα1-3Glc）、lacto-N-fucopentaose II（Fucα1-4GlcNAc）和lacto-N-fucopentaose III（Fucα1-3GlcNAc），表明全部4种岩藻糖苷键均可在植物体内构建。母乳中的所有HMO仅由12种糖苷键构成，本研究将已能在植物体内构建的糖苷键种类从7种增加到10种，大幅扩展了可利用植物合成的HMO种类。",
+      "sourceTitle": "Engineering all human milk oligosaccharide fucosidic linkages in planta.",
+      "sourceAbstract": "Human milk oligosaccharides (HMOs) are a component of breast milk which improve infant health outcomes by modulating immune responses, inhibiting pathogen adhesion, and promoting healthy gut microbiota. Although their effects are well-documented, few HMOs have been clinically or biochemically studied because only a handful of the simplest HMOs out of >200 species are currently possible to chemically synthesize or produce in microbes via metabolic engineering in microbial hosts. In contrast, plants are naturally adept at biosynthesizing a wide range of complex polysaccharides, and they have recently been established as a heterologous system for HMO production. However, much of the structural diversity of HMOs has not yet been reproduced in a plant, particularly fucosylations. Four fucosidic linkages can be found in fucosylated HMOs, but only Fucα1-2Gal has been biosynthesized in planta. Here, we screened bacterial fucosyltransferases using the model plant Nicotiana benthamiana to produce 3-fucosyllactose (Fucα1-3Glc), lacto-N-fucopentaose II (Fucα1-4GlcNAc), and lacto-N-fucopentaose III (Fucα1-3GlcNAc), demonstrating that all four fucosidic linkages can be made in planta. Just twelve glycosidic linkages make up all the HMOs found in breast milk, and our findings increase the number of linkages made in planta from seven to ten, greatly expanding the variety of HMOs accessible in a plant.",
+      "sourceFingerprint": "2dda7218-1481",
+      "origin": "assistant_translation",
+      "createdAt": "2026-11-12T19:04:16.676Z",
+      "reviewed": false,
+      "scope": "abstract_only"
+    },
+    "doi:10.1016/j.biotechadv.2026.109091": {
+      "titleZh": "叶绿体基因组工程：近期进展、商业化路径与未来方向",
+      "abstractZh": "叶绿体是理想的生物工厂，因为每个植物细胞中可整合数千个转基因拷贝，从而高水平生产重组蛋白和酶。由于叶绿体基因组主要通过母系遗传，转基因通常不会经花粉传播。核基因组工程开启了以作物保护为目标的转基因生物（GMO）革命，而这类应用大多只需要较低的转基因表达水平。更高水平的表达，以及通过限制基因扩散而实现的生物安全性，有助于拓展转基因作物的新应用，包括生产高价值生物药和酶。本综述重点介绍该领域的近期进展，包括植物细胞制备的生物药首次获美国食品药品监督管理局（FDA）批准开展人体临床试验评估、局部或口服给药、通过去除抗生素抗性基因获得不含筛选标记的可食用植物，以及产生有功能的人源蛋白所需的新型翻译后修饰。此外，文章讨论了改善DNA递送、无载体组装、游离型或整合型方法的新工具，通过优化调控序列和密码子增强转基因表达的方法、靶向基因组编辑，以及生物制造中的其他创新。文中还讨论了利用含植物细胞的口香糖进行局部给药、以控制口腔病毒、致病细菌或酵母，以及使用植物细胞制得的治疗性蛋白进行口服给药、以治疗糖尿病、肥胖和心肺疾病的策略；这些策略目前已推进至人体临床试验。文章还讨论了用于推出新产品、赋予有价值的农艺性状或增强光合作用的高价值工业酶。未来展望部分列举了有望在未来3—5年推出的生物技术产品，并讨论了相关机遇与预期挑战。",
+      "sourceTitle": "Chloroplast genome engineering: Recent advances, pathways towards commercialization and future directions.",
+      "sourceAbstract": "Chloroplasts are ideal biofactories because thousands of transgene copies integrated into each plant cell to produce high levels of recombinant proteins and enzymes. Because chloroplast genomes are predominantly maternally inherited, transgenes are generally not transmitted via pollen. Nuclear genome engineering ushered in the GMO revolution for crop protection that mostly required lower levels of transgene expression. Higher level expression and biosafety through gene containment facilitate new applications of GM crops, including production of high-value biopharmaceuticals and enzymes. This review focuses on recent advances in this field, including the first FDA approval of biopharmaceuticals made in plant cells for evaluation in human clinical trials, topical or oral drug delivery, marker free edible plants by removal of antibiotic resistance genes and novel post-translational modifications required to produce functional human proteins. In addition, new tools are discussed to improve DNA delivery, vector free assembly, episomal or integration methods, enhancement of transgene expression through optimization of regulatory sequences, codons, targeted genome editing and other innovations in biomanufacturing. Topical drug delivery using plant cells incorporated into chewing gums to control oral viruses, pathogenic bacteria, or yeast and oral drug delivery with therapeutic proteins made in plant cells to treat diabetes, obesity and cardiopulmonary diseases currently advanced to human clinical trials are discussed. In addition, high-value industrial enzymes for launching new products or to confer valuable agronomic traits or enhance photosynthesis are discussed. Future perspectives section provides examples of biotechnology products anticipated to be launched in the next 3-5 years, with opportunities and anticipated challenges.",
+      "sourceFingerprint": "c3f79083-1962",
+      "origin": "assistant_translation",
+      "createdAt": "2026-11-12T19:04:14.326Z",
+      "reviewed": false,
+      "scope": "abstract_only"
+    },
+    "doi:10.1016/j.biotechadv.2026.109092": {
+      "titleZh": "细胞培养中的精细平衡：调配氨基酸与二肽，优化培养基配方及生物制造性能",
+      "abstractZh": "随着工业界在强化工艺条件下，以更高细胞密度生产日益复杂的分子，高质量细胞培养基仍然是哺乳动物生物加工的核心。氨基酸是一类关键培养基组分，既是内源蛋白和重组蛋白的构建单元，也是细胞代谢的重要调节因子。因此，氨基酸的供给浓度会对其稳定性和溶解度极限构成挑战。本综述概述氨基酸在细胞培养中的作用，以及如何为培养基配方选择最佳氨基酸水平，重点关注中国仓鼠卵巢（CHO）细胞。文章介绍了组学辅助的培养基开发策略，用于表征氨基酸代谢，并尽量减少由氨基酸降解引起的代谢低效。此外，综述讨论了旨在引入氨基酸营养缺陷或解除代谢瓶颈的遗传工程方法，将其作为改善细胞培养性能的互补策略。在浓缩培养基配方中，理解氨基酸溶解度相关的理化限制变得日益重要。新兴的计算热力学模型能够描述氨基酸与其他培养基组分之间的相互作用，文章强调了其作为预测溶解度极限、指导理性培养基配方设计的有价值工具的作用。由于溶解度、稳定性以及促进工艺表现的性质有所改善，二肽正日益成为颇具吸引力的游离氨基酸替代选择。因此，本综述总结了关键二肽、目前关于其摄取和代谢的认识，以及氨基酸和二肽的转运蛋白与切割酶。最后，综述强调，将实验与建模方法相结合开展智能培养基设计，对于实现高效、稳健且可持续的生物制造过程具有重要意义。",
+      "sourceTitle": "Cell culture tightrope: Balancing amino acids and dipeptides to optimize media formulation and biomanufacturing performance.",
+      "sourceAbstract": "High-quality cell culture media remain central to mammalian bioprocessing as industry produces increasingly complex molecules at higher cell densities under intensified processing conditions. Amino acids represent a critical class of media components, serving as building blocks for endogenous and recombinant proteins and also as key regulators of cellular metabolism. This requires delivery of amino acids at concentrations that challenge their stability and solubility limits. This review provides an overview of amino acid roles in cell culture and how to choose their optimal levels in media formulations, with a focus on Chinese hamster ovary (CHO) cells. Omics-assisted medium development strategies are described to characterize amino acid metabolism and minimize metabolic inefficiencies arising from amino acid degradation. Additionally, genetic engineering approaches aimed at introducing amino acid auxotrophies or removing metabolic bottlenecks are discussed as complementary strategies to improve cell culture performance. Understanding the physicochemical limitations associated with amino acid solubility becomes increasingly important in concentrated media formulations. Emerging in silico thermodynamic models that capture interactions between amino acids and other media components are highlighted as valuable tools for predicting solubility limits and guiding rational media formulation strategies. Dipeptides represent an increasingly attractive alternative to free amino acids due to improved solubility, stability, and process-enhancing properties. Consequently, this review summarizes key dipeptides, current knowledge of their uptake and metabolism, and the amino acid and dipeptide transporters and cleavage enzymes. Finally, the review emphasizes the importance of smart media design by integrating experiments with modeling approaches to enable efficient, robust, and sustainable biomanufacturing processes.",
+      "sourceFingerprint": "4b57c3c-2060",
+      "origin": "assistant_translation",
+      "createdAt": "2026-11-12T19:04:14.326Z",
       "reviewed": false,
       "scope": "abstract_only"
     },
