@@ -1,8 +1,8 @@
 {
   "version": 1,
   "note": "原型附带的辅助译文，尚未由领域专家审核；仅匹配对应的完整英文版本，保留旧版供相同原文的历史快照核对。",
-  "paperCount": 46,
-  "sourceVersionCount": 50,
+  "paperCount": 52,
+  "sourceVersionCount": 56,
   "items": {
     "doi:10.1002/adma.75118": {
       "titleZh": "可编程工程活体载体：用于骨髓炎协同治疗与骨再生的自主生物工厂",
@@ -233,6 +233,72 @@
       "sourceFingerprint": "416ed00d-2809",
       "origin": "assistant_translation",
       "createdAt": "2026-10-29T00:00:00+08:00",
+      "reviewed": false,
+      "scope": "abstract_only"
+    },
+    "doi:10.1016/j.tibtech.2026.10.012": {
+      "titleZh": "生物技术已超越“生物体”的范畴",
+      "abstractZh": "合成生物学日益产生各种混合构建体，使以生物体为基础的生物安全监管边界变得模糊。我们提出使用“生物实体”这一术语，以其能否与生物系统发生有意义的相互作用，或促进生物过程为定义依据；在确定监管分类之前，将其作为初步筛选类别，从而实现更加协调且适度的监管。",
+      "sourceTitle": "Biotechnology has outgrown the organism.",
+      "sourceAbstract": "Synthetic biology increasingly produces hybrid constructs that blur the boundaries of organism-based biosafety regulation. We propose using the term 'biological entity', defined by its capacity to interact meaningfully with biological systems or to facilitate biological processes, as an initial screening category before regulatory classification, enabling more coherent and proportionate oversight.",
+      "sourceFingerprint": "d52d84ed-441",
+      "origin": "assistant_translation",
+      "createdAt": "2026-11-12T15:16:27.441Z",
+      "reviewed": false,
+      "scope": "abstract_only"
+    },
+    "doi:10.1128/msystems.00888-26": {
+      "titleZh": "塑造促玉米生长根际合成群落中相互作用的生理、行为与遗传因素",
+      "abstractZh": "对微生物组进行分析，是了解自然环境中群落功能与组成的重要方式。然而，天然微生物组通常高度复杂，往往难以通过实验揭示因果关系。用少量可培养菌株代表自然环境中存在的菌株，构建合成群落，是解决这一问题的一种方法。本文介绍玉米根际合成群落（MARSc）：这是一个由基因组信息支持、包含31个细菌成员的群落，可代表在美国爱荷华州土壤中生长的玉米根部所发现的微生物多样性。该群落围绕恶臭假单胞菌（Pseudomonas putida）KT2440构建；这一菌株是研究玉米根际定殖的模式菌，也是合成生物学底盘。我们在多种环境条件下表征了MARSc成员之间的微生物相互作用及其生物膜形成情况，发现这两类行为总体上均受营养水平调控。对这些微生物的基因组分析和微生物组分析显示，经注释的生物膜相关基因（例如与表面附着和胞外多糖生成有关的基因）与根际丰度显著相关，但这两类特征均与体外生物膜形成不相关。体外相互作用实验的结果与根部MARSc成员之间根际丰度的共同相关关系表现出出乎意料的一致性。最后，我们发现，在不同氮肥施用水平下，将MARSc施用于根部，可使玉米生物量（干重）最大提高40%-50%。总体而言，MARSc是识别影响根际微生物组组装的部分因素的一项实用工具，并将为该领域的后续研究提供坚实基础。\n\n研究意义（IMPORTANCE）：植物根部周围的微生物组可在植物健康和生长中发挥重要作用，由数千种具有植物及其生长环境特异性的微生物组成。然而，由于这种复杂性，人们对微生物组形成方式的了解仍然有限。本研究构建了玉米根际合成群落（MARSc），以更好地理解植物根部微生物组的形成与功能。该菌群由30株细菌分离株，以及作为玉米根部定殖模式菌的恶臭假单胞菌KT2440组成。我们研究了这些微生物之间的相互作用、它们的基因组、培养特征，以及它们在玉米根部的生长情况。结果表明，MARSc可在低氮肥条件下促进玉米生长，提示其有望成为识别微生物组形成及植物促生机制的实用工具。",
+      "sourceTitle": "Physiological, behavioral, and genetic factors that shape interactions in the plant growth-promoting maize rhizosphere synthetic community.",
+      "sourceAbstract": "Profiling microbiomes is an important way to understand the function and composition of communities in the wild, but natural microbiomes are often highly complex and often unamenable to experimentation to reveal cause-and-effect relationships. By using a small group of cultivable strains to represent those found in the wild, synthetic communities are one solution to this problem. Here we describe the ma ize r hizosphere s ynthetic c ommunity (MARSc), a genome-enabled 31-member bacterial community representative of the diversity found on the roots of maize grown in Iowa soils. This community is built around Pseudomonas putida KT2440, a model maize rhizosphere colonist and synthetic biology chassis. We characterized microbe-microbe interactions and biofilm formation of MARSc members in a variety of environmental contexts, finding that both behaviors are broadly controlled by nutrient levels. Genomic analysis and microbiome profiling of these organisms revealed that annotated biofilm genes (such as surface attachment and exopolysaccharide production) were significantly correlated with rhizosphere abundance, but neither trait correlated to in vitro biofilm formation. In vitro interaction assay findings were surprisingly consistent with co-correlations of rhizosphere abundance among MARSc members on roots. Finally, we found that when applied to the roots, MARSc can increase maize biomass (dry weight) by up to 40%-50% under varying nitrogen fertilization levels. Altogether, MARSc is a useful tool for identifying some of the factors influencing rhizosphere microbiome assembly and will be a strong foundation for further work in this area.IMPORTANCEThe microbiome surrounding the roots of plants can play an integral role in plant health and growth, and it is composed of thousands of species of microbes that are specific to the plant and environment it is grown in. However, due to this complexity, little is known about the means by which microbiomes form. In this study, we developed the maize rhizosphere synthetic community (MARSc) to gain a better understanding of the formation and function of microbiomes on the roots of plants. This consortium consists of 30 bacterial isolates plus Pseudomonas putida KT2440, a model maize root colonist. In this study, we investigated the interactions between these organisms, their genomes, cultural characteristics, and growth on the roots of maize. We show that MARSc increases maize growth under low nitrogen fertilizer, suggesting it will be a useful tool for identifying the mechanisms behind microbiome formation and plant growth promotion.",
+      "sourceFingerprint": "9fc33098-2751",
+      "origin": "assistant_translation",
+      "createdAt": "2026-11-12T15:16:27.441Z",
+      "reviewed": false,
+      "scope": "abstract_only"
+    },
+    "doi:10.1371/journal.pcbi.1014881": {
+      "titleZh": "kinGEMs：通过随机调优深度学习预测的动力学参数，构建稳健且可扩展的资源约束模型框架",
+      "abstractZh": "准确构建酶约束的基因组尺度模型（ecGEMs）仍是系统生物学的一项关键挑战，主要受限于动力学数据稀缺，以及模型表征需要具备生物学意义。本研究提出一个整合框架，将CPI-Pred与kinGEMs相结合：CPI-Pred是一种根据序列和化合物的嵌入表示预测动力学参数（kcat）的深度学习模型；kinGEMs则是一套将这些考虑了不确定性的参数整合进ecGEMs、用于代谢优化的流程。该方法利用多个尺度的表征，整合序列、结构和动力学数据，提高模型的泛化能力与准确性。严格的基准测试表明，该框架能够预测与实验观察结果及实测蛋白质组比例一致的生长速率和通量，使通量变异范围的中位数降低数倍，并通过显式考虑机器学习预测动力学参数所固有的不确定性，获得约束更充分的代谢模型。kinGEMs成功为93个模型生成了ecGEMs，覆盖系统发育多样性广泛的生物，包括革兰氏阴性菌和革兰氏阳性菌、分枝杆菌、寄生原生生物、真菌及哺乳动物细胞系。这些创新降低了将ecGEMs应用于非模式生物的障碍，并为在工业相关性更高的宿主中开展代谢工程与合成生物学研究开辟了新途径。",
+      "sourceTitle": "kinGEMs: A robust and scalable framework for resource-constraint models through stochastic tuning of deep learning-predicted kinetic parameters.",
+      "sourceAbstract": "The construction of accurate enzyme-constrained genome-scale models (ecGEMs) remains a critical challenge in systems biology, limited by sparse kinetic data and the need for biologically meaningful representations. This work presents an integrated framework combining CPI-Pred, a deep learning model to predict kinetic parameters (kcat) from sequence and compound embeddings, with kinGEMs, a pipeline to incorporate these uncertainty-aware parameters into ecGEMs for metabolic optimization. By leveraging representations at multiple scales, the approach captures sequence, structure, and kinetic data to enhance model generalizability and accuracy. Rigorous benchmarking demonstrates the framework's capability to predict growth rates and fluxes that are consistent with experimental observations and measured proteome fractions, reduce median flux variability by several folds, and yield better-constrained metabolic models by explicitly accounting for the uncertainty inherent in ML-predicted kinetic parameters. kinGEMs successfully generated ecGEMs for 93 models spanning a phylogenetically diverse set of organisms including Gram-negative and Gram-positive bacteria, mycobacteria, parasitic protists, fungi, and mammalian cell lines. These innovations breakdown the barrier to application of ecGEMs to non-model organisms and open new avenues for metabolic engineering and synthetic biology in more industrially relevant hosts.",
+      "sourceFingerprint": "bfd6161-1577",
+      "origin": "assistant_translation",
+      "createdAt": "2026-11-12T15:16:27.441Z",
+      "reviewed": false,
+      "scope": "abstract_only"
+    },
+    "doi:10.1007/s00253-026-14083-7": {
+      "titleZh": "采用pH控制的补料分批工艺，利用代谢工程改造的谷氨酸棒杆菌以乙酸盐生产L-苏氨酸",
+      "abstractZh": "乙酸盐作为微生物生物生产的非粮原料具有很大潜力，但其在氨基酸生产中的应用仍缺乏充分探索。本研究将基于基因组的理性代谢工程与pH耦合的补料分批培养相结合，开发了利用谷氨酸棒杆菌、以乙酸盐为唯一碳源生产L-苏氨酸的工艺。工程菌株AT-3携带5处染色体突变，缓解了关键酶的反馈抑制，并将碳通量引向天冬氨酸途径。研究者利用以Visual Basic编写的定制补料脚本控制底物供应，根据在线pH测量结果自动调整乙酸补料。从100 mL DASbox生物反应器放大至1 L DASGIP生物反应器、规模扩大10倍后，工艺仍保持稳定表现。优化后的工艺实现了10.04 g/L的L-苏氨酸滴度，得率为0.086 g/g乙酸盐。本研究为进一步开发和改进以乙酸盐为原料的氨基酸生产工艺提供了基础。要点：①无质粒的谷氨酸棒杆菌菌株可在乙酸盐最小培养基中生产L-苏氨酸；②在生物反应器中通过pH控制乙酸补料，提高了L-苏氨酸产量；③以乙酸盐生产饲用氨基酸可避免与人类食物竞争原料。",
+      "sourceTitle": "L-Threonine production from acetate by metabolically engineered Corynebacterium glutamicum using a pH-controlled fed-batch process.",
+      "sourceAbstract": "Acetate has a considerable potential as a non-food feedstock for microbial bioproduction, yet its use for amino acid production remains underexplored. Here, we developed a process for L-threonine production from acetate as the sole carbon source with Corynebacterium glutamicum by integrating rational, genome-based metabolic engineering with pH-coupled fed-batch cultivation. The engineered strain AT-3 carried five chromosomal mutations that alleviated feedback inhibition of key enzymes and redirected carbon flux toward the aspartate pathway. Substrate supply was controlled using a custom Visual Basic-based feeding script that automatically adjusted the acetic acid feed in response to online pH measurements. Robust process performance was maintained during a tenfold scale-up from 100-mL DASbox to 1-L DASGIP bioreactors. The optimized process achieved an L-threonine titer of 10.04 g/L and a yield of 0.086 g/g acetate. This study provides a basis for further studies on the development and improvement of acetate-based amino acid production process. KEY POINTS: • Plasmid-free C. glutamicum strains produce L-threonine in acetate minimal medium • pH-controlled acetic acid feed in bioreactors improved L-threonine production • Acetate-based production of feed amino acids avoids competition with human food.",
+      "sourceFingerprint": "e4ef39e0-1449",
+      "origin": "assistant_translation",
+      "createdAt": "2026-11-12T15:16:39.986Z",
+      "reviewed": false,
+      "scope": "abstract_only"
+    },
+    "doi:10.1021/acsabm.6c01317": {
+      "titleZh": "仿生纳米系统：推动医疗健康转化创新的新兴力量",
+      "abstractZh": "仿生纳米系统是纳米尺度的工程化平台，通过模拟特定的结构和组成特征，重现其与复杂生物环境之间的有利相互作用。这些受生物细胞膜启发的系统已成为一种具有多种生物医学应用前景的技术，但仍处于临床开发的早期阶段。仿生纳米系统可通过将所需的纳米颗粒整合入合成膜而制备。这类系统表现出更高的免疫相容性、更强的免疫逃逸能力以及更长的循环时间。因此，本研究考察了仿生纳米系统设计与工程化的最新进展，重点关注膜插入与整合、杂合化、表面功能化与修饰，以及代谢工程；这些策略有望增强系统的多功能性，改进杂合膜工程，并提高刺激响应性和可规模化能力。这些纳米系统的独特特征已在药物递送、疫苗研究、解毒剂制造、成像和传感等多个领域得到研究与应用，本文对这些应用进行了批判性讨论。此外，本综述总结了转化过程中面临的实际挑战，包括稳定性、可重复性、功能性、监管复杂性和有效性。综述还强调了这些新兴平台的机遇与局限，并概述了开发具有临床应用意义的纳米药物的关键方向。因此，本研究为未来开展多功能纳米仿生系统研究提供了基础。",
+      "sourceTitle": "Biomimetic Nanosystems as Emerging Catalysts for Translational Innovation in Healthcare.",
+      "sourceAbstract": "Biomimetic nanosystems are engineered platforms at the nanoscale range that emulate selected structural and compositional features to reproduce their advantageous interactions with the complex biological environments. These systems, inspired by the biological cell membrane(s), have emerged as a promising technology with a variety of biomedical applications. However, they are still in their early stage of clinical development. Biomimetic nanosystems may be produced by incorporating the desired nanoparticles into synthesized membrane(s). Such nanosystems exhibit greater immunocompatibility, immune evasion, and extended circulation times. Therefore, this study examines the latest advancements in the design and engineering of biomimetic nanosystems, focusing on membrane insertion/integration, hybridization, surface functionalization and modification, and metabolic engineering that could enhance the multifunctionality, hybrid membrane engineering, stimulus-responsive behavior, and scalability of these systems. The unique characteristics of these nanosystems have been investigated and applied in various fields, including medicine delivery, vaccine research, antidote(s) manufacturing, imaging, and sensing, which are critically discussed. Furthermore, this review has summarized the practical challenges related to translation, such as stability, reproducibility, functionality, regulatory complexity, and efficacy. This review also highlights both the opportunities and limitations of these emerging platforms and outlines key directions for the development of clinically relevant nanomedicine. As a result, this study serves as the foundation for future research into the multifunctional nanobiomimetic system.",
+      "sourceFingerprint": "6cb288d0-1813",
+      "origin": "assistant_translation",
+      "createdAt": "2026-11-12T15:16:39.986Z",
+      "reviewed": false,
+      "scope": "abstract_only"
+    },
+    "doi:10.1126/sciadv.aeg5924": {
+      "titleZh": "在脂滴界面空间调控酶取向，实现具有区域选择性和化学选择性的代谢通量",
+      "abstractZh": "对多酶级联反应进行精确的空间调控，正日益被视为合成生物学中提高催化性能和引导代谢通量的一种设计手段。通过模拟细胞区室化原理，合成支架与工程化界面已成为在复杂生物催化体系中调节中间体通道化和反应效率的有力平台。然而，由于细胞内环境具有动态性，要在理化条件最优的区室内稳固且以明确的空间位置固定多酶组装体，仍然具有挑战性。本研究将酵母脂滴（LDs）的两亲性界面改造为可编程支架体系，以支持酶具有区域选择性和化学选择性的定位。在分子动力学模拟的指导下，研究者设计了脂滴锚定基序，以控制酶在脂滴单分子层界面的取向，形成朝向细胞质溶胶或脂滴内部的构型。利用这一设计的脂滴锚定基序，研究者在细胞质溶胶与脂滴的界面两侧，对用于prodeoxyviolacein（PDV）生物合成的三酶级联进行了空间重组，促进亲水底物向疏水产物的定向转化。这种空间重组使PDV产量显著提高了1300%，达到46.25 mg/L。该方法为构建具有空间组织且便于应用的酶级联提供了模块化、可调节的平台，为在细胞器界面开展生物合成催化开辟了方向。",
+      "sourceTitle": "Spatial control of enzyme orientation at the lipid droplet interface enables regio- and chemoselective metabolic flux.",
+      "sourceAbstract": "Precise spatial control over multienzyme cascade reactions is increasingly recognized as a design lever in synthetic biology for enhancing catalytic performance and directing metabolic flux. By emulating principles of cellular compartmentalization, synthetic scaffolds and engineered interfaces have emerged as powerful platforms to modulate intermediate channeling and reaction efficiency in complex biocatalytic systems. However, robust and spatially defined immobilization of multienzyme assemblies within physicochemically optimal compartments remains challenging because of the dynamic intracellular environment. Here, we reprogram the amphiphilic interface of yeast lipid droplets (LDs) as a programmable scaffold system to support regio- and chemoselective localization of enzymes. Guided by molecular dynamics simulations, we designed LD-anchoring motifs to direct the enzyme orientation at the LD monolayer interface, yielding cytosol-facing or LD inner-facing configurations. Using this designed LD-anchoring motif, we spatially reorganize a trienzyme cascade for prodeoxyviolacein (PDV) biosynthesis across the cytosol-LD interface, facilitating directional conversion of hydrophilic substrates into hydrophobic products. This spatial reorganization substantially improved PDV production by 1300%, achieving 46.25 milligrams per liter. Our approach offers a modular and tunable platform for engineering spatially organized and readily deployable enzyme cascades, opening avenues for biosynthetic catalysis at organellar interfaces.",
+      "sourceFingerprint": "5ec5f11f-1661",
+      "origin": "assistant_translation",
+      "createdAt": "2026-11-12T15:16:39.986Z",
       "reviewed": false,
       "scope": "abstract_only"
     },

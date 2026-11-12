@@ -1,9 +1,21 @@
-import { cleanDoi } from '../dist/core.js';
+import { cleanDoi, validPublicationDate } from '../dist/core.js';
 import { validateDownloadMetric } from '../dist/enrichment.js';
 import { fetchPlosMetric } from './plos.mjs';
 
 const supportedPublisherDoi = /^(10\.5281\/zenodo\.|10\.1371\/journal\.)/i;
 function supportsPublisherRefresh(paper) { return supportedPublisherDoi.test(paper?.doi || ''); }
+function validAttemptAt(value) {
+  return typeof value === 'string'
+    && /^\d{4}-\d{2}-\d{2}T(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d{1,3})?(?:Z|[+-](?:[01]\d|2[0-3]):[0-5]\d)$/.test(value)
+    && validPublicationDate(value.slice(0, 10)) && Number.isFinite(Date.parse(value));
+}
+function lastPublisherAttemptAt(paper) {
+  if (validAttemptAt(paper.downloadRefreshLastAttemptAt)) return paper.downloadRefreshLastAttemptAt;
+  const refresh = paper.downloadRefresh;
+  // Old snapshots kept the previous attempt only in the current batch result.
+  return ['updated', 'failed', 'not_available'].includes(refresh?.status) && validAttemptAt(refresh.checkedAt)
+    ? refresh.checkedAt : null;
+}
 
 // Europe PMC's citation count and platform-wide bioRxiv usage totals are deliberately not used.
 export function applyPublisherMetrics(papers, records = []) {
@@ -45,20 +57,28 @@ export async function fetchPublisherMetric(paper, fetchImpl = fetch) {
 
 export async function refreshPublisherMetrics(papers, { fetchMetric = fetchPublisherMetric, limit = 20, checkedAt = new Date().toISOString() } = {}) {
   if (!Number.isSafeInteger(limit) || limit < 0) throw new Error('下载统计批次上限无效');
-  let attempted = 0;
-  const output = [];
-  for (const paper of papers) {
-    if (!supportsPublisherRefresh(paper)) { output.push(paper); continue; }
-    if (attempted >= limit) { output.push({ ...paper, downloadRefresh: { status: 'skipped', reason: 'batch_limit' } }); continue; }
-    attempted++;
+  if (!validAttemptAt(checkedAt)) throw new Error('下载统计尝试时间无效');
+  const candidates = papers.map((paper, index) => ({ paper, index }))
+    .filter(({ paper }) => supportsPublisherRefresh(paper))
+    .map(item => ({ ...item, lastAttemptAt: lastPublisherAttemptAt(item.paper) }));
+  const priority = value => value === null ? -Infinity : Date.parse(value);
+  candidates.sort((a, b) => priority(a.lastAttemptAt) - priority(b.lastAttemptAt) || a.index - b.index);
+  // Newest-first libraries must not permanently starve papers after the batch limit.
+  const output = papers.slice();
+  for (const { paper, index, lastAttemptAt } of candidates) {
+    const { downloadRefreshLastAttemptAt: _previous, ...record } = paper;
+    output[index] = { ...record, ...(lastAttemptAt ? { downloadRefreshLastAttemptAt: lastAttemptAt } : {}), downloadRefresh: { status: 'skipped', reason: 'batch_limit' } };
+  }
+  for (const { paper, index } of candidates.slice(0, limit)) {
+    const { downloadRefreshLastAttemptAt: _previous, ...record } = paper;
     try {
       const metric = await fetchMetric(paper);
       const valid = validateDownloadMetric(metric);
-      output.push({ ...paper, ...(valid ? { downloadMetric: metric } : {}), downloadRefresh: { status: valid ? 'updated' : 'not_available', checkedAt } });
+      output[index] = { ...record, ...(valid ? { downloadMetric: metric } : {}), downloadRefreshLastAttemptAt: checkedAt, downloadRefresh: { status: valid ? 'updated' : 'not_available', checkedAt } };
     } catch {
       // Preserve both the count and its original collection time. The new
       // attempt is recorded separately and never copies upstream error text.
-      output.push({ ...paper, downloadRefresh: { status: 'failed', checkedAt } });
+      output[index] = { ...record, downloadRefreshLastAttemptAt: checkedAt, downloadRefresh: { status: 'failed', checkedAt } };
     }
   }
   return output;
