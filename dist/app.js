@@ -1,15 +1,15 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.16';
-import { collectionHealth } from './health.js?v=0.2.16';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.16';
-import { evidenceContext } from './evidence.js?v=0.2.16';
-import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.16';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.16';
-import { readLocalReaderState, persistLocalRecovery } from './local-state.js?v=0.2.16';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.16';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.16';
-import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.16';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.17';
+import { collectionHealth } from './health.js?v=0.2.17';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.17';
+import { evidenceContext } from './evidence.js?v=0.2.17';
+import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.17';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.17';
+import { readLocalReaderState, persistLocalRecovery } from './local-state.js?v=0.2.17';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.17';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.17';
+import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.17';
 
-import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.16';
+import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.17';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -96,7 +96,7 @@ function localRecoveryMarkup() {
 }
 
 
-function manualCollectionOnly() { return typeof backendStatus?.modelConfigured !== 'boolean' && libraryMeta?.automation?.collectionSource?.trigger === 'workflow_dispatch' && libraryMeta.automation.modelConfigured === false; }
+function manualCollectionOnly() { return typeof backendStatus?.modelConfigured !== 'boolean' && libraryMeta?.automation?.collectionSource?.trigger === 'workflow_dispatch' && libraryMeta.automation.modelConfigured === false && libraryMeta.automation.modelRunLimit !== 1; }
 function translated(p) { return translationOf(attachEnrichment(p, translations)); }
 function paperHeading(p) {
   const t = translated(p);

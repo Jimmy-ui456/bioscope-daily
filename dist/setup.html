@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>生研观察 · 部署与模型配置</title>
-<link rel="stylesheet" href="./styles.css?v=0.2.16">
-<link rel="stylesheet" href="./enrichment.css?v=0.2.16">
+<link rel="stylesheet" href="./styles.css?v=0.2.17">
+<link rel="stylesheet" href="./enrichment.css?v=0.2.17">
 <link rel="icon" href="./icon.svg">
 </head>
 <body>
@@ -16,18 +16,26 @@
 <p>
 <a href="./guide.html">先看使用与项目结构入门 →</a> · <a href="./guide.html#troubleshooting">遇到问题先检查什么 →</a>
 </p>
-<p>本页是配置说明，不会在公开网页里收取或保存模型密钥。尚未选定模型时无需配置，也不会自动选择服务。</p>
+<p>本页供网站维护者配置后台，普通访客无需填写。公开网页不会收取或保存模型密钥；缺少密钥时仍可采集和阅读文献，不发模型请求。</p>
 <section class="settings-panel" id="models">
 <h2>1. 自动中文解读的配置入口</h2>
-<p>模型尚未选定时无需填写，采集仍然运行。选择支持 Chat Completions 与 JSON 模式的服务后，将以下三项保存在服务器 .env 或 GitHub 仓库的 Settings → Secrets and variables → Actions → New repository secret。</p>
+<p>本项目已准备阿里云百炼北京地域的 <strong>qwen3.7-flash</strong>，使用非思考模式翻译摘要和整理证据。接口地址与模型名是非秘密配置，放在 GitHub Actions Variables；API Key 只放 Secrets。没有密钥时不启用调用，真实翻译质量需在接通后验证。</p>
+<ol>
+<li>打开<a href="https://bailian.console.aliyun.com/" target="_blank" rel="noopener noreferrer">阿里云百炼控制台</a>，登录或注册，按平台提示开通服务，选择<strong>华北2（北京）</strong>地域。</li>
+<li>按照<a href="https://help.aliyun.com/zh/model-studio/get-api-key" target="_blank" rel="noopener noreferrer">官方API Key指引</a>创建密钥。地域要与北京接口一致；不要把密钥发到聊天、截图或公开仓库。</li>
+<li>打开<a href="https://github.com/Jimmy-ui456/bioscope-daily/settings/secrets/actions/new" target="_blank" rel="noopener noreferrer">本仓库的新建Secret页面</a>，Name填写 <code>LLM_API_KEY</code>，Secret填写自己的百炼密钥并保存。其他两项已准备为 <code>LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1</code>、<code>LLM_MODEL=qwen3.7-flash</code>；无需再把密钥存入Variables。</li>
+<li>首次验收可在<a href="https://github.com/Jimmy-ui456/bioscope-daily/actions/workflows/pages.yml" target="_blank" rel="noopener noreferrer">Actions运行入口</a>选择Run workflow，明确勾选“补采并最多翻译1篇”。这会真实补采并最多请求模型1次，可能计费；默认不勾选时仍禁用模型。</li>
+<li>核对运行摘要中的实际模型请求、通过校验的结果和失败次数；没有恰好1篇有效结果就不视为验收通过。流程绿勾不单独证明模型翻译成功，失败或未知请求不会自动重复收费。</li>
+</ol>
+<p>费用参考（2026-11-13）：北京地域、单请求输入不超过32K Token时，<a href="https://help.aliyun.com/zh/model-studio/model-pricing" target="_blank" rel="noopener noreferrer">官方原价</a>为每百万输入Token 0.2元、输出0.8元。Token是模型计费的文字片段，不等于汉字数。按每日20篇、每篇约2000输入及3000输出Token估算，30天约1.68元；这是示例估算，实际按用量及当期价格计费，不含未来调价或更多任务。无需为此购买包月套餐。</p>
 <dl class="detail-meta">
 <div>
 <dt>LLM_BASE_URL</dt>
-<dd>服务商的 API 基础地址，通常含 /v1；不要包含 /chat/completions。远程地址须用 HTTPS；本机 localhost 或 127.0.0.1 可使用 HTTP。</dd>
+<dd>放Actions Variables或本地 .env。北京接口为 https://dashscope.aliyuncs.com/compatible-mode/v1；不要包含 /chat/completions。已有Secrets字段仍可兼容，Variables优先。</dd>
 </div>
 <div>
 <dt>LLM_MODEL</dt>
-<dd>服务商提供的准确模型名称。</dd>
+<dd>放Actions Variables或本地 .env；当前选择 qwen3.7-flash。</dd>
 </div>
 <div>
 <dt>LLM_API_KEY</dt>
@@ -36,11 +44,11 @@
 </dl>
 <p>自动任务整理中文题名、已返回摘要的中文译文、研究问题、方法、结果及摘要明确报告的局限，并附原文证据片段。没有摘要时跳过解读。所有解读带有未审核标记，译文按完整英文版本匹配，新原文不套用旧译文；旧版仍可匹配历史快照。接口摘要截断时不补造缺失阈值或结论，原文数值差异也分别保留并提示。</p>
 <p>解读引文必须逐字出现在输入的英文题名或摘要中，否则拒绝发布。页面与导出会再次核对引文；页面可查看上下文，导出保留原文与引文。逐字匹配不等于中文结论已经核实，也不代表读取或核验了全文。</p>
-<p>默认每轮最多10次、每个北京日历日最多20次模型请求，失败或结果未知也计入额度；可在 config/monitor.json 调整。已有回执不自动重试，需管理员先核对供应商记录。任务在保存前被强制终止等情况下，仍不能保证绝对不重复计费。</p>
+<p>默认先处理没有有效译文的论文，不重复付费翻译已有辅助译文。确需对已译论文补模型解读，可在 config/monitor.json 明确将 interpretTranslatedPapers 设为 true。定时每轮最多10次、每个北京日历日最多20次请求；明确选择的手动单篇验收最多1次，不能扩大配置限额。失败或结果未知也计入额度，异常预算不按0处理。已有回执不自动重试，需管理员先核对供应商记录。任务在保存前被强制终止等情况下，仍不能保证绝对不重复计费。</p>
 </section>
 <section class="settings-panel">
 <h2>2. 云端定时采集与公开网址</h2>
-<p>若未看到当天运行记录，可进入仓库 Actions → Collect research and publish website → Run workflow 手动补采。手动入口强制禁用模型，即使已存模型密钥也不发模型请求；定时任务仅在完整配置后启用解读。请核对运行摘要中的失败方向、实际模型请求数及最终发布结果。网页会标明快照来自手动补采或定时采集；计划时间不能证明任务已实际运行。</p>
+<p>若未看到当天运行记录，可进入仓库 Actions → Collect research and publish website → Run workflow 手动补采。普通手动补采默认禁用模型；只有明确勾选单篇验收才最多调用1次，缺配置时直接拒绝验收。定时任务在完整配置后启用解读。请核对运行摘要中的失败方向、实际模型请求与结果及最终发布。网页会标明手动或定时来源；计划时间不能证明任务已实际运行。</p>
 <p>上传完整项目到自己的 GitHub 仓库后，在 Settings → Pages → Build and deployment 将 Source 设为 GitHub Actions。网站部署任务会发布 dist/ 中的静态页面。</p>
 <p>在 Actions 中选择 “Collect research and publish website”，点击 Run workflow 可立即采集。默认定时为 UTC 23:17，即北京时间次日07:17；GitHub 可能排队延迟。文献数据经后台更新并发布，访客无需一直打开网页，你的电脑也不需要保持开机。</p>
 <p>仅将 dist/ 作为 GitHub Pages 发布目录。Pages 不能执行 Node.js 后端；自动采集和模型调用在 Actions 中执行。密钥不随页面发送给访客。</p>

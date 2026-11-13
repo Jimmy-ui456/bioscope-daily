@@ -3,6 +3,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      translate_one:
+        description: '补采并最多翻译1篇（可能计费，需已配置模型密钥）'
+        type: boolean
+        required: false
+        default: false
   schedule:
     # UTC 23:17 = Beijing 07:17 the following day. GitHub may queue/delay a run.
     - cron: '17 23 * * *'
@@ -24,12 +30,13 @@ jobs:
           node-version: '24'
       - name: Check code
         run: npm run check && npm test
-      - name: Collect literature (manual runs never call models)
+      - name: Collect literature (manual model check requires explicit opt-in)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
-          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
-          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL || secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL || secrets.LLM_MODEL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          BIOSCOPE_TRANSLATE_ONE: ${{ github.event_name == 'workflow_dispatch' && toJSON(inputs.translate_one) == 'true' && 'true' || 'false' }}
         run: node scripts/collect-workflow.mjs
       - name: Save updated public literature snapshot
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'

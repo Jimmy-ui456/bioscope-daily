@@ -6,6 +6,7 @@
   "maxPapers": 500,
   "maxAnalysesPerRun": 10,
   "maxModelRequestsPerDay": 20,
+  "interpretTranslatedPapers": false,
   "scheduleBeijing": "07:17",
   "downloadMetricPolicy": "publisher_only"
 }

@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { TOPICS, collectTopic, mergePapers, beijingDay, isRetracted } from '../dist/core.js';
+import { TOPICS, collectTopic, mergePapers, beijingDay, isRetracted, validPublicationDate } from '../dist/core.js';
 import { attachEnrichment, translationOf, sourceFingerprint } from '../dist/enrichment.js';
 import { interpretPaper, PROMPT_VERSION } from './interpret.mjs';
 import { applyPublisherMetrics, fetchPublisherMetric, refreshPublisherMetrics, summarizePublisherRefresh } from './downloads.mjs';
@@ -18,7 +18,19 @@ export function modelConfig(env = process.env) { return { baseUrl: env.LLM_BASE_
 export function configuredModel(config) { return Boolean(config.apiKey && config.baseUrl && config.model); }
 export function requestKey(paper, config) { return createHash('sha256').update([paper.id, sourceFingerprint(paper), config.baseUrl, config.model, PROMPT_VERSION].join('|')).digest('hex'); }
 
-export async function runPipeline({ root = PROJECT, collect = collectTopic, interpret = interpretPaper, fetchMetric = fetchPublisherMetric, env = process.env, sourceEnv = process.env, now = new Date(), log = console.log } = {}) {
+function validModelUsage(usage, today) {
+  return usage !== null && typeof usage === 'object' && !Array.isArray(usage)
+    && validPublicationDate(usage.date) && usage.date <= today
+    && Number.isSafeInteger(usage.requests) && usage.requests >= 0;
+}
+function configuredLimit(value, fallback, label) {
+  const limit = value === undefined ? fallback : value;
+  if (!Number.isSafeInteger(limit) || limit < 0) throw new Error(`${label}必须为非负安全整数，未调用模型`);
+  return limit;
+}
+
+export async function runPipeline({ root = PROJECT, collect = collectTopic, interpret = interpretPaper, fetchMetric = fetchPublisherMetric, env = process.env, sourceEnv = process.env, now = new Date(), log = console.log, modelRunLimit } = {}) {
+  if (modelRunLimit !== undefined && (!Number.isSafeInteger(modelRunLimit) || modelRunLimit < 0)) throw new Error('本次模型请求上限必须为非负安全整数');
   await mkdir(path.join(root, '.data'), { recursive: true });
   const lockPath = path.join(root, '.data/pipeline.lock');
   const lock = await acquirePipelineLock(lockPath);
@@ -26,6 +38,15 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     const config = await readJson(path.join(root, 'config/monitor.json'), {});
     const sample = await readJson(path.join(root, 'dist/sample.json'), { papers: [] });
     const previous = await readJson(path.join(root, 'dist/library.json'), { papers: [], receipts: {}, modelUsage: { date: beijingDay(now), requests: 0 } });
+    const configModel = modelConfig(env), modelEnabled = configuredModel(configModel);
+    const today = beijingDay(now);
+    const usageKnown = validModelUsage(previous.modelUsage, today);
+    if (modelEnabled && !usageKnown) throw new Error('已有模型请求预算记录缺失或无效，未调用模型；请核对原记录');
+    // Unknown state is retained during model-free collection, never reset to a
+    // fictional zero. Only a valid earlier Beijing date starts a new daily count.
+    const usage = usageKnown ? (previous.modelUsage.date === today ? { ...previous.modelUsage } : { date: today, requests: 0 }) : previous.modelUsage;
+    const runLimit = modelEnabled ? Math.min(configuredLimit(config.maxAnalysesPerRun, 10, '模型每轮上限'), modelRunLimit ?? Number.MAX_SAFE_INTEGER) : 0;
+    const dailyLimit = modelEnabled ? configuredLimit(config.maxModelRequestsPerDay, 20, '模型每日上限') : 0;
     const catalog = (await readJson(path.join(root, 'dist/translations.json'), { items: {} })).items;
     const topics = TOPICS.filter(t => (config.topics || TOPICS.map(t => t.id)).includes(t.id));
     if (!topics.length) throw new Error('没有有效监控主题');
@@ -38,21 +59,20 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     papers = applyPublisherMetrics(papers, publisherRecords);
     papers = await refreshPublisherMetrics(papers, { fetchMetric });
     const downloadRefresh = summarizePublisherRefresh(papers);
-    const configModel = modelConfig(env);
-    const today = beijingDay(now);
-    const usage = previous.modelUsage?.date === today ? { ...previous.modelUsage } : { date: today, requests: 0 };
     const receipts = { ...(previous.receipts || {}) };
     // Seed copies provide translations only; samples are not inserted as newly collected papers.
     const sampleCatalog = Object.fromEntries(sample.papers.filter(p => p.enrichment).map(p => [p.id, p.enrichment]));
     papers = papers.map(p => attachEnrichment(p, { ...sampleCatalog, ...catalog }));
     const collectionSource = publicCollectionSource(sourceEnv);
-    const library = { schemaVersion: 2, origin: 'live', fetchedAt: new Date().toISOString(), papers, stats, modelUsage: usage, receipts, automation: { scheduleBeijing: config.scheduleBeijing || '07:17', modelConfigured: configuredModel(configModel), modelStatus: configuredModel(configModel) ? 'ready' : 'not_configured', lastRunAt: new Date().toISOString(), failedTopics: stats.filter(s => s.error).length, collectionSource, downloadRefresh } };
+    const library = { schemaVersion: 2, origin: 'live', fetchedAt: new Date().toISOString(), papers, stats, modelUsage: usage, receipts, automation: { scheduleBeijing: config.scheduleBeijing || '07:17', modelConfigured: modelEnabled, modelStatus: modelEnabled ? 'ready' : 'not_configured', lastRunAt: new Date().toISOString(), failedTopics: stats.filter(s => s.error).length, collectionSource, downloadRefresh, ...(modelRunLimit === undefined ? {} : { modelRunLimit }) } };
     const output = path.join(root, 'dist/library.json');
     await saveJson(output, library);
-    let attempted = 0;
-    if (configuredModel(configModel)) for (const paper of papers) {
-      if (!paper.abstract || translationOf(paper)?.origin === 'model' || isRetracted(paper)) continue;
-      if (attempted >= (config.maxAnalysesPerRun ?? 10) || usage.requests >= (config.maxModelRequestsPerDay ?? 20)) break;
+    let attempted = 0, completed = 0, modelFailures = 0;
+    if (modelEnabled) for (const paper of papers) {
+      const translated = translationOf(paper);
+      if (!paper.abstract || isRetracted(paper)) continue;
+      if (translated && (translated.origin !== 'assistant_translation' || config.interpretTranslatedPapers !== true)) continue;
+      if (attempted >= runLimit || usage.requests >= dailyLimit) break;
       const key = requestKey(paper, configModel);
       // A pending / unknown request is never retried automatically: it may already have cost money.
       if (receipts[key]) continue;
@@ -62,10 +82,13 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
       try {
         paper.enrichment = await interpret(paper, configModel);
         receipts[key] = { status: 'completed', at: new Date().toISOString() };
-      } catch { receipts[key] = { status: 'failed_or_unknown', at: new Date().toISOString() }; }
+        completed++;
+      } catch { receipts[key] = { status: 'failed_or_unknown', at: new Date().toISOString() }; modelFailures++; }
       await saveJson(output, library);
     }
     library.automation.modelRequestsThisRun = attempted;
+    library.automation.modelCompletedThisRun = completed;
+    library.automation.modelFailuresThisRun = modelFailures;
     library.automation.analysisFailures = Object.values(receipts).filter(r => r.status === 'failed_or_unknown' || r.status === 'pending').length;
     await saveJson(output, library);
     const reportFile = path.join(root, 'dist/public-reports.json');

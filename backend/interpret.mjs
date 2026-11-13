@@ -26,7 +26,12 @@ export async function interpretPaper(paper, { baseUrl, apiKey, model, fetchImpl 
   if (url.protocol !== 'https:' && !['127.0.0.1', 'localhost'].includes(url.hostname)) throw new Error('模型接口必须使用 HTTPS');
   if (!paper.abstract) throw new Error('缺少摘要，不能自动生成研究解读');
   if (paper.abstract.length > 40000) throw new Error('摘要超长，请人工处理');
-  const response = await fetchImpl(url, { method: 'POST', signal: AbortSignal.timeout(90000), headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ model, messages: [{ role: 'system', content: SYSTEM_PROMPT }, { role: 'user', content: JSON.stringify({ title: paper.title, abstract: paper.abstract, isPreprint: paper.isPreprint, readingScope: paper.readingScope }) }], response_format: { type: 'json_object' }, max_tokens: 6000 }) });
+  const body = { model, messages: [{ role: 'system', content: SYSTEM_PROMPT }, { role: 'user', content: JSON.stringify({ title: paper.title, abstract: paper.abstract, isPreprint: paper.isPreprint, readingScope: paper.readingScope }) }], response_format: { type: 'json_object' }, max_tokens: 6000 };
+  // This vendor-specific option is not part of generic Chat Completions. Only
+  // the documented official Bailian endpoint/model combination receives it.
+  const bailian = url.hostname === 'dashscope.aliyuncs.com' || url.hostname.endsWith('.maas.aliyuncs.com');
+  if (bailian && typeof model === 'string' && /^qwen3\.7-flash(?:$|-)/i.test(model)) body.enable_thinking = false;
+  const response = await fetchImpl(url, { method: 'POST', signal: AbortSignal.timeout(90000), headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
   if (!response.ok) throw new Error(`模型服务 HTTP ${response.status}，请检查服务端配置`);
   const responseData = await response.json();
   const choice = responseData.choices?.[0];

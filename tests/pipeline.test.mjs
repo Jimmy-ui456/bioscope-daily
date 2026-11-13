@@ -124,8 +124,9 @@ test('本地调度器同一北京日成功后不重复补跑', async t => {
   await scheduler.tick(); await scheduler.tick();
   assert.equal(calls, 1);
 });
-test('已有辅助译文的论文仍可在配置模型后补充结构化解读', async t => {
+test('明确开启重解读后才为已有辅助译文补充结构化解读', async t => {
   const root = await project(t); let calls = 0;
+  await saveJson(path.join(root, 'config/monitor.json'), { topics: ['metabolic'], maxAnalysesPerRun: 1, maxModelRequestsPerDay: 2, interpretTranslatedPapers: true });
   await saveJson(path.join(root, 'dist/translations.json'), { items: { [paper.id]: { titleZh: '测试', abstractZh: '测试摘要', sourceFingerprint: sourceFingerprint(paper), origin: 'assistant_translation' } } });
   await runPipeline({ root, now, env, collect: collected, interpret: async p => { calls++; return { titleZh: '测试', abstractZh: '测试摘要', sourceFingerprint: sourceFingerprint(p), origin: 'model' }; }, log: () => {} });
   assert.equal(calls, 1);

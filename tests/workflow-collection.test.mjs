@@ -44,6 +44,51 @@ test('精确schedule保留三个模型配置字段，不把其它进程凭据传
   assert.equal(configuredModel(modelConfig(passedEnv)), true);
 });
 
+test('只有明确手动选择单篇验收才传模型白名单并将运行硬限设为1', async () => {
+  let passed;
+  const summaries = [];
+  await runWorkflowCollection({ env: { ...modelEnv, GITHUB_EVENT_NAME: 'workflow_dispatch', BIOSCOPE_TRANSLATE_ONE: 'true', GITHUB_TOKEN: 'never-forward' },
+    run: async options => { passed = options; return library; }, summaryFile: '/fake-summary',
+    appendSummary: async (_file, markdown) => summaries.push(markdown) });
+  assert.deepEqual(passed, { env: modelEnv, modelRunLimit: 1 });
+  assert.match(summaries[0], /明确启用单篇模型验收并补采.*最多1次/);
+  assert.equal(summaries[0].includes(modelEnv.LLM_API_KEY), false);
+});
+
+test('单篇验收缺密钥时收费和采集前明确拒绝，不能用其它环境凭据代替', async () => {
+  let called = false; const warnings = [];
+  await assert.rejects(runWorkflowCollection({ env: { LLM_BASE_URL: modelEnv.LLM_BASE_URL, LLM_MODEL: modelEnv.LLM_MODEL,
+    GITHUB_TOKEN: 'not-a-model-key', OPENAI_API_KEY: 'not-authorized', BIOSCOPE_TRANSLATE_ONE: 'true' }, eventName: 'workflow_dispatch',
+    run: async () => { called = true; return library; }, warn: message => warnings.push(message) }), /缺少完整配置/);
+  assert.equal(called, false); assert.equal(warnings.length, 1);
+  assert.ok(!warnings[0].includes('not-authorized')); assert.ok(!warnings[0].includes('not-a-model-key'));
+});
+
+test('单篇结果未验证时保留输出并明确warning，不以流程完成冒充模型验收成功', async () => {
+  for (const automation of [{ modelRequestsThisRun: 0, modelCompletedThisRun: 0 }, { modelRequestsThisRun: 1, modelCompletedThisRun: 0, modelFailuresThisRun: 1 }]) {
+    const output = { ...library, automation }, warnings = [];
+    const result = await runWorkflowCollection({ env: { ...modelEnv, BIOSCOPE_TRANSLATE_ONE: 'true' }, eventName: 'workflow_dispatch',
+      run: async () => output, warn: message => warnings.push(message) });
+    assert.equal(result, output); assert.match(warnings.join(''), /单篇模型尚未验收通过/);
+  }
+});
+
+test('单篇标志的近似值及其它事件不能启用手动收费，schedule不被标志扩大或改成单篇', async () => {
+  for (const flag of ['', 'TRUE', 'true ', '1', true, false]) {
+    let passed;
+    await runWorkflowCollection({ env: { ...modelEnv, BIOSCOPE_TRANSLATE_ONE: flag }, eventName: 'workflow_dispatch', run: async options => { passed = options; return library; } });
+    assert.deepEqual(passed, { env: {} });
+  }
+  for (const eventName of ['push', 'Schedule', 'unknown']) {
+    let passed;
+    await runWorkflowCollection({ env: { ...modelEnv, BIOSCOPE_TRANSLATE_ONE: 'true' }, eventName, run: async options => { passed = options; return library; } });
+    assert.deepEqual(passed, { env: {} });
+  }
+  let passed;
+  await runWorkflowCollection({ env: { ...modelEnv, BIOSCOPE_TRANSLATE_ONE: 'true' }, eventName: 'schedule', run: async options => { passed = options; return library; } });
+  assert.deepEqual(passed, { env: modelEnv });
+});
+
 test('部分方向失败时写采集摘要和受控warning，保留成功结果供后续发布', async () => {
   const partial = { ...library, stats: [library.stats[0], { topic: '代谢工程', error: 'RAW-ERROR-DO-NOT-LOG' }, { topic: 'MICROBIAL-SECRET-LABEL', error: 'SECRET-ERROR' }] };
   const before = structuredClone(partial), summaries = [], warnings = [];
