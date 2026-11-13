@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-13T13:43:07.610Z",
+  "fetchedAt": "2026-11-13T14:09:26.740Z",
   "papers": [
     {
       "id": "doi:10.21203/rs.3.rs-11147586/v1",
@@ -1276,7 +1276,7 @@
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/ploscompbiol/article/metrics?id=10.1371%2Fjournal.pcbi.1014881",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pcbi.1014881/format/json",
-        "fetchedAt": "2026-11-13T13:43:07.536Z",
+        "fetchedAt": "2026-11-13T14:09:26.633Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-11",
         "coverageEnd": "2026-11",
@@ -1290,7 +1290,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-13T13:43:07.268Z"
+        "checkedAt": "2026-11-13T14:09:26.527Z"
       },
       "enrichment": {
         "titleZh": "kinGEMs：通过随机调优深度学习预测的动力学参数，构建稳健且可扩展的资源约束模型框架",
@@ -1303,7 +1303,7 @@
         "reviewed": false,
         "scope": "abstract_only"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-13T13:43:07.268Z"
+      "downloadRefreshLastAttemptAt": "2026-11-13T14:09:26.527Z"
     },
     {
       "id": "doi:10.1007/s00253-026-14083-7",
@@ -7982,7 +7982,7 @@
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-13T13:43:07.604Z",
+        "fetchedAt": "2026-11-13T14:09:26.734Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -8007,9 +8007,9 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-13T13:43:07.268Z"
+        "checkedAt": "2026-11-13T14:09:26.527Z"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-13T13:43:07.268Z"
+      "downloadRefreshLastAttemptAt": "2026-11-13T14:09:26.527Z"
     },
     {
       "id": "doi:10.1007/s11274-026-05339-5",
@@ -8274,23 +8274,28 @@
   ],
   "modelUsage": {
     "date": "2026-11-13",
-    "requests": 1
+    "requests": 2
   },
   "receipts": {
     "562da9efb9af614c7b31ce23f0387a1a1e75221e209ec5f7354238a7fa99f4fd": {
       "status": "failed_or_unknown",
       "at": "2026-11-13T13:43:19.832Z"
+    },
+    "797ac5ea6bfe8999a1cfa6775d356446e1b9f8e97c57e0728e8d8f9b9345f16b": {
+      "status": "failed_or_unknown",
+      "at": "2026-11-13T14:09:32.772Z",
+      "failureCode": "invalid_evidence"
     }
   },
   "automation": {
     "scheduleBeijing": "07:17",
     "modelConfigured": true,
     "modelStatus": "ready",
-    "lastRunAt": "2026-11-13T13:43:07.610Z",
+    "lastRunAt": "2026-11-13T14:09:26.740Z",
     "failedTopics": 0,
     "collectionSource": {
       "trigger": "workflow_dispatch",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/43436064175"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/43440017171"
     },
     "downloadRefresh": {
       "supported": 2,
@@ -8304,7 +8309,7 @@
     "modelRequestsThisRun": 1,
     "modelCompletedThisRun": 0,
     "modelFailuresThisRun": 1,
-    "analysisFailures": 1,
-    "completedAt": "2026-11-13T13:43:19.868Z"
+    "analysisFailures": 2,
+    "completedAt": "2026-11-13T14:09:32.818Z"
   }
 }
