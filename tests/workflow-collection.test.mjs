@@ -34,14 +34,38 @@ test('push、未知或近似schedule的事件也不能借进程配置启用模�
   }
 });
 
-test('精确schedule保留三个模型配置字段，不把其它进程凭据传入pipeline', async () => {
+test('精确schedule且明确开启自动模型才保留三个配置字段，不把其它凭据传入pipeline', async () => {
   let passedEnv;
   await runWorkflowCollection({
-    env: { ...modelEnv, GITHUB_EVENT_NAME: 'schedule', GITHUB_TOKEN: 'exclude-this', UNRELATED_SECRET: 'exclude-too' },
+    env: { ...modelEnv, GITHUB_EVENT_NAME: 'schedule', BIOSCOPE_MODEL_AUTO: 'true', GITHUB_TOKEN: 'exclude-this', UNRELATED_SECRET: 'exclude-too' },
     run: async options => { passedEnv = options.env; return library; },
   });
   assert.deepEqual(passedEnv, modelEnv);
   assert.equal(configuredModel(modelConfig(passedEnv)), true);
+});
+
+test('自动模型默认暂停，近似开启值及单篇标志不能让定时采集收费', async () => {
+  for (const flag of [undefined, '', 'false', 'TRUE', 'true ', '1', true, false]) {
+    let passed; let summary;
+    const output = await runWorkflowCollection({
+      env: { ...modelEnv, BIOSCOPE_MODEL_AUTO: flag, BIOSCOPE_TRANSLATE_ONE: 'true' }, eventName: 'schedule',
+      run: async options => { passed = options; return library; }, summaryFile: '/fake-summary',
+      appendSummary: async (_file, markdown) => { summary = markdown; },
+    });
+    assert.deepEqual(passed, { env: {} });
+    assert.equal(output, library);
+    assert.match(summary, /自动模型已暂停，文献定时采集与发布继续/);
+    assert.equal(summary.includes(modelEnv.LLM_API_KEY), false);
+  }
+});
+
+test('自动模型标志不能让普通手动、push或未知事件调用模型', async () => {
+  for (const eventName of ['workflow_dispatch', 'push', 'unknown', 'Schedule']) {
+    let passed;
+    await runWorkflowCollection({ env: { ...modelEnv, BIOSCOPE_MODEL_AUTO: 'true' }, eventName,
+      run: async options => { passed = options; return library; } });
+    assert.deepEqual(passed, { env: {} });
+  }
 });
 
 test('只有明确手动选择单篇验收才传模型白名单并将运行硬限设为1', async () => {
@@ -85,7 +109,7 @@ test('单篇标志的近似值及其它事件不能启用手动收费，schedule
     assert.deepEqual(passed, { env: {} });
   }
   let passed;
-  await runWorkflowCollection({ env: { ...modelEnv, BIOSCOPE_TRANSLATE_ONE: 'true' }, eventName: 'schedule', run: async options => { passed = options; return library; } });
+  await runWorkflowCollection({ env: { ...modelEnv, BIOSCOPE_MODEL_AUTO: 'true', BIOSCOPE_TRANSLATE_ONE: 'true' }, eventName: 'schedule', run: async options => { passed = options; return library; } });
   assert.deepEqual(passed, { env: modelEnv });
 });
 

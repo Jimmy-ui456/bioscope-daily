@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>生研观察 · 部署与模型配置</title>
-<link rel="stylesheet" href="./styles.css?v=0.2.17">
-<link rel="stylesheet" href="./enrichment.css?v=0.2.17">
+<link rel="stylesheet" href="./styles.css?v=0.2.18">
+<link rel="stylesheet" href="./enrichment.css?v=0.2.18">
 <link rel="icon" href="./icon.svg">
 </head>
 <body>
@@ -26,7 +26,11 @@
 <li>打开<a href="https://github.com/Jimmy-ui456/bioscope-daily/settings/secrets/actions/new" target="_blank" rel="noopener noreferrer">本仓库的新建Secret页面</a>，Name填写 <code>LLM_API_KEY</code>，Secret填写自己的百炼密钥并保存。其他两项已准备为 <code>LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1</code>、<code>LLM_MODEL=qwen3.7-flash</code>；无需再把密钥存入Variables。</li>
 <li>首次验收可在<a href="https://github.com/Jimmy-ui456/bioscope-daily/actions/workflows/pages.yml" target="_blank" rel="noopener noreferrer">Actions运行入口</a>选择Run workflow，明确勾选“补采并最多翻译1篇”。这会真实补采并最多请求模型1次，可能计费；默认不勾选时仍禁用模型。</li>
 <li>核对运行摘要中的实际模型请求、通过校验的结果和失败次数；没有恰好1篇有效结果就不视为验收通过。流程绿勾不单独证明模型翻译成功，失败或未知请求不会自动重复收费。</li>
+<li>单篇结果真正验收通过后，再在仓库 Settings → Secrets and variables → Actions → Variables 把 <code>LLM_AUTO_ENABLED</code> 设为 <code>true</code>，开启定时翻译。默认 <code>false</code>；关闭自动模型时每天的文献采集与网站发布继续。</li>
 </ol>
+<p><strong>首次验收记录：</strong>2026-11-13北京时间21:43，已尝试1次但没有形成可用译文。维护者已核对百炼审计状态为200，平台成功返回不代表网站已接受译文。失败或未知回执保留，自动模型先关闭；旧回执没有具体校验原因，不逆填猜测，也不能据尝试次数确定真实计费。</p>
+<p>先做不生成文本的检查：打开<a href="https://github.com/Jimmy-ui456/bioscope-daily/actions/workflows/model-diagnostics.yml" target="_blank" rel="noopener noreferrer">模型目录配置检查</a>，选择Run workflow。它只查询一次官方模型目录；即使目录查询成功，也不代表生成权限、余额或翻译质量已经通过。</p>
+<p>查看供应商请求状态：在百炼控制台从“费用用量”页返回主菜单，选择<strong>运维管理 → 模型监控 → qwen3.7-flash的查看日志 → 审计日志</strong>，按调用时段筛选并核对状态码、错误码。注意选中密钥所属的北京地域和业务空间。审计日志默认开启，无需配置推理日志或日志投递。详见<a href="https://help.aliyun.com/zh/model-studio/model-telemetry/" target="_blank" rel="noopener noreferrer">官方监控与日志说明</a>。</p>
 <p>费用参考（2026-11-13）：北京地域、单请求输入不超过32K Token时，<a href="https://help.aliyun.com/zh/model-studio/model-pricing" target="_blank" rel="noopener noreferrer">官方原价</a>为每百万输入Token 0.2元、输出0.8元。Token是模型计费的文字片段，不等于汉字数。按每日20篇、每篇约2000输入及3000输出Token估算，30天约1.68元；这是示例估算，实际按用量及当期价格计费，不含未来调价或更多任务。无需为此购买包月套餐。</p>
 <dl class="detail-meta">
 <div>
@@ -41,6 +45,10 @@
 <dt>LLM_API_KEY</dt>
 <dd>仅在服务器环境或 GitHub Secrets 保存；不放在网页、浏览器存储或代码仓库。</dd>
 </div>
+<div>
+<dt>LLM_AUTO_ENABLED</dt>
+<dd>仅用于云端定时模型的Actions Variable；默认false，单篇真正验收通过后再设为true。本地模型调用仍按本机配置运行。</dd>
+</div>
 </dl>
 <p>自动任务整理中文题名、已返回摘要的中文译文、研究问题、方法、结果及摘要明确报告的局限，并附原文证据片段。没有摘要时跳过解读。所有解读带有未审核标记，译文按完整英文版本匹配，新原文不套用旧译文；旧版仍可匹配历史快照。接口摘要截断时不补造缺失阈值或结论，原文数值差异也分别保留并提示。</p>
 <p>解读引文必须逐字出现在输入的英文题名或摘要中，否则拒绝发布。页面与导出会再次核对引文；页面可查看上下文，导出保留原文与引文。逐字匹配不等于中文结论已经核实，也不代表读取或核验了全文。</p>
@@ -48,14 +56,14 @@
 </section>
 <section class="settings-panel">
 <h2>2. 云端定时采集与公开网址</h2>
-<p>若未看到当天运行记录，可进入仓库 Actions → Collect research and publish website → Run workflow 手动补采。普通手动补采默认禁用模型；只有明确勾选单篇验收才最多调用1次，缺配置时直接拒绝验收。定时任务在完整配置后启用解读。请核对运行摘要中的失败方向、实际模型请求与结果及最终发布。网页会标明手动或定时来源；计划时间不能证明任务已实际运行。</p>
+<p>若未看到当天运行记录，可进入仓库 Actions → Collect research and publish website → Run workflow 手动补采。普通手动补采默认禁用模型；只有明确勾选单篇验收才最多调用1次，缺配置时直接拒绝验收。定时解读还需LLM_AUTO_ENABLED精确为true及完整配置，默认暂停；文献定时采集继续。请核对运行摘要中的失败方向、实际模型请求与结果及最终发布。网页会标明手动或定时来源；计划时间不能证明任务已实际运行。</p>
 <p>上传完整项目到自己的 GitHub 仓库后，在 Settings → Pages → Build and deployment 将 Source 设为 GitHub Actions。网站部署任务会发布 dist/ 中的静态页面。</p>
 <p>在 Actions 中选择 “Collect research and publish website”，点击 Run workflow 可立即采集。默认定时为 UTC 23:17，即北京时间次日07:17；GitHub 可能排队延迟。文献数据经后台更新并发布，访客无需一直打开网页，你的电脑也不需要保持开机。</p>
 <p>仅将 dist/ 作为 GitHub Pages 发布目录。Pages 不能执行 Node.js 后端；自动采集和模型调用在 Actions 中执行。密钥不随页面发送给访客。</p>
 <p>本地可运行 npm start（网页和定时服务）或 npm run worker（仅后台）。本地模式需保持进程运行；电脑休眠或进程关闭时不能采集。</p>
 <ul>
 <li>公开静态网站的“更新文献”：只更新当前浏览器的文献，不触发云端任务或模型。</li>
-<li>Actions的 Run workflow：更新共享文献并发布，强制禁模。</li>
+<li>采集工作流的 Run workflow：更新共享文献并发布，普通补采禁模；明确勾选单篇验收才最多请求1次。</li>
 <li>本地网页连接后台后的“更新文献”，或 npm run collect：按本机模型配置运行，完整配置时可能调用模型。</li>
 </ul>
 <p>网页监控设置只影响个人阅读及浏览器手动检索偏好；云端后台仍按仓库 config/monitor.json 执行。</p>

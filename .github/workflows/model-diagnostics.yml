@@ -1,0 +1,25 @@
+name: Check model configuration (no text generation)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: bioscope-model-config-check
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Query official model catalogue only
+        env:
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL || secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL || secrets.LLM_MODEL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: node scripts/check-model-config.mjs

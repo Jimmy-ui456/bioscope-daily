@@ -31,6 +31,18 @@ async function project(t, { config = {}, library } = {}) {
 function collected(papers) { return async () => ({ papers, hitCount: papers.length, truncated: false }); }
 const silent = { fetchMetric: async () => null, log: () => {} };
 
+test('暂停自动模型的定时运行仍完成采集和日报，记录暂停状态并保留失败回执', async t => {
+  const oldReceipt = { status: 'failed_or_unknown', at: '2026-11-13T13:43:19.832Z' };
+  const root = await project(t, { library: { papers: [], modelUsage: { date: '2026-11-12', requests: 1 }, receipts: { preserved: oldReceipt } } });
+  let calls = 0;
+  const result = await runPipeline({ root, ...silent, now, env: {}, sourceEnv: { GITHUB_EVENT_NAME: 'schedule', BIOSCOPE_MODEL_AUTO: 'false' },
+    collect: collected([paper()]), interpret: async () => { calls++; throw new Error('must not call'); } });
+  assert.equal(calls, 0); assert.equal(result.papers.length, 1);
+  assert.equal(result.automation.modelStatus, 'automatic_paused');
+  assert.equal(result.automation.modelRequestsThisRun, 0); assert.ok(result.automation.completedAt);
+  assert.deepEqual(result.receipts.preserved, oldReceipt);
+});
+
 test('仅百炼官方域名的qwen3.7-flash系列添加非思考开关，保留JSON与输出上限', async () => {
   for (const [baseUrl, model] of [
     ['https://dashscope.aliyuncs.com/compatible-mode/v1', 'qwen3.7-flash'],

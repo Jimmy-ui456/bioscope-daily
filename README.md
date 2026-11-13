@@ -1,4 +1,4 @@
-# 生研观察 BioScope · v0.2.17
+# 生研观察 BioScope · v0.2.18
 
 [打开公开网站](https://jimmy-ui456.github.io/bioscope-daily/) · [使用与项目结构入门](https://jimmy-ui456.github.io/bioscope-daily/guide.html) · [查看采集与发布状态](https://github.com/Jimmy-ui456/bioscope-daily/actions/workflows/pages.yml)
 
@@ -21,7 +21,7 @@ npm.cmd run worker   # 只运行定时后台，不启动网页
 
 ## GitHub 公开网站与无人值守更新
 
-将仓库 Settings → Pages → Source 设为 GitHub Actions。`.github/workflows/pages.yml` 会先检查源码，每天 UTC 23:17（北京时间次日07:17）或手动触发时采集文献，将公开快照保存为 `dist/library.json` 并提交，再将 `dist/` 发布到 GitHub Pages。定时任务在已有完整配置时可调用模型；普通手动补采仍强制禁模。只有明确勾选“补采并最多翻译1篇”时，才允许最多1次模型请求，且仍受当日预算及既有回执限制。
+将仓库 Settings → Pages → Source 设为 GitHub Actions。`.github/workflows/pages.yml` 会先检查源码，每天 UTC 23:17（北京时间次日07:17）或手动触发时采集文献，将公开快照保存为 `dist/library.json` 并提交，再将 `dist/` 发布到 GitHub Pages。定时自动模型默认暂停，只有Actions Variable `LLM_AUTO_ENABLED` 精确为 `true` 且配置完整时才调用；文献采集与发布不受此开关影响。普通手动补采仍强制禁模。只有明确勾选“补采并最多翻译1篇”时，才允许最多1次模型请求，且仍受当日预算及既有回执限制。
 
 这套云端流程不依赖个人电脑开机。[GitHub官方说明](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)指出定时任务可能延迟，繁忙时也可能丢弃，不能据计划时间断言已经运行。可进入 Actions → Collect research and publish website → Run workflow 手动补采；完成后核对运行摘要、失败方向、模型请求数和Pages发布结果。页面快照会标明手动补采或定时采集，并链接对应运行。变更云端定时时间需同时调整工作流 cron 和 `config/monitor.json` 的显示值。公开仓库长期不活跃时也应检查任务是否被平台停用。
 
@@ -29,17 +29,20 @@ Pages 只负责静态网页，Node.js 采集与模型调用由 Actions 执行。
 
 ## 模型配置入口
 
-已准备低价的阿里云百炼北京地域 `qwen3.7-flash`，显式关闭深度思考；缺少密钥时不调用模型。GitHub的非秘密接口地址与模型名放在Actions Variables，API Key只放Secrets；本地可复制 `.env.example` 为 `.env` 后仅补密钥。尚未进行真实模型验收。
+已准备低价的阿里云百炼北京地域 `qwen3.7-flash`，显式关闭深度思考；缺少密钥时不调用模型。GitHub的非秘密接口地址与模型名放在Actions Variables，API Key只放Secrets；本地可复制 `.env.example` 为 `.env` 后仅补密钥。2026-11-13北京时间21:43的[首次单篇验收](https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/43436064175)尝试1次、有效结果0篇，失败或未知回执已保留，未自动重试。维护者核对百炼审计状态为200；平台成功返回不代表网站已接受译文。旧代码没有保存具体校验原因，不能逆填猜测或据尝试次数确定真实计费。自动模型先保持关闭，待验收成功后再开启。
 
 | 名称 | 内容 |
 | --- | --- |
 | `LLM_BASE_URL` | Actions Variables：`https://dashscope.aliyuncs.com/compatible-mode/v1`；不含 `/chat/completions` |
 | `LLM_MODEL` | Actions Variables：`qwen3.7-flash` |
 | `LLM_API_KEY` | 自己创建的百炼北京地域API Key；只放服务器环境或GitHub Secrets，不能放Variables |
+| `LLM_AUTO_ENABLED` | 仅Actions Variable，默认 `false`；真实单篇验收成功后再设为 `true`，开启云端定时翻译 |
 
 注册、取密钥和首次单篇验收的逐步说明见[配置页](https://jimmy-ui456.github.io/bioscope-daily/setup.html#models)。按2026-11-13官方北京地域短文本价格（输入0.2元/百万Token、输出0.8元/百万Token），每日20篇、每篇约2000输入/3000输出Token，30天约1.68元，仅为用量示例，实际按[当期价格](https://help.aliyun.com/zh/model-studio/model-pricing)结算。
 
 服务需要支持 JSON 模式。字段不完整时采集继续运行，模型调用跳过。密钥不会写入网页、公开快照或浏览器存储。
+
+排查配置可在[只查询模型目录的工作流](https://github.com/Jimmy-ui456/bioscope-daily/actions/workflows/model-diagnostics.yml)手动运行检查；只做一次官方目录GET，不生成文本，也不证明生成权限、余额或翻译质量。请求失败后新回执只保存固定失败分类及受控HTTP状态码，不保存原始响应或错误文本。供应商审计入口为百炼控制台 → 运维管理 → 模型监控 → 目标模型的查看日志 → 审计日志，参见[官方说明](https://help.aliyun.com/zh/model-studio/model-telemetry/)；无需开通推理日志或日志投递。
 
 自动任务生成中文题名、完整中文摘要，以及附有逐字英文依据的研究问题、方法、结果与摘要明确报告的局限。证据片段不在输入原文中时拒绝发布。没有摘要的记录不生成研究解读。
 

@@ -1,15 +1,15 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.17';
-import { collectionHealth } from './health.js?v=0.2.17';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.17';
-import { evidenceContext } from './evidence.js?v=0.2.17';
-import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.17';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.17';
-import { readLocalReaderState, persistLocalRecovery } from './local-state.js?v=0.2.17';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.17';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.17';
-import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.17';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.18';
+import { collectionHealth } from './health.js?v=0.2.18';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.18';
+import { evidenceContext } from './evidence.js?v=0.2.18';
+import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.18';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.18';
+import { readLocalReaderState, persistLocalRecovery } from './local-state.js?v=0.2.18';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.18';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.18';
+import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.18';
 
-import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.17';
+import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.18';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -97,6 +97,7 @@ function localRecoveryMarkup() {
 
 
 function manualCollectionOnly() { return typeof backendStatus?.modelConfigured !== 'boolean' && libraryMeta?.automation?.collectionSource?.trigger === 'workflow_dispatch' && libraryMeta.automation.modelConfigured === false && libraryMeta.automation.modelRunLimit !== 1; }
+function automaticModelPaused() { return typeof backendStatus?.modelConfigured !== 'boolean' && libraryMeta?.automation?.modelStatus === 'automatic_paused'; }
 function translated(p) { return translationOf(attachEnrichment(p, translations)); }
 function paperHeading(p) {
   const t = translated(p);
@@ -226,7 +227,7 @@ function readingStatus() {
   const translatedCount = papers.filter(p => translated(p)).length;
   const automation = libraryMeta?.automation;
   const modelConfigured = backendStatus?.modelConfigured ?? automation?.modelConfigured;
-  const modelMessage = manualCollectionOnly() ? '最近一次手动补采强制禁用模型，新文献暂保留原文；可在配置说明核对模型服务。' : modelConfigured === true ? '模型已配置；未翻译文献将按后台任务批次处理。' : modelConfigured === false ? '模型尚未配置，新采集但未翻译的文献暂保留原文，不产生付费解读。' : '未取得模型配置状态，可前往监控设置核对。';
+  const modelMessage = automaticModelPaused() ? '最近一次定时采集已暂停自动模型；文献仍会更新，未译文献保留原文。' : manualCollectionOnly() ? '最近一次手动补采强制禁用模型，新文献暂保留原文；可在配置说明核对模型服务。' : modelConfigured === true ? '本次后台已取得模型配置；配置存在不代表翻译已验收通过，请核对运行记录中的实际请求及结果。' : modelConfigured === false ? '本次后台未启用模型或配置尚不完整，未译文献保留原文，不产生本次模型请求。' : '未取得模型配置状态，可前往监控设置核对。';
   return `<section class="reading-status" aria-label="当前文献库与译文状态"><div class="reading-status-title"><strong>${translatedCount} / ${papers.length} 篇可中英对照阅读</strong><button class="button small" data-filter="translated" ${translatedCount ? '' : 'disabled'}>只看中英对照 ${icon('arrow', 11)}</button></div><p>${modelMessage} 现有译文是辅助翻译，尚未由领域专家审核。</p><dl class="reader-update-times"><div><dt>${state.containsImported ? '个人合并库更新时间' : state.origin === 'sample' ? '样本采集时间' : '当前库更新时间'}</dt><dd>${formatReaderTime(state.updatedAt)}（北京）</dd></div><div><dt>最近后台完成</dt><dd>${automation?.completedAt ? `${formatReaderTime(automation.completedAt)}（北京）` : '尚无完成记录'}</dd></div></dl></section>`;
 }
 function feedList() {
@@ -277,7 +278,7 @@ function sourcesPage() { return `<section class="settings-panel"><h2>可靠的�
 function automationPanel() {
   const a = libraryMeta?.automation;
   const configured = backendStatus?.modelConfigured ?? a?.modelConfigured ?? false;
-  return '<section class="settings-panel"><h2>后台采集与自动中文解读</h2><p>GitHub 云端任务每天北京时间 07:17 计划执行，平台可能排队延迟。云端运行后，关闭浏览器也会继续采集；本地使用时需保持服务或 worker 运行。</p><div class="automation-grid"><div><span class="help">最近后台运行</span><p>' + (a?.completedAt ? esc(new Date(a.completedAt).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })) : '尚无后台运行记录') + '</p></div><div><span class="help">模型服务</span><p>' + (manualCollectionOnly() ? '本次手动补采 · 模型已禁用' : configured ? '已配置' : '待配置 · 不产生模型调用') + '</p></div><div><span class="help">中英对照</span><p>' + activePapers().filter(p => translated(p)).length + ' / ' + activePapers().length + ' 篇</p></div></div><p class="help">每次最多解读 10 篇、每天最多 20 次模型请求。未变化的原文复用已有译文。请求结果不确定时停止自动重试，避免重复计费。</p><a class="button dark" href="./setup.html" target="_blank" rel="noopener">打开模型与部署配置说明</a></section>';
+  return '<section class="settings-panel"><h2>后台采集与自动中文解读</h2><p>GitHub 云端任务每天北京时间 07:17 计划执行，平台可能排队延迟。云端运行后，关闭浏览器也会继续采集；本地使用时需保持服务或 worker 运行。</p><div class="automation-grid"><div><span class="help">最近后台运行</span><p>' + (a?.completedAt ? esc(new Date(a.completedAt).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })) : '尚无后台运行记录') + '</p></div><div><span class="help">模型服务</span><p>' + (automaticModelPaused() ? '自动模型已暂停 · 文献采集继续' : manualCollectionOnly() ? '本次手动补采 · 模型已禁用' : configured ? '已提供配置 · 尚需核对验收结果' : '本次未启用或尚待配置') + '</p></div><div><span class="help">中英对照</span><p>' + activePapers().filter(p => translated(p)).length + ' / ' + activePapers().length + ' 篇</p></div></div><p class="help">每次最多解读 10 篇、每天最多 20 次模型请求。未变化的原文复用已有译文。请求结果不确定时停止自动重试，避免重复计费。</p><a class="button dark" href="./setup.html" target="_blank" rel="noopener">打开模型与部署配置说明</a></section>';
 }
 
 function settingsPage() { return `${automationPanel()}<form id="settings-form"><section class="settings-panel"><h2>你的研究坐标</h2><p>下列为当前浏览器的阅读和手动采集偏好。云端后台按仓库 config/monitor.json 运行；模型配置位于服务器环境或 GitHub Secrets。</p><div class="field"><label>关注研究方向</label>${TOPICS.map(t => `<label class="check-row"><input id="setting-topic-${t.id}" type="checkbox" name="topics" value="${t.id}" ${state.settings.topics.includes(t.id) ? 'checked' : ''}>${t.name}<span class="help">${t.en}</span></label>`).join('')}</div><div class="field"><label for="days">采集发表时间范围</label><select id="days" name="days">${[7, 14, 30, 90].map(d => `<option value="${d}" ${state.settings.days === d ? 'selected' : ''}>最近 ${d} 天</option>`).join('')}</select><p class="help">按论文发表日期检索，每主题最多读取 50 条。切换范围后点击更新文献生效。</p></div><div class="field"><label for="reportDays">简报覆盖范围</label><select id="reportDays" name="reportDays">${[[1, '今天（按北京日期）'], [7, '最近 7 天（适合初期试用）'], [30, '最近 30 天']].map(([d, name]) => `<option value="${d}" ${state.settings.reportDays === d ? 'selected' : ''}>${name}</option>`).join('')}</select><p class="help">仅收录范围内、由你手动精选的文献，按最新发表日期取前 10 篇。未提供精确时间的记录按日期筛选。</p></div><button id="settings-save" class="button dark" type="submit">${icon('check', 14)}保存设置</button></section></form><section class="settings-panel"><h2>数据与运行方式</h2><p>真实接口与本地文献样本可以切换。收藏、精选和简报保存在本机浏览器，不会上传到共享数据库，也不会跨设备同步。</p><div class="settings-buttons"><button class="button" data-action="load-sample">载入文献样本</button><button class="button" data-action="restore-live">恢复最近实时采集</button><button class="button" data-action="export-library">${icon('download', 13)}备份个人数据</button><button class="button" data-action="import-library">导入个人数据</button></div><input type="file" id="backup-file" accept=".json,application/json" hidden><p class="help" style="margin-top:20px">已支持后台定时采集与模型解读流程，需部署并配置密钥后启用。个人收藏仍保存在当前浏览器；完整版本、更正撤稿与自动发送待扩展。</p></section>`; }

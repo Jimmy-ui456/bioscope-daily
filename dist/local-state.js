@@ -1,4 +1,4 @@
-import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.17';
+import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.18';
 
 const KEYS = ['settings', 'cache', 'readerFilters', 'bookmarks', 'selected', 'reports', 'displayMode'];
 function record(value) { return value !== null && typeof value === 'object' && !Array.isArray(value); }

@@ -9,11 +9,13 @@ const knownTopics = new Set(TOPICS.map(topic => topic.name));
 function topicName(stat) { return knownTopics.has(stat.topic) ? stat.topic : '未识别方向'; }
 function countLabel(value) { return Number.isSafeInteger(value) && value >= 0 ? String(value) : '未提供'; }
 
-export function workflowCollectionSummary(library, eventName, { translateOne = false } = {}) {
+export function workflowCollectionSummary(library, eventName, { translateOne = false, automaticModel = false } = {}) {
   const stats = Array.isArray(library.stats) ? library.stats.filter(stat => stat && typeof stat === 'object') : [];
   const failed = stats.filter(stat => stat.error), completed = stats.filter(stat => !stat.error);
   const eventLabel = eventName === 'schedule' ? '定时采集' : eventName === 'workflow_dispatch' ? '手动补采' : '其他触发';
-  const modelPolicy = eventName === 'schedule' ? '仅按既有模型配置运行；未配置则跳过。' : eventName === 'workflow_dispatch' && translateOne
+  const modelPolicy = eventName === 'schedule' ? (automaticModel
+    ? '已明确开启自动模型；仅按完整配置和预算运行。'
+    : '自动模型已暂停，文献定时采集与发布继续；不向采集器传入模型凭据。') : eventName === 'workflow_dispatch' && translateOne
     ? '本次明确启用单篇模型验收并补采：最多1次请求，仍受当日预算、配置完整性及既有回执限制。'
     : '本次强制禁用模型，不读取模型密钥配置。';
   return {
@@ -44,7 +46,8 @@ export async function runWorkflowCollection({
   // Ordinary manual and unknown events never inherit model credentials. The
   // opt-in manual check is capped in the pipeline and still performs a real collection.
   const translateOne = eventName === 'workflow_dispatch' && env.BIOSCOPE_TRANSLATE_ONE === 'true';
-  const modelEnv = eventName === 'schedule' || translateOne ? {
+  const automaticModel = eventName === 'schedule' && env.BIOSCOPE_MODEL_AUTO === 'true';
+  const modelEnv = automaticModel || translateOne ? {
     LLM_BASE_URL: env.LLM_BASE_URL || '', LLM_MODEL: env.LLM_MODEL || '', LLM_API_KEY: env.LLM_API_KEY || '',
   } : {};
   if (translateOne && (!modelEnv.LLM_BASE_URL || !modelEnv.LLM_MODEL || !modelEnv.LLM_API_KEY)) {
@@ -52,7 +55,7 @@ export async function runWorkflowCollection({
     throw new Error('单篇模型验收缺少完整配置');
   }
   const library = await run({ env: modelEnv, ...(translateOne ? { modelRunLimit: 1 } : {}) });
-  const summary = workflowCollectionSummary(library, eventName, { translateOne });
+  const summary = workflowCollectionSummary(library, eventName, { translateOne, automaticModel });
   if (summaryFile) {
     try { await appendSummary(summaryFile, summary.markdown, 'utf8'); }
     catch { warn('::warning title=采集摘要未写入::采集结果已保留；无法写入本次运行摘要，后续继续发布。'); }

@@ -4,7 +4,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { TOPICS, collectTopic, mergePapers, beijingDay, isRetracted, validPublicationDate } from '../dist/core.js';
 import { attachEnrichment, translationOf, sourceFingerprint } from '../dist/enrichment.js';
-import { interpretPaper, PROMPT_VERSION } from './interpret.mjs';
+import { interpretPaper, PROMPT_VERSION, modelFailureDetails } from './interpret.mjs';
 import { applyPublisherMetrics, fetchPublisherMetric, refreshPublisherMetrics, summarizePublisherRefresh } from './downloads.mjs';
 import { acquirePipelineLock } from './lock.mjs';
 import { createPublicReport, updatePublicReportHistory } from './reports.mjs';
@@ -64,7 +64,8 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     const sampleCatalog = Object.fromEntries(sample.papers.filter(p => p.enrichment).map(p => [p.id, p.enrichment]));
     papers = papers.map(p => attachEnrichment(p, { ...sampleCatalog, ...catalog }));
     const collectionSource = publicCollectionSource(sourceEnv);
-    const library = { schemaVersion: 2, origin: 'live', fetchedAt: new Date().toISOString(), papers, stats, modelUsage: usage, receipts, automation: { scheduleBeijing: config.scheduleBeijing || '07:17', modelConfigured: modelEnabled, modelStatus: modelEnabled ? 'ready' : 'not_configured', lastRunAt: new Date().toISOString(), failedTopics: stats.filter(s => s.error).length, collectionSource, downloadRefresh, ...(modelRunLimit === undefined ? {} : { modelRunLimit }) } };
+    const automaticPaused = !modelEnabled && sourceEnv.GITHUB_EVENT_NAME === 'schedule' && sourceEnv.BIOSCOPE_MODEL_AUTO !== 'true';
+    const library = { schemaVersion: 2, origin: 'live', fetchedAt: new Date().toISOString(), papers, stats, modelUsage: usage, receipts, automation: { scheduleBeijing: config.scheduleBeijing || '07:17', modelConfigured: modelEnabled, modelStatus: modelEnabled ? 'ready' : automaticPaused ? 'automatic_paused' : 'not_configured', lastRunAt: new Date().toISOString(), failedTopics: stats.filter(s => s.error).length, collectionSource, downloadRefresh, ...(modelRunLimit === undefined ? {} : { modelRunLimit }) } };
     const output = path.join(root, 'dist/library.json');
     await saveJson(output, library);
     let attempted = 0, completed = 0, modelFailures = 0;
@@ -83,7 +84,7 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
         paper.enrichment = await interpret(paper, configModel);
         receipts[key] = { status: 'completed', at: new Date().toISOString() };
         completed++;
-      } catch { receipts[key] = { status: 'failed_or_unknown', at: new Date().toISOString() }; modelFailures++; }
+      } catch (error) { receipts[key] = { status: 'failed_or_unknown', at: new Date().toISOString(), ...modelFailureDetails(error) }; modelFailures++; }
       await saveJson(output, library);
     }
     library.automation.modelRequestsThisRun = attempted;
@@ -104,7 +105,7 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     // and collected papers, but must not advertise that all local outputs finished.
     library.automation.completedAt = new Date().toISOString();
     await saveJson(output, library);
-    log(`采集完成：${papers.length} 篇，${papers.filter(p => translationOf(p)).length} 篇中英对照，模型请求 ${attempted} 次；${library.automation.modelStatus === 'not_configured' ? '模型未配置，已跳过自动解读' : '自动解读任务完成'}。`);
+    log(`采集完成：${papers.length} 篇，${papers.filter(p => translationOf(p)).length} 篇中英对照，模型请求 ${attempted} 次；${automaticPaused ? '自动模型已暂停，文献采集完成' : !modelEnabled ? '本次未启用模型，已跳过自动解读' : `模型结果通过 ${completed} 篇，失败或未知 ${modelFailures} 次`}。`);
     return library;
   } finally { await lock.release(); }
 }
