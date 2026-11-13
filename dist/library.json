@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-13T03:25:57.136Z",
+  "fetchedAt": "2026-11-13T13:43:07.610Z",
   "papers": [
     {
       "id": "doi:10.21203/rs.3.rs-11147586/v1",
@@ -31,6 +31,33 @@
       "collection": "Europe PMC"
     },
     {
+      "id": "doi:10.1016/j.biortech.2026.136232",
+      "title": "Cell-free protein synthesis for next-generation biomanufacturing.",
+      "abstract": "Chemicals with diverse molecular structures are essential to the pharmaceutical, food, and specialty chemical industries; however, their sustainable production remains challenging due to complex cellular regulation, limited metabolic flexibility, and the scalability constraints of purified enzyme-based systems. Extract-based cell-free protein synthesis (CFPS) has emerged as a versatile biomanufacturing platform that enables the production of functional enzymes in vitro and provides an open, programmable environment for constructing synthetic biosynthetic systems beyond the constraints of living cells. By decoupling chemical synthesis from cellular growth, CFPS allows precise control over enzyme composition, pathway stoichiometry, and cofactor utilization, thereby improving catalytic efficiency and resource utilization. In this review, we summarize recent advances in extract-based CFPS for chemical biosynthesis and discuss key engineering strategies, including cofactor regeneration, pathway balancing, and semicontinuous operation, to enhance system performance. Furthermore, we highlight emerging opportunities to integrate CFPS with artificial intelligence-guided design, renewable feedstocks, and modular reactor technologies toward more sustainable and scalable biomanufacturing processes.",
+      "authors": "Liu L, Liao C, Yang Y, Li H, Li C, Ni J.",
+      "journal": "Bioresource technology",
+      "doi": "10.1016/j.biortech.2026.136232",
+      "pmid": "43020145",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43020145",
+      "url": "https://doi.org/10.1016/j.biortech.2026.136232",
+      "publishedAt": "2026-11-12",
+      "discoveredAt": "2026-11-13T13:43:06.221Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.64898/2026.11.10.765548",
       "title": "Coupling environmental biosensors to inverter circuits in soil bacteria",
       "abstract": "Genetic logic gates, such as inverting NOT functions, are routinely designed and optimised for a narrow set of laboratory-standard chemical inputs. This reliance limits their utility in real-world applications, where engineered chassis must navigate complex, niche-specific signals. Focusing on environmental synthetic biology, we engineered four biosensors responsive to ecologically relevant physical and chemical inputs (iron, oxygen, temperature, and light) and systematically coupled them to three repressor-based NOT logic gates (QacR, SrpR, and LitR) to generate 12 composite sensor-gate circuits. To evaluate cross-host robustness, all constructs were benchmarked in two non-model soil bacteria: Pseudomonas putida KT2440 and Pseudomonas protegens Pf-5. Our findings demonstrate that overall circuit performance is non-additive and cannot be predicted simply by summing individual sensor and gate dynamics. While standalone biosensors reliably detected their cognate inputs, concatenation across regulatory junctions introduced non-linearities, emergent dynamics, and host-dependent effects that caused several pairings to deviate unexpectedly from their predicted behaviour. Furthermore, host context directly governed logic execution: P. protegens Pf-5 exhibited superior overall circuit-processing capacity, whereas specific configurations, such as iron-responsive gates, performed better in P. putida KT2440. All 12 constructs are modularly integrated using the Standard European Vector Architecture (SEVA) format, providing a benchmarked toolkit to program complex information processing in real-world environments.",
@@ -50,6 +77,33 @@
       "type": "预印本",
       "status": "预印本 · 未经同行评审",
       "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.ijbiomac.2026.155262",
+      "title": "Fe(II)/2-oxoglutarate-dependent dioxygenase bifunctionally catalyzes ring formation involving sequential terminal carbon oxidation for pyrrolizidinone alkaloid biosynthesis.",
+      "abstract": "The Fe(II)/2-oxoglutarate-dependent dioxygenase UcsF plays a key role in the early biosynthesis of UCS1025A, an antibacterial and antitumor pyrrolizidinone alkaloid, by participating in the formation of its core ring scaffold. UcsF catalyzes sequential oxidation of the terminal C5 of L-isoleucine, ultimately generating a five-membered ring product, (2S,3S)-3,4-dihydro-3-methyl-2H-pyrrole-2-carboxylic acid. This catalytic process is vital in the construction of natural product skeletons and synthetic biology. However, the molecular basis of UcsF and its unique two-step catalytic mechanism remain poorly understood. We characterized the catalytic function of UcsF, determined its crystal structure and combined molecular docking and MD simulations to reveal the molecular basis for substrate recognition, and employed quantum chemical calculations on reaction-state models to investigate plausible reaction pathways underlying the sequential oxidation. UcsF exhibits catalytic activity toward 2-amino carboxylic acid substrates. The crystal structure of UcsF features a unique open active pocket, with substrate binding defined by the collective contributions of multiple structural modules. In the catalytic reaction, the Fe(IV) = O species abstracts a hydrogen atom from the C5 position of L-isoleucine, followed by hydroxyl rebound to complete the first hydroxylation step. Combined kinetic, solvent isotope-effect, mutational, and computational analyses support a preferred Asp279'-facilitated PCET pathway for the second oxidation of 5-OH-Ile to the aldehyde product. Our study provides a molecular basis for understanding the relationship between the structure and function of Fe(II)/2-oxoglutarate-dependent dioxygenases and reveals the potential of the catalytic ability of UcsF for biosynthesis.",
+      "authors": "Zhao S, Zhang S, Chen F, Wang X, Gu J, Wu L, Wang J, Xu Y, Sheng X, Nie Y.",
+      "journal": "International journal of biological macromolecules",
+      "doi": "10.1016/j.ijbiomac.2026.155262",
+      "pmid": "43020353",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43020353",
+      "url": "https://doi.org/10.1016/j.ijbiomac.2026.155262",
+      "publishedAt": "2026-11-12",
+      "discoveredAt": "2026-11-13T13:43:06.012Z",
+      "topics": [
+        "synthetic",
+        "metabolic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
       "license": null,
@@ -1216,13 +1270,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 215,
+        "count": 232,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/ploscompbiol/article/metrics?id=10.1371%2Fjournal.pcbi.1014881",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pcbi.1014881/format/json",
-        "fetchedAt": "2026-11-13T03:25:56.863Z",
+        "fetchedAt": "2026-11-13T13:43:07.536Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-11",
         "coverageEnd": "2026-11",
@@ -1236,7 +1290,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-13T03:25:56.810Z"
+        "checkedAt": "2026-11-13T13:43:07.268Z"
       },
       "enrichment": {
         "titleZh": "kinGEMs：通过随机调优深度学习预测的动力学参数，构建稳健且可扩展的资源约束模型框架",
@@ -1249,7 +1303,7 @@
         "reviewed": false,
         "scope": "abstract_only"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-13T03:25:56.810Z"
+      "downloadRefreshLastAttemptAt": "2026-11-13T13:43:07.268Z"
     },
     {
       "id": "doi:10.1007/s00253-026-14083-7",
@@ -7922,13 +7976,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 393,
+        "count": 398,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-13T03:25:57.129Z",
+        "fetchedAt": "2026-11-13T13:43:07.604Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -7953,9 +8007,9 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-13T03:25:56.810Z"
+        "checkedAt": "2026-11-13T13:43:07.268Z"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-13T03:25:56.810Z"
+      "downloadRefreshLastAttemptAt": "2026-11-13T13:43:07.268Z"
     },
     {
       "id": "doi:10.1007/s11274-026-05339-5",
@@ -8201,37 +8255,42 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 127,
+      "hitCount": 128,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 80,
+      "hitCount": 81,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 112,
+      "hitCount": 114,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
     "date": "2026-11-13",
-    "requests": 0
+    "requests": 1
   },
-  "receipts": {},
+  "receipts": {
+    "562da9efb9af614c7b31ce23f0387a1a1e75221e209ec5f7354238a7fa99f4fd": {
+      "status": "failed_or_unknown",
+      "at": "2026-11-13T13:43:19.832Z"
+    }
+  },
   "automation": {
     "scheduleBeijing": "07:17",
-    "modelConfigured": false,
-    "modelStatus": "not_configured",
-    "lastRunAt": "2026-11-13T03:25:57.136Z",
+    "modelConfigured": true,
+    "modelStatus": "ready",
+    "lastRunAt": "2026-11-13T13:43:07.610Z",
     "failedTopics": 0,
     "collectionSource": {
-      "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/43358888251"
+      "trigger": "workflow_dispatch",
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/43436064175"
     },
     "downloadRefresh": {
       "supported": 2,
@@ -8241,8 +8300,11 @@
       "notAvailable": 0,
       "skipped": 0
     },
-    "modelRequestsThisRun": 0,
-    "analysisFailures": 0,
-    "completedAt": "2026-11-13T03:25:57.174Z"
+    "modelRunLimit": 1,
+    "modelRequestsThisRun": 1,
+    "modelCompletedThisRun": 0,
+    "modelFailuresThisRun": 1,
+    "analysisFailures": 1,
+    "completedAt": "2026-11-13T13:43:19.868Z"
   }
 }
