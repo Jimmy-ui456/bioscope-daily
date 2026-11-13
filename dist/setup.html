@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>生研观察 · 部署与模型配置</title>
-<link rel="stylesheet" href="./styles.css?v=0.2.18">
-<link rel="stylesheet" href="./enrichment.css?v=0.2.18">
+<link rel="stylesheet" href="./styles.css?v=0.2.19">
+<link rel="stylesheet" href="./enrichment.css?v=0.2.19">
 <link rel="icon" href="./icon.svg">
 </head>
 <body>
@@ -29,6 +29,7 @@
 <li>单篇结果真正验收通过后，再在仓库 Settings → Secrets and variables → Actions → Variables 把 <code>LLM_AUTO_ENABLED</code> 设为 <code>true</code>，开启定时翻译。默认 <code>false</code>；关闭自动模型时每天的文献采集与网站发布继续。</li>
 </ol>
 <p><strong>首次验收记录：</strong>2026-11-13北京时间21:43，已尝试1次但没有形成可用译文。维护者已核对百炼审计状态为200，平台成功返回不代表网站已接受译文。失败或未知回执保留，自动模型先关闭；旧回执没有具体校验原因，不逆填猜测，也不能据尝试次数确定真实计费。</p>
+<p><strong>第二次验收：</strong>经明确授权于2026-11-13北京时间22:09新增最多1次试译，仍未通过，诊断为invalid_evidence（解读或局限的证据未通过校验）。原返回未保存，无法恢复旧译文或确定具体哪条引用出错；两次回执均保留，当日总尝试2次。新证据协议已提供原文片段编号、由后台还原逐字引文，尚未再次调用真实模型验证；自动模型继续关闭。</p>
 <p>先做不生成文本的检查：打开<a href="https://github.com/Jimmy-ui456/bioscope-daily/actions/workflows/model-diagnostics.yml" target="_blank" rel="noopener noreferrer">模型目录配置检查</a>，选择Run workflow。它只查询一次官方模型目录；即使目录查询成功，也不代表生成权限、余额或翻译质量已经通过。</p>
 <p>查看供应商请求状态：在百炼控制台从“费用用量”页返回主菜单，选择<strong>运维管理 → 模型监控 → qwen3.7-flash的查看日志 → 审计日志</strong>，按调用时段筛选并核对状态码、错误码。注意选中密钥所属的北京地域和业务空间。审计日志默认开启，无需配置推理日志或日志投递。详见<a href="https://help.aliyun.com/zh/model-studio/model-telemetry/" target="_blank" rel="noopener noreferrer">官方监控与日志说明</a>。</p>
 <p>费用参考（2026-11-13）：北京地域、单请求输入不超过32K Token时，<a href="https://help.aliyun.com/zh/model-studio/model-pricing" target="_blank" rel="noopener noreferrer">官方原价</a>为每百万输入Token 0.2元、输出0.8元。Token是模型计费的文字片段，不等于汉字数。按每日20篇、每篇约2000输入及3000输出Token估算，30天约1.68元；这是示例估算，实际按用量及当期价格计费，不含未来调价或更多任务。无需为此购买包月套餐。</p>
@@ -51,7 +52,7 @@
 </div>
 </dl>
 <p>自动任务整理中文题名、已返回摘要的中文译文、研究问题、方法、结果及摘要明确报告的局限，并附原文证据片段。没有摘要时跳过解读。所有解读带有未审核标记，译文按完整英文版本匹配，新原文不套用旧译文；旧版仍可匹配历史快照。接口摘要截断时不补造缺失阈值或结论，原文数值差异也分别保留并提示。</p>
-<p>解读引文必须逐字出现在输入的英文题名或摘要中，否则拒绝发布。页面与导出会再次核对引文；页面可查看上下文，导出保留原文与引文。逐字匹配不等于中文结论已经核实，也不代表读取或核验了全文。</p>
+<p>后台将完整原摘要分为带编号的原文片段，模型返回选择的编号，后台按本次输入还原引文，再检查它是否逐字出现在英文题名或摘要中；不会改写英文或做模糊匹配。未知编号和无效证据拒绝发布，原v1失败回执在升级后仍阻止自动重试。页面与导出会再次核对引文；页面可查看上下文，导出保留原文与引文。编号选择与逐字匹配都不等于中文结论已经核实，也不代表读取或核验了全文。</p>
 <p>默认先处理没有有效译文的论文，不重复付费翻译已有辅助译文。确需对已译论文补模型解读，可在 config/monitor.json 明确将 interpretTranslatedPapers 设为 true。定时每轮最多10次、每个北京日历日最多20次请求；明确选择的手动单篇验收最多1次，不能扩大配置限额。失败或结果未知也计入额度，异常预算不按0处理。已有回执不自动重试，需管理员先核对供应商记录。任务在保存前被强制终止等情况下，仍不能保证绝对不重复计费。</p>
 </section>
 <section class="settings-panel">

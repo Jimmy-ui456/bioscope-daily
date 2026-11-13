@@ -4,7 +4,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { TOPICS, collectTopic, mergePapers, beijingDay, isRetracted, validPublicationDate } from '../dist/core.js';
 import { attachEnrichment, translationOf, sourceFingerprint } from '../dist/enrichment.js';
-import { interpretPaper, PROMPT_VERSION, modelFailureDetails } from './interpret.mjs';
+import { interpretPaper, PROMPT_VERSION, LEGACY_PROMPT_VERSIONS, modelFailureDetails } from './interpret.mjs';
 import { applyPublisherMetrics, fetchPublisherMetric, refreshPublisherMetrics, summarizePublisherRefresh } from './downloads.mjs';
 import { acquirePipelineLock } from './lock.mjs';
 import { createPublicReport, updatePublicReportHistory } from './reports.mjs';
@@ -16,7 +16,7 @@ export async function readJson(file, fallback) { try { return JSON.parse(await r
 export async function saveJson(file, value) { await mkdir(path.dirname(file), { recursive: true }); const temp = `${file}.${process.pid}.tmp`; await writeFile(temp, JSON.stringify(value, null, 2) + '\n'); await rename(temp, file); }
 export function modelConfig(env = process.env) { return { baseUrl: env.LLM_BASE_URL || '', apiKey: env.LLM_API_KEY || '', model: env.LLM_MODEL || '' }; }
 export function configuredModel(config) { return Boolean(config.apiKey && config.baseUrl && config.model); }
-export function requestKey(paper, config) { return createHash('sha256').update([paper.id, sourceFingerprint(paper), config.baseUrl, config.model, PROMPT_VERSION].join('|')).digest('hex'); }
+export function requestKey(paper, config, promptVersion = PROMPT_VERSION) { return createHash('sha256').update([paper.id, sourceFingerprint(paper), config.baseUrl, config.model, promptVersion].join('|')).digest('hex'); }
 
 function validModelUsage(usage, today) {
   return usage !== null && typeof usage === 'object' && !Array.isArray(usage)
@@ -76,7 +76,7 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
       if (attempted >= runLimit || usage.requests >= dailyLimit) break;
       const key = requestKey(paper, configModel);
       // A pending / unknown request is never retried automatically: it may already have cost money.
-      if (receipts[key]) continue;
+      if (receipts[key] || LEGACY_PROMPT_VERSIONS.some(version => receipts[requestKey(paper, configModel, version)])) continue;
       attempted++; usage.requests++;
       receipts[key] = { status: 'pending', at: new Date().toISOString() };
       await saveJson(output, library);

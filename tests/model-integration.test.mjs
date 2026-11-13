@@ -194,6 +194,29 @@ test('非法调用硬限与配置预算不会隐式转换或回退，任何模�
   }
 });
 
+test('更换证据协议后仍阻止旧版本已尝试论文，保留旧回执并只处理新的论文', async t => {
+  const { requestKey, modelConfig } = await import('../backend/pipeline.mjs');
+  const { PROMPT_VERSION } = await import('../backend/interpret.mjs');
+  assert.notEqual(PROMPT_VERSION, 'bioscope-zh-interpret-v1');
+  for (const status of ['pending', 'failed_or_unknown', 'completed']) {
+    const p = paper(1), fresh = paper(2);
+    const key = requestKey(p, modelConfig(env), 'bioscope-zh-interpret-v1');
+    assert.notEqual(key, requestKey(p, modelConfig(env)));
+    const receipt = { status, at: '2026-11-12T14:00:00Z', ...(status === 'failed_or_unknown' ? { failureCode: 'invalid_evidence' } : {}) };
+    const root = await project(t, { library: { papers: [p], modelUsage: { date: today, requests: 1 }, receipts: { [key]: receipt } } });
+    const ids = [];
+    const result = await runPipeline({ root, env, now, modelRunLimit: 1, collect: collected([p, fresh]), ...silent,
+      interpret: async input => { ids.push(input.id); return enrichment(input); } });
+    assert.deepEqual(ids, [fresh.id]);
+    assert.deepEqual(result.receipts[key], receipt);
+    assert.equal(result.modelUsage.requests, 2); assert.equal(result.automation.modelRequestsThisRun, 1);
+    const rerun = await runPipeline({ root, env, now, modelRunLimit: 1, collect: collected([p, fresh]), ...silent,
+      interpret: async () => { throw new Error('must not retry old or current receipts'); } });
+    assert.equal(rerun.automation.modelRequestsThisRun, 0); assert.equal(rerun.modelUsage.requests, 2);
+    assert.deepEqual(rerun.receipts[key], receipt);
+  }
+});
+
 test('单篇验收失败仍先保存pending与日用量，后续验收不自动重试未知请求', async t => {
   const root = await project(t);
   let calls = 0;
