@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-14T07:24:24.133Z",
+  "fetchedAt": "2026-11-14T07:37:00.364Z",
   "papers": [
     {
       "id": "doi:10.21203/rs.3.rs-11147586/v1",
@@ -81,7 +81,32 @@
       "readingScope": "仅摘要",
       "license": null,
       "version": null,
-      "collection": "Europe PMC"
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "皂苷佐剂QS-21和QS-7在人THP-1巨噬细胞中的差异与共免疫调节作用",
+        "abstractZh": "QS-21是从Quillaja saponaria衍生的三萜糖苷皂苷，是几种已获FDA批准疫苗中强效的免疫刺激佐剂。QS-7是一种结构相关的皂苷组分，据报道具有保留免疫调节活性但溶血毒性降低的特点；然而，其较低的自然丰度限制了其系统的免疫学表征。为填补这一空白，我们在THP-1人巨噬细胞模型中系统比较了对QS-21和QS-7的反应，以阐明它们对抗原呈递细胞（APC）激活的独特和协同贡献。在进行细胞毒性分析以确定安全且具生物学相关性的剂量后，使用流式细胞术、蛋白质组学和转录组学来描绘每种皂苷单独及联合使用时所涉及的免疫程序。QS-7单独给药仅引起细胞表面激活标志物的最小上调，未引发显著的转录特征，但它驱动了剂量依赖性的多种促炎细胞因子和趋化因子的分泌，揭示了巨噬细胞激活这两个方面的解离。令人惊讶的是，QS-7与QS-21联合施用显著增强了在所有测试参数下的巨噬细胞激活，放大了表面标志物上调，将细胞因子和趋化因子输出扩大至包括IL-12p70和IFN-γ，并显著扩展了由QS-21诱导的促炎转录和通路景观，同时抑制了限制炎症输出的反向调节脂质感应通路（PPAR、RAR、FXR/RXR）。综上所述，这些发现确立了QS-7不仅仅是QS-21的减弱类似物，而是一种功能不同的免疫调节剂，它重新校准了QS-21驱动的巨噬细胞激活的强度和调节基调。这些发现表明，结构不同的皂苷引发独特且互补的巨噬细胞反应，为结构-功能研究提供了基础。结合合成生物学和数据驱动设计，这些知识可以指导新型天然皂苷佐剂的开发。",
+        "question": null,
+        "methods": null,
+        "findings": null,
+        "limitations": [],
+        "analysisStatus": "translation_only",
+        "analysisFailureCode": "invalid_evidence",
+        "sourceTitle": "Differential and Cooperative Immunomodulation by Saponin Adjuvants QS-21 and QS-7 in Human THP-1 Macrophages",
+        "sourceAbstract": "QS-21, a triterpene glycoside saponin derived from Quillaja saponaria, is a potent immunostimulatory adjuvant incorporated in several FDA-approved vaccines. QS-7, a structurally related saponin fraction, has been reported to retain immunomodulatory activity with reduced hemolytic toxicity; however, its lower natural abundance has limited its systematic immunological characterization. To address this gap, we systematically compare responses to QS-21 and QS-7 in the THP-1 human macrophage model to resolve their distinct and cooperative contributions to antigen presenting cell (APC) activation. Following cytotoxicity profiling to establish safe and biologically relevant dosing, flow cytometry, proteomics, and transcriptomics were used to delineate the immunological programs engaged by each saponin alone and in combination. QS-7 alone induced minimal upregulation of cell surface activation markers and did not elicit a significant transcriptional signature, yet it drove dose-dependent secretion of a broad panel of pro-inflammatory cytokines and chemokines, revealing a dissociation between these two arms of macrophage activation. Strikingly, co-administration of QS-7 with QS-21 substantially potentiated macrophage activation across all parameters tested, amplifying surface marker upregulation, broadening cytokine and chemokine output to include IL-12p70 and IFN-γ, and markedly expanding the pro-inflammatory transcriptional and pathway landscape induced by QS-21, while concurrently suppressing counter-regulatory lipid-sensing pathways (PPAR, RAR, FXR/RXR) that constrain inflammatory output. Collectively, these findings establish QS-7 not merely as an attenuated analog of QS-21, but as a functionally distinct immunomodulator that recalibrates both the magnitude and regulatory tone of QS-21-driven macrophage activation. These findings show that structurally distinct saponins elicit distinct and complementary macrophage responses, providing a foundation for structure-function studies. Together with synthetic biology and data-driven design, this knowledge can guide the development of new-to-nature saponin adjuvants.",
+        "sourceFingerprint": "b5601e08-2251",
+        "origin": "model",
+        "model": "qwen3.7-flash",
+        "promptVersion": "bioscope-zh-interpret-v2",
+        "createdAt": "2026-11-14T07:37:10.006Z",
+        "reviewed": false,
+        "scope": "abstract_only",
+        "modelUsage": {
+          "inputTokens": 898,
+          "outputTokens": 789,
+          "totalTokens": 1687,
+          "cachedInputTokens": 0
+        }
+      }
     },
     {
       "id": "doi:10.64898/2026.11.11.766072",
@@ -1355,7 +1380,7 @@
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/ploscompbiol/article/metrics?id=10.1371%2Fjournal.pcbi.1014881",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pcbi.1014881/format/json",
-        "fetchedAt": "2026-11-14T07:24:23.822Z",
+        "fetchedAt": "2026-11-14T07:37:00.303Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-11",
         "coverageEnd": "2026-11",
@@ -1369,7 +1394,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-14T07:24:23.512Z"
+        "checkedAt": "2026-11-14T07:37:00.087Z"
       },
       "enrichment": {
         "titleZh": "kinGEMs：通过随机调优深度学习预测的动力学参数，构建稳健且可扩展的资源约束模型框架",
@@ -1382,7 +1407,7 @@
         "reviewed": false,
         "scope": "abstract_only"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-14T07:24:23.512Z"
+      "downloadRefreshLastAttemptAt": "2026-11-14T07:37:00.087Z"
     },
     {
       "id": "doi:10.1007/s00253-026-14083-7",
@@ -8169,7 +8194,7 @@
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-14T07:24:24.128Z",
+        "fetchedAt": "2026-11-14T07:37:00.357Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -8194,9 +8219,9 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-14T07:24:23.512Z"
+        "checkedAt": "2026-11-14T07:37:00.087Z"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-14T07:24:23.512Z"
+      "downloadRefreshLastAttemptAt": "2026-11-14T07:37:00.087Z"
     },
     {
       "id": "doi:10.1007/s11274-026-05339-5",
@@ -8461,7 +8486,7 @@
   ],
   "modelUsage": {
     "date": "2026-11-14",
-    "requests": 1
+    "requests": 2
   },
   "receipts": {
     "562da9efb9af614c7b31ce23f0387a1a1e75221e209ec5f7354238a7fa99f4fd": {
@@ -8496,17 +8521,40 @@
         "inputPerMillionYuan": "0.2",
         "outputPerMillionYuan": "0.8"
       }
+    },
+    "4f2caf9bad828db5b2b768a10daa011d3af60bab11a9bfcb8e0f8698a7593723": {
+      "status": "completed",
+      "at": "2026-11-14T07:37:10.007Z",
+      "taskId": "translation-20261114",
+      "reservedMicroYuan": 11200,
+      "modelUsage": {
+        "inputTokens": 898,
+        "outputTokens": 789,
+        "totalTokens": 1687,
+        "cachedInputTokens": 0
+      },
+      "costEstimate": {
+        "currency": "CNY",
+        "estimatedMicroYuan": 811,
+        "estimatedYuan": "0.0008108",
+        "priceDate": "2026-11-13",
+        "basis": "undiscounted_realtime_list_price",
+        "actualBill": false,
+        "inputTierMaxTokens": 32000,
+        "inputPerMillionYuan": "0.2",
+        "outputPerMillionYuan": "0.8"
+      }
     }
   },
   "automation": {
     "scheduleBeijing": "07:17",
     "modelConfigured": true,
     "modelStatus": "ready",
-    "lastRunAt": "2026-11-14T07:24:24.133Z",
+    "lastRunAt": "2026-11-14T07:37:00.364Z",
     "failedTopics": 0,
     "collectionSource": {
       "trigger": "workflow_dispatch",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/43570926612"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/43571900817"
     },
     "downloadRefresh": {
       "supported": 2,
@@ -8518,23 +8566,23 @@
     },
     "modelRunLimit": 1,
     "modelRequestsThisRun": 1,
-    "modelCompletedThisRun": 0,
-    "modelFailuresThisRun": 1,
+    "modelCompletedThisRun": 1,
+    "modelFailuresThisRun": 0,
     "translationBudget": {
-      "attempts": 1,
-      "knownUsageRequests": 1,
-      "inputTokens": 789,
-      "outputTokens": 774,
-      "knownCostMicroYuan": 777,
+      "attempts": 2,
+      "knownUsageRequests": 2,
+      "inputTokens": 1687,
+      "outputTokens": 1563,
+      "knownCostMicroYuan": 1588,
       "unknownReservedMicroYuan": 0,
-      "committedMicroYuan": 777,
-      "remainingMicroYuan": 4999223,
+      "committedMicroYuan": 1588,
+      "remainingMicroYuan": 4998412,
       "unsafeUsage": false,
       "currency": "CNY",
       "actualBill": false,
       "basis": "undiscounted_realtime_list_price"
     },
     "analysisFailures": 3,
-    "completedAt": "2026-11-14T07:24:31.762Z"
+    "completedAt": "2026-11-14T07:37:10.047Z"
   }
 }
