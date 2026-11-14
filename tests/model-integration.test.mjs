@@ -31,6 +31,30 @@ async function project(t, { config = {}, library } = {}) {
 function collected(papers) { return async () => ({ papers, hitCount: papers.length, truncated: false }); }
 const silent = { fetchMetric: async () => null, log: () => {} };
 
+test('真实流水线先持久化任务预算再调用，成功保存Token成本、未知失败保留预留', async t => {
+  const root = await project(t);
+  await saveJson(path.join(root, 'config/translation-task.json'), { schemaVersion: 1, taskId: 'fixture-task', date: today,
+    authorizedAt: '2026-11-12T00:00:00Z', expiresAt: '2026-11-13T15:59:00Z', budgetMicroYuan: 5000000,
+    maxRequests: 500, concurrency: 3, validationReceiptKey: null });
+  const pricedEnv = { LLM_BASE_URL: 'https://dashscope.aliyuncs.com/compatible-mode/v1', LLM_MODEL: 'qwen3.7-flash', LLM_API_KEY: 'never-send' };
+  let calls = 0;
+  const result = await runPipeline({ root, env: pricedEnv, now, clock: () => now, modelRunLimit: 1, collect: collected([paper(1)]), ...silent,
+    interpret: async p => {
+      calls++;
+      const saved = await readJson(path.join(root, 'dist/library.json'));
+      const pending = Object.values(saved.receipts)[0];
+      assert.equal(pending.status, 'pending'); assert.equal(pending.taskId, 'fixture-task'); assert.equal(pending.reservedMicroYuan, 11200);
+      assert.equal(saved.modelUsage.requests, 1);
+      return { ...enrichment(p), modelUsage: { inputTokens: 1000, outputTokens: 2000, totalTokens: 3000 } };
+    } });
+  assert.equal(calls, 1); assert.equal(result.automation.translationBudget.knownCostMicroYuan, 1800);
+  assert.equal(Object.values(result.receipts)[0].costEstimate.actualBill, false);
+  const failed = await runPipeline({ root, env: pricedEnv, now, clock: () => now, modelRunLimit: 1, collect: collected([paper(1), paper(2)]), ...silent,
+    interpret: async () => { calls++; throw new Error('unknown provider result'); } });
+  assert.equal(calls, 2); assert.equal(failed.automation.translationBudget.unknownReservedMicroYuan, 11200);
+  assert.equal(failed.automation.translationBudget.committedMicroYuan, 13000);
+});
+
 test('暂停自动模型的定时运行仍完成采集和日报，记录暂停状态并保留失败回执', async t => {
   const oldReceipt = { status: 'failed_or_unknown', at: '2026-11-13T13:43:19.832Z' };
   const root = await project(t, { library: { papers: [], modelUsage: { date: '2026-11-12', requests: 1 }, receipts: { preserved: oldReceipt } } });

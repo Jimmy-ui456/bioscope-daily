@@ -4,7 +4,8 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { TOPICS, collectTopic, mergePapers, beijingDay, isRetracted, validPublicationDate } from '../dist/core.js';
 import { attachEnrichment, translationOf, sourceFingerprint } from '../dist/enrichment.js';
-import { interpretPaper, PROMPT_VERSION, LEGACY_PROMPT_VERSIONS, modelFailureDetails } from './interpret.mjs';
+import { interpretPaper, PROMPT_VERSION, LEGACY_PROMPT_VERSIONS, modelFailureDetails, modelInputTokenUpperBound } from './interpret.mjs';
+import { validateTranslationTask, approveTranslationRequest, translationReceiptUsage, translationBudget } from './translation-task.mjs';
 import { applyPublisherMetrics, fetchPublisherMetric, refreshPublisherMetrics, summarizePublisherRefresh } from './downloads.mjs';
 import { acquirePipelineLock } from './lock.mjs';
 import { createPublicReport, updatePublicReportHistory } from './reports.mjs';
@@ -29,7 +30,7 @@ function configuredLimit(value, fallback, label) {
   return limit;
 }
 
-export async function runPipeline({ root = PROJECT, collect = collectTopic, interpret = interpretPaper, fetchMetric = fetchPublisherMetric, env = process.env, sourceEnv = process.env, now = new Date(), log = console.log, modelRunLimit } = {}) {
+export async function runPipeline({ root = PROJECT, collect = collectTopic, interpret = interpretPaper, fetchMetric = fetchPublisherMetric, env = process.env, sourceEnv = process.env, now = new Date(), clock = () => new Date(), log = console.log, modelRunLimit } = {}) {
   if (modelRunLimit !== undefined && (!Number.isSafeInteger(modelRunLimit) || modelRunLimit < 0)) throw new Error('本次模型请求上限必须为非负安全整数');
   await mkdir(path.join(root, '.data'), { recursive: true });
   const lockPath = path.join(root, '.data/pipeline.lock');
@@ -39,6 +40,8 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     const sample = await readJson(path.join(root, 'dist/sample.json'), { papers: [] });
     const previous = await readJson(path.join(root, 'dist/library.json'), { papers: [], receipts: {}, modelUsage: { date: beijingDay(now), requests: 0 } });
     const configModel = modelConfig(env), modelEnabled = configuredModel(configModel);
+    const taskData = modelEnabled ? await readJson(path.join(root, 'config/translation-task.json'), null) : null;
+    const task = taskData === null ? null : validateTranslationTask(taskData);
     const today = beijingDay(now);
     const usageKnown = validModelUsage(previous.modelUsage, today);
     if (modelEnabled && !usageKnown) throw new Error('已有模型请求预算记录缺失或无效，未调用模型；请核对原记录');
@@ -77,19 +80,29 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
       const key = requestKey(paper, configModel);
       // A pending / unknown request is never retried automatically: it may already have cost money.
       if (receipts[key] || LEGACY_PROMPT_VERSIONS.some(version => receipts[requestKey(paper, configModel, version)])) continue;
+      let taskFields = {};
+      if (task) {
+        const approval = approveTranslationRequest({ task, receipts, configuration: configModel, now: clock(), inputUpperBound: modelInputTokenUpperBound(paper, configModel.model) });
+        if (!approval.approved) { library.automation.modelStopReason = approval.reason; if (approval.reason === 'input_too_large') continue; break; }
+        taskFields = { taskId: task.taskId, reservedMicroYuan: approval.reservedMicroYuan };
+      }
       attempted++; usage.requests++;
-      receipts[key] = { status: 'pending', at: new Date().toISOString() };
+      receipts[key] = { status: 'pending', at: new Date().toISOString(), ...taskFields };
       await saveJson(output, library);
       try {
         paper.enrichment = await interpret(paper, configModel);
-        receipts[key] = { status: 'completed', at: new Date().toISOString() };
+        receipts[key] = { status: 'completed', at: new Date().toISOString(), ...taskFields, ...translationReceiptUsage(configModel, paper.enrichment.modelUsage) };
         completed++;
-      } catch (error) { receipts[key] = { status: 'failed_or_unknown', at: new Date().toISOString(), ...modelFailureDetails(error) }; modelFailures++; }
+      } catch (error) {
+        const details = modelFailureDetails(error);
+        receipts[key] = { status: 'failed_or_unknown', at: new Date().toISOString(), ...taskFields, ...details, ...translationReceiptUsage(configModel, details.modelUsage) }; modelFailures++;
+      }
       await saveJson(output, library);
     }
     library.automation.modelRequestsThisRun = attempted;
     library.automation.modelCompletedThisRun = completed;
     library.automation.modelFailuresThisRun = modelFailures;
+    if (task) library.automation.translationBudget = translationBudget(task, receipts, configModel);
     library.automation.analysisFailures = Object.values(receipts).filter(r => r.status === 'failed_or_unknown' || r.status === 'pending').length;
     await saveJson(output, library);
     const reportFile = path.join(root, 'dist/public-reports.json');
