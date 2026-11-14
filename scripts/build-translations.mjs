@@ -1,7 +1,7 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { sourceFingerprint, translationVersionKey } from '../dist/enrichment.js';
+import { sourceFingerprint, translationVersionKey, validEnrichment } from '../dist/enrichment.js';
 
 function sameSource(item, paper) { return item && item.sourceTitle === paper.title && item.sourceAbstract === paper.abstract; }
 
@@ -37,6 +37,30 @@ export function buildTranslationCatalog(rows, samplePapers) {
   return { version: 1, note: '原型附带的辅助译文，尚未由领域专家审核；仅匹配对应的完整英文版本，保留旧版供相同原文的历史快照核对。', paperCount: baseIds.size, sourceVersionCount: Object.keys(items).length, items };
 }
 
+// Rebuilding auxiliary translations must not discard paid model results that
+// were added by an unattended run. A deliberate same-source auxiliary update
+// takes precedence; all other model source versions remain available.
+export function preserveModelTranslations(catalog, previous) {
+  if (!previous || typeof previous !== 'object' || Array.isArray(previous) || !previous.items || typeof previous.items !== 'object' || Array.isArray(previous.items)) throw new Error('已有译文目录无效，未覆盖');
+  const items = { ...catalog.items };
+  const identity = key => key.startsWith('version:') ? key.slice(8, key.lastIndexOf(':')) : key;
+  const ids = new Set(Object.keys(items).map(identity));
+  for (const [key, item] of Object.entries(previous.items)) {
+    if (item?.origin !== 'model') continue;
+    const id = identity(key), paper = { id, title: item.sourceTitle, abstract: item.sourceAbstract };
+    if (!id || typeof paper.title !== 'string' || typeof paper.abstract !== 'string' || !validEnrichment(paper, item)) throw new Error('已有模型译文的原文绑定无效，未覆盖');
+    if (sameSource(items[id], paper)) continue;
+    const versionKey = translationVersionKey(paper, id);
+    if (Object.hasOwn(items, versionKey)) {
+      if (!sameSource(items[versionKey], paper)) throw new Error('模型译文版本键冲突，未覆盖');
+      continue;
+    }
+    items[versionKey] = item; ids.add(id);
+  }
+  return { ...catalog, note: '本目录包含辅助译文与模型译文，均需人工核对；只匹配对应的完整英文版本，保留历史原文版本。',
+    items, paperCount: ids.size, sourceVersionCount: Object.keys(items).length };
+}
+
 async function main() {
   const source = JSON.parse(await readFile(new URL('../dist/sample.json', import.meta.url), 'utf8'));
   const rows = JSON.parse(await readFile(new URL('../config/sample-translations.zh.json', import.meta.url), 'utf8'));
@@ -49,7 +73,10 @@ async function main() {
     if (!Array.isArray(additions)) throw new Error(`辅助译文文件不是数组：${name}`);
     rows.push(...additions);
   }
-  const catalog = buildTranslationCatalog(rows, source.papers);
+  let previous;
+  try { previous = JSON.parse(await readFile(new URL('../dist/translations.json', import.meta.url), 'utf8')); }
+  catch (error) { if (error.code !== 'ENOENT') throw error; previous = { items: {} }; }
+  const catalog = preserveModelTranslations(buildTranslationCatalog(rows, source.papers), previous);
   await writeFile(new URL('../dist/translations.json', import.meta.url), JSON.stringify(catalog, null, 2) + '\n');
   console.log(`已生成 ${catalog.paperCount} 篇文献、${catalog.sourceVersionCount} 个原文版本的中英对照。`);
 }

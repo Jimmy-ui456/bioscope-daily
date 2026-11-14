@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "note": "原型附带的辅助译文，尚未由领域专家审核；仅匹配对应的完整英文版本，保留旧版供相同原文的历史快照核对。",
-  "paperCount": 283,
-  "sourceVersionCount": 292,
+  "note": "本目录包含辅助译文与模型译文，均需人工核对；只匹配对应的完整英文版本，保留历史原文版本。",
+  "paperCount": 286,
+  "sourceVersionCount": 295,
   "items": {
     "doi:10.1002/adma.75118": {
       "titleZh": "可编程工程活体载体：用于骨髓炎协同治疗与骨再生的自主生物工厂",
@@ -554,6 +554,40 @@
       "sourceFingerprint": "4b57c3c-2060",
       "origin": "assistant_translation",
       "createdAt": "2026-11-12T19:04:14.326Z",
+      "reviewed": false,
+      "scope": "abstract_only"
+    },
+    "doi:10.21203/rs.3.rs-11147586/v1": {
+      "titleZh": "钙信号增强Nigrospora sphaerica HCH285的Bostrycin生物合成：代谢调控的转录组学解析",
+      "abstractZh": "摘要 背景：Bostrycin是由Nigrospora sphaerica产生的一种蒽醌类次级代谢产物，表现出广谱抗肿瘤和抗微生物活性，但其产量较低，限制了进一步开发和应用。钙离子（Ca²⁺）是重要的细胞内信号分子，可调节真菌生理过程和次级代谢，但其在Bostrycin生物合成中的作用尚不清楚。本研究旨在考察外源Ca²⁺对Bostrycin产量的影响，并利用转录组分析阐明其背后的分子响应。方法：以氯化物盐的形式补加Ca²⁺、Mg²⁺、Na⁺和K⁺，筛选其促进N. sphaerica HCH285生产Bostrycin的能力。通过高效液相色谱（HPLC）测定Bostrycin产量，确定最适Ca²⁺浓度及添加时间。评估生物量积累、产孢能力以及胞外核酸和蛋白质泄漏，以表征Ca²⁺处理的生理效应。对对照培养物和Ca²⁺处理培养物进行转录组测序，随后开展GO和KEGG富集分析，并通过定量逆转录PCR（qRT-PCR）进行验证。结果：在所有受测金属离子中，Ca²⁺对Bostrycin生物合成的促进作用最强；Ca²⁺浓度为4 g/L时，Bostrycin产量最高，达到63.6 ± 0.31 μg/mL，相对对照提高2.55倍。补加Ca²⁺还显著提高了真菌生物量和产孢能力，提示生长增强有助于代谢产物产量的提高。胞外核酸和蛋白质含量增加，表明Ca²⁺处理后细胞完整性或分泌活性发生了改变。转录组分析发现，差异表达基因（DEGs）在代谢通路中的富集最为显著，其中包括氧化磷酸化；同时还注释到与聚酮代谢及泛醌生物合成相关的基因。多个与离子转运、能量代谢和次级代谢产物生物合成相关的基因显著上调。其中，wbpA、talA、cho1和aroB经qRT-PCR进一步验证，表明补加Ca²⁺触发了广泛的代谢重编程，并与Bostrycin积累相关。结论：外源Ca²⁺通过协调的生理和转录响应，有效提高了N. sphaerica HCH285的Bostrycin产量。转录组分析提示，补加Ca²⁺可促进与Bostrycin生物合成相关的能量代谢、离子转运及次级代谢过程。这些发现为钙介导的真菌次级代谢调控提供了新的认识，并为通过发酵优化和代谢工程提高Bostrycin产量提供了一种潜在策略。",
+      "sourceTitle": "Calcium Signaling Enhances Bostrycin Biosynthesis in Nigrospora sphaerica HCH285: Transcriptomic Insights into Metabolic Regulation",
+      "sourceAbstract": "Abstract Background: Bostrycin, an anthraquinone secondary metabolite produced by Nigrospora sphaerica , exhibits broad-spectrum antitumor and antimicrobial activities, but its low production limits further development and application. Calcium ions (Ca²⁺) are important intracellular signaling molecules that regulate fungal physiology and secondary metabolism, but their role in bostrycin biosynthesis remains unclear. This study aimed to investigate the effect of exogenous Ca 2+ on bostrycin production and to elucidate the underlying molecular response using transcriptomic analysis. Methods: Ca²⁺, Mg²⁺, Na⁺, and K⁺ (supplemented as chloride salts) were screened for their ability to promote bostrycin production in N. sphaerica HCH285. The optimal Ca²⁺ concentration and addition time were determined by measuring bostrycin production using HPLC. Biomass accumulation, sporulation capacity, and extracellular nucleic acid and protein leakage were evaluated to characterize the physiological effects of Ca 2+ treatment.Control and Ca²⁺-treated cultures were subjected to transcriptome sequencing, followed by GO and KEGG enrichment analyses and qRT-PCR validation. Results: Among all tested metal ions, Ca 2+ showed the strongest stimulatory effect on bostrycin biosynthesis, with 4 g/L Ca 2+ producing the highest yield of bostrycin with 63.6 ± 0.31 μg/mL, representing a 2.55-fold increase over the control. Ca 2+ supplementation also significantly increased fungal biomass and sporulation capacity, suggesting that enhanced growth contributed to the elevated metabolite production. Increased extracellular nucleic acid and protein contents indicated altered cell integrity or secretion activity following Ca 2+ treatment.Transcriptomic analysis identified DEGs most significantly enriched in metabolic pathways, including oxidative phosphorylation, while genes related to polyketide metabolism and ubiquinone biosynthesis were also annotated. Several genes associated with ion transport, energy metabolism, and secondary metabolite biosynthesis were significantly upregulated. Among them, wbpA, talA, cho1, and aroB were further validated by qRT-PCR, indicating that Ca²⁺ supplementation triggered broad metabolic reprogramming associated with bostrycin accumulation. Conclusions: Exogenous Ca 2+ effectively enhances bostrycin production in N. sphaerica HCH285 through coordinated physiological and transcriptional responses. Transcriptomic analysis suggests that Ca 2+ supplementation promotes energy metabolism, ion transport, and secondary metabolic processes associated with bostrycin biosynthesis. These findings provide new insights into calcium-mediated regulation of fungal secondary metabolism and offer a potential strategy for improving bostrycin production through fermentation optimization and metabolic engineering.",
+      "sourceFingerprint": "f0401f78-2970",
+      "origin": "assistant_translation",
+      "createdAt": "2026-11-14T07:49:48.631Z",
+      "reviewed": false,
+      "scope": "abstract_only",
+      "sourceNote": "原文将相对对照的倍数表述为“2.55-fold increase over the control”；译文保留作者的倍数表述，未另行换算为百分比或其他倍数。"
+    },
+    "doi:10.1016/j.biortech.2026.136232": {
+      "titleZh": "用于下一代生物制造的无细胞蛋白合成",
+      "abstractZh": "结构多样的化学品对制药、食品和特种化学品行业至关重要；然而，由于细胞调控复杂、代谢灵活性有限，以及基于纯化酶的体系存在规模化限制，其可持续生产仍面临挑战。基于细胞提取物的无细胞蛋白合成（CFPS）已成为一种用途广泛的生物制造平台，既可在体外生产具有功能的酶，也能为构建突破活细胞约束的人工生物合成体系提供开放、可编程的环境。通过将化学合成与细胞生长解耦，CFPS能够精确控制酶的组成、途径化学计量关系和辅因子利用，从而提高催化效率和资源利用率。本综述总结了基于细胞提取物的CFPS在化学品生物合成方面的近期进展，并讨论了用于提升体系性能的关键工程策略，包括辅因子再生、途径平衡和半连续运行。此外，文章还重点介绍了将CFPS与人工智能指导的设计、可再生原料和模块化反应器技术相结合的新机遇，以推动更具可持续性且更易于规模化的生物制造过程。",
+      "sourceTitle": "Cell-free protein synthesis for next-generation biomanufacturing.",
+      "sourceAbstract": "Chemicals with diverse molecular structures are essential to the pharmaceutical, food, and specialty chemical industries; however, their sustainable production remains challenging due to complex cellular regulation, limited metabolic flexibility, and the scalability constraints of purified enzyme-based systems. Extract-based cell-free protein synthesis (CFPS) has emerged as a versatile biomanufacturing platform that enables the production of functional enzymes in vitro and provides an open, programmable environment for constructing synthetic biosynthetic systems beyond the constraints of living cells. By decoupling chemical synthesis from cellular growth, CFPS allows precise control over enzyme composition, pathway stoichiometry, and cofactor utilization, thereby improving catalytic efficiency and resource utilization. In this review, we summarize recent advances in extract-based CFPS for chemical biosynthesis and discuss key engineering strategies, including cofactor regeneration, pathway balancing, and semicontinuous operation, to enhance system performance. Furthermore, we highlight emerging opportunities to integrate CFPS with artificial intelligence-guided design, renewable feedstocks, and modular reactor technologies toward more sustainable and scalable biomanufacturing processes.",
+      "sourceFingerprint": "aa749ff-1373",
+      "origin": "assistant_translation",
+      "createdAt": "2026-11-14T07:50:30.542Z",
+      "reviewed": false,
+      "scope": "abstract_only"
+    },
+    "doi:10.64898/2026.11.11.765817": {
+      "titleZh": "染色体水平基因组学与跨物种酶筛选助力解脂耶氏酵母高滴度生产补骨脂酚",
+      "abstractZh": "参与补骨脂酚生物合成的酶的多样性尚未得到完整表征，限制了可用于微生物途径工程的酶资源范围。本研究结合染色体水平基因组学、跨物种酶筛选和代谢工程，在解脂耶氏酵母（Yarrowia lipolytica）中建立了高滴度补骨脂酚生产体系。研究者组装了一个大小为471.76 Mb的补骨脂（Psoralea corylifolia）基因组，并将其锚定到11条伪染色体上，contig N50为40.33 Mb。通过基因组指导的筛选和功能验证，鉴定出来自补骨脂与绿豆（Vigna radiata）的4种异戊烯基转移酶，其N端截短变体能够支持酵母生产补骨脂酚。这些结果将具有补骨脂酚生产活性的实验证据拓展至更多豆科植物异戊烯基转移酶序列和物种。对于与此前报道的PcPT07相对应的PcPT6，去除N端40个氨基酸后，补骨脂酚产量相较全长酶提高了53%。研究者在解脂耶氏酵母中重建了补骨脂酚生物合成途径，并强化芳香族前体合成，以增加对香豆酸（p-coumaric acid）的供应。协同强化甲羟戊酸（MVA）途径并提高t40PcPT6基因剂量，进一步改善了补骨脂酚的生产。经过发酵优化，摇瓶中的补骨脂酚滴度达到108.29 mg/L，在7.5 L补料分批生物反应器中达到6.03 g/L。这些结果将拓展后的功能性异戊烯基转移酶资源与协同途径工程相结合，实现了克每升级别的微生物补骨脂酚生产。",
+      "sourceTitle": "Chromosome-level genomics and cross-species enzyme screening enable high-titer bakuchiol production in Yarrowia lipolytica",
+      "sourceAbstract": "The diversity of enzymes supporting bakuchiol biosynthesis remains incompletely characterized, limiting the repertoire available for microbial pathway engineering. Here, we combined chromosome-level genomics, cross-species enzyme screening and metabolic engineering to establish high-titer bakuchiol production in Yarrowia lipolytica. We assembled a 471.76-Mb Psoralea corylifolia genome anchored to 11 pseudochromosomes, with a contig N50 of 40.33 Mb. Genome-guided screening and functional validation identified four prenyltransferases from P. corylifolia and Vigna radiata whose N-terminally truncated variants supported bakuchiol production in yeast. These results extend experimental evidence for bakuchiol-producing activity across legume prenyltransferase sequences and species. For PcPT6, corresponding to the previously reported PcPT07, removing 40 N-terminal amino acids increased bakuchiol production by 53% relative to the full-length enzyme. We reconstructed bakuchiol biosynthesis in Y. lipolytica and reinforced aromatic precursor synthesis to increase p-coumaric acid supply. Coordinating mevalonate pathway reinforcement with increased t40PcPT6 gene dosage further improved bakuchiol production. Following fermentation optimization, titers reached 108.29 mg/L in shake flasks and 6.03 g/L in a 7.5-L fed-batch bioreactor. These findings connect an expanded set of functional prenyltransferases with coordinated pathway engineering, enabling gram-per-liter microbial bakuchiol production.",
+      "sourceFingerprint": "efc941c8-1627",
+      "origin": "assistant_translation",
+      "createdAt": "2026-11-14T07:50:30.542Z",
       "reviewed": false,
       "scope": "abstract_only"
     },

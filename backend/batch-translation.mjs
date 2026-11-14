@@ -163,7 +163,11 @@ export async function runBatchTranslation({ root = PROJECT, env = process.env, c
       attempts, passed, failed, translationOnlyPassed, fullInterpretationPassed: passed - translationOnlyPassed,
       budget: { ...budget, budgetMicroYuan: task.budgetMicroYuan, maxRequests: task.maxRequests },
       actualBill: false, costNote: '官方原价估算与未知用量保守预留，不是实际账单或扣费。', remainingPaperIds: remaining.map(p => p.id) };
-    library.automation = { ...(record(library.automation) ? library.automation : {}), translationBatch: { ...batchMetadata(reported.toISOString()), reason: status.reason } };
+    library.automation = { ...(record(library.automation) ? library.automation : {}), modelConfigured: true, modelStatus: 'ready',
+      modelRequestsThisRun: attempts, modelCompletedThisRun: passed, modelFailuresThisRun: failed,
+      analysisFailures: Object.values(receipts).filter(r => ['pending', 'failed_or_unknown'].includes(r?.status)).length,
+      translationBudget: budget, completedAt: reported.toISOString(),
+      translationBatch: { ...batchMetadata(reported.toISOString()), reason: status.reason } };
     await save(libraryPath, library);
     await save(path.join(root, 'dist/translation-status.json'), status);
     return status;

@@ -3,17 +3,19 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runBatchTranslation } from '../backend/batch-translation.mjs';
 import { PROJECT } from '../backend/pipeline.mjs';
+import { APP_VERSION } from '../dist/core.js';
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 function yuan(value) { return Number.isSafeInteger(value) && value >= 0 ? (value / 1000000).toFixed(6) : '未知'; }
 export function translationReportHtml(status) {
   const scope = status.scope, budget = status.budget;
-  return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>生研观察 · 翻译与费用记录</title><link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./enrichment.css"></head><body><main class="setup-main">
+  return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>生研观察 · 翻译与费用记录</title><link rel="stylesheet" href="./styles.css?v=${APP_VERSION}"><link rel="stylesheet" href="./enrichment.css?v=${APP_VERSION}"></head><body><main class="setup-main">
 <a href="./index.html">← 返回生研观察</a><h1>本次翻译与费用记录</h1>
 <p>任务日期：${escape(status.date)}；记录时间：${escape(new Date(status.reportedAt).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }))}（北京）。</p>
 ${status.deadlineMet === false ? '<p class="evidence-warning">未在原定北京时间09:30前完成；此页如实记录后续补做结果。</p>' : ''}
 <section class="settings-panel"><h2>中英对照覆盖</h2><p>共享库 ${scope.total} 篇；已有中英对照 ${scope.bilingual} 篇；尚缺中文 ${scope.missing} 篇。</p>
 <p>本轮模型尝试 ${status.attempts} 次，题名及摘要译文通过基础校验 ${status.passed} 篇，失败或未知 ${status.failed} 次。仅保留译文的条目不视为研究解读通过；所有模型译文仍未经过领域专家审核。</p>
+${Number.isSafeInteger(status.manualSupplemented) && status.manualSupplemented > 0 ? `<p>另有 ${status.manualSupplemented} 篇先前失败的文献已人工补译，没有重复调用模型；旧请求回执保留。</p>` : ''}
 <p>尚未翻译中：缺少英文摘要 ${scope.noAbstract} 篇；已有请求回执阻止重复尝试 ${scope.blockedByReceipt} 篇；输入过长 ${scope.inputTooLarge} 篇。分类可能重叠。</p></section>
 <section class="settings-panel"><h2>费用与预算</h2><p><strong>已记录用量的官方原价估算：${yuan(budget.knownCostMicroYuan)} 元。</strong></p>
 <p>已记录 ${budget.inputTokens} 个输入、${budget.outputTokens} 个输出 Token；用量未知的保守预留 ${yuan(budget.unknownReservedMicroYuan)} 元；任务上限 ${yuan(budget.budgetMicroYuan)} 元。</p>
