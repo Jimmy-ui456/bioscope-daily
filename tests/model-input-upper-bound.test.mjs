@@ -4,6 +4,15 @@ import { interpretPaper, modelInputTokenUpperBound, SYSTEM_PROMPT } from '../bac
 
 const paper = { title: 'Yeast growth under laboratory conditions', abstract: 'We measured yeast growth in shake flasks.', isPreprint: false, readingScope: 'abstract_only' };
 const translated = { titleZh: '实验室条件下的酵母生长', abstractZh: '研究者在摇瓶中测量了酵母生长。', question: null, methods: null, findings: null, limitations: [] };
+test('已识别生物术语提供针对性译法提示，完整英文片段保持不变且上界仍覆盖请求', async () => {
+  const input = { ...paper, title: 'Cooperative new-to-nature saponin design', abstract: 'Cell-free protein synthesis supports semicontinuous production.' };
+  const body = await capture(input, 'https://dashscope.aliyuncs.com/compatible-mode/v1', 'qwen3.7-flash');
+  const parsed = JSON.parse(body), content = JSON.parse(parsed.messages[1].content);
+  assert.equal(content.abstractSources.map(p => p.text).join(''), input.abstract);
+  assert.equal(content.terminology.length, 4);
+  assert.ok(content.terminology.find(p => p.english === 'new-to-nature').chinese.includes('不可译为新型天然'));
+  assert.ok(modelInputTokenUpperBound(input) >= Buffer.byteLength(body, 'utf8') + 512);
+});
 async function capture(input, baseUrl, model) {
   let body, calls = 0;
   await interpretPaper(input, { baseUrl, model, apiKey: 'private-key-never-in-body', fetchImpl: async (_url, options) => {

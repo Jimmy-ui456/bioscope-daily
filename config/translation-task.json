@@ -9,5 +9,5 @@
   "maxRequests": 500,
   "concurrency": 3,
   "translationOnlyFallback": true,
-  "validationReceiptKey": null
+  "validationReceiptKey": "4f2caf9bad828db5b2b768a10daa011d3af60bab11a9bfcb8e0f8698a7593723"
 }

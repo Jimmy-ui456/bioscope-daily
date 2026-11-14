@@ -2,7 +2,7 @@ import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { isValidPaper, isRetracted, beijingDay, validPublicationDate } from '../dist/core.js';
 import { attachEnrichment, translationOf, translationVersionKey, sourceFingerprint } from '../dist/enrichment.js';
-import { interpretPaper, validateInterpretation, modelFailureDetails, modelInputTokenUpperBound, PROMPT_VERSION, LEGACY_PROMPT_VERSIONS } from './interpret.mjs';
+import { interpretPaper, validateInterpretation, modelFailureDetails, modelInputTokenUpperBound, PROMPT_VERSION, LEGACY_PROMPT_VERSIONS, TERMINOLOGY_VERSION } from './interpret.mjs';
 import { validateModelUsage } from './model-cost.mjs';
 import { validateTranslationTask, translationBudget, approveTranslationRequest, translationReceiptUsage } from './translation-task.mjs';
 import { acquirePipelineLock } from './lock.mjs';
@@ -27,6 +27,7 @@ function checkedResult(result, paper, configuration) {
   return { ...validateInterpretation(result, paper), sourceTitle: paper.title, sourceAbstract: paper.abstract,
     sourceFingerprint: sourceFingerprint(paper), origin: 'model', model: configuration.model, promptVersion: PROMPT_VERSION,
     createdAt: result.createdAt, reviewed: false, scope: 'abstract_only', ...(usage ? { modelUsage: usage } : {}),
+    ...(result.terminologyVersion === TERMINOLOGY_VERSION ? { terminologyVersion: TERMINOLOGY_VERSION } : {}),
     ...(translationOnly ? { analysisStatus: 'translation_only', ...(['invalid_evidence', 'invalid_shape'].includes(result.analysisFailureCode) ? { analysisFailureCode: result.analysisFailureCode } : {}) } : {}) };
 }
 function catalogIdentity(key) { return key.startsWith('version:') ? key.slice(8, key.lastIndexOf(':')) : key; }
