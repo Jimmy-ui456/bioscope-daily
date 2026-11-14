@@ -93,7 +93,7 @@ export function validateInterpretation(data, paper) {
   if (data.limitations != null && !Array.isArray(data.limitations)) throw new ModelInterpretationError('invalid_shape');
   return { titleZh: data.titleZh.trim(), abstractZh: data.abstractZh.trim(), question: claim(data.question), methods: claim(data.methods), findings: claim(data.findings), limitations: (data.limitations || []).slice(0, 8).map(value => claim(value, false)) };
 }
-export async function interpretPaper(paper, { baseUrl, apiKey, model, fetchImpl = fetch } = {}) {
+export async function interpretPaper(paper, { baseUrl, apiKey, model, fetchImpl = fetch, allowTranslationOnly = false } = {}) {
   if (!baseUrl || !apiKey || !model) throw new ModelInterpretationError('invalid_configuration');
   let url;
   try { url = new URL(baseUrl.replace(/\/$/, '') + '/chat/completions'); }
@@ -121,7 +121,19 @@ export async function interpretPaper(paper, { baseUrl, apiKey, model, fetchImpl 
     if (!choice || typeof choice !== 'object' || !choice.message || typeof choice.message.content !== 'string') throw new ModelInterpretationError('invalid_shape');
     let parsed;
     try { parsed = JSON.parse(choice.message.content); } catch { throw new ModelInterpretationError('invalid_json'); }
-    return { ...validateInterpretation(parsed, paper), sourceTitle: paper.title, sourceAbstract: paper.abstract, sourceFingerprint: sourceFingerprint(paper), origin: 'model', model, promptVersion: PROMPT_VERSION, createdAt: new Date().toISOString(), reviewed: false, scope: 'abstract_only',
+    let interpretation;
+    try { interpretation = validateInterpretation(parsed, paper); }
+    catch (error) {
+      if (allowTranslationOnly !== true || !(error instanceof ModelInterpretationError)
+        || !['invalid_evidence', 'invalid_shape'].includes(error.failureCode) || !parsed || typeof parsed !== 'object' || Array.isArray(parsed)) throw error;
+      // Keep a separately checked translation while publishing none of the
+      // rejected research claims. This is an explicit task option, not a pass
+      // for unsupported evidence or a claim of semantic translation accuracy.
+      interpretation = { ...validateInterpretation({ titleZh: parsed.titleZh, abstractZh: parsed.abstractZh,
+        question: null, methods: null, findings: null, limitations: [] }, paper),
+        analysisStatus: 'translation_only', analysisFailureCode: error.failureCode };
+    }
+    return { ...interpretation, sourceTitle: paper.title, sourceAbstract: paper.abstract, sourceFingerprint: sourceFingerprint(paper), origin: 'model', model, promptVersion: PROMPT_VERSION, createdAt: new Date().toISOString(), reviewed: false, scope: 'abstract_only',
       ...(modelUsage ? { modelUsage } : {}) };
   } catch (error) {
     const failure = error instanceof ModelInterpretationError ? error : new ModelInterpretationError('unknown');

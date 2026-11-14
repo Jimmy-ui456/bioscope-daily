@@ -90,7 +90,7 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
       receipts[key] = { status: 'pending', at: new Date().toISOString(), ...taskFields };
       await saveJson(output, library);
       try {
-        paper.enrichment = await interpret(paper, configModel);
+        paper.enrichment = await interpret(paper, task?.translationOnlyFallback ? { ...configModel, allowTranslationOnly: true } : configModel);
         receipts[key] = { status: 'completed', at: new Date().toISOString(), ...taskFields, ...translationReceiptUsage(configModel, paper.enrichment.modelUsage) };
         completed++;
       } catch (error) {

@@ -10,11 +10,12 @@ export function validateTranslationTask(value) {
     || !Number.isSafeInteger(value.budgetMicroYuan) || value.budgetMicroYuan <= 0 || value.budgetMicroYuan > 5000000
     || !Number.isSafeInteger(value.maxRequests) || value.maxRequests <= 0 || value.maxRequests > 500
     || !Number.isSafeInteger(value.concurrency) || value.concurrency < 1 || value.concurrency > 3
-    || !(value.validationReceiptKey === null || /^[a-f0-9]{40,64}$/.test(value.validationReceiptKey || ''))) throw new Error('翻译任务配置无效，未调用模型');
+    || !(value.validationReceiptKey === null || /^[a-f0-9]{40,64}$/.test(value.validationReceiptKey || ''))
+    || (Object.hasOwn(value, 'translationOnlyFallback') && typeof value.translationOnlyFallback !== 'boolean')) throw new Error('翻译任务配置无效，未调用模型');
   return { schemaVersion: 1, taskId: value.taskId, date: value.date, authorizedAt: value.authorizedAt,
     expiresAt: value.expiresAt, requestedDeadline: timestamp(value.requestedDeadline) ? value.requestedDeadline : null,
     budgetMicroYuan: value.budgetMicroYuan, maxRequests: value.maxRequests, concurrency: value.concurrency,
-    validationReceiptKey: value.validationReceiptKey };
+    validationReceiptKey: value.validationReceiptKey, translationOnlyFallback: value.translationOnlyFallback === true };
 }
 
 export function translationBudget(task, receipts, configuration) {

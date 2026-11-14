@@ -1,4 +1,4 @@
-import { checkEvidenceClaim } from './evidence.js?v=0.2.19';
+import { checkEvidenceClaim } from './evidence.js?v=0.2.20';
 
 // Shared by the static reader and the unattended collection job. No credentials here.
 export function sourceFingerprint(paper) {
@@ -36,7 +36,7 @@ export function translationOf(paper) { return validEnrichment(paper, paper.enric
 export function interpretationOf(paper) {
   if (!paper || typeof paper !== 'object') return null;
   const translation = translationOf(paper);
-  if (!translation || translation.origin !== 'model' || typeof paper.abstract !== 'string' || !paper.abstract.trim()) return null;
+  if (!translation || translation.origin !== 'model' || translation.analysisStatus === 'translation_only' || typeof paper.abstract !== 'string' || !paper.abstract.trim()) return null;
   const rejectedFields = [];
   const output = { ...translation, scope: 'abstract_only',
     model: typeof translation.model === 'string' ? translation.model : null,

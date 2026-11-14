@@ -1,15 +1,15 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.19';
-import { collectionHealth } from './health.js?v=0.2.19';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.19';
-import { evidenceContext } from './evidence.js?v=0.2.19';
-import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.19';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.19';
-import { readLocalReaderState, persistLocalRecovery } from './local-state.js?v=0.2.19';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.19';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.19';
-import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.19';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.20';
+import { collectionHealth } from './health.js?v=0.2.20';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.20';
+import { evidenceContext } from './evidence.js?v=0.2.20';
+import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.20';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.20';
+import { readLocalReaderState, persistLocalRecovery } from './local-state.js?v=0.2.20';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.20';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.20';
+import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.20';
 
-import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.19';
+import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.20';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -118,6 +118,8 @@ function evidenceBlock(paper, claim, expanded = false) {
   return expanded ? '<div class="evidence-context"><span class="help">' + label + '</span>' + quote + '</div>' : '<details><summary>' + label + '</summary>' + quote + '</details>';
 }
 function interpretationBlock(p, { report = false } = {}) {
+  const translation = translated(p);
+  if (translation?.analysisStatus === 'translation_only') return '<section class="interpretation"><h3>中英对照译文</h3><p class="evidence-warning">已保留题名与摘要译文。研究解读未通过证据校验，未予展示；译文仍需人工核对。</p></section>';
   const t = interpretationOf(attachEnrichment(p, translations));
   const fields = [['question', '研究问题'], ['methods', '研究方法'], ['findings', '主要结果']];
   if (!t && report) return '';

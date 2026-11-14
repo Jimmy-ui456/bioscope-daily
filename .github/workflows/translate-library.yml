@@ -1,0 +1,74 @@
+name: Translate current library within approved budget
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_paid:
+        description: '执行本次已授权的整库翻译，受配置中的5元预算与日期限制'
+        type: boolean
+        default: false
+        required: true
+concurrency:
+  group: bioscope-collect-publish
+  cancel-in-progress: false
+jobs:
+  prepare:
+    if: toJSON(inputs.confirm_paid) == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check code
+        run: npm run check && npm test
+      - name: Refresh literature without model calls
+        run: node scripts/collect-workflow.mjs
+      - name: Translate the refreshed library
+        env:
+          BIOSCOPE_BATCH_AUTHORIZED: ${{ toJSON(inputs.confirm_paid) == 'true' && 'true' || 'false' }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL || secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL || secrets.LLM_MODEL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: node scripts/translate-library.mjs
+      - name: Save results and cost report
+        run: |
+          git add dist/library.json dist/translations.json dist/public-reports.json dist/feed.xml dist/translation-status.json dist/translation-report.html
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Translate current library and record token costs'
+            git fetch origin main
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' rebase origin/main
+            git push origin HEAD:main
+          fi
+      - name: Preserve paid receipts if publication fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: translation-recovery-${{ github.run_id }}
+          path: |
+            dist/library.json
+            dist/translations.json
+            dist/translation-status.json
+            dist/translation-report.html
+          if-no-files-found: ignore
+          retention-days: 14
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    needs: prepare
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

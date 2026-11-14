@@ -8,5 +8,6 @@
   "budgetMicroYuan": 5000000,
   "maxRequests": 500,
   "concurrency": 3,
+  "translationOnlyFallback": true,
   "validationReceiptKey": null
 }
