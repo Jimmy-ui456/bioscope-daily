@@ -1,5 +1,5 @@
-import { TOPICS, cleanDoi, beijingDay, dayBefore, validPublicationDate, isRetracted } from './core.js?v=0.2.20';
-import { attachEnrichment, translationOf } from './enrichment.js?v=0.2.20';
+import { TOPICS, cleanDoi, beijingDay, dayBefore, validPublicationDate, isRetracted } from './core.js?v=0.2.21';
+import { attachEnrichment, translationOf } from './enrichment.js?v=0.2.21';
 export function paperKind(paper) {
   if (paper.isPreprint) return 'preprint';
   if (paper.type === '综述') return 'review';
@@ -110,10 +110,28 @@ export function createSearchInputController(apply) {
 export function filterReadingPapers(papers, filters, now = new Date()) {
   const end = beijingDay(now);
   const start = filters.days ? dayBefore(filters.days - 1, now) : null;
-  return papers.filter(p =>
-    (filters.journal === 'all' || journalName(p) === filters.journal) &&
-    (filters.kind === 'all' || paperKind(p) === filters.kind) &&
-    (!start || (validPublicationDate(p.publishedAt) && p.publishedAt >= start && p.publishedAt <= end)) &&
-    (filters.abstract === 'all' || (filters.abstract === 'available' ? Boolean(p.abstract?.trim()) : !p.abstract?.trim()))
-  );
+  const byDiscovery = filters.dateBasis === 'discovered';
+  const selected = papers.filter(p => {
+    if (start) {
+      const date = byDiscovery ? discoveryDay(p, now) : p.publishedAt;
+      if (!validPublicationDate(date) || date < start || date > end) return false;
+    }
+    return (filters.journal === 'all' || journalName(p) === filters.journal) &&
+      (filters.kind === 'all' || paperKind(p) === filters.kind) &&
+      (filters.abstract === 'all' || (filters.abstract === 'available' ? Boolean(p.abstract?.trim()) : !p.abstract?.trim()));
+  });
+  if (byDiscovery) selected.sort((a, b) => discoveryTime(b, now) - discoveryTime(a, now));
+  return selected;
+}
+
+function discoveryTime(paper, now) {
+  const raw = paper.discoveredAt;
+  if (typeof raw !== 'string' || !/^\d{4}-\d{2}-\d{2}T(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d{1,3})?(?:Z|[+-]\d{2}:\d{2})$/.test(raw) || !validPublicationDate(raw.slice(0, 10))) return -Infinity;
+  const time = Date.parse(raw);
+  return Number.isFinite(time) && time <= now.getTime() ? time : -Infinity;
+}
+
+export function discoveryDay(paper, now = new Date()) {
+  const time = discoveryTime(paper, now);
+  return Number.isFinite(time) ? beijingDay(new Date(time)) : null;
 }

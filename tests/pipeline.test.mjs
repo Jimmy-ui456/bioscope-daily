@@ -20,13 +20,13 @@ const env = { LLM_BASE_URL: 'https://model.example/v1', LLM_MODEL: 'test-model',
 const now = new Date('2026-10-29T01:00:00Z');
 test('未配置模型仍采集并保存，绝不调用付费模型', async t => {
   const root = await project(t);
-  const result = await runPipeline({ root, now, env: {}, collect: collected, interpret: () => { throw new Error('must not call'); }, log: () => {} });
+  const result = await runPipeline({ root, now, env: {}, sourceEnv: {}, collect: collected, interpret: () => { throw new Error('must not call'); }, log: () => {} });
   assert.equal(result.papers.length, 1); assert.equal(result.automation.modelStatus, 'not_configured'); assert.equal(result.modelUsage.requests, 0);
 });
 
 test('模型env为空时默认仍从进程GitHub环境读取白名单采集来源', async t => {
   const root = await project(t);
-  const sourceEnvironment = { GITHUB_ACTIONS: 'true', GITHUB_EVENT_NAME: 'schedule', GITHUB_SERVER_URL: 'https://github.com', GITHUB_REPOSITORY: 'Example/bioscope-daily', GITHUB_RUN_ID: '123456' };
+  const sourceEnvironment = { GITHUB_ACTIONS: 'true', GITHUB_EVENT_NAME: 'schedule', GITHUB_SERVER_URL: 'https://github.com', GITHUB_REPOSITORY: 'Example/bioscope-daily', GITHUB_RUN_ID: '123456', BIOSCOPE_MODEL_AUTO: 'false' };
   const previous = Object.fromEntries(Object.keys(sourceEnvironment).map(key => [key, process.env[key]]));
   t.after(() => { for (const [key, value] of Object.entries(previous)) { if (value === undefined) delete process.env[key]; else process.env[key] = value; } });
   Object.assign(process.env, sourceEnvironment);
@@ -34,6 +34,7 @@ test('模型env为空时默认仍从进程GitHub环境读取白名单采集来�
   const source = { trigger: 'schedule', runUrl: 'https://github.com/Example/bioscope-daily/actions/runs/123456' };
   assert.deepEqual(result.automation.collectionSource, source);
   assert.equal(result.automation.modelConfigured, false);
+  assert.equal(result.automation.modelStatus, 'automatic_paused');
   const report = (await readJson(path.join(root, 'dist/public-reports.json'))).reports[0];
   assert.deepEqual(report.sourceCollection, { status: 'complete', failedTopics: [], ...source });
   assert.equal(report.sourceUpdatedAt, result.fetchedAt);

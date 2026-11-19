@@ -1,15 +1,15 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.20';
-import { collectionHealth } from './health.js?v=0.2.20';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.20';
-import { evidenceContext } from './evidence.js?v=0.2.20';
-import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.20';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.20';
-import { readLocalReaderState, persistLocalRecovery } from './local-state.js?v=0.2.20';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers } from './reader.js?v=0.2.20';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.20';
-import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.20';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.21';
+import { collectionHealth } from './health.js?v=0.2.21';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.21';
+import { evidenceContext } from './evidence.js?v=0.2.21';
+import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.21';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.21';
+import { readLocalReaderState, persistLocalRecovery } from './local-state.js?v=0.2.21';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.21';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.21';
+import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.21';
 
-import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.20';
+import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.21';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -25,7 +25,7 @@ function write(key, value) {
 }
 const settings = localState.settings;
 const cache = localState.cache;
-const readerDefaults = { journal: 'all', days: 0, kind: 'all', abstract: 'all' };
+const readerDefaults = { journal: 'all', days: 0, kind: 'all', abstract: 'all', dateBasis: 'published' };
 const readerFilters = localState.readerFilters;
 const state = { view: 'overview', topic: 'all', filter: 'all', search: '', page: 1, readerFilters, filtersOpen: Object.keys(readerDefaults).some(key => readerFilters[key] !== readerDefaults[key]), papers: cache?.papers || [], origin: cache?.origin || 'sample', containsImported: cache?.containsImported === true, updatedAt: cache?.updatedAt || null, bookmarks: localState.bookmarks, selected: localState.selected, reports: localState.reports, reportId: null, busy: false, progress: '', error: '', settings, stats: cache?.stats || [] };
 let sample = null;
@@ -162,8 +162,9 @@ function metrics() {
   return `<section class="metrics" aria-label="文献库概况">${values.map(v => `<div class="metric"><div><div class="metric-name">${v.label}</div><div class="metric-value">${v.n}<small>${v.unit}</small></div><div class="metric-caption">${v.caption}</div></div><span class="metric-symbol">${icon(v.icon, 15)}</span></div>`).join('')}</section>`;
 }
 function paperCard(p) {
+  const discovered = state.readerFilters.dateBasis === 'discovered' ? discoveryDay(p) : null;
   p = attachEnrichment(p, translations);
-  return `<article class="paper-card"><div class="paper-top"><div class="tags">${p.topics.slice(0, 2).map(topicTag).join('')}<span class="tag ${p.isPreprint || isRetracted(p) ? 'warn' : 'outline'}">${esc(isRetracted(p) ? '撤稿相关' : p.type)}</span></div><span class="paper-journal" title="${esc(p.journal)}">${esc(p.journal)}</span></div><button class="paper-title" data-paper="${esc(p.id)}">${paperHeading(p)}</button>${paperAbstract(p, true)}<div class="paper-bottom"><div class="paper-meta"><span>${shortDate(p.publishedAt)}</span><span class="sep">/</span><span>Europe PMC</span><span class="sep scope">/</span><span class="scope">${p.readingScope}</span></div><div class="paper-actions"><button class="paper-action ${state.selected.includes(p.id) ? 'on' : ''}" data-select="${esc(p.id)}" ${isRetracted(p) ? 'disabled' : ''} aria-pressed="${state.selected.includes(p.id)}" aria-label="${state.selected.includes(p.id) ? '取消精选' : '加入精选'}：${esc(p.title)}">${icon('check', 13)}${state.selected.includes(p.id) ? '已精选' : '精选'}</button><button class="paper-action ${state.bookmarks.includes(p.id) ? 'on' : ''}" data-bookmark="${esc(p.id)}" aria-pressed="${state.bookmarks.includes(p.id)}" aria-label="${state.bookmarks.includes(p.id) ? '取消收藏' : '收藏'}：${esc(p.title)}">${icon('bookmark', 13)}</button><button class="paper-action" data-paper="${esc(p.id)}" aria-label="查看论文详情">${icon('arrow', 14)}</button></div></div></article>`;
+  return `<article class="paper-card"><div class="paper-top"><div class="tags">${p.topics.slice(0, 2).map(topicTag).join('')}<span class="tag ${p.isPreprint || isRetracted(p) ? 'warn' : 'outline'}">${esc(isRetracted(p) ? '撤稿相关' : p.type)}</span></div><span class="paper-journal" title="${esc(p.journal)}">${esc(p.journal)}</span></div><button class="paper-title" data-paper="${esc(p.id)}">${paperHeading(p)}</button>${paperAbstract(p, true)}<div class="paper-bottom"><div class="paper-meta"><span>发表 ${shortDate(p.publishedAt)}</span>${discovered ? `<span class="sep">/</span><span>发现 ${shortDate(discovered)}</span>` : ''}<span class="sep">/</span><span>Europe PMC</span><span class="sep scope">/</span><span class="scope">${p.readingScope}</span></div><div class="paper-actions"><button class="paper-action ${state.selected.includes(p.id) ? 'on' : ''}" data-select="${esc(p.id)}" ${isRetracted(p) ? 'disabled' : ''} aria-pressed="${state.selected.includes(p.id)}" aria-label="${state.selected.includes(p.id) ? '取消精选' : '加入精选'}：${esc(p.title)}">${icon('check', 13)}${state.selected.includes(p.id) ? '已精选' : '精选'}</button><button class="paper-action ${state.bookmarks.includes(p.id) ? 'on' : ''}" data-bookmark="${esc(p.id)}" aria-pressed="${state.bookmarks.includes(p.id)}" aria-label="${state.bookmarks.includes(p.id) ? '取消收藏' : '收藏'}：${esc(p.title)}">${icon('bookmark', 13)}</button><button class="paper-action" data-paper="${esc(p.id)}" aria-label="查看论文详情">${icon('arrow', 14)}</button></div></div></article>`;
 }
 function readerBasePapers() {
   return readingBasePapers(state.papers, { view: state.view, topics: state.settings.topics, bookmarks: state.bookmarks });
@@ -183,7 +184,8 @@ function activeReaderLabels() {
   const filters = state.readerFilters;
   const labels = [];
   if (filters.journal !== 'all') labels.push(filters.journal);
-  if (filters.days) labels.push(filters.days === 1 ? '北京日期：今天' : `最近 ${filters.days} 个北京日历日`);
+  if (filters.days) labels.push(`${filters.dateBasis === 'discovered' ? '发现' : '发表'} · ${filters.days === 1 ? '今天' : `最近 ${filters.days} 个日历日`}`);
+  else if (filters.dateBasis === 'discovered') labels.push('按本库首次发现排序');
   if (filters.kind !== 'all') labels.push(({ article: '期刊研究论文', review: '综述', preprint: '预印本', other: '其他记录' })[filters.kind]);
   if (filters.abstract !== 'all') labels.push(filters.abstract === 'available' ? '有摘要' : '仅题录');
   return labels;
@@ -191,8 +193,9 @@ function activeReaderLabels() {
 function hasReaderConditions() { return activeReaderLabels().length || state.topic !== 'all' || state.filter !== 'all' || state.search.trim(); }
 function readerSummaryContent() {
   const conditions = [state.topic !== 'all' ? topicOf(state.topic).name : '', ({ translated: '中英对照', selected: '人工精选', research: '期刊论文', preprint: '预印本' })[state.filter] || '', ...activeReaderLabels(), state.search.trim() ? `搜索：${state.search.trim()}` : ''].filter(Boolean);
-  return `<div><span class="reader-result-count" role="status" aria-live="polite">找到 <strong>${filteredPapers().length}</strong> 篇 / 当前${state.view === 'bookmarks' ? '收藏' : '关注方向'} ${readerBasePapers().length} 篇</span>${conditions.length ? `<p class="reader-condition-text">筛选：${conditions.map(esc).join(' · ')}</p>` : '<p class="reader-condition-text">按发表日期由新到旧排列；可组合期刊、日期、类型与摘要筛选。</p>'}</div>${hasReaderConditions() ? '<button class="reader-reset" data-action="reset-filters">清除筛选</button>' : ''}`;
+  return `<div><span class="reader-result-count" role="status" aria-live="polite">找到 <strong>${filteredPapers().length}</strong> 篇 / 当前${state.view === 'bookmarks' ? '收藏' : '关注方向'} ${readerBasePapers().length} 篇</span>${conditions.length ? `<p class="reader-condition-text">筛选：${conditions.map(esc).join(' · ')}</p>` : '<p class="reader-condition-text">可按发表或本库首次发现的日期筛选和排序。</p>'}</div>${hasReaderConditions() ? '<button class="reader-reset" data-action="reset-filters">清除筛选</button>' : ''}`;
 }
+function readerSortLabel() { return state.readerFilters.dateBasis === 'discovered' ? '按本库首次发现排序' : '按发表日期排序'; }
 function readerTools() {
   const filters = state.readerFilters;
   const counts = new Map();
@@ -200,7 +203,7 @@ function readerTools() {
   if (filters.journal !== 'all' && !counts.has(filters.journal)) counts.set(filters.journal, 0);
   const journals = [...counts.entries()].sort(([a], [b]) => a.localeCompare(b, 'en'));
   const activeCount = activeReaderLabels().length;
-  return `<details id="reading-filters" class="reading-filters" ${state.filtersOpen ? 'open' : ''}><summary id="reading-filters-summary">${icon('filter', 13)}精细筛选 <span>${activeCount ? `已应用 ${activeCount} 项` : '期刊 · 日期 · 类型 · 摘要'}</span></summary><div class="reader-filter-grid"><label for="reader-journal"><span>期刊 / 来源</span><select id="reader-journal"><option value="all">全部期刊与来源（${journals.length}）</option>${journals.map(([journal, count]) => `<option value="${esc(journal)}" ${filters.journal === journal ? 'selected' : ''}>${esc(journal)} · ${count} 篇</option>`).join('')}</select></label><label for="reader-days"><span>发表日期范围（北京时间）</span><select id="reader-days">${[[0, '全部已载入文献'], [1, '今天'], [7, '最近 7 个日历日'], [30, '最近 30 个日历日'], [90, '最近 90 个日历日']].map(([value, label]) => `<option value="${value}" ${filters.days === value ? 'selected' : ''}>${label}</option>`).join('')}</select></label><label for="reader-kind"><span>内容类型</span><select id="reader-kind">${[['all', '全部类型'], ['article', '期刊研究论文'], ['review', '综述'], ['preprint', '预印本'], ['other', '其他文献记录']].map(([value, label]) => `<option value="${value}" ${filters.kind === value ? 'selected' : ''}>${label}</option>`).join('')}</select></label><label for="reader-abstract"><span>可阅读内容</span><select id="reader-abstract">${[['all', '摘要与题录均显示'], ['available', '只看有摘要的文献'], ['missing', '只看没有摘要的题录']].map(([value, label]) => `<option value="${value}" ${filters.abstract === value ? 'selected' : ''}>${label}</option>`).join('')}</select></label><p class="reader-filter-help">仅筛选当前载入的文献，不触发新采集。选择日期范围后，日期未知的记录不参与结果；预印本和类型来自接口元数据。</p></div></details><div id="reader-summary" class="reader-summary">${readerSummaryContent()}</div>`;
+  return `<label class="reader-date-basis" for="reader-date-basis"><span>日期与排序</span><select id="reader-date-basis" aria-describedby="reader-date-help"><option value="published">发表日期</option><option value="discovered" ${filters.dateBasis === 'discovered' ? 'selected' : ''}>本库首次发现</option></select></label><p class="reader-date-help" id="reader-date-help">${filters.dateBasis === 'discovered' ? '按记录首次进入文献库的时间查找，也能看到较早发表的论文。' : '按文献来源提供的发表日期查找。'}</p><details id="reading-filters" class="reading-filters" ${state.filtersOpen ? 'open' : ''}><summary id="reading-filters-summary">${icon('filter', 13)}精细筛选 <span>${activeCount ? `已应用 ${activeCount} 项` : '期刊 · 日期 · 类型 · 摘要'}</span></summary><div class="reader-filter-grid"><label for="reader-journal"><span>期刊 / 来源</span><select id="reader-journal"><option value="all">全部期刊与来源（${journals.length}）</option>${journals.map(([journal, count]) => `<option value="${esc(journal)}" ${filters.journal === journal ? 'selected' : ''}>${esc(journal)} · ${count} 篇</option>`).join('')}</select></label><label for="reader-days"><span>日期范围（北京时间）</span><select id="reader-days">${[[0, '全部已载入文献'], [1, '今天'], [7, '最近 7 个日历日'], [30, '最近 30 个日历日'], [90, '最近 90 个日历日']].map(([value, label]) => `<option value="${value}" ${filters.days === value ? 'selected' : ''}>${label}</option>`).join('')}</select></label><label for="reader-kind"><span>内容类型</span><select id="reader-kind">${[['all', '全部类型'], ['article', '期刊研究论文'], ['review', '综述'], ['preprint', '预印本'], ['other', '其他文献记录']].map(([value, label]) => `<option value="${value}" ${filters.kind === value ? 'selected' : ''}>${label}</option>`).join('')}</select></label><label for="reader-abstract"><span>可阅读内容</span><select id="reader-abstract">${[['all', '摘要与题录均显示'], ['available', '只看有摘要的文献'], ['missing', '只看没有摘要的题录']].map(([value, label]) => `<option value="${value}" ${filters.abstract === value ? 'selected' : ''}>${label}</option>`).join('')}</select></label><p class="reader-filter-help">筛选适用于当前载入的文献。日期范围按上方所选日期计算。</p></div></details><div id="reader-summary" class="reader-summary">${readerSummaryContent()}</div>`;
 }
 function formatReaderTime(value) {
   if (!value || !Number.isFinite(Date.parse(value))) return '暂无记录';
@@ -246,7 +249,7 @@ function topicPanel() {
   return `<section class="side-panel"><div class="panel-kicker">RESEARCH LANDSCAPE</div><h2 class="panel-title">研究视野</h2><p class="panel-copy">当前文献库的主题覆盖</p>${TOPICS.map(t => { const n = papers.filter(p => p.topics.includes(t.id)).length; return `<div class="topic-row"><span><i class="dot ${t.color}"></i>${t.name}</span><em>${n} 篇</em></div><div class="track"><i class="${t.color}" style="width:${papers.length ? Math.round(n / papers.length * 100) : 0}%"></i></div>`; }).join('')}<div class="panel-foot">一篇研究可属于多个方向。<br>主题覆盖不代表传播热度或研究质量。</div></section>`;
 }
 function aside() { const n = activePapers().filter(p => state.selected.includes(p.id)).length; return `<aside class="aside" aria-label="研究概览">${topicPanel()}<section class="side-panel daily-panel"><div class="edition">THE DAILY EDITION / 每日一读</div><h2 class="panel-title">将发现，<br>整理成今天的简报。</h2><p class="panel-copy">${n ? `已有 ${n} 篇人工精选。` : '挑选值得读的论文，'}<br>保留原文摘要与出处，随时导出。</p><button class="button small" data-action="generate-report">生成简报 ${icon('arrow', 12)}</button></section><section class="side-panel"><div class="panel-kicker">CONNECTED TO THE SOURCE</div><h2 class="panel-title">信源状态</h2><div class="source-line"><span><i class="status-dot"></i>Europe PMC</span><small>已接入</small></div><div class="source-line planned"><span><i class="status-dot"></i>bioRxiv 直接接口</span><small>待接入</small></div><div class="source-line planned"><span><i class="status-dot"></i>原平台下载量</span><small>按来源可用性</small></div><div class="panel-foot">更新文献后会显示采集结果。<br>已部署云端任务后，关闭网页仍可采集。</div></section></aside>`; }
-function overview() { return `${hero()}${metrics()}<div class="content-grid"><section><div class="section-head"><div class="section-title">最新研究 <span class="en">LATEST RESEARCH</span></div><span class="minor">按发表日期排序 · ${filteredPapers().length} 篇</span></div>${readingStatus()}${tabs()}${sampleNotice()}${readerTools()}<div id="feed-list">${feedList()}</div></section>${aside()}</div>`; }
+function overview() { return `${hero()}${metrics()}<div class="content-grid"><section><div class="section-head"><div class="section-title">最新研究 <span class="en">LATEST RESEARCH</span></div><span class="minor">${readerSortLabel()} · ${filteredPapers().length} 篇</span></div>${readingStatus()}${tabs()}${sampleNotice()}${readerTools()}<div id="feed-list">${feedList()}</div></section>${aside()}</div>`; }
 function bookmarksPage() { return `<div class="content-grid"><section><div class="section-head"><div class="section-title">留给稍后的阅读 <span class="en">SAVED PAPERS</span></div><span class="minor">保存在当前浏览器</span></div>${tabs()}${readerTools()}<div id="feed-list">${feedList()}</div></section>${aside()}</div>`; }
 
 function downloadRefreshNote(paper) {
@@ -354,7 +357,7 @@ function updateFeed() {
   } else {
     $('#feed-list').innerHTML = feedList();
     const summary = $('#reader-summary'); if (summary) summary.innerHTML = readerSummaryContent();
-    const minor = $('.section-head .minor'); if (minor && state.view === 'overview') minor.textContent = `按发表日期排序 · ${filteredPapers().length} 篇`;
+    const minor = $('.section-head .minor'); if (minor && state.view === 'overview') minor.textContent = `${readerSortLabel()} · ${filteredPapers().length} 篇`;
   }
 }
 function resetReadingFilters() {
@@ -416,7 +419,7 @@ function showPaper(id, alreadyOpen = false) {
   const previousFocus = alreadyOpen ? focusSnapshot(dialog) : null;
   const previousScroll = dialog.scrollTop;
   if (!alreadyOpen) { dialogReturnFocus = focusSnapshot($('#app')); dialogPaperId = id; }
-  dialog.innerHTML = `<div class="dialog-inner"><div class="dialog-header"><div class="tags">${p.topics.map(topicTag).join('')}<span class="tag ${p.isPreprint || isRetracted(p) ? 'warn' : 'outline'}">${esc(isRetracted(p) ? '撤稿相关' : p.type)}</span></div><button class="icon-button" data-action="close-dialog" aria-label="关闭论文详情">${icon('close', 20)}</button></div><h2 class="dialog-title" id="dialog-title">${paperHeading(p)}</h2><div class="dialog-authors">${esc(p.authors)}</div><dl class="detail-meta"><div><dt>期刊 / 平台</dt><dd>${esc(p.journal)}</dd></div><div><dt>发表日期</dt><dd>${shortDate(p.publishedAt)}</dd></div><div><dt>DOI / 论文标识</dt><dd>${esc(p.doi || '接口未提供 DOI')}${p.pmid ? `<br>PMID ${esc(p.pmid)}` : ''}</dd></div><div><dt>文献状态 / 阅读范围</dt><dd>${esc(p.status)}<br>${p.readingScope} · 未读取全文</dd></div></dl>${downloadDetails(p)}<section class="detail-section"><h3>${icon('book', 15)}摘要中英对照</h3>${paperAbstract(p)}${interpretationBlock(p)}</section><div class="detail-tip">${isRetracted(p) ? '此记录带有撤稿相关类型，不会进入简报。请核对原文及撤稿通知。' : p.isPreprint ? '预印本未经同行评审，结论可能随版本更新。当前尚未自动核验版本及正式发表关系。' : '期刊记录标签来自接口元数据，不代表已核实评审或研究质量。当前未自动核验更正、撤稿、数据与代码。'} 中文解读仅基于摘要，不替代全文核验。</div><div class="dialog-actions"><a class="button dark" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">阅读原文 ${icon('external', 13)}</a><button class="button" data-select="${esc(p.id)}" ${isRetracted(p) ? 'disabled' : ''} aria-pressed="${state.selected.includes(p.id)}">${icon('check', 13)}${state.selected.includes(p.id) ? '取消精选' : '加入人工精选'}</button><button class="button" data-bookmark="${esc(p.id)}" aria-pressed="${state.bookmarks.includes(p.id)}">${icon('bookmark', 13)}${state.bookmarks.includes(p.id) ? '已收藏 · 点击取消' : '收藏研究'}</button><button class="button" data-action="copy-citation" data-paper-id="${esc(p.id)}">复制引用信息</button></div><div id="dialog-status" class="dialog-status" role="status" aria-live="polite" aria-atomic="true"></div><div class="detail-source">${icon('globe', 12)}来源：Europe PMC · 本库发现时间 ${shortDate(p.discoveredAt?.slice(0, 10))}<br>原型未将原文发表日、数据库收录日与平台版本更新日全部关联。</div></div>`;
+  dialog.innerHTML = `<div class="dialog-inner"><div class="dialog-header"><div class="tags">${p.topics.map(topicTag).join('')}<span class="tag ${p.isPreprint || isRetracted(p) ? 'warn' : 'outline'}">${esc(isRetracted(p) ? '撤稿相关' : p.type)}</span></div><button class="icon-button" data-action="close-dialog" aria-label="关闭论文详情">${icon('close', 20)}</button></div><h2 class="dialog-title" id="dialog-title">${paperHeading(p)}</h2><div class="dialog-authors">${esc(p.authors)}</div><dl class="detail-meta"><div><dt>期刊 / 平台</dt><dd>${esc(p.journal)}</dd></div><div><dt>发表日期</dt><dd>${shortDate(p.publishedAt)}</dd></div><div><dt>DOI / 论文标识</dt><dd>${esc(p.doi || '接口未提供 DOI')}${p.pmid ? `<br>PMID ${esc(p.pmid)}` : ''}</dd></div><div><dt>文献状态 / 阅读范围</dt><dd>${esc(p.status)}<br>${p.readingScope} · 未读取全文</dd></div></dl>${downloadDetails(p)}<section class="detail-section"><h3>${icon('book', 15)}摘要中英对照</h3>${paperAbstract(p)}${interpretationBlock(p)}</section><div class="detail-tip">${isRetracted(p) ? '此记录带有撤稿相关类型，不会进入简报。请核对原文及撤稿通知。' : p.isPreprint ? '预印本未经同行评审，结论可能随版本更新。当前尚未自动核验版本及正式发表关系。' : '期刊记录标签来自接口元数据，不代表已核实评审或研究质量。当前未自动核验更正、撤稿、数据与代码。'} 中文解读仅基于摘要，不替代全文核验。</div><div class="dialog-actions"><a class="button dark" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">阅读原文 ${icon('external', 13)}</a><button class="button" data-select="${esc(p.id)}" ${isRetracted(p) ? 'disabled' : ''} aria-pressed="${state.selected.includes(p.id)}">${icon('check', 13)}${state.selected.includes(p.id) ? '取消精选' : '加入人工精选'}</button><button class="button" data-bookmark="${esc(p.id)}" aria-pressed="${state.bookmarks.includes(p.id)}">${icon('bookmark', 13)}${state.bookmarks.includes(p.id) ? '已收藏 · 点击取消' : '收藏研究'}</button><button class="button" data-action="copy-citation" data-paper-id="${esc(p.id)}">复制引用信息</button></div><div id="dialog-status" class="dialog-status" role="status" aria-live="polite" aria-atomic="true"></div><div class="detail-source">${icon('globe', 12)}来源：Europe PMC · 本库首次发现 ${shortDate(discoveryDay(p))}（北京）<br>原型未将原文发表日、数据库收录日与平台版本更新日全部关联。</div></div>`;
   if (!alreadyOpen) dialog.showModal();
   else { restoreFocus(dialog, previousFocus); dialog.scrollTop = previousScroll; }
 }
@@ -512,11 +515,13 @@ for (const type of ['input', 'compositionstart', 'compositionend']) {
   document.addEventListener(type, event => { if (event.target.id === 'search') searchInput(event); });
 }
 document.addEventListener('change', async event => {
-  const readerField = { 'reader-journal': 'journal', 'reader-days': 'days', 'reader-kind': 'kind', 'reader-abstract': 'abstract' }[event.target.id];
+  const readerField = { 'reader-journal': 'journal', 'reader-days': 'days', 'reader-kind': 'kind', 'reader-abstract': 'abstract', 'reader-date-basis': 'dateBasis' }[event.target.id];
   if (readerField) {
     state.readerFilters[readerField] = readerField === 'days' ? Number(event.target.value) : event.target.value;
     if (readerField === 'kind' && ['research', 'preprint'].includes(state.filter)) state.filter = 'all';
-    state.page = 1; state.filtersOpen = true; write('readerFilters', state.readerFilters); renderReaderControl(event.target.id); return;
+    state.page = 1;
+    if (readerField !== 'dateBasis') state.filtersOpen = true;
+    write('readerFilters', state.readerFilters); renderReaderControl(event.target.id); return;
   }
   if (event.target.id === 'download-group') { downloadGroup = event.target.value; render(); }
   if (event.target.id === 'topic-filter') { state.topic = event.target.value; state.page = 1; renderReaderControl('topic-filter'); }

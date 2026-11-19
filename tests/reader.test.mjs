@@ -14,6 +14,20 @@ test('阅读日期过滤遵循北京日历边界，排除未知和未来日期',
   assert.deepEqual(filterReadingPapers(papers, { ...filters, days: 1 }, now).map(p => p.id), ['today']);
   assert.deepEqual(filterReadingPapers(papers, { ...filters, days: 7 }, now).map(p => p.id), ['today', 'boundary']);
 });
+test('首次发现视图跨北京时间日界纳入旧论文，按实际时刻排序，保留原列表', () => {
+  const records = [
+    { ...papers[0], discoveredAt: '2026-10-28T15:59:00Z' },
+    { ...papers[1], discoveredAt: '2026-10-29T00:10:00+08:00' },
+    { ...papers[2], discoveredAt: '2026-10-28T16:59:00Z' },
+    { ...papers[3], discoveredAt: '2026-10-28T17:01:00Z' },
+    { ...papers[4], discoveredAt: '2026-09-31T00:00:00Z' },
+  ];
+  const before = structuredClone(records);
+  assert.deepEqual(filterReadingPapers(records, { ...filters, days: 1, dateBasis: 'discovered' }, now).map(p => p.id), ['old', 'boundary']);
+  assert.deepEqual(filterReadingPapers(records, { ...filters, dateBasis: 'discovered' }, now).map(p => p.id), ['old', 'boundary', 'today', 'future', 'unknown']);
+  assert.deepEqual(filterReadingPapers(records, { ...filters, days: 1 }, now).map(p => p.id), ['today']);
+  assert.deepEqual(records, before);
+});
 test('期刊、类型与摘要可用性可同时筛选，空白摘要视为缺失', () => {
   assert.deepEqual(filterReadingPapers(papers, { ...filters, journal: 'A', kind: 'review', abstract: 'available' }, now).map(p => p.id), ['today']);
   assert.deepEqual(filterReadingPapers(papers, { ...filters, abstract: 'missing' }, now).map(p => p.id), ['boundary', 'unknown']);

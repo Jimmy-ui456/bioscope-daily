@@ -1,4 +1,4 @@
-import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.20';
+import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.21';
 
 const KEYS = ['settings', 'cache', 'readerFilters', 'bookmarks', 'selected', 'reports', 'displayMode'];
 function record(value) { return value !== null && typeof value === 'object' && !Array.isArray(value); }
@@ -71,7 +71,7 @@ export function readLocalReaderState(storage, prefix = 'bioscope.v1.') {
     }
   }
 
-  const readerFilters = { journal: 'all', days: 0, kind: 'all', abstract: 'all' };
+  const readerFilters = { journal: 'all', days: 0, kind: 'all', abstract: 'all', dateBasis: 'published' };
   if (values.readerFilters !== undefined) {
     const saved = values.readerFilters;
     if (!record(saved)) issue('readerFilters', '本机阅读筛选结构无效，已在本页使用默认筛选。');
@@ -83,7 +83,7 @@ export function readLocalReaderState(storage, prefix = 'bioscope.v1.') {
       }
       const days = numberChoice(saved.days, [0, 1, 7, 30, 90], 0);
       readerFilters.days = days.value; invalid ||= !days.valid;
-      for (const [key, allowed] of [['kind', ['all', 'article', 'review', 'preprint', 'other']], ['abstract', ['all', 'available', 'missing']]]) {
+      for (const [key, allowed] of [['kind', ['all', 'article', 'review', 'preprint', 'other']], ['abstract', ['all', 'available', 'missing']], ['dateBasis', ['published', 'discovered']]]) {
         if (saved[key] === undefined) continue;
         if (allowed.includes(saved[key])) readerFilters[key] = saved[key];
         else invalid = true;

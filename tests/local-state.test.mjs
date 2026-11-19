@@ -26,7 +26,7 @@ test('新访客仅读取七个既有键，不写存储且缺失项使用默认�
   const storage = fakeStorage();
   const state = readLocalReaderState(storage);
   assert.deepEqual(state.settings, { topics: ['synthetic', 'metabolic', 'microbial'], days: 30, reportDays: 7 });
-  assert.deepEqual(state.readerFilters, { journal: 'all', days: 0, kind: 'all', abstract: 'all' });
+  assert.deepEqual(state.readerFilters, { journal: 'all', days: 0, kind: 'all', abstract: 'all', dateBasis: 'published' });
   assert.deepEqual(state.bookmarks, []); assert.deepEqual(state.selected, []); assert.deepEqual(state.reports, []);
   assert.equal(state.cache, null); assert.equal(state.displayMode, 'bilingual');
   assert.deepEqual(state.issues, []); assert.deepEqual(state.protectedKeys, []);
@@ -39,7 +39,7 @@ test('有效本机记录完整恢复，合法未知编号不因文献暂未载�
   const values = { settings: { topics: ['metabolic'], days: '14', reportDays: '30' },
     cache: { papers: [p], origin: 'sample', containsImported: true, updatedAt: '2026-11-12T11:00:00+08:00',
       stats: [{ topic: '代谢工程', count: 4, hitCount: 12, truncated: true }, { topic: '合成生物学', error: '旧请求失败' }] },
-    readerFilters: { journal: 'Example', days: '7', kind: 'review', abstract: 'available' },
+    readerFilters: { journal: 'Example', days: '7', kind: 'review', abstract: 'available', dateBasis: 'discovered' },
     bookmarks: [p.id, 'doi:10.1234/not-currently-loaded'], selected: [p.id], reports: [report()], displayMode: 'en' };
   const before = structuredClone(values), storage = fakeStorage(values), rawBefore = [...storage.data];
   const state = readLocalReaderState(storage);
@@ -47,7 +47,7 @@ test('有效本机记录完整恢复，合法未知编号不因文献暂未载�
   assert.deepEqual(state.bookmarks, values.bookmarks); assert.deepEqual(state.selected, values.selected);
   assert.deepEqual(state.cache.papers, [p]); assert.equal(state.cache.containsImported, true);
   assert.deepEqual(state.cache.stats[1], { topic: '合成生物学', count: null, hitCount: null, truncated: null, error: '旧请求失败' });
-  assert.deepEqual(state.readerFilters, { journal: 'Example', days: 7, kind: 'review', abstract: 'available' });
+  assert.deepEqual(state.readerFilters, { journal: 'Example', days: 7, kind: 'review', abstract: 'available', dateBasis: 'discovered' });
   assert.deepEqual(state.reports, values.reports); assert.equal(state.displayMode, 'en');
   assert.deepEqual(state.issues, []); assert.deepEqual(state.protectedKeys, []);
   assert.deepEqual(values, before); assert.deepEqual([...storage.data], rawBefore); assert.deepEqual(storage.writes, []);
@@ -70,7 +70,7 @@ test('对象数值、错误顶层及原型相关键不能触发隐式Number转�
     selected: '{}', bookmarks: 'false', reports: '{}', displayMode: '{}' }, { raw: true });
   const state = readLocalReaderState(storage);
   assert.equal(state.settings.days, 30); assert.equal(state.settings.reportDays, 7); assert.deepEqual(state.settings.topics, ['metabolic']);
-  assert.deepEqual(state.readerFilters, { journal: 'all', days: 0, kind: 'all', abstract: 'all' });
+  assert.deepEqual(state.readerFilters, { journal: 'all', days: 0, kind: 'all', abstract: 'all', dateBasis: 'published' });
   assert.deepEqual(state.bookmarks, []); assert.deepEqual(state.selected, []); assert.deepEqual(state.reports, []);
   assert.equal(state.displayMode, 'bilingual'); assert.equal({}.polluted, undefined);
   assert.equal(state.protectedKeys.length, 6); assert.equal(Object.getPrototypeOf(state.rawRecords), null);
