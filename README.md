@@ -1,4 +1,4 @@
-# 生研观察 BioScope · v0.2.21
+# 生研观察 BioScope · v0.2.22
 
 [打开公开网站](https://jimmy-ui456.github.io/bioscope-daily/) · [使用与项目结构入门](https://jimmy-ui456.github.io/bioscope-daily/guide.html) · [查看采集与发布状态](https://github.com/Jimmy-ui456/bioscope-daily/actions/workflows/pages.yml)
 
@@ -28,6 +28,8 @@ npm.cmd run worker   # 只运行定时后台，不启动网页
 将仓库 Settings → Pages → Source 设为 GitHub Actions。`.github/workflows/pages.yml` 会先检查源码，每天 UTC 23:17（北京时间次日07:17）或手动触发时采集文献，将公开快照保存为 `dist/library.json` 并提交，再将 `dist/` 发布到 GitHub Pages。定时自动模型默认暂停，只有Actions Variable `LLM_AUTO_ENABLED` 精确为 `true` 且配置完整时才调用；文献采集与发布不受此开关影响。普通手动补采仍强制禁模。只有明确勾选“补采并最多翻译1篇”时，才允许最多1次模型请求，且仍受当日预算及既有回执限制。
 
 这套云端流程不依赖个人电脑开机。[GitHub官方说明](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)指出定时任务可能延迟，繁忙时也可能丢弃，不能据计划时间断言已经运行。可进入 Actions → Collect research and publish website → Run workflow 手动补采；完成后核对运行摘要、失败方向、模型请求数和Pages发布结果。页面快照会标明手动补采或定时采集，并链接对应运行。变更云端定时时间需同时调整工作流 cron 和 `config/monitor.json` 的显示值。公开仓库长期不活跃时也应检查任务是否被平台停用。
+
+Europe PMC 网络故障、限流或服务端暂时故障会在同一页重试一次。后续分页中断时保留已取得的结果，并将该方向标为部分完成。所有方向均未能取得有效响应时保留旧快照，Actions 日志列出各方向的失败类别。
 
 Pages 只负责静态网页，Node.js 采集与模型调用由 Actions 执行。个人收藏与精选仍保存在每位访客自己的浏览器；不会上传访客的阅读数据。
 

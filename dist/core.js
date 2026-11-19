@@ -1,5 +1,5 @@
-import { translationOf, attachEnrichment, interpretationOf } from './enrichment.js?v=0.2.21';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.21';
+import { translationOf, attachEnrichment, interpretationOf } from './enrichment.js?v=0.2.22';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.22';
 
 export const TOPICS = [
   { id: 'synthetic', name: '合成生物学', en: 'Synthetic biology', query: 'TITLE_ABS:"synthetic biology"', words: ['synthetic biology', 'synthetic circuit', 'synthetic gene', 'genome engineering'], color: 'green' },
@@ -103,17 +103,70 @@ export function isValidPaper(paper) {
 export function buildQuery(topic, days = 30, at = new Date()) {
   return `(${topic.query}) AND FIRST_PDATE:[${dayBefore(Math.max(0, days - 1), at)} TO ${beijingDay(at)}] sort_date:y`;
 }
-export async function collectTopic(topic, { days = 30, maxPages = 2, pageSize = 25, at = new Date(), fetchImpl = fetch, onProgress = () => {} } = {}) {
+class CollectionRequestError extends Error {
+  constructor(message, retryable = false) {
+    super(message);
+    this.retryable = retryable;
+  }
+}
+
+export function collectionFailureLabel(error) {
+  return error instanceof CollectionRequestError ? error.message : '文献采集失败';
+}
+
+export function collectionTopicStats(topic, result) {
+  if (result.status === 'rejected') return { topic: topic.name, error: collectionFailureLabel(result.reason) };
+  const { hitCount, papers, truncated, interrupted } = result.value;
+  return { topic: topic.name, hitCount, count: papers.length, truncated,
+    ...(interrupted ? { error: `后续分页中断：${interrupted}，已保留前面取得的 ${papers.length} 篇。` } : {}) };
+}
+
+async function readCollectionPage(url, fetchImpl) {
+  let response;
+  try {
+    response = await fetchImpl(url, { signal: AbortSignal.timeout(25000), headers: { Accept: 'application/json' } });
+  } catch {
+    throw new CollectionRequestError('Europe PMC 连接失败或超时', true);
+  }
+  if (!response.ok) {
+    const status = response.status;
+    const label = Number.isInteger(status) && status >= 400 && status <= 599 ? `HTTP ${status}` : '异常状态';
+    throw new CollectionRequestError(`Europe PMC 返回 ${label}`, status === 408 || status === 429 || (status >= 500 && status <= 599));
+  }
+  let data;
+  try { data = await response.json(); }
+  catch (error) {
+    if (error instanceof SyntaxError) throw new CollectionRequestError('Europe PMC 响应格式无效');
+    throw new CollectionRequestError('Europe PMC 响应读取失败或超时', true);
+  }
+  if (!data || data.errCode || !Array.isArray(data.resultList?.result)) throw new CollectionRequestError('Europe PMC 响应格式无效');
+  return data;
+}
+
+export async function collectTopic(topic, { days = 30, maxPages = 2, pageSize = 25, at = new Date(), fetchImpl = fetch, onProgress = () => {},
+  retryDelay = () => new Promise(resolve => setTimeout(resolve, 1200 + Math.random() * 1000)) } = {}) {
   const records = [];
   let cursor = '*';
   let hitCount = 0;
   let truncated = false;
+  let interrupted = null;
   for (let page = 0; page < maxPages; page++) {
     const params = new URLSearchParams({ query: buildQuery(topic, days, at), format: 'json', resultType: 'core', pageSize: String(pageSize), cursorMark: cursor, sort_date: 'y' });
-    const response = await fetchImpl(`${API_URL}?${params}`, { signal: AbortSignal.timeout(25000), headers: { Accept: 'application/json' } });
-    if (!response.ok) throw new Error(`Europe PMC 返回 HTTP ${response.status}`);
-    const data = await response.json();
-    if (data.errCode || !Array.isArray(data.resultList?.result)) throw new Error(data.errMsg || '文献接口返回了无法识别的格式');
+    const url = `${API_URL}?${params}`;
+    let data;
+    try {
+      try { data = await readCollectionPage(url, fetchImpl); }
+      catch (error) {
+        if (!(error instanceof CollectionRequestError) || !error.retryable) throw error;
+        await retryDelay();
+        data = await readCollectionPage(url, fetchImpl);
+      }
+    } catch (error) {
+      if (!records.length) throw error;
+      interrupted = collectionFailureLabel(error);
+      truncated = true;
+      break;
+    }
     hitCount = Number(data.hitCount || 0);
     const batch = data.resultList.result.map(r => normalizePaper(r, topic.id, new Date().toISOString()));
     records.push(...batch);
@@ -123,7 +176,7 @@ export async function collectTopic(topic, { days = 30, maxPages = 2, pageSize = 
     cursor = next;
     if (page === maxPages - 1) truncated = true;
   }
-  return { papers: mergePapers([], records), hitCount, truncated, query: buildQuery(topic, days, at) };
+  return { papers: mergePapers([], records), hitCount, truncated, query: buildQuery(topic, days, at), ...(interrupted ? { interrupted } : {}) };
 }
 export function chooseReportPapers(papers, selectedIds, { days = 7, at = new Date(), limit = 10 } = {}) {
   const start = dayBefore(Math.max(0, days - 1), at);

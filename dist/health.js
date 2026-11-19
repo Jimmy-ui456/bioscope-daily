@@ -52,9 +52,9 @@ export function collectionHealth({
   const statusWarning = local && recordedMessage(backend.statusWarning);
   if (statusWarning) return result('warning', '本地状态未能读取', statusWarning);
   if (failedTopics) {
-    const allFailed = stats.length > 0 && failedStats === stats.length;
+    const allFailed = stats.length > 0 && failedStats === stats.length && !stats.some(stat => stat?.count > 0);
     return result(allFailed ? 'error' : 'warning', allFailed ? '采集未完成' : '采集部分完成',
-      `${failedTopics} 个研究方向未能更新，已有数据保留；快照完成时间不能证明所有方向都已成功采集。`);
+      `${failedTopics} 个研究方向未能完整更新，已保留可用结果。`);
   }
   if (sharedAvailable === false) {
     return result('warning', '共享文献库读取失败', '本次未能读取共享文献库，已保存数据继续保留；不能据缓存判断后台本次运行结果。');

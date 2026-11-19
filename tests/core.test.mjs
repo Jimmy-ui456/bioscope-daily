@@ -60,6 +60,19 @@ test('采集遍历分页、编码查询，并明确报告读取上限', async ()
   assert.equal(result.papers.length, 2);
   assert.match(urls[0].searchParams.get('query'), /FIRST_PDATE:\[2026-09-28 TO 2026-10-27\]/);
 });
+test('暂时失败只重试同一分页一次，后续页耗尽重试时保留已取得的论文', async () => {
+  const cursors = [];
+  const result = await collectTopic(TOPICS[0], { at, retryDelay: async () => {}, fetchImpl: async url => {
+    cursors.push(new URL(url).searchParams.get('cursorMark'));
+    if (cursors.length === 1) return { ok: false, status: 503 };
+    if (cursors.length === 2) return { ok: true, json: async () => ({ hitCount: 2, nextCursorMark: 'second', resultList: { result: [record] } }) };
+    throw new Error('私有上游错误');
+  } });
+  assert.deepEqual(cursors, ['*', '*', 'second', 'second']);
+  assert.equal(result.papers.length, 1);
+  assert.equal(result.truncated, true);
+  assert.equal(result.interrupted, 'Europe PMC 连接失败或超时');
+});
 test('补齐 DOI 的记录通过 PMID 合并，保留既有收藏所用的记录 ID', () => {
   const old = normalizePaper({ ...record, doi: undefined }, 'metabolic');
   const updated = normalizePaper(record, 'synthetic');
@@ -107,8 +120,8 @@ test('一条备份同时关联两个已有记录时，原有收藏和新精选�
   assert.deepEqual([...new Set([pmidOnly.id, imported.id].map(id => idMap.get(id) ?? id))], [papers[0].id]);
 });
 test('接口异常拒绝采集，不制造成功数据', async () => {
-  await assert.rejects(collectTopic(TOPICS[0], { fetchImpl: async () => ({ ok: false, status: 503 }) }), /503/);
-  await assert.rejects(collectTopic(TOPICS[0], { fetchImpl: async () => ({ ok: true, json: async () => ({ errCode: 1, errMsg: 'bad query' }) }) }), /bad query/);
+  await assert.rejects(collectTopic(TOPICS[0], { retryDelay: async () => {}, fetchImpl: async () => ({ ok: false, status: 503 }) }), /503/);
+  await assert.rejects(collectTopic(TOPICS[0], { fetchImpl: async () => ({ ok: true, json: async () => ({ errCode: 1, errMsg: 'bad query' }) }) }), /^Error: Europe PMC 响应格式无效$/);
 });
 test('简报只包括范围内的人工精选，排除未来、历史和撤稿记录', () => {
   const paper = normalizePaper(record, 'metabolic');

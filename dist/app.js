@@ -1,15 +1,15 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.21';
-import { collectionHealth } from './health.js?v=0.2.21';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.21';
-import { evidenceContext } from './evidence.js?v=0.2.21';
-import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.21';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.21';
-import { readLocalReaderState, persistLocalRecovery } from './local-state.js?v=0.2.21';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.21';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.21';
-import { TOPICS, APP_VERSION, collectTopic, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.21';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.22';
+import { collectionHealth } from './health.js?v=0.2.22';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.22';
+import { evidenceContext } from './evidence.js?v=0.2.22';
+import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.22';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.22';
+import { readLocalReaderState, persistLocalRecovery } from './local-state.js?v=0.2.22';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.22';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.22';
+import { TOPICS, APP_VERSION, collectTopic, collectionTopicStats, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.22';
 
-import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.21';
+import { attachEnrichment, translationOf, interpretationOf, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.22';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -278,7 +278,7 @@ function hotPage() {
 }
 
 function topicsPage() { return `<p class="page-intro">暂以三个方向搭建研究视野。主题根据题名和摘要中的关键词匹配，一篇论文可能同时出现在多个方向；分类仍需人工核对。</p><div class="topic-cards">${TOPICS.map((t, i) => `<article class="topic-card"><div class="topic-icon">${icon(['leaf', 'layers', 'globe'][i], 30)}</div><div class="eyebrow">0${i + 1} / RESEARCH FIELD</div><h2>${t.name}</h2><p>${t.en}</p><div class="topic-total">${state.papers.filter(p => p.topics.includes(t.id)).length}<small>篇文献</small></div><button class="button small" data-topic="${t.id}">查看研究 ${icon('arrow', 13)}</button></article>`).join('')}</div><div class="sample-notice" style="margin-top:25px">关注方向可在「监控设置」里启停。更细的基因、菌株、机构等主题，将在后续版本扩展。</div>`; }
-function sourcesPage() { return `<section class="settings-panel"><h2>可靠的起点，清晰的出处</h2><p>第一版使用官方学术接口读取题录和摘要。不采集或转载受限论文全文；每条记录都保留原文入口。</p><div class="source-card"><div><h3>Europe PMC</h3><p>已接入官方 REST 接口：检索三个研究方向，读取题名、作者、期刊、日期、DOI、PMID、摘要及文献类型。每个主题每次最多读取 50 条，支持分页和编号去重。</p><p>当前载入：${originLabel()} · ${state.papers.length} 篇；最近载入时间：${state.updatedAt ? esc(new Date(state.updatedAt).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })) : '尚未采集'}。</p><a href="https://europepmc.org/RestfulWebService" target="_blank" rel="noopener noreferrer">查看官方接口说明 ${icon('external', 11)}</a></div><span class="source-state">已接入</span></div><div class="source-card"><div><h3>bioRxiv / medRxiv</h3><p>后续可接入预印本版本、正式发表关联和更详细的状态。当前可能通过 Europe PMC 获取部分预印本记录，尚未直接同步平台的全部数据。</p><a href="https://api.biorxiv.org/" target="_blank" rel="noopener noreferrer">查看官方接口 ${icon('external', 11)}</a></div><span class="source-state off">计划接入</span></div><div class="source-card"><div><h3>原出版平台下载量</h3><p>已接入 PLOS 官方逐篇 PDF 月计数与 Zenodo 原论文记录下载统计；其他出版社可导入有授权的逐篇记录。仅匹配文献自身的原平台数据，缺失保持未知。</p></div><span class="source-state">接口已接入</span></div><div class="settings-buttons"><button class="button dark" data-action="collect" ${state.busy ? 'disabled' : ''}>${icon('refresh', 13)}更新文献</button><button class="button" data-view="settings">设置采集范围</button></div></section>${state.stats.length ? `<section class="settings-panel"><h2>最近一次采集</h2>${state.stats.map(s => `<div class="source-card"><div><h3>${esc(s.topic)}</h3><p>${s.error ? esc(s.error) : `接口命中 ${Number.isSafeInteger(s.hitCount) ? s.hitCount : '未记录'} 条，本次读取 ${Number.isSafeInteger(s.count) ? s.count : '未记录'} 条${s.truncated === true ? '（达到每主题上限，尚未遍历全部结果）' : s.truncated === false ? '' : '（遍历状态未记录）'}。`}</p></div><span class="source-state ${s.error ? 'off' : ''}">${s.error ? '失败' : '完成'}</span></div>`).join('')}</section>` : ''}`; }
+function sourcesPage() { return `<section class="settings-panel"><h2>可靠的起点，清晰的出处</h2><p>第一版使用官方学术接口读取题录和摘要。不采集或转载受限论文全文；每条记录都保留原文入口。</p><div class="source-card"><div><h3>Europe PMC</h3><p>已接入官方 REST 接口：检索三个研究方向，读取题名、作者、期刊、日期、DOI、PMID、摘要及文献类型。每个主题每次最多读取 50 条，支持分页和编号去重。</p><p>当前载入：${originLabel()} · ${state.papers.length} 篇；最近载入时间：${state.updatedAt ? esc(new Date(state.updatedAt).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })) : '尚未采集'}。</p><a href="https://europepmc.org/RestfulWebService" target="_blank" rel="noopener noreferrer">查看官方接口说明 ${icon('external', 11)}</a></div><span class="source-state">已接入</span></div><div class="source-card"><div><h3>bioRxiv / medRxiv</h3><p>后续可接入预印本版本、正式发表关联和更详细的状态。当前可能通过 Europe PMC 获取部分预印本记录，尚未直接同步平台的全部数据。</p><a href="https://api.biorxiv.org/" target="_blank" rel="noopener noreferrer">查看官方接口 ${icon('external', 11)}</a></div><span class="source-state off">计划接入</span></div><div class="source-card"><div><h3>原出版平台下载量</h3><p>已接入 PLOS 官方逐篇 PDF 月计数与 Zenodo 原论文记录下载统计；其他出版社可导入有授权的逐篇记录。仅匹配文献自身的原平台数据，缺失保持未知。</p></div><span class="source-state">接口已接入</span></div><div class="settings-buttons"><button class="button dark" data-action="collect" ${state.busy ? 'disabled' : ''}>${icon('refresh', 13)}更新文献</button><button class="button" data-view="settings">设置采集范围</button></div></section>${state.stats.length ? `<section class="settings-panel"><h2>最近一次采集</h2>${state.stats.map(s => `<div class="source-card"><div><h3>${esc(s.topic)}</h3><p>${s.error ? esc(s.error) : `接口命中 ${Number.isSafeInteger(s.hitCount) ? s.hitCount : '未记录'} 条，本次读取 ${Number.isSafeInteger(s.count) ? s.count : '未记录'} 条${s.truncated === true ? '（达到每主题上限，尚未遍历全部结果）' : s.truncated === false ? '' : '（遍历状态未记录）'}。`}</p></div><span class="source-state ${s.error ? 'off' : ''}">${s.error ? (s.count > 0 ? '部分完成' : '失败') : '完成'}</span></div>`).join('')}</section>` : ''}`; }
 
 function automationPanel() {
   const a = libraryMeta?.automation;
@@ -396,7 +396,7 @@ async function collect() {
     state.papers = merged; state.origin = state.containsImported ? 'sample' : 'live'; state.updatedAt = new Date().toISOString(); state.stats = stats;
     cacheActive(); write('liveCache', cacheValue());
     const failed = stats.filter(s => s.error);
-    state.error = failed.length ? `${failed.map(s => s.topic).join('、')}采集失败；已保留其他方向的结果。可以到信源管理查看原因。` : '';
+    state.error = failed.length ? `${failed.map(s => s.topic).join('、')}采集不完整，已保留取得的结果。可在信源管理查看原因。` : '';
     state.topic = 'all'; state.filter = 'all'; state.page = 1;
     toast(`本次取得 ${mergePapers([], incoming).length} 篇文献；文献库现有 ${merged.length} 篇。`);
   } else {
