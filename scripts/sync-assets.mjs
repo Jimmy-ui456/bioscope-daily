@@ -7,9 +7,14 @@ for (const name of await readdir(new URL('dist/', root))) {
   if (!/\.(js|html)$/.test(name)) continue;
   const file = new URL(`dist/${name}`, root);
   const source = await readFile(file, 'utf8');
-  const updated = name.endsWith('.js')
+  let updated = name.endsWith('.js')
     ? source.replace(/(from\s+['"]\.\/[^'"?]+\.js)(?:\?v=[^'"]*)?(['"])/g, `$1?v=${version}$2`)
     : source.replace(/((?:src|href)="\.\/[^"?]+\.(?:js|css))(?:\?v=[^"]*)?(".*?)/g, `$1?v=${version}$2`);
+  if (name === 'core.js') {
+    const appVersion = /^(export const APP_VERSION = ')[^']+(';)/m;
+    if (!appVersion.test(updated)) throw new Error('未找到应用版本常量');
+    updated = updated.replace(appVersion, `$1${version}$2`);
+  }
   if (updated !== source) {
     stale.push(name);
     if (!checking) await writeFile(file, updated);
