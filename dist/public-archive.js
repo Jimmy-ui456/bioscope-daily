@@ -1,4 +1,4 @@
-import { isValidPaper, validPublicationDate } from './core.js?v=0.2.32';
+import { isValidPaper, validPublicationDate } from './core.js?v=0.2.33';
 
 function record(value) { return value !== null && typeof value === 'object' && !Array.isArray(value); }
 function validTime(value) {

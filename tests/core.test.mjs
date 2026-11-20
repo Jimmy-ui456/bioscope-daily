@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { TOPICS, normalizePaper, cleanDoi, mergePapers, mergePapersWithIdMap, isValidPaper, collectTopic, chooseReportPapers, beijingDay, buildQuery, plainText, reportMarkdown } from '../dist/core.js';
+import { manualCollectionOutcome } from '../dist/manual-collection.js';
 
 const at = new Date('2026-10-27T02:00:00Z');
 const record = { id: '123', source: 'MED', title: '<i>A study</i>', abstractText: '<p>Evidence &amp; conditions.</p>', firstPublicationDate: '2026-10-26', doi: 'https://doi.org/10.1234/ABC', authorString: 'A, B', journalInfo: { journal: { title: 'Example Journal' } }, pubTypeList: { pubType: ['Journal Article'] } };
@@ -72,6 +73,11 @@ test('暂时失败只重试同一分页一次，后续页耗尽重试时保留�
   assert.equal(result.papers.length, 1);
   assert.equal(result.truncated, true);
   assert.equal(result.interrupted, 'Europe PMC 连接失败或超时');
+  const browser = manualCollectionOutcome([TOPICS[0]], [{ status: 'fulfilled', value: result }],
+    { origin: 'sample', papers: [] }, at.toISOString());
+  assert.deepEqual(browser.patch.papers, result.papers);
+  assert.match(browser.stats[0].error, /后续分页中断.*已保留前面取得的 1 篇/);
+  assert.deepEqual(browser.incomplete, [TOPICS[0].name]);
 });
 test('补齐 DOI 的记录通过 PMID 合并，保留既有收藏所用的记录 ID', () => {
   const old = normalizePaper({ ...record, doi: undefined }, 'metabolic');

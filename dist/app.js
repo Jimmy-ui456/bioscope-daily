@@ -1,22 +1,23 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.32';
-import { collectionHealth } from './health.js?v=0.2.32';
-import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.32';
-import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.32';
-import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.32';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.32';
-import { evidenceContext } from './evidence.js?v=0.2.32';
-import { reportLocation } from './report-navigation.js?v=0.2.32';
-import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.32';
-import { planSharedRefresh } from './shared-refresh.js?v=0.2.32';
-import { reportRis } from './report-ris.js?v=0.2.32';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.32';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.32';
-import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.32';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.32';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.32';
-import { TOPICS, APP_VERSION, collectTopic, collectionTopicStats, mergePapers, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.32';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.33';
+import { collectionHealth } from './health.js?v=0.2.33';
+import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.33';
+import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.33';
+import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.33';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.33';
+import { evidenceContext } from './evidence.js?v=0.2.33';
+import { reportLocation } from './report-navigation.js?v=0.2.33';
+import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.33';
+import { planSharedRefresh } from './shared-refresh.js?v=0.2.33';
+import { manualCollectionOutcome } from './manual-collection.js?v=0.2.33';
+import { reportRis } from './report-ris.js?v=0.2.33';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.33';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.33';
+import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.33';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.33';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.33';
+import { TOPICS, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.33';
 
-import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.32';
+import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.33';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -695,24 +696,17 @@ async function collect() {
   }
   const topics = TOPICS.filter(t => state.settings.topics.includes(t.id));
   const results = await Promise.allSettled(topics.map(t => collectTopic(t, { days: state.settings.days, onProgress: p => { state.progress = `正在读取 ${p.topic} · 第 ${p.page} 页，已取得 ${p.count} 条`; const progress = $('#progress'); if (progress) progress.textContent = state.progress; } })));
-  const incoming = [];
-  const stats = results.map((r, i) => {
-    if (r.status === 'fulfilled') { incoming.push(...r.value.papers); return { topic: topics[i].name, count: r.value.papers.length, hitCount: r.value.hitCount, truncated: r.value.truncated }; }
-    return { topic: topics[i].name, error: r.reason?.message || '网络连接失败' };
-  });
-  const successCount = stats.filter(s => !s.error).length;
-  if (successCount) {
+  const { stats, patch, received, retained, incomplete } = manualCollectionOutcome(topics, results, state, new Date().toISOString());
+  if (patch) {
     samplePinned = false;
-    const base = state.origin === 'live' || state.containsImported ? state.papers : [];
-    const merged = mergePapers(base, incoming).slice(0, 500);
-    state.papers = merged; state.origin = state.containsImported ? 'sample' : 'live'; state.updatedAt = new Date().toISOString(); state.stats = stats;
+    Object.assign(state, patch);
     cacheActive(); write('liveCache', cacheValue());
-    const failed = stats.filter(s => s.error);
-    state.error = failed.length ? `${failed.map(s => s.topic).join('、')}采集不完整，已保留取得的结果。可在信源管理查看原因。` : '';
+    const summary = `本轮取得 ${received} 篇，当前文献库保留其中 ${retained} 篇。`;
+    state.error = incomplete.length ? `${incomplete.join('、')}采集不完整。${summary} 可在信源管理查看原因。` : '';
     state.topic = 'all'; state.filter = 'all'; state.page = 1;
-    toast(`本次取得 ${mergePapers([], incoming).length} 篇文献；文献库现有 ${merged.length} 篇。`);
+    toast(incomplete.length ? `采集部分完成。${summary}` : `${summary}文献库共 ${patch.papers.length} 篇。`);
   } else {
-    state.error = '无法连接 Europe PMC，当前文献库已保留。请检查网络后重试；未自动替换成样本。' + (stats[0]?.error ? `（${stats[0].error}）` : '');
+    state.error = '本轮采集失败，已保留当前文献库和更新时间。可在信源管理查看原因。';
     state.stats = stats;
   }
   state.busy = false; state.progress = ''; render();
