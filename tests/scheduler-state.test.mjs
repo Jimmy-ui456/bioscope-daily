@@ -98,3 +98,142 @@ test('缺少状态文件与旧版合法对象仍可正常完成当天任务', as
   assert.deepEqual(saved.legacyMetadata, old.legacyMetadata);
   assert.equal((await runtimeStatus(root)).statusWarning, null);
 });
+
+const writeStatus = (file, state) => writeFile(file, JSON.stringify(state));
+const readStatus = async file => JSON.parse(await readFile(file, 'utf8'));
+const denied = () => Object.assign(new Error('EPERM test write failure'), { code: 'EPERM' });
+
+test('连续写入完成状态失败时只补写状态，修复后当天不会再次采集', async t => {
+  const root = await project(t);
+  const file = path.join(root, '.data/scheduler.json');
+  let calls = 0, failedWrites = 0;
+  const logs = [];
+  const scheduler = startScheduler({ root, clock: () => now, log: message => logs.push(message),
+    run: async () => { calls++; },
+    writeStatus: async (file, state) => {
+      if (state.completion === 'complete' && failedWrites++ < 2) throw denied();
+      await writeStatus(file, state);
+    },
+  });
+  t.after(() => scheduler.stop());
+  await scheduler.tick();
+  const running = await readStatus(file);
+  assert.equal(running.completion, 'running');
+  await scheduler.tick();
+  assert.deepEqual(await readStatus(file), running);
+  assert.equal(calls, 1);
+  assert.equal(logs.length, 2);
+  const configFile = path.join(root, 'config/monitor.json');
+  await writeFile(configFile, '{invalid config');
+  await scheduler.tick();
+  assert.deepEqual(await readStatus(file), { ...running, completion: 'complete', lastSuccess: slot, nextRetryAt: null });
+  await writeFile(configFile, '{}');
+  await scheduler.tick();
+  assert.equal(calls, 1);
+  assert.equal(scheduler.busy, false);
+});
+
+test('写入 running 状态失败时不启动采集', async t => {
+  const root = await project(t);
+  let deniedStart = true, calls = 0;
+  const scheduler = startScheduler({ root, clock: () => now, log: () => {},
+    run: async () => { calls++; },
+    writeStatus: async (file, state) => {
+      if (deniedStart) throw denied();
+      await writeStatus(file, state);
+    },
+  });
+  t.after(() => scheduler.stop());
+  await scheduler.tick();
+  assert.equal(calls, 0);
+  deniedStart = false;
+  await scheduler.tick();
+  assert.equal(calls, 1);
+});
+
+for (const completion of ['partial', 'failed']) {
+  test(`${completion} 状态补写保留最初重试时间，到期后才再次采集`, async t => {
+    const root = await project(t);
+    const file = path.join(root, '.data/scheduler.json');
+    let at = now, calls = 0, failOnce = true;
+    const scheduler = startScheduler({ root, clock: () => at, log: () => {},
+      run: async () => {
+        if (++calls > 1) return;
+        if (completion === 'failed') throw new Error('fixture collection stopped');
+        return { automation: { failedTopics: 1 } };
+      },
+      writeStatus: async (file, state) => {
+        if (state.completion === completion && failOnce) { failOnce = false; throw denied(); }
+        await writeStatus(file, state);
+      },
+    });
+    t.after(() => scheduler.stop());
+    await scheduler.tick();
+    at = new Date('2026-10-30T02:10:00Z');
+    await scheduler.tick();
+    const state = await readStatus(file);
+    assert.equal(state.completion, completion);
+    assert.equal(state.nextRetryAt, '2026-10-30T02:15:00.000Z');
+    await scheduler.tick();
+    assert.equal(calls, 1);
+    at = new Date(state.nextRetryAt);
+    await scheduler.tick();
+    assert.equal(calls, 2);
+    assert.equal((await readStatus(file)).attempts, 2);
+  });
+}
+
+test('跨日先补写原期结果，后一轮才执行新的日期槽', async t => {
+  const root = await project(t);
+  const file = path.join(root, '.data/scheduler.json');
+  let at = now, calls = 0, failOnce = true;
+  const scheduler = startScheduler({ root, clock: () => at, log: () => {}, run: async () => { calls++; },
+    writeStatus: async (file, state) => {
+      if (state.completion === 'complete' && failOnce) { failOnce = false; throw denied(); }
+      await writeStatus(file, state);
+    },
+  });
+  t.after(() => scheduler.stop());
+  await scheduler.tick();
+  at = new Date('2026-10-31T02:00:00Z');
+  await scheduler.tick();
+  assert.equal(calls, 1);
+  assert.equal((await readStatus(file)).lastSuccess, slot);
+  await scheduler.tick();
+  assert.equal(calls, 2);
+  assert.equal((await readStatus(file)).lastSuccess, '2026-10-31');
+});
+
+test('待补写期间保留损坏或较新状态，发现相同结果已保存则结束补写', async t => {
+  const root = await project(t);
+  const file = path.join(root, '.data/scheduler.json');
+  let at = now, calls = 0, terminalWrites = 0, terminal;
+  const logs = [];
+  const scheduler = startScheduler({ root, clock: () => at, log: message => logs.push(message), run: async () => { calls++; },
+    writeStatus: async (file, state) => {
+      if (state.completion === 'complete' && ++terminalWrites === 1) { terminal = state; throw denied(); }
+      await writeStatus(file, state);
+    },
+  });
+  t.after(() => scheduler.stop());
+  await scheduler.tick();
+  at = new Date('2026-10-31T02:00:00Z');
+  const later = { ...terminal, slot: '2026-10-31', lastAttemptAt: at.toISOString(), completion: 'running' };
+  for (const raw of ['{broken', '[]', JSON.stringify(later)]) {
+    await writeFile(file, raw);
+    await scheduler.tick();
+    assert.equal(await readFile(file, 'utf8'), raw);
+  }
+  assert.equal(calls, 1);
+  assert.equal(terminalWrites, 1);
+  assert.match(logs[1], /无法核对.*原记录保留/);
+  assert.match(logs[2], /无法核对.*原记录保留/);
+  assert.match(logs[3], /冲突.*原记录保留/);
+  await writeStatus(file, terminal);
+  await scheduler.tick();
+  assert.equal(calls, 1);
+  assert.equal(terminalWrites, 1);
+  await scheduler.tick();
+  assert.equal(calls, 2);
+  assert.equal(terminalWrites, 2);
+});

@@ -1,17 +1,17 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.26';
-import { collectionHealth } from './health.js?v=0.2.26';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.26';
-import { evidenceContext } from './evidence.js?v=0.2.26';
-import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.26';
-import { reportRis } from './report-ris.js?v=0.2.26';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.26';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.26';
-import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.26';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.26';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.26';
-import { TOPICS, APP_VERSION, collectTopic, collectionTopicStats, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.26';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.27';
+import { collectionHealth } from './health.js?v=0.2.27';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.27';
+import { evidenceContext } from './evidence.js?v=0.2.27';
+import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.27';
+import { reportRis } from './report-ris.js?v=0.2.27';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.27';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.27';
+import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.27';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.27';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.27';
+import { TOPICS, APP_VERSION, collectTopic, collectionTopicStats, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.27';
 
-import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.26';
+import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.27';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
