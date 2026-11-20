@@ -1,7 +1,7 @@
-import { beijingDay, dayBefore, mergePapersWithIdMap, validPublicationDate } from './core.js?v=0.2.31';
-import { discoveryDay } from './reader.js?v=0.2.31';
+import { beijingDay, dayBefore, mergePapersWithIdMap, validPublicationDate } from './core.js?v=0.2.32';
+import { discoveryDay } from './reader.js?v=0.2.32';
 
-function snapshotTime(value) {
+export function snapshotTime(value) {
   const iso = typeof value === 'string' && /^(\d{4}-\d{2}-\d{2})T(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d{1,3})?(?:Z|[+-](?:[01]\d|2[0-3]):[0-5]\d)$/.exec(value);
   return iso && validPublicationDate(iso[1]) && Number.isFinite(Date.parse(value)) ? new Date(value) : null;
 }

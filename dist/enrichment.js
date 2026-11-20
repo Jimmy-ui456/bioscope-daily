@@ -1,4 +1,4 @@
-import { checkEvidenceClaim } from './evidence.js?v=0.2.31';
+import { checkEvidenceClaim } from './evidence.js?v=0.2.32';
 
 // Shared by the static reader and the unattended collection job. No credentials here.
 export function sourceFingerprint(paper) {

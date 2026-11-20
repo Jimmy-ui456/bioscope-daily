@@ -1,5 +1,5 @@
-import { requestedPublicReport } from './report-navigation.js?v=0.2.31';
-import { sharedRecordIdentity } from './report-comparison.js?v=0.2.31';
+import { requestedPublicReport } from './report-navigation.js?v=0.2.32';
+import { sharedRecordIdentity } from './report-comparison.js?v=0.2.32';
 
 function paperIdentity(value) {
   if (typeof value !== 'string' || value.length > 2004 || /[\p{Cc}\p{Cf}]/u.test(value)) return null;
@@ -31,6 +31,11 @@ export function resolveSharedPaper(request, index) {
   const matches = index[kind].get(value) || [];
   if (matches.length !== 1) return { status: matches.length ? 'ambiguous' : 'missing' };
   return { status: 'found', paper: matches[0] };
+}
+export function pendingSharedPaper(request, index, snapshotStatus) {
+  if (!request?.identity) return { status: 'invalid' };
+  if (snapshotStatus === 'stale') return { status: 'stale' };
+  return resolveSharedPaper(request, snapshotStatus === 'unavailable' ? null : index);
 }
 
 const exactFields = ['title', 'abstract', 'authors', 'journal', 'publishedAt', 'source', 'sourceId', 'collection',

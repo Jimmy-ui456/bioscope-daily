@@ -1,4 +1,4 @@
-import { cleanDoi, validPublicationDate } from './core.js?v=0.2.31';
+import { cleanDoi, validPublicationDate } from './core.js?v=0.2.32';
 
 const LINE_BREAK = '\r\n';
 

@@ -1,21 +1,22 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.31';
-import { collectionHealth } from './health.js?v=0.2.31';
-import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.31';
-import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.31';
-import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.31';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.31';
-import { evidenceContext } from './evidence.js?v=0.2.31';
-import { reportLocation } from './report-navigation.js?v=0.2.31';
-import { incomingPaperNavigation, resolveSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.31';
-import { reportRis } from './report-ris.js?v=0.2.31';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.31';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.31';
-import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.31';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.31';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.31';
-import { TOPICS, APP_VERSION, collectTopic, collectionTopicStats, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.31';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.32';
+import { collectionHealth } from './health.js?v=0.2.32';
+import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.32';
+import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.32';
+import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.32';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.32';
+import { evidenceContext } from './evidence.js?v=0.2.32';
+import { reportLocation } from './report-navigation.js?v=0.2.32';
+import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.32';
+import { planSharedRefresh } from './shared-refresh.js?v=0.2.32';
+import { reportRis } from './report-ris.js?v=0.2.32';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.32';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.32';
+import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.32';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.32';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.32';
+import { TOPICS, APP_VERSION, collectTopic, collectionTopicStats, mergePapers, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.32';
 
-import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.31';
+import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.32';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -32,6 +33,7 @@ let readMarksIndex = indexReadMarks(readMarks);
 let readerPresetName = '';
 let readerPresetId = readerPresets[0]?.id ?? '';
 let composingPresetName = false;
+let composingSearch = false;
 let pendingReadingRender = false;
 let readerTransferPreview = null, readerTransferMessage = '', readerTransferRequest = 0;
 let localRecoveryMessage = '';
@@ -55,6 +57,9 @@ let displayMode = localState.displayMode;
 let downloadGroup = '';
 let backendStatus = null;
 let sharedAvailable = false;
+let sharedSnapshotStatus = 'unavailable';
+let sharedRefreshBusy = false;
+let samplePinned = false;
 let runtimeRefreshBusy = false;
 // Cache source markup; DOM serialization normalizes SVG tags and would repeat live announcements.
 const healthMarkupByNode = new WeakMap();
@@ -68,6 +73,8 @@ let dialogReturnFocus = null;
 let dialogPaperId = null;
 let dialogReadOnly = false;
 let paperLinkStatus = null;
+let pendingPaperRequest = null;
+const INITIAL_LIBRARY_ERROR = '文献数据载入失败。可点击更新文献重试。';
 
 const paths = {
   grid: '<rect x="3" y="3" width="7" height="7" rx="1.4"/><rect x="14" y="3" width="7" height="7" rx="1.4"/><rect x="3" y="14" width="7" height="7" rx="1.4"/><rect x="14" y="14" width="7" height="7" rx="1.4"/>',
@@ -336,7 +343,7 @@ function topicPanel() {
   return `<section class="side-panel"><div class="panel-kicker">RESEARCH LANDSCAPE</div><h2 class="panel-title">研究视野</h2><p class="panel-copy">当前文献库的主题覆盖</p>${TOPICS.map(t => { const n = papers.filter(p => p.topics.includes(t.id)).length; return `<div class="topic-row"><span><i class="dot ${t.color}"></i>${t.name}</span><em>${n} 篇</em></div><div class="track"><i class="${t.color}" style="width:${papers.length ? Math.round(n / papers.length * 100) : 0}%"></i></div>`; }).join('')}<div class="panel-foot">一篇研究可属于多个方向。<br>主题覆盖不代表传播热度或研究质量。</div></section>`;
 }
 function aside() { const n = activePapers().filter(p => state.selected.includes(p.id)).length; return `<aside class="aside" aria-label="研究概览">${topicPanel()}<section class="side-panel daily-panel"><div class="edition">THE DAILY EDITION / 每日一读</div><h2 class="panel-title">将发现，<br>整理成今天的简报。</h2><p class="panel-copy">${n ? `已有 ${n} 篇人工精选。` : '挑选值得读的论文，'}<br>保留原文摘要与出处，随时导出。</p><button class="button small" data-action="generate-report">生成简报 ${icon('arrow', 12)}</button></section><section class="side-panel"><div class="panel-kicker">CONNECTED TO THE SOURCE</div><h2 class="panel-title">信源状态</h2><div class="source-line"><span><i class="status-dot"></i>Europe PMC</span><small>已接入</small></div><div class="source-line planned"><span><i class="status-dot"></i>bioRxiv 直接接口</span><small>待接入</small></div><div class="source-line planned"><span><i class="status-dot"></i>原平台下载量</span><small>按来源可用性</small></div><div class="panel-foot">更新文献后会显示采集结果。<br>已部署云端任务后，关闭网页仍可采集。</div></section></aside>`; }
-function overview() { return `${hero()}${metrics()}${paperLinkNotice()}<div class="content-grid"><section><div class="section-head"><div class="section-title">最新研究 <span class="en">LATEST RESEARCH</span></div><span class="minor">${readerSortLabel()} · ${filteredPapers().length} 篇</span></div><section id="shared-coverage" class="reading-status shared-coverage">${sharedCoverageContent()}</section>${readingStatus()}${tabs()}${sampleNotice()}${readerTools()}${readerPresetTools()}<div id="feed-list">${feedList()}</div></section>${aside()}</div>`; }
+function overview() { return `${hero()}${metrics()}<div id="paper-link-notice">${paperLinkNotice()}</div><div class="content-grid"><section><div class="section-head"><div class="section-title">最新研究 <span class="en">LATEST RESEARCH</span></div><span class="minor">${readerSortLabel()} · ${filteredPapers().length} 篇</span></div><section id="shared-coverage" class="reading-status shared-coverage">${sharedCoverageContent()}</section>${readingStatus()}${tabs()}${sampleNotice()}${readerTools()}${readerPresetTools()}<div id="feed-list">${feedList()}</div></section>${aside()}</div>`; }
 function bookmarksPage() { return `<div class="content-grid"><section><div class="section-head"><div class="section-title">留给稍后的阅读 <span class="en">SAVED PAPERS</span></div><span class="minor">保存在当前浏览器</span></div>${tabs()}${readerTools()}<div id="feed-list">${feedList()}</div></section>${aside()}</div>`; }
 
 function downloadRefreshNote(paper) {
@@ -507,14 +514,41 @@ function paperLinkNotice() {
   const messages = {
     invalid: '这条文献链接的标识格式无效。',
     unavailable: '本次未能读取共享文献库，暂时无法核对这条链接。',
+    stale: '本次读取的快照较旧，暂时无法用它核对这条链接。',
     missing: '当前共享快照中没有这条链接对应的记录。共享文献库会滚动更新。',
     ambiguous: '当前共享快照中有多条记录使用此标识，无法确认链接指向。',
+    ready: '共享快照已找到这条链接对应的文献。',
   };
-  return `<section class="sample-notice" aria-label="共享文献链接"><p>${messages[paperLinkStatus]}</p><button class="button small" data-action="dismiss-paper-link">关闭提示</button></section>`;
+  return `<section class="sample-notice" aria-label="共享文献链接"><p>${messages[paperLinkStatus]}</p>${paperLinkStatus === 'ready' ? '<button class="button small" data-action="open-pending-paper">打开共享文献</button>' : ''}<button class="button small" data-action="dismiss-paper-link">关闭提示</button></section>`;
 }
 function clearPaperLink() {
+  pendingPaperRequest = null;
   paperLinkStatus = null;
   history.replaceState(history.state, '', consumePaperLocation(location.href));
+}
+function refreshPaperLinkNotice() {
+  if (!pendingPaperRequest || state.view !== 'overview') return;
+  const result = pendingSharedPaper(pendingPaperRequest, sharedRecordIndex(), sharedSnapshotStatus);
+  const status = result.status === 'found' ? 'ready' : result.status;
+  if (paperLinkStatus === status) return;
+  paperLinkStatus = status;
+  updatePaperLinkNotice();
+}
+function updatePaperLinkNotice() {
+  const notice = $('#paper-link-notice');
+  if (!notice) return;
+  const previousFocus = focusSnapshot(notice);
+  notice.innerHTML = paperLinkNotice();
+  if (previousFocus && !restoreFocus(notice, previousFocus)) $('[data-action="dismiss-paper-link"]', notice)?.focus();
+}
+function openPendingPaper() {
+  if (!pendingPaperRequest || state.view !== 'overview' || $('#paper-dialog').open) return;
+  const result = pendingSharedPaper(pendingPaperRequest, sharedRecordIndex(), sharedSnapshotStatus);
+  if (result.status !== 'found') { refreshPaperLinkNotice(); return; }
+  pendingPaperRequest = null;
+  paperLinkStatus = null;
+  updatePaperLinkNotice();
+  showPaperRecord(result.paper, { readOnly: true });
 }
 function linkForDialogPaper(paper) {
   if (!sharedAvailable || (state.origin === 'sample' && !state.containsImported)) return null;
@@ -557,6 +591,7 @@ function setMenuOpen(open, { returnFocus = true } = {}) {
   else if (wasOpen && returnFocus) $('#navigation-toggle')?.focus({ preventScroll: true });
 }
 function render({ keepScroll = true, preserveFocus = true } = {}) {
+  pendingReadingRender = false;
   const scroll = window.scrollY;
   const previousFocus = preserveFocus ? focusSnapshot($('#app')) : null;
   const healthMarkup = collectionStatusMarkup();
@@ -569,8 +604,15 @@ function render({ keepScroll = true, preserveFocus = true } = {}) {
   if (keepScroll) window.scrollTo(0, scroll);
   else window.scrollTo(0, 0);
 }
+function flushReadingRender() {
+  if (!pendingReadingRender || state.view === 'settings' || document.hidden || $('#paper-dialog').open) return;
+  const active = document.activeElement?.id;
+  if ((composingPresetName && active === 'reader-preset-name') || (composingSearch && active === 'search')) return;
+  render();
+}
 function navigate(view, { reset = true } = {}) {
   if (!views[view]) return;
+  if (pendingPaperRequest) clearPaperLink();
   if (state.view === 'settings' && view !== 'settings') {
     readerTransferRequest++;
     readerTransferPreview = null;
@@ -660,6 +702,7 @@ async function collect() {
   });
   const successCount = stats.filter(s => !s.error).length;
   if (successCount) {
+    samplePinned = false;
     const base = state.origin === 'live' || state.containsImported ? state.papers : [];
     const merged = mergePapers(base, incoming).slice(0, 500);
     state.papers = merged; state.origin = state.containsImported ? 'sample' : 'live'; state.updatedAt = new Date().toISOString(); state.stats = stats;
@@ -754,6 +797,7 @@ async function loadSample() {
   if ((state.origin === 'live' || state.containsImported) && !write('liveCache', cacheValue())) {
     toast('切换前未能保存当前文献库；请先导出备份，当前内容已保留。'); return;
   }
+  samplePinned = true;
   Object.assign(state, { papers: structuredClone(sample.papers), origin: 'sample', containsImported: false, updatedAt: sample.fetchedAt, stats: [], error: '' });
   cacheActive(); navigate('overview'); toast('已切换到真实文献样本；收藏和简报已保留。');
 }
@@ -764,6 +808,7 @@ function restoreLive() {
   if (!safe || recovered.protectedKeys.includes('cache') || !(safe.origin === 'live' || safe.containsImported === true)) {
     toast('未找到可恢复的文献库；当前内容已保留，请核对原备份。'); return;
   }
+  samplePinned = false;
   Object.assign(state, { papers: sharedLibraryPapers(safe, []), origin: safe.containsImported === true ? 'sample' : 'live', containsImported: safe.containsImported === true, updatedAt: safe.updatedAt, stats: safe.stats, error: '' });
   cacheActive(); navigate('overview'); toast('已恢复最近一次本地保存的文献库。');
 }
@@ -847,6 +892,7 @@ document.addEventListener('click', async event => {
       break;
     }
     case 'dismiss-paper-link': clearPaperLink(); render(); $('#main')?.focus({ preventScroll: true }); break;
+    case 'open-pending-paper': openPendingPaper(); break;
   }
 });
 const searchInput = createSearchInputController(value => { state.search = value; state.page = 1; updateFeed(); });
@@ -876,15 +922,16 @@ document.addEventListener('compositionend', event => {
   if (event.target.id !== 'reader-preset-name') return;
   composingPresetName = false;
   readerPresetName = event.target.value;
-  if (pendingReadingRender) {
-    pendingReadingRender = false;
-    setTimeout(() => {
-      if (!composingPresetName && state.view === 'overview' && !$('#paper-dialog').open) render();
-    }, 0);
-  }
+  if (pendingReadingRender) setTimeout(flushReadingRender, 0);
 });
 for (const type of ['input', 'compositionstart', 'compositionend']) {
-  document.addEventListener(type, event => { if (event.target.id === 'search') searchInput(event); });
+  document.addEventListener(type, event => {
+    if (event.target.id !== 'search') return;
+    if (type === 'compositionstart' || event.isComposing) composingSearch = true;
+    if (type === 'compositionend') composingSearch = false;
+    searchInput(event);
+    if (type === 'compositionend' && pendingReadingRender) setTimeout(flushReadingRender, 0);
+  });
 }
 document.addEventListener('change', async event => {
   if (event.target.id === 'reader-transfer-file') {
@@ -911,6 +958,7 @@ document.addEventListener('change', async event => {
       if (file.size > 5 * 1024 * 1024) throw new Error('文件超过 5 MB 上限');
       const data = JSON.parse(await file.text());
       const prepared = prepareBackupImport(state, data);
+      samplePinned = false;
       Object.assign(state, prepared.patch);
       const saved = [cacheActive(), write('selected', state.selected), write('bookmarks', state.bookmarks), write('reports', state.reports), write('settings', state.settings)].every(Boolean);
       navigate('overview');
@@ -951,6 +999,7 @@ navigationMedia.addEventListener('change', () => {
 $('#paper-dialog').addEventListener('close', () => {
   if ($('#paper-dialog').open) return;
   const status = $('#dialog-status'); if (status) status.textContent = '';
+  flushReadingRender();
   if (dialogReadOnly) {
     clearPaperLink();
     $('#main')?.focus({ preventScroll: true });
@@ -972,7 +1021,6 @@ async function fetchJson(url) {
   catch { return null; }
   finally { clearTimeout(timer); }
 }
-function readableLibrary(data) { return Array.isArray(data?.papers) && data.papers.length <= 500 && data.papers.every(isValidPaper); }
 function acceptPublicArchive(data) {
   const prepared = preparePublicArchive(data, publicArchive);
   const changed = JSON.stringify(prepared) !== JSON.stringify(publicArchive);
@@ -989,18 +1037,21 @@ const [sampleData, translationData, sharedData, statusData, publicData] = await 
 acceptPublicArchive(publicData);
 sample = sampleData;
 translations = translationData?.items || {};
-sharedAvailable = readableLibrary(sharedData);
-libraryMeta = sharedAvailable ? sharedData : null;
+const initialRefresh = planSharedRefresh(null, sharedData, cacheValue(), false);
+sharedSnapshotStatus = initialRefresh.status;
+libraryMeta = initialRefresh.library;
+sharedAvailable = initialRefresh.status === 'updated';
 backendStatus = statusData?.available === true ? statusData : null;
-if (sharedAvailable) {
-  state.papers = sharedLibraryPapers(cache, sharedData.papers);
-  state.origin = state.containsImported ? 'sample' : 'live'; state.updatedAt = sharedData.fetchedAt; state.stats = sharedData.stats || [];
-} else if (!cache && sample) { state.papers = sample.papers; state.updatedAt = sample.fetchedAt; }
-else if (!cache && !sample) state.error = '文献数据载入失败。可点击更新文献重试。';
+if (initialRefresh.patch) Object.assign(state, initialRefresh.patch);
+else if (!cache && sample) { state.papers = sample.papers; state.updatedAt = sample.fetchedAt; }
+else if (!cache && !sample) state.error = INITIAL_LIBRARY_ERROR;
 const initialNavigation = incomingPaperNavigation(location.href);
 state.reportId = initialNavigation.reportId;
 const linkedPaper = initialNavigation.paper ? resolveSharedPaper(initialNavigation.paper, sharedRecordIndex()) : null;
-if (linkedPaper && linkedPaper.status !== 'found') paperLinkStatus = linkedPaper.status;
+if (linkedPaper && linkedPaper.status !== 'found') {
+  pendingPaperRequest = initialNavigation.paper;
+  paperLinkStatus = linkedPaper.status;
+}
 state.view = state.reportId ? 'daily' : linkedPaper ? 'overview' : (views[location.hash.slice(1)] ? location.hash.slice(1) : 'overview');
 render({ keepScroll: false });
 if (linkedPaper?.status === 'found') showPaperRecord(linkedPaper.paper, { readOnly: true });
@@ -1014,27 +1065,29 @@ async function refreshBackendStatus() {
   } finally { runtimeRefreshBusy = false; }
 }
 setInterval(refreshBackendStatus, 15000);
-setInterval(async () => {
-  if (document.hidden || $('#paper-dialog').open) return;
-  const latest = await fetchJson('./library.json');
-  sharedAvailable = readableLibrary(latest);
-  let changed = false, readingChanged = false;
-  if (sharedAvailable) {
-    changed = Boolean(latest.automation?.completedAt && latest.automation.completedAt !== libraryMeta?.automation?.completedAt);
-    libraryMeta = latest;
-    if (changed && (state.origin === 'live' || state.containsImported)) {
-      state.papers = sharedLibraryPapers(cacheValue(), latest.papers); state.updatedAt = latest.fetchedAt; state.stats = latest.stats || []; cacheActive();
-      readingChanged = true;
+async function refreshSharedData() {
+  if (sharedRefreshBusy || document.hidden || $('#paper-dialog').open) return;
+  sharedRefreshBusy = true;
+  try {
+    const latest = await fetchJson('./library.json');
+    if (document.hidden || $('#paper-dialog').open) return;
+    const next = planSharedRefresh(libraryMeta, latest, cacheValue(), samplePinned);
+    libraryMeta = next.library;
+    sharedSnapshotStatus = next.status;
+    sharedAvailable = next.status === 'same' || next.status === 'updated';
+    refreshPaperLinkNotice();
+    if (next.patch) {
+      Object.assign(state, next.patch);
+      if (state.error === INITIAL_LIBRARY_ERROR) state.error = '';
+      cacheActive();
+      pendingReadingRender = true;
+      flushReadingRender();
+      toast('后台文献库已更新。');
     }
-  }
-  // A failed archive read must be retried even when the library's completedAt
-  // has not changed, or when the independent library request is unavailable.
-  const archiveChanged = (changed || publicArchive.status !== 'ok') ? await refreshPublicArchive() : false;
-  // A background update must not erase unsaved monitor settings.
-  if ((readingChanged || archiveChanged) && state.view !== 'settings' && !$('#paper-dialog').open && !document.hidden) {
-    if (composingPresetName && document.activeElement?.id === 'reader-preset-name') pendingReadingRender = true;
-    else render();
-  }
-  if (readingChanged) toast('后台文献库已更新。');
-  updateHealthDisplay();
-}, 60000);
+    // Retry archive reads independently of the shared library.
+    if ((next.status === 'updated' || publicArchive.status !== 'ok') && await refreshPublicArchive()) pendingReadingRender = true;
+    flushReadingRender();
+    updateHealthDisplay();
+  } finally { sharedRefreshBusy = false; }
+}
+setInterval(refreshSharedData, 60000);
