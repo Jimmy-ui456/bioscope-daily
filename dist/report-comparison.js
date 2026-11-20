@@ -1,11 +1,11 @@
-import { cleanDoi, validPublicationDate } from './core.js?v=0.2.30';
+import { cleanDoi, validPublicationDate } from './core.js?v=0.2.31';
 
 function canonicalDoi(paper) {
   const value = paper?.doi;
   return typeof value === 'string' && value.length <= 2000 && !/[\p{Cc}\p{Cf}]/u.test(value) ? cleanDoi(value) : null;
 }
 
-function identity(paper) {
+export function sharedRecordIdentity(paper) {
   const doi = canonicalDoi(paper);
   const pmid = typeof paper?.pmid === 'string' && /^\d{1,20}$/.test(paper.pmid) ? paper.pmid : null;
   const source = paper?.collection === 'Europe PMC' && typeof paper.source === 'string'
@@ -23,14 +23,14 @@ function add(index, key, paper) {
 export function indexSharedRecords(papers) {
   const indexes = { doi: new Map(), pmid: new Map(), source: new Map() };
   for (const paper of Array.isArray(papers) ? papers : []) {
-    const keys = identity(paper);
+    const keys = sharedRecordIdentity(paper);
     for (const [key, value] of Object.entries(keys)) add(indexes[key], value, paper);
   }
   return indexes;
 }
 
 export function sameSharedRecord(paper, index) {
-  const keys = identity(paper);
+  const keys = sharedRecordIdentity(paper);
   const exact = index.doi.get(keys.doi);
   if (exact) return exact.length === 1 ? exact[0] : null;
   const candidates = new Set([...(index.pmid.get(keys.pmid) || []), ...(index.source.get(keys.source) || [])]);
