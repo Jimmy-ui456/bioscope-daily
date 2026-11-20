@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-19T15:27:42.703Z",
+  "fetchedAt": "2026-11-20T03:59:55.690Z",
   "papers": [
     {
       "id": "doi:10.64898/2026.11.10.765552",
@@ -73,6 +73,58 @@
       "discoveredAt": "2026-11-19T15:27:38.171Z",
       "topics": [
         "metabolic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1111/pce.71063",
+      "title": "Navigating the Drought Tolerance-Yield Trade-Off in Triticeae Cereals: From Molecular Networks to Climate-Resilient Breeding.",
+      "abstract": "Drought driven by climate change severely threatens food security, particularly for wheat and barley grown in water-limited regions. A major breeding challenge is the trade-off between drought tolerance and yield. This review synthesises current knowledge of drought adaptation mechanisms in Triticeae crops, focusing on the transcriptional cascades, ABA-centric hormonal signalling and posttranslational modifications (kinases, phosphatases and ubiquitination) that confer resilience while often constraining carbon allocation to developing grains. Recent genomic advances, including genome-wide association study (GWAS), multi-omics integration and single-cell RNA-transcriptomics, have uncovered a wealth of drought-associated loci, although their translational potential is limited by data heterogeneity, environmental dependency and a persistent gap between laboratory validation and field performance. Emerging breeding approaches, such as speed breeding, wild-allele introgression, multiplex CRISPR/Cas9 and artificial intelligence (AI)-driven phenotyping are accelerating the development of climate-smart cultivars. Tissue-specific and inducible expression systems show early promise in uncoupling stress protection from growth penalties. Looking ahead, we propose that overcoming the yield-tolerance trade-off will require integrating synthetic biology, explainable AI, systematic exploration of novel variation and field phenomics coupled with digital twin modelling. Collectively, this review provides a strategic framework for engineering next-generation, climate-smart Triticeae cereals capable of maintaining productivity under intensifying drought conditions.",
+      "authors": "Xiong J, Meng R, Xu Y, Peng Y, Shen Q, Zhang X, Xue D, Zhang G.",
+      "journal": "Plant, cell & environment",
+      "doi": "10.1111/pce.71063",
+      "pmid": "43053558",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43053558",
+      "url": "https://doi.org/10.1111/pce.71063",
+      "publishedAt": "2026-11-18",
+      "discoveredAt": "2026-11-20T03:59:09.967Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.ijbiomac.2026.155300",
+      "title": "SynAb: Interpretable heavy-light chain synergy modeling for generalizable antibody-antigen interaction prediction.",
+      "abstract": "Accurate prediction of antibody-antigen interactions (AAIs) is essential for therapeutic antibody discovery and high-throughput antibody screening. However, existing sequence-based methods often model antibody heavy and light chains independently, overlooking their cooperative contribution to antigen recognition. In this study, we propose SynAb, a synergy-guided cross-attention framework that integrates heavy-light chain regional cooperation into antibody-antigen interaction modeling. SynAb captures cooperative information across antibody functional regions and uses it to guide the interaction between antibody and antigen representations. Experimental results on the HIV and CoV-AbDab datasets demonstrate that SynAb outperforms the evaluated sequence-based methods and exhibits strong generalization in challenging scenarios involving unseen antibodies, unseen antigens, and previously unobserved antibody-antigen pairs. Beyond its predictive performance, SynAb explicitly characterizes the coordinated roles of paired heavy and light chains in antigen recognition. Moreover, without residue-level contact supervision, the model consistently highlights heavy-chain CDR-enriched regions, particularly CDR-H2 and CDR-H3, providing interpretable evidence consistent with established immunological knowledge. Together, these findings establish SynAb as a robust and interpretable framework for sequence-based AAI prediction and a promising computational tool for candidate prioritization in therapeutic antibody screening and synthetic biology applications.",
+      "authors": "Cai L, Shi J, Zhang Z, Chen H, Wu Z, Fu X.",
+      "journal": "International journal of biological macromolecules",
+      "doi": "10.1016/j.ijbiomac.2026.155300",
+      "pmid": "43051326",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43051326",
+      "url": "https://doi.org/10.1016/j.ijbiomac.2026.155300",
+      "publishedAt": "2026-11-18",
+      "discoveredAt": "2026-11-20T03:59:09.967Z",
+      "topics": [
+        "synthetic"
       ],
       "type": "期刊论文",
       "status": "期刊记录 · 待核验",
@@ -508,8 +560,8 @@
     {
       "id": "doi:10.64898/2026.11.13.765935",
       "title": "Engineered post-transcriptional regulation of Scn10a by Pumilio ameliorates neuropathic pain in mice",
-      "abstract": "Post-transcriptional control of mRNA permeates biology, yet its contribution to sensory neuron physiology and pain remains unclear. The mammalian Pumilio proteins PUM1 and PUM2 (collectively referred to as PUM) are RNA-binding proteins that bind Pumilio response elements (PREs), typically situated in 3′ untranslated regions. PUM recruits the CCR4-NOT complex to promote mRNA deadenylation and decay. Several mRNAs that encode voltage-gated sodium channels that regulate action potential generation in pain sensing neurons harbor PREs. Here, we explored whether PUM plays a role in pain signaling. PUM1 and PUM2 were enriched in TRPV1-positive dorsal root ganglion neurons, where PUM2 physically interacted with Scn9a, Scn10a, and Scn11a transcripts, which encode Nav1.7, Nav1.8, and Nav1.9, respectively. Depletion of PUM in sensory neurons produced mechanical hypersensitivity and enhanced inflammatory pain. These effects were reversed by blocking Nav1.8 but not Nav1.7, raising the possibility that repression of Scn10a by PUM can be harnessed using synthetic biology to diminish neuropathic pain. To this end, we generated a chimera comprising the RNA-binding domain of PUM2 and a repressive domain, which we dubbed \"super-PUM\". Expression of AAV-encoded super-PUM in sensory neurons reduced Nav1.8 abundance, diminished tetrodotoxin-resistant and suzetrigine-sensitive sodium currents, and prevented mechanical and thermal hypersensitivity following spared nerve injury. These results demonstrate that optimization of an endogenous post-transcriptional regulon provides a means to ameliorate neuropathic pain.",
-      "authors": "Garcia G, Shapiro JB, Mikesell AR, Falese JP, Bartol KA, McKenney KM, Ruhly S, Goldstrohm AC, Pearce RA, Tanaka Hall TM, Campbell ZT.",
+      "abstract": "ABSTRACT Post-transcriptional control of mRNA permeates biology, yet its contribution to sensory neuron physiology and pain remains unclear. The mammalian Pumilio proteins PUM1 and PUM2 (collectively referred to as PUM) are RNA-binding proteins that bind Pumilio response elements (PREs), typically situated in 3 ′ untranslated regions. PUM recruits the CCR4-NOT complex to promote mRNA deadenylation and decay. Several mRNAs that encode voltage-gated sodium channels that regulate action potential generation in pain sensing neurons harbor PREs. Here, we explored whether PUM plays a role in pain signaling. PUM1 and PUM2 were enriched in TRPV1-positive dorsal root ganglion neurons, where PUM2 physically interacted with Scn9a , Scn10a , and Scn11a transcripts, which encode Na v 1.7, Na v 1.8, and Na v 1.9, respectively. Depletion of PUM in sensory neurons produced mechanical hypersensitivity and enhanced inflammatory pain. These effects were reversed by blocking Na v 1.8 but not Na v 1.7, raising the possibility that repression of Scn10a by PUM can be harnessed using synthetic biology to diminish neuropathic pain. To this end, we generated a chimera comprising the RNA-binding domain of PUM2 and a repressive domain, which we dubbed ‘super-PUM’. Expression of AAV-encoded super-PUM in sensory neurons reduced Na v 1.8 abundance, diminished tetrodotoxin-resistant and suzetrigine-sensitive sodium currents, and prevented mechanical and thermal hypersensitivity following spared nerve injury. These results demonstrate that optimization of an endogenous post-transcriptional regulon provides a means to ameliorate neuropathic pain.",
+      "authors": "García G, Shapiro JB, Mikesell AR, Falese JP, Bartol KA, McKenney KM, Ruhly S, Goldstrohm AC, Pearce RA, Tanaka Hall TM, Campbell ZT.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.11.13.765935",
       "pmid": null,
@@ -639,7 +691,7 @@
     {
       "id": "doi:10.64898/2026.11.12.766240",
       "title": "sHSP-induced oligomerization enhances mammalian transcription factor potency",
-      "abstract": "Recently, a non-canonical role for small heat shock proteins (sHSPs) was identified, wherein sHSP-induced oligomerization drives targeted genomic accumulation of an endogenous silencing complex. Here we repurpose this property to develop sHSPs as compact, tunable tags for transcriptional engineering. Screening sHSPs across the tree of life, we show that sHSPs fused to transcription factors (TFs) can increase on-target genomic occupancy, recruit sHSP-tagged proteins, and amplify target-gene activation in mammalian cells. Distinct sHSPs vary in levels of transcriptional occupancy and output, providing a means to tune TFs activity while maintaining targeting specificity. This work establishes sHSPs as a new class of compact (~20kDa), tunable, activity-enhancing tags with broad potential for transcriptional engineering and synthetic biology.",
+      "abstract": "Recently, a non-canonical role for small heat shock proteins (sHSPs) was identified, wherein sHSP-induced oligomerization drives targeted genomic accumulation of an endogenous silencing complex. Here we repurpose this property to develop sHSPs as compact, tunable tags for transcriptional engineering. Screening sHSPs across the tree of life, we show that sHSPs fused to transcription factors (TFs) can increase on-target genomic occupancy, recruit sHSP-tagged proteins, and amplify target-gene activation in mammalian cells. Distinct sHSPs vary in levels of transcriptional occupancy and output, providing a means to tune TFs activity while maintaining targeting specificity. This work establishes sHSPs as a new class of compact (∼20kDa), tunable, activity-enhancing tags with broad potential for transcriptional engineering and synthetic biology.",
       "authors": "Buckley TJ, Burns MJ, Liliom H, May Lei Soe S, Boone B, Wang S, He Y, Li B, Hanley M, Sauceda S, Feng S, Sobreira DR, Jacobsen SE.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.11.12.766240",
@@ -704,6 +756,32 @@
       "discoveredAt": "2026-11-19T15:27:32.151Z",
       "topics": [
         "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.enzmictec.2026.111002",
+      "title": "Deep learning-guidedtacpromoter engineering for efficient functional expression of PET hydrolase inEscherichia coli.",
+      "abstract": "Enzymatic depolymerization of polyethylene terephthalate (PET) is a promising sustainable technology for mitigating global plastic pollution. Although the engineered thermostable enzyme LCC ICCG exhibits considerable degradation potential, inefficient functional expression in heterologous hosts remains a major bottleneck for industrial application. This study introduces a deep learning-guided promoter engineering strategy to optimize soluble expression of LCC ICCG in Escherichia coli (E. coli) via precise transcriptional regulation. The moderate-strength tac promoter outperforms the conventional strong T7 system in facilitating functional expression. A hybrid convolutional neural network (CNN)-Transformer model, integrated with a genetic algorithm (GA), was developed to design spacer sequences between the -35 and -10 regions of the tac promoter, yielding a series of high-performance variants (DMtac). The top-performing variant, DMtac36, achieved a functional yield of 147.69 mg/L/OD₆₀₀, representing 1.53-fold and 4.92-fold increases over the wild-type tac and T7 systems, respectively. These results demonstrate that moderate transcriptional activity enhances functional expression and establish a robust computational framework for efficient biomanufacturing of PET hydrolases.",
+      "authors": "Liu X, Yuan Y, Ng Y, Li J, Xiao Y, Wang Z.",
+      "journal": "Enzyme and microbial technology",
+      "doi": "10.1016/j.enzmictec.2026.111002",
+      "pmid": "43051110",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43051110",
+      "url": "https://doi.org/10.1016/j.enzmictec.2026.111002",
+      "publishedAt": "2026-11-15",
+      "discoveredAt": "2026-11-20T03:59:22.997Z",
+      "topics": [
         "microbial"
       ],
       "type": "期刊论文",
@@ -1199,6 +1277,32 @@
         "metabolic"
       ],
       "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.3724/abbs.2026212",
+      "title": "Synthetic biology for improving photosynthesis.",
+      "abstract": "Photosynthesis is the primary source of energy and matter for nearly all life on Earth, and its efficiency directly determines crop growth and yield. Synthetic biology offers a systematic engineering framework to enhance photosynthetic capacity by enabling rational design, standardized assembly, and iterative optimization of biological components. This review summarizes recent progress in applying synthetic biology to improve photosynthesis, with emphasis on modular design of genetic parts, construction of functional modules and genetic circuits for photosynthetic engineering. We discuss strategies organized by spatial scale, covering chloroplast-targeted interventions such as ribulose-1,5-bisphosphate carboxylase/oxygenase (Rubisco) optimization, photorespiratory bypasses, artificial carbon fixation cycles, and CO₂-concentrating mechanisms; cellular-level efforts to install C4 photosynthetic features into C3 crops; whole-plant manipulations of sugar transport and signaling to coordinate source-sink relations; and smart canopy designs to improve light utilization. Finally, we discuss the significance of closing the design-build-test-learn cycle for translating laboratory designs to field performance, which will help accelerate the application of photosynthetic engineering for sustainable crop improvement.",
+      "authors": "Sun Y, Cao Q, Zhao S, Ren S, Xu X, Zhang L.",
+      "journal": "Acta biochimica et biophysica Sinica",
+      "doi": "10.3724/abbs.2026212",
+      "pmid": "43053694",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43053694",
+      "url": "https://doi.org/10.3724/abbs.2026212",
+      "publishedAt": "2026-11-13",
+      "discoveredAt": "2026-11-20T03:59:09.968Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "期刊论文",
       "status": "期刊记录 · 待核验",
       "isPreprint": false,
       "isRetraction": false,
@@ -3733,7 +3837,7 @@
       "journal": "PLoS computational biology",
       "doi": "10.1371/journal.pcbi.1014881",
       "pmid": "42993804",
-      "pmcid": null,
+      "pmcid": "PMC13759144",
       "source": "MED",
       "sourceId": "42993804",
       "url": "https://doi.org/10.1371/journal.pcbi.1014881",
@@ -3752,13 +3856,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 315,
+        "count": 316,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/ploscompbiol/article/metrics?id=10.1371%2Fjournal.pcbi.1014881",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pcbi.1014881/format/json",
-        "fetchedAt": "2026-11-19T15:27:42.628Z",
+        "fetchedAt": "2026-11-20T03:59:55.542Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-11",
         "coverageEnd": "2026-11",
@@ -3772,7 +3876,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-19T15:27:42.573Z"
+        "checkedAt": "2026-11-20T03:59:55.395Z"
       },
       "enrichment": {
         "titleZh": "kinGEMs：通过随机调优深度学习预测的动力学参数，构建稳健且可扩展的资源约束模型框架",
@@ -3785,7 +3889,7 @@
         "reviewed": false,
         "scope": "abstract_only"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-19T15:27:42.573Z"
+      "downloadRefreshLastAttemptAt": "2026-11-20T03:59:55.395Z"
     },
     {
       "id": "doi:10.1007/s00253-026-14083-7",
@@ -16483,13 +16587,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 444,
+        "count": 446,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-19T15:27:42.678Z",
+        "fetchedAt": "2026-11-20T03:59:55.671Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -16514,9 +16618,9 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-19T15:27:42.573Z"
+        "checkedAt": "2026-11-20T03:59:55.395Z"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-19T15:27:42.573Z"
+      "downloadRefreshLastAttemptAt": "2026-11-20T03:59:55.395Z"
     },
     {
       "id": "doi:10.1007/s11274-026-05339-5",
@@ -17010,25 +17114,25 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 127,
+      "hitCount": 126,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 84,
+      "hitCount": 77,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 112,
+      "hitCount": 110,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-11-19",
+    "date": "2026-11-20",
     "requests": 0
   },
   "receipts": {
@@ -22290,12 +22394,12 @@
   "automation": {
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
-    "modelStatus": "not_configured",
-    "lastRunAt": "2026-11-19T15:27:42.703Z",
+    "modelStatus": "automatic_paused",
+    "lastRunAt": "2026-11-20T03:59:55.690Z",
     "failedTopics": 0,
     "collectionSource": {
-      "trigger": "workflow_dispatch",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/44554943634"
+      "trigger": "schedule",
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/44671302135"
     },
     "downloadRefresh": {
       "supported": 2,
@@ -22309,6 +22413,6 @@
     "modelCompletedThisRun": 0,
     "modelFailuresThisRun": 0,
     "analysisFailures": 3,
-    "completedAt": "2026-11-19T15:27:42.761Z"
+    "completedAt": "2026-11-20T03:59:55.741Z"
   }
 }
