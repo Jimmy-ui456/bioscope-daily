@@ -9,7 +9,15 @@
 .reader-date-basis select{max-width:100%;min-height:38px;padding:6px 12px;border:1px solid #cbd8bd;border-radius:6px;background:#fff;color:#405c35;font:inherit}
 .reader-date-basis select:focus-visible{outline:2px solid #52783d;outline-offset:3px}
 .reader-date-help{margin:6px 0 0;color:#58654e;font-size:11px;line-height:1.65}
-@media print{.reading-filters,.reader-summary,.reading-status{display:none!important}}
+.reader-presets{margin:14px 0 18px;padding:12px 14px;border:1px solid #e1e7d7;border-radius:7px;background:#fbfcf7;color:#405c35}
+.reader-presets h3{margin:0 0 8px;font-size:13px}
+.reader-preset-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:8px 0}
+.reader-preset-row label{display:flex;align-items:center;gap:8px;flex:1 1 224px;min-width:0;font-size:12px}
+.reader-preset-row input,.reader-preset-row select{flex:1;min-width:0;min-height:34px;padding:5px 8px;border:1px solid #cbd8bd;border-radius:6px;background:#fff;color:inherit;font:inherit}
+.reader-preset-row input:focus-visible,.reader-preset-row select:focus-visible{outline:2px solid #52783d;outline-offset:2px}
+.reader-preset-row button:disabled{opacity:.55;cursor:default}
+.reader-presets p{margin:4px 0 0;font-size:11px}
+@media print{.reading-filters,.reader-summary,.reading-status,.reader-presets{display:none!important}}
 .public-report-section{margin:30px 0 0;font:500 17px/1.7 "Noto Serif SC",serif;color:#48673b;letter-spacing:1px;padding-bottom:9px;border-bottom:1px solid #dce4d0}
 .collection-health{border:1px solid var(--line);border-left:3px solid #68845d;border-radius:7px;background:#fbfcf8;padding:13px 17px;margin:0 0 22px;font-size:12px;line-height:1.7}
 .collection-health-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.collection-health-title time{margin-left:auto;color:#687567;font-size:11px}.collection-health p{margin:5px 0;color:#58695b}.collection-health a{text-decoration:underline;text-underline-offset:3px}.collection-health.warning,.collection-health.unknown{border-left-color:#b47d37;background:#fdfaf2}.collection-health.error{border-left-color:#b55445;background:#fdf7f5}.collection-health.running{border-left-color:#577b9a;background:#f5f9fc}

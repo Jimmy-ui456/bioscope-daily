@@ -1,7 +1,53 @@
-import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.22';
+import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.23';
 
-const KEYS = ['settings', 'cache', 'readerFilters', 'bookmarks', 'selected', 'reports', 'displayMode'];
+const KEYS = ['settings', 'cache', 'readerFilters', 'readerPresets', 'bookmarks', 'selected', 'reports', 'displayMode'];
+export const READER_PRESET_LIMITS = { count: 30, name: 60, search: 2000, journal: 500 };
+const READER_CHOICES = {
+  days: [0, 1, 7, 30, 90],
+  kind: ['all', 'article', 'review', 'preprint', 'other'],
+  abstract: ['all', 'available', 'missing'],
+  dateBasis: ['published', 'discovered'],
+};
 function record(value) { return value !== null && typeof value === 'object' && !Array.isArray(value); }
+function boundedText(value, max) { return typeof value === 'string' && value.length <= max; }
+export function readerPresetSnapshot(value) {
+  if (!record(value)) return null;
+  const { id, name, search, topic, filter, readerFilters } = value;
+  if (typeof id !== 'string' || !/^[a-zA-Z0-9_-]{1,64}$/.test(id)
+    || !boundedText(name, READER_PRESET_LIMITS.name) || !name.trim()
+    || !boundedText(search, READER_PRESET_LIMITS.search)
+    || !(topic === 'all' || TOPICS.some(entry => entry.id === topic))
+    || !['all', 'translated', 'selected', 'research', 'preprint'].includes(filter)
+    || !record(readerFilters)
+    || !boundedText(readerFilters.journal, READER_PRESET_LIMITS.journal) || !readerFilters.journal.trim()
+    || Object.entries(READER_CHOICES).some(([key, allowed]) => !allowed.includes(readerFilters[key]))) return null;
+  const { journal, days, kind, abstract, dateBasis } = readerFilters;
+  return { id, name: name.trim(), search, topic, filter, readerFilters: { journal, days, kind, abstract, dateBasis } };
+}
+function restoreReaderPresets(value) {
+  if (value === undefined) return { presets: [], skipped: 0 };
+  if (!Array.isArray(value)) return { presets: [], skipped: 1 };
+  const presets = [], ids = new Set(), names = new Set();
+  for (const item of value) {
+    if (presets.length === READER_PRESET_LIMITS.count) break;
+    const preset = readerPresetSnapshot(item);
+    if (!preset || ids.has(preset.id) || names.has(preset.name)) continue;
+    presets.push(preset); ids.add(preset.id); names.add(preset.name);
+  }
+  return { presets, skipped: value.length - presets.length };
+}
+
+export function persistReaderPresets(storage, presets, expectedRaw, prefix = 'bioscope.v1.') {
+  const key = prefix + 'readerPresets';
+  const restored = restoreReaderPresets(presets);
+  if (!Array.isArray(presets) || restored.skipped) return { status: 'failed' };
+  try {
+    if (storage.getItem(key) !== expectedRaw) return { status: 'changed' };
+    const raw = JSON.stringify(restored.presets);
+    storage.setItem(key, raw);
+    return { status: 'saved', raw };
+  } catch { return { status: 'failed' }; }
+}
 function validTime(value) {
   if (typeof value !== 'string') return false;
   const iso = /^(\d{4}-\d{2}-\d{2})T(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d{1,3})?(?:Z|[+-](?:[01]\d|2[0-3]):[0-5]\d)$/.exec(value);
@@ -81,9 +127,10 @@ export function readLocalReaderState(storage, prefix = 'bioscope.v1.') {
         if (typeof saved.journal === 'string') readerFilters.journal = saved.journal;
         else invalid = true;
       }
-      const days = numberChoice(saved.days, [0, 1, 7, 30, 90], 0);
+      const days = numberChoice(saved.days, READER_CHOICES.days, 0);
       readerFilters.days = days.value; invalid ||= !days.valid;
-      for (const [key, allowed] of [['kind', ['all', 'article', 'review', 'preprint', 'other']], ['abstract', ['all', 'available', 'missing']], ['dateBasis', ['published', 'discovered']]]) {
+      for (const [key, allowed] of Object.entries(READER_CHOICES)) {
+        if (key === 'days') continue;
         if (saved[key] === undefined) continue;
         if (allowed.includes(saved[key])) readerFilters[key] = saved[key];
         else invalid = true;
@@ -91,6 +138,8 @@ export function readLocalReaderState(storage, prefix = 'bioscope.v1.') {
       if (invalid) issue('readerFilters', '本机阅读筛选含无效字段，已在本页保留可用筛选。');
     }
   }
+  const { presets: readerPresets, skipped: skippedPresets } = restoreReaderPresets(values.readerPresets);
+  if (skippedPresets) issue('readerPresets', '本机搜索预设含无效、重复或超出上限的记录，已在本页保留可用预设。');
 
   const restoreIds = key => {
     const saved = values[key];
@@ -157,7 +206,7 @@ export function readLocalReaderState(storage, prefix = 'bioscope.v1.') {
     if (['en', 'bilingual'].includes(values.displayMode)) displayMode = values.displayMode;
     else issue('displayMode', '本机显示语言设置无效，当前页面使用中英对照；原记录未改写。');
   }
-  return { settings, cache, readerFilters, bookmarks, selected, reports, displayMode, issues, protectedKeys, rawRecords };
+  return { settings, cache, readerFilters, readerPresets, bookmarks, selected, reports, displayMode, issues, protectedKeys, rawRecords };
 }
 
 // This is an explicit recovery action, separate from startup and routine writes.

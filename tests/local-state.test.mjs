@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { normalizePaper } from '../dist/core.js';
-import { readLocalReaderState, persistLocalRecovery } from '../dist/local-state.js';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, readerPresetSnapshot } from '../dist/local-state.js';
 
 const prefix = 'bioscope.v1.';
 function paper(id = 'fixture') {
@@ -22,16 +22,61 @@ function fakeStorage(values = {}, options = {}) {
   };
 }
 
-test('新访客仅读取七个既有键，不写存储且缺失项使用默认值不告警', () => {
+test('新访客仅启动时读取本机记录，旧库缺少搜索预设时使用空列表且不告警', () => {
   const storage = fakeStorage();
   const state = readLocalReaderState(storage);
   assert.deepEqual(state.settings, { topics: ['synthetic', 'metabolic', 'microbial'], days: 30, reportDays: 7 });
   assert.deepEqual(state.readerFilters, { journal: 'all', days: 0, kind: 'all', abstract: 'all', dateBasis: 'published' });
   assert.deepEqual(state.bookmarks, []); assert.deepEqual(state.selected, []); assert.deepEqual(state.reports, []);
+  assert.deepEqual(state.readerPresets, []);
   assert.equal(state.cache, null); assert.equal(state.displayMode, 'bilingual');
   assert.deepEqual(state.issues, []); assert.deepEqual(state.protectedKeys, []);
-  assert.equal(storage.reads.length, 7); assert.deepEqual(storage.writes, []);
+  assert.equal(storage.reads.length, 8); assert.deepEqual(storage.writes, []);
   assert.deepEqual(Object.keys(state.rawRecords), []);
+});
+
+const savedPreset = {
+  id: 'preset-1', name: '测试 <阅读>', search: '示例 doi:10.1234/paper', topic: 'metabolic', filter: 'translated',
+  readerFilters: { journal: 'Unavailable & Journal', days: 90, kind: 'review', abstract: 'available', dateBasis: 'discovered' },
+};
+
+test('搜索预设保留完整筛选快照和当前库不存在的期刊，后续状态变化不修改快照', () => {
+  const current = structuredClone(savedPreset);
+  const snapshot = readerPresetSnapshot(current);
+  current.search = ''; current.filter = 'all'; current.readerFilters.days = 0; current.readerFilters.journal = 'all';
+  assert.deepEqual(snapshot, savedPreset);
+  const storage = fakeStorage();
+  const result = persistReaderPresets(storage, [snapshot], null);
+  assert.equal(result.status, 'saved');
+  assert.deepEqual(readLocalReaderState(storage).readerPresets, [savedPreset]);
+  assert.deepEqual(persistReaderPresets(storage, [], result.raw).status, 'saved');
+  assert.deepEqual(readLocalReaderState(storage).readerPresets, []);
+});
+
+test('本机搜索预设跳过无效或重复项，保护原记录并允许明确恢复', () => {
+  const malformed = { ...savedPreset, id: 'preset-2', readerFilters: { ...savedPreset.readerFilters, days: '90' } };
+  const storage = fakeStorage({ readerPresets: [savedPreset, malformed, { ...savedPreset, id: 'preset-3' }] });
+  const recovered = readLocalReaderState(storage);
+  assert.deepEqual(recovered.readerPresets, [savedPreset]);
+  assert.deepEqual(recovered.protectedKeys, ['readerPresets']);
+  assert.equal(storage.data.get(prefix + 'readerPresets'), recovered.rawRecords.readerPresets);
+  assert.deepEqual(storage.writes, []);
+  assert.deepEqual(persistLocalRecovery(storage, recovered, recovered).saved, ['readerPresets']);
+  assert.deepEqual(readLocalReaderState(storage).protectedKeys, []);
+  assert.equal(readerPresetSnapshot({ ...savedPreset, filter: 'invalid' }), null);
+  assert.equal(readerPresetSnapshot({ ...savedPreset, name: 'x'.repeat(61) }), null);
+  assert.equal(readerPresetSnapshot({ ...savedPreset, search: 'x'.repeat(2001) }), null);
+});
+
+test('搜索预设报告存储阻塞和其他标签页修改，不写入过期内容', () => {
+  const blockedRead = fakeStorage({}, { failRead: ['readerPresets'] });
+  const blockedWrite = fakeStorage({}, { failWrite: ['readerPresets'] });
+  assert.deepEqual(readLocalReaderState(blockedRead).protectedKeys, ['readerPresets']);
+  assert.equal(persistReaderPresets(blockedRead, [savedPreset], null).status, 'failed');
+  assert.equal(persistReaderPresets(blockedWrite, [savedPreset], null).status, 'failed');
+  const newer = fakeStorage({ readerPresets: [savedPreset] });
+  assert.equal(persistReaderPresets(newer, [], null).status, 'changed');
+  assert.deepEqual(newer.writes, []);
 });
 
 test('有效本机记录完整恢复，合法未知编号不因文献暂未载入而删除，兼容字符串数字', () => {
