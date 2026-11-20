@@ -1,4 +1,4 @@
-import { TOPICS, isValidPaper, mergePapersWithIdMap, validPublicationDate } from './core.js?v=0.2.27';
+import { TOPICS, isValidPaper, mergePapersWithIdMap, validPublicationDate } from './core.js?v=0.2.28';
 
 function record(value) { return value !== null && typeof value === 'object' && !Array.isArray(value); }
 function validTime(value) {
