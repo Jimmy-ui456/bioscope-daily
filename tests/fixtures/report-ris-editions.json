@@ -1,0 +1,65 @@
+{
+  "currentTitle": "Advancing terpenoid biosynthesis in Saccharomyces cerevisiae: Synthetic biology approaches for efficient longifolene production.",
+  "reports": [
+    {
+      "id": "public-daily-2026-11-09",
+      "kind": "public_daily",
+      "date": "2026-11-09",
+      "papers": [
+        {
+          "title": "Advancing Terpenoid Biosynthesis in Saccharomyces cerevisiae: Synthetic Biology Approaches for Efficient Longifolene Production.",
+          "authors": "Zhang W, Xin Y, Li S, Shen X, Zhang J, He H, Xiang S, Ba L, Liu Y.",
+          "journal": "Metabolic engineering",
+          "publishedAt": "2026-11-03",
+          "collection": "Europe PMC",
+          "source": "MED",
+          "doi": "10.1016/j.ymben.2026.102577",
+          "url": "https://doi.org/10.1016/j.ymben.2026.102577",
+          "type": "期刊论文",
+          "isPreprint": false,
+          "pmid": "42977118"
+        }
+      ]
+    },
+    {
+      "id": "public-daily-2026-11-13",
+      "kind": "public_daily",
+      "date": "2026-11-13",
+      "papers": [
+        {
+          "title": "Calcium Signaling Enhances Bostrycin Biosynthesis in Nigrospora sphaerica HCH285: Transcriptomic Insights into Metabolic Regulation",
+          "authors": "Yang B, Zhang S, Wang Z, Xu F, Zhong W, Liu Y, Dong X, He Y.",
+          "journal": "预印本平台",
+          "publishedAt": "2026-11-13",
+          "collection": "Europe PMC",
+          "source": "PPR",
+          "doi": "10.21203/rs.3.rs-11147586/v1",
+          "url": "https://doi.org/10.21203/rs.3.rs-11147586/v1",
+          "type": "预印本",
+          "isPreprint": true,
+          "pmid": null
+        }
+      ]
+    },
+    {
+      "id": "public-daily-2026-11-14",
+      "kind": "public_daily",
+      "date": "2026-11-14",
+      "papers": [
+        {
+          "title": "Calcium Signaling Enhances Bostrycin Biosynthesis in Nigrospora sphaerica HCH285: Transcriptomic Insights into Metabolic Regulation",
+          "authors": "Yang B, Zhang S, Wang Z, Xu F, Zhong W, Liu Y, Dong X, He Y.",
+          "journal": "预印本平台",
+          "publishedAt": "2026-11-13",
+          "collection": "Europe PMC",
+          "source": "PPR",
+          "doi": "10.21203/rs.3.rs-11147586/v1",
+          "url": "https://doi.org/10.21203/rs.3.rs-11147586/v1",
+          "type": "预印本",
+          "isPreprint": true,
+          "pmid": null
+        }
+      ]
+    }
+  ]
+}

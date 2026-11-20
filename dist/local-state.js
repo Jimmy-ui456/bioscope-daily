@@ -1,4 +1,4 @@
-import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.23';
+import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.24';
 
 const KEYS = ['settings', 'cache', 'readerFilters', 'readerPresets', 'bookmarks', 'selected', 'reports', 'displayMode'];
 export const READER_PRESET_LIMITS = { count: 30, name: 60, search: 2000, journal: 500 };
