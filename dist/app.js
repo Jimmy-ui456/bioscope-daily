@@ -1,18 +1,19 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.28';
-import { collectionHealth } from './health.js?v=0.2.28';
-import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.28';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.28';
-import { evidenceContext } from './evidence.js?v=0.2.28';
-import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.28';
-import { reportRis } from './report-ris.js?v=0.2.28';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.28';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.28';
-import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.28';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.28';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.28';
-import { TOPICS, APP_VERSION, collectTopic, collectionTopicStats, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.28';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.29';
+import { collectionHealth } from './health.js?v=0.2.29';
+import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.29';
+import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.29';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.29';
+import { evidenceContext } from './evidence.js?v=0.2.29';
+import { requestedPublicReport, reportLocation } from './report-navigation.js?v=0.2.29';
+import { reportRis } from './report-ris.js?v=0.2.29';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.29';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.29';
+import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.29';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.29';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.29';
+import { TOPICS, APP_VERSION, collectTopic, collectionTopicStats, mergePapers, isValidPaper, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.29';
 
-import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.28';
+import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.29';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -55,6 +56,7 @@ let runtimeRefreshBusy = false;
 // Cache source markup; DOM serialization normalizes SVG tags and would repeat live announcements.
 const healthMarkupByNode = new WeakMap();
 const coverageMarkupByNode = new WeakMap();
+const sharedRecordIndexes = new WeakMap();
 let toastTimer;
 const navigationMedia = window.matchMedia('(max-width: 760px)');
 let mobileMenuOpen = false;
@@ -267,6 +269,7 @@ function updateHealthDisplay() {
       restoreFocus(node, focus);
     }
   }
+  if (state.view === 'daily') updateReportComparisons();
   const coverage = $('#shared-coverage');
   if (!coverage) return;
   const markup = state.view === 'sources' ? sourceCoverageContent() : sharedCoverageContent();
@@ -390,11 +393,41 @@ function reportCollectionNotice(report) {
   const link = validWorkflowRunUrl(source.runUrl) ? ' · <a href="' + esc(source.runUrl) + '" target="_blank" rel="noopener noreferrer">本期采集运行 ↗</a>' : '';
   return '<div class="report-warning"><strong>本期采集追溯</strong> · ' + esc(status) + '<br>来源：' + esc(collectionSourceLabel(source)) + link + '。首刊保留成刊时的数据，后续补采不重写本期。</div>';
 }
+function displayedReport() {
+  const reports = allReports();
+  return reports.find(report => report.id === state.reportId) || reports[0];
+}
+function reportComparisons(report) {
+  if (!libraryMeta) return [];
+  let index = sharedRecordIndexes.get(libraryMeta);
+  if (!index) {
+    index = indexSharedRecords(libraryMeta.papers);
+    sharedRecordIndexes.set(libraryMeta, index);
+  }
+  return sharedReportChanges(report, index);
+}
+function reportComparisonMarkup(fields) {
+  if (!fields?.length) return '';
+  const labels = { title: '原文题名', abstract: '原文摘要', authors: '作者', publishedAt: '发表日期', version: '来源版本' };
+  const { asOf } = snapshotCoverage(libraryMeta);
+  return `<p class="report-comparison"><strong>共享记录字段有变化</strong> · ${fields.map(field => labels[field]).join('、')}<br>${sharedSnapshotNote(asOf)}。下方正文使用本期保存的记录。</p>`;
+}
+function updateReportComparisons() {
+  const entries = document.querySelectorAll('[data-shared-comparison]');
+  const report = displayedReport();
+  if (!report || !entries.length) return;
+  const comparisons = reportComparisons(report);
+  entries.forEach(entry => {
+    const markup = reportComparisonMarkup(comparisons[entry.dataset.sharedComparison]);
+    if (entry.innerHTML !== markup) entry.innerHTML = markup;
+  });
+}
 function reportPage() {
-  const report = allReports().find(r => r.id === state.reportId) || allReports()[0];
+  const report = displayedReport();
   const isPublic = report?.kind === 'public_daily';
   if (!report) return `${publicArchiveStatusMarkup()}${reportRequestWarning()}${empty('第一份简报，由你的判断开始', '先在研究雷达中，把值得读的论文加入「精选」。<br>再将符合日期范围的研究，生成一份带原文出处的简报。', '<button class="button dark" data-action="generate-report">'+icon('file', 13)+'生成我的第一份简报</button>')}<div class="report-warning">简报使用你设定的发表日期范围（当前 ${state.settings.reportDays} 天）。它会同时导出已有中英对照及基于摘要的模型解读。缺少译文的记录会明确标注。</div>`;
-  return `${publicArchiveStatusMarkup()}${reportRequestWarning()}<div class="report-tools"><button class="button dark" data-action="generate-report">${icon('refresh', 13)}生成我的简报</button><button class="button" data-action="export-report" data-report="${report.id}">${icon('download', 13)}导出 Markdown</button><button class="button" data-action="export-report-ris" data-report="${esc(report.id)}" ${report.papers.length ? '' : 'disabled'}>${icon('download', 13)}导出 RIS</button><button class="button" data-action="print-report">${icon('printer', 13)}打印 / PDF</button><a class="button" href="./feed.xml" target="_blank" rel="noopener noreferrer">RSS 订阅</a>${isPublic ? `<button class="button" data-action="copy-report-link" data-report="${report.id}">复制本期链接</button>` : ''}<select id="report-selector" aria-label="切换简报">${allReports().map(r => `<option value="${r.id}" ${r.id === report.id ? 'selected' : ''}>${r.date} · ${r.papers.length} 篇 · ${r.kind === 'public_daily' ? '公共自动日报' : '我的人工精选'}</option>`).join('')}</select></div><article class="report"><div class="report-top"><div class="report-name">${isPublic ? '公共生研日报' : '我的生研日报'}</div><div class="report-number">BIOSCOPE / DAILY BRIEF<br>${shortDate(report.date)} · ${report.papers.length} 篇${isPublic ? '文献' : '精选'}</div></div><div class="eyebrow">RESEARCH WORTH YOUR ATTENTION</div><h2 class="report-lead">今天的阅读，从这些研究开始。</h2><p class="report-desc">覆盖 ${shortDate(report.windowStart)} — ${shortDate(report.date)} 发表的${isPublic ? '自动整理文献' : '人工精选文献'}。<br>数据：${report.origin === 'sample' ? '文献样本或个人导入记录，来源需核对，不代表今日完整监控' : 'Europe PMC 采集缓存'} · 保留原文摘要与链接</p>${isPublic ? `<div class="report-warning"><strong>公共自动日报</strong> · ${esc(report.selectionPolicy?.description || '按规则自动整理，非人工科研价值精选。')}<br>${esc(report.selectionPolicy?.coverageNote || '只覆盖当前文献库。')}</div>` : ''}${report.papers.length ? '' : '<p class="report-desc">本期没有符合日期及主题规则的文献。</p>'}${reportCollectionNotice(report)}${report.papers.map((p, i) => { const reading = readingAvailability(p, translations); return `${isPublic && report.sections?.find(section => section.paperIds[0] === p.id) ? `<h3 class="public-report-section">${esc(report.sections.find(section => section.paperIds[0] === p.id).label)}</h3>` : ''}<section class="report-entry"><div class="eyebrow">${String(i + 1).padStart(2, '0')} / ${p.topics.map(t => topicOf(t).name).join(' · ')}</div><a class="paper-title" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${paperHeading(p, reading)} ${icon('external', 13)}</a>${reportRetractionWarning(p)}<p class="reading-availability">${reading.label}</p>${paperAbstract(p, reading, true)}${interpretationBlock(p, reading, { report: true })}<div class="paper-meta">${esc(p.journal)} <span class="sep">/</span>${shortDate(p.publishedAt)} <span class="sep">/</span>${esc(p.status)}</div></section>`; }).join('')}<div class="report-warning">阅读范围：仅题录或摘要，未进行全文核验。辅助译文和模型解读需核对原文；期刊记录不等于质量认证。生成时间：${esc(new Date(report.createdAt).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }))}。</div></article>`;
+  const comparisons = reportComparisons(report);
+  return `${publicArchiveStatusMarkup()}${reportRequestWarning()}<div class="report-tools"><button class="button dark" data-action="generate-report">${icon('refresh', 13)}生成我的简报</button><button class="button" data-action="export-report" data-report="${report.id}">${icon('download', 13)}导出 Markdown</button><button class="button" data-action="export-report-ris" data-report="${esc(report.id)}" ${report.papers.length ? '' : 'disabled'}>${icon('download', 13)}导出 RIS</button><button class="button" data-action="print-report">${icon('printer', 13)}打印 / PDF</button><a class="button" href="./feed.xml" target="_blank" rel="noopener noreferrer">RSS 订阅</a>${isPublic ? `<button class="button" data-action="copy-report-link" data-report="${report.id}">复制本期链接</button>` : ''}<select id="report-selector" aria-label="切换简报">${allReports().map(r => `<option value="${r.id}" ${r.id === report.id ? 'selected' : ''}>${r.date} · ${r.papers.length} 篇 · ${r.kind === 'public_daily' ? '公共自动日报' : '我的人工精选'}</option>`).join('')}</select></div><article class="report"><div class="report-top"><div class="report-name">${isPublic ? '公共生研日报' : '我的生研日报'}</div><div class="report-number">BIOSCOPE / DAILY BRIEF<br>${shortDate(report.date)} · ${report.papers.length} 篇${isPublic ? '文献' : '精选'}</div></div><div class="eyebrow">RESEARCH WORTH YOUR ATTENTION</div><h2 class="report-lead">今天的阅读，从这些研究开始。</h2><p class="report-desc">覆盖 ${shortDate(report.windowStart)} — ${shortDate(report.date)} 发表的${isPublic ? '自动整理文献' : '人工精选文献'}。<br>数据：${report.origin === 'sample' ? '文献样本或个人导入记录，来源需核对，不代表今日完整监控' : 'Europe PMC 采集缓存'} · 保留原文摘要与链接</p>${isPublic ? `<div class="report-warning"><strong>公共自动日报</strong> · ${esc(report.selectionPolicy?.description || '按规则自动整理，非人工科研价值精选。')}<br>${esc(report.selectionPolicy?.coverageNote || '只覆盖当前文献库。')}</div>` : ''}${report.papers.length ? '' : '<p class="report-desc">本期没有符合日期及主题规则的文献。</p>'}${reportCollectionNotice(report)}${report.papers.map((p, i) => { const reading = readingAvailability(p, translations); return `${isPublic && report.sections?.find(section => section.paperIds[0] === p.id) ? `<h3 class="public-report-section">${esc(report.sections.find(section => section.paperIds[0] === p.id).label)}</h3>` : ''}<section class="report-entry"><div class="eyebrow">${String(i + 1).padStart(2, '0')} / ${p.topics.map(t => topicOf(t).name).join(' · ')}</div><a class="paper-title" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${paperHeading(p, reading)} ${icon('external', 13)}</a>${reportRetractionWarning(p)}<div data-shared-comparison="${i}">${reportComparisonMarkup(comparisons[i])}</div><p class="reading-availability">${reading.label}</p>${paperAbstract(p, reading, true)}${interpretationBlock(p, reading, { report: true })}<div class="paper-meta">${esc(p.journal)} <span class="sep">/</span>${shortDate(p.publishedAt)} <span class="sep">/</span>${esc(p.status)}</div></section>`; }).join('')}<div class="report-warning">阅读范围：仅题录或摘要，未进行全文核验。辅助译文和模型解读需核对原文；期刊记录不等于质量认证。生成时间：${esc(new Date(report.createdAt).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }))}。</div></article>`;
 }
 function footer() { return `<footer class="footer"><div><strong>生研观察 BioScope</strong> &nbsp; · &nbsp; 追踪进展，也保留判断。<br>原型 V${APP_VERSION} · 仅题录与摘要 · 每条研究均链接原始出处</div><div class="footer-right"><a href="./feed.xml" target="_blank" rel="noopener noreferrer">RSS 订阅</a><a href="https://github.com/Jimmy-ui456/bioscope-daily" target="_blank" rel="noopener noreferrer">项目源码 ↗</a><button data-view="sources">信源与边界 ${icon('external', 10)}</button><a href="https://github.com/KKKKhazix/AIHOT" target="_blank" rel="noopener noreferrer">架构参考 AIHOT ${icon('external', 10)}</a></div></footer>`; }
 function syncNavigation() {
