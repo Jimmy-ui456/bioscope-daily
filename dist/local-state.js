@@ -1,13 +1,16 @@
-import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.25';
+import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.26';
+import { restoreReadMarks } from './read-progress.js?v=0.2.26';
 
-const KEYS = ['settings', 'cache', 'readerFilters', 'readerPresets', 'bookmarks', 'selected', 'reports', 'displayMode'];
+const KEYS = ['settings', 'cache', 'readerFilters', 'readerPresets', 'readMarks', 'bookmarks', 'selected', 'reports', 'displayMode'];
 export const READER_PRESET_LIMITS = { count: 30, name: 60, search: 2000, journal: 500 };
 const READER_CHOICES = {
   days: [0, 1, 7, 30, 90],
   kind: ['all', 'article', 'review', 'preprint', 'other'],
   abstract: ['all', 'available', 'missing'],
   dateBasis: ['published', 'discovered'],
+  progress: ['all', 'unread', 'read'],
 };
+export const READER_DEFAULTS = { journal: 'all', days: 0, kind: 'all', abstract: 'all', dateBasis: 'published', progress: 'all' };
 function record(value) { return value !== null && typeof value === 'object' && !Array.isArray(value); }
 function boundedText(value, max) { return typeof value === 'string' && value.length <= max; }
 export function readerPresetSnapshot(value) {
@@ -20,9 +23,9 @@ export function readerPresetSnapshot(value) {
     || !['all', 'translated', 'cited', 'selected', 'research', 'preprint'].includes(filter)
     || !record(readerFilters)
     || !boundedText(readerFilters.journal, READER_PRESET_LIMITS.journal) || !readerFilters.journal.trim()
-    || Object.entries(READER_CHOICES).some(([key, allowed]) => !allowed.includes(readerFilters[key]))) return null;
-  const { journal, days, kind, abstract, dateBasis } = readerFilters;
-  return { id, name: name.trim(), search, topic, filter, readerFilters: { journal, days, kind, abstract, dateBasis } };
+    || Object.entries(READER_CHOICES).some(([key, allowed]) => !(key === 'progress' && readerFilters[key] === undefined) && !allowed.includes(readerFilters[key]))) return null;
+  const { journal, days, kind, abstract, dateBasis, progress = 'all' } = readerFilters;
+  return { id, name: name.trim(), search, topic, filter, readerFilters: { journal, days, kind, abstract, dateBasis, progress } };
 }
 function restoreReaderPresets(value) {
   if (value === undefined) return { presets: [], skipped: 0 };
@@ -38,12 +41,19 @@ function restoreReaderPresets(value) {
 }
 
 export function persistReaderPresets(storage, presets, expectedRaw, prefix = 'bioscope.v1.') {
-  const key = prefix + 'readerPresets';
   const restored = restoreReaderPresets(presets);
   if (!Array.isArray(presets) || restored.skipped) return { status: 'failed' };
+  return persistCompared(storage, prefix + 'readerPresets', restored.presets, expectedRaw);
+}
+export function persistReadMarks(storage, marks, expectedRaw, prefix = 'bioscope.v1.') {
+  const restored = restoreReadMarks(marks);
+  if (!Array.isArray(marks) || restored.skipped) return { status: 'failed' };
+  return persistCompared(storage, prefix + 'readMarks', restored.marks, expectedRaw);
+}
+function persistCompared(storage, key, value, expectedRaw) {
   try {
     if (storage.getItem(key) !== expectedRaw) return { status: 'changed' };
-    const raw = JSON.stringify(restored.presets);
+    const raw = JSON.stringify(value);
     storage.setItem(key, raw);
     return { status: 'saved', raw };
   } catch { return { status: 'failed' }; }
@@ -117,7 +127,7 @@ export function readLocalReaderState(storage, prefix = 'bioscope.v1.') {
     }
   }
 
-  const readerFilters = { journal: 'all', days: 0, kind: 'all', abstract: 'all', dateBasis: 'published' };
+  const readerFilters = { ...READER_DEFAULTS };
   if (values.readerFilters !== undefined) {
     const saved = values.readerFilters;
     if (!record(saved)) issue('readerFilters', '本机阅读筛选结构无效，已在本页使用默认筛选。');
@@ -140,6 +150,8 @@ export function readLocalReaderState(storage, prefix = 'bioscope.v1.') {
   }
   const { presets: readerPresets, skipped: skippedPresets } = restoreReaderPresets(values.readerPresets);
   if (skippedPresets) issue('readerPresets', '本机搜索预设含无效、重复或超出上限的记录，已在本页保留可用预设。');
+  const { marks: readMarks, skipped: skippedMarks } = restoreReadMarks(values.readMarks);
+  if (skippedMarks) issue('readMarks', '本机已读标记含无效、重复或超出上限的记录，已在本页保留可用标记。');
 
   const restoreIds = key => {
     const saved = values[key];
@@ -206,7 +218,7 @@ export function readLocalReaderState(storage, prefix = 'bioscope.v1.') {
     if (['en', 'bilingual'].includes(values.displayMode)) displayMode = values.displayMode;
     else issue('displayMode', '本机显示语言设置无效，当前页面使用中英对照；原记录未改写。');
   }
-  return { settings, cache, readerFilters, readerPresets, bookmarks, selected, reports, displayMode, issues, protectedKeys, rawRecords };
+  return { settings, cache, readerFilters, readerPresets, readMarks, bookmarks, selected, reports, displayMode, issues, protectedKeys, rawRecords };
 }
 
 // This is an explicit recovery action, separate from startup and routine writes.

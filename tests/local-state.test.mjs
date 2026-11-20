@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { normalizePaper } from '../dist/core.js';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, readerPresetSnapshot } from '../dist/local-state.js';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, readerPresetSnapshot } from '../dist/local-state.js';
+import { readMarkFor } from '../dist/read-progress.js';
 
 const prefix = 'bioscope.v1.';
 function paper(id = 'fixture') {
@@ -26,18 +27,50 @@ test('新访客仅启动时读取本机记录，旧库缺少搜索预设时使�
   const storage = fakeStorage();
   const state = readLocalReaderState(storage);
   assert.deepEqual(state.settings, { topics: ['synthetic', 'metabolic', 'microbial'], days: 30, reportDays: 7 });
-  assert.deepEqual(state.readerFilters, { journal: 'all', days: 0, kind: 'all', abstract: 'all', dateBasis: 'published' });
+  assert.deepEqual(state.readerFilters, { journal: 'all', days: 0, kind: 'all', abstract: 'all', dateBasis: 'published', progress: 'all' });
   assert.deepEqual(state.bookmarks, []); assert.deepEqual(state.selected, []); assert.deepEqual(state.reports, []);
   assert.deepEqual(state.readerPresets, []);
   assert.equal(state.cache, null); assert.equal(state.displayMode, 'bilingual');
   assert.deepEqual(state.issues, []); assert.deepEqual(state.protectedKeys, []);
-  assert.equal(storage.reads.length, 8); assert.deepEqual(storage.writes, []);
+  assert.equal(storage.reads.length, 9); assert.deepEqual(storage.writes, []);
+  assert.deepEqual(state.readMarks, []);
   assert.deepEqual(Object.keys(state.rawRecords), []);
+});
+
+test('旧版精细筛选和预设补齐阅读进度，异常进度保留原记录', () => {
+  const old = structuredClone(savedPreset);
+  delete old.readerFilters.progress;
+  const storage = fakeStorage({ readerFilters: old.readerFilters, readerPresets: [old] });
+  const migrated = readLocalReaderState(storage);
+  assert.equal(migrated.readerFilters.progress, 'all');
+  assert.equal(migrated.readerPresets[0].readerFilters.progress, 'all');
+  assert.deepEqual(migrated.protectedKeys, []);
+  assert.deepEqual(storage.writes, []);
+  const read = { ...old, readerFilters: { ...old.readerFilters, progress: 'read' } };
+  assert.deepEqual(readerPresetSnapshot(read), read);
+  assert.equal(readerPresetSnapshot({ ...read, readerFilters: { ...read.readerFilters, progress: 'invalid' } }), null);
+});
+
+test('已读标记恢复保护原记录，跨标签页和存储失败时不覆盖原记录', () => {
+  const mark = readMarkFor(paper());
+  const storage = fakeStorage({ readMarks: [mark, {}] });
+  const state = readLocalReaderState(storage);
+  assert.deepEqual(state.readMarks, [mark]);
+  assert.deepEqual(state.protectedKeys, ['readMarks']);
+  assert.deepEqual(storage.writes, []);
+  assert.deepEqual(persistLocalRecovery(storage, state, state).saved, ['readMarks']);
+  const current = readLocalReaderState(storage);
+  assert.equal(persistReadMarks(storage, [], null).status, 'changed');
+  assert.equal(persistReadMarks(storage, [], current.rawRecords.readMarks).status, 'saved');
+  assert.deepEqual(readLocalReaderState(storage).readMarks, []);
+  const full = fakeStorage({}, { failWrite: ['readMarks'] });
+  assert.equal(persistReadMarks(full, [mark], null).status, 'failed');
+  assert.deepEqual(full.writes, []);
 });
 
 const savedPreset = {
   id: 'preset-1', name: '测试 <阅读>', search: '示例 doi:10.1234/paper', topic: 'metabolic', filter: 'translated',
-  readerFilters: { journal: 'Unavailable & Journal', days: 90, kind: 'review', abstract: 'available', dateBasis: 'discovered' },
+  readerFilters: { journal: 'Unavailable & Journal', days: 90, kind: 'review', abstract: 'available', dateBasis: 'discovered', progress: 'all' },
 };
 
 test('附原文引文筛选可保存和恢复为搜索预设', () => {
@@ -90,7 +123,7 @@ test('有效本机记录完整恢复，合法未知编号不因文献暂未载�
   const values = { settings: { topics: ['metabolic'], days: '14', reportDays: '30' },
     cache: { papers: [p], origin: 'sample', containsImported: true, updatedAt: '2026-11-12T11:00:00+08:00',
       stats: [{ topic: '代谢工程', count: 4, hitCount: 12, truncated: true }, { topic: '合成生物学', error: '旧请求失败' }] },
-    readerFilters: { journal: 'Example', days: '7', kind: 'review', abstract: 'available', dateBasis: 'discovered' },
+    readerFilters: { journal: 'Example', days: '7', kind: 'review', abstract: 'available', dateBasis: 'discovered', progress: 'all' },
     bookmarks: [p.id, 'doi:10.1234/not-currently-loaded'], selected: [p.id], reports: [report()], displayMode: 'en' };
   const before = structuredClone(values), storage = fakeStorage(values), rawBefore = [...storage.data];
   const state = readLocalReaderState(storage);
@@ -98,7 +131,7 @@ test('有效本机记录完整恢复，合法未知编号不因文献暂未载�
   assert.deepEqual(state.bookmarks, values.bookmarks); assert.deepEqual(state.selected, values.selected);
   assert.deepEqual(state.cache.papers, [p]); assert.equal(state.cache.containsImported, true);
   assert.deepEqual(state.cache.stats[1], { topic: '合成生物学', count: null, hitCount: null, truncated: null, error: '旧请求失败' });
-  assert.deepEqual(state.readerFilters, { journal: 'Example', days: 7, kind: 'review', abstract: 'available', dateBasis: 'discovered' });
+  assert.deepEqual(state.readerFilters, { journal: 'Example', days: 7, kind: 'review', abstract: 'available', dateBasis: 'discovered', progress: 'all' });
   assert.deepEqual(state.reports, values.reports); assert.equal(state.displayMode, 'en');
   assert.deepEqual(state.issues, []); assert.deepEqual(state.protectedKeys, []);
   assert.deepEqual(values, before); assert.deepEqual([...storage.data], rawBefore); assert.deepEqual(storage.writes, []);
@@ -121,7 +154,7 @@ test('对象数值、错误顶层及原型相关键不能触发隐式Number转�
     selected: '{}', bookmarks: 'false', reports: '{}', displayMode: '{}' }, { raw: true });
   const state = readLocalReaderState(storage);
   assert.equal(state.settings.days, 30); assert.equal(state.settings.reportDays, 7); assert.deepEqual(state.settings.topics, ['metabolic']);
-  assert.deepEqual(state.readerFilters, { journal: 'all', days: 0, kind: 'all', abstract: 'all', dateBasis: 'published' });
+  assert.deepEqual(state.readerFilters, { journal: 'all', days: 0, kind: 'all', abstract: 'all', dateBasis: 'published', progress: 'all' });
   assert.deepEqual(state.bookmarks, []); assert.deepEqual(state.selected, []); assert.deepEqual(state.reports, []);
   assert.equal(state.displayMode, 'bilingual'); assert.equal({}.polluted, undefined);
   assert.equal(state.protectedKeys.length, 6); assert.equal(Object.getPrototypeOf(state.rawRecords), null);
