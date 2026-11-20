@@ -1,4 +1,4 @@
-import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.24';
+import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.25';
 
 const KEYS = ['settings', 'cache', 'readerFilters', 'readerPresets', 'bookmarks', 'selected', 'reports', 'displayMode'];
 export const READER_PRESET_LIMITS = { count: 30, name: 60, search: 2000, journal: 500 };
@@ -17,7 +17,7 @@ export function readerPresetSnapshot(value) {
     || !boundedText(name, READER_PRESET_LIMITS.name) || !name.trim()
     || !boundedText(search, READER_PRESET_LIMITS.search)
     || !(topic === 'all' || TOPICS.some(entry => entry.id === topic))
-    || !['all', 'translated', 'selected', 'research', 'preprint'].includes(filter)
+    || !['all', 'translated', 'cited', 'selected', 'research', 'preprint'].includes(filter)
     || !record(readerFilters)
     || !boundedText(readerFilters.journal, READER_PRESET_LIMITS.journal) || !readerFilters.journal.trim()
     || Object.entries(READER_CHOICES).some(([key, allowed]) => !allowed.includes(readerFilters[key]))) return null;

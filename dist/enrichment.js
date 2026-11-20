@@ -1,4 +1,4 @@
-import { checkEvidenceClaim } from './evidence.js?v=0.2.24';
+import { checkEvidenceClaim } from './evidence.js?v=0.2.25';
 
 // Shared by the static reader and the unattended collection job. No credentials here.
 export function sourceFingerprint(paper) {
@@ -56,6 +56,17 @@ export function interpretationOf(paper) {
     if (translation.limitations.length > 8) rejectedFields.push('limitations[8+]');
   }
   return output;
+}
+export function readingAvailability(paper, catalog) {
+  const enriched = attachEnrichment(paper, catalog);
+  const translation = translationOf(enriched);
+  const hasAbstract = typeof paper.abstract === 'string' && Boolean(paper.abstract.trim());
+  const bilingual = hasAbstract && Boolean(translation?.abstractZh.trim());
+  const interpretation = interpretationOf(enriched);
+  const cited = Boolean(interpretation && (interpretation.question || interpretation.methods
+    || interpretation.findings || interpretation.limitations.length));
+  const label = cited ? '解读附原文引文 · 未审核' : bilingual ? '中英对照 · 未审核' : hasAbstract ? '原文摘要' : '仅题录';
+  return { hasAbstract, bilingual, cited, label, translation, interpretation };
 }
 function validMetricDate(value) {
   if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;

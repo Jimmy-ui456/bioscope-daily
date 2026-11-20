@@ -40,6 +40,12 @@ const savedPreset = {
   readerFilters: { journal: 'Unavailable & Journal', days: 90, kind: 'review', abstract: 'available', dateBasis: 'discovered' },
 };
 
+test('附原文引文筛选可保存和恢复为搜索预设', () => {
+  const preset = { ...savedPreset, filter: 'cited' };
+  assert.deepEqual(readerPresetSnapshot(preset), preset);
+  assert.deepEqual(readLocalReaderState(fakeStorage({ readerPresets: [preset] })).readerPresets, [preset]);
+});
+
 test('搜索预设保留完整筛选快照和当前库不存在的期刊，后续状态变化不修改快照', () => {
   const current = structuredClone(savedPreset);
   const snapshot = readerPresetSnapshot(current);

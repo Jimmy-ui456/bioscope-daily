@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { checkEvidenceClaim, evidenceContext } from '../dist/evidence.js';
-import { sourceFingerprint, translationOf, interpretationOf } from '../dist/enrichment.js';
+import { sourceFingerprint, translationOf, interpretationOf, readingAvailability } from '../dist/enrichment.js';
 import { validateInterpretation } from '../backend/interpret.mjs';
 
 const paper = {
@@ -15,6 +15,40 @@ const translated = {
   origin: 'model', sourceFingerprint: sourceFingerprint(paper), sourceTitle: paper.title, sourceAbstract: paper.abstract,
 };
 const enriched = extra => ({ ...paper, enrichment: { ...translated, ...extra } });
+
+test('阅读状态区分题录、原文摘要与有当前译文但没有有效引文的记录', () => {
+  for (const abstract of [undefined, '', ' \n ']) {
+    assert.equal(readingAvailability({ ...paper, abstract }).label, '仅题录');
+  }
+  assert.equal(readingAvailability(paper).label, '原文摘要');
+  assert.equal(readingAvailability(enriched({ abstractZh: ' \n ' })).label, '原文摘要');
+  for (const extra of [{}, { methods: { ...claim, evidence: 'Quote not present.' } },
+    { analysisStatus: 'translation_only', findings: claim }]) {
+    const result = readingAvailability(enriched(extra));
+    assert.equal(result.label, '中英对照 · 未审核');
+    assert.equal(result.cited, false);
+    assert.equal(result.bilingual, true);
+  }
+});
+
+test('有一条通过校验的引文即归入附引文，过期原文和无效的其他引文均被排除', () => {
+  const catalog = { [paper.id]: { ...translated, sourceNote: '来源说明', findings: claim,
+    methods: { ...claim, evidence: 'Quote not present.' } } };
+  const current = readingAvailability(paper, catalog);
+  assert.equal(current.label, '解读附原文引文 · 未审核');
+  assert.equal(current.cited, true);
+  assert.equal(current.interpretation.findings.start, paper.abstract.indexOf(claim.evidence));
+  assert.equal(current.interpretation.methods, null);
+  assert.deepEqual(current.interpretation.rejectedFields, ['methods']);
+  assert.equal(current.translation.sourceNote, '来源说明');
+  for (const revised of [{ ...paper, title: 'Updated source title' }, { ...paper, abstract: paper.abstract + ' Updated.' }]) {
+    const stale = readingAvailability(revised, catalog);
+    assert.equal(stale.label, '原文摘要');
+    assert.equal(stale.cited, false);
+    assert.equal(stale.translation, null);
+  }
+  assert.equal(readingAvailability(enriched({ limitations: [limitation] })).cited, true);
+});
 
 test('逐字证据返回所在原文字段和重算的半开位置，不相信导入的伪造定位', () => {
   const checked = checkEvidenceClaim(paper, { ...claim, source: 'title', start: 999, end: 1000 });
