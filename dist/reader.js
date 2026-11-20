@@ -1,5 +1,5 @@
-import { TOPICS, cleanDoi, beijingDay, dayBefore, validPublicationDate, isRetracted } from './core.js?v=0.2.33';
-import { attachEnrichment, translationOf } from './enrichment.js?v=0.2.33';
+import { TOPICS, cleanDoi, beijingDay, dayBefore, validPublicationDate, isRetracted } from './core.js?v=0.2.34';
+import { attachEnrichment, translationOf } from './enrichment.js?v=0.2.34';
 export function paperKind(paper) {
   if (paper.isPreprint) return 'preprint';
   if (paper.type === '综述') return 'review';
