@@ -1,8 +1,139 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-20T03:59:55.690Z",
+  "fetchedAt": "2026-11-21T03:59:36.315Z",
   "papers": [
+    {
+      "id": "doi:10.1128/spectrum.01261-26",
+      "title": "Assessing soluble and insoluble calcium sources for growth, biofilm formation, and biomineralization in Bacillus subtilis .",
+      "abstract": "Biofilms formed by soil microbes hold immense potential for bioremediation, carbon dioxide sequestration, and the development of sustainable cementitious materials. However, quantifying the complex temporal coupling among bacterial growth, extracellular matrix (ECM) production, and mineralization dynamics remains challenging because these processes are inherently non-linear and high-throughput assays introduce signal noise. To address this, we utilized an automated kinetic framework to evaluate the biomineralization competence of Bacillus subtilis under varying calcium regimes. Our results demonstrate that calcium carbonate promotes microbial growth as effectively as soluble calcium acetate, indicating that B. subtilis actively solubilizes the crystalline powder. Despite this growth efficacy, calcium carbonate was an inadequate source for macro-calcite production compared to organic salts. By quantifying expression from the sinI promoter, which initiates SinI production to activate matrix synthesis, we suggested that calcium-acetate-driven ECM expression significantly enhances the structural template required for robust biomineralization. Kinetic expression analysis and consolidation assays indicate that overproduced ECM partially mitigates crystalline calcite growth defects, offering a baseline for utilizing mineral-rich construction waste.IMPORTANCEBiomineralization in Bacillus subtilis has been studied as a potential avenue for developing engineered living materials (ELMs). However, organic calcium salts, such as calcium acetate and calcium lactate, typically yield higher bioconversion efficiencies than certain inorganic sources often used in construction. This advantage has been largely attributed to the metabolic utilization of the organic anion as a carbon source, thereby promoting local alkalinity. Here, our experiments indicate that this limitation is influenced by structural and regulatory constraints rather than purely chemical barriers. Moreover, we explored a targeted synthetic biology approach to address this by genetically decoupling matrix production from native environmental sensing, thereby engineering strains with increased matrix production that can partially overcome the limitations of non-inductive substrates. This approach can contribute to sustainable construction technologies, moving toward actively programmed ELMs.",
+      "authors": "Tchelet D, Nahami A, Ioshpe A, Murugan PA, Lapsker I, Dorfan Y, Kolodkin-Gal I.",
+      "journal": "Microbiology spectrum",
+      "doi": "10.1128/spectrum.01261-26",
+      "pmid": "43062015",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43062015",
+      "url": "https://doi.org/10.1128/spectrum.01261-26",
+      "publishedAt": "2026-11-20",
+      "discoveredAt": "2026-11-21T03:59:20.380Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.64898/2026.11.19.767875",
+      "title": "Gene identity, not recoding strategy, determines the fitness cost of synonymous recoding in bacteriophage ΦX174",
+      "abstract": "Synthetic biology allows for the synthesis of genomes from scratch. Although technically achievable, our abilities in designing genomes that result in live organisms are in their infancy. One important consideration is synonymous codon usage bias, which is present in most organisms and shaped by selection for efficient translation. Many studies have edited the synonymous codon usage patterns of viruses with the goal of viral attenuation, but these studies almost always build a single construct per design, so we know little about how repeatable the effects of recoding are. We designed and built 111 synonymously recoded ΦX174 genomes, applying four recoding strategies at up to five levels of attenuation to each of three genes, with three independently designed replicates of most combinations. Which gene we recoded mattered considerably more than how we recoded it. Recoding genes for the major capsid protein F, the major spike protein G and the DNA pilot protein H in full, with the least-used synonym codons from E. coli cost 12.0, 10.8 and 5.9 doublings per hour, respectively. Recoding strategy per se had no detectable effect once the number of codons changed was accounted for. Predicted mRNA folding stability also had no measurable effect on fitness when tested in gene F, whose wildtype transcript is highly stable and could easily be destabilized with synonymous codon rearrangements. While the number of codons changed was correlated with the degree of attenuation, divergence between independently designed replicates increased as more codons were edited. Replicates of designs with small fitness effects varied little, while replicates of strongly attenuating designs diverged by several doublings per hour. The fitness outcome of large-scale genome recoding is therefore substantially unpredictable from the design variables alone: even among independently designed genomes receiving the same treatment, fitness can diverge substantially.",
+      "authors": "Van Leuven JT, Altman E, Scott L, Wichman HA, Miller CR.",
+      "journal": "预印本平台",
+      "doi": "10.64898/2026.11.19.767875",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1373630",
+      "url": "https://doi.org/10.64898/2026.11.19.767875",
+      "publishedAt": "2026-11-20",
+      "discoveredAt": "2026-11-21T03:59:20.380Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.21203/rs.3.rs-11374334/v1",
+      "title": "The Signal Peptide-like Sequence SP DrwH Mediates Membrane Targeting of DrwH and Confers Heterologous Toxicity toward the Escherichia coli Cell Envelope",
+      "abstract": "Abstract The subcellular localization of bacterial proteins depends on targeting sequences such as signal peptides. Whether signal peptide‑like motifs can be recognized to exert biological functions across species remains poorly understood. Here we characterized SP DrwH , an N‑terminal signal peptide‑like sequence of hydrophobic protein DrwH from Deinococcus radiodurans . Recombinant Escherichia coli BL21 strains producing full‑length DrwH, SP DrwH ‑deleted ΔSP mutant and their EGFP fusions were constructed for heterologous overexpression. Bioinformatic analysis predicted that conserved SP DrwH folds into an amphipathic α‑helix. Confocal microscopy verified that SP DrwH mediates DrwH targeting to the E. coli cell envelope. Full‑length DrwH triggered sequential outer‑to‑inner membrane disruption and severe host cytotoxicity, whereas the ΔSP mutant showed negligible damage phenotypes. Our results demonstrate that SP DrwH acts as a functional heterologous membrane‑targeting signal and confers DrwH‑associated cytotoxicity toward the bacterial cell envelope. This work expands our understanding of cross‑host recognition of extremophile‑derived targeting elements and inspires the development of minimal synthetic‑biology membrane‑targeting tools. Our findings lay a solid foundation for further mechanistic investigations of signal peptide‑like motifs from radiation‑resistant microorganisms.",
+      "authors": "Tang N, Liang Z, Yang H, Fu Q, Lai J, Li H, Zhang Y, Zhou Z, Jiang S.",
+      "journal": "预印本平台",
+      "doi": "10.21203/rs.3.rs-11374334/v1",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1372765",
+      "url": "https://doi.org/10.21203/rs.3.rs-11374334/v1",
+      "publishedAt": "2026-11-20",
+      "discoveredAt": "2026-11-21T03:59:20.380Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1038/s41587-026-03362-3",
+      "title": "Programmable functional RNA design with a virtual scientist.",
+      "abstract": "Programmable functional RNA design is central to synthetic biology and therapeutics, yet both human expertise and existing computational methods struggle to directly program the three-dimensional structures that govern function. Here we introduce RhoAgent, an agentic system that designs RNA candidates and iteratively refines them using experimental feedback. RhoAgent uses RDiff, a diffusion-based generative tool conditioned on base interactions and functional motifs. First, we validate RhoAgent by generating diverse and active ribozymes with only 40-70% sequence similarity to their wild-type counterparts. Second, we enhance the cleavage efficiency of the structurally uncharacterized hovlinc ribozyme by up to sixfold relative to the human-expert-truncated construct. Furthermore, RhoAgent generates a fluorogenic aptamer scaffold that improves fluorescence by 230% relative to the wild-type aptamer. Finally, we design three-dimensional scaffolds that spatially position two distinct functional cores, creating aptamer-based Förster resonance energy transfer systems. This design overcomes a key barrier in compositional RNA design by preserving the binding activities of both components.",
+      "authors": "Huang H, Zhang T, Hong L, Lin Z, He D, Wang J, Wu TY, Li H, Han D, Yu L, Jiang J, Fan Y, Shao Y, King I, Chen P, Kwok CK, Collins JJ, Li Y.",
+      "journal": "Nature biotechnology",
+      "doi": "10.1038/s41587-026-03362-3",
+      "pmid": "43058249",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43058249",
+      "url": "https://doi.org/10.1038/s41587-026-03362-3",
+      "publishedAt": "2026-11-19",
+      "discoveredAt": "2026-11-21T03:59:20.381Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1007/s00775-026-02183-8",
+      "title": "Structure and function of iron-sulfur cluster enzymes used in isoprenoid biosynthesis.",
+      "abstract": "Bioproducts and bioplastics produced from microbes provide a sustainable alternative to fossil fuel derived products. In particular, isoprenoids are chemically suitable for production of various value-added products as well as biofuel as an alternative to fossil fuel derived products. Isoprenoid precursors are synthesized through the mevalonic acid pathway or the methyl erythritol phosphate pathway. Iron sulfur cluster containing enzymes IspG (4-hydroxy-3-methylbut-2-enyl diphosphate synthase) and IspH (4-hydroxy-3-methylbut-2-enyl diphosphate reductase) are the key bottleneck steps in the metabolic engineering of the methyl erythritol phosphate pathway for production of isoprenoid precursors. In this mini review, we summarize the previous reports on the structure and catalytic activity of both IspG and IspH enzymes. We also briefly describe on the biotechnological potential of these iron sulfur cluster containing enzymes of the methyl erythritol phosphate pathway.",
+      "authors": "Misra J, Arora P, Mishra S, Lal PB, Sharma A, Sah B.",
+      "journal": "Journal of biological inorganic chemistry : JBIC : a publication of the Society of Biological Inorganic Chemistry",
+      "doi": "10.1007/s00775-026-02183-8",
+      "pmid": "43055966",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43055966",
+      "url": "https://doi.org/10.1007/s00775-026-02183-8",
+      "publishedAt": "2026-11-19",
+      "discoveredAt": "2026-11-21T03:59:20.453Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
     {
       "id": "doi:10.64898/2026.11.10.765552",
       "title": "Computable Genomes: A Layered Computational Framework for Non-Coding DNA and Cellular Behavior",
@@ -139,7 +270,7 @@
       "id": "doi:10.64898/2026.11.13.766399",
       "title": "CDK phospho-degron tags for dynamic protein regulation",
       "abstract": "Cyclin-dependent kinase (CDK) activity underpins cell cycle progression through dynamic and temporally ordered phosphorylation events. While transcriptional regulation has been extensively exploited in synthetic biology, the rational engineering of post-translational signaling circuits remains underdeveloped. Here, we introduce modular CDK-responsive phospho-degron tags derived from the Far1 regulatory region and demonstrate their ability to confer tunable, cell cycle-dependent control over protein stability in budding yeast. By systematically modifying cyclin docking motifs and Cks1 priming sites, we generate degron variants with distinct degradation kinetics and phosphorylation thresholds. These modules enable predictable modulation of transcription factor abundance and downstream gene expression. We further combine CDK-responsive degrons with phosphorylation-controlled localization modules for multi-layered regulation of sequential nuclear import and degradation. We encode multiple kinase activity thresholds within a single protein, demonstrating how complex phosphorylation logic can be compactly implemented. Finally, we show that degron performance is strongly influenced by culture conditions, particularly cell density and associated changes in CDK activity. Together, our results establish CDK-driven phospho-degrons as versatile building blocks for engineering dynamic protein regulation and provide a foundation for constructing synthetic post-translational signaling circuits.",
-      "authors": "Ord M, Shtaida N, Looke M, Agerova A, Bulatovic L, Strelchenko S, Valk E, Faustova I.",
+      "authors": "Örd M, Shtaida N, Lõoke M, Agerova A, Bulatovic L, Strelchenko S, Valk E, Faustova I.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.11.13.766399",
       "pmid": null,
@@ -216,8 +347,8 @@
     },
     {
       "id": "doi:10.64898/2026.11.13.766554",
-      "title": "Development of an Enclosed Microbial Co-culture Device and GCXGC-TOFMS Workflow to Investigate Volatile Organic Compound Exchange",
-      "abstract": "Microbial volatile organic compounds (mVOCs) can mediate interactions between microorganisms without direct physical contact. However, co-culture systems to examine these interactions are limited, and volatilomic data interpretation is challenging. Here, we developed enclosed microbial co-culture platforms compatible with diverse microbial systems, headspace solid-phase microextraction (HS-SPME), and comprehensive two-dimensional gas chromatography time-of-flight mass spectrometry (GCXGC-TOFMS) for mVOC sampling and characterization. In a double-layer co-culture device, diffusion of exogenously supplemented Aspergillus fumigatus mVOCs, 1-octen-3-ol and isopentyl alcohol, inhibited Pseudomonas aeruginosa growth and biofilm formation. The device was then used to examine mVOC-mediated interkingdom interactions between the bacterium P. aeruginosa and the spore-forming fungus A. fumigatus. GCXGC-TOFMS was used to profile mVOCs in four sample classes: media, each individual monoculture, and co-culture. Tile-based F-ratio analysis identified 198 analyte hits that differed across at least two of the four sample classes. Subsequent ANOVA identified 104 of these analytes as statistically significant (p < 0.01). To systematically classify their abundance patterns, pairwise comparisons among the four sample classes were encoded using a six-digit ternary code representing the direction and statistical significance of each difference. Of the 104 significant analytes, 88 were assigned to 15 recurring ternary-code groups, capturing distinct patterns associated with microbial production, suppression in co-culture, and differential consumption of media-derived compounds. Closely related ternary-code groups were further consolidated into five major Categories, providing biologically interpretable mVOC profiles. Overall, the integrated co-culture platform and analytical approach provide a versatile framework for investigating microbial volatile interactions and interpreting complex multidimensional volatilomic datasets.",
+      "title": "Development of an Enclosed Microbial Co-culture Device and GC×GC-TOFMS Workflow to Investigate Volatile Organic Compound Exchange",
+      "abstract": "ABSTRACT Microbial volatile organic compounds (mVOCs) can mediate interactions between microorganisms without direct physical contact. However, co-culture systems to examine these interactions are limited, and volatilomic data interpretation is challenging. Here, we developed enclosed microbial co-culture platforms compatible with diverse microbial systems, headspace solid-phase microextraction (HS-SPME), and comprehensive two-dimensional gas chromatography time-of-flight mass spectrometry (GC×GC-TOFMS) for mVOC sampling and characterization. In a double-layer co-culture device, diffusion of exogenously supplemented Aspergillus fumigatus mVOCs, 1-octen-3-ol and isopentyl alcohol, inhibited Pseudomonas aeruginosa growth and biofilm formation. The device was then used to examine mVOC-mediated interkingdom interactions between the bacterium P. aeruginosa and the spore-forming fungus A. fumigatus . GC×GC-TOFMS was used to profile mVOCs in four sample classes: media, each individual monoculture, and co-culture. Tile-based F-ratio analysis identified 198 analyte hits that differed across at least two of the four sample classes. Subsequent ANOVA identified 104 of these analytes as statistically significant (p Table of Contents Graphic",
       "authors": "Wang T, Ma W, Whitten JM, Tokihiro JC, Chadrow H, Choi J, Uchimura KY, Lee UN, Steffan BN, Keller NP, Berthier E, Synovec RE, Theberge AB, Rajakovich LJ.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.11.13.766554",
@@ -228,6 +359,32 @@
       "url": "https://doi.org/10.64898/2026.11.13.766554",
       "publishedAt": "2026-11-17",
       "discoveredAt": "2026-11-19T15:27:32.151Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": "cc by-nc-nd",
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.20944/preprints202611.1701.v1",
+      "title": "Engineering Robust and Cost-Efficient Stem Cell Biomanufacturing Across Scales: Linking Bioprocess Design, Product Quality, and Techno-Economic Assessment",
+      "abstract": "Stem cell manufacturing must deliver biological function while managing the resources required to produce usable doses. Increasing culture volume or cell density alone does not establish that a process is scalable, robust, or economical. This review integrates evidence from human pluripotent stem cell and mesenchymal stromal cell manufacturing to examine how scale-dependent cellular exposures link process design to product quality and cost. The literature is organized around three linked questions: which environmental and handling histories alter the intended product, which scale-down experiments reproduce those histories, and whether an intervention improves qualified output across the entire manufacturing process. The review critically assesses aggregate and microcarrier culture, medium and matrix design, perfusion and dialysis, differentiation, harvesting, cryopreservation, and analytical control. Contradictory findings on oxygen, medium substitution, and post-thaw function illustrate why operating conditions cannot be transferred without product-specific qualification. Experimental evidence is then connected to published techno-economic analyses that account for medium and growth-factor expenditure, downstream recovery, release outcomes, facility utilization, and uncertainty when comparing manufacturing strategies. The resulting conceptual framework provides practical criteria for prioritizing experiments and comparing technologies without equating cell counts with therapeutic potency. Future progress requires validated scale-down models, longitudinal functional measurements, transparent resource accounting, and prospective evaluation of analytical predictions before their use in manufacturing decisions or feedback control systems.",
+      "authors": "Torizal FG.",
+      "journal": "预印本平台",
+      "doi": "10.20944/preprints202611.1701.v1",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1372541",
+      "url": "https://doi.org/10.20944/preprints202611.1701.v1",
+      "publishedAt": "2026-11-17",
+      "discoveredAt": "2026-11-21T03:59:20.440Z",
       "topics": [
         "microbial"
       ],
@@ -248,7 +405,7 @@
       "journal": "Signal transduction and targeted therapy",
       "doi": "10.1038/s41392-026-03122-4",
       "pmid": "43039898",
-      "pmcid": null,
+      "pmcid": "PMC13774442",
       "source": "MED",
       "sourceId": "43039898",
       "url": "https://doi.org/10.1038/s41392-026-03122-4",
@@ -322,8 +479,8 @@
     },
     {
       "id": "doi:10.1016/j.jbiotec.2026.11.007",
-      "title": "Metabolic Engineering of Escherichia coli BL21(DE3) for Plasmid-Free High-Level Production of Ergothioneine via Hybrid Pathway and Multicopy Chromosomal Integration.",
-      "abstract": "Ergothioneine (L-ergothioneine, EGT) is an antioxidant, anti-inflammatory, and cytoprotective compound with high value in the food, cosmeceutical, and nutraceutical industries. Herein, an efficient microbial cell factory was developed by engineering a hybrid EGT biosynthetic pathway in Escherichia coli BL21(DE3) through the synergistic assembly of heterologous genetic modules of prokaryotic and eukaryotic origins. Systematic interrogation of gene combinations and transcriptional architectures identified sulfoxide synthase-mediated oxidative coupling as the pivotal metabolic bottleneck governing EGT biosynthetic flux. Addressing this rate-limiting step allowed the initial plasmid-bearing strain, EGT04, reaching an EGT titer of 156.35mg/L during shake-flask fermentation. A multicopy chromosomal integration CRISPR-associated transposase strategy was implemented for stable multicopy chromosomal integration. This approach yielded a genetically robust, plasmid-free, and marker-free chassis, EGT15, which achieved an EGT titer of 287.14mg/L, representing a 127.47% improvement over the initial prototype. Subsequent refinement of the fermentation landscape, integrating optimized glycerol feeding and strategic cysteine supplementation with a two-stage thermal control strategy (biomass accumulation at 37 °C followed by induction at 20 °C), further elevated the shake-flask titer to 353.69mg/L. The final scale-up in a 5 L-fed-batch bioreactor culminated in a peak EGT concentration of 8.36g/L with a volumetric productivity of 0.12g/L/h. By eliminating the requirements for antibiotics and plasmid maintenance, this high-yielding and stable platform minimizes metabolic drag and enhances the industrial production potential. This study established a robust, plasmid-free, and resistance-free E. coli platform for sustainable microbial manufacturing of EGT, providing a scalable strategy for the high-level production of value-added sulfur-containing compounds.",
+      "title": "Metabolic engineering of Escherichia coli BL21(DE3) for plasmid-free high-level production of ergothioneine via hybrid pathway and multicopy chromosomal integration.",
+      "abstract": "Ergothioneine (L-ergothioneine, EGT) is an antioxidant, anti-inflammatory, and cytoprotective compound with high value in the food, cosmeceutical, and nutraceutical industries. Herein, an efficient microbial cell factory was developed by engineering a hybrid EGT biosynthetic pathway in Escherichia coli BL21(DE3) through the synergistic assembly of heterologous genetic modules of prokaryotic and eukaryotic origins. Systematic interrogation of gene combinations and transcriptional architectures identified sulfoxide synthase-mediated oxidative coupling as the pivotal metabolic bottleneck governing EGT biosynthetic flux. Addressing this rate-limiting step allowed the initial plasmid-bearing strain, EGT04, reaching an EGT titer of 156.35 mg/L during shake-flask fermentation. A multicopy chromosomal integration CRISPR-associated transposase strategy was implemented for stable multicopy chromosomal integration. This approach yielded a genetically robust, plasmid-free, and marker-free chassis, EGT15, which achieved an EGT titer of 287.14 mg/L, representing a 127.47% improvement over the initial prototype. Subsequent refinement of the fermentation landscape, integrating optimized glycerol feeding and strategic cysteine supplementation with a two-stage thermal control strategy (biomass accumulation at 37 °C followed by induction at 20 °C), further elevated the shake-flask titer to 353.69 mg/L. The final scale-up in a 5 L-fed-batch bioreactor culminated in a peak EGT concentration of 8.36 g/L with a volumetric productivity of 0.12 g/L/h. By eliminating the requirements for antibiotics and plasmid maintenance, this high-yielding and stable platform minimizes metabolic drag and enhances the industrial production potential. This study established a robust, plasmid-free, and resistance-free E. coli platform for sustainable microbial manufacturing of EGT, providing a scalable strategy for the high-level production of value-added sulfur-containing compounds.",
       "authors": "Ding X, Li Y, Yao H, Dong M, Wei D, Wang FQ.",
       "journal": "Journal of biotechnology",
       "doi": "10.1016/j.jbiotec.2026.11.007",
@@ -643,7 +800,7 @@
       "journal": "Discover nano",
       "doi": "10.1186/s11671-026-05108-1",
       "pmid": "43037917",
-      "pmcid": null,
+      "pmcid": "PMC13774388",
       "source": "MED",
       "sourceId": "43037917",
       "url": "https://doi.org/10.1186/s11671-026-05108-1",
@@ -658,7 +815,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -801,7 +958,7 @@
       "journal": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
       "doi": "10.1002/advs.78440",
       "pmid": "43036050",
-      "pmcid": null,
+      "pmcid": "PMC13771500",
       "source": "MED",
       "sourceId": "43036050",
       "url": "https://doi.org/10.1002/advs.78440",
@@ -816,7 +973,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -828,7 +985,7 @@
       "journal": "Aquaculture nutrition",
       "doi": "10.1155/anu/9060019",
       "pmid": "43036632",
-      "pmcid": null,
+      "pmcid": "PMC13770287",
       "source": "MED",
       "sourceId": "43036632",
       "url": "https://doi.org/10.1155/anu/9060019",
@@ -844,7 +1001,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -1082,7 +1239,7 @@
       "journal": "Science advances",
       "doi": "10.1126/sciadv.aei0485",
       "pmid": "43024708",
-      "pmcid": null,
+      "pmcid": "PMC13763857",
       "source": "MED",
       "sourceId": "43024708",
       "url": "https://doi.org/10.1126/sciadv.aei0485",
@@ -1096,7 +1253,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -1250,6 +1407,32 @@
         "microbial"
       ],
       "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.3791/72572",
+      "title": "Focused Ultrasound Hyperthermia for Spatiotemporal Activation of Engineered Chimeric Antigen Receptor T Cells in a Prostate Cancer Mouse Model.",
+      "abstract": "Chimeric antigen receptor (CAR) T-cell therapy has demonstrated remarkable clinical success in hematological malignancies but remains limited in solid tumors by on-target off-tumor toxicity and the inability to precisely control therapeutic activity within the tumor microenvironment. This protocol presents a workflow for localized, spatiotemporal activation of engineered CAR T cells using focused ultrasound (FUS)-induced hyperthermia. Engineered T cells containing heat shock promoter (HSP)-regulated gene circuits (EchoBack CAR T cells) remain functionally latent until activated by localized hyperthermia. The protocol describes the generation of a subcutaneous prostate cancer mouse model, local subcutaneous administration of EchoBack chimeric antigen receptor T cells proximal to the tumor, accurate alignment of the focused ultrasound transducer, and localized thermal stimulation. A central feature of the workflow is a focused ultrasound system integrated with a closed-loop proportional-integral-derivative (PID) controller that continuously adjusts acoustic power using real-time intratumoral temperature measurements obtained with a needle thermocouple. This feedback-controlled approach maintains hyperthermia at approximately 43°C for 15 min while limiting temperature fluctuations. Hardware assembly instructions, software code, and experimental procedures are provided to facilitate reproducible implementation. This protocol enables spatially controlled activation of engineered chimeric antigen receptor T cells within tumors and provides bioengineers and immunologists with a practical platform for investigating ultrasound-responsive synthetic biology and controllable cellular immunotherapies in preclinical mouse models.",
+      "authors": "Wei F, He P, Yoon CW, Wang Y.",
+      "journal": "Journal of visualized experiments : JoVE",
+      "doi": "10.3791/72572",
+      "pmid": "43062217",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43062217",
+      "url": "https://doi.org/10.3791/72572",
+      "publishedAt": "2026-11-13",
+      "discoveredAt": "2026-11-21T03:59:35.851Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "期刊论文",
       "status": "期刊记录 · 待核验",
       "isPreprint": false,
       "isRetraction": false,
@@ -1429,6 +1612,33 @@
       "collection": "Europe PMC"
     },
     {
+      "id": "doi:10.1016/j.synbio.2026.10.015",
+      "title": "De novo biosynthesis of meroterpenoid grifolic acid in Yarrowia lipolytica .",
+      "abstract": "Grifolic acid, a potent bioactive meroterpenoid derived from fungi, shows great antitumor and antimicrobial properties. Nevertheless, the difficulty of large-scale chemical production and its minimal presence in natural environments hinder its path toward clinical translation. We developed a de novo grifolic acid biosynthetic route by leveraging the robust metabolic capabilities of the oleaginous yeast Yarrowia lipolytica . By improving the precursor malonyl-CoA supply through ACC1 overexpression and spatially targeting the fungal polyketide synthase ArmB to the vacuolar compartment, we enhanced orsellinic acid accumulation to 8.50 mg/L. We next leveraged AI-guided molecular docking and deep learning kinetic predictions (CataPro and UniKP) to screen candidate enzymes for coupling orsellinic acid with farnesyl pyrophosphate (FPP), identifying StbC from Stachybotrys bisbyi as the optimal prenyltransferase for coupling the polyketide with the terpenoid moieties. Integrating the heterologous module with efflux pump engineering (overexpressing native Pleiotropic Drug Resistance ABC transporters) and blocking the competing β-oxidation pathway (through HBD1 deletion) relieved intracellular toxicity and minimized carbon loss. Under optimized conditions using a two-stage glucose-growth and glycerol-supplementation fed-batch regime, the engineered strain produced grifolic acid at 30.5 mg/L in a shaker flask. This work represents the first successful de novo production of grifolic acid in Y. lipolytica , validating a holistic metabolic engineering strategy for the sustainable synthesis of complex meroterpenoids.",
+      "authors": "Hong Y, Wang J, Wu Z, Lertphadungkit P, Yao R, Zhou B, Bar-Sela G, Cohen I, Xu P.",
+      "journal": "Synthetic and systems biotechnology",
+      "doi": "10.1016/j.synbio.2026.10.015",
+      "pmid": "43061493",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43061493",
+      "url": "https://doi.org/10.1016/j.synbio.2026.10.015",
+      "publishedAt": "2026-11-12",
+      "discoveredAt": "2026-11-21T03:59:20.454Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1016/j.ijbiomac.2026.155262",
       "title": "Fe(II)/2-oxoglutarate-dependent dioxygenase bifunctionally catalyzes ring formation involving sequential terminal carbon oxidation for pyrrolizidinone alkaloid biosynthesis.",
       "abstract": "The Fe(II)/2-oxoglutarate-dependent dioxygenase UcsF plays a key role in the early biosynthesis of UCS1025A, an antibacterial and antitumor pyrrolizidinone alkaloid, by participating in the formation of its core ring scaffold. UcsF catalyzes sequential oxidation of the terminal C5 of L-isoleucine, ultimately generating a five-membered ring product, (2S,3S)-3,4-dihydro-3-methyl-2H-pyrrole-2-carboxylic acid. This catalytic process is vital in the construction of natural product skeletons and synthetic biology. However, the molecular basis of UcsF and its unique two-step catalytic mechanism remain poorly understood. We characterized the catalytic function of UcsF, determined its crystal structure and combined molecular docking and MD simulations to reveal the molecular basis for substrate recognition, and employed quantum chemical calculations on reaction-state models to investigate plausible reaction pathways underlying the sequential oxidation. UcsF exhibits catalytic activity toward 2-amino carboxylic acid substrates. The crystal structure of UcsF features a unique open active pocket, with substrate binding defined by the collective contributions of multiple structural modules. In the catalytic reaction, the Fe(IV)=O species abstracts a hydrogen atom from the C5 position of L-isoleucine, followed by hydroxyl rebound to complete the first hydroxylation step. Combined kinetic, solvent isotope-effect, mutational, and computational analyses support a preferred Asp279'-facilitated PCET pathway for the second oxidation of 5-OH-Ile to the aldehyde product. Our study provides a molecular basis for understanding the relationship between the structure and function of Fe(II)/2-oxoglutarate-dependent dioxygenases and reveals the potential of the catalytic ability of UcsF for biosynthesis.",
@@ -1533,6 +1743,33 @@
         "analysisStatus": "translation_only",
         "analysisFailureCode": "invalid_evidence"
       }
+    },
+    {
+      "id": "doi:10.1016/j.synbio.2026.10.002",
+      "title": "Modular engineering of aromatic metabolism in Corynebacterium glutamicum enables protocatechuic acid and gallic acid production.",
+      "abstract": "Protocatechuic acid (PCA) and gallic acid (GA) are valuable phenolic compounds with diverse pharmacological activities, including antioxidant and antitumor properties, and have broad applications in the food, cosmetic, chemical, and pharmaceutical industries. However, the industrial production of these compounds remains limited by the insufficient performance of current microbial cell factories, resulting in low productivity and high manufacturing costs. Here, an efficient biosynthetic platform based on Corynebacterium glutamicum was systematically established for the production of PCA and GA. Through reconstruction of the PCA biosynthetic pathway, elimination of competing branches in the shikimate pathway, enhancement of the key rate-limiting enzyme, and modulation of the glucose uptake system to increase phosphoenolpyruvate supply, metabolic flux was effectively redirected toward PCA accumulation, resulting in the engineered strain PCA16 achieving a PCA titer of 19.8 g/L in shake-flask fermentation. Building on this platform, GA biosynthesis was established by introducing a mutant pobA from Pseudomonas aeruginosa and further strengthening the shikimate pathway, enabling strain GA06 to produce 7.86 g/L GA in shake-flask fermentation. Upon scale-up in a 5 L bioreactor, GA production was further increased to 25.66 g/L, representing the highest reported titer for GA production using C. glutamicum to date. Overall, this work demonstrates the strong potential of C. glutamicum as a robust microbial chassis for efficient production of PCA and GA, and provides a versatile platform for the biosynthesis of PCA-derived aromatic compounds.",
+      "authors": "Pei J, Huang Q, Zhang B, Chu X, Wu X, Guo X, Ye B, Zhang B.",
+      "journal": "Synthetic and systems biotechnology",
+      "doi": "10.1016/j.synbio.2026.10.002",
+      "pmid": "43061058",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43061058",
+      "url": "https://doi.org/10.1016/j.synbio.2026.10.002",
+      "publishedAt": "2026-11-12",
+      "discoveredAt": "2026-11-21T03:59:20.440Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1556/030.2026.03095",
@@ -1859,7 +2096,7 @@
       "journal": "Synthetic and systems biotechnology",
       "doi": "10.1016/j.synbio.2026.10.013",
       "pmid": "43036820",
-      "pmcid": null,
+      "pmcid": "PMC13770632",
       "source": "MED",
       "sourceId": "43036820",
       "url": "https://doi.org/10.1016/j.synbio.2026.10.013",
@@ -1873,7 +2110,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc-nd",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -2936,7 +3173,7 @@
       "journal": "International journal of nanomedicine",
       "doi": "10.2147/ijn.s655635",
       "pmid": "43034623",
-      "pmcid": null,
+      "pmcid": "PMC13769294",
       "source": "MED",
       "sourceId": "43034623",
       "url": "https://doi.org/10.2147/ijn.s655635",
@@ -2950,7 +3187,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -3757,7 +3994,7 @@
       "journal": "Plants (Basel, Switzerland)",
       "doi": "10.3390/plants15213466",
       "pmid": "43029075",
-      "pmcid": null,
+      "pmcid": "PMC13766089",
       "source": "MED",
       "sourceId": "43029075",
       "url": "https://doi.org/10.3390/plants15213466",
@@ -3772,7 +4009,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -3856,13 +4093,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 316,
+        "count": 327,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/ploscompbiol/article/metrics?id=10.1371%2Fjournal.pcbi.1014881",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pcbi.1014881/format/json",
-        "fetchedAt": "2026-11-20T03:59:55.542Z",
+        "fetchedAt": "2026-11-21T03:59:36.162Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-11",
         "coverageEnd": "2026-11",
@@ -3876,7 +4113,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-20T03:59:55.395Z"
+        "checkedAt": "2026-11-21T03:59:36.010Z"
       },
       "enrichment": {
         "titleZh": "kinGEMs：通过随机调优深度学习预测的动力学参数，构建稳健且可扩展的资源约束模型框架",
@@ -3889,7 +4126,7 @@
         "reviewed": false,
         "scope": "abstract_only"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-20T03:59:55.395Z"
+      "downloadRefreshLastAttemptAt": "2026-11-21T03:59:36.010Z"
     },
     {
       "id": "doi:10.1007/s00253-026-14083-7",
@@ -4576,6 +4813,33 @@
       }
     },
     {
+      "id": "doi:10.3389/fmicb.2026.1930483",
+      "title": "Biosynthetic, genetic, taxonomic and functional diversity of glucose-dependent pyrroloquinoline quinone (PQQ) producing rhizobacteria.",
+      "abstract": "Pyrroloquinoline quinone (PQQ) is a versatile redox-active metabolite that exerts diverse physiological benefits across plant, animal and microbial systems. As PQQ biosynthesis is exclusive to bacteria, bioprospecting for efficient PQQ producers remains pivotal for ecological and future biotechnological investigations. The present study employed an integrated biochemical, genetic and phylogenetic approach to recover efficient PQQ-producing bacteria from rhizospheric soils. Using a dual selection strategy combining methanol utilization and phosphate (P) solubilisation, 80 rhizospheric isolates were screened to recover thirty PQQ producers, broadly classified as Firmicutes and Actinobacteria. Occurrence of key PQQ biosynthetic ( pqqA, B, C, E ) and glucose dehydrogenase-encoding genes supported the observed P-solubilizing potential. Substantial variability in PQQ yields across the isolates highlighted the putative influence of factors beyond genetic framework. Operational subcellular distribution indicated pre-dominant recovery of PQQ in the extracellular fraction. Under P-limitation, Glutamibacter nicotianae C2 exhibited the highest PQQ yield (~55.83 μg/ml), whereas Bacillus tequilensis D4 demonstrated highest biomass-normalized productivity (~339.7 μg/mg total protein); the yields being within the range reported for several industrially explored methylotrophic PQQ producing strains. Extracellular PQQ in representative isolates was confirmed using HR-LCMS/MS through detection of the precursor ion [M-H] - with m/z ~329.0051. Concurrent plant-beneficial traits including potassium solubilization, siderophore, indole-3-acetic acid and hydrogen cyanide production in B. tequilensis D4 suggest its potential for rhizospheric applications. Collectively, characterization of 30 rhizospheric PQQ-producers expands the current repertoire of reported PQQ-producing bacteria, highlights Gram-positive rhizobacteria as an underexplored source of PQQ producers, and provides a foundation for next-generation rhizosphere engineering and biomanufacturing applications.",
+      "authors": "Godhasara M, Takhtani L, Buch A.",
+      "journal": "Frontiers in microbiology",
+      "doi": "10.3389/fmicb.2026.1930483",
+      "pmid": "43054038",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43054038",
+      "url": "https://doi.org/10.3389/fmicb.2026.1930483",
+      "publishedAt": "2026-11-04",
+      "discoveredAt": "2026-11-21T03:59:29.177Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.3390/ijms27219885",
       "title": "Conductive Hydrogels for Invasive Neural Interfaces: From Materials Engineering to Neural Signal Interfacing and Neurorehabilitation.",
       "abstract": "In invasive neural interfaces, mechanical mismatch between traditional rigid electrodes and brain tissue often leads to inflammation and signal attenuation. Conductive hydrogels have emerged as ideal alternative materials due to their tissue-matching modulus, hybrid conductive networks, and wet adhesion properties. In this paper, we provide a narrative review of research progress on conductive hydrogels in invasive neural interfaces: we elucidate electronic, ionic, and hybrid conduction mechanisms; critically compare strategies for modulus matching and interfacial adhesion (such as catechol chemistry and covalent anchoring); and summarize their applications in neural signal recording, electrical/optical modulation, and rehabilitation for spinal cord injury and stroke. Finally, we discuss current challenges regarding long-term stability, wireless integration, and intelligent closed-loop systems and outline future directions involving AI-driven design combined with 3D biomanufacturing.",
@@ -4583,7 +4847,7 @@
       "journal": "International journal of molecular sciences",
       "doi": "10.3390/ijms27219885",
       "pmid": "43028131",
-      "pmcid": null,
+      "pmcid": "PMC13763546",
       "source": "MED",
       "sourceId": "43028131",
       "url": "https://doi.org/10.3390/ijms27219885",
@@ -4597,7 +4861,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -5051,7 +5315,7 @@
       "journal": "Frontiers in bioengineering and biotechnology",
       "doi": "10.3389/fbioe.2026.1953707",
       "pmid": "43047334",
-      "pmcid": null,
+      "pmcid": "PMC13774109",
       "source": "MED",
       "sourceId": "43047334",
       "url": "https://doi.org/10.3389/fbioe.2026.1953707",
@@ -5066,7 +5330,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -6061,7 +6325,7 @@
       "journal": "Frontiers in plant science",
       "doi": "10.3389/fpls.2026.1890611",
       "pmid": "43042059",
-      "pmcid": null,
+      "pmcid": "PMC13772906",
       "source": "MED",
       "sourceId": "43042059",
       "url": "https://doi.org/10.3389/fpls.2026.1890611",
@@ -6076,7 +6340,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -6311,6 +6575,33 @@
         },
         "terminologyVersion": "bioscope-bio-glossary-v1"
       }
+    },
+    {
+      "id": "doi:10.1021/acssynbio.6c00468",
+      "title": "A Synthetic Promoter Library Spanning a Wide Dynamic Range for Metabolic Pathway Engineering in Zymomonas mobilis.",
+      "abstract": "The limited availability of reliable genetic tools has hindered the engineering of Zymomonas mobilis, a promising bacterium for the sustainable bioproduction of commodity chemicals. Here, we present a synthetic promoter library that enables high-resolution control of gene expression in Z. mobilis. We constructed and characterized 29 promoters spanning the broadest dynamic range reported for this organism to date, and 25 were identified with expression levels higher than the previously reported strongest native constitutive promoter, Pgap, including some up to 15-fold higher. Additionally, a set of strong heterologous and synthetic transcriptional terminators that effectively insulate genetic cassettes was validated in Z. mobilis. Promoters were stable under both aerobic and anaerobic conditions, highlighting their robustness in industrially relevant conditions. Surprisingly, all of the promoters identified contained non-canonical promoter element sequences that adhered poorly to the proposed consensus sequences. The promoter library and terminators were integrated into the Type IIS-based, hierarchical start-stop assembly system, facilitating high-throughput construction of multi-cistronic designs. We demonstrate their utility through the rapid construction, testing, and optimization of a 2,3-butanediol biosynthetic pathway. This resource substantially expands the accessible expression space for metabolic engineering in Z. mobilis, supporting precise tuning of multi-step pathways and genetic circuits.",
+      "authors": "Poma M, Stones AA, Marchetti M, Burns C, Zannetou A, Riley EM, Sargent F, Azimov U, Munoz-Munoz JL, Kelly CL.",
+      "journal": "ACS synthetic biology",
+      "doi": "10.1021/acssynbio.6c00468",
+      "pmid": "43061967",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43061967",
+      "url": "https://doi.org/10.1021/acssynbio.6c00468",
+      "publishedAt": "2026-11-01",
+      "discoveredAt": "2026-11-21T03:59:35.970Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1021/acsabm.6c01394",
@@ -6728,6 +7019,32 @@
       }
     },
     {
+      "id": "doi:10.1021/acssynbio.6c00527",
+      "title": "Developing the Escherichia coli Platform for Efficient Glycosylation of Steviol Glycosides through Metabolic Engineering.",
+      "abstract": "Rare steviol glycosides (SGs), characterized by superior sensory profiles and promising bioactivities, are high-intensity sweeteners derived from Stevia rebaudiana. Their intrinsically low abundance limits extraction yields, while in vitro bioconversion is limited by the availability of UDP-glucose (UDPG). Here, an Escherichia coli chassis was reprogrammed to achieve an intracellular UDPG content of 11.72 μmol/g CDW, 2.19-fold that of BL21(DE3), by enhancing pyrimidine nucleotide synthesis, blocking competing pathways, redirecting carbon flux, and optimizing the expression of key genes. Coupled with a UGT-SuSy system, the platform enabled in vitro conversion of Reb A into rare derivativesReb L2, Reb D, Reb D2, Reb M, Reb M2, and Reb M8without exogenous UDPG, with 1.6- to 129-fold higher conversion efficiencies than the wild type. Cultured in a 5 L bioreactor, harvested cells yielded 108.57 g/L Reb L2 and 111.99 g/L Reb D via in vitro whole-cell biotransformation. This platform provides a route for rare SG production and a versatile foundation for the glycodiversification of natural products.",
+      "authors": "Yuan Y, Wang S, Pei L, Xu X, Pan Y, Du J, Liu P, Liu C, He N, Hua J, Wang Y, Li W.",
+      "journal": "ACS synthetic biology",
+      "doi": "10.1021/acssynbio.6c00527",
+      "pmid": "43061955",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43061955",
+      "url": "https://doi.org/10.1021/acssynbio.6c00527",
+      "publishedAt": "2026-11-01",
+      "discoveredAt": "2026-11-21T03:59:35.970Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1111/gcb.71162",
       "title": "Dual Constraints of Microbial Carbon Use Efficiency and Mineral Protection Govern Necromass Accrual.",
       "abstract": "Increasing soil organic carbon (SOC), central to food security and climate mitigation, is increasingly recognized as being mediated by microbial necromass C (MNC) accrual. However, how microbial production and mineral preservation jointly govern MNC accrual under contrasting resource conditions remains unclear. Here, we analyzed soils from 14 long-term fertilization experiments (up to 47 years) to assess how edaphic and climatic conditions regulate the response of MNC accrual to manure (M) and non-manure (NM) fertilization treatments. We found that the primary constraints on MNC accrual varied with resource availability, with microbial production under resource-limited conditions and mineral preservation under resource-abundant conditions. Under resource-limited conditions, M treatments increased MNC by up to 122%, with changes tightly coupled to SOC gains. This accrual was associated with increases in dissolved organic C and microbial C use efficiency, indicating a production-constrained pathway in which manure inputs alleviate substrate limitation and promote microbial C allocation toward biomass production and necromass formation. Conversely, under resource-abundant conditions, MNC responses to fertilization were weaker (+56%) and uncoupled from SOC gains. Instead, MNC accrual was primarily associated with mineral protection capacity (e.g., Fe and Al oxides), consistent with a preservation-constrained pathway. Overall, microbial processing and mineral preservation represent context-dependent constraints on MNC accrual under contrasting resource conditions. These findings underscore the importance of resource context for site-specific C management and for understanding soil C dynamics under global change.",
@@ -6883,6 +7200,33 @@
         "analysisStatus": "translation_only",
         "analysisFailureCode": "invalid_evidence"
       }
+    },
+    {
+      "id": "doi:10.1021/acssynbio.6c00568",
+      "title": "Enzyme and Metabolic Engineering Enable High-Level δ-Cadinene Production in Serratia marcescens.",
+      "abstract": "δ-Cadinene is a bicyclic sesquiterpene with fruity and herbal aromas that is widely used in flavors, fragrances, and pharmaceuticals. In this study, Serratia marcescens HBQA7, which carries an integrated MVA pathway and tolerates terpenoid toxicity, was used as the chassis strain. Rational design and site-directed mutagenesis of δ-cadinene synthase from Gossypium arboreum yielded a high-yield variant, G531V. In addition, mutations at key residues S409A, Y411A, D452N, and G531E led to the formation of hedycaryol and germacrene D-4-ol as byproducts. By further constructing fusion proteins and balancing the metabolic flux, we increased the yield to 5.98 g/L after 48 h of shake-flask fermentation. In a 5 L bioreactor, 100 h of fed-batch fermentation yielded a final δ-cadinene titer of 55.7 g/L, the highest level of microbial δ-cadinene synthesis reported to date.",
+      "authors": "Zhang B, Wang L, Lu Y, Fan TP, Wu S, Zhou X, Yang T, Cai Y.",
+      "journal": "ACS synthetic biology",
+      "doi": "10.1021/acssynbio.6c00568",
+      "pmid": "43061987",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43061987",
+      "url": "https://doi.org/10.1021/acssynbio.6c00568",
+      "publishedAt": "2026-11-01",
+      "discoveredAt": "2026-11-21T03:59:35.970Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1021/acsabm.6c01073",
@@ -7627,6 +7971,33 @@
       "collection": "Europe PMC"
     },
     {
+      "id": "doi:10.1021/acssynbio.6c00727",
+      "title": "Stepwise Optimization and Transcription Factor Engineering for Efficient Ectoine Production in Escherichia coli.",
+      "abstract": "Ectoine, a high-value compatible solute, is widely used in cosmetics, biopharmaceuticals, and the pharmaceutical industry. Although non-halophilic chassis such as Escherichia coli are preferred for industrial ectoine production, unclear metabolic distributions and physiological constraints have limited titers and productivity. Here, we report a systematic metabolic engineering strategy for high-performance ectoine biosynthesis in E. coli. Introduction of the ectoine gene cluster from Halomonas elongata, coupled with enhanced flux from phosphoenolpyruvate to l-aspartate-β-semialdehyde, established de novo ectoine production. Combinatorial optimization for promoters and expression of an EctBE407D variant collectively increased the ectoine titer by 353% in strain ECT08. Furthermore, the supply of synthetic precursors l-glutamate and oxaloacetic acid was enhanced, elevating the bioproduct to 9.09 g/L in strain ECT18, coupled with a deliberate downregulation of the TCA cycle flux. Transcriptional regulator screening further identified Lrp as a growth-coupled engineering target, whose manipulation enhanced both titer and biomass by 19.83% and 28.62%, respectively. Importantly, metabolic profiles indicated that the Lrp supervised a multi-node regulatory program that alleviated carbon supply, precursor conversion, nitrogen donor availability, and energy efficiency. In fed-batch fermentation, the final strain ECT31 was cultivated in a 7 L bioreactor and induced at 10 h, producing 81.39 g/L ectoine with a yield of 0.31 g/g and a productivity of 0.75 g/L/h. These systematic strategies establish a robust paradigm for the efficient microbial production of aspartate-derived compounds.",
+      "authors": "Zheng Y, Li Y, He Q, Liu J, Bai Z, Fu H, Zhou Y, Wang J.",
+      "journal": "ACS synthetic biology",
+      "doi": "10.1021/acssynbio.6c00727",
+      "pmid": "43061988",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43061988",
+      "url": "https://doi.org/10.1021/acssynbio.6c00727",
+      "publishedAt": "2026-11-01",
+      "discoveredAt": "2026-11-21T03:59:35.970Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1093/jaoacint/qsag085",
       "title": "STRATUM-structured framework for reporting, assessment, and translational utility of metagenomics.",
       "abstract": "Background Metagenomic next-generation sequencing (mNGS) enables broad, untargeted detection of pathogens and microbial signals across complex sample types. However, the diversity of operational contexts, from regulatory enforcement to exploratory discovery, challenges the defining of analytical or interpretive standards appropriate across all applications. Variability in laboratory practices, bioinformatic methods, and reporting conventions continues to limit consistency and decision-maker confidence in mNGS results. Objectives We introduce Structured Framework for Reporting, Assessment, and Translational Utility of Metagenomics (STRATUM), a use-case-stratified framework that aligns QA, metadata reporting, and interpretive standards with the consequence and intended use of metagenomic sequencing outputs. Methods STRATUM is organized around five representative biosurveillance use cases spanning public health, food safety, environmental monitoring, synthetic biology detection, and national security. A three-tier interpretive model calibrates analytical rigor, validation expectations, and reporting requirements to decision consequence; from high-consequence regulatory and clinical determinations (Tier 1), through operational surveillance (Tier 2), to exploratory and hypothesis-generating contexts (Tier 3). Results The framework provides graduated guidance across key domains including sample preparation, sequencing design, controls and contamination governance, reference database curation, bioinformatics reproducibility, and multi-factor signal validation. Cross-cutting principles include explicit documentation of evidentiary bases, transparency in database and pipeline provenance, and defined escalation pathways when results transition between interpretive tiers. Conclusion Realizing the operational potential of mNGS requires evidentiary standards responsive to decision context rather than fixed across applications. STRATUM offers a consequence-tiered model for quality and reporting in applied metagenomics, supporting reproducible, transparent, and defensible sequencing-based surveillance across public health and biodefense domains. Highlights Introduction of STRATUM, a consequence-tiered evidentiary framework for applied metagenomics. Structured calibration of analytical rigor and reporting standards to decision context. Cross-use-case guidance spanning surveillance, regulatory, and national security applications.",
@@ -7694,6 +8065,34 @@
         },
         "terminologyVersion": "bioscope-bio-glossary-v1"
       }
+    },
+    {
+      "id": "doi:10.1021/acssynbio.6c00525",
+      "title": "Yeast Metabolic Engineering for Carotenoid Biosynthesis: Hosts, Pathways, Strategies, and Perspectives.",
+      "abstract": "Carotenoids are versatile natural pigments with potent antioxidant, anti-cancer, and anti-inflammatory activities, making them valuable ingredients in cosmetics, animal feed, and pharmaceuticals. While traditionally sourced from plants, algae, and microorganisms, conventional extraction methods struggle to meet the rising market demand for natural products. With the rapid advancement of synthetic biology, microbial fermentation has emerged as a scalable and efficient alternative for carotenoid production. This review paper examines four promising yeast platformsPhaffia rhodozyma, Saccharomyces cerevisiae, Yarrowia lipolytica, and Komagataella phaffiifor the production of carotenoids. We systematically outline key modification strategies for the de novo biosynthetic process of carotenoids, primarily including heterologous pathway adaptation, precursor supply enhancement, protein engineering of rate-limiting enzymes, subcellular compartmentalization, and optimization of the fermentation process. Furthermore, we compare the inherent limitations of each yeast chassis and discuss potential solutions to overcome production bottlenecks, thereby providing a strategic roadmap for future strain and process development in support of industrial-scale microbial carotenoid production.",
+      "authors": "Wang R, Yu M, Tang K, Lin Z, Xu L, Li H, He D, Li C, Bao X, Lin J, Zhao J.",
+      "journal": "ACS synthetic biology",
+      "doi": "10.1021/acssynbio.6c00525",
+      "pmid": "43061972",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43061972",
+      "url": "https://doi.org/10.1021/acssynbio.6c00525",
+      "publishedAt": "2026-11-01",
+      "discoveredAt": "2026-11-21T03:59:35.970Z",
+      "topics": [
+        "synthetic",
+        "metabolic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1016/j.celrep.2026.118254",
@@ -16587,13 +16986,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 446,
+        "count": 452,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-20T03:59:55.671Z",
+        "fetchedAt": "2026-11-21T03:59:36.288Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -16618,9 +17017,9 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-20T03:59:55.395Z"
+        "checkedAt": "2026-11-21T03:59:36.010Z"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-20T03:59:55.395Z"
+      "downloadRefreshLastAttemptAt": "2026-11-21T03:59:36.010Z"
     },
     {
       "id": "doi:10.1007/s11274-026-05339-5",
@@ -17114,25 +17513,25 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 126,
+      "hitCount": 133,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 77,
+      "hitCount": 83,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 110,
+      "hitCount": 114,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-11-20",
+    "date": "2026-11-21",
     "requests": 0
   },
   "receipts": {
@@ -22395,11 +22794,11 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "automatic_paused",
-    "lastRunAt": "2026-11-20T03:59:55.690Z",
+    "lastRunAt": "2026-11-21T03:59:36.315Z",
     "failedTopics": 0,
     "collectionSource": {
       "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/44671302135"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/44863797387"
     },
     "downloadRefresh": {
       "supported": 2,
@@ -22413,6 +22812,6 @@
     "modelCompletedThisRun": 0,
     "modelFailuresThisRun": 0,
     "analysisFailures": 3,
-    "completedAt": "2026-11-20T03:59:55.741Z"
+    "completedAt": "2026-11-21T03:59:36.365Z"
   }
 }
