@@ -1,5 +1,5 @@
-import { TOPICS, cleanDoi, beijingDay, dayBefore, validPublicationDate, isRetracted } from './core.js?v=0.2.40';
-import { attachEnrichment, translationOf } from './enrichment.js?v=0.2.40';
+import { TOPICS, cleanDoi, canonicalPmcid, paperPmcid, beijingDay, dayBefore, validPublicationDate, isRetracted } from './core.js?v=0.2.41';
+import { attachEnrichment, translationOf } from './enrichment.js?v=0.2.41';
 export function paperKind(paper) {
   if (paper.isPreprint) return 'preprint';
   if (paper.type === '综述') return 'review';
@@ -19,13 +19,6 @@ function canonicalSearchDoi(value) {
   // Preserve the suffix, including punctuation and Unicode width. Identifier
   // matching must not apply the compatibility folding used for ordinary text.
   return /^10\.\d{4,9}\/[^\s\u0000-\u001f\u007f]+$/.test(value) ? cleanDoi(value) : null;
-}
-function canonicalPmcid(value) {
-  const match = typeof value === 'string' && /^PMC([1-9]\d*)$/i.exec(value);
-  return match ? `PMC${match[1]}` : null;
-}
-export function paperPmcid(paper) {
-  return canonicalPmcid(paper.pmcid) || (paper.collection === 'Europe PMC' && paper.source === 'PMC' ? canonicalPmcid(paper.sourceId) : null);
 }
 function searchIdentifier(query) {
   const pmid = /^pmid\s*:\s*(\d+)$/i.exec(query);

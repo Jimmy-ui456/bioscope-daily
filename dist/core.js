@@ -1,5 +1,5 @@
-import { translationOf, attachEnrichment, interpretationOf } from './enrichment.js?v=0.2.40';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.40';
+import { readingAvailability } from './enrichment.js?v=0.2.41';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.41';
 
 export const TOPICS = [
   { id: 'synthetic', name: '合成生物学', en: 'Synthetic biology', query: 'TITLE_ABS:"synthetic biology"', words: ['synthetic biology', 'synthetic circuit', 'synthetic gene', 'genome engineering'], color: 'green' },
@@ -7,7 +7,7 @@ export const TOPICS = [
   { id: 'microbial', name: '微生物制造', en: 'Microbial biomanufacturing', query: '(TITLE_ABS:"microbial cell factories" OR TITLE_ABS:"microbial production" OR TITLE_ABS:"biomanufacturing")', words: ['microbial', 'biomanufacturing', 'cell factor', 'bioproduction', 'yeast'], color: 'blue' }
 ];
 export const API_URL = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search';
-export const APP_VERSION = '0.2.40';
+export const APP_VERSION = '0.2.41';
 
 export function plainText(value = '') {
   return String(value).replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&#(\d+);/g, (_, n) => Number(n) <= 0x10ffff ? String.fromCodePoint(Number(n)) : '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -15,6 +15,13 @@ export function plainText(value = '') {
 export function cleanDoi(value) {
   const doi = String(value || '').trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '').replace(/^doi:\s*/i, '').toLowerCase();
   return /^10\.\d{4,9}\/\S+$/.test(doi) ? doi : null;
+}
+export function canonicalPmcid(value) {
+  const match = typeof value === 'string' && /^PMC([1-9]\d*)$/i.exec(value);
+  return match ? `PMC${match[1]}` : null;
+}
+export function paperPmcid(paper) {
+  return canonicalPmcid(paper.pmcid) || (paper.collection === 'Europe PMC' && paper.source === 'PMC' ? canonicalPmcid(paper.sourceId) : null);
 }
 export function beijingDay(at = new Date()) {
   return new Date(new Date(at).getTime() + 8 * 3600 * 1000).toISOString().slice(0, 10);
@@ -226,14 +233,25 @@ export function knownRetraction(paper, currentPapers = []) {
 }
 export function reportMarkdown(report, catalog = {}, currentPapers = []) {
   const isPublic = report.kind === 'public_daily';
-  const lines = [`# 生研观察 · ${report.date} ${isPublic ? '公共文献简报' : '日报'}`, '', `生成时间：${new Date(report.createdAt).toISOString()}（UTC）`, `数据：${report.origin === 'sample' ? '文献样本或个人导入记录，来源需核对，不代表今日完整监控' : 'Europe PMC 实时采集缓存'}`, `覆盖：${report.windowStart} 至 ${report.date} 发表、${isPublic ? '按主题覆盖与发表日期规则自动整理' : '由使用者手动精选'}的文献（最多 10 条）`, ...(isPublic ? [report.selectionPolicy?.description || '按规则自动整理，非人工科研价值精选。', report.selectionPolicy?.coverageNote || '只覆盖当前文献库，不代表完整领域监控。'] : []), '阅读范围：仅题录或摘要；未进行全文核验。', '中英对照为辅助译文；自动解读基于摘要，需核对原文。无译文的文献明确保留待翻译状态。', ''];
+  const lines = [`# 生研观察 · ${report.date} ${isPublic ? '公共文献简报' : '日报'}`, '', `生成时间：${new Date(report.createdAt).toISOString()}（UTC）`, `数据：${report.origin === 'sample' ? '文献样本或个人导入记录，来源需核对，不代表今日完整监控' : 'Europe PMC 实时采集缓存'}`, `覆盖：${report.windowStart} 至 ${report.date} 发表、${isPublic ? '按主题覆盖与发表日期规则自动整理' : '由使用者手动精选'}的文献（最多 10 条）`, ...(isPublic ? [report.selectionPolicy?.description || '按规则自动整理，非人工科研价值精选。', report.selectionPolicy?.coverageNote || '只覆盖当前文献库，不代表完整领域监控。'] : []), '阅读范围：仅题录或摘要；未进行全文核验。', '中英对照为辅助译文；自动解读基于摘要，需核对原文。', ''];
   if (isPublic) appendCollectionMarkdown(lines, report.sourceCollection);
   report.papers.forEach((p, i) => {
-    const enriched = attachEnrichment(p, catalog);
-    const t = translationOf(enriched);
-    const interpretation = interpretationOf(enriched);
+    const { hasAbstract, bilingual, translation: t, interpretation } = readingAvailability(p, catalog);
+    const translatedTitle = t?.titleZh.trim();
+    const pmcid = paperPmcid(p);
     const retraction = knownRetraction(p, currentPapers);
-    lines.push(`## ${i + 1}. ${markdownText(t?.titleZh || p.title)}`, '', t ? `**English title**: ${markdownText(p.title)}` : '**中文对照：待翻译**', '', `- 出处：${markdownText(p.journal)} · ${p.publishedAt || '日期未知'}`, `- 作者：${markdownText(p.authors)}`, `- 类型／状态：${p.type}／${p.status}`, `- 阅读范围：${p.readingScope}`, `- DOI：${p.doi || '接口未提供'}`, `- PMID：${p.pmid || '不适用／未提供'}`, `- 原文：${p.url}`, '', ...(t?.sourceNote ? [`**原文来源提示：${markdownText(t.sourceNote)}**`, ''] : []), t ? `**中文摘要（辅助译文，未审核）**\n\n${t.abstractZh}` : '中文摘要：待翻译。', '', p.abstract ? `**原文摘要**\n\n${p.abstract}` : '接口未提供摘要，请阅读原文。', '');
+    lines.push(`## ${i + 1}. ${markdownText(translatedTitle || p.title)}`, '');
+    if (translatedTitle) lines.push(`**English title**: ${markdownText(p.title)}`, '');
+    else if (hasAbstract) lines.push('**中文对照：待翻译**', '');
+    lines.push(`- 出处：${markdownText(p.journal)} · ${p.publishedAt || '日期未知'}`, `- 作者：${markdownText(p.authors)}`,
+      `- 类型／状态：${p.type}／${p.status}`, `- 阅读范围：${hasAbstract ? '仅摘要' : '仅题录'}`,
+      `- DOI：${p.doi || '接口未提供'}`, `- PMID：${p.pmid || '不适用／未提供'}`);
+    if (pmcid) lines.push(`- PMCID：${pmcid}`);
+    lines.push(`- 原文：${p.url}`, '');
+    if (t?.sourceNote) lines.push(`**原文来源提示：${markdownText(t.sourceNote)}**`, '');
+    if (bilingual) lines.push(`**中文摘要（辅助译文，未审核）**\n\n${t.abstractZh}`, '');
+    else if (hasAbstract) lines.push('中文摘要：待翻译。', '');
+    lines.push(hasAbstract ? `**原文摘要**\n\n${p.abstract}` : '接口未提供摘要，请阅读原文。', '');
     if (retraction) lines.push(`**已知撤稿相关信号**：本库已记录此文献的撤稿相关状态；原刊快照保持原样，请核对来源：${retraction.url}`, '');
     if (interpretation) appendInterpretationMarkdown(lines, interpretation);
   });
