@@ -1,8 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { normalizePaper } from '../dist/core.js';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, readerPresetSnapshot } from '../dist/local-state.js';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistPaperReferences, readerPresetSnapshot } from '../dist/local-state.js';
 import { readMarkFor } from '../dist/read-progress.js';
+import { indexPaperReferences, togglePaperReference } from '../dist/paper-references.js';
 
 const prefix = 'bioscope.v1.';
 function paper(id = 'fixture') {
@@ -21,6 +22,38 @@ function fakeStorage(values = {}, options = {}) {
     getItem(key) { reads.push(key); if (options.failRead?.includes(key.slice(prefix.length))) throw new Error('private read detail'); return data.get(key) ?? null; },
     setItem(key, value) { if (options.failWrite?.includes(key.slice(prefix.length))) throw new Error('private quota detail'); writes.push([key, value]); data.set(key, value); },
   };
+}
+
+for (const key of ['bookmarks', 'selected']) {
+  test(`${key} 的旧标签页保存不会覆盖新记录，可在刷新后按别名取消`, () => {
+    const storage = fakeStorage();
+    const first = readLocalReaderState(storage), second = readLocalReaderState(storage);
+    const record = paper('123456');
+    const alias = 'pmid:' + record.pmid;
+    assert.deepEqual(first[key], []);
+    const firstResult = persistPaperReferences(storage, key, [alias, 'unbound'], first.rawRecords[key] ?? null);
+    assert.equal(firstResult.status, 'saved');
+    assert.equal(persistPaperReferences(storage, key, [record.id], second.rawRecords[key] ?? null).status, 'changed');
+    const refreshed = readLocalReaderState(storage);
+    const removed = togglePaperReference(refreshed[key], record.id, indexPaperReferences([record]));
+    assert.equal(persistPaperReferences(storage, key, removed, refreshed.rawRecords[key]).status, 'saved');
+    assert.deepEqual(readLocalReaderState(storage)[key], ['unbound']);
+  });
+  test(`${key} 保存保护异常记录并报告读取或配额失败，恢复后可以保存`, () => {
+    const storage = fakeStorage({ [key]: ['valid', null] });
+    const state = readLocalReaderState(storage);
+    assert.equal(persistPaperReferences(storage, key, ['new'], state.rawRecords[key], {
+      protectedKeys: new Set(state.protectedKeys),
+    }).status, 'protected');
+    assert.deepEqual(storage.writes, []);
+    assert.deepEqual(persistLocalRecovery(storage, state, state).saved, [key]);
+    assert.equal(persistPaperReferences(storage, key, ['valid', 'new'], JSON.stringify(state[key])).status, 'saved');
+    for (const opts of [{ failWrite: [key] }, { failRead: [key] }]) {
+      const blocked = fakeStorage({}, opts);
+      assert.equal(persistPaperReferences(blocked, key, ['new'], null).status, 'failed');
+      assert.deepEqual(blocked.writes, []);
+    }
+  });
 }
 
 test('新访客仅启动时读取本机记录，旧库缺少搜索预设时使用空列表且不告警', () => {

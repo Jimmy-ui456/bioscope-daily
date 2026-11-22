@@ -1,4 +1,4 @@
-import { collectionTopicStats, mergePapers, mergePapersWithIdMap } from './core.js?v=0.2.38';
+import { collectionTopicStats, mergePapers, mergePapersWithIdMap } from './core.js?v=0.2.39';
 
 export function manualCollectionOutcome(topics, results, current, updatedAt) {
   const stats = results.map((result, index) => collectionTopicStats(topics[index], result));

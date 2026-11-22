@@ -1,5 +1,5 @@
-import { TOPICS, isValidPaper, mergePapersWithIdMap, validPublicationDate } from './core.js?v=0.2.38';
-import { indexPaperReferences } from './paper-references.js?v=0.2.38';
+import { TOPICS, isValidPaper, mergePapersWithIdMap, validPublicationDate } from './core.js?v=0.2.39';
+import { indexPaperReferences } from './paper-references.js?v=0.2.39';
 
 function record(value) { return value !== null && typeof value === 'object' && !Array.isArray(value); }
 function validTime(value) {

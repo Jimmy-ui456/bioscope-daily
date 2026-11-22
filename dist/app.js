@@ -1,24 +1,24 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.38';
-import { collectionHealth } from './health.js?v=0.2.38';
-import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.38';
-import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.38';
-import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.38';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.38';
-import { evidenceContext } from './evidence.js?v=0.2.38';
-import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.38';
-import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.38';
-import { planSharedRefresh } from './shared-refresh.js?v=0.2.38';
-import { manualCollectionOutcome } from './manual-collection.js?v=0.2.38';
-import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.38';
-import { reportRis } from './report-ris.js?v=0.2.38';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.38';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.38';
-import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.38';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.38';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.38';
-import { TOPICS, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.38';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.39';
+import { collectionHealth } from './health.js?v=0.2.39';
+import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.39';
+import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.39';
+import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.39';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.39';
+import { evidenceContext } from './evidence.js?v=0.2.39';
+import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.39';
+import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.39';
+import { planSharedRefresh } from './shared-refresh.js?v=0.2.39';
+import { manualCollectionOutcome } from './manual-collection.js?v=0.2.39';
+import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.39';
+import { reportRis } from './report-ris.js?v=0.2.39';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.39';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistPaperReferences, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.39';
+import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.39';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.39';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.39';
+import { TOPICS, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.39';
 
-import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.38';
+import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.39';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -26,6 +26,7 @@ const storageKey = 'bioscope.v1.';
 function read(key, fallback) { try { return JSON.parse(localStorage.getItem(storageKey + key)) ?? fallback; } catch { return fallback; } }
 const localState = readLocalReaderState({ getItem: key => localStorage.getItem(key) }, storageKey);
 const protectedStorageKeys = new Set(localState.protectedKeys);
+const paperReferenceRaw = { bookmarks: localState.rawRecords.bookmarks ?? null, selected: localState.rawRecords.selected ?? null };
 const browserStorage = { getItem: key => localStorage.getItem(key), setItem: (key, value) => localStorage.setItem(key, value) };
 let readerPresets = localState.readerPresets;
 let readerPresetRaw = localState.rawRecords.readerPresets ?? null;
@@ -730,10 +731,29 @@ async function collect() {
   }
   state.busy = false; state.progress = ''; render();
 }
+function savePaperReferences(field, references) {
+  const result = persistPaperReferences(browserStorage, field, references, paperReferenceRaw[field], {
+    protectedKeys: protectedStorageKeys, prefix: storageKey,
+  });
+  if (result.status === 'saved') {
+    paperReferenceRaw[field] = result.raw;
+    state[field] = references;
+  }
+  return result.status;
+}
+function referenceSaveMessage(field, status) {
+  const label = field === 'bookmarks' ? '收藏' : '精选';
+  if (status === 'changed') return `${label}已在其他页面更改，本次未保存。请刷新后重试。`;
+  if (status === 'protected') return `${label}记录受保护，本次未保存。请先处理本机数据恢复提示。`;
+  return `浏览器未能保存${label}，当前页面的${label}未更改。`;
+}
 function toggleId(field, id) {
   const previousIndex = [...($('#feed-list')?.querySelectorAll('.paper-card .paper-title') || [])].findIndex(button => button.dataset.paper === id);
-  state[field] = togglePaperReference(state[field], id, paperReferenceLookup());
-  write(field, state[field]); render();
+  const references = togglePaperReference(state[field], id, paperReferenceLookup());
+  if (references === state[field]) return;
+  const status = savePaperReferences(field, references);
+  if (status !== 'saved') { toast(referenceSaveMessage(field, status)); return; }
+  render();
   if ($('#paper-dialog').open) showPaper(id, true);
   else if (document.activeElement === document.body && !focusNewResults($('#feed-list'), Math.max(0, previousIndex))) $('#main')?.focus({ preventScroll: true });
 }
@@ -853,7 +873,10 @@ document.addEventListener('click', async event => {
     case 'resume-local-storage': {
       const values = { settings: state.settings, cache: cacheValue(), readerFilters: state.readerFilters, readerPresets, readMarks, bookmarks: state.bookmarks, selected: state.selected, reports: state.reports, displayMode };
       const result = persistLocalRecovery(browserStorage, values, { protectedKeys: [...protectedStorageKeys], rawRecords: localState.rawRecords, prefix: storageKey });
-      result.saved.forEach(key => protectedStorageKeys.delete(key));
+      result.saved.forEach(key => {
+        protectedStorageKeys.delete(key);
+        if (Object.hasOwn(paperReferenceRaw, key)) paperReferenceRaw[key] = JSON.stringify(values[key]);
+      });
       if (result.saved.includes('readerPresets')) readerPresetRaw = JSON.stringify(readerPresets);
       if (result.saved.includes('readMarks')) readMarksRaw = JSON.stringify(readMarks);
       localRecoveryMessage = [result.changed.length ? '部分本机记录已在其他页面变化，为避免覆盖，请刷新后重新核对。' : '', result.failed.length ? '部分恢复内容未能保存，原记录继续保护；请保留原始副本并检查浏览器存储权限或空间。' : ''].filter(Boolean).join(' ');
@@ -973,12 +996,17 @@ document.addEventListener('change', async event => {
       if (file.size > 5 * 1024 * 1024) throw new Error('文件超过 5 MB 上限');
       const data = JSON.parse(await file.text());
       const prepared = prepareBackupImport(state, data);
+      const { selected, bookmarks, ...patch } = prepared.patch;
       samplePinned = false;
-      Object.assign(state, prepared.patch);
-      const saved = [cacheActive(), write('selected', state.selected), write('bookmarks', state.bookmarks), write('reports', state.reports), write('settings', state.settings)].every(Boolean);
+      Object.assign(state, patch);
+      const saved = [cacheActive(), write('reports', state.reports), write('settings', state.settings)].every(Boolean);
+      const referenceFailures = [['selected', selected], ['bookmarks', bookmarks]].flatMap(([field, references]) => {
+        const status = savePaperReferences(field, references);
+        return status === 'saved' ? [] : [referenceSaveMessage(field, status)];
+      });
       navigate('overview');
-      const result = saved ? '个人数据已合并，按文献样本标记，请核对出处。' : '数据已载入本页，但未能完整保存到浏览器；请保留原备份。';
-      toast(result + (prepared.skippedReports ? ` 跳过 ${prepared.skippedReports} 条日期或字段无效的日报。` : ''));
+      const result = saved && !referenceFailures.length ? '个人数据已合并，按文献样本标记，请核对出处。' : '个人数据未能完整保存，请保留原备份。';
+      toast([result, ...referenceFailures, prepared.skippedReports ? `跳过 ${prepared.skippedReports} 条日期或字段无效的日报。` : ''].filter(Boolean).join(' '));
     } catch (error) { toast(`导入失败：${error.message}`); }
   }
 });

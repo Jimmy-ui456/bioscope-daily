@@ -1,5 +1,5 @@
-import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.38';
-import { restoreReadMarks } from './read-progress.js?v=0.2.38';
+import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.39';
+import { restoreReadMarks } from './read-progress.js?v=0.2.39';
 
 const KEYS = ['settings', 'cache', 'readerFilters', 'readerPresets', 'readMarks', 'bookmarks', 'selected', 'reports', 'displayMode'];
 export const READER_PRESET_LIMITS = { count: 30, name: 60, search: 2000, journal: 500 };
@@ -57,6 +57,16 @@ function persistCompared(storage, key, value, expectedRaw) {
     storage.setItem(key, raw);
     return { status: 'saved', raw };
   } catch { return { status: 'failed' }; }
+}
+function restoreIds(value) {
+  return Array.isArray(value) ? [...new Set(value.filter(id => typeof id === 'string' && id.trim()))] : [];
+}
+export function persistPaperReferences(storage, key, ids, expectedRaw, { protectedKeys = new Set(), prefix = 'bioscope.v1.' } = {}) {
+  if (key !== 'bookmarks' && key !== 'selected') return { status: 'failed' };
+  if (protectedKeys.has(key)) return { status: 'protected' };
+  const restored = restoreIds(ids);
+  if (!Array.isArray(ids) || restored.length !== ids.length) return { status: 'failed' };
+  return persistCompared(storage, prefix + key, restored, expectedRaw);
 }
 function validTime(value) {
   if (typeof value !== 'string') return false;
@@ -153,16 +163,15 @@ export function readLocalReaderState(storage, prefix = 'bioscope.v1.') {
   const { marks: readMarks, skipped: skippedMarks } = restoreReadMarks(values.readMarks);
   if (skippedMarks) issue('readMarks', '本机已读标记含无效、重复或超出上限的记录，已在本页保留可用标记。');
 
-  const restoreIds = key => {
+  const readIds = key => {
     const saved = values[key];
     if (saved === undefined) return [];
     if (!Array.isArray(saved)) { issue(key, '本机编号列表结构无效，当前页面暂用空列表；原记录未改写。'); return []; }
-    const valid = saved.filter(id => typeof id === 'string' && id.trim());
-    const unique = [...new Set(valid)];
+    const unique = restoreIds(saved);
     if (unique.length !== saved.length) issue(key, `本机编号列表有 ${saved.length - unique.length} 条无效或重复记录，已在本页跳过；其余编号保留。`);
     return unique;
   };
-  const bookmarks = restoreIds('bookmarks'), selected = restoreIds('selected');
+  const bookmarks = readIds('bookmarks'), selected = readIds('selected');
 
   let reports = [];
   if (values.reports !== undefined) {
