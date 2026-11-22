@@ -1,4 +1,5 @@
-import { TOPICS, isValidPaper, mergePapersWithIdMap, validPublicationDate } from './core.js?v=0.2.37';
+import { TOPICS, isValidPaper, mergePapersWithIdMap, validPublicationDate } from './core.js?v=0.2.38';
+import { indexPaperReferences } from './paper-references.js?v=0.2.38';
 
 function record(value) { return value !== null && typeof value === 'object' && !Array.isArray(value); }
 function validTime(value) {
@@ -32,11 +33,11 @@ export function prepareBackupImport(current, data, { now = new Date() } = {}) {
   if (!record(current) || !['papers', 'selected', 'bookmarks', 'reports'].every(key => Array.isArray(current[key]))) {
     throw new Error('当前个人数据结构无法确认，未合并备份');
   }
-  const ids = new Set(data.papers.map(paper => paper.id));
+  const resolveIncoming = indexPaperReferences(data.papers);
   const merged = mergePapersWithIdMap(current.papers, data.papers);
   const importIds = (existing, incoming) => [...new Set([
     ...existing,
-    ...(Array.isArray(incoming) ? incoming.filter(id => typeof id === 'string' && ids.has(id)) : []),
+    ...(Array.isArray(incoming) ? incoming.map(resolveIncoming).filter(id => id !== null) : []),
   ].map(id => merged.idMap.get(id) ?? id))];
   let skippedReports = 0;
   const importedReports = [];
