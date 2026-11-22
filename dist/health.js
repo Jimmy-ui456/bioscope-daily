@@ -13,7 +13,7 @@ function nonnegativeCount(value) {
 }
 
 export function collectionHealth({
-  library = null, backend = null, now = new Date(), staleAfterHours = 36, sharedAvailable = true,
+  library = null, backend = null, now = new Date(), staleAfterHours = 36, sharedAvailable = true, sharedSnapshotStatus,
 } = {}) {
   const automation = library?.automation;
   const local = backend?.available === true;
@@ -51,13 +51,18 @@ export function collectionHealth({
   }
   const statusWarning = local && recordedMessage(backend.statusWarning);
   if (statusWarning) return result('warning', '本地状态未能读取', statusWarning);
+  const savedFailures = failedTopics ? ` 保留的快照记录了 ${failedTopics} 个研究方向未完整更新。` : '';
+  if (sharedSnapshotStatus === 'stale') {
+    return result('warning', '收到较旧的共享快照', '本次读取的快照早于已保存的快照，页面仍显示较新的已保存数据。' + savedFailures);
+  }
+  const readable = sharedSnapshotStatus === 'same' || sharedSnapshotStatus === 'updated';
+  if (sharedSnapshotStatus === 'unavailable' || (!readable && sharedAvailable === false)) {
+    return result('warning', '共享文献库读取失败', '本次未能读取共享文献库，已保存数据继续保留；不能据缓存判断后台本次运行结果。' + savedFailures);
+  }
   if (failedTopics) {
     const allFailed = stats.length > 0 && failedStats === stats.length && !stats.some(stat => stat?.count > 0);
     return result(allFailed ? 'error' : 'warning', allFailed ? '采集未完成' : '采集部分完成',
       `${failedTopics} 个研究方向未能完整更新，已保留可用结果。`);
-  }
-  if (sharedAvailable === false) {
-    return result('warning', '共享文献库读取失败', '本次未能读取共享文献库，已保存数据继续保留；不能据缓存判断后台本次运行结果。');
   }
   const startedAt = recordedTime(automation?.lastRunAt);
   if (startedAt && (!completedAt || Date.parse(startedAt) > Date.parse(completedAt))) {

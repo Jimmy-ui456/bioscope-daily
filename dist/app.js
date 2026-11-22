@@ -1,23 +1,23 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.35';
-import { collectionHealth } from './health.js?v=0.2.35';
-import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.35';
-import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.35';
-import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.35';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.35';
-import { evidenceContext } from './evidence.js?v=0.2.35';
-import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.35';
-import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.35';
-import { planSharedRefresh } from './shared-refresh.js?v=0.2.35';
-import { manualCollectionOutcome } from './manual-collection.js?v=0.2.35';
-import { reportRis } from './report-ris.js?v=0.2.35';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.35';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.35';
-import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.35';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.35';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.35';
-import { TOPICS, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.35';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.36';
+import { collectionHealth } from './health.js?v=0.2.36';
+import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.36';
+import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.36';
+import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.36';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.36';
+import { evidenceContext } from './evidence.js?v=0.2.36';
+import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.36';
+import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.36';
+import { planSharedRefresh } from './shared-refresh.js?v=0.2.36';
+import { manualCollectionOutcome } from './manual-collection.js?v=0.2.36';
+import { reportRis } from './report-ris.js?v=0.2.36';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.36';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.36';
+import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.36';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.36';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.36';
+import { TOPICS, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.36';
 
-import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.35';
+import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.36';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -264,7 +264,7 @@ function formatReaderTime(value) {
   return new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(value));
 }
 function collectionStatusMarkup() {
-  const health = collectionHealth({ library: libraryMeta, backend: backendStatus, sharedAvailable });
+  const health = collectionHealth({ library: libraryMeta, backend: backendStatus, sharedAvailable, sharedSnapshotStatus });
   const time = health.snapshotAt ? '<time datetime="' + esc(health.snapshotAt) + '">快照保存：' + esc(formatReaderTime(health.snapshotAt)) + '（北京）</time>' : '';
   const source = libraryMeta?.automation?.collectionSource;
   const runUrl = validWorkflowRunUrl(source?.runUrl) ? source.runUrl : null;

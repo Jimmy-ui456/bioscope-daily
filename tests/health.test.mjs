@@ -87,6 +87,33 @@ test('共享库本次读取失败时，即使已有新鲜缓存也显示警告',
   assert.match(health.message, /不能据缓存判断/);
 });
 
+test('较旧响应和读取失败优先说明本轮读取结果，历史部分采集单独注明', () => {
+  const saved = { ...library, stats: [{ count: 40, error: '部分分页失败' }] };
+  const stale = collectionHealth({ library: saved, sharedAvailable: false, sharedSnapshotStatus: 'stale', now });
+  assert.equal(stale.label, '收到较旧的共享快照');
+  assert.equal(stale.snapshotAt, saved.fetchedAt);
+  assert.match(stale.message, /仍显示较新的已保存数据.*保留的快照记录了 1 个研究方向/);
+  const unavailable = collectionHealth({ library: saved, sharedSnapshotStatus: 'unavailable', now });
+  assert.equal(unavailable.label, '共享文献库读取失败');
+  assert.match(unavailable.message, /保留的快照记录了 1 个研究方向/);
+  assert.equal(collectionHealth({ library: saved, sharedAvailable: false, now }).label, unavailable.label);
+  for (const sharedSnapshotStatus of ['same', 'updated']) {
+    assert.equal(collectionHealth({ library: saved, sharedSnapshotStatus, now }).label, '采集部分完成');
+    const old = new Date(Date.parse(library.fetchedAt) + 37 * 3600000);
+    assert.equal(collectionHealth({ library, sharedSnapshotStatus, now: old }).label, '采集快照较旧');
+  }
+});
+
+test('本地任务运行、错误与状态警告仍优先于共享快照读取结果', () => {
+  for (const [local, label] of [
+    [{ pipelineBusy: true }, '本地后台任务运行中'],
+    [{ lastJobError: '本地失败' }, '最近本地任务失败'],
+    [{ statusWarning: '本地状态有误' }, '本地状态未能读取'],
+  ]) {
+    assert.equal(collectionHealth({ library, backend: { ...backend, ...local }, sharedSnapshotStatus: 'stale', now }).label, label);
+  }
+});
+
 test('已有文献但日报或订阅输出尚未完成时，不显示整个后台已完成', () => {
   const incomplete = { ...library, automation: { lastRunAt: library.fetchedAt } };
   const health = collectionHealth({ library: incomplete, now });
