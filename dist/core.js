@@ -1,5 +1,5 @@
-import { translationOf, attachEnrichment, interpretationOf } from './enrichment.js?v=0.2.34';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.34';
+import { translationOf, attachEnrichment, interpretationOf } from './enrichment.js?v=0.2.35';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.35';
 
 export const TOPICS = [
   { id: 'synthetic', name: '合成生物学', en: 'Synthetic biology', query: 'TITLE_ABS:"synthetic biology"', words: ['synthetic biology', 'synthetic circuit', 'synthetic gene', 'genome engineering'], color: 'green' },
@@ -7,7 +7,7 @@ export const TOPICS = [
   { id: 'microbial', name: '微生物制造', en: 'Microbial biomanufacturing', query: '(TITLE_ABS:"microbial cell factories" OR TITLE_ABS:"microbial production" OR TITLE_ABS:"biomanufacturing")', words: ['microbial', 'biomanufacturing', 'cell factor', 'bioproduction', 'yeast'], color: 'blue' }
 ];
 export const API_URL = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search';
-export const APP_VERSION = '0.2.34';
+export const APP_VERSION = '0.2.35';
 
 export function plainText(value = '') {
   return String(value).replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&#(\d+);/g, (_, n) => Number(n) <= 0x10ffff ? String.fromCodePoint(Number(n)) : '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -147,7 +147,8 @@ export async function collectTopic(topic, { days = 30, maxPages = 2, pageSize = 
   retryDelay = () => new Promise(resolve => setTimeout(resolve, 1200 + Math.random() * 1000)) } = {}) {
   const records = [];
   let cursor = '*';
-  let hitCount = 0;
+  const seenCursors = new Set([cursor]);
+  let hitCount = null;
   let truncated = false;
   let interrupted = null;
   for (let page = 0; page < maxPages; page++) {
@@ -167,12 +168,23 @@ export async function collectTopic(topic, { days = 30, maxPages = 2, pageSize = 
       truncated = true;
       break;
     }
-    hitCount = Number(data.hitCount || 0);
+    const count = typeof data.hitCount === 'string' && /^\d+$/.test(data.hitCount) ? Number(data.hitCount) : data.hitCount;
+    if (Number.isSafeInteger(count) && count >= 0) hitCount = count;
     const batch = data.resultList.result.map(r => normalizePaper(r, topic.id, new Date().toISOString()));
     records.push(...batch);
     onProgress({ topic: topic.name, page: page + 1, count: records.length });
     const next = data.nextCursorMark;
-    if (!next || next === cursor || !batch.length || records.length >= hitCount) break;
+    if (hitCount !== null && records.length >= hitCount) break;
+    const stalled = !batch.length || typeof next !== 'string' || !next.trim() || /[\p{Cc}]/u.test(next) || seenCursors.has(next);
+    if (stalled) {
+      if (hitCount === null) break;
+      const message = 'Europe PMC 分页未推进，仍有未读取的命中记录';
+      if (!records.length) throw new CollectionRequestError(message);
+      interrupted = message;
+      truncated = true;
+      break;
+    }
+    seenCursors.add(next);
     cursor = next;
     if (page === maxPages - 1) truncated = true;
   }

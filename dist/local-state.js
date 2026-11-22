@@ -1,5 +1,5 @@
-import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.34';
-import { restoreReadMarks } from './read-progress.js?v=0.2.34';
+import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.35';
+import { restoreReadMarks } from './read-progress.js?v=0.2.35';
 
 const KEYS = ['settings', 'cache', 'readerFilters', 'readerPresets', 'readMarks', 'bookmarks', 'selected', 'reports', 'displayMode'];
 export const READER_PRESET_LIMITS = { count: 30, name: 60, search: 2000, journal: 500 };

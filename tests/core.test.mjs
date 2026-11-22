@@ -87,6 +87,53 @@ test('补齐 DOI 的记录通过 PMID 合并，保留既有收藏所用的记录
   assert.equal(merged[0].id, old.id);
   assert.equal(merged[0].doi, updated.doi);
 });
+const mockCollectionPage = (hitCount, nextCursorMark, result) => ({
+  ok: true, json: async () => ({ hitCount, nextCursorMark, resultList: { result } }),
+});
+
+test('有未读命中时，无效游标或空页作为中断处理，不再次请求', async () => {
+  for (const [cursor, batch] of [[undefined, [record]], [99, [record]], [' ', [record]], ['*', [record]], ['next', []]]) {
+    let calls = 0;
+    const fetchImpl = async () => { calls++; return mockCollectionPage(4, cursor, batch); };
+    const run = () => collectTopic(TOPICS[0], { at, fetchImpl, retryDelay: async () => assert.fail('unexpected retry') });
+    if (!batch.length) await assert.rejects(run, /分页未推进/);
+    else {
+      const result = await run();
+      assert.equal(result.papers.length, 1);
+      assert.equal(result.truncated, true);
+      assert.match(result.interrupted, /分页未推进/);
+    }
+    assert.equal(calls, 1);
+  }
+});
+
+test('识别长游标循环和后续空页，保留之前的论文并停止分页', async () => {
+  for (const pages of [
+    [['a', [record]], ['b', [record]], ['a', [record]]],
+    [['a', [record]], ['b', []]],
+  ]) {
+    let calls = 0;
+    const result = await collectTopic(TOPICS[0], { at, maxPages: 5, fetchImpl: async () => {
+      const [cursor, batch] = pages[calls++];
+      return mockCollectionPage(8, cursor, batch);
+    } });
+    assert.equal(calls, pages.length);
+    assert.equal(result.papers.length, 1);
+    assert.match(result.interrupted, /分页未推进/);
+  }
+});
+
+test('耗尽真实命中和真实零不告警，缺失或错误命中保持未知，正常上限仍单独标记', async () => {
+  for (const [count, batch, expected] of [[1, [record], 1], ['0', [], 0], [undefined, [], null], [null, [], null], ['', [], null], [-1, [], null]]) {
+    const result = await collectTopic(TOPICS[0], { at, fetchImpl: async () => mockCollectionPage(count, undefined, batch) });
+    assert.equal(result.hitCount, expected);
+    assert.equal(result.interrupted, undefined);
+    assert.equal(result.truncated, false);
+  }
+  const capped = await collectTopic(TOPICS[0], { at, maxPages: 1, fetchImpl: async () => mockCollectionPage(5, 'valid', [record]) });
+  assert.equal(capped.truncated, true);
+  assert.equal(capped.interrupted, undefined);
+});
 test('备份文献字段与链接必须符合约定', () => {
   const p = normalizePaper(record, 'synthetic');
   assert.equal(isValidPaper(p), true);

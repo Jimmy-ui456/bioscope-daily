@@ -1,4 +1,4 @@
-# 生研观察 BioScope · v0.2.34
+# 生研观察 BioScope · v0.2.35
 
 [打开公开网站](https://jimmy-ui456.github.io/bioscope-daily/) · [使用与项目结构入门](https://jimmy-ui456.github.io/bioscope-daily/guide.html) · [查看采集与发布状态](https://github.com/Jimmy-ui456/bioscope-daily/actions/workflows/pages.yml)
 
