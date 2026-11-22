@@ -1,8 +1,60 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-21T03:59:36.315Z",
+  "fetchedAt": "2026-11-22T03:12:12.669Z",
   "papers": [
+    {
+      "id": "doi:10.21203/rs.3.rs-11472297/v1",
+      "title": "A validated sfGFP fluorescence assay to monitor Escherichia coli extract productivity for cell- free biomanufacturing",
+      "abstract": "Abstract Cell-free protein synthesis represents a rapidly developing class of manufacturing technologies reported to enable rapid, scalable, decentralized, and versatile protein production for drug products. However, the batch-to-batch variability of the cell extract raw material used for the cell-free reaction may affect the production consistency and product quality. Therefore, we developed and validated an in vitro superfolder green fluorescent protein (sfGFP) productivity assay to quantify and compare the protein-synthesis output of Escherichia coli (E. coli) –derived cell extract batches for suitability prior to their use in establishing a cell-free manufacturing platform. Here, we report a validated quantitative fluorometric assay that is fit-for-purpose for monitoring batch-to-batch variation in extract productivity. This method was evaluated following International Council for Harmonisation (ICH) Q2(R2) and Q14 guidelines to support reproducibility and comparability across laboratories. Assay performance was assessed for specificity, linearity, limit of detection, limit of quantitation, accuracy, robustness, and precision. The assay exhibited a working range of (6.25 to 200) mg/L for sfGFP produced by the cell free reaction with linearity (R² ≥ 0.99) and intermediate precision ( in vitro sfGFP assay to characterize extract productivity and to inform strategies for monitoring extract performance in E. coli cell-free manufacturing workflows.",
+      "authors": "Huang B, Kohnhorst C, Houchens T, Petrovskaya S, Ortega-Rodriguez U, Pritts JD, Pedras-Vasconcelos J, Flores M, Lynch P, Rao VA, McWilliams IL, Faison T, Zidan Y, Piorino F, Romantseva EF, Strychalski E, Lee J, Rhea K, Cole S, Ju T, Biel TG.",
+      "journal": "预印本平台",
+      "doi": "10.21203/rs.3.rs-11472297/v1",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1373795",
+      "url": "https://doi.org/10.21203/rs.3.rs-11472297/v1",
+      "publishedAt": "2026-11-21",
+      "discoveredAt": "2026-11-22T03:11:59.260Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.64898/2026.11.20.768213",
+      "title": "Chemolithoautotrophic acidophile phenotyping by measuring metabolic byproduct formation in microplates",
+      "abstract": "Chemolithoautotrophic acidophiles can support several low-pH biotechnologies, but their phenotyping remains limited by throughput and inconsistent methods. This study used an assay to monitor metabolic byproduct formation using absorbance indicators in static, oxic cultures in 96-well microplates. In abiotic experiments, ferric iron and/or pH measurements from 51 microplates containing simulant solutions span total iron concentrations of 0–1 M, pH 0.3–7.0, and incubation temperatures of 4–75 °C. Of these, 30 microplates tested different UV-transparency and gas-permeable membrane configurations. Another 12 microplates tested indicator compatibility with growth media containing ferrous iron and (in)soluble sulfur substrates. Biological experiments measured 438 microplates containing Acidithiobacillus ferrooxidans ATCC 23270, Acidithiobacillus thiooxidans ATCC 19377, or Leptospirillum ferriphilum DSM 14647 with chemical additives across 1,400 concentration conditions, yielding 142,038 time-course points, including abiotic controls. Measurements of apparent substrate oxidation and/or growth from 96 culture tubes and 99 shake flasks provide context for microplate observations. The miniaturized assay and this dataset may be useful for microbiology, (critical-mineral) biotechnology development, and synthetic biology.",
+      "authors": "Dailey DA, Herishko MA, Wang W, Murray LN, Bavaresco ST, Banta S.",
+      "journal": "预印本平台",
+      "doi": "10.64898/2026.11.20.768213",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1373816",
+      "url": "https://doi.org/10.64898/2026.11.20.768213",
+      "publishedAt": "2026-11-21",
+      "discoveredAt": "2026-11-22T03:11:59.252Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
     {
       "id": "doi:10.1128/spectrum.01261-26",
       "title": "Assessing soluble and insoluble calcium sources for growth, biofilm formation, and biomineralization in Bacillus subtilis .",
@@ -19,6 +71,32 @@
       "discoveredAt": "2026-11-21T03:59:20.380Z",
       "topics": [
         "synthetic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1038/s44161-026-00914-3",
+      "title": "Fermentable dietary fiber controls blood pressure by lowering large intestinal pH and activating the proton-sensing receptor GPR65.",
+      "abstract": "High blood pressure (BP) is the most common cause of death globally due to increased risk of cardiovascular disease. Fermentable dietary fibers regulate BP through gut microbial production of short-chain fatty acids (SCFAs), acidic metabolites. How SCFAs regulate BP remains unclear. Here we show that, in a phenome-wide association study, the proton-sensing G protein-coupled receptor GPR65 gene is associated with human hypertension and cardiorenal phenotypes. Fermentable dietary fibers, delivered as a type 2 resistant starch (RS2), regulated luminal and interstitial tissue pH in the large intestine through gut microbial SCFA production in mice. High RS2 intake reduced pH, increased cAMP production via GPR65 signaling and CREB phosphorylation, and restricted the release of pro-hypertensive inflammatory cytokines by CD8+ T cells. Gpr65-/- mice spontaneously developed hypertension, cardiac and renal hypertrophy, and fibrosis. The benefits of a high-RS2 diet, which prevented these effects, were reduced in Gpr65-/- mice. Adoptive transfers revealed that GPR65 deficiency in CD8+ T cells explained this phenotype.",
+      "authors": "Xie L, R Muralitharan R, Dinakis E, Antonacci S, Leung KC, McArdle Z, Mirabito Colafella K, Nakai M, Paterson M, Peh A, Jama HA, Salimova E, Anderson D, Barbaro-Wahl A, Knezic A, Ang C, Alam MJ, Yap YA, Creek DJ, Robert R, O'Donnell JA, Mackay CR, Marques FZ.",
+      "journal": "Nature cardiovascular research",
+      "doi": "10.1038/s44161-026-00914-3",
+      "pmid": "43064734",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43064734",
+      "url": "https://doi.org/10.1038/s44161-026-00914-3",
+      "publishedAt": "2026-11-20",
+      "discoveredAt": "2026-11-22T03:11:59.260Z",
+      "topics": [
         "microbial"
       ],
       "type": "期刊论文",
@@ -50,6 +128,60 @@
       "type": "预印本",
       "status": "预印本 · 未经同行评审",
       "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1093/plphys/kiag876",
+      "title": "Moss is more: The moss Physcomitrium patens as an ideal chassis for plant synthetic biology.",
+      "abstract": "Physcomitrium patens, commonly known as the spreading earthmoss or Physco, has gained increasing attention as a chassis for synthetic biology in plants. This review explores its advantages over flowering plants traditionally used more often for biotechnology, such as Arabidopsis thaliana and maize, including shorter life cycles and ease to handle experimentally, being haploid, and much higher efficiency for integration of transgenes into its genome by homologous recombination. In addition, Physco's ability to maintain episomes also introduces an additional possibility for transgene expression and manipulation. With these advantageous traits, Physco has already been used for synthetic genomes, recombinant protein production, metabolic engineering and artificial organelle engineering. These applications have been enabled by various toolkits developed for construction of transformation cassettes, DNA and RNA editing, as well as different reporters to allow microscopy imaging or quantification of gene expression. While Physco does have limitations, such as its high number of duplicated genes which can present issues when tweaking of native genes is involved, these certainly do not prevent Physco becoming a useful synthetic biology model for further applications on Earth and future space explorations.",
+      "authors": "Wolters R, Tse SW, Lloyd JPB.",
+      "journal": "Plant physiology",
+      "doi": "10.1093/plphys/kiag876",
+      "pmid": "43063008",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43063008",
+      "url": "https://doi.org/10.1093/plphys/kiag876",
+      "publishedAt": "2026-11-20",
+      "discoveredAt": "2026-11-22T03:11:59.253Z",
+      "topics": [
+        "synthetic",
+        "metabolic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.biotechadv.2026.109103",
+      "title": "Redesigning the bacterial envelope: Multi-layered genetic strategies for outer membrane vesicle production.",
+      "abstract": "Bacterial outer membrane vesicles (OMVs) are promising nanoplatforms for therapeutics, vaccines, and bioengineering; however, their industrial translation is constrained by low native yields and strain-dependent heterogeneity. Although static genetic knockouts can enhance vesicle shedding, they often provoke envelope fragility, premature cell lysis, and downstream contamination-creating a severe trade-off between vesicle yield and host cellular fitness. This review systematically outlines genetic strategies to optimise OMV yield, cargo selectivity, and biosafety across four biophysical dimensions: outer membrane layer remodelling, periplasmic waste accumulation and turgor stress, outer membrane-peptidoglycan tether disruption, and multi-layered combinatorial engineering. For each dimension, the molecular mechanisms, comparative merits, and operational bottlenecks are analysed alongside representative biomedical and industrial applications. Finally, we discuss autonomous dynamic circuits for mitigating yield-fitness trade-offs and the prospective role of artificial intelligence (AI)-guided systems design, which remains contingent on suitable datasets and experimental validation. We further consider chassis diversification and standardised orthogonal phenotyping as complementary directions for advancing OMV biomanufacturing. Harnessing these integrated synthetic biology toolkits may facilitate the development of robust and scalable OMV biomanufacturing platforms.",
+      "authors": "Lee JY, Yang IS, Yoo SM.",
+      "journal": "Biotechnology advances",
+      "doi": "10.1016/j.biotechadv.2026.109103",
+      "pmid": "43064264",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43064264",
+      "url": "https://doi.org/10.1016/j.biotechadv.2026.109103",
+      "publishedAt": "2026-11-20",
+      "discoveredAt": "2026-11-22T03:11:59.253Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
       "license": null,
@@ -322,7 +454,7 @@
     {
       "id": "doi:10.64898/2026.11.15.766822",
       "title": "Development of a Temperature-Based Method for Repeated Markerless Gene Integration in cyanobacterium Synechococcus elongatus PCC 7942",
-      "abstract": "Genetic engineering of cyanobacteria can require multiple rounds of genome modification, highlighting the need for flexible markerless engineering tools. Here, we established a temperature-based markerless gene integration method using the temperature-sensitive H1 strain of Synechococcus elongatus PCC 7942, which, unlike the wild-type strain, cannot grow at 40 °C. Disruption of nynA , encoding a putative endoribonuclease, allowed H1 to grow at 40 °C, enabling transformants with genes integrated at the nynA locus to be selected without an antibiotic-resistance marker. Complementation of nynA at a separate genomic locus restored temperature sensitivity, allowing the same selection principle to be reused. Using this strategy, gfp , mScarlet , and luciferase were sequentially integrated, with all three genes retained and expressed. To demonstrate its applicability to metabolic engineering, markerless integration of cnsA , encoding cineole synthase, enabled 1,8-cineole production at 81.4 ± 9.52 µg /g wet cell weight. This strategy enables repeated markerless genome modification in the H1 strain using temperature-based selection.",
+      "abstract": "ABSTRACT Genetic engineering of cyanobacteria can require multiple rounds of genome modification, highlighting the need for flexible markerless engineering tools. Here, we established a temperature-based markerless gene integration method using the temperature-sensitive H1 strain of Synechococcus elongatus PCC 7942, which, unlike the wild-type strain, cannot grow at 40 °C. Disruption of nynA , encoding a putative endoribonuclease, allowed H1 to grow at 40 °C, enabling transformants with genes integrated at the nynA locus to be selected without an antibiotic-resistance marker. Complementation of nynA at a separate genomic locus restored temperature sensitivity, allowing the same selection principle to be reused. Using this strategy, gfp , mScarlet , and luciferase were sequentially integrated, with all three genes retained and expressed. To demonstrate its applicability to metabolic engineering, markerless integration of cnsA , encoding cineole synthase, enabled 1,8-cineole production at 81.4 ± 9.52 µg g⁻¹ wet cell weight. This strategy enables repeated markerless genome modification in the H1 strain using temperature-based selection.",
       "authors": "Ohdate K, Tsuboi T, Hasegawa H, Tanaka K, Watanabe S.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.11.15.766822",
@@ -454,8 +586,8 @@
     {
       "id": "doi:10.64898/2026.11.15.766798",
       "title": "HyperGenie: A method for predicting enzymatic gene essentiality using hypergraph neural networks and genome-scale metabolic models",
-      "abstract": "Identifying essential genes in bacteria is crucial for drug discovery and synthetic biology. Genome-scale metabolic models (GEMs) evaluated via flux balance analysis remain standard, yet they rely on the often-invalid premise that mutant strains optimize for maximum growth. Recent machine learning approaches circumvent this limitation using random forests or graph neural networks on mass flow graphs (MFGs). However, data-driven tools like random forests discard network topology, while graph-based tools like MFGs decompose multi-component biochemical reactions into pairwise interactions, misrepresenting complex stoichiometry and limiting interpretability. Furthermore, existing methods remain largely uncharacterised in data-scarce regimes and cross-environmental conditions. Here, we introduce HyperGenie, a framework that integrates genome-scale metabolic models with directed hypergraph neural networks by representing metabolites as nodes and reactions as hyperedges. Operating directly on wild-type flux features, HyperGenie eliminates post-knockout optimality assumptions, achieves a 13% PR-AUC improvement over prior objective-dependent methods, and matches computationally demanding, state-of-the-art flux-sampling baselines. Using HyperGenie to guide targeted growth curve assays, we identified latent essentiality misannotations across three genes in the benchmark iML1515 dataset, which we then reconciled and validated experimentally via PCR. In data-scarce regimes, HyperGenie retained robust predictive performance (> 90% PR-AUC) when trained on as little as 40% of the data. To isolate the value of hypergraph message passing, we benchmarked HyperGenie against an independent-reaction multilayer perceptron (MLPGenie) across diverse nutrient environments and uptake rates, where HyperGenie's hypergraph inductive bias yielded consistent accuracy gains (> 2% in glucose; > 4% across six alternative carbon sources). Notably, HyperGenie exhibits robust zero-shot cross-nutrient generalization, accurately forecasting gain-of-essentiality phenotypes on novel carbon sources, though loss-of-essentiality remains challenging. Finally, coupling hypergraph representations with SHAP attribution provides actionable mechanistic insights into metabolic rewiring, establishing a data-efficient, interpretable platform for discovering novel antibiotic targets.",
-      "authors": "Ioannou P, Duta I, Verma S, Cicuta P, Lio P, Angione C.",
+      "abstract": "Identifying essential genes in bacteria is crucial for drug discovery and synthetic biology. Genome-scale metabolic models (GEMs) evaluated via flux balance analysis remain standard, yet they rely on the often-invalid premise that mutant strains optimize for maximum growth. Recent machine learning approaches circumvent this limitation using random forests or graph neural networks on mass flow graphs (MFGs). However, data-driven tools like random forests discard network topology, while graph-based tools like MFGs decompose multi-component biochemical reactions into pairwise interactions, misrepresenting complex stoichiometry and limiting interpretability. Furthermore, existing methods remain largely uncharacterised in data-scarce regimes and cross-environmental conditions. Here, we introduce HyperGenie, a framework that integrates genome-scale metabolic models with directed hypergraph neural networks by representing metabolites as nodes and reactions as hyperedges. Operating directly on wild-type flux features, HyperGenie eliminates post-knockout optimality assumptions, achieves a 13% PR-AUC improvement over prior objective-dependent methods, and matches computationally demanding, state-of-the-art flux-sampling baselines. Using HyperGenie to guide targeted growth curve assays, we identified latent essentiality misannotations across three genes in the benchmark iML1515 dataset, which we then reconciled and validated experimentally via PCR. In data-scarce regimes, HyperGenie retained robust predictive performance (> 90% PR-AUC) when trained on as little as 40% of the data. To isolate the value of hypergraph message passing, we benchmarked HyperGenie against an independent-reaction multilayer perceptron (MLPGenie) across diverse nutrient environments and uptake rates, where HyperGenie’s hypergraph inductive bias yielded consistent accuracy gains (> 2% in glucose; > 4% across six alternative carbon sources). Notably, HyperGenie exhibits robust zero-shot cross-nutrient generalization, accurately forecasting gain-of-essentiality phenotypes on novel carbon sources, though loss-of-essentiality remains challenging. Finally, coupling hypergraph representations with SHAP attribution provides actionable mechanistic insights into metabolic rewiring, establishing a data-efficient, interpretable platform for discovering novel antibiotic targets.",
+      "authors": "Ioannou P, Duta I, Verma S, Cicuta P, Liò P, Angione C.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.11.15.766798",
       "pmid": null,
@@ -1619,7 +1751,7 @@
       "journal": "Synthetic and systems biotechnology",
       "doi": "10.1016/j.synbio.2026.10.015",
       "pmid": "43061493",
-      "pmcid": null,
+      "pmcid": "PMC13783254",
       "source": "MED",
       "sourceId": "43061493",
       "url": "https://doi.org/10.1016/j.synbio.2026.10.015",
@@ -1634,7 +1766,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc-nd",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -1752,7 +1884,7 @@
       "journal": "Synthetic and systems biotechnology",
       "doi": "10.1016/j.synbio.2026.10.002",
       "pmid": "43061058",
-      "pmcid": null,
+      "pmcid": "PMC13781795",
       "source": "MED",
       "sourceId": "43061058",
       "url": "https://doi.org/10.1016/j.synbio.2026.10.002",
@@ -1767,7 +1899,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc-nd",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -4093,13 +4225,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 327,
+        "count": 335,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/ploscompbiol/article/metrics?id=10.1371%2Fjournal.pcbi.1014881",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pcbi.1014881/format/json",
-        "fetchedAt": "2026-11-21T03:59:36.162Z",
+        "fetchedAt": "2026-11-22T03:12:12.530Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-11",
         "coverageEnd": "2026-11",
@@ -4113,7 +4245,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-21T03:59:36.010Z"
+        "checkedAt": "2026-11-22T03:12:12.371Z"
       },
       "enrichment": {
         "titleZh": "kinGEMs：通过随机调优深度学习预测的动力学参数，构建稳健且可扩展的资源约束模型框架",
@@ -4126,7 +4258,7 @@
         "reviewed": false,
         "scope": "abstract_only"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-21T03:59:36.010Z"
+      "downloadRefreshLastAttemptAt": "2026-11-22T03:12:12.371Z"
     },
     {
       "id": "doi:10.1007/s00253-026-14083-7",
@@ -4820,7 +4952,7 @@
       "journal": "Frontiers in microbiology",
       "doi": "10.3389/fmicb.2026.1930483",
       "pmid": "43054038",
-      "pmcid": null,
+      "pmcid": "PMC13777927",
       "source": "MED",
       "sourceId": "43054038",
       "url": "https://doi.org/10.3389/fmicb.2026.1930483",
@@ -4835,7 +4967,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -16986,13 +17118,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 452,
+        "count": 456,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-21T03:59:36.288Z",
+        "fetchedAt": "2026-11-22T03:12:12.638Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -17017,9 +17149,9 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-21T03:59:36.010Z"
+        "checkedAt": "2026-11-22T03:12:12.371Z"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-21T03:59:36.010Z"
+      "downloadRefreshLastAttemptAt": "2026-11-22T03:12:12.371Z"
     },
     {
       "id": "doi:10.1007/s11274-026-05339-5",
@@ -17513,25 +17645,25 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 133,
+      "hitCount": 129,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 83,
+      "hitCount": 80,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 114,
+      "hitCount": 112,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-11-21",
+    "date": "2026-11-22",
     "requests": 0
   },
   "receipts": {
@@ -22794,11 +22926,11 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "automatic_paused",
-    "lastRunAt": "2026-11-21T03:59:36.315Z",
+    "lastRunAt": "2026-11-22T03:12:12.669Z",
     "failedTopics": 0,
     "collectionSource": {
       "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/44863797387"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/44979507788"
     },
     "downloadRefresh": {
       "supported": 2,
@@ -22812,6 +22944,6 @@
     "modelCompletedThisRun": 0,
     "modelFailuresThisRun": 0,
     "analysisFailures": 3,
-    "completedAt": "2026-11-21T03:59:36.365Z"
+    "completedAt": "2026-11-22T03:12:12.736Z"
   }
 }
