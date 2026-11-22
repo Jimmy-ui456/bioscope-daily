@@ -1,24 +1,24 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.39';
-import { collectionHealth } from './health.js?v=0.2.39';
-import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.39';
-import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.39';
-import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.39';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.39';
-import { evidenceContext } from './evidence.js?v=0.2.39';
-import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.39';
-import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.39';
-import { planSharedRefresh } from './shared-refresh.js?v=0.2.39';
-import { manualCollectionOutcome } from './manual-collection.js?v=0.2.39';
-import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.39';
-import { reportRis } from './report-ris.js?v=0.2.39';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.39';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistPaperReferences, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.39';
-import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.39';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.39';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.39';
-import { TOPICS, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.39';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.40';
+import { collectionHealth } from './health.js?v=0.2.40';
+import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.40';
+import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.40';
+import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.40';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.40';
+import { evidenceContext } from './evidence.js?v=0.2.40';
+import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.40';
+import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.40';
+import { planSharedRefresh } from './shared-refresh.js?v=0.2.40';
+import { manualCollectionOutcome } from './manual-collection.js?v=0.2.40';
+import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.40';
+import { reportRis } from './report-ris.js?v=0.2.40';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.40';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistPaperReferences, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.40';
+import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.40';
+import { paperPmcid, paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.40';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.40';
+import { TOPICS, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.40';
 
-import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.39';
+import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.40';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -358,7 +358,7 @@ function feedList() {
   }
   return `${papers.slice(0, state.page * 8).map(paperCard).join('')}${papers.length > state.page * 8 ? `<button class="load-more" data-action="more">再看 8 篇研究 ${icon('arrow', 12)} <span>(${Math.min(state.page * 8, papers.length)} / ${papers.length})</span></button>` : `<div class="help" style="text-align:center;padding:20px">已展示 ${papers.length} 篇 · 每个发现，都有出处</div>`}`;
 }
-function sampleNotice() { return state.containsImported ? '<div class="sample-notice">' + icon('info', 12) + ' <strong>含个人导入记录</strong> · 导入来源尚未核验；刷新时保留并与共享文献合并，不代表所有记录均由本次采集取得。</div>' : state.origin === 'sample' ? `<div class="sample-notice">${icon('info', 12)} <strong>原型文献样本</strong> · 采集于 ${shortDate(state.updatedAt?.slice(0, 10))}，不是今日完整监控。点击「更新文献」可检索近期真实记录。</div>` : `<div class="sample-notice">${icon('check', 12)} <strong>Europe PMC 采集缓存</strong> · 采集记录按 DOI / PMID 去重。分类为关键词匹配，研究价值请人工判断。</div>`; }
+function sampleNotice() { return state.containsImported ? '<div class="sample-notice">' + icon('info', 12) + ' <strong>含个人导入记录</strong> · 导入来源尚未核验；刷新时保留并与共享文献合并，不代表所有记录均由本次采集取得。</div>' : state.origin === 'sample' ? `<div class="sample-notice">${icon('info', 12)} <strong>原型文献样本</strong> · 采集于 ${shortDate(state.updatedAt?.slice(0, 10))}，不是今日完整监控。点击「更新文献」可检索近期真实记录。</div>` : `<div class="sample-notice">${icon('check', 12)} <strong>Europe PMC 采集缓存</strong> · 采集记录按 DOI / PMID / PMCID 去重。分类为关键词匹配，研究价值请人工判断。</div>`; }
 function topicPanel() {
   const papers = activePapers();
   return `<section class="side-panel"><div class="panel-kicker">RESEARCH LANDSCAPE</div><h2 class="panel-title">研究视野</h2><p class="panel-copy">当前文献库的主题覆盖</p>${TOPICS.map(t => { const n = papers.filter(p => p.topics.includes(t.id)).length; return `<div class="topic-row"><span><i class="dot ${t.color}"></i>${t.name}</span><em>${n} 篇</em></div><div class="track"><i class="${t.color}" style="width:${papers.length ? Math.round(n / papers.length * 100) : 0}%"></i></div>`; }).join('')}<div class="panel-foot">一篇研究可属于多个方向。<br>主题覆盖不代表传播热度或研究质量。</div></section>`;
@@ -616,7 +616,7 @@ function render({ keepScroll = true, preserveFocus = true } = {}) {
   const scroll = window.scrollY;
   const previousFocus = preserveFocus ? focusSnapshot($('#app')) : null;
   const healthMarkup = collectionStatusMarkup();
-  $('#app').innerHTML = `${sidebar()}<div class="workspace"><div class="topbar"><div class="breadcrumb"><button id="navigation-toggle" class="icon-button mobile-toggle" data-action="menu" aria-label="打开导航" aria-controls="primary-navigation" aria-expanded="${navigationMedia.matches && mobileMenuOpen}">${icon('menu', 19)}</button><span class="breadcrumb-workspace">我的科研工作台</span><span>/</span><b>${views[state.view].name}</b></div><div class="topbar-actions"><span class="version">PROTOTYPE ${APP_VERSION}</span><button class="button small language-toggle" data-action="toggle-language" aria-pressed="${displayMode === 'bilingual'}">${displayMode === 'bilingual' ? '中英对照' : 'English'}</button><label class="global-search">${icon('search', 14)}<input id="search" type="search" placeholder="论文、关键词、DOI / PMID" aria-label="搜索已载入文献的题名、关键词、DOI或PMID" value="${esc(state.search)}"><span class="keycap">/</span></label><button class="icon-button" data-view="settings" aria-label="监控设置">${icon('settings', 17)}</button></div></div><main class="main" id="main" tabindex="-1">${masthead()}<div id="collection-health" role="status" aria-live="polite" aria-atomic="true">${healthMarkup}</div>${localRecoveryMarkup()}${state.busy ? `<div class="progress-banner" role="status">${icon('refresh', 13, 'spin')} <span id="progress">${esc(state.progress)}</span></div>` : ''}${state.error ? `<div class="error-notice" role="alert">${icon('info', 13)} ${esc(state.error)}</div>` : ''}${({ overview, bookmarks: bookmarksPage, hot: hotPage, topics: topicsPage, sources: sourcesPage, settings: () => settingsPage() + readerTransferPanel(), daily: reportPage }[state.view])()}${footer()}</main></div>`;
+  $('#app').innerHTML = `${sidebar()}<div class="workspace"><div class="topbar"><div class="breadcrumb"><button id="navigation-toggle" class="icon-button mobile-toggle" data-action="menu" aria-label="打开导航" aria-controls="primary-navigation" aria-expanded="${navigationMedia.matches && mobileMenuOpen}">${icon('menu', 19)}</button><span class="breadcrumb-workspace">我的科研工作台</span><span>/</span><b>${views[state.view].name}</b></div><div class="topbar-actions"><span class="version">PROTOTYPE ${APP_VERSION}</span><button class="button small language-toggle" data-action="toggle-language" aria-pressed="${displayMode === 'bilingual'}">${displayMode === 'bilingual' ? '中英对照' : 'English'}</button><label class="global-search">${icon('search', 14)}<input id="search" type="search" placeholder="论文、关键词、DOI / PMID / PMCID" aria-label="搜索已载入文献的题名、关键词、DOI、PMID或PMCID" value="${esc(state.search)}"><span class="keycap">/</span></label><button class="icon-button" data-view="settings" aria-label="监控设置">${icon('settings', 17)}</button></div></div><main class="main" id="main" tabindex="-1">${masthead()}<div id="collection-health" role="status" aria-live="polite" aria-atomic="true">${healthMarkup}</div>${localRecoveryMarkup()}${state.busy ? `<div class="progress-banner" role="status">${icon('refresh', 13, 'spin')} <span id="progress">${esc(state.progress)}</span></div>` : ''}${state.error ? `<div class="error-notice" role="alert">${icon('info', 13)} ${esc(state.error)}</div>` : ''}${({ overview, bookmarks: bookmarksPage, hot: hotPage, topics: topicsPage, sources: sourcesPage, settings: () => settingsPage() + readerTransferPanel(), daily: reportPage }[state.view])()}${footer()}</main></div>`;
   syncNavigation();
   healthMarkupByNode.set($('#collection-health'), healthMarkup);
   const coverage = $('#shared-coverage');
@@ -810,7 +810,8 @@ function showPaperRecord(p, { alreadyOpen = false, readOnly = false } = {}) {
     dialogReadOnly = readOnly;
   }
   const reading = readingAvailability(p, translations);
-  dialog.innerHTML = `<div class="dialog-inner"><div class="dialog-header"><div class="tags">${p.topics.map(topicTag).join('')}<span class="tag ${p.isPreprint || isRetracted(p) ? 'warn' : 'outline'}">${esc(isRetracted(p) ? '撤稿相关' : p.type)}</span></div><button class="icon-button" data-action="close-dialog" aria-label="关闭论文详情">${icon('close', 20)}</button></div><h2 class="dialog-title" id="dialog-title">${paperHeading(p, reading)}</h2>${dialogReadOnly ? '<p class="help">共享文献 · 只读</p>' : ''}<div class="dialog-authors">${esc(p.authors)}</div><dl class="detail-meta"><div><dt>期刊 / 平台</dt><dd>${esc(p.journal)}</dd></div><div><dt>发表日期</dt><dd>${shortDate(p.publishedAt)}</dd></div><div><dt>DOI / 论文标识</dt><dd>${esc(p.doi || '接口未提供 DOI')}${p.pmid ? `<br>PMID ${esc(p.pmid)}` : ''}</dd></div><div><dt>文献状态 / 阅读范围</dt><dd>${esc(p.status)}<br>${reading.label} · 未读取全文</dd></div></dl>${downloadDetails(p)}${reading.hasAbstract ? `<section class="detail-section"><h3>${icon('book', 15)}摘要</h3>${paperAbstract(p, reading)}${interpretationBlock(p, reading)}</section>` : paperAbstract(p, reading)}<div class="detail-tip">${isRetracted(p) ? '此记录带有撤稿相关类型，不会进入简报。请核对原文及撤稿通知。' : p.isPreprint ? '预印本未经同行评审，结论可能随版本更新。当前尚未自动核验版本及正式发表关系。' : '期刊记录标签来自接口元数据，不代表已核实评审或研究质量。当前未自动核验更正、撤稿、数据与代码。'} 中文解读仅基于摘要，不替代全文核验。</div><div class="dialog-actions">${paperDialogActions(p, dialogReadOnly)}</div><div id="dialog-status" class="dialog-status" role="status" aria-live="polite" aria-atomic="true"></div><div class="detail-source">${icon('globe', 12)}来源：Europe PMC · 本库首次发现 ${shortDate(discoveryDay(p))}（北京）<br>原型未将原文发表日、数据库收录日与平台版本更新日全部关联。</div></div>`;
+  const pmcid = paperPmcid(p);
+  dialog.innerHTML = `<div class="dialog-inner"><div class="dialog-header"><div class="tags">${p.topics.map(topicTag).join('')}<span class="tag ${p.isPreprint || isRetracted(p) ? 'warn' : 'outline'}">${esc(isRetracted(p) ? '撤稿相关' : p.type)}</span></div><button class="icon-button" data-action="close-dialog" aria-label="关闭论文详情">${icon('close', 20)}</button></div><h2 class="dialog-title" id="dialog-title">${paperHeading(p, reading)}</h2>${dialogReadOnly ? '<p class="help">共享文献 · 只读</p>' : ''}<div class="dialog-authors">${esc(p.authors)}</div><dl class="detail-meta"><div><dt>期刊 / 平台</dt><dd>${esc(p.journal)}</dd></div><div><dt>发表日期</dt><dd>${shortDate(p.publishedAt)}</dd></div><div><dt>DOI / 论文标识</dt><dd>${esc(p.doi || '接口未提供 DOI')}${p.pmid ? `<br>PMID ${esc(p.pmid)}` : ''}${pmcid ? `<br>PMCID ${esc(pmcid)}` : ''}</dd></div><div><dt>文献状态 / 阅读范围</dt><dd>${esc(p.status)}<br>${reading.label} · 未读取全文</dd></div></dl>${downloadDetails(p)}${reading.hasAbstract ? `<section class="detail-section"><h3>${icon('book', 15)}摘要</h3>${paperAbstract(p, reading)}${interpretationBlock(p, reading)}</section>` : paperAbstract(p, reading)}<div class="detail-tip">${isRetracted(p) ? '此记录带有撤稿相关类型，不会进入简报。请核对原文及撤稿通知。' : p.isPreprint ? '预印本未经同行评审，结论可能随版本更新。当前尚未自动核验版本及正式发表关系。' : '期刊记录标签来自接口元数据，不代表已核实评审或研究质量。当前未自动核验更正、撤稿、数据与代码。'} 中文解读仅基于摘要，不替代全文核验。</div><div class="dialog-actions">${paperDialogActions(p, dialogReadOnly)}</div><div id="dialog-status" class="dialog-status" role="status" aria-live="polite" aria-atomic="true"></div><div class="detail-source">${icon('globe', 12)}来源：Europe PMC · 本库首次发现 ${shortDate(discoveryDay(p))}（北京）<br>原型未将原文发表日、数据库收录日与平台版本更新日全部关联。</div></div>`;
   if (!alreadyOpen) dialog.showModal();
   else { restoreFocus(dialog, previousFocus); dialog.scrollTop = previousScroll; }
 }

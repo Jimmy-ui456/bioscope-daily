@@ -1,5 +1,5 @@
-import { TOPICS, cleanDoi, beijingDay, dayBefore, validPublicationDate, isRetracted } from './core.js?v=0.2.39';
-import { attachEnrichment, translationOf } from './enrichment.js?v=0.2.39';
+import { TOPICS, cleanDoi, beijingDay, dayBefore, validPublicationDate, isRetracted } from './core.js?v=0.2.40';
+import { attachEnrichment, translationOf } from './enrichment.js?v=0.2.40';
 export function paperKind(paper) {
   if (paper.isPreprint) return 'preprint';
   if (paper.type === '综述') return 'review';
@@ -20,11 +20,21 @@ function canonicalSearchDoi(value) {
   // matching must not apply the compatibility folding used for ordinary text.
   return /^10\.\d{4,9}\/[^\s\u0000-\u001f\u007f]+$/.test(value) ? cleanDoi(value) : null;
 }
+function canonicalPmcid(value) {
+  const match = typeof value === 'string' && /^PMC([1-9]\d*)$/i.exec(value);
+  return match ? `PMC${match[1]}` : null;
+}
+export function paperPmcid(paper) {
+  return canonicalPmcid(paper.pmcid) || (paper.collection === 'Europe PMC' && paper.source === 'PMC' ? canonicalPmcid(paper.sourceId) : null);
+}
 function searchIdentifier(query) {
   const pmid = /^pmid\s*:\s*(\d+)$/i.exec(query);
   if (pmid) return { kind: 'pmid', value: pmid[1] };
+  const taggedPmcid = /^pmcid\s*:\s*(?:PMC)?([1-9]\d*)$/i.exec(query);
+  const pmcid = taggedPmcid ? `PMC${taggedPmcid[1]}` : canonicalPmcid(query);
+  if (pmcid) return { kind: 'pmcid', value: pmcid };
   const candidate = query.replace(/^doi\s*:\s*/i, '');
-  const bareHost = /^(?:doi\.org|dx\.doi\.org|pubmed\.ncbi\.nlm\.nih\.gov)\//i.test(candidate);
+  const bareHost = /^(?:doi\.org|dx\.doi\.org|pubmed\.ncbi\.nlm\.nih\.gov|europepmc\.org|pmc\.ncbi\.nlm\.nih\.gov)\//i.test(candidate);
   if (/^[a-z][a-z0-9+.-]*:\/\//i.test(candidate) || bareHost) {
     try {
       if (/[\u0000-\u0020\u007f]/.test(candidate)) return null;
@@ -39,6 +49,11 @@ function searchIdentifier(query) {
         const match = /^\/(\d+)\/?$/.exec(pathname);
         return match ? { kind: 'pmid', value: match[1] } : null;
       }
+      const pathPattern = url.hostname === 'europepmc.org' ? /^\/article\/PMC\/([^/]+)\/?$/
+        : url.hostname === 'pmc.ncbi.nlm.nih.gov' ? /^\/articles\/([^/]+)\/?$/ : null;
+      const pmcMatch = pathPattern?.exec(url.pathname);
+      const pmcid = pmcMatch && canonicalPmcid(decodeURIComponent(pmcMatch[1]));
+      if (pmcid) return { kind: 'pmcid', value: pmcid };
     } catch { /* Malformed URLs remain ordinary text queries, never navigation. */ }
     return null;
   }
@@ -62,6 +77,7 @@ export function searchReadingPapers(papers, query, catalog = {}) {
       : Number.isSafeInteger(paper.pmid) && paper.pmid >= 0 ? String(paper.pmid) : null;
     return value === identifier.value;
   });
+  if (identifier?.kind === 'pmcid') return papers.filter(paper => paperPmcid(paper) === identifier.value);
   const text = searchableText(raw);
   if (!text) return papers.slice();
   return papers.filter(paper => {

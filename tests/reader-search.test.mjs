@@ -65,6 +65,26 @@ test('普通中英短语合并空白并兼容全角输入，仍按字段包含�
   assert.deepEqual({ records, catalog }, before);
 });
 
+test('真实 PMC 源标识可按完整 PMCID 或两个站点的文章路径精确查找', () => {
+  const fixture = { ...paper, id: 'epmc:PMC:PMC13751451', doi: null, pmid: null, pmcid: null,
+    collection: 'Europe PMC', source: 'PMC', sourceId: 'PMC13751451' };
+  const pmid = { ...other, pmcid: null, pmid: '13751451' };
+  const longer = { ...other, id: 'longer', pmcid: 'PMC137514510' };
+  const records = [fixture, pmid, longer];
+  for (const query of ['PMC13751451', 'pmcid: pmc13751451', 'PMCID: 13751451',
+    'https://europepmc.org/article/PMC/PMC13751451', 'europepmc.org/article/PMC/%50MC13751451?source=test',
+    'https://pmc.ncbi.nlm.nih.gov/articles/pmc13751451/#abstract']) {
+    assert.deepEqual(ids(query, records), [fixture.id], query);
+  }
+  for (const query of ['PMC13751451/v1', 'PMC1375145', 'https://europepmc.org/article/MED/PMC13751451',
+    'https://europepmc.org.invalid/article/PMC/PMC13751451', 'https://pmc.ncbi.nlm.nih.gov/?article=PMC13751451',
+    'https://pmc.ncbi.nlm.nih.gov/articles/PMC13751451%2Fv1', 'https://europepmc.org/article%2FPMC/PMC13751451']) {
+    assert.deepEqual(ids(query, records), [], query);
+  }
+  assert.deepEqual(ids('PMID:13751451', records), [pmid.id]);
+  assert.deepEqual(ids('13751451', records), [pmid.id]);
+});
+
 test('中文检索只使用绑定当前原文的有效译文，失效来源及伪造锚点不能匹配', () => {
   const changed = { ...paper, abstract: paper.abstract + ' Updated source.' };
   const stale = translated(paper, { titleZh: '过期唯一译文', abstractZh: '过期唯一摘要' });
