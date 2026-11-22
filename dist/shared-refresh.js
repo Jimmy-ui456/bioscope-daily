@@ -1,6 +1,6 @@
-import { isValidPaper } from './core.js?v=0.2.36';
-import { sharedLibraryPapers } from './backup.js?v=0.2.36';
-import { snapshotTime } from './snapshot-coverage.js?v=0.2.36';
+import { isValidPaper } from './core.js?v=0.2.37';
+import { sharedLibraryPapers } from './backup.js?v=0.2.37';
+import { snapshotTime } from './snapshot-coverage.js?v=0.2.37';
 
 function readableSharedLibrary(data) {
   return Array.isArray(data?.papers) && data.papers.length <= 500 && data.papers.every(isValidPaper);

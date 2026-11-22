@@ -1,4 +1,4 @@
-import { isValidPaper, validPublicationDate } from './core.js?v=0.2.36';
+import { isValidPaper, validPublicationDate } from './core.js?v=0.2.37';
 
 function record(value) { return value !== null && typeof value === 'object' && !Array.isArray(value); }
 function validTime(value) {
@@ -52,12 +52,22 @@ export function preparePublicArchive(data, previous = { reports: [], status: 'un
     return { reports: orderedReports(old.byDate), status: 'unavailable', skipped: 0 };
   }
   const current = firstIssues(data.reports);
-  if (!current.skipped) return { reports: orderedReports(current.byDate), status: 'ok', skipped: 0 };
+  if (!current.skipped) {
+    const reports = orderedReports(current.byDate);
+    const retained = orderedReports(old.byDate);
+    if (reports.length && retained.length && reports[0].date < retained[0].date) {
+      return { reports: retained, status: 'stale', skipped: 0 };
+    }
+    return { reports, status: 'ok', skipped: 0 };
+  }
   for (const [date, report] of old.byDate) if (!current.byDate.has(date)) current.byDate.set(date, report);
   return { reports: orderedReports(current.byDate), status: 'partial', skipped: current.skipped };
 }
 
 export function publicArchiveNotice(archive) {
+  if (archive?.status === 'stale') {
+    return '本次收到较旧的公共日报档案，继续显示上次已校验的较新期次。请稍后重试。';
+  }
   if (archive?.status === 'unavailable') {
     return Array.isArray(archive.reports) && archive.reports.length
       ? '公共日报档案本次未能读取，继续显示上次已校验的期次；暂时无法确认档案是否更新，请稍后重试。'

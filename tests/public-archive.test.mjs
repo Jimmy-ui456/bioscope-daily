@@ -130,6 +130,20 @@ test('全部坏期次也保留上次有效档案，并且不把已知0篇空刊�
   assert.equal(valid.reports[0].papers.length, 0);
 });
 
+test('较旧的完整档案即使期数相同也不会覆盖，较新响应仍可过期旧期次', () => {
+  const recent = [issue('2026-11-22'), issue('2026-11-21')];
+  const previous = preparePublicArchive({ reports: [...recent].reverse() });
+  const rollback = preparePublicArchive({ reports: [issue('2026-11-20'), issue('2026-11-21')] }, previous);
+  assert.deepEqual(rollback, { reports: recent, status: 'stale', skipped: 0 });
+  assert.match(publicArchiveNotice(rollback), /较旧.*已校验的较新期次.*重试/);
+  const same = issue('2026-11-22', { papers: [], sections: [] });
+  assert.deepEqual(preparePublicArchive({ reports: [same] }, rollback), { reports: [same], status: 'ok', skipped: 0 });
+  const newer = issue('2026-11-23');
+  assert.deepEqual(preparePublicArchive({ reports: [newer] }, rollback), { reports: [newer], status: 'ok', skipped: 0 });
+  assert.equal(preparePublicArchive({ reports: [] }, rollback).status, 'ok');
+  assert.equal(preparePublicArchive({ reports: [issue('2026-11-20')] }).status, 'ok');
+});
+
 test('同日重复保留最早真实成刊时间，时区不能按字符串比较，最多显示14期', () => {
   const late = issue(undefined, { createdAt: '2026-11-12T09:30:00+08:00' });
   const first = issue(undefined, { createdAt: '2026-11-12T01:00:00Z' });
