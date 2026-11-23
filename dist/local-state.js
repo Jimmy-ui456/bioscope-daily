@@ -1,8 +1,9 @@
-import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.42';
-import { restoreReadMarks } from './read-progress.js?v=0.2.42';
-import { restoreOnlineCitations } from './online-search.js?v=0.2.42';
+import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.43';
+import { restoreReadMarks } from './read-progress.js?v=0.2.43';
+import { restoreOnlineCitations } from './online-search.js?v=0.2.43';
+import { restoreRecommendationVotes } from './recommendations.js?v=0.2.43';
 
-const KEYS = ['settings', 'cache', 'readerFilters', 'readerPresets', 'readMarks', 'bookmarks', 'selected', 'reports', 'displayMode', 'onlineCitations'];
+const KEYS = ['settings', 'cache', 'readerFilters', 'readerPresets', 'readMarks', 'bookmarks', 'selected', 'reports', 'displayMode', 'onlineCitations', 'recommendationVotes'];
 export const READER_PRESET_LIMITS = { count: 30, name: 60, search: 2000, journal: 500 };
 const READER_CHOICES = {
   days: [0, 1, 7, 30, 90],
@@ -63,6 +64,11 @@ export function persistOnlineCitations(storage, items, expectedRaw, prefix = 'bi
   const restored = restoreOnlineCitations(items);
   if (!Array.isArray(items) || restored.skipped) return { status: 'failed' };
   return persistCompared(storage, prefix + 'onlineCitations', restored.items, expectedRaw);
+}
+export function persistRecommendationVotes(storage, votes, expectedRaw, prefix = 'bioscope.v1.') {
+  const restored = restoreRecommendationVotes(votes);
+  if (!Array.isArray(votes) || restored.skipped) return { status: 'failed' };
+  return persistCompared(storage, prefix + 'recommendationVotes', restored.votes, expectedRaw);
 }
 function restoreIds(value) {
   return Array.isArray(value) ? [...new Set(value.filter(id => typeof id === 'string' && id.trim()))] : [];
@@ -235,7 +241,9 @@ export function readLocalReaderState(storage, prefix = 'bioscope.v1.') {
   }
   const { items: onlineCitations, skipped } = restoreOnlineCitations(values.onlineCitations);
   if (skipped) issue('onlineCitations', '本机在线收藏含无效、重复或超出上限的记录，已保留可用题录。');
-  return { settings, cache, readerFilters, readerPresets, readMarks, bookmarks, selected, reports, displayMode, onlineCitations, issues, protectedKeys, rawRecords };
+  const { votes: recommendationVotes, skipped: skippedVotes } = restoreRecommendationVotes(values.recommendationVotes);
+  if (skippedVotes) issue('recommendationVotes', '本机推荐偏好含无效或重复记录，已保留可用偏好。');
+  return { settings, cache, readerFilters, readerPresets, readMarks, bookmarks, selected, reports, displayMode, onlineCitations, recommendationVotes, issues, protectedKeys, rawRecords };
 }
 
 // This is an explicit recovery action, separate from startup and routine writes.

@@ -1,25 +1,26 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.42';
-import { collectionHealth } from './health.js?v=0.2.42';
-import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.42';
-import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.42';
-import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.42';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.42';
-import { evidenceContext } from './evidence.js?v=0.2.42';
-import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.42';
-import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.42';
-import { planSharedRefresh } from './shared-refresh.js?v=0.2.42';
-import { manualCollectionOutcome } from './manual-collection.js?v=0.2.42';
-import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.42';
-import { ONLINE_LIMIT, ONLINE_SAVE_LIMIT, onlineQuery, fetchOnlineCitations } from './online-search.js?v=0.2.42';
-import { reportRis } from './report-ris.js?v=0.2.42';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.42';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistOnlineCitations, persistPaperReferences, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.42';
-import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.42';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.42';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.42';
-import { TOPICS, paperPmcid, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.42';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.43';
+import { collectionHealth } from './health.js?v=0.2.43';
+import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.43';
+import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.43';
+import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.43';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.43';
+import { evidenceContext } from './evidence.js?v=0.2.43';
+import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.43';
+import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.43';
+import { planSharedRefresh } from './shared-refresh.js?v=0.2.43';
+import { manualCollectionOutcome } from './manual-collection.js?v=0.2.43';
+import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.43';
+import { ONLINE_LIMIT, ONLINE_SAVE_LIMIT, onlineQuery, fetchOnlineCitations } from './online-search.js?v=0.2.43';
+import { RECOMMENDATION_VOTE_LIMIT, recommendationId, rankRecommendations } from './recommendations.js?v=0.2.43';
+import { reportRis } from './report-ris.js?v=0.2.43';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.43';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistOnlineCitations, persistRecommendationVotes, persistPaperReferences, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.43';
+import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.43';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.43';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.43';
+import { TOPICS, paperPmcid, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.43';
 
-import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.42';
+import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.43';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -41,6 +42,8 @@ let composingSearch = false;
 let pendingReadingRender = false;
 let onlineCitations = localState.onlineCitations;
 let onlineCitationsRaw = localState.rawRecords.onlineCitations ?? null;
+let recommendationVotes = localState.recommendationVotes;
+let recommendationVotesRaw = localState.rawRecords.recommendationVotes ?? null;
 const online = { fields: {}, items: [], hitCount: null, status: 'idle', message: '', request: null };
 const onlineFields = [['terms', '关键词'], ['title', '题名'], ['author', '作者'], ['journal', '期刊'], ['doi', '完整 DOI'],
   ['from', '最早发表日', 'date'], ['to', '最晚发表日', 'date']];
@@ -128,7 +131,7 @@ function cacheActive() { return write('cache', cacheValue()); }
 function localRecoveryMarkup() {
   if (!protectedStorageKeys.size) return '';
   const issues = localState.issues.filter(issue => protectedStorageKeys.has(issue.key));
-  const labels = { settings: '监控设置', cache: '文献缓存', readerFilters: '阅读筛选', readerPresets: '搜索预设', onlineCitations: '在线收藏', readMarks: '已读标记', bookmarks: '收藏', selected: '精选', reports: '个人简报', displayMode: '中英显示' };
+  const labels = { settings: '监控设置', cache: '文献缓存', readerFilters: '阅读筛选', readerPresets: '搜索预设', onlineCitations: '在线收藏', recommendationVotes: '推荐偏好', readMarks: '已读标记', bookmarks: '收藏', selected: '精选', reports: '个人简报', displayMode: '中英显示' };
   return '<section class="report-warning" role="status" aria-live="polite" aria-label="本机数据恢复提示"><strong>部分本机数据需要核对</strong><p>已恢复可读内容，异常原始记录尚未覆盖。请先导出原始副本，再决定是否用当前恢复内容替换异常记录；确认前，相关改动仅保留在当前页面。收藏编号不会因论文暂未载入而删除。</p><details><summary>查看恢复情况</summary><ul>' + issues.map(issue => '<li><strong>' + esc(labels[issue.key] || '本机记录') + '：</strong>' + esc(issue.message) + '</li>').join('') + '</ul></details>' + (localRecoveryMessage ? '<p>' + esc(localRecoveryMessage) + '</p>' : '') + '<div class="settings-buttons"><button class="button small" data-action="export-local-recovery">导出原始副本</button><button class="button small" data-action="resume-local-storage">用恢复内容替换异常记录</button></div></section>';
 }
 
@@ -177,6 +180,7 @@ function interpretationBlock(p, reading, { report = false } = {}) {
 }
 
 const views = {
+  recommendations: { name: '为你推荐', en: 'FOR YOU', subtitle: '按题名中的相似词和你的阅读偏好排序。' },
   online: { name: '在线检索', en: 'ONLINE SEARCH', subtitle: '按关键词、题录字段或完整 DOI 查找 Europe PMC 文献。' },
   overview: { name: '研究雷达', en: 'YOUR RESEARCH, IN FOCUS', subtitle: '从海量文献里，发现与你的研究有关的新线索。' },
   hot: { name: '文献下载量', en: 'PUBLISHER DOWNLOADS', subtitle: '按原出版平台的真实下载量，观察文献的使用情况。' },
@@ -188,7 +192,7 @@ const views = {
 };
 function navItem(view, name, symbol, count) { return `<button class="nav-link ${state.view === view ? 'active' : ''}" data-view="${view}" ${state.view === view ? 'aria-current="page"' : ''}>${icon(symbol, 17)}<span>${name}</span>${count != null ? `<span class="nav-count">${count}</span>` : ''}</button>`; }
 function sidebar() {
-  return `<div class="mobile-shade" data-action="close-menu" aria-hidden="true"></div><aside id="primary-navigation" class="sidebar" aria-label="主要导航"><button class="icon-button sidebar-close" data-action="close-menu" aria-label="关闭导航">${icon('close', 20)}</button><a href="./#overview" class="brand" data-view="overview" aria-label="生研观察首页"><img src="./icon.svg" alt=""><div><div class="brand-name">生研观察</div><div class="brand-sub">BIOSCOPE DAILY</div></div></a><div class="sidebar-label">DISCOVER / 发现</div><nav>${navItem('overview', '研究雷达', 'grid')}${navItem('online', '在线检索', 'search')}${navItem('hot', '文献下载量', 'download')}${navItem('daily', '每日简报', 'file', allReports().length || undefined)}${navItem('bookmarks', '我的收藏', 'bookmark', boundPaperIds('bookmarks').size || undefined)}</nav><div class="sidebar-label">RESEARCH / 研究方向</div><div class="sidebar-topics">${TOPICS.map(t => `<button class="topic-nav" data-topic="${t.id}"><span class="dot ${t.color}"></span>${t.name}</button>`).join('')}</div><div class="sidebar-label">WORKSPACE / 工作台</div><nav>${navItem('topics', '研究主题', 'layers')}${navItem('sources', '信源管理', 'globe')}${navItem('settings', '监控设置', 'settings')}</nav><div class="sidebar-bottom"><div class="local-note"><strong>${icon('leaf', 13)} 为好奇心留一点时间</strong><p>记录证据，保留疑问。<br>让每天的阅读，都更接近研究本身。</p></div><div class="user-row"><span class="user-avatar">研</span><div>个人科研工作台</div><span>V${APP_VERSION}</span></div></div></aside>`;
+  return `<div class="mobile-shade" data-action="close-menu" aria-hidden="true"></div><aside id="primary-navigation" class="sidebar" aria-label="主要导航"><button class="icon-button sidebar-close" data-action="close-menu" aria-label="关闭导航">${icon('close', 20)}</button><a href="./#overview" class="brand" data-view="overview" aria-label="生研观察首页"><img src="./icon.svg" alt=""><div><div class="brand-name">生研观察</div><div class="brand-sub">BIOSCOPE DAILY</div></div></a><div class="sidebar-label">DISCOVER / 发现</div><nav>${navItem('overview', '研究雷达', 'grid')}${navItem('recommendations', '为你推荐', 'layers')}${navItem('online', '在线检索', 'search')}${navItem('hot', '文献下载量', 'download')}${navItem('daily', '每日简报', 'file', allReports().length || undefined)}${navItem('bookmarks', '我的收藏', 'bookmark', boundPaperIds('bookmarks').size || undefined)}</nav><div class="sidebar-label">RESEARCH / 研究方向</div><div class="sidebar-topics">${TOPICS.map(t => `<button class="topic-nav" data-topic="${t.id}"><span class="dot ${t.color}"></span>${t.name}</button>`).join('')}</div><div class="sidebar-label">WORKSPACE / 工作台</div><nav>${navItem('topics', '研究主题', 'layers')}${navItem('sources', '信源管理', 'globe')}${navItem('settings', '监控设置', 'settings')}</nav><div class="sidebar-bottom"><div class="local-note"><strong>${icon('leaf', 13)} 为好奇心留一点时间</strong><p>记录证据，保留疑问。<br>让每天的阅读，都更接近研究本身。</p></div><div class="user-row"><span class="user-avatar">研</span><div>个人科研工作台</div><span>V${APP_VERSION}</span></div></div></aside>`;
 }
 function masthead() {
   const v = views[state.view];
@@ -207,10 +211,10 @@ function metrics() {
   ];
   return `<section class="metrics" aria-label="文献库概况">${values.map(v => `<div class="metric"><div><div class="metric-name">${v.label}</div><div class="metric-value">${v.n}<small>${v.unit}</small></div><div class="metric-caption">${v.caption}</div></div><span class="metric-symbol">${icon(v.icon, 15)}</span></div>`).join('')}</section>`;
 }
-function paperCard(p) {
+function paperCard(p, recommendationReason) {
   const discovered = state.readerFilters.dateBasis === 'discovered' ? discoveryDay(p) : null;
   const reading = readingAvailability(p, translations);
-  return `<article class="paper-card"><div class="paper-top"><div class="tags">${p.topics.slice(0, 2).map(topicTag).join('')}<span class="tag ${p.isPreprint || isRetracted(p) ? 'warn' : 'outline'}">${esc(isRetracted(p) ? '撤稿相关' : p.type)}</span></div><span class="paper-journal" title="${esc(p.journal)}">${esc(p.journal)}</span></div><button class="paper-title" data-paper="${esc(p.id)}">${paperHeading(p, reading)}</button><p class="reading-availability">${reading.label}</p>${paperAbstract(p, reading, true)}<div class="paper-bottom"><div class="paper-meta"><span>发表 ${shortDate(p.publishedAt)}</span>${discovered ? `<span class="sep">/</span><span>发现 ${shortDate(discovered)}</span>` : ''}<span class="sep">/</span><span>Europe PMC</span></div><div class="paper-actions">${readMarkButton(p)}<button class="paper-action ${boundPaperIds('selected').has(p.id) ? 'on' : ''}" data-select="${esc(p.id)}" ${isRetracted(p) ? 'disabled' : ''} aria-pressed="${boundPaperIds('selected').has(p.id)}" aria-label="${boundPaperIds('selected').has(p.id) ? '取消精选' : '加入精选'}：${esc(p.title)}">${icon('check', 13)}${boundPaperIds('selected').has(p.id) ? '已精选' : '精选'}</button><button class="paper-action ${boundPaperIds('bookmarks').has(p.id) ? 'on' : ''}" data-bookmark="${esc(p.id)}" aria-pressed="${boundPaperIds('bookmarks').has(p.id)}" aria-label="${boundPaperIds('bookmarks').has(p.id) ? '取消收藏' : '收藏'}：${esc(p.title)}">${icon('bookmark', 13)}</button><button class="paper-action" data-paper="${esc(p.id)}" aria-label="查看论文详情">${icon('arrow', 14)}</button></div></div></article>`;
+  return `<article class="paper-card"><div class="paper-top"><div class="tags">${p.topics.slice(0, 2).map(topicTag).join('')}<span class="tag ${p.isPreprint || isRetracted(p) ? 'warn' : 'outline'}">${esc(isRetracted(p) ? '撤稿相关' : p.type)}</span></div><span class="paper-journal" title="${esc(p.journal)}">${esc(p.journal)}</span></div><button class="paper-title" data-paper="${esc(p.id)}">${paperHeading(p, reading)}</button><p class="reading-availability">${reading.label}</p>${paperAbstract(p, reading, true)}${typeof recommendationReason === 'string' ? `<p class="reading-availability">${esc(recommendationReason)}</p>` : ''}${voteButtons(p)}<div class="paper-bottom"><div class="paper-meta"><span>发表 ${shortDate(p.publishedAt)}</span>${discovered ? `<span class="sep">/</span><span>发现 ${shortDate(discovered)}</span>` : ''}<span class="sep">/</span><span>Europe PMC</span></div><div class="paper-actions">${readMarkButton(p)}<button class="paper-action ${boundPaperIds('selected').has(p.id) ? 'on' : ''}" data-select="${esc(p.id)}" ${isRetracted(p) ? 'disabled' : ''} aria-pressed="${boundPaperIds('selected').has(p.id)}" aria-label="${boundPaperIds('selected').has(p.id) ? '取消精选' : '加入精选'}：${esc(p.title)}">${icon('check', 13)}${boundPaperIds('selected').has(p.id) ? '已精选' : '精选'}</button><button class="paper-action ${boundPaperIds('bookmarks').has(p.id) ? 'on' : ''}" data-bookmark="${esc(p.id)}" aria-pressed="${boundPaperIds('bookmarks').has(p.id)}" aria-label="${boundPaperIds('bookmarks').has(p.id) ? '取消收藏' : '收藏'}：${esc(p.title)}">${icon('bookmark', 13)}</button><button class="paper-action" data-paper="${esc(p.id)}" aria-label="查看论文详情">${icon('arrow', 14)}</button></div></div></article>`;
 }
 let indexedPapers = null, resolvePaperReference;
 const boundReferenceLists = new Map();
@@ -453,6 +457,44 @@ function toggleOnlineCitation(id) {
   if (state.view === 'online') updateOnlineResults();
   else { render(); if (document.activeElement === document.body) ($('#online-saved button') || $('#main'))?.focus({ preventScroll: true }); }
   toast(saved ? '已取消在线收藏。' : '已收藏在线文献。');
+}
+
+function voteButtons(paper) {
+  const id = recommendationId(paper);
+  if (!id || isRetracted(paper)) return '';
+  const vote = recommendationVotes.find(item => item.id === id);
+  const thumb = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 10h-3v10h3m0-10 5-7c2 0 2 2 1 6h5a2 2 0 0 1 2 3l-2 6a3 3 0 0 1-3 2H7V10Z"/></svg>';
+  return `<div class="vote-controls" role="group" aria-label="阅读偏好：${esc(paper.title)}">${[[1, '喜欢'], [-1, '不喜欢']].map(([choice, label]) =>
+    `<button type="button" class="paper-action" data-action="recommendation-vote" data-vote="${choice}" data-vote-paper="${esc(paper.id)}" aria-label="${label}：${esc(paper.title)}" aria-pressed="${vote?.choice === choice}"><span class="${choice < 0 ? 'thumb-down' : ''}">${thumb}</span>${label}</button>`).join('')}</div>`;
+}
+function recommendationsPage() {
+  const ranked = rankRecommendations(activePapers(), recommendationVotes);
+  const shown = ranked.slice(0, state.page * 8);
+  return `<section class="settings-panel recommendation-page"><p>仅在当前关注方向的已载入文献中推荐。喜欢会提高题名中有相似词的其他文献，不喜欢会降低其排序。没有相似词时按发表时间排序。偏好仅保存在此浏览器。</p>
+    ${recommendationVotes.length ? `<details id="recommendation-votes"><summary id="recommendation-votes-summary">管理已标记偏好（${recommendationVotes.length} 条）</summary><ul>${recommendationVotes.map(vote => `<li>${esc(vote.title)} · ${vote.choice === 1 ? '喜欢' : '不喜欢'} <button class="button small" data-action="clear-recommendation-vote" data-vote-id="${esc(vote.id)}">撤回</button></li>`).join('')}</ul></details>` : ''}
+    <div id="recommendation-list">${shown.map(({ paper, score, matched, date }) => paperCard(paper, !Number.isFinite(date)
+      ? '发表日期未提供' : score ? `题名相似词：${matched.join('、')} · 偏好使排序${score > 0 ? '提前' : '后移'}` : '按发表时间排序')).join('')}</div>
+    ${ranked.length ? '' : '<p>当前关注方向暂无可推荐文献。</p>'}
+    ${shown.length < ranked.length ? '<button class="load-more" id="recommendation-more" data-action="recommendation-more">再看 8 篇</button>' : ''}</section>`;
+}
+function updateRecommendationVote(id, choice, paper = null) {
+  if (protectedStorageKeys.has('recommendationVotes')) { toast('推荐偏好受保护，请先处理本机数据恢复提示。'); return; }
+  const existing = recommendationVotes.find(vote => vote.id === id);
+  if (choice === 0 && !existing) return;
+  if (!existing && recommendationVotes.length >= RECOMMENDATION_VOTE_LIMIT) { toast('偏好记录已达上限，请先撤回一条。'); return; }
+  const remove = choice === 0 || existing?.choice === choice;
+  const next = recommendationVotes.filter(vote => vote.id !== id);
+  if (!remove && paper) next.push({ id, title: paper.title.slice(0, 300), choice });
+  const result = persistRecommendationVotes(browserStorage, next, recommendationVotesRaw, storageKey);
+  if (result.status !== 'saved') { toast(result.status === 'changed' ? '其他页面已更改推荐偏好，请刷新后重试。' : '浏览器未能保存推荐偏好。'); return; }
+  recommendationVotes = next;
+  recommendationVotesRaw = result.raw;
+  const manage = $('#recommendation-votes')?.open;
+  render();
+  if (manage && $('#recommendation-votes')) $('#recommendation-votes').open = true;
+  if ($('#paper-dialog').open) showPaper(dialogPaperId, true);
+  else if (document.activeElement === document.body) ($('#recommendation-votes-summary') || $('#main'))?.focus();
+  toast(remove ? '已撤回偏好。' : '已更新推荐偏好。');
 }
 
 function downloadRefreshNote(paper) {
@@ -704,7 +746,7 @@ function render({ keepScroll = true, preserveFocus = true } = {}) {
   const scroll = window.scrollY;
   const previousFocus = preserveFocus ? focusSnapshot($('#app')) : null;
   const healthMarkup = collectionStatusMarkup();
-  $('#app').innerHTML = `${sidebar()}<div class="workspace"><div class="topbar"><div class="breadcrumb"><button id="navigation-toggle" class="icon-button mobile-toggle" data-action="menu" aria-label="打开导航" aria-controls="primary-navigation" aria-expanded="${navigationMedia.matches && mobileMenuOpen}">${icon('menu', 19)}</button><span class="breadcrumb-workspace">我的科研工作台</span><span>/</span><b>${views[state.view].name}</b></div><div class="topbar-actions"><span class="version">PROTOTYPE ${APP_VERSION}</span><button class="button small language-toggle" data-action="toggle-language" aria-pressed="${displayMode === 'bilingual'}">${displayMode === 'bilingual' ? '中英对照' : 'English'}</button><label class="global-search">${icon('search', 14)}<input id="search" type="search" placeholder="论文、关键词、DOI / PMID / PMCID" aria-label="搜索已载入文献的题名、关键词、DOI、PMID或PMCID" value="${esc(state.search)}"><span class="keycap">/</span></label><button class="icon-button" data-view="settings" aria-label="监控设置">${icon('settings', 17)}</button></div></div><main class="main" id="main" tabindex="-1">${masthead()}<div id="collection-health" role="status" aria-live="polite" aria-atomic="true">${healthMarkup}</div>${localRecoveryMarkup()}${state.busy ? `<div class="progress-banner" role="status">${icon('refresh', 13, 'spin')} <span id="progress">${esc(state.progress)}</span></div>` : ''}${state.error ? `<div class="error-notice" role="alert">${icon('info', 13)} ${esc(state.error)}</div>` : ''}${({ overview, online: onlinePage, bookmarks: bookmarksPage, hot: hotPage, topics: topicsPage, sources: sourcesPage, settings: () => settingsPage() + readerTransferPanel(), daily: reportPage }[state.view])()}${footer()}</main></div>`;
+  $('#app').innerHTML = `${sidebar()}<div class="workspace"><div class="topbar"><div class="breadcrumb"><button id="navigation-toggle" class="icon-button mobile-toggle" data-action="menu" aria-label="打开导航" aria-controls="primary-navigation" aria-expanded="${navigationMedia.matches && mobileMenuOpen}">${icon('menu', 19)}</button><span class="breadcrumb-workspace">我的科研工作台</span><span>/</span><b>${views[state.view].name}</b></div><div class="topbar-actions"><span class="version">PROTOTYPE ${APP_VERSION}</span><button class="button small language-toggle" data-action="toggle-language" aria-pressed="${displayMode === 'bilingual'}">${displayMode === 'bilingual' ? '中英对照' : 'English'}</button><label class="global-search">${icon('search', 14)}<input id="search" type="search" placeholder="论文、关键词、DOI / PMID / PMCID" aria-label="搜索已载入文献的题名、关键词、DOI、PMID或PMCID" value="${esc(state.search)}"><span class="keycap">/</span></label><button class="icon-button" data-view="settings" aria-label="监控设置">${icon('settings', 17)}</button></div></div><main class="main" id="main" tabindex="-1">${masthead()}<div id="collection-health" role="status" aria-live="polite" aria-atomic="true">${healthMarkup}</div>${localRecoveryMarkup()}${state.busy ? `<div class="progress-banner" role="status">${icon('refresh', 13, 'spin')} <span id="progress">${esc(state.progress)}</span></div>` : ''}${state.error ? `<div class="error-notice" role="alert">${icon('info', 13)} ${esc(state.error)}</div>` : ''}${({ overview, recommendations: recommendationsPage, online: onlinePage, bookmarks: bookmarksPage, hot: hotPage, topics: topicsPage, sources: sourcesPage, settings: () => settingsPage() + readerTransferPanel(), daily: reportPage }[state.view])()}${footer()}</main></div>`;
   syncNavigation();
   healthMarkupByNode.set($('#collection-health'), healthMarkup);
   const coverage = $('#shared-coverage');
@@ -888,7 +930,7 @@ function paperDialogActions(paper, readOnly) {
     <button class="button" data-select="${esc(paper.id)}" ${isRetracted(paper) ? 'disabled' : ''} aria-pressed="${selected}">${icon('check', 13)}${selected ? '取消精选' : '加入人工精选'}</button>
     <button class="button" data-bookmark="${esc(paper.id)}" aria-pressed="${bookmarked}">${icon('bookmark', 13)}${bookmarked ? '已收藏 · 点击取消' : '收藏研究'}</button>
     <button class="button" data-action="copy-citation" data-paper-id="${esc(paper.id)}">复制引用信息</button>
-    ${linkForDialogPaper(paper) ? '<button class="button" data-action="copy-shared-paper">复制站内链接</button>' : ''}`;
+    ${voteButtons(paper)}${linkForDialogPaper(paper) ? '<button class="button" data-action="copy-shared-paper">复制站内链接</button>' : ''}`;
 }
 function showPaperRecord(p, { alreadyOpen = false, readOnly = false } = {}) {
   const dialog = $('#paper-dialog');
@@ -954,6 +996,22 @@ document.addEventListener('click', async event => {
   if (target.dataset.select) { const paper = state.papers.find(p => p.id === target.dataset.select); if (isRetracted(paper)) { toast('撤稿相关记录不进入人工精选。'); return; } toggleId('selected', target.dataset.select); return; }
   if (target.dataset.bookmark) { toggleId('bookmarks', target.dataset.bookmark); return; }
   switch (target.dataset.action) {
+    case 'recommendation-vote': {
+      if (dialogReadOnly) break;
+      const paper = $('#paper-dialog').open ? dialogPaper : state.papers.find(item => item.id === target.dataset.votePaper);
+      const choice = Number(target.dataset.vote);
+      const id = paper && !isRetracted(paper) && recommendationId(paper);
+      if (id && [-1, 1].includes(choice)) updateRecommendationVote(id, choice, paper);
+      break;
+    }
+    case 'clear-recommendation-vote': updateRecommendationVote(target.dataset.voteId, 0); break;
+    case 'recommendation-more': {
+      const previousCount = $('#recommendation-list').children.length;
+      state.page++;
+      render();
+      focusNewResults($('#recommendation-list'), previousCount);
+      break;
+    }
     case 'cancel-online': cancelOnline('已取消检索。'); $('#online-submit')?.focus(); break;
     case 'collect': await collect(); break;
     case 'toggle-language': displayMode = displayMode === 'bilingual' ? 'en' : 'bilingual'; write('displayMode', displayMode); render(); break;
@@ -963,7 +1021,7 @@ document.addEventListener('click', async event => {
       toast('已请求导出原始副本，请确认下载完成后妥善保存。'); break;
     }
     case 'resume-local-storage': {
-      const values = { settings: state.settings, cache: cacheValue(), readerFilters: state.readerFilters, readerPresets, readMarks, onlineCitations, bookmarks: state.bookmarks, selected: state.selected, reports: state.reports, displayMode };
+      const values = { settings: state.settings, cache: cacheValue(), readerFilters: state.readerFilters, readerPresets, readMarks, onlineCitations, recommendationVotes, bookmarks: state.bookmarks, selected: state.selected, reports: state.reports, displayMode };
       const result = persistLocalRecovery(browserStorage, values, { protectedKeys: [...protectedStorageKeys], rawRecords: localState.rawRecords, prefix: storageKey });
       result.saved.forEach(key => {
         protectedStorageKeys.delete(key);
@@ -972,6 +1030,7 @@ document.addEventListener('click', async event => {
       if (result.saved.includes('readerPresets')) readerPresetRaw = JSON.stringify(readerPresets);
       if (result.saved.includes('readMarks')) readMarksRaw = JSON.stringify(readMarks);
       if (result.saved.includes('onlineCitations')) onlineCitationsRaw = JSON.stringify(onlineCitations);
+      if (result.saved.includes('recommendationVotes')) recommendationVotesRaw = JSON.stringify(recommendationVotes);
       localRecoveryMessage = [result.changed.length ? '部分本机记录已在其他页面变化，为避免覆盖，请刷新后重新核对。' : '', result.failed.length ? '部分恢复内容未能保存，原记录继续保护；请保留原始副本并检查浏览器存储权限或空间。' : ''].filter(Boolean).join(' ');
       render(); toast(localRecoveryMessage || '已按你的选择保存恢复内容，相关本机记录可继续正常保存。'); break;
     }

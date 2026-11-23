@@ -1,4 +1,4 @@
-import { cleanDoi, validPublicationDate } from './core.js?v=0.2.42';
+import { cleanDoi, validPublicationDate } from './core.js?v=0.2.43';
 
 function canonicalDoi(paper) {
   const value = paper?.doi;

@@ -65,7 +65,7 @@ test('新访客仅启动时读取本机记录，旧库缺少搜索预设时使�
   assert.deepEqual(state.readerPresets, []);
   assert.equal(state.cache, null); assert.equal(state.displayMode, 'bilingual');
   assert.deepEqual(state.issues, []); assert.deepEqual(state.protectedKeys, []);
-  assert.equal(storage.reads.length, 10); assert.deepEqual(storage.writes, []);
+  assert.equal(storage.reads.length, 11); assert.deepEqual(storage.writes, []);
   assert.deepEqual(state.readMarks, []);
   assert.deepEqual(Object.keys(state.rawRecords), []);
 });

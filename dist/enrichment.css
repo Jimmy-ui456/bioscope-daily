@@ -38,3 +38,10 @@
 .online-search-fields input{width:100%;min-width:0;padding:8px;border:1px solid #b7c5a7;border-radius:5px;background:#fff;color:#293b28}
 #online-cancel[hidden]{display:none}
 #online-results .paper-card h3,#online-saved .paper-card h3{margin:0;font-size:16px;overflow-wrap:anywhere}
+.vote-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:8px 0}
+.vote-controls .paper-action{padding:5px 7px;color:#405c35;border:1px solid #cbd8bd;border-radius:5px}
+.vote-controls [aria-pressed="true"]{background:#e2ebd7;border-color:#78976b;font-weight:700}
+.vote-controls span{display:inline-flex}
+.vote-controls .thumb-down{transform:rotate(180deg)}
+.recommendation-page details{margin-bottom:15px}
+.recommendation-page details button{margin:4px}
