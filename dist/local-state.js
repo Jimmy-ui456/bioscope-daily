@@ -1,7 +1,7 @@
-import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.43';
-import { restoreReadMarks } from './read-progress.js?v=0.2.43';
-import { restoreOnlineCitations } from './online-search.js?v=0.2.43';
-import { restoreRecommendationVotes } from './recommendations.js?v=0.2.43';
+import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.44';
+import { restoreReadMarks } from './read-progress.js?v=0.2.44';
+import { restoreOnlineCitations } from './online-search.js?v=0.2.44';
+import { restoreRecommendationVotes } from './recommendations.js?v=0.2.44';
 
 const KEYS = ['settings', 'cache', 'readerFilters', 'readerPresets', 'readMarks', 'bookmarks', 'selected', 'reports', 'displayMode', 'onlineCitations', 'recommendationVotes'];
 export const READER_PRESET_LIMITS = { count: 30, name: 60, search: 2000, journal: 500 };

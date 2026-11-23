@@ -1,26 +1,26 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.43';
-import { collectionHealth } from './health.js?v=0.2.43';
-import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.43';
-import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.43';
-import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.43';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.43';
-import { evidenceContext } from './evidence.js?v=0.2.43';
-import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.43';
-import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.43';
-import { planSharedRefresh } from './shared-refresh.js?v=0.2.43';
-import { manualCollectionOutcome } from './manual-collection.js?v=0.2.43';
-import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.43';
-import { ONLINE_LIMIT, ONLINE_SAVE_LIMIT, onlineQuery, fetchOnlineCitations } from './online-search.js?v=0.2.43';
-import { RECOMMENDATION_VOTE_LIMIT, recommendationId, rankRecommendations } from './recommendations.js?v=0.2.43';
-import { reportRis } from './report-ris.js?v=0.2.43';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.43';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistOnlineCitations, persistRecommendationVotes, persistPaperReferences, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.43';
-import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.43';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.43';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.43';
-import { TOPICS, paperPmcid, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.43';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.44';
+import { collectionHealth } from './health.js?v=0.2.44';
+import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.44';
+import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.44';
+import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.44';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.44';
+import { evidenceContext } from './evidence.js?v=0.2.44';
+import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.44';
+import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.44';
+import { planSharedRefresh } from './shared-refresh.js?v=0.2.44';
+import { manualCollectionOutcome } from './manual-collection.js?v=0.2.44';
+import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.44';
+import { ONLINE_LIMIT, ONLINE_SAVE_LIMIT, ONLINE_SOURCES, onlineRequest, fetchOnlineCitations } from './online-search.js?v=0.2.44';
+import { RECOMMENDATION_VOTE_LIMIT, recommendationId, rankRecommendations } from './recommendations.js?v=0.2.44';
+import { reportRis } from './report-ris.js?v=0.2.44';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.44';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistOnlineCitations, persistRecommendationVotes, persistPaperReferences, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.44';
+import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.44';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.44';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.44';
+import { TOPICS, paperPmcid, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.44';
 
-import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.43';
+import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.44';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -44,7 +44,8 @@ let onlineCitations = localState.onlineCitations;
 let onlineCitationsRaw = localState.rawRecords.onlineCitations ?? null;
 let recommendationVotes = localState.recommendationVotes;
 let recommendationVotesRaw = localState.rawRecords.recommendationVotes ?? null;
-const online = { fields: {}, items: [], hitCount: null, status: 'idle', message: '', request: null };
+const online = { fields: {}, provider: 'europepmc', items: [], hitCount: null, status: 'idle', message: '', request: null };
+const lastOnlineRequestAt = new Map();
 const onlineFields = [['terms', '关键词'], ['title', '题名'], ['author', '作者'], ['journal', '期刊'], ['doi', '完整 DOI'],
   ['from', '最早发表日', 'date'], ['to', '最晚发表日', 'date']];
 let readerTransferPreview = null, readerTransferMessage = '', readerTransferRequest = 0;
@@ -384,7 +385,8 @@ function onlineCitationCards(items) {
     const saved = savedIds.has(item.id);
     return `<article class="paper-card"><h3><a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a></h3>
       <p class="paper-meta">${esc([item.authors, item.journal, item.publishedAt || item.year].filter(Boolean).join(' · '))}</p>
-      <p class="reading-availability">Europe PMC · 题录${item.doi ? ' · DOI ' + esc(item.doi) : ''}</p>
+      <p class="reading-availability">${ONLINE_SOURCES[item.provider ?? 'europepmc']} · 题录${item.publicationType ? item.publicationType === 'journal' ? ' · 期刊记录' : ' · 预印本' : ''}${item.doi ? ' · DOI ' + esc(item.doi) : ''}</p>
+      ${item.recordUrl ? `<a class="help" href="${esc(item.recordUrl)}" target="_blank" rel="noopener noreferrer">查看来源题录 ↗</a>` : ''}
       <button type="button" class="button small" data-online-save="${esc(item.id)}" aria-label="${saved ? '取消在线收藏' : '在线收藏'}：${esc(item.title)}">${saved ? '取消收藏' : '收藏'}</button></article>`;
   }).join('');
 }
@@ -393,12 +395,19 @@ function onlineSavedContent() {
 }
 function onlineResults() {
   if (online.status !== 'ready') return online.message;
-  return `Europe PMC 命中 ${online.hitCount ?? '未知'} 条 · 已显示 ${online.items.length} 条题录（最多 ${ONLINE_LIMIT} 条）`;
+  return `${ONLINE_SOURCES[online.provider]} 命中 ${online.hitCount ?? '未知'} 条 · 已显示 ${online.items.length} 条题录（最多 ${ONLINE_LIMIT} 条）`;
 }
 function onlinePage() {
-  return `<section class="settings-panel"><h2>Europe PMC</h2><p>提交后会将检索条件发送给 Europe PMC。结果提供题录和来源链接。</p>
-    <form id="online-search-form"><div class="online-search-fields">${onlineFields.map(([id, label, type = 'text']) =>
-      `<label for="online-${id}"><span>${label}</span><input id="online-${id}" name="${id}" type="${type}" value="${esc(online.fields[id])}" ${type === 'text' ? `maxlength="${id === 'doi' ? 400 : 160}"` : ''}></label>`).join('')}</div>
+  const fields = online.provider === 'datacite' ? onlineFields.filter(([id]) => ['title', 'doi'].includes(id)) : onlineFields;
+  const singleDoi = online.provider !== 'europepmc' && online.fields.doi?.trim();
+  const hint = online.provider === 'crossref' ? '列表检索限期刊论文。关键词和题名合并检索题录字段。'
+    : online.provider === 'datacite' ? '支持题名或完整 DOI，限来源标注的期刊论文或预印本。' : '支持组合多个条件。';
+  return `<section class="settings-panel"><h2>检索来源</h2><p>提交后只会向所选来源发送检索条件。结果提供题录和来源链接。</p>
+    <form id="online-search-form"><div class="online-search-fields"><label for="online-provider"><span>来源</span><select id="online-provider" name="provider">${Object.entries(ONLINE_SOURCES).map(([id, label]) =>
+      `<option value="${id}" ${id === online.provider ? 'selected' : ''}>${label}</option>`).join('')}</select></label>
+      ${fields.map(([id, label, type = 'text']) =>
+      `<label for="online-${id}"><span>${label}</span><input id="online-${id}" name="${id}" type="${type}" value="${esc(online.fields[id])}" ${type === 'text' ? `maxlength="${id === 'doi' ? 400 : 160}"` : ''} ${id !== 'doi' && singleDoi ? 'disabled' : ''}></label>`).join('')}</div>
+      <p>${hint} ${online.provider === 'europepmc' ? '' : '填写 DOI 时仅查询 DOI，其他条件暂停使用。'}</p>
       <div class="settings-buttons"><button id="online-submit" class="button dark" type="submit">检索</button><button id="online-cancel" type="button" class="button" data-action="cancel-online" ${online.request ? '' : 'hidden'}>取消</button></div></form>
     <p id="online-status" role="status" aria-live="polite">${esc(onlineResults())}</p>
     <div id="online-results">${onlineCitationCards(online.items)}</div></section>`;
@@ -421,13 +430,17 @@ function cancelOnline(message = '') {
 }
 async function submitOnline(fields) {
   cancelOnline();
-  online.fields = fields;
   online.items = [];
-  try { onlineQuery(fields); }
+  try { onlineRequest(fields); }
   catch (error) { online.status = 'idle'; online.message = error.message; updateOnlineResults(); return; }
+  const now = Date.now();
+  if (now - (lastOnlineRequestAt.get(online.provider) ?? -Infinity) < 1000) {
+    online.status = 'idle'; online.message = '请间隔至少一秒再检索同一来源。'; updateOnlineResults(); return;
+  }
+  lastOnlineRequestAt.set(online.provider, now);
   const request = new AbortController();
   online.request = request;
-  online.status = 'loading'; online.message = '正在检索 Europe PMC…'; updateOnlineResults();
+  online.status = 'loading'; online.message = `正在检索 ${ONLINE_SOURCES[online.provider]}…`; updateOnlineResults();
   let timedOut = false;
   const timer = setTimeout(() => { timedOut = true; request.abort(); }, 12000);
   try {
@@ -435,9 +448,9 @@ async function submitOnline(fields) {
     if (online.request !== request) return;
     if (request.signal.aborted) throw new Error();
     Object.assign(online, result, { status: 'ready' });
-  } catch {
+  } catch (error) {
     if (online.request !== request) return;
-    online.status = 'idle'; online.message = timedOut ? '检索超时，请重试。' : '未能读取 Europe PMC 检索结果，请稍后重试。';
+    online.status = 'idle'; online.message = timedOut ? '检索超时，请重试。' : error.rateLimited ? error.message : '未能读取检索结果，请稍后重试。';
   } finally {
     clearTimeout(timer);
     if (online.request === request) { online.request = null; updateOnlineResults(); }
@@ -1109,7 +1122,12 @@ document.addEventListener('submit', event => {
 });
 document.addEventListener('input', event => {
   if (event.target.id === 'reader-preset-name') readerPresetName = event.target.value;
-  if (event.target.form?.id === 'online-search-form') online.fields[event.target.name] = event.target.value;
+  if (event.target.form?.id === 'online-search-form' && event.target.name !== 'provider') {
+    online.fields[event.target.name] = event.target.value;
+    if (event.target.name === 'doi' && online.provider !== 'europepmc') {
+      for (const input of event.target.form.querySelectorAll('input:not([name="doi"])')) input.disabled = Boolean(event.target.value.trim());
+    }
+  }
 });
 document.addEventListener('compositionstart', event => {
   if (event.target.id === 'reader-preset-name') composingPresetName = true;
@@ -1130,6 +1148,12 @@ for (const type of ['input', 'compositionstart', 'compositionend']) {
   });
 }
 document.addEventListener('change', async event => {
+  if (event.target.id === 'online-provider' && Object.hasOwn(ONLINE_SOURCES, event.target.value)) {
+    cancelOnline();
+    Object.assign(online, { provider: event.target.value, fields: {}, items: [], hitCount: null, status: 'idle', message: '' });
+    renderReaderControl('online-provider');
+    return;
+  }
   if (event.target.id === 'reader-transfer-file') {
     const file = event.target.files[0];
     event.target.value = '';
