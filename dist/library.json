@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-22T03:12:12.669Z",
+  "fetchedAt": "2026-11-23T03:28:24.232Z",
   "papers": [
     {
       "id": "doi:10.21203/rs.3.rs-11472297/v1",
@@ -85,7 +85,7 @@
     {
       "id": "doi:10.1038/s44161-026-00914-3",
       "title": "Fermentable dietary fiber controls blood pressure by lowering large intestinal pH and activating the proton-sensing receptor GPR65.",
-      "abstract": "High blood pressure (BP) is the most common cause of death globally due to increased risk of cardiovascular disease. Fermentable dietary fibers regulate BP through gut microbial production of short-chain fatty acids (SCFAs), acidic metabolites. How SCFAs regulate BP remains unclear. Here we show that, in a phenome-wide association study, the proton-sensing G protein-coupled receptor GPR65 gene is associated with human hypertension and cardiorenal phenotypes. Fermentable dietary fibers, delivered as a type 2 resistant starch (RS2), regulated luminal and interstitial tissue pH in the large intestine through gut microbial SCFA production in mice. High RS2 intake reduced pH, increased cAMP production via GPR65 signaling and CREB phosphorylation, and restricted the release of pro-hypertensive inflammatory cytokines by CD8+ T cells. Gpr65-/- mice spontaneously developed hypertension, cardiac and renal hypertrophy, and fibrosis. The benefits of a high-RS2 diet, which prevented these effects, were reduced in Gpr65-/- mice. Adoptive transfers revealed that GPR65 deficiency in CD8+ T cells explained this phenotype.",
+      "abstract": "High blood pressure (BP) is the most common cause of death globally due to increased risk of cardiovascular disease. Fermentable dietary fibers regulate BP through gut microbial production of short-chain fatty acids (SCFAs), acidic metabolites. How SCFAs regulate BP remains unclear. Here we show that, in a phenome-wide association study, the proton-sensing G protein-coupled receptor GPR65 gene is associated with human hypertension and cardiorenal phenotypes. Fermentable dietary fibers, delivered as a type 2 resistant starch (RS2), regulated luminal and interstitial tissue pH in the large intestine through gut microbial SCFA production in mice. High RS2 intake reduced pH, increased cAMP production via GPR65 signaling and CREB phosphorylation, and restricted the release of pro-hypertensive inflammatory cytokines by CD8 + T cells. Gpr65 -/- mice spontaneously developed hypertension, cardiac and renal hypertrophy, and fibrosis. The benefits of a high-RS2 diet, which prevented these effects, were reduced in Gpr65 -/- mice. Adoptive transfers revealed that GPR65 deficiency in CD8 + T cells explained this phenotype.",
       "authors": "Xie L, R Muralitharan R, Dinakis E, Antonacci S, Leung KC, McArdle Z, Mirabito Colafella K, Nakai M, Paterson M, Peh A, Jama HA, Salimova E, Anderson D, Barbaro-Wahl A, Knezic A, Ang C, Alam MJ, Yap YA, Creek DJ, Robert R, O'Donnell JA, Mackay CR, Marques FZ.",
       "journal": "Nature cardiovascular research",
       "doi": "10.1038/s44161-026-00914-3",
@@ -304,6 +304,34 @@
       "source": "MED",
       "sourceId": "42578823",
       "url": "https://doi.org/10.1039/d6np00031b",
+      "publishedAt": "2026-11-18",
+      "discoveredAt": "2026-11-19T15:27:31.950Z",
+      "topics": [
+        "synthetic",
+        "metabolic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.biotechadv.2026.109100",
+      "title": "Enzymatic strategies for PET valorization: Advances in discovery, engineering, and cyanobacterial chassis development.",
+      "abstract": "The global accumulation of plastic waste has intensified the need for sustainable technologies capable of replacing conventional mechanical and chemical recycling. During the past decade, enzymatic plastic biodegradation has rapidly evolved from the identification of individual depolymerases to an interdisciplinary research field integrating environmental microbiology, artificial intelligence, protein engineering, systems biology, and synthetic biology. Despite remarkable progress, current research remains largely fragmented, with enzyme discovery, catalytic optimization, and downstream plastic valorization often being developed independently, thereby limiting the establishment of integrated plastic biomanufacturing platforms. In this review, we critically synthesize advances in plastic-degrading enzymes, covering meta-omics and AI-assisted enzyme discovery, protein engineering strategies that improve catalytic efficiency, thermostability, and substrate specificity, and metabolic engineering approaches for assimilating plastic-derived monomers into value-added products. Rather than viewing these advances as separate research directions, we propose an integrated biotechnology framework that connects environmental enzyme mining, AI-driven protein engineering, microbial metabolic rewiring, and photosynthetic cell factories into a unified plastic-to-product strategy. Recent progress in heterologous protein secretion and metabolic engineering in cyanobacteria supports the continued exploration of solar-powered microbial platforms; however, complete PET-to-product bioconversion in cyanobacteria remains conceptual and has not yet been experimentally demonstrated. We anticipate that the convergence of multi-omics, artificial intelligence, enzyme engineering, and synthetic biology will shift the field from improving individual plastic-degrading enzymes toward constructing complete microbial plastic bioconversion systems, thereby accelerating the realization of a sustainable circular plastic bioeconomy.",
+      "authors": "Zhang J, Yang Q, Chen H, Wang Q.",
+      "journal": "Biotechnology advances",
+      "doi": "10.1016/j.biotechadv.2026.109100",
+      "pmid": "43044896",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43044896",
+      "url": "https://doi.org/10.1016/j.biotechadv.2026.109100",
       "publishedAt": "2026-11-18",
       "discoveredAt": "2026-11-19T15:27:31.950Z",
       "topics": [
@@ -556,34 +584,6 @@
       "collection": "Europe PMC"
     },
     {
-      "id": "doi:10.1016/j.biotechadv.2026.109100",
-      "title": "Enzymatic strategies for PET valorization: Advances in discovery, engineering, and cyanobacterial chassis development.",
-      "abstract": "The global accumulation of plastic waste has intensified the need for sustainable technologies capable of replacing conventional mechanical and chemical recycling. During the past decade, enzymatic plastic biodegradation has rapidly evolved from the identification of individual depolymerases to an interdisciplinary research field integrating environmental microbiology, artificial intelligence, protein engineering, systems biology, and synthetic biology. Despite remarkable progress, current research remains largely fragmented, with enzyme discovery, catalytic optimization, and downstream plastic valorization often being developed independently, thereby limiting the establishment of integrated plastic biomanufacturing platforms. In this review, we critically synthesize advances in plastic-degrading enzymes, covering meta-omics and AI-assisted enzyme discovery, protein engineering strategies that improve catalytic efficiency, thermostability, and substrate specificity, and metabolic engineering approaches for assimilating plastic-derived monomers into value-added products. Rather than viewing these advances as separate research directions, we propose an integrated biotechnology framework that connects environmental enzyme mining, AI-driven protein engineering, microbial metabolic rewiring, and photosynthetic cell factories into a unified plastic-to-product strategy. Recent progress in heterologous protein secretion and metabolic engineering in cyanobacteria supports the continued exploration of solar-powered microbial platforms; however, complete PET-to-product bioconversion in cyanobacteria remains conceptual and has not yet been experimentally demonstrated. We anticipate that the convergence of multi-omics, artificial intelligence, enzyme engineering, and synthetic biology will shift the field from improving individual plastic-degrading enzymes toward constructing complete microbial plastic bioconversion systems, thereby accelerating the realization of a sustainable circular plastic bioeconomy.",
-      "authors": "Zhang J, Yang Q, Chen H, Wang Q.",
-      "journal": "Biotechnology advances",
-      "doi": "10.1016/j.biotechadv.2026.109100",
-      "pmid": "43044896",
-      "pmcid": null,
-      "source": "MED",
-      "sourceId": "43044896",
-      "url": "https://doi.org/10.1016/j.biotechadv.2026.109100",
-      "publishedAt": "2026-11-17",
-      "discoveredAt": "2026-11-19T15:27:31.950Z",
-      "topics": [
-        "synthetic",
-        "metabolic",
-        "microbial"
-      ],
-      "type": "综述",
-      "status": "期刊记录 · 待核验",
-      "isPreprint": false,
-      "isRetraction": false,
-      "readingScope": "仅摘要",
-      "license": null,
-      "version": null,
-      "collection": "Europe PMC"
-    },
-    {
       "id": "doi:10.64898/2026.11.15.766798",
       "title": "HyperGenie: A method for predicting enzymatic gene essentiality using hypergraph neural networks and genome-scale metabolic models",
       "abstract": "Identifying essential genes in bacteria is crucial for drug discovery and synthetic biology. Genome-scale metabolic models (GEMs) evaluated via flux balance analysis remain standard, yet they rely on the often-invalid premise that mutant strains optimize for maximum growth. Recent machine learning approaches circumvent this limitation using random forests or graph neural networks on mass flow graphs (MFGs). However, data-driven tools like random forests discard network topology, while graph-based tools like MFGs decompose multi-component biochemical reactions into pairwise interactions, misrepresenting complex stoichiometry and limiting interpretability. Furthermore, existing methods remain largely uncharacterised in data-scarce regimes and cross-environmental conditions. Here, we introduce HyperGenie, a framework that integrates genome-scale metabolic models with directed hypergraph neural networks by representing metabolites as nodes and reactions as hyperedges. Operating directly on wild-type flux features, HyperGenie eliminates post-knockout optimality assumptions, achieves a 13% PR-AUC improvement over prior objective-dependent methods, and matches computationally demanding, state-of-the-art flux-sampling baselines. Using HyperGenie to guide targeted growth curve assays, we identified latent essentiality misannotations across three genes in the benchmark iML1515 dataset, which we then reconciled and validated experimentally via PCR. In data-scarce regimes, HyperGenie retained robust predictive performance (> 90% PR-AUC) when trained on as little as 40% of the data. To isolate the value of hypergraph message passing, we benchmarked HyperGenie against an independent-reaction multilayer perceptron (MLPGenie) across diverse nutrient environments and uptake rates, where HyperGenie’s hypergraph inductive bias yielded consistent accuracy gains (> 2% in glucose; > 4% across six alternative carbon sources). Notably, HyperGenie exhibits robust zero-shot cross-nutrient generalization, accurately forecasting gain-of-essentiality phenotypes on novel carbon sources, though loss-of-essentiality remains challenging. Finally, coupling hypergraph representations with SHAP attribution provides actionable mechanistic insights into metabolic rewiring, establishing a data-efficient, interpretable platform for discovering novel antibiotic targets.",
@@ -603,6 +603,32 @@
       "type": "预印本",
       "status": "预印本 · 未经同行评审",
       "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.ymben.2026.102590",
+      "title": "Improving L-homoserine biosynthesis with engineered Escherichia coli via a dual-function quorum sensing regulation system.",
+      "abstract": "L-Homoserine (HOM) is an essential precursor in the biosynthesis of amino acids, vitamins, and other metabolites within the aspartate (ASP) family, with its primary application in the production of the herbicide glufosinate-ammonium. To achieve high-level production of HOM with plasmid-free Escherichia coli, a strategy integrating systematic metabolic engineering with dual-function quorum sensing (QS)-based dynamic regulation was developed. Initially, a leaky auxotrophic strain was constructed by partially restoring competing metabolic pathways, followed by increasing the copy number of thrA (encoding ASP kinase I/HOM dehydrogenase I). Subsequently, a QS-based dual-function dynamic regulation circuit was designed to enhance ASP supply and repress the NADPH-to-NADH conversion in a cell-density-dependent manner, with its responsiveness improved through regulatory circuit engineering. In addition, the phosphotransferase system (PTS) was restored to address the slow glucose uptake rate, and carboxylation pathway engineering was performed to enhance the conversion of phosphoenolpyruvate and pyruvate to oxaloacetate, thereby increasing precursor availability. Ultimately, engineered strain H17 yielded 142.15 g/L HOM at 88 h under fed-batch fermentation, with a yield of 0.52 g/g glucose and productivity of 1.62 g/L/h. To the best of our knowledge, this represents one of the highest HOM titers reported to date in plasmid-free strains. The dual-function QS system developed herein, combined with systematic metabolic engineering, provides robust support for the production of HOM with E. coli, which can be extended to the biosynthesis of other value-added metabolites.",
+      "authors": "Yang ZJ, Zhang X, Huang LC, Zhang YT, Niu K, Zhou HY, Liu ZQ, Zheng YG.",
+      "journal": "Metabolic engineering",
+      "doi": "10.1016/j.ymben.2026.102590",
+      "pmid": "43039133",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43039133",
+      "url": "https://doi.org/10.1016/j.ymben.2026.102590",
+      "publishedAt": "2026-11-17",
+      "discoveredAt": "2026-11-19T15:27:38.172Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
       "license": null,
@@ -888,32 +914,6 @@
       "discoveredAt": "2026-11-19T15:27:31.951Z",
       "topics": [
         "synthetic"
-      ],
-      "type": "期刊论文",
-      "status": "期刊记录 · 待核验",
-      "isPreprint": false,
-      "isRetraction": false,
-      "readingScope": "仅摘要",
-      "license": null,
-      "version": null,
-      "collection": "Europe PMC"
-    },
-    {
-      "id": "doi:10.1016/j.ymben.2026.102590",
-      "title": "Improving L-homoserine biosynthesis with engineered Escherichia coli via a dual-function quorum sensing regulation system.",
-      "abstract": "L-Homoserine (HOM) is an essential precursor in the biosynthesis of amino acids, vitamins, and other metabolites within the aspartate (ASP) family, with its primary application in the production of the herbicide glufosinate-ammonium. To achieve high-level production of HOM with plasmid-free Escherichia coli, a strategy integrating systematic metabolic engineering with dual-function quorum sensing (QS)-based dynamic regulation was developed. Initially, a leaky auxotrophic strain was constructed by partially restoring competing metabolic pathways, followed by increasing the copy number of thrA (encoding ASP kinase I/ HOM dehydrogenase I). Subsequently, a QS-based dual-function dynamic regulation circuit was designed to enhance ASP supply and repress the NADPH-to-NADH conversion in a cell-density-dependent manner, with its responsiveness improved through regulatory circuit engineering. In addition, the phosphotransferase system (PTS) was restored to address the slow glucose uptake rate, and carboxylation pathway engineering was performed to enhance the conversion of phosphoenolpyruvate and pyruvate to oxaloacetate, thereby increasing precursor availability. Ultimately, engineered strain H17 yielded 142.15 g/L HOM at 88 h under fed-batch fermentation, with a yield of 0.52 g/g glucose and productivity of 1.62 g/L/h. To the best of our knowledge, this represents one of the highest HOM titers reported to date in plasmid-free strains. The dual-function QS system developed herein, combined with systematic metabolic engineering, provides robust support for the production of HOM with E. coli, which can be extended to the biosynthesis of other value-added metabolites.",
-      "authors": "Yang ZJ, Zhang X, Huang LC, Zhang YT, Niu K, Zhou HY, Liu ZQ, Zheng YG.",
-      "journal": "Metabolic engineering",
-      "doi": "10.1016/j.ymben.2026.102590",
-      "pmid": "43039133",
-      "pmcid": null,
-      "source": "MED",
-      "sourceId": "43039133",
-      "url": "https://doi.org/10.1016/j.ymben.2026.102590",
-      "publishedAt": "2026-11-16",
-      "discoveredAt": "2026-11-19T15:27:38.172Z",
-      "topics": [
-        "metabolic"
       ],
       "type": "期刊论文",
       "status": "期刊记录 · 待核验",
@@ -4225,13 +4225,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 335,
+        "count": 341,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/ploscompbiol/article/metrics?id=10.1371%2Fjournal.pcbi.1014881",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pcbi.1014881/format/json",
-        "fetchedAt": "2026-11-22T03:12:12.530Z",
+        "fetchedAt": "2026-11-23T03:28:24.069Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-11",
         "coverageEnd": "2026-11",
@@ -4245,7 +4245,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-22T03:12:12.371Z"
+        "checkedAt": "2026-11-23T03:28:23.924Z"
       },
       "enrichment": {
         "titleZh": "kinGEMs：通过随机调优深度学习预测的动力学参数，构建稳健且可扩展的资源约束模型框架",
@@ -4258,7 +4258,7 @@
         "reviewed": false,
         "scope": "abstract_only"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-22T03:12:12.371Z"
+      "downloadRefreshLastAttemptAt": "2026-11-23T03:28:23.924Z"
     },
     {
       "id": "doi:10.1007/s00253-026-14083-7",
@@ -17118,13 +17118,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 456,
+        "count": 459,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-22T03:12:12.638Z",
+        "fetchedAt": "2026-11-23T03:28:24.195Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -17149,9 +17149,9 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-22T03:12:12.371Z"
+        "checkedAt": "2026-11-23T03:28:23.924Z"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-22T03:12:12.371Z"
+      "downloadRefreshLastAttemptAt": "2026-11-23T03:28:23.924Z"
     },
     {
       "id": "doi:10.1007/s11274-026-05339-5",
@@ -17645,25 +17645,25 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 129,
+      "hitCount": 127,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 80,
+      "hitCount": 79,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 112,
+      "hitCount": 110,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-11-22",
+    "date": "2026-11-23",
     "requests": 0
   },
   "receipts": {
@@ -22925,12 +22925,12 @@
   "automation": {
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
-    "modelStatus": "automatic_paused",
-    "lastRunAt": "2026-11-22T03:12:12.669Z",
+    "modelStatus": "not_configured",
+    "lastRunAt": "2026-11-23T03:28:24.232Z",
     "failedTopics": 0,
     "collectionSource": {
-      "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/44979507788"
+      "trigger": "workflow_dispatch",
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/45106137778"
     },
     "downloadRefresh": {
       "supported": 2,
@@ -22944,6 +22944,102 @@
     "modelCompletedThisRun": 0,
     "modelFailuresThisRun": 0,
     "analysisFailures": 3,
-    "completedAt": "2026-11-22T03:12:12.736Z"
+    "completedAt": "2026-11-23T03:28:24.297Z"
+  },
+  "crossrefSupplement": {
+    "version": 1,
+    "from": "2026-10-25",
+    "through": "2026-11-23",
+    "directions": [
+      {
+        "id": "synthetic",
+        "status": "ok",
+        "hits": 6094,
+        "received": 20,
+        "eligible": 7,
+        "fresh": 6,
+        "records": [
+          {
+            "doi": "10.3389/fsybi.2026.1923997",
+            "date": "2026-11-04",
+            "title": "NOODL, a context-aware DNA linker generator for synthetic biology"
+          },
+          {
+            "doi": "10.1021/acssynbio.6c00688",
+            "date": "2026-11-12",
+            "title": "Synthetic Biology Strategies for Engineering Microbial Cell Factories toward Efficient p -Coumaric Acid Biosynthesis"
+          },
+          {
+            "doi": "10.54097/56fyws94",
+            "date": "2026-11-15",
+            "title": "Synthetic Biology in the Design and Development of Virus-Like Particle Vaccines"
+          },
+          {
+            "doi": "10.1007/s44372-026-01004-1",
+            "date": "2026-11-02",
+            "title": "Artificial intelligence and synthetic biology for integrated crop improvement"
+          },
+          {
+            "doi": "10.3389/fbioe.2026.1946816",
+            "date": "2026-10-28",
+            "title": "Human-capital architecture for biosafety and responsible synthetic biology"
+          },
+          {
+            "doi": "10.54254/2753-8818/2027.mb39092",
+            "date": "2026-11-17",
+            "title": "Synthetic Biology-Driven Heterologous Biosynthesis of Cis-abienol in Escherichia coli"
+          }
+        ]
+      },
+      {
+        "id": "metabolic",
+        "status": "ok",
+        "hits": 24722,
+        "received": 20,
+        "eligible": 1,
+        "fresh": 0,
+        "records": []
+      },
+      {
+        "id": "microbial",
+        "status": "ok",
+        "hits": 42,
+        "received": 20,
+        "eligible": 10,
+        "fresh": 6,
+        "records": [
+          {
+            "doi": "10.1038/s44222-026-00506-7",
+            "date": "2026-11-04",
+            "title": "Digital cell factories for biomanufacturing"
+          },
+          {
+            "doi": "10.1002/nadc.20264162003",
+            "date": "2026-10-30",
+            "title": "Biomanufacturing in Japan"
+          },
+          {
+            "doi": "10.1038/s44222-026-00512-9",
+            "date": "2026-11-09",
+            "title": "Open-source hardware for biomanufacturing"
+          },
+          {
+            "doi": "10.1287/msom.2024.1395",
+            "date": "2026-11-05",
+            "title": "Integrating Upstream and Downstream Planning to Increase Biomanufacturing Profitability"
+          },
+          {
+            "doi": "10.1021/acsmaterialslett.6c00653",
+            "date": "2026-11-13",
+            "title": "Biomanufacturing and Deployment of Engineered Living Materials in Challenging and Extreme Environments"
+          },
+          {
+            "doi": "10.1021/acssuschemeng.6c07251",
+            "date": "2026-10-31",
+            "title": "Life Cycle Analysis of Magnetosome Biomanufacturing"
+          }
+        ]
+      }
+    ]
   }
 }
