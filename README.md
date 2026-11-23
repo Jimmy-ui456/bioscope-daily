@@ -1,4 +1,4 @@
-# 生研观察 BioScope · v0.2.41
+# 生研观察 BioScope · v0.2.42
 
 [打开公开网站](https://jimmy-ui456.github.io/bioscope-daily/) · [使用与项目结构入门](https://jimmy-ui456.github.io/bioscope-daily/guide.html) · [查看采集与发布状态](https://github.com/Jimmy-ui456/bioscope-daily/actions/workflows/pages.yml)
 
@@ -145,3 +145,4 @@ npm.cmd test
 更改版本或新增浏览器模块后运行 `npm run assets`，同步页面入口、样式及模块依赖版本。发布检查会拒绝未同步的资源，避免浏览器缓存混用新旧模块。
 
 离线测试覆盖去重、分页、译文匹配、证据校验、调用上限与回执、日期、未知下载量、来源分组和异常保留。模型接入已准备，待维护者在Secrets填入自己的密钥并完成单篇验收；不能宣称真实模型服务已实测可用。
+在“在线检索”中提交关键词、题名、作者、期刊、发表日期或完整 DOI，可向 Europe PMC 查找文献。页面显示首批最多 20 条题录及来源链接。在线题录收藏保存在当前浏览器，可在“我的收藏”的“在线文献”查看。
