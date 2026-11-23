@@ -1,4 +1,4 @@
-import { API_URL, cleanDoi, plainText, validPublicationDate } from './core.js?v=0.2.45';
+import { API_URL, cleanDoi, plainText, validPublicationDate } from './core.js?v=0.2.46';
 
 export const ONLINE_LIMIT = 20;
 export const ONLINE_SAVE_LIMIT = 200;

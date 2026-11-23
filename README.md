@@ -1,4 +1,6 @@
-# 生研观察 BioScope · v0.2.45
+# 生研观察 BioScope · v0.2.46
+
+主采集至少有一个方向返回结果时，启用的 Crossref 补充信源按配置的北京日期窗口读取各方向首批至多 20 条期刊题录。“信源管理”单独展示主库以外的符合条件题录，每方向最多 8 条。补充题录不会进入主库、日报正文或模型流程。
 
 [打开公开网站](https://jimmy-ui456.github.io/bioscope-daily/) · [使用与项目结构入门](https://jimmy-ui456.github.io/bioscope-daily/guide.html) · [查看采集与发布状态](https://github.com/Jimmy-ui456/bioscope-daily/actions/workflows/pages.yml)
 

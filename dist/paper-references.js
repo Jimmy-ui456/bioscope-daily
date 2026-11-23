@@ -1,4 +1,4 @@
-import { cleanDoi } from './core.js?v=0.2.45';
+import { cleanDoi } from './core.js?v=0.2.46';
 
 function doiAlias(value) {
   const doi = typeof value === 'string' && !/[\p{Cc}\p{Cf}]/u.test(value) ? cleanDoi(value) : null;

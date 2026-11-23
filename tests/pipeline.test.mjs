@@ -20,8 +20,33 @@ const env = { LLM_BASE_URL: 'https://model.example/v1', LLM_MODEL: 'test-model',
 const now = new Date('2026-10-29T01:00:00Z');
 test('未配置模型仍采集并保存，绝不调用付费模型', async t => {
   const root = await project(t);
-  const result = await runPipeline({ root, now, env: {}, sourceEnv: {}, collect: collected, interpret: () => { throw new Error('must not call'); }, log: () => {} });
+  let supplementalCalls = 0;
+  const result = await runPipeline({ root, now, env: {}, sourceEnv: {}, collect: collected, collectSupplement: async () => { supplementalCalls++; },
+    interpret: () => { throw new Error('must not call'); }, log: () => {} });
+  assert.equal(supplementalCalls, 0);
   assert.equal(result.papers.length, 1); assert.equal(result.automation.modelStatus, 'not_configured'); assert.equal(result.modelUsage.requests, 0);
+});
+
+test('启用的 Crossref 补充题录独立保存，主库失败不读取补充来源', async t => {
+  const root = await project(t);
+  await saveJson(path.join(root, 'config/monitor.json'), { topics: ['metabolic'], days: 7, crossrefSupplement: true });
+  let calls = 0;
+  const collectSupplement = async ({ primary }) => {
+    calls++; assert.equal(primary[0].doi, paper.doi);
+    return { version: 1, from: '2026-10-23', through: '2026-10-29', directions: [{ id: 'metabolic', status: 'ok', hits: 1,
+      received: 1, eligible: 1, fresh: 1, records: [{ doi: '10.1234/supplement', date: '2026-10-28', title: 'Metabolic engineering title' }] }] };
+  };
+  const result = await runPipeline({ root, now, env: {}, collect: collected, collectSupplement, log: () => {} });
+  assert.equal(calls, 1);
+  assert.equal(result.crossrefSupplement.directions[0].records.length, 1);
+  assert.deepEqual(result.papers.map(item => item.doi), [paper.doi]);
+  const archive = await readJson(path.join(root, 'dist/public-reports.json'));
+  assert.doesNotMatch(JSON.stringify(archive), /10\.1234\/supplement/);
+  await assert.rejects(runPipeline({ root, now, env: {}, collect: async () => { throw new Error('offline'); }, collectSupplement, log: () => {} }), /全部主题/);
+  assert.equal(calls, 1);
+  const optional = await runPipeline({ root, now, env: {}, collect: collected, collectSupplement: async () => { throw new Error('offline'); }, log: () => {} });
+  assert.ok(optional.automation.completedAt);
+  assert.equal(optional.crossrefSupplement, undefined);
 });
 
 test('模型env为空时默认仍从进程GitHub环境读取白名单采集来源', async t => {

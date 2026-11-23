@@ -1,8 +1,8 @@
-import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.45';
-import { restoreReadMarks } from './read-progress.js?v=0.2.45';
-import { restoreOnlineCitations } from './online-search.js?v=0.2.45';
-import { restoreRecommendationVotes } from './recommendations.js?v=0.2.45';
-import { restoreLocalTopics } from './local-topics.js?v=0.2.45';
+import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.46';
+import { restoreReadMarks } from './read-progress.js?v=0.2.46';
+import { restoreOnlineCitations } from './online-search.js?v=0.2.46';
+import { restoreRecommendationVotes } from './recommendations.js?v=0.2.46';
+import { restoreLocalTopics } from './local-topics.js?v=0.2.46';
 
 const KEYS = ['settings', 'cache', 'readerFilters', 'readerPresets', 'readMarks', 'bookmarks', 'selected', 'reports', 'displayMode', 'onlineCitations', 'recommendationVotes', 'localTopics'];
 export const READER_PRESET_LIMITS = { count: 30, name: 60, search: 2000, journal: 500 };

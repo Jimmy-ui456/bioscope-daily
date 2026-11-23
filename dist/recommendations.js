@@ -1,4 +1,4 @@
-import { cleanDoi, isRetracted, validPublicationDate } from './core.js?v=0.2.45';
+import { cleanDoi, isRetracted, validPublicationDate } from './core.js?v=0.2.46';
 
 export const RECOMMENDATION_VOTE_LIMIT = 200;
 const stop = new Set('about against among analysis based between during effects from into novel paper study their these this through using were which with without'.split(' '));

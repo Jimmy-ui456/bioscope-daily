@@ -1,27 +1,28 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.45';
-import { collectionHealth } from './health.js?v=0.2.45';
-import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.45';
-import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.45';
-import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.45';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.45';
-import { evidenceContext } from './evidence.js?v=0.2.45';
-import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.45';
-import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.45';
-import { planSharedRefresh } from './shared-refresh.js?v=0.2.45';
-import { manualCollectionOutcome } from './manual-collection.js?v=0.2.45';
-import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.45';
-import { ONLINE_LIMIT, ONLINE_SAVE_LIMIT, ONLINE_SOURCES, onlineRequest, fetchOnlineCitations } from './online-search.js?v=0.2.45';
-import { RECOMMENDATION_VOTE_LIMIT, recommendationId, rankRecommendations } from './recommendations.js?v=0.2.45';
-import { LOCAL_TOPIC_LIMIT, localTopicSnapshot, restoreLocalTopics, localTopicMatches } from './local-topics.js?v=0.2.45';
-import { reportRis } from './report-ris.js?v=0.2.45';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.45';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistOnlineCitations, persistRecommendationVotes, persistLocalTopics, persistPaperReferences, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.45';
-import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.45';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.45';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.45';
-import { TOPICS, paperPmcid, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.45';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.46';
+import { collectionHealth } from './health.js?v=0.2.46';
+import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.46';
+import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.46';
+import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.46';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.46';
+import { evidenceContext } from './evidence.js?v=0.2.46';
+import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.46';
+import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.46';
+import { planSharedRefresh } from './shared-refresh.js?v=0.2.46';
+import { manualCollectionOutcome } from './manual-collection.js?v=0.2.46';
+import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.46';
+import { ONLINE_LIMIT, ONLINE_SAVE_LIMIT, ONLINE_SOURCES, onlineRequest, fetchOnlineCitations } from './online-search.js?v=0.2.46';
+import { RECOMMENDATION_VOTE_LIMIT, recommendationId, rankRecommendations } from './recommendations.js?v=0.2.46';
+import { LOCAL_TOPIC_LIMIT, localTopicSnapshot, restoreLocalTopics, localTopicMatches } from './local-topics.js?v=0.2.46';
+import { CROSSREF_RECORD_LIMIT, CROSSREF_ROWS, crossrefSupplementView } from './crossref-supplement.js?v=0.2.46';
+import { reportRis } from './report-ris.js?v=0.2.46';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.46';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistOnlineCitations, persistRecommendationVotes, persistLocalTopics, persistPaperReferences, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.46';
+import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.46';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.46';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.46';
+import { TOPICS, paperPmcid, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.46';
 
-import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.45';
+import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.46';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -356,7 +357,21 @@ function localDirectionsContent() {
   return rows.length ? '<section class="settings-panel"><h2>当前会话或缓存的采集诊断</h2>' + directionRows(rows) + '</section>' : '';
 }
 function sourceCoverageContent() {
-  return `<section class="settings-panel">${sharedDirectionsContent()}</section>${localDirectionsContent()}`;
+  return `<section class="settings-panel">${sharedDirectionsContent()}</section>${crossrefSupplementContent()}${localDirectionsContent()}`;
+}
+function crossrefSupplementContent() {
+  const data = crossrefSupplementView(libraryMeta?.crossrefSupplement);
+  if (!data) return '<section class="settings-panel"><h2>Crossref 补充题录</h2><p>当前共享快照没有可读取的补充题录记录。</p></section>';
+  const labels = { failed: '读取失败', limited: '接口限流', skipped: '因前序限流未请求' };
+  return `<section class="settings-panel"><h2>Crossref 补充题录</h2>
+    <p>${sharedSnapshotNote(snapshotCoverage(libraryMeta).asOf)} · 发表日期 ${data.from} 至 ${data.through}（北京时间）</p>
+    <p>仅核对每方向首批最多 ${CROSSREF_ROWS} 条期刊题录，每方向最多列出 ${CROSSREF_RECORD_LIMIT} 条主库以外的题录。方向间去重，不累加接口命中。此处是共享快照中保存的补充结果。${libraryMeta?.automation?.completedAt ? '' : '本次后台输出尚未确认完成。'}</p>
+    ${data.directions.map(row => `<article class="source-card"><div><h3>${esc(topicOf(row.id).name)} · ${esc(row.phrase)}</h3>
+      <p>${row.status === 'ok' ? `接口命中 ${row.hits} 条 · 首批返回 ${row.received} 条 · ${row.eligible} 条符合筛选 · ${row.fresh} 条主库以外的可补充题录` : labels[row.status]}</p>
+      ${row.records?.length ? `<ul>${row.records.map(item => {
+        const doi = encodeURIComponent(item.doi);
+        return `<li><a href="https://doi.org/${doi}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a> · ${item.date} · <a href="https://api.crossref.org/works/${doi}" target="_blank" rel="noopener noreferrer">来源题录 ↗</a></li>`;
+      }).join('')}</ul>` : ''}</div></article>`).join('')}</section>`;
 }
 function readingStatus() {
   const papers = activePapers();

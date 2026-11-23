@@ -4,6 +4,7 @@
   "maxPages": 2,
   "pageSize": 25,
   "maxPapers": 500,
+  "crossrefSupplement": true,
   "maxAnalysesPerRun": 10,
   "maxModelRequestsPerDay": 20,
   "interpretTranslatedPapers": false,

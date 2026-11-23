@@ -11,6 +11,8 @@ import { acquirePipelineLock } from './lock.mjs';
 import { createPublicReport, updatePublicReportHistory } from './reports.mjs';
 import { createDailyRss } from './feeds.mjs';
 import { publicCollectionSource } from '../dist/collection-source.js';
+import { collectCrossrefSupplement } from './crossref-supplement.mjs';
+import { crossrefSupplementView } from '../dist/crossref-supplement.js';
 
 export const PROJECT = fileURLToPath(new URL('../', import.meta.url));
 export async function readJson(file, fallback) { try { return JSON.parse(await readFile(file, 'utf8')); } catch (error) { if (error.code === 'ENOENT') return fallback; throw error; } }
@@ -30,7 +32,7 @@ function configuredLimit(value, fallback, label) {
   return limit;
 }
 
-export async function runPipeline({ root = PROJECT, collect = collectTopic, interpret = interpretPaper, fetchMetric = fetchPublisherMetric, env = process.env, sourceEnv = process.env, now = new Date(), clock = () => new Date(), log = console.log, modelRunLimit } = {}) {
+export async function runPipeline({ root = PROJECT, collect = collectTopic, collectSupplement = collectCrossrefSupplement, interpret = interpretPaper, fetchMetric = fetchPublisherMetric, env = process.env, sourceEnv = process.env, now = new Date(), clock = () => new Date(), log = console.log, modelRunLimit } = {}) {
   if (modelRunLimit !== undefined && (!Number.isSafeInteger(modelRunLimit) || modelRunLimit < 0)) throw new Error('本次模型请求上限必须为非负安全整数');
   await mkdir(path.join(root, '.data'), { recursive: true });
   const lockPath = path.join(root, '.data/pipeline.lock');
@@ -58,7 +60,17 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     const stats = results.map((result, i) => collectionTopicStats(topics[i], result));
     for (const stat of stats) if (stat.error) log(`${stat.topic}：${stat.error}`);
     if (!good.length) throw new Error('全部主题采集失败，保留上次文献库');
-    let papers = mergePapers(previous.papers, good.flatMap(r => r.value.papers)).slice(0, config.maxPapers || 500).map(p => attachEnrichment(p, catalog));
+    const incoming = good.flatMap(r => r.value.papers);
+    let crossrefSupplement;
+    if (config.crossrefSupplement === true) {
+      try {
+        const supplement = await collectSupplement({ topics, days: config.days, now, primary: [...previous.papers, ...incoming] });
+        if (crossrefSupplementView(supplement)) crossrefSupplement = supplement;
+        else log('Crossref 补充题录格式无效，继续生成主文献库和日报。');
+      }
+      catch { log('Crossref 补充题录未能读取，继续生成主文献库和日报。'); }
+    }
+    let papers = mergePapers(previous.papers, incoming).slice(0, config.maxPapers || 500).map(p => attachEnrichment(p, catalog));
     const publisherRecords = (await readJson(path.join(root, 'config/download-metrics.json'), { records: [] })).records;
     papers = applyPublisherMetrics(papers, publisherRecords);
     papers = await refreshPublisherMetrics(papers, { fetchMetric });
@@ -70,6 +82,7 @@ export async function runPipeline({ root = PROJECT, collect = collectTopic, inte
     const collectionSource = publicCollectionSource(sourceEnv);
     const automaticPaused = !modelEnabled && sourceEnv.GITHUB_EVENT_NAME === 'schedule' && sourceEnv.BIOSCOPE_MODEL_AUTO !== 'true';
     const library = { schemaVersion: 2, origin: 'live', fetchedAt: new Date().toISOString(), papers, stats, modelUsage: usage, receipts, automation: { scheduleBeijing: config.scheduleBeijing || '07:17', modelConfigured: modelEnabled, modelStatus: modelEnabled ? 'ready' : automaticPaused ? 'automatic_paused' : 'not_configured', lastRunAt: new Date().toISOString(), failedTopics: stats.filter(s => s.error).length, collectionSource, downloadRefresh, ...(modelRunLimit === undefined ? {} : { modelRunLimit }) } };
+    if (crossrefSupplement) library.crossrefSupplement = crossrefSupplement;
     const output = path.join(root, 'dist/library.json');
     await saveJson(output, library);
     let attempted = 0, completed = 0, modelFailures = 0;

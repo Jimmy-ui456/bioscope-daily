@@ -1,5 +1,5 @@
-import { beijingDay, dayBefore, mergePapersWithIdMap, validPublicationDate } from './core.js?v=0.2.45';
-import { discoveryDay } from './reader.js?v=0.2.45';
+import { beijingDay, dayBefore, mergePapersWithIdMap, validPublicationDate } from './core.js?v=0.2.46';
+import { discoveryDay } from './reader.js?v=0.2.46';
 
 export function snapshotTime(value) {
   const iso = typeof value === 'string' && /^(\d{4}-\d{2}-\d{2})T(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d{1,3})?(?:Z|[+-](?:[01]\d|2[0-3]):[0-5]\d)$/.exec(value);
