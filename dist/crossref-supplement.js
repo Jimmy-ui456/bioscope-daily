@@ -1,4 +1,4 @@
-import { cleanDoi, plainText, validPublicationDate } from './core.js?v=0.2.46';
+import { cleanDoi, plainText, validPublicationDate } from './core.js?v=0.2.47';
 
 export const CROSSREF_DIRECTIONS = [['synthetic', 'synthetic biology'], ['metabolic', 'metabolic engineering'], ['microbial', 'biomanufacturing']];
 export const CROSSREF_ROWS = 20;

@@ -1,28 +1,28 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.46';
-import { collectionHealth } from './health.js?v=0.2.46';
-import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.46';
-import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.46';
-import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.46';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.46';
-import { evidenceContext } from './evidence.js?v=0.2.46';
-import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.46';
-import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.46';
-import { planSharedRefresh } from './shared-refresh.js?v=0.2.46';
-import { manualCollectionOutcome } from './manual-collection.js?v=0.2.46';
-import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.46';
-import { ONLINE_LIMIT, ONLINE_SAVE_LIMIT, ONLINE_SOURCES, onlineRequest, fetchOnlineCitations } from './online-search.js?v=0.2.46';
-import { RECOMMENDATION_VOTE_LIMIT, recommendationId, rankRecommendations } from './recommendations.js?v=0.2.46';
-import { LOCAL_TOPIC_LIMIT, localTopicSnapshot, restoreLocalTopics, localTopicMatches } from './local-topics.js?v=0.2.46';
-import { CROSSREF_RECORD_LIMIT, CROSSREF_ROWS, crossrefSupplementView } from './crossref-supplement.js?v=0.2.46';
-import { reportRis } from './report-ris.js?v=0.2.46';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.46';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistOnlineCitations, persistRecommendationVotes, persistLocalTopics, persistPaperReferences, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.46';
-import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.46';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.46';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.46';
-import { TOPICS, paperPmcid, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.46';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.47';
+import { collectionHealth } from './health.js?v=0.2.47';
+import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.47';
+import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.47';
+import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.47';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.47';
+import { evidenceContext } from './evidence.js?v=0.2.47';
+import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.47';
+import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.47';
+import { planSharedRefresh } from './shared-refresh.js?v=0.2.47';
+import { manualCollectionOutcome } from './manual-collection.js?v=0.2.47';
+import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.47';
+import { ONLINE_LIMIT, ONLINE_SAVE_LIMIT, ONLINE_SOURCES, onlineRequest, fetchOnlineCitations } from './online-search.js?v=0.2.47';
+import { RECOMMENDATION_VOTE_LIMIT, recommendationId, exactRecommendationRetraction, changeRecommendationVote, rankRecommendations } from './recommendations.js?v=0.2.47';
+import { LOCAL_TOPIC_LIMIT, localTopicSnapshot, restoreLocalTopics, localTopicMatches } from './local-topics.js?v=0.2.47';
+import { CROSSREF_RECORD_LIMIT, CROSSREF_ROWS, crossrefSupplementView } from './crossref-supplement.js?v=0.2.47';
+import { reportRis } from './report-ris.js?v=0.2.47';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.47';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistOnlineCitations, persistRecommendationVotes, persistLocalTopics, persistPaperReferences, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.47';
+import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.47';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.47';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.47';
+import { TOPICS, paperPmcid, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.47';
 
-import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.46';
+import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.47';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -406,7 +406,8 @@ function onlineCitationCards(items) {
       <p class="paper-meta">${esc([item.authors, item.journal, item.publishedAt || item.year].filter(Boolean).join(' · '))}</p>
       <p class="reading-availability">${ONLINE_SOURCES[item.provider ?? 'europepmc']} · 题录${item.publicationType ? item.publicationType === 'journal' ? ' · 期刊记录' : ' · 预印本' : ''}${item.doi ? ' · DOI ' + esc(item.doi) : ''}</p>
       ${item.recordUrl ? `<a class="help" href="${esc(item.recordUrl)}" target="_blank" rel="noopener noreferrer">查看来源题录 ↗</a>` : ''}
-      <button type="button" class="button small" data-online-save="${esc(item.id)}" aria-label="${saved ? '取消在线收藏' : '在线收藏'}：${esc(item.title)}">${saved ? '取消收藏' : '收藏'}</button></article>`;
+      <button type="button" class="button small" data-online-save="${esc(item.id)}" aria-label="${saved ? '取消在线收藏' : '在线收藏'}：${esc(item.title)}">${saved ? '取消收藏' : '收藏'}</button>
+      ${voteButtons(item, true)}</article>`;
   }).join('');
 }
 function onlineSavedContent() {
@@ -491,13 +492,13 @@ function toggleOnlineCitation(id) {
   toast(saved ? '已取消在线收藏。' : '已收藏在线文献。');
 }
 
-function voteButtons(paper) {
+function voteButtons(paper, onlineCitation = false) {
   const id = recommendationId(paper);
-  if (!id || isRetracted(paper)) return '';
+  if (!id || (onlineCitation ? exactRecommendationRetraction(paper, state.papers, libraryMeta?.papers) : isRetracted(paper))) return '';
   const vote = recommendationVotes.find(item => item.id === id);
   const thumb = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 10h-3v10h3m0-10 5-7c2 0 2 2 1 6h5a2 2 0 0 1 2 3l-2 6a3 3 0 0 1-3 2H7V10Z"/></svg>';
   return `<div class="vote-controls" role="group" aria-label="阅读偏好：${esc(paper.title)}">${[[1, '喜欢'], [-1, '不喜欢']].map(([choice, label]) =>
-    `<button type="button" class="paper-action" data-action="recommendation-vote" data-vote="${choice}" data-vote-paper="${esc(paper.id)}" aria-label="${label}：${esc(paper.title)}" aria-pressed="${vote?.choice === choice}"><span class="${choice < 0 ? 'thumb-down' : ''}">${thumb}</span>${label}</button>`).join('')}</div>`;
+    `<button type="button" class="paper-action" data-action="${onlineCitation ? 'online-recommendation-vote' : 'recommendation-vote'}" data-vote="${choice}" data-vote-paper="${esc(paper.id)}" aria-label="${label}：${esc(paper.title)}" aria-pressed="${vote?.choice === choice}"><span class="${choice < 0 ? 'thumb-down' : ''}">${thumb}</span>${label}</button>`).join('')}</div>`;
 }
 function recommendationsPage() {
   const builtIn = new Set(activePapers().map(paper => paper.id));
@@ -518,19 +519,22 @@ function updateRecommendationVote(id, choice, paper = null) {
   const existing = recommendationVotes.find(vote => vote.id === id);
   if (choice === 0 && !existing) return;
   if (!existing && recommendationVotes.length >= RECOMMENDATION_VOTE_LIMIT) { toast('偏好记录已达上限，请先撤回一条。'); return; }
-  const remove = choice === 0 || existing?.choice === choice;
-  const next = recommendationVotes.filter(vote => vote.id !== id);
-  if (!remove && paper) next.push({ id, title: paper.title.slice(0, 300), choice });
+  const { next, removed } = changeRecommendationVote(recommendationVotes, id, choice, paper);
   const result = persistRecommendationVotes(browserStorage, next, recommendationVotesRaw, storageKey);
   if (result.status !== 'saved') { toast(result.status === 'changed' ? '其他页面已更改推荐偏好，请刷新后重试。' : '浏览器未能保存推荐偏好。'); return; }
   recommendationVotes = next;
   recommendationVotesRaw = result.raw;
+  if (state.view === 'online') {
+    updateOnlineResults();
+    toast(removed ? '已撤回偏好。' : '已更新推荐偏好。');
+    return;
+  }
   const manage = $('#recommendation-votes')?.open;
   render();
   if (manage && $('#recommendation-votes')) $('#recommendation-votes').open = true;
   if ($('#paper-dialog').open) showPaper(dialogPaperId, true);
   else if (document.activeElement === document.body) ($('#recommendation-votes-summary') || $('#main'))?.focus();
-  toast(remove ? '已撤回偏好。' : '已更新推荐偏好。');
+  toast(removed ? '已撤回偏好。' : '已更新推荐偏好。');
 }
 
 function localTopicsContent() {
@@ -1097,6 +1101,15 @@ document.addEventListener('click', async event => {
   if (target.dataset.select) { const paper = state.papers.find(p => p.id === target.dataset.select); if (isRetracted(paper)) { toast('撤稿相关记录不进入人工精选。'); return; } toggleId('selected', target.dataset.select); return; }
   if (target.dataset.bookmark) { toggleId('bookmarks', target.dataset.bookmark); return; }
   switch (target.dataset.action) {
+    case 'online-recommendation-vote': {
+      const surface = state.view === 'online' && online.status === 'ready' && target.closest('#online-results') ? online.items
+        : state.view === 'bookmarks' && target.closest('#online-saved') ? onlineCitations : null;
+      const citation = surface?.find(item => item.id === target.dataset.votePaper);
+      const choice = Number(target.dataset.vote);
+      const id = citation && !exactRecommendationRetraction(citation, state.papers, libraryMeta?.papers) && recommendationId(citation);
+      if (id && [-1, 1].includes(choice)) updateRecommendationVote(id, choice, citation);
+      break;
+    }
     case 'view-local-topic': case 'edit-local-topic': case 'toggle-local-topic': case 'remove-local-topic':
       changeLocalTopic(target.dataset.action, target.dataset.localTopic); break;
     case 'cancel-local-topic': topicDraft = { id: null, name: '', phrases: '' }; renderReaderControl('local-topic-name'); break;

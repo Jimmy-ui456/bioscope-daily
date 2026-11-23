@@ -1,4 +1,4 @@
-import { cleanDoi, isRetracted, validPublicationDate } from './core.js?v=0.2.46';
+import { cleanDoi, isRetracted, validPublicationDate } from './core.js?v=0.2.47';
 
 export const RECOMMENDATION_VOTE_LIMIT = 200;
 const stop = new Set('about against among analysis based between during effects from into novel paper study their these this through using were which with without'.split(' '));
@@ -12,8 +12,23 @@ export function recommendationTerms(title) {
 export function recommendationId(paper) {
   const doi = typeof paper.doi === 'string' && !/[\p{Cc}\p{Cf}]/u.test(paper.doi) ? cleanDoi(paper.doi) : null;
   if (doi && doi.length <= 500) return `doi:${doi}`;
+  if (paper.source === 'MED' && typeof paper.sourceId === 'string' && /^\d{1,20}$/.test(paper.sourceId)
+    && paper.id === `epmc:MED:${paper.sourceId}`) return `id:pmid:${paper.sourceId}`;
   return typeof paper.id === 'string' && paper.id.trim() && paper.id.length <= 500 && !/\p{Cc}/u.test(paper.id)
     ? `id:${paper.id}` : null;
+}
+export function exactRecommendationRetraction(paper, ...libraries) {
+  if (isRetracted(paper)) return true;
+  const id = recommendationId(paper);
+  return Boolean(id && libraries.some(library => library?.some(record => isRetracted(record) && recommendationId(record) === id)));
+}
+
+export function changeRecommendationVote(votes, id, choice, paper) {
+  const existing = votes.find(vote => vote.id === id);
+  const removed = choice === 0 || existing?.choice === choice;
+  const next = votes.filter(vote => vote.id !== id);
+  if (!removed && paper) next.push({ id, title: paper.title.slice(0, 300), choice });
+  return { next, removed };
 }
 
 export function restoreRecommendationVotes(value) {
