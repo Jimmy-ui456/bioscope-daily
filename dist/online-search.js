@@ -1,4 +1,4 @@
-import { API_URL, cleanDoi, plainText, validPublicationDate } from './core.js?v=0.2.47';
+import { API_URL, cleanDoi, plainText, validPublicationDate } from './core.js?v=0.2.48';
 
 export const ONLINE_LIMIT = 20;
 export const ONLINE_SAVE_LIMIT = 200;
@@ -6,6 +6,12 @@ export const ONLINE_SOURCES = { europepmc: 'Europe PMC', crossref: 'Crossref', d
 const fields = { terms: '', title: 'TITLE:', author: 'AUTH:', journal: 'JOURNAL:' };
 function phrase(value) { return '"' + value.replace(/["\\]/g, '\\$&') + '"'; }
 function doiValue(value) { return typeof value === 'string' && value.length <= 400 && !/[\p{Cc}\p{Cf}]/u.test(value) ? cleanDoi(value) : null; }
+function phraseGroup(value = '') {
+  if (typeof value !== 'string' || value.length > 160 || /[\p{Cc}\p{Cf}]/u.test(value)) throw new Error('每组词组最多 160 字，请检查输入。');
+  const parts = value.split(/[,，]/u).map(part => part.trim()).filter(Boolean);
+  if (parts.length > 5) throw new Error('每组最多 5 个词组，请用逗号分隔。');
+  return parts.length ? '(' + parts.map(phrase).join(' OR ') + ')' : '';
+}
 
 export function onlineQuery(input) {
   const clauses = [];
@@ -23,7 +29,12 @@ export function onlineQuery(input) {
     throw new Error('请检查发表日期范围。');
   }
   if (from || to) clauses.push(`FIRST_PDATE:[${from || '*'} TO ${to || '*'}]`);
+  const include = phraseGroup(input.anyPhrases);
+  const exclude = phraseGroup(input.excludePhrases);
+  if (include) clauses.push(include);
+  if (exclude && !clauses.length) throw new Error('排除词组要搭配至少一个正向检索条件。');
   if (!clauses.length) throw new Error('请输入至少一个检索条件。');
+  if (exclude) clauses.push('NOT ' + exclude);
   return { query: clauses.join(' AND '), doi };
 }
 
@@ -94,6 +105,7 @@ export async function fetchOnlineCitations(input, { signal, fetchImpl = fetch } 
 
 export function onlineRequest(input) {
   const provider = input.provider || 'europepmc';
+  if (provider !== 'europepmc' && (input.anyPhrases || input.excludePhrases)) throw new Error('任一词组及排除词组仅适用于 Europe PMC。');
   const active = Object.fromEntries(Object.entries(input).filter(([key]) => key !== 'provider'));
   if (provider === 'datacite' && ['terms', 'author', 'journal', 'from', 'to'].some(key => active[key])) throw new Error('DataCite 在线检索支持题名或完整 DOI。');
   const { query, doi } = onlineQuery(active);

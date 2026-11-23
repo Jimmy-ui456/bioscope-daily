@@ -6,6 +6,20 @@ import { persistOnlineCitations } from '../dist/local-state.js';
 const row = { source: 'PPR', id: 'PPR123', title: '<i>Fixture</i>', authorString: 'A B', journalTitle: 'Journal',
   doi: '10.1234/fixture/v1', pubYear: '2026' };
 
+test('Europe PMC 任一和排除词组使用有界的字面布尔分组', () => {
+  const { url } = onlineRequest({ terms: 'common', anyPhrases: 'alpha，beta', excludePhrases: 'literal" OR x, bracket (y)' });
+  assert.equal(url.searchParams.get('query'), '"common" AND ("alpha" OR "beta") AND NOT ("literal\\" OR x" OR "bracket (y)")');
+  assert.equal(onlineQuery({ anyPhrases: 'alpha,beta' }).query, '("alpha" OR "beta")');
+  assert.throws(() => onlineQuery({ excludePhrases: 'only' }), /正向/);
+  assert.throws(() => onlineQuery({ anyPhrases: 'a,b,c,d,e,f' }), /最多 5/);
+  assert.throws(() => onlineQuery({ terms: 'valid', excludePhrases: 'x'.repeat(161) }), /最多 160/);
+  for (const provider of ['crossref', 'datacite']) {
+    assert.throws(() => onlineRequest({ provider, title: 'valid', anyPhrases: 'other' }), /仅适用于 Europe PMC/);
+    assert.throws(() => onlineRequest({ provider, title: 'valid', excludePhrases: 'other' }), /仅适用于 Europe PMC/);
+  }
+  assert.equal(onlineQuery({ doi: row.doi }).query, 'DOI:"' + row.doi + '"');
+});
+
 test('Crossref 题录参数、日期和期刊范围可组合，完整 DOI 不携带其他条件', () => {
   const { url } = onlineRequest({ provider: 'crossref', terms: 'keyword', title: 'title', author: 'R.', journal: 'J', from: '2026-05-01' });
   assert.equal(url.origin, 'https://api.crossref.org');

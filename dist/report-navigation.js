@@ -1,4 +1,4 @@
-import { validPublicationDate } from './core.js?v=0.2.47';
+import { validPublicationDate } from './core.js?v=0.2.48';
 export function publicReportId(value) {
   return typeof value === 'string' && value.startsWith('public-daily-') && validPublicationDate(value.slice('public-daily-'.length)) ? value : null;
 }
