@@ -1,26 +1,27 @@
-import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.44';
-import { collectionHealth } from './health.js?v=0.2.44';
-import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.44';
-import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.44';
-import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.44';
-import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.44';
-import { evidenceContext } from './evidence.js?v=0.2.44';
-import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.44';
-import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.44';
-import { planSharedRefresh } from './shared-refresh.js?v=0.2.44';
-import { manualCollectionOutcome } from './manual-collection.js?v=0.2.44';
-import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.44';
-import { ONLINE_LIMIT, ONLINE_SAVE_LIMIT, ONLINE_SOURCES, onlineRequest, fetchOnlineCitations } from './online-search.js?v=0.2.44';
-import { RECOMMENDATION_VOTE_LIMIT, recommendationId, rankRecommendations } from './recommendations.js?v=0.2.44';
-import { reportRis } from './report-ris.js?v=0.2.44';
-import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.44';
-import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistOnlineCitations, persistRecommendationVotes, persistPaperReferences, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.44';
-import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.44';
-import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.44';
-import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.44';
-import { TOPICS, paperPmcid, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.44';
+import { prepareBackupImport, sharedLibraryPapers } from './backup.js?v=0.2.45';
+import { collectionHealth } from './health.js?v=0.2.45';
+import { snapshotCoverage, snapshotDirections } from './snapshot-coverage.js?v=0.2.45';
+import { indexSharedRecords, sharedReportChanges } from './report-comparison.js?v=0.2.45';
+import { createReaderTransferBlob, readReaderTransferFile, prepareReaderTransfer, checkReaderTransferStorage, persistReaderTransfer } from './reader-transfer.js?v=0.2.45';
+import { collectionSourceLabel, validWorkflowRunUrl } from './collection-source.js?v=0.2.45';
+import { evidenceContext } from './evidence.js?v=0.2.45';
+import { reportLocation, sharedReportLocation } from './report-navigation.js?v=0.2.45';
+import { incomingPaperNavigation, resolveSharedPaper, pendingSharedPaper, sharedPaperLocation, consumePaperLocation } from './paper-navigation.js?v=0.2.45';
+import { planSharedRefresh } from './shared-refresh.js?v=0.2.45';
+import { manualCollectionOutcome } from './manual-collection.js?v=0.2.45';
+import { indexPaperReferences, togglePaperReference } from './paper-references.js?v=0.2.45';
+import { ONLINE_LIMIT, ONLINE_SAVE_LIMIT, ONLINE_SOURCES, onlineRequest, fetchOnlineCitations } from './online-search.js?v=0.2.45';
+import { RECOMMENDATION_VOTE_LIMIT, recommendationId, rankRecommendations } from './recommendations.js?v=0.2.45';
+import { LOCAL_TOPIC_LIMIT, localTopicSnapshot, restoreLocalTopics, localTopicMatches } from './local-topics.js?v=0.2.45';
+import { reportRis } from './report-ris.js?v=0.2.45';
+import { preparePublicArchive, publicArchiveNotice } from './public-archive.js?v=0.2.45';
+import { readLocalReaderState, persistLocalRecovery, persistReaderPresets, persistReadMarks, persistOnlineCitations, persistRecommendationVotes, persistLocalTopics, persistPaperReferences, readerPresetSnapshot, READER_PRESET_LIMITS, READER_DEFAULTS as readerDefaults } from './local-state.js?v=0.2.45';
+import { READ_MARK_LIMIT, readMarkFor, indexReadMarks, matchingReadMarks, filterByReadProgress } from './read-progress.js?v=0.2.45';
+import { paperKind, journalName, filterReadingPapers, readingBasePapers, createSearchInputController, papersForDownloadRanking, searchReadingPapers, discoveryDay } from './reader.js?v=0.2.45';
+import { focusSnapshot, restoreFocus, applyNavigationState, trapFocus, focusNewResults } from './accessibility.js?v=0.2.45';
+import { TOPICS, paperPmcid, APP_VERSION, collectTopic, beijingDay, dayBefore, chooseReportPapers, reportMarkdown, knownRetraction, isRetracted } from './core.js?v=0.2.45';
 
-import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.44';
+import { attachEnrichment, readingAvailability, metricGroup, metricLabel, metricCoverageLabel, metricFetchedAtLabel, rankDownloads, validateDownloadMetric, rankableDownloadMetric, downloadRefreshLabel, downloadRefreshSummaryLabel } from './enrichment.js?v=0.2.45';
 
 const $ = (s, root = document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -44,6 +45,9 @@ let onlineCitations = localState.onlineCitations;
 let onlineCitationsRaw = localState.rawRecords.onlineCitations ?? null;
 let recommendationVotes = localState.recommendationVotes;
 let recommendationVotesRaw = localState.rawRecords.recommendationVotes ?? null;
+let localTopics = localState.localTopics, localTopicsRaw = localState.rawRecords.localTopics ?? null;
+let topicDraft = { id: null, name: '', phrases: '' };
+let viewedLocalTopic = null, localTopicPage = 1;
 const online = { fields: {}, provider: 'europepmc', items: [], hitCount: null, status: 'idle', message: '', request: null };
 const lastOnlineRequestAt = new Map();
 const onlineFields = [['terms', '关键词'], ['title', '题名'], ['author', '作者'], ['journal', '期刊'], ['doi', '完整 DOI'],
@@ -132,7 +136,7 @@ function cacheActive() { return write('cache', cacheValue()); }
 function localRecoveryMarkup() {
   if (!protectedStorageKeys.size) return '';
   const issues = localState.issues.filter(issue => protectedStorageKeys.has(issue.key));
-  const labels = { settings: '监控设置', cache: '文献缓存', readerFilters: '阅读筛选', readerPresets: '搜索预设', onlineCitations: '在线收藏', recommendationVotes: '推荐偏好', readMarks: '已读标记', bookmarks: '收藏', selected: '精选', reports: '个人简报', displayMode: '中英显示' };
+  const labels = { settings: '监控设置', cache: '文献缓存', readerFilters: '阅读筛选', readerPresets: '搜索预设', onlineCitations: '在线收藏', recommendationVotes: '推荐偏好', localTopics: '本机关注主题', readMarks: '已读标记', bookmarks: '收藏', selected: '精选', reports: '个人简报', displayMode: '中英显示' };
   return '<section class="report-warning" role="status" aria-live="polite" aria-label="本机数据恢复提示"><strong>部分本机数据需要核对</strong><p>已恢复可读内容，异常原始记录尚未覆盖。请先导出原始副本，再决定是否用当前恢复内容替换异常记录；确认前，相关改动仅保留在当前页面。收藏编号不会因论文暂未载入而删除。</p><details><summary>查看恢复情况</summary><ul>' + issues.map(issue => '<li><strong>' + esc(labels[issue.key] || '本机记录') + '：</strong>' + esc(issue.message) + '</li>').join('') + '</ul></details>' + (localRecoveryMessage ? '<p>' + esc(localRecoveryMessage) + '</p>' : '') + '<div class="settings-buttons"><button class="button small" data-action="export-local-recovery">导出原始副本</button><button class="button small" data-action="resume-local-storage">用恢复内容替换异常记录</button></div></section>';
 }
 
@@ -481,12 +485,16 @@ function voteButtons(paper) {
     `<button type="button" class="paper-action" data-action="recommendation-vote" data-vote="${choice}" data-vote-paper="${esc(paper.id)}" aria-label="${label}：${esc(paper.title)}" aria-pressed="${vote?.choice === choice}"><span class="${choice < 0 ? 'thumb-down' : ''}">${thumb}</span>${label}</button>`).join('')}</div>`;
 }
 function recommendationsPage() {
-  const ranked = rankRecommendations(activePapers(), recommendationVotes);
+  const builtIn = new Set(activePapers().map(paper => paper.id));
+  const matches = localTopicMatches(state.papers, localTopics.filter(topic => topic.enabled));
+  const ranked = rankRecommendations(state.papers.filter(paper => builtIn.has(paper.id) || matches.has(paper.id)), recommendationVotes, matches);
   const shown = ranked.slice(0, state.page * 8);
-  return `<section class="settings-panel recommendation-page"><p>仅在当前关注方向的已载入文献中推荐。喜欢会提高题名中有相似词的其他文献，不喜欢会降低其排序。没有相似词时按发表时间排序。偏好仅保存在此浏览器。</p>
+  return `<section class="settings-panel recommendation-page"><p>在当前关注方向及已启用本机主题匹配的已载入文献中推荐。喜欢会提高题名中有相似词的其他文献，不喜欢会降低其排序。默认按发表时间排序，匹配本机主题会适度提高优先级。偏好仅保存在此浏览器。</p>
     ${recommendationVotes.length ? `<details id="recommendation-votes"><summary id="recommendation-votes-summary">管理已标记偏好（${recommendationVotes.length} 条）</summary><ul>${recommendationVotes.map(vote => `<li>${esc(vote.title)} · ${vote.choice === 1 ? '喜欢' : '不喜欢'} <button class="button small" data-action="clear-recommendation-vote" data-vote-id="${esc(vote.id)}">撤回</button></li>`).join('')}</ul></details>` : ''}
-    <div id="recommendation-list">${shown.map(({ paper, score, matched, date }) => paperCard(paper, !Number.isFinite(date)
-      ? '发表日期未提供' : score ? `题名相似词：${matched.join('、')} · 偏好使排序${score > 0 ? '提前' : '后移'}` : '按发表时间排序')).join('')}</div>
+    <div id="recommendation-list">${shown.map(({ paper, score, matched, date, topicNames }) => paperCard(paper, [
+      !Number.isFinite(date) ? '发表日期未提供' : score ? `题名相似词：${matched.join('、')} · 阅读偏好${score > 0 ? '提高' : '降低'}优先级` : topicNames.length ? '' : '按发表时间排序',
+      topicNames.length ? '匹配本机主题：' + topicNames.join('、') : '',
+    ].filter(Boolean).join(' · '))).join('')}</div>
     ${ranked.length ? '' : '<p>当前关注方向暂无可推荐文献。</p>'}
     ${shown.length < ranked.length ? '<button class="load-more" id="recommendation-more" data-action="recommendation-more">再看 8 篇</button>' : ''}</section>`;
 }
@@ -510,6 +518,70 @@ function updateRecommendationVote(id, choice, paper = null) {
   toast(remove ? '已撤回偏好。' : '已更新推荐偏好。');
 }
 
+function localTopicsContent() {
+  const matches = localTopicMatches(state.papers, localTopics);
+  const selected = localTopics.find(topic => topic.id === viewedLocalTopic);
+  const papers = selected ? state.papers.filter(paper => matches.get(paper.id)?.includes(selected.name)) : [];
+  const shown = papers.slice(0, localTopicPage * 8);
+  return `<section class="settings-panel" aria-labelledby="local-topics-title"><h2 id="local-topics-title">本机关注主题</h2>
+    <p>每行填一个关键词或词组。题名或摘要中任一词组匹配即可。启用的主题会加入推荐，每个主题最多填 12 行。</p>
+    <form id="local-topic-form" class="online-search-fields">
+      <label for="local-topic-name"><span>主题名称</span><input id="local-topic-name" name="name" maxlength="60" value="${esc(topicDraft.name)}" required></label>
+      <label for="local-topic-phrases"><span>关键词或词组（每行一个）</span><textarea id="local-topic-phrases" name="phrases" maxlength="1212" rows="4" required>${esc(topicDraft.phrases)}</textarea></label>
+      <div class="settings-buttons"><button id="local-topic-save" class="button dark" type="submit">${topicDraft.id ? '保存修改' : '添加主题'}</button>
+      ${topicDraft.id ? '<button class="button" type="button" data-action="cancel-local-topic">取消编辑</button>' : ''}</div>
+    </form>
+    <div>${localTopics.map(topic => {
+      const id = esc(topic.id), count = [...matches.values()].filter(names => names.includes(topic.name)).length;
+      return `<article class="source-card"><div><h3>${esc(topic.name)}</h3><p>${esc(topic.phrases.join(' · '))}</p><p>${topic.enabled ? '已启用' : '已停用'} · 匹配 ${count} 篇</p>
+        <div class="settings-buttons"><button class="button small" data-action="view-local-topic" data-local-topic="${id}">查看匹配文献</button>
+        <button class="button small" data-action="edit-local-topic" data-local-topic="${id}">编辑</button>
+        <button class="button small" data-action="toggle-local-topic" data-local-topic="${id}">${topic.enabled ? '停用' : '启用'}</button>
+        <button class="button small" data-action="remove-local-topic" data-local-topic="${id}">删除</button></div></div></article>`;
+    }).join('')}</div>
+    ${selected ? `<h3 id="local-topic-results-title" tabindex="-1">${esc(selected.name)} · ${papers.length} 篇</h3><div id="local-topic-results">
+      ${shown.map(paper => paperCard(paper)).join('') || '<p>当前已载入文献中没有匹配项。</p>'}</div>
+      ${shown.length < papers.length ? '<button class="load-more" data-action="local-topic-more">再看 8 篇</button>' : ''}` : ''}</section>`;
+}
+function saveLocalTopicItems(items) {
+  if (protectedStorageKeys.has('localTopics')) { toast('本机关注主题受保护，请先核对恢复提示。'); return false; }
+  const result = persistLocalTopics(browserStorage, items, localTopicsRaw, storageKey);
+  if (result.status !== 'saved') { toast(result.status === 'changed' ? '其他页面已更改主题，请刷新后再试。' : '主题未能保存，请检查本机存储。'); return false; }
+  localTopics = items;
+  localTopicsRaw = result.raw;
+  return true;
+}
+function submitLocalTopic() {
+  const existing = localTopics.find(topic => topic.id === topicDraft.id);
+  if (!existing && localTopics.length >= LOCAL_TOPIC_LIMIT) { toast('本机关注主题最多 20 个。'); return; }
+  const id = existing?.id ?? Array.from(crypto.getRandomValues(new Uint8Array(12)), byte => byte.toString(16).padStart(2, '0')).join('');
+  const candidate = localTopicSnapshot({ id, name: topicDraft.name, phrases: topicDraft.phrases.split(/\r?\n/).map(line => line.trim()).filter(Boolean), enabled: existing?.enabled ?? true });
+  if (!candidate) { toast('请输入主题名称和 1 到 12 个关键词或词组，每行最多 100 字。'); return; }
+  const next = existing ? localTopics.map(topic => topic.id === id ? candidate : topic) : [...localTopics, candidate];
+  if (restoreLocalTopics(next).skipped) { toast('已有同名主题。'); return; }
+  if (!saveLocalTopicItems(next)) return;
+  topicDraft = { id: null, name: '', phrases: '' };
+  renderReaderControl('local-topic-name');
+  toast('已保存本机关注主题。');
+}
+function changeLocalTopic(action, id) {
+  const topic = localTopics.find(item => item.id === id);
+  if (!topic) return;
+  if (action === 'view-local-topic') {
+    viewedLocalTopic = id; localTopicPage = 1; renderReaderControl('local-topic-results-title'); return;
+  }
+  if (action === 'edit-local-topic') {
+    topicDraft = { id, name: topic.name, phrases: topic.phrases.join('\n') }; renderReaderControl('local-topic-name'); return;
+  }
+  const remove = action === 'remove-local-topic';
+  const next = remove ? localTopics.filter(item => item.id !== id)
+    : localTopics.map(item => item.id === id ? { ...item, enabled: !item.enabled } : item);
+  if (!saveLocalTopicItems(next)) return;
+  if (remove && topicDraft.id === id) topicDraft = { id: null, name: '', phrases: '' };
+  if (remove && viewedLocalTopic === id) { viewedLocalTopic = null; localTopicPage = 1; }
+  if (remove) renderReaderControl('local-topic-name'); else render();
+  toast(remove ? '已删除本机关注主题。' : topic.enabled ? '已停用主题。' : '已启用主题。');
+}
 function downloadRefreshNote(paper) {
   const label = downloadRefreshLabel(paper);
   return label ? '<p class="help download-refresh">' + esc(label) + '</p>' : '';
@@ -759,7 +831,7 @@ function render({ keepScroll = true, preserveFocus = true } = {}) {
   const scroll = window.scrollY;
   const previousFocus = preserveFocus ? focusSnapshot($('#app')) : null;
   const healthMarkup = collectionStatusMarkup();
-  $('#app').innerHTML = `${sidebar()}<div class="workspace"><div class="topbar"><div class="breadcrumb"><button id="navigation-toggle" class="icon-button mobile-toggle" data-action="menu" aria-label="打开导航" aria-controls="primary-navigation" aria-expanded="${navigationMedia.matches && mobileMenuOpen}">${icon('menu', 19)}</button><span class="breadcrumb-workspace">我的科研工作台</span><span>/</span><b>${views[state.view].name}</b></div><div class="topbar-actions"><span class="version">PROTOTYPE ${APP_VERSION}</span><button class="button small language-toggle" data-action="toggle-language" aria-pressed="${displayMode === 'bilingual'}">${displayMode === 'bilingual' ? '中英对照' : 'English'}</button><label class="global-search">${icon('search', 14)}<input id="search" type="search" placeholder="论文、关键词、DOI / PMID / PMCID" aria-label="搜索已载入文献的题名、关键词、DOI、PMID或PMCID" value="${esc(state.search)}"><span class="keycap">/</span></label><button class="icon-button" data-view="settings" aria-label="监控设置">${icon('settings', 17)}</button></div></div><main class="main" id="main" tabindex="-1">${masthead()}<div id="collection-health" role="status" aria-live="polite" aria-atomic="true">${healthMarkup}</div>${localRecoveryMarkup()}${state.busy ? `<div class="progress-banner" role="status">${icon('refresh', 13, 'spin')} <span id="progress">${esc(state.progress)}</span></div>` : ''}${state.error ? `<div class="error-notice" role="alert">${icon('info', 13)} ${esc(state.error)}</div>` : ''}${({ overview, recommendations: recommendationsPage, online: onlinePage, bookmarks: bookmarksPage, hot: hotPage, topics: topicsPage, sources: sourcesPage, settings: () => settingsPage() + readerTransferPanel(), daily: reportPage }[state.view])()}${footer()}</main></div>`;
+  $('#app').innerHTML = `${sidebar()}<div class="workspace"><div class="topbar"><div class="breadcrumb"><button id="navigation-toggle" class="icon-button mobile-toggle" data-action="menu" aria-label="打开导航" aria-controls="primary-navigation" aria-expanded="${navigationMedia.matches && mobileMenuOpen}">${icon('menu', 19)}</button><span class="breadcrumb-workspace">我的科研工作台</span><span>/</span><b>${views[state.view].name}</b></div><div class="topbar-actions"><span class="version">PROTOTYPE ${APP_VERSION}</span><button class="button small language-toggle" data-action="toggle-language" aria-pressed="${displayMode === 'bilingual'}">${displayMode === 'bilingual' ? '中英对照' : 'English'}</button><label class="global-search">${icon('search', 14)}<input id="search" type="search" placeholder="论文、关键词、DOI / PMID / PMCID" aria-label="搜索已载入文献的题名、关键词、DOI、PMID或PMCID" value="${esc(state.search)}"><span class="keycap">/</span></label><button class="icon-button" data-view="settings" aria-label="监控设置">${icon('settings', 17)}</button></div></div><main class="main" id="main" tabindex="-1">${masthead()}<div id="collection-health" role="status" aria-live="polite" aria-atomic="true">${healthMarkup}</div>${localRecoveryMarkup()}${state.busy ? `<div class="progress-banner" role="status">${icon('refresh', 13, 'spin')} <span id="progress">${esc(state.progress)}</span></div>` : ''}${state.error ? `<div class="error-notice" role="alert">${icon('info', 13)} ${esc(state.error)}</div>` : ''}${({ overview, recommendations: recommendationsPage, online: onlinePage, bookmarks: bookmarksPage, hot: hotPage, topics: () => topicsPage() + localTopicsContent(), sources: sourcesPage, settings: () => settingsPage() + readerTransferPanel(), daily: reportPage }[state.view])()}${footer()}</main></div>`;
   syncNavigation();
   healthMarkupByNode.set($('#collection-health'), healthMarkup);
   const coverage = $('#shared-coverage');
@@ -771,6 +843,7 @@ function render({ keepScroll = true, preserveFocus = true } = {}) {
 function flushReadingRender() {
   if (!pendingReadingRender || ['settings', 'online'].includes(state.view) || document.hidden || $('#paper-dialog').open) return;
   const active = document.activeElement?.id;
+  if (document.activeElement?.form?.id === 'local-topic-form') return;
   if ((composingPresetName && active === 'reader-preset-name') || (composingSearch && active === 'search')) return;
   render();
 }
@@ -1009,6 +1082,16 @@ document.addEventListener('click', async event => {
   if (target.dataset.select) { const paper = state.papers.find(p => p.id === target.dataset.select); if (isRetracted(paper)) { toast('撤稿相关记录不进入人工精选。'); return; } toggleId('selected', target.dataset.select); return; }
   if (target.dataset.bookmark) { toggleId('bookmarks', target.dataset.bookmark); return; }
   switch (target.dataset.action) {
+    case 'view-local-topic': case 'edit-local-topic': case 'toggle-local-topic': case 'remove-local-topic':
+      changeLocalTopic(target.dataset.action, target.dataset.localTopic); break;
+    case 'cancel-local-topic': topicDraft = { id: null, name: '', phrases: '' }; renderReaderControl('local-topic-name'); break;
+    case 'local-topic-more': {
+      const previousCount = $('#local-topic-results').querySelectorAll('.paper-card').length;
+      localTopicPage++;
+      render();
+      focusNewResults($('#local-topic-results'), previousCount);
+      break;
+    }
     case 'recommendation-vote': {
       if (dialogReadOnly) break;
       const paper = $('#paper-dialog').open ? dialogPaper : state.papers.find(item => item.id === target.dataset.votePaper);
@@ -1034,7 +1117,7 @@ document.addEventListener('click', async event => {
       toast('已请求导出原始副本，请确认下载完成后妥善保存。'); break;
     }
     case 'resume-local-storage': {
-      const values = { settings: state.settings, cache: cacheValue(), readerFilters: state.readerFilters, readerPresets, readMarks, onlineCitations, recommendationVotes, bookmarks: state.bookmarks, selected: state.selected, reports: state.reports, displayMode };
+      const values = { settings: state.settings, cache: cacheValue(), readerFilters: state.readerFilters, readerPresets, readMarks, onlineCitations, recommendationVotes, localTopics, bookmarks: state.bookmarks, selected: state.selected, reports: state.reports, displayMode };
       const result = persistLocalRecovery(browserStorage, values, { protectedKeys: [...protectedStorageKeys], rawRecords: localState.rawRecords, prefix: storageKey });
       result.saved.forEach(key => {
         protectedStorageKeys.delete(key);
@@ -1044,6 +1127,7 @@ document.addEventListener('click', async event => {
       if (result.saved.includes('readMarks')) readMarksRaw = JSON.stringify(readMarks);
       if (result.saved.includes('onlineCitations')) onlineCitationsRaw = JSON.stringify(onlineCitations);
       if (result.saved.includes('recommendationVotes')) recommendationVotesRaw = JSON.stringify(recommendationVotes);
+      if (result.saved.includes('localTopics')) localTopicsRaw = JSON.stringify(localTopics);
       localRecoveryMessage = [result.changed.length ? '部分本机记录已在其他页面变化，为避免覆盖，请刷新后重新核对。' : '', result.failed.length ? '部分恢复内容未能保存，原记录继续保护；请保留原始副本并检查浏览器存储权限或空间。' : ''].filter(Boolean).join(' ');
       render(); toast(localRecoveryMessage || '已按你的选择保存恢复内容，相关本机记录可继续正常保存。'); break;
     }
@@ -1100,6 +1184,12 @@ document.addEventListener('click', async event => {
 });
 const searchInput = createSearchInputController(value => { state.search = value; state.page = 1; updateFeed(); });
 document.addEventListener('submit', event => {
+  if (event.target.id === 'local-topic-form') {
+    event.preventDefault();
+    Object.assign(topicDraft, Object.fromEntries(new FormData(event.target)));
+    submitLocalTopic();
+    return;
+  }
   if (event.target.id === 'online-search-form') {
     event.preventDefault();
     void submitOnline(Object.fromEntries(new FormData(event.target)));
@@ -1121,6 +1211,7 @@ document.addEventListener('submit', event => {
   toast(`已保存预设「${name}」。`);
 });
 document.addEventListener('input', event => {
+  if (event.target.form?.id === 'local-topic-form') topicDraft[event.target.name] = event.target.value;
   if (event.target.id === 'reader-preset-name') readerPresetName = event.target.value;
   if (event.target.form?.id === 'online-search-form' && event.target.name !== 'provider') {
     online.fields[event.target.name] = event.target.value;
@@ -1128,6 +1219,9 @@ document.addEventListener('input', event => {
       for (const input of event.target.form.querySelectorAll('input:not([name="doi"])')) input.disabled = Boolean(event.target.value.trim());
     }
   }
+});
+document.addEventListener('focusout', event => {
+  if (pendingReadingRender && event.target.form?.id === 'local-topic-form') setTimeout(flushReadingRender, 0);
 });
 document.addEventListener('compositionstart', event => {
   if (event.target.id === 'reader-preset-name') composingPresetName = true;

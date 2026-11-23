@@ -1,5 +1,5 @@
-import { requestedPublicReport } from './report-navigation.js?v=0.2.44';
-import { sharedRecordIdentity } from './report-comparison.js?v=0.2.44';
+import { requestedPublicReport } from './report-navigation.js?v=0.2.45';
+import { sharedRecordIdentity } from './report-comparison.js?v=0.2.45';
 
 function paperIdentity(value) {
   if (typeof value !== 'string' || value.length > 2004 || /[\p{Cc}\p{Cf}]/u.test(value)) return null;

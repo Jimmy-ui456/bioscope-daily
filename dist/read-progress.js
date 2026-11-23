@@ -1,5 +1,5 @@
-import { cleanDoi } from './core.js?v=0.2.44';
-import { sourceFingerprint } from './enrichment.js?v=0.2.44';
+import { cleanDoi } from './core.js?v=0.2.45';
+import { sourceFingerprint } from './enrichment.js?v=0.2.45';
 
 export const READ_MARK_LIMIT = 5000;
 

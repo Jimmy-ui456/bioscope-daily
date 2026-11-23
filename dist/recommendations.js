@@ -1,4 +1,4 @@
-import { cleanDoi, isRetracted, validPublicationDate } from './core.js?v=0.2.44';
+import { cleanDoi, isRetracted, validPublicationDate } from './core.js?v=0.2.45';
 
 export const RECOMMENDATION_VOTE_LIMIT = 200;
 const stop = new Set('about against among analysis based between during effects from into novel paper study their these this through using were which with without'.split(' '));
@@ -32,7 +32,7 @@ export function restoreRecommendationVotes(value) {
   return { votes, skipped: value.length - votes.length };
 }
 
-export function rankRecommendations(papers, votes) {
+export function rankRecommendations(papers, votes, topicMatches = new Map()) {
   const signals = votes.map(vote => ({ ...vote, terms: new Set(recommendationTerms(vote.title)) }));
   return papers.filter(paper => !isRetracted(paper)).map((paper, index) => {
     const id = recommendationId(paper), terms = recommendationTerms(paper.title);
@@ -46,6 +46,8 @@ export function rankRecommendations(papers, votes) {
     }
     const date = validPublicationDate(paper.publishedAt) ? Date.parse(paper.publishedAt) / DAY_MS : -Infinity;
     const bounded = Math.max(-8, Math.min(8, score));
-    return { paper, index, score: bounded, date, rankDay: date + 2 * bounded, matched: [...matched].slice(0, 4) };
+    const topicNames = topicMatches.get(paper.id) || [];
+    return { paper, index, score: bounded, date, rankDay: date + 2 * bounded + Math.min(6, 3 * topicNames.length),
+      matched: [...matched].slice(0, 4), topicNames };
   }).sort((a, b) => (b.rankDay - a.rankDay) || (b.date - a.date) || a.index - b.index);
 }

@@ -45,3 +45,4 @@
 .vote-controls .thumb-down{transform:rotate(180deg)}
 .recommendation-page details{margin-bottom:15px}
 .recommendation-page details button{margin:4px}
+.online-search-fields textarea{width:100%;min-width:0;padding:8px;border:1px solid #b7c5a7;border-radius:5px;background:#fff;color:#293b28;resize:vertical}

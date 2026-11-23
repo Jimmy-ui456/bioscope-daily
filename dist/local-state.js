@@ -1,9 +1,10 @@
-import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.44';
-import { restoreReadMarks } from './read-progress.js?v=0.2.44';
-import { restoreOnlineCitations } from './online-search.js?v=0.2.44';
-import { restoreRecommendationVotes } from './recommendations.js?v=0.2.44';
+import { TOPICS, isValidPaper, validPublicationDate } from './core.js?v=0.2.45';
+import { restoreReadMarks } from './read-progress.js?v=0.2.45';
+import { restoreOnlineCitations } from './online-search.js?v=0.2.45';
+import { restoreRecommendationVotes } from './recommendations.js?v=0.2.45';
+import { restoreLocalTopics } from './local-topics.js?v=0.2.45';
 
-const KEYS = ['settings', 'cache', 'readerFilters', 'readerPresets', 'readMarks', 'bookmarks', 'selected', 'reports', 'displayMode', 'onlineCitations', 'recommendationVotes'];
+const KEYS = ['settings', 'cache', 'readerFilters', 'readerPresets', 'readMarks', 'bookmarks', 'selected', 'reports', 'displayMode', 'onlineCitations', 'recommendationVotes', 'localTopics'];
 export const READER_PRESET_LIMITS = { count: 30, name: 60, search: 2000, journal: 500 };
 const READER_CHOICES = {
   days: [0, 1, 7, 30, 90],
@@ -69,6 +70,11 @@ export function persistRecommendationVotes(storage, votes, expectedRaw, prefix =
   const restored = restoreRecommendationVotes(votes);
   if (!Array.isArray(votes) || restored.skipped) return { status: 'failed' };
   return persistCompared(storage, prefix + 'recommendationVotes', restored.votes, expectedRaw);
+}
+export function persistLocalTopics(storage, topics, expectedRaw, prefix = 'bioscope.v1.') {
+  const restored = restoreLocalTopics(topics);
+  if (!Array.isArray(topics) || restored.skipped) return { status: 'failed' };
+  return persistCompared(storage, prefix + 'localTopics', restored.items, expectedRaw);
 }
 function restoreIds(value) {
   return Array.isArray(value) ? [...new Set(value.filter(id => typeof id === 'string' && id.trim()))] : [];
@@ -243,7 +249,9 @@ export function readLocalReaderState(storage, prefix = 'bioscope.v1.') {
   if (skipped) issue('onlineCitations', '本机在线收藏含无效、重复或超出上限的记录，已保留可用题录。');
   const { votes: recommendationVotes, skipped: skippedVotes } = restoreRecommendationVotes(values.recommendationVotes);
   if (skippedVotes) issue('recommendationVotes', '本机推荐偏好含无效或重复记录，已保留可用偏好。');
-  return { settings, cache, readerFilters, readerPresets, readMarks, bookmarks, selected, reports, displayMode, onlineCitations, recommendationVotes, issues, protectedKeys, rawRecords };
+  const { items: localTopics, skipped: skippedTopics } = restoreLocalTopics(values.localTopics);
+  if (skippedTopics) issue('localTopics', '本机关注主题含无效、重复或超出上限的记录，已保留可用主题。');
+  return { settings, cache, readerFilters, readerPresets, readMarks, bookmarks, selected, reports, displayMode, onlineCitations, recommendationVotes, localTopics, issues, protectedKeys, rawRecords };
 }
 
 // This is an explicit recovery action, separate from startup and routine writes.
