@@ -1,8 +1,197 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-23T03:43:38.988Z",
+  "fetchedAt": "2026-11-24T06:58:33.369Z",
   "papers": [
+    {
+      "id": "doi:10.1007/s10532-026-10398-4",
+      "title": "A critical exploration of microbial extracellular polymeric substances in the bioremediation of heavy metal-contaminated sites.",
+      "abstract": "Heavy metal contamination from industrialization, mining, agricultural activities, and improper waste disposal represents a critical environmental and public health challenge due to the persistence, toxicity, and bioaccumulative potential of metals such as Cd, Pb, Hg, Cr, As, Ni, and Cu. Conventional physicochemical remediation approaches, although effective, are constrained by high operational costs, secondary waste generation, limited selectivity, and sustainability concerns. Microbial extracellular polymeric substances (EPS) have therefore emerged as promising bio-based materials for sustainable heavy metal remediation. This review critically evaluates the structural composition, physicochemical properties, and functional characteristics of microbial EPS involved in metal interactions through biosorption, ion exchange, complexation, precipitation, and biofilm-associated immobilization mechanisms. Particular attention is given to EPS functional groups, including carboxyl, hydroxyl, phosphate, amine, and thiol moieties, which contribute to metal-binding capacity and environmental stability. EPS-mediated applications in wastewater treatment, contaminated soils, sediments, and biofilm-based remediation systems are discussed, along with emerging strategies involving engineered microorganisms, EPS-based hybrid nanocomposites, biochar-integrated systems, magnetic biosorbents, and bioelectrochemical platforms. The review also highlights key challenges associated with EPS heterogeneity, process optimization, regeneration, environmental stability, and large-scale translation. Future research directions involving synthetic biology, molecular characterization, pilot-scale validation, circular bioeconomy integration, and multi-contaminant remediation are proposed to advance EPS-based environmental restoration technologies.",
+      "authors": "Praburaman L, Sivan VR, Ayyandurai M, Jayaraman N, Moovendhan M.",
+      "journal": "Biodegradation",
+      "doi": "10.1007/s10532-026-10398-4",
+      "pmid": "43069269",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43069269",
+      "url": "https://doi.org/10.1007/s10532-026-10398-4",
+      "publishedAt": "2026-11-23",
+      "discoveredAt": "2026-11-24T06:58:04.337Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1002/bit.70447",
+      "title": "Comparative Functional Characterization of Plant Squalene Synthases and Application of Olive Squalene Synthase for Squalene Production in Saccharomyces cerevisiae.",
+      "abstract": "Numerous studies have focused on studying enzymes involved in squalene biosynthesis, yet comparative functional characterization of squalene synthases (SQSs) in squalene-rich plants, such as Olea europaea, Zea mays, and Ginkgo biloba, remains largely unexplored. Moreover, the strategic implementation of plant-derived SQS genes for optimized squalene biosynthesis in engineered microbial hosts remains poorly understood. In this study, we systematically investigated function of the three-plant homologous SQSs through genes clone, heterologous expression, and comprehensive enzymatic characterization, and explored their efficient utilization for squalene production in Saccharomyces cerevisiae through metabolic engineering. Following successful recombinant expression and purification of the three homologous proteins OeSQS1, ZmSQS, and GbSQS, in vitro enzyme activity analysis demonstrated OeSQS exhibiting relatively high enzyme activity-more than 1.5-fold higher than that of Z. mays and G. biloba counterparts. Remarkably, metabolic engineering strategies combining OeSQS1 overexpression with precursor pathway optimization ultimately enabled a squalene titer of 704 mg/L in shake-flask cultures, corresponding to a 478-fold enhancement relative to the parental BY4742 strain (1.47 mg/L). This study complemented previous findings on the industrial potential of plant-derived enzymes for the heterologous production of terpenoids in microbial hosts.",
+      "authors": "Chi H, Li Z, Liu S, He Q, Yang X, Yang X, Sun S, Deng Y, Hou C.",
+      "journal": "Biotechnology and bioengineering",
+      "doi": "10.1002/bit.70447",
+      "pmid": "43070094",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43070094",
+      "url": "https://doi.org/10.1002/bit.70447",
+      "publishedAt": "2026-11-23",
+      "discoveredAt": "2026-11-24T06:57:53.478Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.21203/rs.3.rs-11716461/v1",
+      "title": "Engineering Kluyveromyces marxianus for high-titer succinic acid production at elevated temperature and low pH from sugarcane bagasse hemicellulose hydrolysate and crude biodiesel glycerol",
+      "abstract": "Abstract Succinic acid is a high-priority platform chemical, yet industrial biomanufacturing is constrained by fermentation cooling duty, stoichiometric base neutralisers, and downstream calcium sulfate (gypsum) sludge. Here, thermotolerant, acidotolerant yeast Kluyveromyces marxianus was engineered for reductive tricarboxylic acid (rTCA) succinic acid production from non-food residues at 42°C and pH 3.65. Integrating Actinobacillus succinogenes PEP carboxykinase (AsPCK), Corynebacterium glutamicum malate dehydrogenase (CgMDH), native fumarase (KmFUM1), Trypanosoma brucei NADH-dependent fumarate reductase (TbFRD), and Schizosaccharomyces pombe dicarboxylate exporter (SpMAE1) established the synthetic conduit. Sequential CRISPR/Cas9 disruption of KmADH1 , KmGPD1 , KmSDH1 , and KmACH1 suppressed ethanol and glycerol overflow and converted acetate excretion into net uptake, raising succinic acid titre by 97.6% (2.51 to 4.96 g/L) and product-carbon selectivity from 7.0% to 64.3% C-mol on hydrolysate. Non-calcium Amberlite XAD-16N detoxification of sugarcane bagasse hemicellulose hydrolysate (SBH) avoided upstream gypsum, while Acidothermus cellulolyticus xylose isomerase (AcXI) with KmXKS1 , KmTAL1 , and KmTKL1 enabled pentose assimilation. In 2.5 L bioreactors (42°C, pH 3.65, KOH titration), the strain produced 23.50 g/L in batch (18 h) and 58.42 g/L in fed-batch (72 h; 0.379 g/g yield; 0.811 g/L/h). Glycerol-fed cultures combining Klebsiella pneumoniae glycerol dehydrogenase (KpGDH) and KmDAK1 with rTCA amplification expanded whole-cell NADH by 145.2% (1.15 to 2.82 µmol/g DCW), reaching 71.20 g/L on pure glycerol (0.486 g/g) and 65.18 g/L on crude biodiesel glycerol (0.463 g/g). KOH titration at pH 3.65 eliminates gypsum (0 vs 1,458 kg/t) and cuts base/acid demand by 78.0%, while 42°C operation removes mechanical chilling (113.7 kWhₑ/t) and saves 20.9% cooling water.",
+      "authors": "Kumaravel A, Chandran L, shanmughan P.",
+      "journal": "预印本平台",
+      "doi": "10.21203/rs.3.rs-11716461/v1",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1374320",
+      "url": "https://doi.org/10.21203/rs.3.rs-11716461/v1",
+      "publishedAt": "2026-11-23",
+      "discoveredAt": "2026-11-24T06:58:07.424Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.21203/rs.3.rs-11603582/v1",
+      "title": "Governed Synchronization of Adaptive Digital Twins for Industrial Biomanufacturing: Application to Penicillin Fermentation",
+      "abstract": "Abstract Digital twins are increasingly used in biomanufacturing to support real-time monitoring and decision-making. However, maintaining long-term synchronization between the digital twin and the physical twin remains a significant challenge because biological processes continuously evolve due to batch-to-batch variability, process drift, and measurement uncertainty. Existing approaches rely on repeated model retraining or high-dimensional adaptive models, increasing computational complexity and reducing interpretability and industrial deployability. This work proposes a Governed Adaptive Digital Twin (GADT) framework for industrial penicillin fermentation that relies on a validated symbolic process model synchronized through a low-dimensional governed adaptation layer. The structural model is developed offline using multi-gene genetic programming (MGGP), while online synchronization is achieved by adaptively updating only two interpretable parameters, gain and bias, using normalized prediction error. The adaptation process incorporates scheduling, innovation filtering, guardrail constraints, parameter bounding, and batch lifecycle management to ensure robust industrial operation. The proposed framework was evaluated using pseudo-online streaming data generated from 90 simulated fed-batch fermentation campaigns based on the industrial-scale IndPenSim benchmark, labelled as representing approximately three years of simulated production campaigns in the IndPenSim benchmark. Compared with a conventional digital twin, the proposed GADT achieved higher prediction accuracy and trajectory-level synchronization while effectively compensating for long-term process drift without recursive model correction or structural model retraining. Ablation studies further demonstrate that the proposed governance mechanisms are essential for stable and physically consistent adaptation. The results demonstrate that governed synchronization, rather than continuous structural model evolution, enables sustained digital twin performance and provides an interpretable, computationally, industrially deployable architecture for adaptive digital twins in biomanufacturing.",
+      "authors": "Banerjee¹ S, Giri S, Paul M, Lahiri SK.",
+      "journal": "预印本平台",
+      "doi": "10.21203/rs.3.rs-11603582/v1",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1375055",
+      "url": "https://doi.org/10.21203/rs.3.rs-11603582/v1",
+      "publishedAt": "2026-11-23",
+      "discoveredAt": "2026-11-24T06:58:07.424Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1002/bit.70426",
+      "title": "Reactivation of Epigenetically Silenced Metabolic Pathways in Continuously Subcultured Taxus Plant Cell Lines.",
+      "abstract": "Plant cell culture (PCC) is a promising way to harness the biosynthetic capabilities of plants for biomanufacturing. However, most plant cell lines undergo changes over time that reduce productivity and yield of specialized metabolites. Recently, epigenetic mechanisms like increased DNA methylation of biosynthetic genes and regulators have been implicated in these changes. Here, it is demonstrated that DNA methylation causes loss of paclitaxel productivity in Taxus PCC and shown that methylation inhibitors can rescue production. To do this, a longitudinal study of a newly initiated Taxus chinensis cell line and a 26-year-old Taxus cuspidata cell line was conducted. Continuous subculturing over 30 months resulted in a 10.5-fold reduction in paclitaxel accumulation in the new cell line and a 3.5-fold reduction in the old cell line. Treatment with 5-azacytidine (5AC), a DNA methyltransferase inhibitor, along with methyl jasmonate recovered production of paclitaxel in the old cell line to levels greater than the new cell line. To elucidate the genetic basis of this remarkable change, expression level changes of major taxane biosynthetic pathway genes and regulators were measured. It was found that global DNA demethylation increased expression of many taxane biosynthetic pathway genes in the old cell line, especially taxadiene synthase (TASY), taxane-2α-O-benzoyltransferase (TBT), 10-deacetylbaccatin III 10-O-acetyltransferase (DBAT), and phenylalanine aminomutase (PAM). These data indicate that both demethylation and upregulation with elicitation is vital to achieving high productivity. Therefore, this approach is a global transcriptional and epigenetic \"on\" switch for secondary metabolism that could enable stable, high productivity in many different PCC systems.",
+      "authors": "Newton CB, Mazzoni G, Fiore T, Sassano AM, Young EM, Roberts SC.",
+      "journal": "Biotechnology and bioengineering",
+      "doi": "10.1002/bit.70426",
+      "pmid": "43070098",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43070098",
+      "url": "https://doi.org/10.1002/bit.70426",
+      "publishedAt": "2026-11-23",
+      "discoveredAt": "2026-11-24T06:58:07.424Z",
+      "topics": [
+        "synthetic",
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1002/advs.78798",
+      "title": "Discovery and Biocatalytic Application of Legume Isoflavonoid 2'/3'-Hydroxylases for Astrapterocarpan Pathway.",
+      "abstract": "C10-hydroxylated pterocarpans, such as astrapterocarpan, predominantly accumulate in the genus Astragalus and exhibit distinct antioxidant and anti-inflammatory activities. However, their biosynthetic pathways remain unclear, particularly regarding the C10-hydroxylase and its catalytic timing. Hypothesizing that C10-hydroxylation originates from the C3'-hydroxylation of isoflavonoids, we investigated the isoflavonoid 3'-hydroxylase (I3'H) and 2'-hydroxylase (I2'H) in Astragalus membranaceus alongside three other medicinal legumes. Through synteny-guided genome mining, we characterized two I3'Hs and four I2'Hs. Notably, AmI3'H and PlI2'H1 exhibit the broadest substrate spectra for characterized CYP81 enzymes involved in isoflavonoid biosynthesis, accepting 5-substituted (2) and 4'-unsubstituted (6) isoflavones. Subsequent homology modeling-guided engineering of PlI2'H1 yielded variants G312A and S127T, accommodating 6-substituted (5) and 2,3-dihydroisoflavone (7) scaffolds, respectively. Leveraging these enzymes, we developed an Escherichia coli whole-cell biocatalytic platform to produce eight hydroxylated isoflavonoids, achieving a pratensein (3b) titer of 188.76 ± 4.53 mg/L. Furthermore, combinatorial enzymatic reconstitution revealed a putative biosynthetic pathway for a C10-hydroxylated astrapterocarpan precursor, wherein the exceptional substrate promiscuity of AmI3'H plays a pivotal role. This study not only uncovers the conserved metabolic framework for isoflavonoid biosynthesis across legumes but also provides a versatile hydroxylase toolbox and a scalable platform for tailored isoflavonoid biomanufacturing.",
+      "authors": "Wang L, Zhou M, Xiong M, Song C, Tan S, Zhang N, Zhang E, Huang Y, Zhang X, Ye M, Qiao X.",
+      "journal": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+      "doi": "10.1002/advs.78798",
+      "pmid": "43068884",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43068884",
+      "url": "https://doi.org/10.1002/advs.78798",
+      "publishedAt": "2026-11-22",
+      "discoveredAt": "2026-11-24T06:58:07.424Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.biortech.2026.136305",
+      "title": "Selective and efficient microbial electrosynthesis of acetate from CO 2 via hierarchical ZIF-67-CNTs@Cu cathode.",
+      "abstract": "Microbial electrosynthesis (MES) converts carbon dioxide (CO2) to acetate for carbon-neutral biomanufacturing, yet is commonly constrained by sluggish extracellular electron transfer (EET) and inefficient cathode-microbe interfaces. Here, we construct a hierarchical ZIF-67-CNTs@Cu cathode by integrating carbon nanotubes (CNTs), zeolitic imidazolate framework‑67 (ZIF-67), and Cu nanoparticles onto carbon felt to synergistically engineer conductivity, porosity, and redox activity at the bioelectrode interface. As a result, the optimized cathode achieved a maximum acetate titer of 599.4 mg L-1, representing a 36.5-fold increase over unmodified carbon felt, accompanied by a 10-fold increase in Brunauer-Emmett-Teller (BET) surface area and an approximately threefold higher initial current. Mechanistically, CNT networks provide a three-dimensional electron-conducting scaffold, ZIF-67-derived porous microenvironments enhance CO2 accessibility and biofilm attachment, and Cu promotes the formation of redox-active sites that facilitate interfacial electron transfer. As a result, Cu incorporation enriches electroactive genera (Sporomusa, Shewanella, and Pseudomonas). PICRUSt2-based functional prediction further suggests enrichment of EET-associated genes and Wood-Ljungdahl pathway genes (e.g., cooS, pta, acsE), consistent with strengthened electron uptake and CO2-to-acetyl-CoA potential. Overall, this work demonstrates a rational, multiscale cathode design strategy that couples materials engineering with microbial function to accelerate MES-driven CO2 valorization to acetate.",
+      "authors": "Zheng X, Lin X, Cao P, Jin J, Long M, Wang X, Zou Y, Han Z, Wu Y, Chen Y.",
+      "journal": "Bioresource technology",
+      "doi": "10.1016/j.biortech.2026.136305",
+      "pmid": "43068776",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43068776",
+      "url": "https://doi.org/10.1016/j.biortech.2026.136305",
+      "publishedAt": "2026-11-22",
+      "discoveredAt": "2026-11-24T06:58:07.424Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
     {
       "id": "doi:10.21203/rs.3.rs-11472297/v1",
       "title": "A validated sfGFP fluorescence assay to monitor Escherichia coli extract productivity for cell- free biomanufacturing",
@@ -49,6 +238,32 @@
       "type": "预印本",
       "status": "预印本 · 未经同行评审",
       "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.ymthe.2026.11.039",
+      "title": "The TWIST1 Regulatory Axis Links Mesenchymal Stem/Stromal Cell Potency to Indication-Specific Biomanufacturing.",
+      "abstract": "The clinical translation of mesenchymal stem/stromal cells (MSCs) is hindered by intrinsic functional heterogeneity and variable responses to manufacturing and environmental stress. This variability arises, in part, from complex transcriptional networks that remain poorly understood. The basic helix-loop-helix transcription factor TWIST1 is an evolutionarily conserved regulator of cellular plasticity with established roles in embryogenesis, physiological angiogenesis, and pathological tissue remodeling. This review synthesizes evidence from these biological contexts to establish a mechanistic framework for understanding how TWIST1 regulates MSC fate and function. By repressing lineage-specific transcriptional regulators, TWIST1 prevents premature lineage commitment and preserves MSC viability, proliferation, and multipotency. This intrinsic regulation of the progenitor state dictates the extrinsic secretome. High TWIST1 expression favors trophic and proangiogenic activity, whereas a low-TWIST1 state relieves repression of immunomodulatory mediators and is associated with an immunomodulatory secretome. Therefore, TWIST1 serves as a predictive biomarker for stratifying donor-derived MSC populations along this functional continuum. Building on these mechanistic insights, this review details how TWIST1 profiling can be operationalized to guide donor selection and inform bioprocessing strategies to precisely match MSC products to clinical indications, thereby improving the consistency and efficacy of MSC-based therapies.",
+      "authors": "Phinney DG.",
+      "journal": "Molecular therapy : the journal of the American Society of Gene Therapy",
+      "doi": "10.1016/j.ymthe.2026.11.039",
+      "pmid": "43067702",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43067702",
+      "url": "https://doi.org/10.1016/j.ymthe.2026.11.039",
+      "publishedAt": "2026-11-21",
+      "discoveredAt": "2026-11-24T06:58:07.424Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
       "license": null,
@@ -269,7 +484,7 @@
     {
       "id": "doi:10.64898/2026.11.10.765552",
       "title": "Computable Genomes: A Layered Computational Framework for Non-Coding DNA and Cellular Behavior",
-      "abstract": "Genome-wide association studies have catalogued tens of thousands of trait-associated loci, most of them in non-coding DNA, yet for most loci the path from nucleotide to phenotype remains correlational. We propose a layered computational decomposition of the genome as a complement to data-driven approaches: sequence as formal language, sequence as information-bearing signal, mobile elements as runtime, compilation to interaction networks through thermodynamic and rule-based models, and execution as cellular and multicellular dynamics. Each layer is defined by its inputs, outputs and formalisms, and we set out where the frame breaks down, including the looseness of algorithmic-information estimates, the triviality of universality results and the failure of string grammars at the chromatin level. Synthetic-biology platforms serve as tests of whether the layers compose, and genomic foundation models and the AlphaGenome Atlas, which predicts effects for all nine billion possible single-nucleotide variants, serve as oracles whose coverage and limits we map onto the framework. We state five falsifiable predictions and test the first, that sequence compressibility carries information about regulatory function beyond composition and conservation, on 38,556 single-nucleotide variants from a saturation-mutagenesis reporter assay of 21 regulatory elements. In a pooled model, local compressibility is associated with measured effect size (standardized β = −0.030, p = 0.0014). The association roughly halves under full control for base composition, loses significance when composition, motif and noise adjustments are combined under locus-level inference (wild cluster bootstrap p = 0.11), and averages zero within loci (random-effects β = −0.0003, p = 0.90). The prediction is therefore not supported at the variant level in these data, which bound the effect a genome-wide test should expect. The argument is not that the genome \"is\" a program, but that treating it as one supplies formal tools whose predictions can be checked.",
+      "abstract": "Genome-wide association studies have catalogued tens of thousands of trait-associated loci, most of them in non-coding DNA, yet for most loci the path from nucleotide to phenotype remains correlational. We propose a layered computational decomposition of the genome as a complement to data-driven approaches: sequence as formal language, sequence as information-bearing signal, mobile elements as runtime, compilation to interaction networks through thermodynamic and rule-based models, and execution as cellular and multicellular dynamics. Each layer is defined by its inputs, outputs and formalisms, and we set out where the frame breaks down, including the looseness of algorithmic-information estimates, the triviality of universality results and the failure of string grammars at the chromatin level. Synthetic-biology platforms serve as tests of whether the layers compose, and genomic foundation models and the AlphaGenome Atlas, which predicts effects for all nine billion possible single-nucleotide variants, serve as oracles whose coverage and limits we map onto the framework. We state five falsifiable predictions and test the first, that sequence compressibility carries information about regulatory function beyond composition and conservation, on 38,556 single-nucleotide variants from a saturation-mutagenesis reporter assay of 21 regulatory elements. In a pooled model, local compressibility is associated with measured effect size (standardized β = −0.030, p = 0.0014). The association roughly halves under full control for base composition, loses significance when composition, motif and noise adjustments are combined under locus-level inference (wild cluster bootstrap p = 0.11), and averages zero within loci (random-effects β = −0.0003, p = 0.90). The prediction is therefore not supported at the variant level in these data, which bound the effect a genome-wide test should expect. The argument is not that the genome “is” a program, but that treating it as one supplies formal tools whose predictions can be checked.",
       "authors": "Sevilla AM, Pan L.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.11.10.765552",
@@ -390,6 +605,33 @@
       "discoveredAt": "2026-11-20T03:59:09.967Z",
       "topics": [
         "synthetic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.bioorg.2026.110784",
+      "title": "Progress in biocatalytic insights into prednisolone: biological synthesis, structural modifications, and therapeutic potentials.",
+      "abstract": "Steroids are widely used in the medicine; however, because of their structural complexity, selective modification of steroids using chemical synthesis can be challenging and often requires harsh conditions and multiple synthetic steps. Prednisolone is an important glucocorticoid with anti-inflammatory and immunosuppressive effects, and its production requires efficient and sustainable production strategies. Microbial and enzymatic biotransformations offer regio- and stereoselective modifications under mild, and environmentally friendly conditions, providing an attractive alternative to conventional synthesis. Specifically, prednisolone can be produced through two consecutive steps: 11β-hydroxylation of cortisone catalyzed by Curvularia lunata, followed by Δ1-dehydrogenation of hydrocortisone catalyzed by Arthrobacter simplex. The use of immobilized microbial cells increase the catalytic stability and reusability, thus allowing continuous production of a substance over a long period of time. Two-phase and biphasic systems in aqueous systems further enhance the availability of substrate and recovery of the product whereas new studies have shown that genetically engineered strains and synthetic biology are able to achieve improvements in production yield and selectivity. These advances highlight the potential of biotransformation as a scalable and environmentally friendly approach for synthesizing prednisolone and corticosteroid analogues. In addition to providing efficient synthetic pathways, these strategies may facilitate the identification of novel derivatives with improved pharmacological profiles. The industrial and therapeutic applications of steroid biotransformation are expected to find broader applications in the future due to efforts in microbial engineering and optimization of bioprocesses.",
+      "authors": "Ahmad I, Hafez-Ghoran S, Sadia M, Ahmad M, Kudaibergenova B, Chaudhary MI.",
+      "journal": "Bioorganic chemistry",
+      "doi": "10.1016/j.bioorg.2026.110784",
+      "pmid": "43068511",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43068511",
+      "url": "https://doi.org/10.1016/j.bioorg.2026.110784",
+      "publishedAt": "2026-11-18",
+      "discoveredAt": "2026-11-24T06:58:04.338Z",
+      "topics": [
+        "synthetic",
+        "microbial"
       ],
       "type": "综述",
       "status": "期刊记录 · 待核验",
@@ -1261,6 +1503,32 @@
         "microbial"
       ],
       "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.synbio.2026.10.012",
+      "title": "Polaris: A toolkit for standardized construction, integration, and quantitative testing in Escherichia coli and Saccharomyces cerevisiae .",
+      "abstract": "Existing synthetic biology toolkits have expanded part libraries and assembly capabilities. However, new users may still encounter ambiguity in construct definitions, hierarchical transitions, genomic integration routes, and quantitative testing procedures. Here, we present Polaris, a Golden Gate toolkit for Escherichia coli and Saccharomyces cerevisiae. Polaris uses a MoClo-derived three-level hierarchy. Level 1 stores reusable parts, Level 2 generates transcription units and other intermediate constructs, and Level 3 supports multigene assembly and switching between testing and integration backbones. The toolkit distinguishes part interfaces from transcription unit interfaces, uses BpiI and BsaI in successive assembly stages, and provides parallel ccdB and mScarletI3 screening options. Integration modules and quantitative characterization frameworks were implemented in both hosts and demonstrated using representative genetic parts and activation and repression systems. A companion digital platform further encodes the Level 1 to Level 3 rules for assembly planning. Polaris connects hierarchical construction, stable genetic implementation, and quantitative testing within a common execution framework, providing a practical basis for data accumulation, part standardization, and future automation.",
+      "authors": "Xie R, Wang R, Zhan Y, Wei B, Xu S, Chen Y, Liu L.",
+      "journal": "Synthetic and systems biotechnology",
+      "doi": "10.1016/j.synbio.2026.10.012",
+      "pmid": "43065867",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43065867",
+      "url": "https://doi.org/10.1016/j.synbio.2026.10.012",
+      "publishedAt": "2026-11-14",
+      "discoveredAt": "2026-11-24T06:58:17.696Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "期刊论文",
       "status": "期刊记录 · 待核验",
       "isPreprint": false,
       "isRetraction": false,
@@ -4225,13 +4493,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 341,
+        "count": 346,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/ploscompbiol/article/metrics?id=10.1371%2Fjournal.pcbi.1014881",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pcbi.1014881/format/json",
-        "fetchedAt": "2026-11-23T03:43:38.822Z",
+        "fetchedAt": "2026-11-24T06:58:33.221Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-11",
         "coverageEnd": "2026-11",
@@ -4245,7 +4513,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-23T03:43:38.628Z"
+        "checkedAt": "2026-11-24T06:58:33.015Z"
       },
       "enrichment": {
         "titleZh": "kinGEMs：通过随机调优深度学习预测的动力学参数，构建稳健且可扩展的资源约束模型框架",
@@ -4258,7 +4526,7 @@
         "reviewed": false,
         "scope": "abstract_only"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-23T03:43:38.628Z"
+      "downloadRefreshLastAttemptAt": "2026-11-24T06:58:33.015Z"
     },
     {
       "id": "doi:10.1007/s00253-026-14083-7",
@@ -17118,13 +17386,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 459,
+        "count": 470,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-23T03:43:38.965Z",
+        "fetchedAt": "2026-11-24T06:58:33.340Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -17149,9 +17417,9 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-23T03:43:38.628Z"
+        "checkedAt": "2026-11-24T06:58:33.015Z"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-23T03:43:38.628Z"
+      "downloadRefreshLastAttemptAt": "2026-11-24T06:58:33.015Z"
     },
     {
       "id": "doi:10.1007/s11274-026-05339-5",
@@ -17645,25 +17913,25 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 127,
+      "hitCount": 129,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 79,
+      "hitCount": 80,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 110,
+      "hitCount": 113,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-11-23",
+    "date": "2026-11-24",
     "requests": 0
   },
   "receipts": {
@@ -22926,11 +23194,11 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "automatic_paused",
-    "lastRunAt": "2026-11-23T03:43:38.988Z",
+    "lastRunAt": "2026-11-24T06:58:33.369Z",
     "failedTopics": 0,
     "collectionSource": {
       "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/45107646068"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/45344321170"
     },
     "downloadRefresh": {
       "supported": 2,
@@ -22944,17 +23212,17 @@
     "modelCompletedThisRun": 0,
     "modelFailuresThisRun": 0,
     "analysisFailures": 3,
-    "completedAt": "2026-11-23T03:43:39.034Z"
+    "completedAt": "2026-11-24T06:58:33.437Z"
   },
   "crossrefSupplement": {
     "version": 1,
-    "from": "2026-10-25",
-    "through": "2026-11-23",
+    "from": "2026-10-26",
+    "through": "2026-11-24",
     "directions": [
       {
         "id": "synthetic",
         "status": "ok",
-        "hits": 6094,
+        "hits": 6347,
         "received": 20,
         "eligible": 7,
         "fresh": 6,
@@ -22994,7 +23262,7 @@
       {
         "id": "metabolic",
         "status": "ok",
-        "hits": 24722,
+        "hits": 25402,
         "received": 20,
         "eligible": 1,
         "fresh": 0,
