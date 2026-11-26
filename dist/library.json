@@ -1,8 +1,87 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-25T05:28:14.859Z",
+  "fetchedAt": "2026-11-26T05:06:16.768Z",
   "papers": [
+    {
+      "id": "epmc:PMC:PMC13795729",
+      "title": "Engineering next-generation Aspergillus cell factories: advances in genetic engineering, synthetic biology, and metabolic reprogramming strategies",
+      "abstract": "",
+      "authors": "Gopaliya D, Kumar V.",
+      "journal": "RSC advances",
+      "doi": null,
+      "pmid": null,
+      "pmcid": "PMC13795729",
+      "source": "PMC",
+      "sourceId": "PMC13795729",
+      "url": "https://europepmc.org/article/PMC/PMC13795729",
+      "publishedAt": "2026-11-25",
+      "discoveredAt": "2026-11-26T05:06:03.860Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅题录",
+      "license": "cc by",
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.64898/2026.11.23.768527",
+      "title": "Internet of Genetic Things (IoGT): Programmable Long-Distance Cybergenetic Logic Circuits Integrating IoT, Optogenetics, and Bacterial Gene Expression",
+      "abstract": "The Internet of Things (IoT) exchanges information and coordinates functions among geographically separated electronic devices. However, establishing analogous long-distance networks between genetically engineered living systems remains a challenge because synthetic genetic intercellular communication largely relies on local molecular signal transport. Here, we introduced a cybergenetic framework named the Internet of Genetic Things (IoGT) that autonomously regulated long-distance gene expression between geographically separated bacterial populations by integrating IoT, bacterial gene expression, and optogenetics. We engineered interconnected IoT nodes containing genetically engineered Escherichia coli, in which colour signals arising from reporter gene expression were detected using optical sensors interfaced with a Raspberry Pi. When gene expressions reached predefined thresholds and patterns, data were transmitted over the internet to a remote node, triggering blue light illumination to induce target gene expression in an optogenetically engineered E. coli population. Using this genetic, electronic, genetic communication architecture, we demonstrated cybergenetic BUFFER and OR gates between bacterial populations distributed across nodes separated by 100 m, as well as a cybergenetic AND gate coordinated among three locations. To demonstrate geographically extended operation, we constructed a cybergenetic NOT gate connecting a surface laboratory with a deep-subsurface laboratory located 555 m underground and more than 200 km away. To our knowledge, this was Indias first deep-subsurface biology experiment. IoGT was programmable. It reconfigured the same engineered bacterial populations into diverse Boolean logic gates BUFFER, OR, AND, and NOT gates. These results established IoGT as a programmable cybergenetic architecture capable of remote, multi-node intercellular gene expression control, having significant promise for distributed synthetic biology systems operating across remote or extreme environments.",
+      "authors": "Paul A, Basu R, Pal A, Mukherjee B, Bagh S.",
+      "journal": "预印本平台",
+      "doi": "10.64898/2026.11.23.768527",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1378035",
+      "url": "https://doi.org/10.64898/2026.11.23.768527",
+      "publishedAt": "2026-11-25",
+      "discoveredAt": "2026-11-26T05:06:03.860Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.21203/rs.3.rs-11710852/v1",
+      "title": "Low-intensity vibration improves the yield and functional quality of tumor-infiltrating lymphocytes for personalized cellular immunotherapy",
+      "abstract": "Abstract The efficacy of TIL tumor-infiltrating lymphocyte (TIL) therapy is highly dependent on the quantity and therapeutic quality of infused cells. Although biochemical stimulation is widely used to enhance TIL expansion and modulate phenotype, it has several limitations, including limited specificity, poor scalability, and high cost. In contrast, biomechanical stimulation is relatively inexpensive and offers precise tunability. Here, we explored low-intensity vibration (LIV) as a biomechanical tool to enhance TIL expansion and functionality. Quantitatively, LIV increased TIL yield by an average of 1.3-fold relative to non-LIV controls. Qualitatively, LIV enriched expanded TILs with CD8+ T cells while simultaneously decreasing PD-1+ exhausted CD4+ and CD8+ cell subsets. Functionally, LIV-treated TILs induced greater tumor cell apoptosis and secreted higher levels of effector cytokines (IFN-γ, TNF-α, and IL-2). Mechanistically, LIV upregulated pro-inflammatory common γ-chain (γc) cytokines (IL-4, IL-7, and IL-15), which promote CD8+ T cell proliferation, survival, and effector function. These findings underscore LIV as a relatively simple, scalable, and cost-effective biomechanical intervention to enhance T cell fitness, positioning it as a promising adjunct to existing TIL biomanufacturing protocols for adoptive cell therapy.",
+      "authors": "Soko GF, Kosgei BK, Meena SS, Zheng W, Zhong Y, Hou X, Ng YJ, Wang Y, Cao Q, Yuan L, Wang L, Luo P, Han RP.",
+      "journal": "预印本平台",
+      "doi": "10.21203/rs.3.rs-11710852/v1",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1377783",
+      "url": "https://doi.org/10.21203/rs.3.rs-11710852/v1",
+      "publishedAt": "2026-11-25",
+      "discoveredAt": "2026-11-26T05:06:10.022Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
     {
       "id": "doi:10.1093/infdis/jiag577",
       "title": "Challenges and opportunities in antimicrobial R&D.",
@@ -22,6 +101,61 @@
         "microbial"
       ],
       "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.biortech.2026.136347",
+      "title": "Disabling bacterial cellulose synthesis rewires carbon and energy metabolism to enhance methanol bioconversion and low-temperature fitness of cellulose-producing Methylobacterium.",
+      "abstract": "Low temperature constrains Methylobacteriumperformance in methanol bioconversion and bioinoculant applications. Here, we elucidated the metabolic basis of low-temperature sensitivity ina cellulose-producing Methylobacteriumpopuli strain and engineered a cold-adapted chassis by eliminating a carbon and energy-dissipating metabolic sink. Adaptive laboratory evolution at 15°C combined with whole-genome sequencing (WGS) identified inactivation of the cellulose biosynthesis gene cluster as the driver for enhanced low-temperature fitness. Transcriptional and promoter analyses revealed that the bcs operon (bcsA-bcsZ) was cold-inducible and positively regulated by an upstream response regulator (locus DJ01_1634). These cold-inducible promoters were evaluated as expression switches, enabling a 20-fold induction of 1-aminocyclopropane-1-carboxylate (ACC) deaminase expression, expected to confer plant growth-promoting activity. Quantitative 13 C-metabolic flux analysis (MFA) and enzymatic assays revealed that at low temperature, wild-type strains divert a substantial fraction of gluconeogenic flux into cellulose synthesis, imposing a metabolic drain that constrains methanol assimilation and central metabolism. Inactivating this pathway redirected carbon, energy, and reducing power toward biosynthesis, increasing methanol uptake and serine cycle flux alongside elevated ATP levels and altered redox cofactors pools. Targeted bcs gene knockouts confirmed that abolishing cold-induced cellulose synthesis improved growth across three cellulose-producing Methylobacteriumspecies. In winter greenhouse trials, cellulose-deficient mutant showed up to 13.4% higher phyllosphere colonization than the wild-type strain and increased tomato yield by 20.4% relative to the unsprayed control, outperforming the wild-type strain. Collectively, cellulose biosynthesis acts as a metabolic constraint on low-temperature performance, and bcs disruption provides a promising strategy for engineering cold-robust methylotrophic chassis for sustainable agriculture and biomanufacturing.",
+      "authors": "Tan LL, Tian DD, Zhang LY, Zhang C, Ma ZX, Peng QN, Yao L, Song L, Xu HX, Gong LY, Ai ZH, Zhang MM, Wu J, Liu Z, Yang S.",
+      "journal": "Bioresource technology",
+      "doi": "10.1016/j.biortech.2026.136347",
+      "pmid": "43078159",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43078159",
+      "url": "https://doi.org/10.1016/j.biortech.2026.136347",
+      "publishedAt": "2026-11-24",
+      "discoveredAt": "2026-11-26T05:06:10.022Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1039/d6ra07204f",
+      "title": "Engineering next-generation Aspergillus cell factories: advances in genetic engineering, synthetic biology, and metabolic reprogramming strategies.",
+      "abstract": "The filamentous fungal genus Aspergillus is one of the most prominent platforms in industrial biotechnology. Several members of this genus are widely recognised as efficient cell factories producing a wide range of high-value products, including enzymes, organic acids, and secondary metabolites. Despite their enormous industrial significance, conventional Aspergillus cell factories are often constrained by limited stress tolerance, sensitivity to fermentation inhibitors, metabolic bottlenecks, and bioprocess-associated challenges including mass, heat, and oxygen transfer limitations, which hinder the realisation of their full biotechnological potential. Recent advances in genetic engineering, coupled with growing knowledge of fungal genomics, have enabled the development of improved cell factories to meet ever-increasing industrial demands. In light of this, this review provides an overview of the current biotechnological potential of Aspergillus spp. and details recent technological advances that facilitate the development of genetically improved Aspergillus strains. It discusses various transformation methods, promoters, selectable markers, genome-editing technologies, metabolic engineering strategies, and advanced synthetic biology platforms, highlighting their strengths and limitations. In addition, the review highlights major systemic bottlenecks associated with Aspergillus spp. and the emerging opportunities offered by systems biology and artificial intelligence for predictive strain engineering. Overall, this review provides a comprehensive perspective on technological advances, challenges, and emerging opportunities in Aspergillus engineering, establishing an integrated framework for developing next-generation cell factories.",
+      "authors": "Gopaliya D, Kumar V.",
+      "journal": "RSC advances",
+      "doi": "10.1039/d6ra07204f",
+      "pmid": "43081197",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43081197",
+      "url": "https://doi.org/10.1039/d6ra07204f",
+      "publishedAt": "2026-11-24",
+      "discoveredAt": "2026-11-26T05:06:03.180Z",
+      "topics": [
+        "synthetic",
+        "metabolic",
+        "microbial"
+      ],
+      "type": "综述",
       "status": "期刊记录 · 待核验",
       "isPreprint": false,
       "isRetraction": false,
@@ -80,6 +214,112 @@
       "isRetraction": false,
       "readingScope": "仅摘要",
       "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.ymben.2026.102597",
+      "title": "Proteomics-guided identification of mntA as a target for improving growth under diverse monoterpene stresses in Pseudomonas putida KT2440.",
+      "abstract": "Monoterpene toxicity can constrain microbial production, creating a need for genetic targets that improve host performance across multiple compounds. Here, a plate screen of four microbial hosts challenged with nine monoterpenes identified Pseudomonas putida KT2440 as a suitable host for investigating monoterpene tolerance. Comparative proteomics under linalool and nerol stress highlighted redox-, energy-, and transport-related responses and guided targeted genetic screening. This approach identified mntA (PP_3543), encoding a predicted CcoG-like protein, as a target for improving growth under monoterpene stress. The mntA overexpression strain exhibited significantly higher OD 600 than its matched empty-vector control at selected time points under eight of the nine tested monoterpenes, reaching 3.2-fold the control value under geraniol stress at 32 h. Under linalool and nerol stress, overexpression was accompanied by better-preserved cell-envelope ultrastructure, lower fluorescence-positive-event frequencies following DCFH-DA staining, and altered ATP levels in OD 600 -standardized extracts. Together, these findings connect a predicted CcoG-like protein to growth improvement across structurally diverse monoterpenes and identify mntA as a promising target for tolerance engineering in P. putida.",
+      "authors": "Fu X, Fan S, Ren H, Kong X, Chen H, Tao Z, Yu X, Ye L, Lu Z.",
+      "journal": "Metabolic engineering",
+      "doi": "10.1016/j.ymben.2026.102597",
+      "pmid": "43078424",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43078424",
+      "url": "https://doi.org/10.1016/j.ymben.2026.102597",
+      "publishedAt": "2026-11-24",
+      "discoveredAt": "2026-11-26T05:06:10.022Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.ymben.2026.102596",
+      "title": "RECODE-guided chromosomal engineering redirects triterpenoid biosynthesis and enhances multi-stress tolerance in yeast.",
+      "abstract": "Metabolic engineering of yeast cell factories requires precise nucleotide substitutions to optimize enzymes, fine-tune regulators, and elucidate genotype-phenotype relationships. However, CRISPR-Cas9-assisted homology-directed repair in Saccharomyces cerevisiae suffers from low efficiency when editing sites are distant from the cleavage site, limiting the construction of chromosomal variants. To overcome this barrier, we developed RECODE (Recoded Chromosome-oriented Directed Editing), a CRISPR-assisted donor-design strategy that extends synonymous recoding across the interval between an available Cas9 cleavage site and the intended mutation to improve distal allele incorporation. RECODE introduced precise substitutions up to 70 bp from the Cas9 cleavage site. In the two-round workflow, temporary synonymous recoding was restored to the native sequence either after installation of the intended mutation or concomitantly with its introduction, yielding final chromosomal alleles containing only the intended mutations. Integrating a helper plasmid for rapid CRISPR-plasmid curing shortened the two-round editing workflow from 13 to 8 days. We applied RECODE to achieve de novo biosynthesis of uvaol, a high-value triterpenoid. Through redesign of the chromosomally encoded plant cytochrome P450 Ej8656, RECODE generated the V114N/E123S double variant. This precision engineering reconfigured the enzyme's product specificity, redirecting triterpenoid biosynthesis toward uvaol production with 90.4% selectivity and a titer of 71.16 mg/L. Moreover, RECODE enabled functional diversification of the transcriptional regulator Med15 and identified a robust variant with enhanced tolerance to osmotic, oxidative, and acetic-acid stresses. Together, these results establish RECODE as an efficient, donor-optimized, and footprint-free chromosomal engineering platform for metabolic pathway engineering and rapid optimization of yeast cell factories.",
+      "authors": "Wang S, Jiang Y, Meng D, Na X, Feng M, Li J, Wang Y, Li C.",
+      "journal": "Metabolic engineering",
+      "doi": "10.1016/j.ymben.2026.102596",
+      "pmid": "43078423",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43078423",
+      "url": "https://doi.org/10.1016/j.ymben.2026.102596",
+      "publishedAt": "2026-11-24",
+      "discoveredAt": "2026-11-26T05:06:03.181Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.biotechadv.2026.109104",
+      "title": "Sustainable strategies for converting methane into commodities and high-value products using methanotrophs.",
+      "abstract": "Methane, a potent greenhouse gas, has gained increasing attention as a sustainable feedstock for next-generation gas-phase biorefineries. Biological valorisation of CH 4 enables the simultaneous mitigation of greenhouse gas emissions and the production of high-value-added compounds within a circular economy framework. Compared to conventional physicochemical CH 4 abatement technologies, bioprocesses offer lower operational energy demands and reduced environmental impacts. However, the low aqueous solubility of CH 4 imposes severe gas-liquid mass transfer limitations, making bioreactor design a critical factor for process intensification and scalability. This review compiles the state of the art in methane bioconversion processes, with particular emphasis on innovative bioreactor configurations that enhance gas-liquid mass transfer, including Taylor flow bioreactors, U-loop bioreactors, and the use of non-aqueous solvents. Special attention is also given to methanotrophic microorganisms with the potential to simultaneously oxidize methane and convert it into value-added products. Recent advances in genetic and metabolic engineering aimed at improving production yields and expanding the portfolio of commercial bioproducts (bioplastics, single cell protein and ectoines) are discussed. Finally, an overview of recent laboratory-scale developments and the current status of commercialization of this CH 4 -to-value platform is provided.",
+      "authors": "Herrero-Lobo R, Torres-Franco AF, Lebrero R, Del Rosario Rodero M, Muñoz R.",
+      "journal": "Biotechnology advances",
+      "doi": "10.1016/j.biotechadv.2026.109104",
+      "pmid": "43078255",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43078255",
+      "url": "https://doi.org/10.1016/j.biotechadv.2026.109104",
+      "publishedAt": "2026-11-24",
+      "discoveredAt": "2026-11-26T05:06:03.181Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": "cc by",
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1007/s44307-026-00150-7",
+      "title": "Synthetic consortia for organic pollutant bioremediation: integrating ecological design, synthetic biology, and machine learning.",
+      "abstract": "Refractory organic contaminants pose a severe environmental threat because their complete mineralization often demands multi-step biochemical pathways, intermediate detoxification, and sustained microbial viability across variable microenvironments. While bioremediation provides a green alternative to physicochemical remediation, single isolates and empirically assembled co-cultures frequently suffer from pathway bottlenecks, metabolic stress, and environmental instability. Synthetic biology addresses these shortfalls by enabling targeted pathway refactoring, chassis optimization, and synthetic cell-cell interaction networks. Here, we outline a unified framework for engineering pollutant-degrading microbial consortia. We analyze foundational biodegradation databases, chassis-selection parameters, genetic-editing tools, and ecological assembly rules that sustain division of labor. We further assess how machine-learning platforms streamline member selection and community optimization, while emphasizing that predictive models demand validation through empirical degradation kinetics and multi-omics profiling. Finally, we highlight key technical hurdles to field deployment, focusing on genetic stability, biocontainment, long-term functional persistence, and environmental adaptability.",
+      "authors": "Liu W, Huang Y, Cai Q, Jiang S, Tang H, Su C, Dai J.",
+      "journal": "Advanced biotechnology",
+      "doi": "10.1007/s44307-026-00150-7",
+      "pmid": "43077015",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43077015",
+      "url": "https://doi.org/10.1007/s44307-026-00150-7",
+      "publishedAt": "2026-11-24",
+      "discoveredAt": "2026-11-26T05:06:03.861Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -252,7 +492,7 @@
       "journal": "Plant biotechnology journal",
       "doi": "10.1111/pbi.70785",
       "pmid": "43074390",
-      "pmcid": null,
+      "pmcid": "PMC13793713",
       "source": "MED",
       "sourceId": "43074390",
       "url": "https://doi.org/10.1111/pbi.70785",
@@ -266,7 +506,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc-nd",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -332,7 +572,7 @@
       "journal": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
       "doi": "10.1002/advs.78798",
       "pmid": "43068884",
-      "pmcid": null,
+      "pmcid": "PMC13789543",
       "source": "MED",
       "sourceId": "43068884",
       "url": "https://doi.org/10.1002/advs.78798",
@@ -406,7 +646,7 @@
     {
       "id": "doi:10.64898/2026.11.20.768213",
       "title": "Chemolithoautotrophic acidophile phenotyping by measuring metabolic byproduct formation in microplates",
-      "abstract": "Chemolithoautotrophic acidophiles can support several low-pH biotechnologies, but their phenotyping remains limited by throughput and inconsistent methods. This study used an assay to monitor metabolic byproduct formation using absorbance indicators in static, oxic cultures in 96-well microplates. In abiotic experiments, ferric iron and/or pH measurements from 51 microplates containing simulant solutions span total iron concentrations of 0–1 M, pH 0.3–7.0, and incubation temperatures of 4–75 °C. Of these, 30 microplates tested different UV-transparency and gas-permeable membrane configurations. Another 12 microplates tested indicator compatibility with growth media containing ferrous iron and (in)soluble sulfur substrates. Biological experiments measured 438 microplates containing Acidithiobacillus ferrooxidans ATCC 23270, Acidithiobacillus thiooxidans ATCC 19377, or Leptospirillum ferriphilum DSM 14647 with chemical additives across 1,400 concentration conditions, yielding 142,038 time-course points, including abiotic controls. Measurements of apparent substrate oxidation and/or growth from 96 culture tubes and 99 shake flasks provide context for microplate observations. The miniaturized assay and this dataset may be useful for microbiology, (critical-mineral) biotechnology development, and synthetic biology.",
+      "abstract": "Chemolithoautotrophic acidophiles can support several low-pH biotechnologies, but their phenotyping remains limited by throughput and inconsistent methods. This study used an assay to monitor metabolic byproduct formation using absorbance indicators in static, oxic cultures in 96-well microplates. In abiotic experiments, ferric iron and/or pH measurements from 51 microplates containing simulant solutions span total iron concentrations of 0–1 M, pH 0.3–7.0, and incubation temperatures of 4–75 ◦C. Of these, 30 microplates tested different UV-transparency and gas-permeable membrane configurations. Another 12 microplates tested indicator compatibility with growth media containing ferrous iron and (in)soluble sulfur substrates. Biological experiments measured 438 microplates containing Acidithiobacillus ferrooxidans ATCC 23270, Acidithiobacillus thiooxidans ATCC 19377, or Leptospirillum ferriphilum DSM 14647 with chemical additives across 1,400 concentration conditions, yielding 142,038 time-course points, including abiotic controls. Measurements of apparent substrate oxidation and/or growth from 96 culture tubes and 99 shake flasks provide context for microplate observations. The miniaturized assay and this dataset may be useful for microbiology, (critical-mineral) biotechnology development, and synthetic biology.",
       "authors": "Dailey DA, Herishko MA, Wang W, Murray LN, Bavaresco ST, Banta S.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.11.20.768213",
@@ -425,7 +665,7 @@
       "isPreprint": true,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -530,7 +770,7 @@
       "isPreprint": true,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -928,7 +1168,7 @@
       "isPreprint": true,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -1274,6 +1514,32 @@
       "collection": "Europe PMC"
     },
     {
+      "id": "doi:10.3390/jof12110862",
+      "title": "Advances and Potential of Endophytic Fungi for Microplastic Biodegradation.",
+      "abstract": "Microplastic pollution has become a global environmental issue. Conventional physicochemical treatment methods have limitations, whereas biodegradation has attracted considerable attention owing to its eco-friendly nature. However, direct evidence for the degradation of microplastics themselves by endophytic fungi remains very limited; most current evidence is derived from model substrates, enzyme activity assays, or transcriptomic inferences. Endophytic fungi form long-term symbiotic associations with plants and have evolved complex enzymatic systems (e.g., laccases, peroxidases, and cutinases) that are structurally similar to those involved in the degradation of recalcitrant natural polymers. This structural similarity provides a theoretical basis for their potential to degrade synthetic polymers. This review provides a structured overview of the research progress on the degradation of synthetic polymers and model substrates by endophytic fungi. First, the definition and survival characteristics of endophytic fungi are described, together with their advantages over saprophytic fungi and bacteria in terms of enzymatic richness, habitat adaptability, and plant synergistic remediation. Second, the currently reported endophytic fungal resources with potential for microplastic degradation (e.g., Aspergillus , Penicillium , and Phomopsis ) and their screening and identification methods are summarized. Subsequently, key findings from representative research teams on the degradation of polystyrene (PS), polylactic acid (PLA), and polyethylene terephthalate (PET) are highlighted, with explicit distinction between white-rot fungi (which have direct plastic degradation experimental evidence) and endophytic fungi (which currently rely mainly on model substrates and enzyme activity evidence). Furthermore, the molecular mechanisms underlying \"surface colonization-enzymatic degradation-product mineralization\" in endophytic fungi are analyzed in depth, including the synergistic catalytic network of hydrolases and oxidoreductases, as well as abiotic enhancement strategies. Finally, addressing the current bottlenecks-including low degradation efficiency, insufficient mechanistic understanding, and difficulties in practical application and translation-future directions are proposed, such as the construction of endophyte-plant synergistic in situ remediation systems, the use of synthetic biology to engineer high-efficiency degrading enzymes, and the establishment of standardized evaluation systems. This review aims to provide a theoretical reference for the exploration of endophytic fungal resources and the development of potential biotechnological solutions for microplastic governance.",
+      "authors": "Li T, Zhang D, Wang Y, Yu R, Zhou Z, Song K, Bai H, Song Z.",
+      "journal": "Journal of fungi (Basel, Switzerland)",
+      "doi": "10.3390/jof12110862",
+      "pmid": "43082898",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43082898",
+      "url": "https://doi.org/10.3390/jof12110862",
+      "publishedAt": "2026-11-16",
+      "discoveredAt": "2026-11-26T05:06:11.604Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1021/acsbiomaterials.6c01451",
       "title": "Advancing Engineered Living Hydrogels Using Cell-Node Crosslinking.",
       "abstract": "Engineered living hydrogels (ELHs) represent a convergence between biomaterial science and synthetic biology, wherein living and non-living components are combined to overcome the limitations of traditional hydrogels. While early ELHs relied on passive cell encapsulation, the next-generation of ELHs, cell-node hydrogels (CNGels), employ cells as active crosslinking nodes, fundamentally transforming hydrogel functionality and performance. This strategy enables dynamic bioactive properties, including self-healing, self-growing, self-degrading, and real-time programmable behavior through cellular sensing and adaptation. These CNGels have been successfully engineered using both mammalian and non-mammalian cells by employing a variety of strategies from metabolic glycoengineering and bioorthogonal click chemistry to SpyTag/SpyCatcher-mediated assembly, enabling a wide range of biomedical applications from tissue engineering and regenerative medicine to bioremediation. This review highlights the current fabrication strategies and mechanistic principles of CNGels, as well as provides a forward-looking perspective on optimizing CNGels for clinical and industrial deployment.",
@@ -1533,6 +1799,33 @@
       "isRetraction": false,
       "readingScope": "仅摘要",
       "license": "cc by",
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.3390/jof12110858",
+      "title": "Fungal Colorants as High-Value Bioproducts: From Biosynthesis to Integrated Biomanufacturing.",
+      "abstract": "Fungal colorants are promising high-value bioproducts, but their translation from laboratory-scale production to commercially relevant products remains constrained by the fragmented development of strains, upstream and downstream operations, stabilization, and applications. This critical review argues that colorant productivity alone is insufficient to define its biotechnological success and that fungal colorant development should be treated as a closed-loop process in which application requirements and performance data inform upstream and downstream decisions. Genome mining, multi-omics, metabolic engineering, and data-driven approaches provide opportunities to connect biological information with strain development and process optimization, although their predictive value remains dependent on experimental validation and reliable biological and process data. Agro-industrial co-products can support fungal biorefineries, but their sustainability depends on the complete production chain rather than on substrate replacement alone. Likewise, stabilization should be evaluated according to application-specific stability and functional performance rather than solely on the basis of pigment retention or encapsulation efficiency. Overall, the evidence supports a shift from production-centered optimization toward integrated fungal biomanufacturing, in which application evaluation feeds back into strain selection, process development, downstream processing, and stabilization. A closed-loop production-stabilization-application framework is therefore proposed to guide the development of reproducible, stable, safe, sustainable, and application-ready fungal colorants.",
+      "authors": "De Oliveira F, De Lima JGO, Lima CA, Rotta LH, Santos-Ebinuma VC, Da Silva SS.",
+      "journal": "Journal of fungi (Basel, Switzerland)",
+      "doi": "10.3390/jof12110858",
+      "pmid": "43082894",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43082894",
+      "url": "https://doi.org/10.3390/jof12110858",
+      "publishedAt": "2026-11-15",
+      "discoveredAt": "2026-11-26T05:06:03.182Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
       "version": null,
       "collection": "Europe PMC"
     },
@@ -4678,13 +4971,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 353,
+        "count": 360,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/ploscompbiol/article/metrics?id=10.1371%2Fjournal.pcbi.1014881",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pcbi.1014881/format/json",
-        "fetchedAt": "2026-11-25T05:28:14.706Z",
+        "fetchedAt": "2026-11-26T05:06:16.610Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-11",
         "coverageEnd": "2026-11",
@@ -4698,7 +4991,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-25T05:28:14.558Z"
+        "checkedAt": "2026-11-26T05:06:16.470Z"
       },
       "enrichment": {
         "titleZh": "kinGEMs：通过随机调优深度学习预测的动力学参数，构建稳健且可扩展的资源约束模型框架",
@@ -4711,7 +5004,7 @@
         "reviewed": false,
         "scope": "abstract_only"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-25T05:28:14.558Z"
+      "downloadRefreshLastAttemptAt": "2026-11-26T05:06:16.470Z"
     },
     {
       "id": "doi:10.1007/s00253-026-14083-7",
@@ -4787,6 +5080,32 @@
         "reviewed": false,
         "scope": "abstract_only"
       }
+    },
+    {
+      "id": "doi:10.3390/biotech15050100",
+      "title": "Small Extracellular Vesicles of Diverse Cellular Origins: Biological Characteristics and Prospective Applications.",
+      "abstract": "Small extracellular vesicles (sEVs), commonly referred to as exosomes, are nanoscale vesicles that mediate intercellular communication and represent promising biotechnological platforms for disease diagnosis, therapeutic intervention, and drug delivery. sEVs derived from plants, mesenchymal stem cells, tumor cells, and immune cells display pronounced source-dependent heterogeneity shaped by parental cell lineage, differentiation status, and the local microenvironment. Such heterogeneity influences not only their biological properties, including physicochemical characteristics, molecular cargo profiles, and immunomodulatory functions, but also their manufacturing characteristics, in vivo tropism, and translational potential as biotherapeutics. Nevertheless, a comprehensive evaluation framework from a medical biotechnology perspective remains insufficiently established. In this review, the core biological features of multi-source sEVs are first outlined to establish a foundation for subsequent analysis. We then examine their biomedical applications and discuss biotechnological bottlenecks, including isolation and purification workflows, quality-control metrics, batch-to-batch variability, scalable biomanufacturing, and biosafety assessment. Particular attention is also given to the incompletely characterized regulatory networks of immune-cell-derived sEVs. Furthermore, we discuss how multi-omics profiling, standardized production protocols, and precision-engineering strategies may facilitate the functional optimization of source-specific sEVs. Collectively, this review provides an integrated medical biotechnology framework for evaluating multi-source sEVs and highlights practical considerations for accelerating the bench-to-bedside translation of sEV-based biotherapeutics.",
+      "authors": "Liu Y, Li D, Li X, Wang M.",
+      "journal": "Biotech (Basel (Switzerland))",
+      "doi": "10.3390/biotech15050100",
+      "pmid": "43081399",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43081399",
+      "url": "https://doi.org/10.3390/biotech15050100",
+      "publishedAt": "2026-11-06",
+      "discoveredAt": "2026-11-26T05:06:13.691Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1126/sciadv.aeg5924",
@@ -17571,13 +17890,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 476,
+        "count": 482,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-25T05:28:14.839Z",
+        "fetchedAt": "2026-11-26T05:06:16.735Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -17602,9 +17921,9 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-25T05:28:14.558Z"
+        "checkedAt": "2026-11-26T05:06:16.470Z"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-25T05:28:14.558Z"
+      "downloadRefreshLastAttemptAt": "2026-11-26T05:06:16.470Z"
     },
     {
       "id": "doi:10.1007/s11274-026-05339-5",
@@ -18098,25 +18417,25 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 132,
+      "hitCount": 131,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "代谢工程",
-      "hitCount": 80,
+      "hitCount": 75,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 115,
+      "hitCount": 107,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-11-25",
+    "date": "2026-11-26",
     "requests": 0
   },
   "receipts": {
@@ -23379,11 +23698,11 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "automatic_paused",
-    "lastRunAt": "2026-11-25T05:28:14.859Z",
+    "lastRunAt": "2026-11-26T05:06:16.768Z",
     "failedTopics": 0,
     "collectionSource": {
       "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/45553660529"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/45759334098"
     },
     "downloadRefresh": {
       "supported": 2,
@@ -23397,20 +23716,20 @@
     "modelCompletedThisRun": 0,
     "modelFailuresThisRun": 0,
     "analysisFailures": 3,
-    "completedAt": "2026-11-25T05:28:14.926Z"
+    "completedAt": "2026-11-26T05:06:16.833Z"
   },
   "crossrefSupplement": {
     "version": 1,
-    "from": "2026-10-27",
-    "through": "2026-11-25",
+    "from": "2026-10-28",
+    "through": "2026-11-26",
     "directions": [
       {
         "id": "synthetic",
         "status": "ok",
-        "hits": 6099,
+        "hits": 6094,
         "received": 20,
         "eligible": 6,
-        "fresh": 6,
+        "fresh": 5,
         "records": [
           {
             "doi": "10.3389/fsybi.2026.1923997",
@@ -23433,11 +23752,6 @@
             "title": "Artificial intelligence and synthetic biology for integrated crop improvement"
           },
           {
-            "doi": "10.1007/s44307-026-00150-7",
-            "date": "2026-11-24",
-            "title": "Synthetic consortia for organic pollutant bioremediation: integrating ecological design, synthetic biology, and machine learning"
-          },
-          {
             "doi": "10.3389/fbioe.2026.1946816",
             "date": "2026-10-28",
             "title": "Human-capital architecture for biosafety and responsible synthetic biology"
@@ -23447,7 +23761,7 @@
       {
         "id": "metabolic",
         "status": "ok",
-        "hits": 25586,
+        "hits": 25489,
         "received": 20,
         "eligible": 0,
         "fresh": 0,
@@ -23456,7 +23770,7 @@
       {
         "id": "microbial",
         "status": "ok",
-        "hits": 42,
+        "hits": 41,
         "received": 20,
         "eligible": 10,
         "fresh": 6,

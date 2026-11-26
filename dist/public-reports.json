@@ -2,6 +2,341 @@
   "version": 1,
   "reports": [
     {
+      "id": "public-daily-2026-11-26",
+      "kind": "public_daily",
+      "date": "2026-11-26",
+      "windowStart": "2026-11-20",
+      "createdAt": "2026-11-26T05:05:59.598Z",
+      "origin": "live",
+      "papers": [
+        {
+          "id": "doi:10.64898/2026.11.23.768527",
+          "title": "Internet of Genetic Things (IoGT): Programmable Long-Distance Cybergenetic Logic Circuits Integrating IoT, Optogenetics, and Bacterial Gene Expression",
+          "abstract": "The Internet of Things (IoT) exchanges information and coordinates functions among geographically separated electronic devices. However, establishing analogous long-distance networks between genetically engineered living systems remains a challenge because synthetic genetic intercellular communication largely relies on local molecular signal transport. Here, we introduced a cybergenetic framework named the Internet of Genetic Things (IoGT) that autonomously regulated long-distance gene expression between geographically separated bacterial populations by integrating IoT, bacterial gene expression, and optogenetics. We engineered interconnected IoT nodes containing genetically engineered Escherichia coli, in which colour signals arising from reporter gene expression were detected using optical sensors interfaced with a Raspberry Pi. When gene expressions reached predefined thresholds and patterns, data were transmitted over the internet to a remote node, triggering blue light illumination to induce target gene expression in an optogenetically engineered E. coli population. Using this genetic, electronic, genetic communication architecture, we demonstrated cybergenetic BUFFER and OR gates between bacterial populations distributed across nodes separated by 100 m, as well as a cybergenetic AND gate coordinated among three locations. To demonstrate geographically extended operation, we constructed a cybergenetic NOT gate connecting a surface laboratory with a deep-subsurface laboratory located 555 m underground and more than 200 km away. To our knowledge, this was Indias first deep-subsurface biology experiment. IoGT was programmable. It reconfigured the same engineered bacterial populations into diverse Boolean logic gates BUFFER, OR, AND, and NOT gates. These results established IoGT as a programmable cybergenetic architecture capable of remote, multi-node intercellular gene expression control, having significant promise for distributed synthetic biology systems operating across remote or extreme environments.",
+          "authors": "Paul A, Basu R, Pal A, Mukherjee B, Bagh S.",
+          "journal": "预印本平台",
+          "doi": "10.64898/2026.11.23.768527",
+          "pmid": null,
+          "pmcid": null,
+          "source": "PPR",
+          "sourceId": "PPR1378035",
+          "url": "https://doi.org/10.64898/2026.11.23.768527",
+          "publishedAt": "2026-11-25",
+          "discoveredAt": "2026-11-26T05:06:03.860Z",
+          "topics": [
+            "synthetic"
+          ],
+          "type": "预印本",
+          "status": "预印本 · 未经同行评审",
+          "isPreprint": true,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "epmc:PMC:PMC13795729",
+          "title": "Engineering next-generation Aspergillus cell factories: advances in genetic engineering, synthetic biology, and metabolic reprogramming strategies",
+          "abstract": "",
+          "authors": "Gopaliya D, Kumar V.",
+          "journal": "RSC advances",
+          "doi": null,
+          "pmid": null,
+          "pmcid": "PMC13795729",
+          "source": "PMC",
+          "sourceId": "PMC13795729",
+          "url": "https://europepmc.org/article/PMC/PMC13795729",
+          "publishedAt": "2026-11-25",
+          "discoveredAt": "2026-11-26T05:06:03.860Z",
+          "topics": [
+            "synthetic",
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅题录",
+          "license": "cc by",
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1039/d6ra07204f",
+          "title": "Engineering next-generation Aspergillus cell factories: advances in genetic engineering, synthetic biology, and metabolic reprogramming strategies.",
+          "abstract": "The filamentous fungal genus Aspergillus is one of the most prominent platforms in industrial biotechnology. Several members of this genus are widely recognised as efficient cell factories producing a wide range of high-value products, including enzymes, organic acids, and secondary metabolites. Despite their enormous industrial significance, conventional Aspergillus cell factories are often constrained by limited stress tolerance, sensitivity to fermentation inhibitors, metabolic bottlenecks, and bioprocess-associated challenges including mass, heat, and oxygen transfer limitations, which hinder the realisation of their full biotechnological potential. Recent advances in genetic engineering, coupled with growing knowledge of fungal genomics, have enabled the development of improved cell factories to meet ever-increasing industrial demands. In light of this, this review provides an overview of the current biotechnological potential of Aspergillus spp. and details recent technological advances that facilitate the development of genetically improved Aspergillus strains. It discusses various transformation methods, promoters, selectable markers, genome-editing technologies, metabolic engineering strategies, and advanced synthetic biology platforms, highlighting their strengths and limitations. In addition, the review highlights major systemic bottlenecks associated with Aspergillus spp. and the emerging opportunities offered by systems biology and artificial intelligence for predictive strain engineering. Overall, this review provides a comprehensive perspective on technological advances, challenges, and emerging opportunities in Aspergillus engineering, establishing an integrated framework for developing next-generation cell factories.",
+          "authors": "Gopaliya D, Kumar V.",
+          "journal": "RSC advances",
+          "doi": "10.1039/d6ra07204f",
+          "pmid": "43081197",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "43081197",
+          "url": "https://doi.org/10.1039/d6ra07204f",
+          "publishedAt": "2026-11-24",
+          "discoveredAt": "2026-11-26T05:06:03.180Z",
+          "topics": [
+            "synthetic",
+            "metabolic",
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1093/infdis/jiag577",
+          "title": "Challenges and opportunities in antimicrobial R&D.",
+          "abstract": "Antimicrobial resistance is accelerating, while the discovery and development of new drugs, particularly those with novel mechanisms of action, have failed to keep pace. This widening gap reflects two major challenges: insufficient resources for antibiotic discovery and clinical development, and a lack of scientific innovation. With pharmaceutical companies largely abandoning antibiotic R&D, academic groups, small biotech companies, and not-for-profits are stepping in, harnessing advances in genomics, synthetic biology, and AI to drive discovery. Coupled with growing international investment and initiatives to address funding gaps, these efforts offer renewed hope for overcoming the antimicrobial resistance crisis.",
+          "authors": "Wright GD.",
+          "journal": "The Journal of infectious diseases",
+          "doi": "10.1093/infdis/jiag577",
+          "pmid": "43076856",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "43076856",
+          "url": "https://doi.org/10.1093/infdis/jiag577",
+          "publishedAt": "2026-11-24",
+          "discoveredAt": "2026-11-25T05:27:43.482Z",
+          "topics": [
+            "synthetic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1016/j.biortech.2026.136347",
+          "title": "Disabling bacterial cellulose synthesis rewires carbon and energy metabolism to enhance methanol bioconversion and low-temperature fitness of cellulose-producing Methylobacterium.",
+          "abstract": "Low temperature constrains Methylobacteriumperformance in methanol bioconversion and bioinoculant applications. Here, we elucidated the metabolic basis of low-temperature sensitivity ina cellulose-producing Methylobacteriumpopuli strain and engineered a cold-adapted chassis by eliminating a carbon and energy-dissipating metabolic sink. Adaptive laboratory evolution at 15°C combined with whole-genome sequencing (WGS) identified inactivation of the cellulose biosynthesis gene cluster as the driver for enhanced low-temperature fitness. Transcriptional and promoter analyses revealed that the bcs operon (bcsA-bcsZ) was cold-inducible and positively regulated by an upstream response regulator (locus DJ01_1634). These cold-inducible promoters were evaluated as expression switches, enabling a 20-fold induction of 1-aminocyclopropane-1-carboxylate (ACC) deaminase expression, expected to confer plant growth-promoting activity. Quantitative 13 C-metabolic flux analysis (MFA) and enzymatic assays revealed that at low temperature, wild-type strains divert a substantial fraction of gluconeogenic flux into cellulose synthesis, imposing a metabolic drain that constrains methanol assimilation and central metabolism. Inactivating this pathway redirected carbon, energy, and reducing power toward biosynthesis, increasing methanol uptake and serine cycle flux alongside elevated ATP levels and altered redox cofactors pools. Targeted bcs gene knockouts confirmed that abolishing cold-induced cellulose synthesis improved growth across three cellulose-producing Methylobacteriumspecies. In winter greenhouse trials, cellulose-deficient mutant showed up to 13.4% higher phyllosphere colonization than the wild-type strain and increased tomato yield by 20.4% relative to the unsprayed control, outperforming the wild-type strain. Collectively, cellulose biosynthesis acts as a metabolic constraint on low-temperature performance, and bcs disruption provides a promising strategy for engineering cold-robust methylotrophic chassis for sustainable agriculture and biomanufacturing.",
+          "authors": "Tan LL, Tian DD, Zhang LY, Zhang C, Ma ZX, Peng QN, Yao L, Song L, Xu HX, Gong LY, Ai ZH, Zhang MM, Wu J, Liu Z, Yang S.",
+          "journal": "Bioresource technology",
+          "doi": "10.1016/j.biortech.2026.136347",
+          "pmid": "43078159",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "43078159",
+          "url": "https://doi.org/10.1016/j.biortech.2026.136347",
+          "publishedAt": "2026-11-24",
+          "discoveredAt": "2026-11-26T05:06:10.022Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1016/j.biotechadv.2026.109104",
+          "title": "Sustainable strategies for converting methane into commodities and high-value products using methanotrophs.",
+          "abstract": "Methane, a potent greenhouse gas, has gained increasing attention as a sustainable feedstock for next-generation gas-phase biorefineries. Biological valorisation of CH 4 enables the simultaneous mitigation of greenhouse gas emissions and the production of high-value-added compounds within a circular economy framework. Compared to conventional physicochemical CH 4 abatement technologies, bioprocesses offer lower operational energy demands and reduced environmental impacts. However, the low aqueous solubility of CH 4 imposes severe gas-liquid mass transfer limitations, making bioreactor design a critical factor for process intensification and scalability. This review compiles the state of the art in methane bioconversion processes, with particular emphasis on innovative bioreactor configurations that enhance gas-liquid mass transfer, including Taylor flow bioreactors, U-loop bioreactors, and the use of non-aqueous solvents. Special attention is also given to methanotrophic microorganisms with the potential to simultaneously oxidize methane and convert it into value-added products. Recent advances in genetic and metabolic engineering aimed at improving production yields and expanding the portfolio of commercial bioproducts (bioplastics, single cell protein and ectoines) are discussed. Finally, an overview of recent laboratory-scale developments and the current status of commercialization of this CH 4 -to-value platform is provided.",
+          "authors": "Herrero-Lobo R, Torres-Franco AF, Lebrero R, Del Rosario Rodero M, Muñoz R.",
+          "journal": "Biotechnology advances",
+          "doi": "10.1016/j.biotechadv.2026.109104",
+          "pmid": "43078255",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "43078255",
+          "url": "https://doi.org/10.1016/j.biotechadv.2026.109104",
+          "publishedAt": "2026-11-24",
+          "discoveredAt": "2026-11-26T05:06:03.181Z",
+          "topics": [
+            "metabolic"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": "cc by",
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1016/j.ymben.2026.102596",
+          "title": "RECODE-guided chromosomal engineering redirects triterpenoid biosynthesis and enhances multi-stress tolerance in yeast.",
+          "abstract": "Metabolic engineering of yeast cell factories requires precise nucleotide substitutions to optimize enzymes, fine-tune regulators, and elucidate genotype-phenotype relationships. However, CRISPR-Cas9-assisted homology-directed repair in Saccharomyces cerevisiae suffers from low efficiency when editing sites are distant from the cleavage site, limiting the construction of chromosomal variants. To overcome this barrier, we developed RECODE (Recoded Chromosome-oriented Directed Editing), a CRISPR-assisted donor-design strategy that extends synonymous recoding across the interval between an available Cas9 cleavage site and the intended mutation to improve distal allele incorporation. RECODE introduced precise substitutions up to 70 bp from the Cas9 cleavage site. In the two-round workflow, temporary synonymous recoding was restored to the native sequence either after installation of the intended mutation or concomitantly with its introduction, yielding final chromosomal alleles containing only the intended mutations. Integrating a helper plasmid for rapid CRISPR-plasmid curing shortened the two-round editing workflow from 13 to 8 days. We applied RECODE to achieve de novo biosynthesis of uvaol, a high-value triterpenoid. Through redesign of the chromosomally encoded plant cytochrome P450 Ej8656, RECODE generated the V114N/E123S double variant. This precision engineering reconfigured the enzyme's product specificity, redirecting triterpenoid biosynthesis toward uvaol production with 90.4% selectivity and a titer of 71.16 mg/L. Moreover, RECODE enabled functional diversification of the transcriptional regulator Med15 and identified a robust variant with enhanced tolerance to osmotic, oxidative, and acetic-acid stresses. Together, these results establish RECODE as an efficient, donor-optimized, and footprint-free chromosomal engineering platform for metabolic pathway engineering and rapid optimization of yeast cell factories.",
+          "authors": "Wang S, Jiang Y, Meng D, Na X, Feng M, Li J, Wang Y, Li C.",
+          "journal": "Metabolic engineering",
+          "doi": "10.1016/j.ymben.2026.102596",
+          "pmid": "43078423",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "43078423",
+          "url": "https://doi.org/10.1016/j.ymben.2026.102596",
+          "publishedAt": "2026-11-24",
+          "discoveredAt": "2026-11-26T05:06:03.181Z",
+          "topics": [
+            "metabolic",
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.21203/rs.3.rs-11710852/v1",
+          "title": "Low-intensity vibration improves the yield and functional quality of tumor-infiltrating lymphocytes for personalized cellular immunotherapy",
+          "abstract": "Abstract The efficacy of TIL tumor-infiltrating lymphocyte (TIL) therapy is highly dependent on the quantity and therapeutic quality of infused cells. Although biochemical stimulation is widely used to enhance TIL expansion and modulate phenotype, it has several limitations, including limited specificity, poor scalability, and high cost. In contrast, biomechanical stimulation is relatively inexpensive and offers precise tunability. Here, we explored low-intensity vibration (LIV) as a biomechanical tool to enhance TIL expansion and functionality. Quantitatively, LIV increased TIL yield by an average of 1.3-fold relative to non-LIV controls. Qualitatively, LIV enriched expanded TILs with CD8+ T cells while simultaneously decreasing PD-1+ exhausted CD4+ and CD8+ cell subsets. Functionally, LIV-treated TILs induced greater tumor cell apoptosis and secreted higher levels of effector cytokines (IFN-γ, TNF-α, and IL-2). Mechanistically, LIV upregulated pro-inflammatory common γ-chain (γc) cytokines (IL-4, IL-7, and IL-15), which promote CD8+ T cell proliferation, survival, and effector function. These findings underscore LIV as a relatively simple, scalable, and cost-effective biomechanical intervention to enhance T cell fitness, positioning it as a promising adjunct to existing TIL biomanufacturing protocols for adoptive cell therapy.",
+          "authors": "Soko GF, Kosgei BK, Meena SS, Zheng W, Zhong Y, Hou X, Ng YJ, Wang Y, Cao Q, Yuan L, Wang L, Luo P, Han RP.",
+          "journal": "预印本平台",
+          "doi": "10.21203/rs.3.rs-11710852/v1",
+          "pmid": null,
+          "pmcid": null,
+          "source": "PPR",
+          "sourceId": "PPR1377783",
+          "url": "https://doi.org/10.21203/rs.3.rs-11710852/v1",
+          "publishedAt": "2026-11-25",
+          "discoveredAt": "2026-11-26T05:06:10.022Z",
+          "topics": [
+            "microbial"
+          ],
+          "type": "预印本",
+          "status": "预印本 · 未经同行评审",
+          "isPreprint": true,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1007/s44307-026-00150-7",
+          "title": "Synthetic consortia for organic pollutant bioremediation: integrating ecological design, synthetic biology, and machine learning.",
+          "abstract": "Refractory organic contaminants pose a severe environmental threat because their complete mineralization often demands multi-step biochemical pathways, intermediate detoxification, and sustained microbial viability across variable microenvironments. While bioremediation provides a green alternative to physicochemical remediation, single isolates and empirically assembled co-cultures frequently suffer from pathway bottlenecks, metabolic stress, and environmental instability. Synthetic biology addresses these shortfalls by enabling targeted pathway refactoring, chassis optimization, and synthetic cell-cell interaction networks. Here, we outline a unified framework for engineering pollutant-degrading microbial consortia. We analyze foundational biodegradation databases, chassis-selection parameters, genetic-editing tools, and ecological assembly rules that sustain division of labor. We further assess how machine-learning platforms streamline member selection and community optimization, while emphasizing that predictive models demand validation through empirical degradation kinetics and multi-omics profiling. Finally, we highlight key technical hurdles to field deployment, focusing on genetic stability, biocontainment, long-term functional persistence, and environmental adaptability.",
+          "authors": "Liu W, Huang Y, Cai Q, Jiang S, Tang H, Su C, Dai J.",
+          "journal": "Advanced biotechnology",
+          "doi": "10.1007/s44307-026-00150-7",
+          "pmid": "43077015",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "43077015",
+          "url": "https://doi.org/10.1007/s44307-026-00150-7",
+          "publishedAt": "2026-11-24",
+          "discoveredAt": "2026-11-26T05:06:03.861Z",
+          "topics": [
+            "synthetic",
+            "microbial"
+          ],
+          "type": "综述",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": "cc by",
+          "version": null,
+          "collection": "Europe PMC"
+        },
+        {
+          "id": "doi:10.1016/j.ymben.2026.102597",
+          "title": "Proteomics-guided identification of mntA as a target for improving growth under diverse monoterpene stresses in Pseudomonas putida KT2440.",
+          "abstract": "Monoterpene toxicity can constrain microbial production, creating a need for genetic targets that improve host performance across multiple compounds. Here, a plate screen of four microbial hosts challenged with nine monoterpenes identified Pseudomonas putida KT2440 as a suitable host for investigating monoterpene tolerance. Comparative proteomics under linalool and nerol stress highlighted redox-, energy-, and transport-related responses and guided targeted genetic screening. This approach identified mntA (PP_3543), encoding a predicted CcoG-like protein, as a target for improving growth under monoterpene stress. The mntA overexpression strain exhibited significantly higher OD 600 than its matched empty-vector control at selected time points under eight of the nine tested monoterpenes, reaching 3.2-fold the control value under geraniol stress at 32 h. Under linalool and nerol stress, overexpression was accompanied by better-preserved cell-envelope ultrastructure, lower fluorescence-positive-event frequencies following DCFH-DA staining, and altered ATP levels in OD 600 -standardized extracts. Together, these findings connect a predicted CcoG-like protein to growth improvement across structurally diverse monoterpenes and identify mntA as a promising target for tolerance engineering in P. putida.",
+          "authors": "Fu X, Fan S, Ren H, Kong X, Chen H, Tao Z, Yu X, Ye L, Lu Z.",
+          "journal": "Metabolic engineering",
+          "doi": "10.1016/j.ymben.2026.102597",
+          "pmid": "43078424",
+          "pmcid": null,
+          "source": "MED",
+          "sourceId": "43078424",
+          "url": "https://doi.org/10.1016/j.ymben.2026.102597",
+          "publishedAt": "2026-11-24",
+          "discoveredAt": "2026-11-26T05:06:10.022Z",
+          "topics": [
+            "microbial"
+          ],
+          "type": "期刊论文",
+          "status": "期刊记录 · 待核验",
+          "isPreprint": false,
+          "isRetraction": false,
+          "readingScope": "仅摘要",
+          "license": null,
+          "version": null,
+          "collection": "Europe PMC"
+        }
+      ],
+      "sections": [
+        {
+          "topicId": "synthetic",
+          "label": "合成生物学",
+          "paperIds": [
+            "doi:10.64898/2026.11.23.768527",
+            "epmc:PMC:PMC13795729",
+            "doi:10.1039/d6ra07204f",
+            "doi:10.1093/infdis/jiag577"
+          ]
+        },
+        {
+          "topicId": "metabolic",
+          "label": "代谢工程",
+          "paperIds": [
+            "doi:10.1016/j.biortech.2026.136347",
+            "doi:10.1016/j.biotechadv.2026.109104",
+            "doi:10.1016/j.ymben.2026.102596"
+          ]
+        },
+        {
+          "topicId": "microbial",
+          "label": "微生物制造",
+          "paperIds": [
+            "doi:10.21203/rs.3.rs-11710852/v1",
+            "doi:10.1007/s44307-026-00150-7",
+            "doi:10.1016/j.ymben.2026.102597"
+          ]
+        }
+      ],
+      "sourceUpdatedAt": "2026-11-26T05:06:16.768Z",
+      "sourceCollection": {
+        "status": "complete",
+        "failedTopics": [],
+        "trigger": "schedule",
+        "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/45759334098"
+      },
+      "selectionPolicy": {
+        "version": "publication-calendar-topic-round-robin-v1",
+        "description": "按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。",
+        "dateBasis": "first_publication_date",
+        "windowDays": 7,
+        "limit": 10,
+        "topicOrder": [
+          "synthetic",
+          "metabolic",
+          "microbial"
+        ],
+        "ordering": "各主题按发表日期倒序，轮流取文献后按主题分节；日期相同时按文献标识排序。",
+        "coverageNote": "仅整理当前文献库及配置主题，不代表该领域的全部新文献；未依据下载量或科研质量评分排序。"
+      },
+      "metrics": {
+        "inputCount": 397,
+        "uniqueCount": 397,
+        "candidateCount": 32,
+        "selectedCount": 10,
+        "sectionCount": 3
+      }
+    },
+    {
       "id": "public-daily-2026-11-25",
       "kind": "public_daily",
       "date": "2026-11-25",
@@ -3007,253 +3342,6 @@
         "uniqueCount": 285,
         "candidateCount": 42,
         "selectedCount": 10,
-        "sectionCount": 3
-      }
-    },
-    {
-      "id": "public-daily-2026-11-12",
-      "kind": "public_daily",
-      "date": "2026-11-12",
-      "windowStart": "2026-11-06",
-      "createdAt": "2026-11-12T03:49:35.454Z",
-      "origin": "live",
-      "papers": [
-        {
-          "id": "doi:10.1016/j.tibtech.2026.10.012",
-          "title": "Biotechnology has outgrown the organism.",
-          "abstract": "Synthetic biology increasingly produces hybrid constructs that blur the boundaries of organism-based biosafety regulation. We propose using the term 'biological entity', defined by its capacity to interact meaningfully with biological systems or to facilitate biological processes, as an initial screening category before regulatory classification, enabling more coherent and proportionate oversight.",
-          "authors": "Bouchaut B, Asveld L.",
-          "journal": "Trends in biotechnology",
-          "doi": "10.1016/j.tibtech.2026.10.012",
-          "pmid": "42998925",
-          "pmcid": null,
-          "source": "MED",
-          "sourceId": "42998925",
-          "url": "https://doi.org/10.1016/j.tibtech.2026.10.012",
-          "publishedAt": "2026-11-07",
-          "discoveredAt": "2026-11-10T04:38:03.942Z",
-          "topics": [
-            "synthetic"
-          ],
-          "type": "期刊论文",
-          "status": "期刊记录 · 待核验",
-          "isPreprint": false,
-          "isRetraction": false,
-          "readingScope": "仅摘要",
-          "license": null,
-          "version": null,
-          "collection": "Europe PMC"
-        },
-        {
-          "id": "doi:10.1128/msystems.00888-26",
-          "title": "Physiological, behavioral, and genetic factors that shape interactions in the plant growth-promoting maize rhizosphere synthetic community.",
-          "abstract": "Profiling microbiomes is an important way to understand the function and composition of communities in the wild, but natural microbiomes are often highly complex and often unamenable to experimentation to reveal cause-and-effect relationships. By using a small group of cultivable strains to represent those found in the wild, synthetic communities are one solution to this problem. Here we describe the ma ize r hizosphere s ynthetic c ommunity (MARSc), a genome-enabled 31-member bacterial community representative of the diversity found on the roots of maize grown in Iowa soils. This community is built around Pseudomonas putida KT2440, a model maize rhizosphere colonist and synthetic biology chassis. We characterized microbe-microbe interactions and biofilm formation of MARSc members in a variety of environmental contexts, finding that both behaviors are broadly controlled by nutrient levels. Genomic analysis and microbiome profiling of these organisms revealed that annotated biofilm genes (such as surface attachment and exopolysaccharide production) were significantly correlated with rhizosphere abundance, but neither trait correlated to in vitro biofilm formation. In vitro interaction assay findings were surprisingly consistent with co-correlations of rhizosphere abundance among MARSc members on roots. Finally, we found that when applied to the roots, MARSc can increase maize biomass (dry weight) by up to 40%-50% under varying nitrogen fertilization levels. Altogether, MARSc is a useful tool for identifying some of the factors influencing rhizosphere microbiome assembly and will be a strong foundation for further work in this area.IMPORTANCEThe microbiome surrounding the roots of plants can play an integral role in plant health and growth, and it is composed of thousands of species of microbes that are specific to the plant and environment it is grown in. However, due to this complexity, little is known about the means by which microbiomes form. In this study, we developed the maize rhizosphere synthetic community (MARSc) to gain a better understanding of the formation and function of microbiomes on the roots of plants. This consortium consists of 30 bacterial isolates plus Pseudomonas putida KT2440, a model maize root colonist. In this study, we investigated the interactions between these organisms, their genomes, cultural characteristics, and growth on the roots of maize. We show that MARSc increases maize growth under low nitrogen fertilizer, suggesting it will be a useful tool for identifying the mechanisms behind microbiome formation and plant growth promotion.",
-          "authors": "Paulsen AA, Roghair Stroud MN, Halverson LJ.",
-          "journal": "mSystems",
-          "doi": "10.1128/msystems.00888-26",
-          "pmid": "42992937",
-          "pmcid": null,
-          "source": "MED",
-          "sourceId": "42992937",
-          "url": "https://doi.org/10.1128/msystems.00888-26",
-          "publishedAt": "2026-11-06",
-          "discoveredAt": "2026-11-10T04:38:03.943Z",
-          "topics": [
-            "synthetic"
-          ],
-          "type": "期刊论文",
-          "status": "期刊记录 · 待核验",
-          "isPreprint": false,
-          "isRetraction": false,
-          "readingScope": "仅摘要",
-          "license": null,
-          "version": null,
-          "collection": "Europe PMC"
-        },
-        {
-          "id": "doi:10.1371/journal.pcbi.1014881",
-          "title": "kinGEMs: A robust and scalable framework for resource-constraint models through stochastic tuning of deep learning-predicted kinetic parameters.",
-          "abstract": "The construction of accurate enzyme-constrained genome-scale models (ecGEMs) remains a critical challenge in systems biology, limited by sparse kinetic data and the need for biologically meaningful representations. This work presents an integrated framework combining CPI-Pred, a deep learning model to predict kinetic parameters (kcat) from sequence and compound embeddings, with kinGEMs, a pipeline to incorporate these uncertainty-aware parameters into ecGEMs for metabolic optimization. By leveraging representations at multiple scales, the approach captures sequence, structure, and kinetic data to enhance model generalizability and accuracy. Rigorous benchmarking demonstrates the framework's capability to predict growth rates and fluxes that are consistent with experimental observations and measured proteome fractions, reduce median flux variability by several folds, and yield better-constrained metabolic models by explicitly accounting for the uncertainty inherent in ML-predicted kinetic parameters. kinGEMs successfully generated ecGEMs for 93 models spanning a phylogenetically diverse set of organisms including Gram-negative and Gram-positive bacteria, mycobacteria, parasitic protists, fungi, and mammalian cell lines. These innovations breakdown the barrier to application of ecGEMs to non-model organisms and open new avenues for metabolic engineering and synthetic biology in more industrially relevant hosts.",
-          "authors": "A Barghout R, Chiñas Serrano L, Sanchez-Lengeling B, Mahadevan R.",
-          "journal": "PLoS computational biology",
-          "doi": "10.1371/journal.pcbi.1014881",
-          "pmid": "42993804",
-          "pmcid": null,
-          "source": "MED",
-          "sourceId": "42993804",
-          "url": "https://doi.org/10.1371/journal.pcbi.1014881",
-          "publishedAt": "2026-11-06",
-          "discoveredAt": "2026-11-10T04:38:03.943Z",
-          "topics": [
-            "synthetic",
-            "metabolic"
-          ],
-          "type": "期刊论文",
-          "status": "期刊记录 · 待核验",
-          "isPreprint": false,
-          "isRetraction": false,
-          "readingScope": "仅摘要",
-          "license": null,
-          "version": null,
-          "collection": "Europe PMC",
-          "downloadMetric": {
-            "count": 194,
-            "kind": "pdf_downloads",
-            "platform": "PLOS",
-            "window": "cumulative",
-            "sourceUrl": "https://journals.plos.org/ploscompbiol/article/metrics?id=10.1371%2Fjournal.pcbi.1014881",
-            "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pcbi.1014881/format/json",
-            "fetchedAt": "2026-11-12T03:49:41.487Z",
-            "provenance": "publisher_api",
-            "coverageStart": "2026-11",
-            "coverageEnd": "2026-11",
-            "coverageMonths": 1,
-            "reportedStart": "2026-11",
-            "reportedEnd": "2026-11",
-            "reportedMonths": 1,
-            "missingPdfMonths": [],
-            "unreportedMonths": [],
-            "coverageNote": "仅累加接口明确返回的逐篇 get-pdf 月计数，不含 HTML/XML，不代表独立读者；最近数据可能延迟48小时。"
-          },
-          "downloadRefresh": {
-            "status": "updated",
-            "checkedAt": "2026-11-12T03:49:41.337Z"
-          }
-        },
-        {
-          "id": "doi:10.1007/s00253-026-14083-7",
-          "title": "L-Threonine production from acetate by metabolically engineered Corynebacterium glutamicum using a pH-controlled fed-batch process.",
-          "abstract": "Acetate has a considerable potential as a non-food feedstock for microbial bioproduction, yet its use for amino acid production remains underexplored. Here, we developed a process for L-threonine production from acetate as the sole carbon source with Corynebacterium glutamicum by integrating rational, genome-based metabolic engineering with pH-coupled fed-batch cultivation. The engineered strain AT-3 carried five chromosomal mutations that alleviated feedback inhibition of key enzymes and redirected carbon flux toward the aspartate pathway. Substrate supply was controlled using a custom Visual Basic-based feeding script that automatically adjusted the acetic acid feed in response to online pH measurements. Robust process performance was maintained during a tenfold scale-up from 100-mL DASbox to 1-L DASGIP bioreactors. The optimized process achieved an L-threonine titer of 10.04 g/L and a yield of 0.086 g/g acetate. This study provides a basis for further studies on the development and improvement of acetate-based amino acid production process. KEY POINTS: • Plasmid-free C. glutamicum strains produce L-threonine in acetate minimal medium • pH-controlled acetic acid feed in bioreactors improved L-threonine production • Acetate-based production of feed amino acids avoids competition with human food.",
-          "authors": "Broschard P, Endt N, Wirtz A, Glitz C, Baumgart M, Bott M.",
-          "journal": "Applied microbiology and biotechnology",
-          "doi": "10.1007/s00253-026-14083-7",
-          "pmid": "42988885",
-          "pmcid": "PMC13739892",
-          "source": "MED",
-          "sourceId": "42988885",
-          "url": "https://doi.org/10.1007/s00253-026-14083-7",
-          "publishedAt": "2026-11-06",
-          "discoveredAt": "2026-11-10T04:38:04.423Z",
-          "topics": [
-            "metabolic",
-            "microbial"
-          ],
-          "type": "期刊论文",
-          "status": "期刊记录 · 待核验",
-          "isPreprint": false,
-          "isRetraction": false,
-          "readingScope": "仅摘要",
-          "license": "cc by",
-          "version": null,
-          "collection": "Europe PMC"
-        },
-        {
-          "id": "doi:10.1021/acsabm.6c01317",
-          "title": "Biomimetic Nanosystems as Emerging Catalysts for Translational Innovation in Healthcare.",
-          "abstract": "Biomimetic nanosystems are engineered platforms at the nanoscale range that emulate selected structural and compositional features to reproduce their advantageous interactions with the complex biological environments. These systems, inspired by the biological cell membrane(s), have emerged as a promising technology with a variety of biomedical applications. However, they are still in their early stage of clinical development. Biomimetic nanosystems may be produced by incorporating the desired nanoparticles into synthesized membrane(s). Such nanosystems exhibit greater immunocompatibility, immune evasion, and extended circulation times. Therefore, this study examines the latest advancements in the design and engineering of biomimetic nanosystems, focusing on membrane insertion/integration, hybridization, surface functionalization and modification, and metabolic engineering that could enhance the multifunctionality, hybrid membrane engineering, stimulus-responsive behavior, and scalability of these systems. The unique characteristics of these nanosystems have been investigated and applied in various fields, including medicine delivery, vaccine research, antidote(s) manufacturing, imaging, and sensing, which are critically discussed. Furthermore, this review has summarized the practical challenges related to translation, such as stability, reproducibility, functionality, regulatory complexity, and efficacy. This review also highlights both the opportunities and limitations of these emerging platforms and outlines key directions for the development of clinically relevant nanomedicine. As a result, this study serves as the foundation for future research into the multifunctional nanobiomimetic system.",
-          "authors": "Singhal S, Mandal S, Gupta A.",
-          "journal": "ACS applied bio materials",
-          "doi": "10.1021/acsabm.6c01317",
-          "pmid": "42994094",
-          "pmcid": null,
-          "source": "MED",
-          "sourceId": "42994094",
-          "url": "https://doi.org/10.1021/acsabm.6c01317",
-          "publishedAt": "2026-11-06",
-          "discoveredAt": "2026-11-10T04:38:04.423Z",
-          "topics": [
-            "metabolic"
-          ],
-          "type": "期刊论文",
-          "status": "期刊记录 · 待核验",
-          "isPreprint": false,
-          "isRetraction": false,
-          "readingScope": "仅摘要",
-          "license": null,
-          "version": null,
-          "collection": "Europe PMC"
-        },
-        {
-          "id": "doi:10.1126/sciadv.aeg5924",
-          "title": "Spatial control of enzyme orientation at the lipid droplet interface enables regio- and chemoselective metabolic flux.",
-          "abstract": "Precise spatial control over multienzyme cascade reactions is increasingly recognized as a design lever in synthetic biology for enhancing catalytic performance and directing metabolic flux. By emulating principles of cellular compartmentalization, synthetic scaffolds and engineered interfaces have emerged as powerful platforms to modulate intermediate channeling and reaction efficiency in complex biocatalytic systems. However, robust and spatially defined immobilization of multienzyme assemblies within physicochemically optimal compartments remains challenging because of the dynamic intracellular environment. Here, we reprogram the amphiphilic interface of yeast lipid droplets (LDs) as a programmable scaffold system to support regio- and chemoselective localization of enzymes. Guided by molecular dynamics simulations, we designed LD-anchoring motifs to direct the enzyme orientation at the LD monolayer interface, yielding cytosol-facing or LD inner-facing configurations. Using this designed LD-anchoring motif, we spatially reorganize a trienzyme cascade for prodeoxyviolacein (PDV) biosynthesis across the cytosol-LD interface, facilitating directional conversion of hydrophilic substrates into hydrophobic products. This spatial reorganization substantially improved PDV production by 1300%, achieving 46.25 milligrams per liter. Our approach offers a modular and tunable platform for engineering spatially organized and readily deployable enzyme cascades, opening avenues for biosynthetic catalysis at organellar interfaces.",
-          "authors": "Son SH, Bae S, Moon SY, Kim M, Oh SS, Son CY, Lee JY.",
-          "journal": "Science advances",
-          "doi": "10.1126/sciadv.aeg5924",
-          "pmid": "42993823",
-          "pmcid": "PMC13742153",
-          "source": "MED",
-          "sourceId": "42993823",
-          "url": "https://doi.org/10.1126/sciadv.aeg5924",
-          "publishedAt": "2026-11-06",
-          "discoveredAt": "2026-11-10T04:38:03.943Z",
-          "topics": [
-            "synthetic",
-            "metabolic",
-            "microbial"
-          ],
-          "type": "期刊论文",
-          "status": "期刊记录 · 待核验",
-          "isPreprint": false,
-          "isRetraction": false,
-          "readingScope": "仅摘要",
-          "license": "cc by",
-          "version": null,
-          "collection": "Europe PMC"
-        }
-      ],
-      "sections": [
-        {
-          "topicId": "synthetic",
-          "label": "合成生物学",
-          "paperIds": [
-            "doi:10.1016/j.tibtech.2026.10.012",
-            "doi:10.1128/msystems.00888-26",
-            "doi:10.1371/journal.pcbi.1014881"
-          ]
-        },
-        {
-          "topicId": "metabolic",
-          "label": "代谢工程",
-          "paperIds": [
-            "doi:10.1007/s00253-026-14083-7",
-            "doi:10.1021/acsabm.6c01317"
-          ]
-        },
-        {
-          "topicId": "microbial",
-          "label": "微生物制造",
-          "paperIds": [
-            "doi:10.1126/sciadv.aeg5924"
-          ]
-        }
-      ],
-      "sourceUpdatedAt": "2026-11-12T03:49:41.774Z",
-      "sourceCollection": {
-        "status": "complete",
-        "failedTopics": [],
-        "trigger": "schedule",
-        "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/43150740838"
-      },
-      "selectionPolicy": {
-        "version": "publication-calendar-topic-round-robin-v1",
-        "description": "按发表日期和主题覆盖规则自动整理的文献清单，非人工科研价值精选。",
-        "dateBasis": "first_publication_date",
-        "windowDays": 7,
-        "limit": 10,
-        "topicOrder": [
-          "synthetic",
-          "metabolic",
-          "microbial"
-        ],
-        "ordering": "各主题按发表日期倒序，轮流取文献后按主题分节；日期相同时按文献标识排序。",
-        "coverageNote": "仅整理当前文献库及配置主题，不代表该领域的全部新文献；未依据下载量或科研质量评分排序。"
-      },
-      "metrics": {
-        "inputCount": 236,
-        "uniqueCount": 236,
-        "candidateCount": 6,
-        "selectedCount": 6,
         "sectionCount": 3
       }
     }
