@@ -1,5 +1,5 @@
-import { READER_PRESET_LIMITS, readerPresetSnapshot, persistReaderPresets, persistReadMarks } from './local-state.js?v=0.2.48';
-import { READ_MARK_LIMIT, restoreReadMarks } from './read-progress.js?v=0.2.48';
+import { READER_PRESET_LIMITS, readerPresetSnapshot, persistReaderPresets, persistReadMarks } from './local-state.js?v=0.2.49';
+import { READ_MARK_LIMIT, restoreReadMarks } from './read-progress.js?v=0.2.49';
 
 export const READER_TRANSFER_MAX_BYTES = 8 * 1024 * 1024;
 const groups = ['readerPresets', 'readMarks'];
