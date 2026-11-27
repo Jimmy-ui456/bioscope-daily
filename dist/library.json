@@ -1,8 +1,249 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-26T05:06:16.768Z",
+  "fetchedAt": "2026-11-27T05:05:24.638Z",
   "papers": [
+    {
+      "id": "doi:10.21203/rs.3.rs-11746962/v1",
+      "title": "Efficient recombinant production of a short silica-forming peptide in Escherichia coli using an intrinsically disordered fusion tag",
+      "abstract": "Abstract Background Recombinant production of short peptides in microbial cell factories often relies on fusion tags that support intracellular accumulation and efficient peptide release. Large tags, however, account for much of the recombinant product, potentially wasting cellular resources. We evaluated the small, intrinsically disordered NEXT tag against the maltose-binding protein (MBP), a large globular tag, for the production of the silica-forming R5 peptide bearing a C-terminal hexahistidine tag (R5-His 6 ). Results Direct expression yielded no detectable R5-His 6 in Escherichia coli BL21(DE3) or C41(DE3), whereas both fusion proteins accumulated in both hosts. The NEXT fusion was detected exclusively in the soluble fraction, while the MBP fusion was partly insoluble. Soluble R5-His 6 -equivalent expression yields were 46% and 37% higher with NEXT than with MBP in BL21(DE3) and C41(DE3), respectively, reaching 23.9 mg L − 1 in C41(DE3). During cleavage of R5-His 6 from the fusions in cell lysates with separately expressed tobacco etch virus protease, the NEXT fusion reached near-complete cleavage within 60 min, whereas a fraction of the MBP fusion remained uncleaved. Affinity purification following cleavage of the NEXT fusion produced in C41(DE3) yielded approximately 13 mg of R5-His 6 per liter of culture. The recovered peptide readily induced biomimetic silica precipitation. Conclusions Despite its considerably smaller size, NEXT combined higher soluble peptide-equivalent expression yields with faster protease-mediated release than MBP. These findings establish NEXT as an effective fusion tag for the production of recombinant R5-His 6 and support its further evaluation for other short functional peptides.",
+      "authors": "Lim GT, Jo BH.",
+      "journal": "预印本平台",
+      "doi": "10.21203/rs.3.rs-11746962/v1",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1378604",
+      "url": "https://doi.org/10.21203/rs.3.rs-11746962/v1",
+      "publishedAt": "2026-11-26",
+      "discoveredAt": "2026-11-27T05:04:10.535Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.64898/2026.11.24.768970",
+      "title": "Engineering acidophilic non-conventional yeasts as low-pH cell factories for organic acid production",
+      "abstract": "Acidophilic non-conventional yeasts (NCYs) thrive at low pH and are promising hosts for organic acid production, but their use is limited by the availability of genetic engineering tools. Here, we optimised a chemical transformation protocol for efficient DNA delivery into six NCYs, including M. bulderi, S. bombicola, S. batistae, K. aerobia, K. naganishii and Y. lipolytica. We also developed Pan/ARS-containing expression vectors compatible with YeastFab for one-pot assembly of standardised promoters, open reading frames and terminators. As a proof of concept, we engineered M. bulderi, S. bombicola and S. batistae to produce lactic acid. We combined codon-optimised ldh genes from B. megaterium and L. helveticus with regulatory elements from S. cerevisiae or M. bulderi and introduced the resulting constructs into the hosts on episomal vectors. Lactic acid titres varied substantially across hosts and constructs. The highest titre, approximately 6.4 g/L, was achieved in S. batistae expressing the B. megaterium ldh gene under the control of S. cerevisiae regulatory elements. For targeted genome engineering, we developed a CREEPY-derived CRISPR-Cas9 system that supports multiplex gRNA assembly and achieved over 94% gene deletion efficiency in S. bombicola. In Starmerella species, Aro10p contributes to the conversion of pyruvate to acetaldehyde, potentially diverting carbon away from lactic acid production. Deleting ARO10 in S. bombicola increased lactic acid production through both endogenous and exogenous ldh pathways, with titres reaching up to 6 g/L. S. bombicola was unable to grow on lactate as the sole carbon source, whereas S. batistae utilised both D-lactate and L-lactate. This suggests that S. bombicola may offer a production advantage by limiting lactate reassimilation. Together, these genetic tools and metabolic engineering strategies expand the engineering capabilities of acidophilic NCYs and lay the groundwork for developing these yeasts as low-pH cell factories for the sustainable production of organic acids and other bio-based chemicals.",
+      "authors": "Swidah R, Visinoni F, Timouma S, Nelson A, Hernandez-Guzman M, Valle F, Delneri D.",
+      "journal": "预印本平台",
+      "doi": "10.64898/2026.11.24.768970",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1379207",
+      "url": "https://doi.org/10.64898/2026.11.24.768970",
+      "publishedAt": "2026-11-26",
+      "discoveredAt": "2026-11-27T05:04:30.150Z",
+      "topics": [
+        "synthetic",
+        "metabolic",
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.21203/rs.3.rs-9847201/v1",
+      "title": "Enzyme-Assisted Fermentation of Lactose for the Recombinant Brazzein Production in Pichia pastoris",
+      "abstract": "Abstract Sweet proteins are attractive candidates for reduced-sugar foods because they provide intense sweetness at very low use levels. Brazzein is a particularly promising sweet protein due to its high sweetness potency, thermal and pH stability, and sucrose-like taste profile. Although recombinant production of brazzein has been demonstrated in several heterologous systems, improving the economic and environmental feasibility of microbial production requires attention to the carbon sources used for fermentation. Here, we develop an enzyme-assisted fermentation strategy to produce brazzein from lactose-containing substrates using engineered Pichia pastoris . Because P. pastoris does not efficiently utilize lactose, we supplement cultures with β-galactosidase to hydrolyze lactose in situ into fermentable monosaccharides that support yeast growth and recombinant protein production. We first compare three secretion signals and identify the α-mating factor pre–pro signal as the most effective of those tested for extracellular brazzein production. We then show that lactose alone does not support substantial P. pastoris growth, whereas β-galactosidase supplementation enables growth in lactose-containing medium. Finally, we evaluate lactose concentration and methanol induction strategy and find that brazzein production depends on the balance between lactose-derived carbon availability and methanol-driven expression. The highest specific yield observed in this study is approximately 1847 µg/g biomass under sequential methanol induction with 30 g/L lactose, corresponding to a volumetric yield of approximately 9.5 mg/L. These results indicate that enzyme-assisted lactose hydrolysis can extend the range of carbon sources usable by P. pastoris without additional lactose-metabolism engineering. All experiments were performed with analytical-grade lactose in defined medium and in shake flasks without pH or dissolved-oxygen control; the approach therefore remains a laboratory-scale proof of concept that requires validation with industrial whey permeate.",
+      "authors": "Liu Y, Luo X, Wen Y, Heyman J, Weitz D, Sörensen P.",
+      "journal": "预印本平台",
+      "doi": "10.21203/rs.3.rs-9847201/v1",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1378569",
+      "url": "https://doi.org/10.21203/rs.3.rs-9847201/v1",
+      "publishedAt": "2026-11-26",
+      "discoveredAt": "2026-11-27T05:04:10.536Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.21203/rs.3.rs-11725472/v1",
+      "title": "Spatial-temporally decoupled multi-strain cascade coupled with auxiliary cofactor regeneration for benzylamine bioproduction in Escherichia coli",
+      "abstract": "Abstract Benzylamine is an important intermediate in the pharmaceutical and chemical industries. To address the environmental and efficiency limitations of traditional chemical synthesis, this study developed an cell factory for the de novo biosynthesis of benzylamine. A four-step heterologous enzyme cascade pathway was designed in the host, featuring phenylpyruvate (PPA) as the pivotal node. To reinforce the precursor supply, carbon flux was redirected by reshaping the central carbon metabolism and the shikimate pathway, while a precursor recovery loop was established via the introduction of an L-amino acid deaminase (LAAD) to minimize intermediate diversion. An alanine and NADH co-regeneration module coupling alanine dehydrogenase and formate dehydrogenase was introduced to shift the unfavorable equilibrium of the PLP-dependent transamination step by removing inhibitory pyruvate and regenerating the amino donor L-alanine. Furthermore, to resolve the physiological oxygen conflict between the aerobic upstream pathway and the downstream transamination operated under sealed conditions, as well as the high volatility of the intermediate benzaldehyde, a multi-strain cascade (MSC) strategy was employed to separate the upstream oxidation and downstream transamination stages. Coupled with high-cell-density resuspension and process optimization, a benzylamine titer of 3.63 mM was achieved from glucose as the primary carbon source without exogenous feeding of aromatic precursors. This study reports the de novo biosynthesis of benzylamine via a multi-strain cascade, and the developed modular assembly, auxiliary substrate regeneration, and process decoupling strategies provide valuable metabolic engineering references for the sustainable biomanufacturing of aromatic amines.",
+      "authors": "Yin J, Xu Q, Wang C, Wang J, An Y, Gao H.",
+      "journal": "预印本平台",
+      "doi": "10.21203/rs.3.rs-11725472/v1",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1379040",
+      "url": "https://doi.org/10.21203/rs.3.rs-11725472/v1",
+      "publishedAt": "2026-11-26",
+      "discoveredAt": "2026-11-27T05:04:10.535Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1039/d6cc01792d",
+      "title": "Synthetic biology for sustainable abundance: biomining, electromicrobial production, and hyper-engineerable microbes.",
+      "abstract": "Over the next few decades, there is a compelling need to build a new sustainable energy infrastructure to replace the fossil fuel system that we have relied on since the 1700s. This infrastructure must not only replace what exists but also far exceed its capabilities, delivering more power to more people to meet the growing demands from both developing and advanced economies. But how do we increase energy use without harming the Earth? Biology drives the Earth's geochemical cycles, operating with far greater elemental and energy fluxes than all of human civilization. This suggests that synthetic biology could solve at least some of our environmental problems while providing access to much greater energy. However, leveraging biology remains a formidable challenge, in part because we do not yet understand nearly enough about the basic science underlying the biological systems that bring the most unusual and useful capabilities to sustainability and energy. This challenge is not unique to biology and sustainability - groundbreaking technologies of the past have required not only curiosity-driven basic research but also use-inspired basic research. Over the past decade, our lab has discovered new basic science needed to build synthetic biology technologies and established itself as a leader in sustainability and synthetic biology. This review summarizes breakthroughs from our lab over the past decade in three key areas: biomining, electrically driven metabolism, and hyper-engineerable microbes.",
+      "authors": "Vengerova G, Barstow B.",
+      "journal": "Chemical communications (Cambridge, England)",
+      "doi": "10.1039/d6cc01792d",
+      "pmid": "43006193",
+      "pmcid": "PMC13752747",
+      "source": "MED",
+      "sourceId": "43006193",
+      "url": "https://doi.org/10.1039/d6cc01792d",
+      "publishedAt": "2026-11-26",
+      "discoveredAt": "2026-11-13T03:25:54.797Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": "cc by",
+      "version": null,
+      "collection": "Europe PMC",
+      "enrichment": {
+        "titleZh": "合成生物学以实现可持续的丰裕：生物采矿、电微生物生产和超可工程化微生物。",
+        "abstractZh": "在接下来的几十年里，迫切需要建立一种新的可持续能源基础设施，以取代自17世纪以来我们依赖的化石燃料系统。这种基础设施不仅要取代现有的系统，还要远远超越其能力，为更多人提供更大的电力，以满足发达国家和发展中国家不断增长的需求。但是，我们如何在不对地球造成伤害的情况下增加能源使用呢？生物学驱动着地球的地球化学循环，其元素和能量通量远超整个人类文明。这表明合成生物学可以解决我们的一些环境问题，同时提供获取更大能量的途径。然而，利用生物学仍然是一个巨大的挑战，部分原因是我们对于带来最独特和有用可持续性/能源能力的生物系统背后的基础科学了解得还不够。这一挑战并非生物学和可持续发展所独有——过去的突破性技术不仅需要好奇心驱动的基础研究，还需要应用启发的基础研究。在过去十年中，我们的实验室发现了构建合成生物学技术所需的新基础科学，并确立了自己在可持续发展和合成生物学领域的领先地位。本综述总结了我们在过去十年中在三个关键领域取得的突破：生物采矿、电驱动代谢和超可工程化微生物。",
+        "question": null,
+        "methods": null,
+        "findings": null,
+        "limitations": [],
+        "sourceTitle": "Synthetic biology for sustainable abundance: biomining, electromicrobial production, and hyper-engineerable microbes.",
+        "sourceAbstract": "Over the next few decades, there is a compelling need to build a new sustainable energy infrastructure to replace the fossil fuel system that we have relied on since the 1700s. This infrastructure must not only replace what exists but also far exceed its capabilities, delivering more power to more people to meet the growing demands from both developing and advanced economies. But how do we increase energy use without harming the Earth? Biology drives the Earth's geochemical cycles, operating with far greater elemental and energy fluxes than all of human civilization. This suggests that synthetic biology could solve at least some of our environmental problems while providing access to much greater energy. However, leveraging biology remains a formidable challenge, in part because we do not yet understand nearly enough about the basic science underlying the biological systems that bring the most unusual and useful capabilities to sustainability and energy. This challenge is not unique to biology and sustainability - groundbreaking technologies of the past have required not only curiosity-driven basic research but also use-inspired basic research. Over the past decade, our lab has discovered new basic science needed to build synthetic biology technologies and established itself as a leader in sustainability and synthetic biology. This review summarizes breakthroughs from our lab over the past decade in three key areas: biomining, electrically driven metabolism, and hyper-engineerable microbes.",
+        "sourceFingerprint": "7afaaa4d-1633",
+        "origin": "model",
+        "model": "qwen3.7-flash",
+        "promptVersion": "bioscope-zh-interpret-v2",
+        "createdAt": "2026-11-14T07:49:26.240Z",
+        "reviewed": false,
+        "scope": "abstract_only",
+        "modelUsage": {
+          "inputTokens": 722,
+          "outputTokens": 476,
+          "totalTokens": 1198,
+          "cachedInputTokens": 0
+        },
+        "terminologyVersion": "bioscope-bio-glossary-v1",
+        "analysisStatus": "translation_only",
+        "analysisFailureCode": "invalid_evidence"
+      }
+    },
+    {
+      "id": "doi:10.64898/2026.11.24.768839",
+      "title": "Uncovering mechanisms of cell-free protein synthesis using tailored coarse-grained models",
+      "abstract": "Cell-free protein synthesis has revolutionised molecular biology research, and it continues to be a fundamental methodology in synthetic biology today. Yet, many of its mechanistic principles remain poorly understood, limiting our ability to predict reaction behaviour. In this work, we introduce a pipeline for uncovering these principles that combines computational models with experimental validation in a design-build-test-learn cycle. First, we develop a coarse-grained ordinary differential equation model describing key processes in the reaction. Next, we adapt the model to predict system behaviour under competing mechanistic hypotheses and compare model predictions to our experimental data from batch reactions using Escherichia coli extract. Our data and analysis indicate that gene length determines the rate-limiting step in transcription; it identifies transcription/translation-independent depletion of chemical energy as the primary cause for reaction termination; and finally it highlights translation as the most variable process between batches of cellular extract. Together, these results point to strategies for improving the yield and reproducibility of cell-free protein synthesis, and provide a framework for rational, model-guided design of cell-free systems.",
+      "authors": "Wagner CS, Laohakunakorn N, Weisse AY.",
+      "journal": "预印本平台",
+      "doi": "10.64898/2026.11.24.768839",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1379169",
+      "url": "https://doi.org/10.64898/2026.11.24.768839",
+      "publishedAt": "2026-11-26",
+      "discoveredAt": "2026-11-27T05:04:30.199Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1002/bit.70456",
+      "title": "D-Allulose Biomanufacturing: Enzyme Engineering, Whole-Cell Biocatalysis and Process Intensification.",
+      "abstract": "D-allulose is an emerging low calorie rare sugar with potential for application in reduced sugar foods, functional ingredients and metabolic health formulations. Its limited natural abundance and high production cost remain major barriers to wider commercial use. This review examines recent advances in D-allulose production with emphasis on enzymatic catalysis, protein engineering, enzyme immobilization, whole cell biocatalysis, metabolic engineering, fermentation strategies and downstream processing. Ketose 3-epimerases remain the central biocatalysts for industrial production through the reversible conversion of D-fructose to D-allulose, although equilibrium limitation, metal ion dependence and enzyme stability restricts process efficiency. Current approaches, including enzyme discovery, rational and semirational mutagenesis, immobilized reactor systems, whole cell platforms and synthetic biology based microbial production are discussed in relation to scalability and industrial feasibility. Attention is given to purification and downstream separation, especially the challenging separation of D-allulose from D-fructose using chromatographic, membrane based and integrated reaction-separation strategies. The review highlights future opportunities in continuous processing, process analytical technology, AI assisted enzyme design, alternative feedstocks, and circular bioprocessing. Improved integration of biocatalyst design, fermentation engineering and cost effective downstream purification will be essential for making D-allulose production commercially competitive and sustainable.",
+      "authors": "Paul A, Jerome JH, Mathan Muthu CM, Arokiyaraj S, Bharathiraja B, Dinakarkumar Y.",
+      "journal": "Biotechnology and bioengineering",
+      "doi": "10.1002/bit.70456",
+      "pmid": "43086577",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43086577",
+      "url": "https://doi.org/10.1002/bit.70456",
+      "publishedAt": "2026-11-25",
+      "discoveredAt": "2026-11-27T05:04:10.536Z",
+      "topics": [
+        "synthetic",
+        "metabolic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.ymben.2026.102598",
+      "title": "Engineering methylotrophy in Pseudomonas putida through the synthetic serine-threonine cycle.",
+      "abstract": "Methanol is a reduced, soluble one-carbon (C 1 ) feedstock for sustainable bioproduction, but converting this potential into robust microbial growth remains difficult. Several synthetic C 1 assimilation routes depend on autocatalytic cycles, whose operation requires coordinated control of redox balance, toxic intermediates, substrate regeneration, and host regulation. Here, we implemented the serine-threonine cycle (STC) in the soil bacterium Pseudomonas putida and used growth-coupled selection with adaptive laboratory evolution (ALE) to transition from mixotrophic C 1 incorporation to strict methylotrophy. The evolved strain grew with methanol as the sole carbon and energy source under atmospheric CO 2 with a doubling time of ca. 40 h. Whole-genome sequencing, reverse genetics, dedicated biosensors, high-resolution isotope labelling, and comparative RNA sequencing showed that evolution repeatedly targeted native pyrroloquinoline quinone (PQQ)-dependent methanol oxidation, membrane-bound transhydrogenase activity, glycine regeneration, STC enzyme balance, and global regulatory nodes. Additional ALE under glycine-methanol co-feeding increased growth rates and exposed further targets for improving cycle flux. These results establish P. putida as a chassis for strict synthetic methylotrophy and define actionable engineering routes toward C 1 biomanufacturing.",
+      "authors": "Puiggené Ò, Fricano M, Rossi R, Jansen LFM, Özdemir E, Kim SH, Lenhard C, Mohamed ET, Donati S, Singh S, Ahonen L, Förster J, Kandasamy V, Feist AM, Orsi E, Nikel PI.",
+      "journal": "Metabolic engineering",
+      "doi": "10.1016/j.ymben.2026.102598",
+      "pmid": "43085487",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43085487",
+      "url": "https://doi.org/10.1016/j.ymben.2026.102598",
+      "publishedAt": "2026-11-25",
+      "discoveredAt": "2026-11-27T05:04:10.536Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
     {
       "id": "epmc:PMC:PMC13795729",
       "title": "Engineering next-generation Aspergillus cell factories: advances in genetic engineering, synthetic biology, and metabolic reprogramming strategies",
@@ -83,6 +324,143 @@
       "collection": "Europe PMC"
     },
     {
+      "id": "doi:10.1016/j.biotechadv.2026.109118",
+      "title": "Microbial biosynthesis of vanillin: From substrate utilization to metabolic engineering optimization.",
+      "abstract": "Vanillin (4-hydroxy-3-methoxybenzaldehyde) is one of the most widely used flavor compounds globally. Its distinctive aroma and properties confer significant commercial value across industries such as food, flavoring, personal care, and pharmaceuticals. Traditional production of vanillin primarily relies on natural extraction and chemical synthesis methods. The former is constrained by raw material availability and costs, while the latter is associated with environmental pollution and toxic byproducts. In recent years, with the rapid development of metabolic engineering and synthetic biology technologies, microbial fermentation for vanillin production has emerged as a green and sustainable alternative. Existing reviews have primarily focused on describing individual biosynthetic pathways, whereas systematic comparisons of production pathways, microbial hosts, and engineering strategies remain limited. This review provides a comparative analysis of vanillin production from different feedstocks and across microbial hosts, highlighting differences in production performance, pathway characteristics, and technological limitations. It first provides an overview of the basic properties and applications of vanillin. It then systematically examines various strategies for obtaining vanillin from different sources, with a focus on the metabolic pathways involved in microbial synthesis, as well as strategies for engineered strain construction. It also discusses synthetic biology strategies such as biosensors, dynamic metabolic regulation, and cell-free biocatalysis. Finally, the review summarizes the key challenges in microbial vanillin production and suggests future research directions aimed at optimizing microbial strains through metabolic and fermentation engineering to increase yield and reduce costs. The aim of this review is to provide a theoretical foundation and technical reference for further research into efficient bio-based vanillin synthesis.",
+      "authors": "Zhao T, Xu J, Li H, Qi Q, Feng X, Wang Q.",
+      "journal": "Biotechnology advances",
+      "doi": "10.1016/j.biotechadv.2026.109118",
+      "pmid": "43085704",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43085704",
+      "url": "https://doi.org/10.1016/j.biotechadv.2026.109118",
+      "publishedAt": "2026-11-25",
+      "discoveredAt": "2026-11-27T05:04:30.150Z",
+      "topics": [
+        "synthetic",
+        "metabolic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.20944/preprints202611.2630.v1",
+      "title": "Nanoengineered Living Microbial Therapeutics: Metabolic Programming, Targeted Drug Delivery and Emerging Theranostic Applications",
+      "abstract": "Engineered living microbial therapeutics are emerging as programmable platforms for localized drug production and disease-responsive therapeutic delivery. Advances in synthetic biology and metabolic engineering have enabled the development of microbial systems capable of sensing biological signals, modifying metabolic pathways and producing therapeutic molecules within specific physiological environments. However, limited control over microbial localization, variable therapeutic output, host-microbe interactions and biosafety concerns remain significant barriers to clinical translation. This review critically examines microbial chassis selection, metabolic engineering strategies, programmable gene circuits and disease-specific applications of engineered living therapeutics. Particular emphasis is placed on emerging nanoengineered delivery platforms, including biomaterial encapsulation, nanoparticle-microbe hybrids, magnetic guidance and stimuli-responsive nanomaterials which may improve microbial protection, localization and controlled therapeutic delivery. The potential integration of nanotechnology with microbial therapeutics is discussed as a route towards future theranostics applications. Furthermore, the review evaluates computational approaches for microbial engineering including machine learning, metabolic modelling and emerging digital-twin concepts while distinguishing established applications from prospective developments. Key translational challenges involving genetic stability, microbial containment, manufacturing reproducibility, host compatibility, regulatory oversight and long-term safety are critically assessed. Finally, we identify research priorities for developing clinically translatable nanoengineered living microbial systems capable of integrating targeted therapy with diagnostic monitoring.",
+      "authors": "Sutar P, Goel N, Bhardwaj G, Tripathi D, Maity D.",
+      "journal": "预印本平台",
+      "doi": "10.20944/preprints202611.2630.v1",
+      "pmid": null,
+      "pmcid": null,
+      "source": "PPR",
+      "sourceId": "PPR1378387",
+      "url": "https://doi.org/10.20944/preprints202611.2630.v1",
+      "publishedAt": "2026-11-25",
+      "discoveredAt": "2026-11-27T05:04:30.150Z",
+      "topics": [
+        "synthetic",
+        "metabolic",
+        "microbial"
+      ],
+      "type": "预印本",
+      "status": "预印本 · 未经同行评审",
+      "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1080/15257770.2026.2766172",
+      "title": "Programmable nanomedicine for precision metabolic reprogramming: Integrating multi-omics, artificial intelligence, and RNA therapeutics in diabetes.",
+      "abstract": "The diabetes mellitus is a complex metabolic disorder involving dynamic interactions between various genetic, epigenetic, immunometabolic, environmental factors leading to the disruption of metabolic homeostasis in the system. The main treatments for conventional management are glycemic control, and target only the hallmark of disease, but not underlying molecular networks. The advent of multi-omics technologies, artificial intelligence (AI), RNA therapeutics, and nanomedicine, has sparked an era of precision metabolic interventions against the gene circuits driving disease. In this review, the authors outline the development of smart nanovectors as platforms for gene silencing and gene programming of pro-diabetic genes selectively. Target discovery via AI principles, Omics approach for the identification of diabetogenic networks, next generation RNA therapeutic modalities, intelligent responsive Nanovectors, tissue-specific metabolic reprogramming, and autonomous therapeutic systems are discussed. Moreover, the role of digital twins, biosensor feedback loops, synthetic biology and closed-loop therapeutic architectures as the building blocks of precision medicine are explored. In combination, these emerging technologies create a flipping paradigm for adaptive metabolic reprogramming and could faster bring about sustainable therapies for disease modification and functional remission of diabetes.",
+      "authors": "Tiwari G, Shirsat V, Rahul S, Nagaraja S, Thayyil AH, Naquvi KJ, Samanthula KS, Aher VD, Sharma P.",
+      "journal": "Nucleosides, nucleotides & nucleic acids",
+      "doi": "10.1080/15257770.2026.2766172",
+      "pmid": "43094150",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43094150",
+      "url": "https://doi.org/10.1080/15257770.2026.2766172",
+      "publishedAt": "2026-11-25",
+      "discoveredAt": "2026-11-27T05:04:30.200Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.biortech.2026.136348",
+      "title": "Rewiring the pentose phosphate pathway and xylose metabolism enables high-level mycosporine-glycine production in Corynebacterium glutamicum.",
+      "abstract": "Mycosporine-glycine (MG) is a valuable natural UV-protective compound, yet efficient microbial production in industrial hosts remains limited. Here, we systematically engineered Corynebacterium glutamicum, a GRAS workhorse, for high-level MG biosynthesis. Through systematic screening of cyanobacterial mysABC gene clusters, deletion of the competing pentose phosphate pathway gene tal, and optimization of fermentation conditions, MG titers were increased from 1.85 mg/L to 301.47 mg/L. Multi-copy chromosomal integration of the optimal mys genes further yielded a plasmid-free strain MGC6 producing 623.02 mg/L without antibiotics or inducers, and the dual-plasmid strain reached 845.11 mg/L in 5-L fed-batch fermentation under glucose alone. Xylose assimilation genes xylA and xylE were introduced, and the dual-plasmid strain MGC6-08 achieved 357.10 mg/L in shake flasks and 1.32 g/L in 5-L fed-batch fermentation with glucose/xylose co-utilization. Direct high-titer microbial production of MG remains challenge. Here, we engineered the GRAS host C. glutamicum to achieve gram-scale MG biosynthesis. This establishes a robust and scalable platform for MG production and demonstrates the synergistic value of combining precursor supply engineering, gene dosage optimization, and carbon source co-utilization in a GRAS host.",
+      "authors": "Chen X, Du Z, Meng J, Lin Z, Mu W.",
+      "journal": "Bioresource technology",
+      "doi": "10.1016/j.biortech.2026.136348",
+      "pmid": "43085677",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43085677",
+      "url": "https://doi.org/10.1016/j.biortech.2026.136348",
+      "publishedAt": "2026-11-25",
+      "discoveredAt": "2026-11-27T05:04:10.536Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1002/bit.70455",
+      "title": "Spatial Metabolic Engineering of Microbial Cell Factories: Compartmentalization Strategies and Design Principles for Enhanced Bioproduction.",
+      "abstract": "Spatial metabolic engineering delivers an extra layer of control over intracellular organization for optimizing microbial cell factories. The conventional metabolic engineering mainly relies on pathway enzyme expression in the cytosol that can be limited by metabolic crosstalk, diffusion constraints, toxic intermediate accumulation, and inefficient cofactor utilization. Spatial engineering addresses these limitations by selectively localizing enzymes and pathways within defined cellular environments to regulate metabolite transfer and pathway performance. This Review examines the principles, engineering strategies, and biotechnological applications of spatial metabolic engineering in microbial systems. Natural compartmentalization in eukaryotic and prokaryotic cells is first discussed to establish design principles involving substrate channeling and cofactor management. We then critically evaluate organelle targeting, protein-based scaffolds, bacterial microcompartments (BMCs), and membrane-bound synthetic organelles, emphasizing their effects on metabolic flux, pathway selectivity, and production performance. The computational modeling, protein engineering, and synthetic-biology tools for designing and optimizing spatial architectures are also examined. The applications in biofuels, high-value metabolites, food biotechnology, and pharmaceutical precursors are highlighted. Finally, emerging directions, including AI-assisted pathway design, dynamic spatial regulation, and cell-free systems, are discussed alongside challenges in transport, metabolic burden, stability, and scale-up. These advances position spatial organization as an important strategy for developing efficient and sustainable microbial cell factories.",
+      "authors": "Mahmood S, Shoaib M, Arsalan A, Shad M, Yang S.",
+      "journal": "Biotechnology and bioengineering",
+      "doi": "10.1002/bit.70455",
+      "pmid": "43086563",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43086563",
+      "url": "https://doi.org/10.1002/bit.70455",
+      "publishedAt": "2026-11-25",
+      "discoveredAt": "2026-11-27T05:04:10.536Z",
+      "topics": [
+        "metabolic",
+        "microbial",
+        "synthetic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1093/infdis/jiag577",
       "title": "Challenges and opportunities in antimicrobial R&D.",
       "abstract": "Antimicrobial resistance is accelerating, while the discovery and development of new drugs, particularly those with novel mechanisms of action, have failed to keep pace. This widening gap reflects two major challenges: insufficient resources for antibiotic discovery and clinical development, and a lack of scientific innovation. With pharmaceutical companies largely abandoning antibiotic R&D, academic groups, small biotech companies, and not-for-profits are stepping in, harnessing advances in genomics, synthetic biology, and AI to drive discovery. Coupled with growing international investment and initiatives to address funding gaps, these efforts offer renewed hope for overcoming the antimicrobial resistance crisis.",
@@ -144,7 +522,7 @@
       "journal": "RSC advances",
       "doi": "10.1039/d6ra07204f",
       "pmid": "43081197",
-      "pmcid": null,
+      "pmcid": "PMC13795729",
       "source": "MED",
       "sourceId": "43081197",
       "url": "https://doi.org/10.1039/d6ra07204f",
@@ -160,7 +538,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -304,7 +682,7 @@
       "journal": "Advanced biotechnology",
       "doi": "10.1007/s44307-026-00150-7",
       "pmid": "43077015",
-      "pmcid": null,
+      "pmcid": "PMC13796683",
       "source": "MED",
       "sourceId": "43077015",
       "url": "https://doi.org/10.1007/s44307-026-00150-7",
@@ -1750,6 +2128,32 @@
       "collection": "Europe PMC"
     },
     {
+      "id": "doi:10.3390/biology15222101",
+      "title": "CRISPR/Cas9 Disruption of the fnr Gene Impairs Redox Homeostasis and Sustained Photobiological Hydrogen Production in Chlorella sp. KLSc61.",
+      "abstract": "Photobiological hydrogen (H 2 ) production by microalgae is limited by photosynthetic electron partitioning, where ferredoxin-NADP + reductase (FNR) competes directly with hydrogenase for reduced ferredoxin. This study investigated the role of FNR by disrupting the FNR gene in Chlorella sp. KLSc61 using CRISPR/Cas9 editing. A mutant line ( fnr 315TH-2) carrying a single-base-pair deletion was identified via Sanger sequencing and whole genome sequencing. Structural modeling predicted that this frame-shifted lesion generated a truncated FNR variant completely lacking the conserved C-terminal NADP + -binding domain. Under standard mixotrophic conditions, the mutant maintained near wild-type growth kinetics but exhibited altered colony morphology and pigmentation. Translational proteomics revealed a severe functional attenuation of FNR protein abundance, which was heavily depleted to approximately 6.4% of wild-type levels. Under specific hydrogen-inducing conditions (potassium deprivation, pH 9.0, + 25 mM ethanol), the mutant demonstrated a significant 40-60% reduction in accumulated photobiological H 2 evolution. This phenotypic restriction was tightly accompanied by severe cellular chlorosis, increased FNR transcript abundance via RT-qPCR, and a depleted intracellular NADPH-associated reducing equivalent pool. These findings demonstrate that functional disruption of the FNR node fails to enhance biohydrogen yields by redirecting electron flux toward proton reduction. Instead, loss of functional FNR fundamentally compromises global redox homeostasis and decreases systemic metabolic adaptability. Our results provide direct genetic, molecular, and physiological evidence that balanced electronic partitioning is essential for algal chassis stability, suggesting that the precise attenuation or fine-tuning of FNR catalytic kinetics, rather than total gene inactivation, represents a more viable metabolic engineering strategy.",
+      "authors": "Laokua N, Sirithanakorn C, Dejtisakdi W, Miller SM, Maneeruttanarungroj C.",
+      "journal": "Biology",
+      "doi": "10.3390/biology15222101",
+      "pmid": "43088741",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43088741",
+      "url": "https://doi.org/10.3390/biology15222101",
+      "publishedAt": "2026-11-15",
+      "discoveredAt": "2026-11-27T05:04:30.151Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1016/j.enzmictec.2026.111002",
       "title": "Deep learning-guidedtacpromoter engineering for efficient functional expression of PET hydrolase inEscherichia coli.",
       "abstract": "Enzymatic depolymerization of polyethylene terephthalate (PET) is a promising sustainable technology for mitigating global plastic pollution. Although the engineered thermostable enzyme LCC ICCG exhibits considerable degradation potential, inefficient functional expression in heterologous hosts remains a major bottleneck for industrial application. This study introduces a deep learning-guided promoter engineering strategy to optimize soluble expression of LCC ICCG in Escherichia coli (E. coli) via precise transcriptional regulation. The moderate-strength tac promoter outperforms the conventional strong T7 system in facilitating functional expression. A hybrid convolutional neural network (CNN)-Transformer model, integrated with a genetic algorithm (GA), was developed to design spacer sequences between the -35 and -10 regions of the tac promoter, yielding a series of high-performance variants (DMtac). The top-performing variant, DMtac36, achieved a functional yield of 147.69 mg/L/OD₆₀₀, representing 1.53-fold and 4.92-fold increases over the wild-type tac and T7 systems, respectively. These results demonstrate that moderate transcriptional activity enhances functional expression and establish a robust computational framework for efficient biomanufacturing of PET hydrolases.",
@@ -1810,7 +2214,7 @@
       "journal": "Journal of fungi (Basel, Switzerland)",
       "doi": "10.3390/jof12110858",
       "pmid": "43082894",
-      "pmcid": null,
+      "pmcid": "PMC13804946",
       "source": "MED",
       "sourceId": "43082894",
       "url": "https://doi.org/10.3390/jof12110858",
@@ -1825,7 +2229,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -2347,6 +2751,32 @@
       "collection": "Europe PMC"
     },
     {
+      "id": "doi:10.3390/microorganisms14112630",
+      "title": "Rhodotorula mucilaginosa Lysate as a Functional Additive for Serum-Free Culture: Alleviating Lysophosphatidylcholine-Associated Apoptosis.",
+      "abstract": "Serum-free culture is fundamental to the sustainable development of cellular agriculture and biomanufacturing. However, serum deprivation often impairs cell survival and culture performance, thereby limiting practical application. In this study, Vero cells served as a mammalian cell model to investigate the relationship between metabolic disturbance and apoptosis under serum-free conditions and to screen microbe-derived supplements with protective potential. Untargeted metabolomics combined with phenotypic and molecular analyses showed that serum deprivation was accompanied by significant intracellular lysophosphatidylcholine accumulation, alterations in the Bcl-2/Bax/Caspase-3 apoptotic axis, and increased apoptosis. Screening of microbial candidates showed that the lysate of Rhodotorula mucilaginosa I7Y2 alleviated these alterations and improved cell viability, proliferation, and wound-healing ability. Incorporation of the lysate into an in-house serum-free medium achieved cell density and apoptosis rates comparable to those in serum-containing medium. Overall, this study provides new insight into the metabolic alterations associated with serum-deprivation-induced cell apoptosis and offers a microbial resource-based strategy for improving serum-free culture performance.",
+      "authors": "Niu Q, Chen N, Ye Q, Wu Y, Zhao X, Guo P, Huang S, Liu Z, Chen M, Li Y, Wu Q.",
+      "journal": "Microorganisms",
+      "doi": "10.3390/microorganisms14112630",
+      "pmid": "43092496",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43092496",
+      "url": "https://doi.org/10.3390/microorganisms14112630",
+      "publishedAt": "2026-11-13",
+      "discoveredAt": "2026-11-27T05:04:31.560Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.3724/abbs.2026212",
       "title": "Synthetic biology for improving photosynthesis.",
       "abstract": "Photosynthesis is the primary source of energy and matter for nearly all life on Earth, and its efficiency directly determines crop growth and yield. Synthetic biology offers a systematic engineering framework to enhance photosynthetic capacity by enabling rational design, standardized assembly, and iterative optimization of biological components. This review summarizes recent progress in applying synthetic biology to improve photosynthesis, with emphasis on modular design of genetic parts, construction of functional modules and genetic circuits for photosynthetic engineering. We discuss strategies organized by spatial scale, covering chloroplast-targeted interventions such as ribulose-1,5-bisphosphate carboxylase/oxygenase (Rubisco) optimization, photorespiratory bypasses, artificial carbon fixation cycles, and CO₂-concentrating mechanisms; cellular-level efforts to install C4 photosynthetic features into C3 crops; whole-plant manipulations of sugar transport and signaling to coordinate source-sink relations; and smart canopy designs to improve light utilization. Finally, we discuss the significance of closing the design-build-test-learn cycle for translating laboratory designs to field performance, which will help accelerate the application of photosynthetic engineering for sustainable crop improvement.",
@@ -2702,6 +3132,32 @@
       }
     },
     {
+      "id": "doi:10.3389/fpls.2026.1850941",
+      "title": "Genome-scale mathematical model of cannabis glandular trichome metabolism and identification of a missing link in terpenoid biosynthesis.",
+      "abstract": "Introduction Cannabis ( Cannabis sativa L.) glandular trichomes (GTs) are specialized structures on female inflorescences that serve as the primary sites for the biosynthesis and storage of metabolites responsible for potency and aroma, including cannabinoids, terpenoids, flavonoids, stilbenoids, phenolic amides, and volatile compounds. Despite substantial advances in cannabis biochemistry, uncertainties remain regarding key metabolic processes, including the biosynthetic origin of hexanoyl-CoA, the precursor supplying the cannabinoid side chain, and the formation of certain terpenoids such as 1,8-cineole. To address these knowledge gaps, we developed a genome-scale metabolic framework for cannabis GT metabolism. Methods An extensive literature review was used to reconstruct a cannabis GT metabolic network comprising approximately 772 metabolic and transport reactions. Comprehensive metabolite datasets encompassing cannabinoids, terpenoids, flavonoids, stilbenoids, phenolic amides, and non-terpenoid volatiles were integrated to parameterize the biomass objective function of the genome-scale metabolic model, CanSatGT_2025. Flux balance analysis was employed to evaluate competing hypotheses for hexanoyl-CoA biosynthesis, including: (i) early termination of fatty acid elongation, (ii) production through the oxylipin pathway following lipid degradation, and (iii) incomplete fatty acid β-oxidation. In addition, the hypothesis that ribulose bisphosphate carboxylase/oxygenase (RubisCO) is nonfunctional in non-photosynthetic GTs was assessed. To investigate the biosynthesis of 1,8-cineole, sequence and structural homology analyses were performed to identify candidate terpene synthases, followed by heterologous expression and biochemical characterization of selected enzymes. Results The reconstructed network enabled the development of the genome-scale model CanSatGT_2025 and its application to metabolic flux analysis across multiple cannabis cultivars. Flux balance analysis identified the most parsimonious solution as a combination of acyl-lipid thioesterase activity and a nonfunctional RubisCO. This configuration minimized total metabolic flux, ATP demand, and carbon dioxide loss while supporting GT metabolism. The analyses also revealed a gap in current knowledge of cannabis monoterpene biosynthesis. Although 1,8-cineole was detected in several cultivars, the enzyme responsible for its formation had not previously been identified. Subsequent sequence, structural, and biochemical studies led to the identification and validation of a terpene synthase that produces 1,8-cineole as its primary product. Discussion Our findings support acyl-lipid thioesterase-mediated hexanoyl-CoA production and the absence of functional RubisCO activity as the most metabolically efficient explanation for cannabinoid precursor biosynthesis in cannabis GTs. Furthermore, the discovery of a 1,8-cineole synthase resolves a previously unidentified step in cannabis monoterpene metabolism. Together, these results establish CanSatGT_2025 as a systems-level framework for investigating metabolic fluxes, elucidating biosynthetic pathways, and guiding future metabolic engineering and functional genomics efforts in cannabis glandular trichomes.",
+      "authors": "Lange BM, Willis MA, Orozco LR, Alt AJ, Karim A, Srividya N, Zager JJ.",
+      "journal": "Frontiers in plant science",
+      "doi": "10.3389/fpls.2026.1850941",
+      "pmid": "43095037",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43095037",
+      "url": "https://doi.org/10.3389/fpls.2026.1850941",
+      "publishedAt": "2026-11-11",
+      "discoveredAt": "2026-11-27T05:04:40.706Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1016/j.tibtech.2026.10.013",
       "title": "Hierarchical design strategies for tuning genetic circuits.",
       "abstract": "Genetic circuit design is central to synthetic biology, yet achieving predictable and programmable circuit performance remains challenging due to diverse circuit- and host-dependent factors. Thus, a systematic perspective is needed to integrate these factors across multiple design layers. In this review, we establish a hierarchical framework for tuning genetic circuits as an engineering process spanning biological part design, DNA synthesis and assembly, carrier selection, host-cell implementation, and cross-host transfer. We further discuss how each layer contributes to circuit behavior and shapes trade-offs among key performance properties. By integrating hierarchical design strategies with iterative troubleshooting, this review provides a practical roadmap for tuning genetic circuits toward more predictable and reliable performance.",
@@ -2844,6 +3300,32 @@
         },
         "terminologyVersion": "bioscope-bio-glossary-v1"
       }
+    },
+    {
+      "id": "doi:10.3390/ani16223561",
+      "title": "Intact Cell Ultrastructure Is Sufficient for the Intestinal Protective Activity of Canine-Derived Lactobacillus acidophilus Against Dextran Sulfate Sodium-Induced Colitis.",
+      "abstract": "Chronic inflammatory enteropathy is common and clinically challenging in dogs. Probiotics are explored as dietary adjuncts, but how inactivation methods affect strain performance remains unclear. This study compared viable, heat-killed, electron beam-inactivated (3 kGy), and cell-free supernatant (CFS) preparations of canine-origin Lactobacillus acidophilus L1 in a DSS-induced mouse colitis model. Heat-killed L1 retained intact ultrastructure and matched viable cells in attenuating disease activity and colonic injury; electron beam inactivation disrupted the cell surface and produced poorer repair than heat-killed L1 but was superior in maintaining body weight. All treatments lowered DAI versus the model ( p Zo-1 / Occludin mRNA expression were highest in viable and heat-killed groups, which also had the lowest splenic and hepatic indices ( p p p Dubosiella . Heat-killed bacteria had the lowest cecal SCFAs but the highest MCT1 / SMCT1 expression ( p MCT4 expression, potentially suggesting enhanced epithelial SCFA uptake, although reduced microbial production cannot be excluded. These results indicate that intact bacterial ultrastructure is sufficient for the intestinal protective activity of L. acidophilus L1 in a prophylactic model, and support heat-killed L1 as a promising prophylactic paraprobiotic ingredient for canine gastrointestinal health.",
+      "authors": "Song C, Song J, Tang X, Wen M, Wang X, Huang H.",
+      "journal": "Animals : an open access journal from MDPI",
+      "doi": "10.3390/ani16223561",
+      "pmid": "43087524",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43087524",
+      "url": "https://doi.org/10.3390/ani16223561",
+      "publishedAt": "2026-11-11",
+      "discoveredAt": "2026-11-27T05:04:31.561Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
     },
     {
       "id": "doi:10.1016/j.crmeth.2026.101662",
@@ -3726,6 +4208,32 @@
       }
     },
     {
+      "id": "doi:10.3390/foods15224016",
+      "title": "Microbial Tannase for Food Bioprocessing: Enzyme Production, Enzyme Engineering, and Tannin Valorization.",
+      "abstract": "Microbial tannase (TAN; tannin acyl hydrolase, EC 3.1.1.20) is an important food-processing enzyme because it hydrolyzes the ester and depside linkages in hydrolyzable tannins and galloyl-containing compounds. This review discusses how advances in microbial production, enzyme engineering, and immobilization have expanded its potential for food processing and tannin-rich residue valorization. Reported TAN engineering strategies have improved acid tolerance and thermostability, whereas immobilization has facilitated enzyme recovery and repeated use. Food and beverage applications include haze and astringency reduction, modification of gallated catechins, gallic acid (GA) enrichment, and improved phenolic bioaccessibility. Tannin-rich agro-industrial residues provide feedstocks for enzyme production and biotransformation into value-added phenolic compounds. However, industrial translation remains limited by insufficient validation in complex food matrices and scarce evidence of long-term operational performance and economic feasibility. Therefore, the requirements for matrix-specific evaluation, reproducible enzyme production, validated recovery and reuse, and appropriate food-safety and economic assessment are also discussed. Overall, integrating enzyme development with realistic processing requirements is essential for establishing reliable TAN applications in the food and beverage industries.",
+      "authors": "Ravikumar Y, Razack SA, Srichairatanakool P, Khowsathit J, Srichairatanakool S.",
+      "journal": "Foods (Basel, Switzerland)",
+      "doi": "10.3390/foods15224016",
+      "pmid": "43089753",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43089753",
+      "url": "https://doi.org/10.3390/foods15224016",
+      "publishedAt": "2026-11-10",
+      "discoveredAt": "2026-11-27T05:04:31.561Z",
+      "topics": [
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1016/j.carres.2026.110165",
       "title": "Next-generation nanocellulose-based smart biomaterials: advances, functionalization strategies, and sustainable biomedical applications.",
       "abstract": "Nanocellulose has emerged as a versatile platform for smart biomaterials because of its high mechanical strength, tunable surface chemistry, and biocompatibility. These properties have supported its incorporation into a wide range of biomedical materials, but many conventional nanocellulose-based systems remain predominantly passive, functioning mainly as structural or supporting components. The growing interest in smart biomaterials reflects the need for materials that can respond to changes in their environment and thereby provide more dynamic control over biomedical functions. This review examines the transition of cellulose nanocrystals, cellulose nanofibrils, and bacterial nanocellulose towards responsive and potentially adaptive biomedical platforms. The structural and molecular characteristics underlying responses to chemical, physical and electromechanical stimuli are examined, together with their application in responsive biomedical systems. Attention is also given to the sustainability-performance trade-off arising when chemical modification, synthetic polymers, or inorganic nanomaterials are introduced to increase functionality, as well as to translational barriers related to material variability, biological stability, reproducibility, safety and standardisation. Finally, emerging approaches based on synthetic biology, genetic engineering and artificial intelligence/machine learning are examined for their potential to improve the predictability and programmability of nanocellulose production and design. By relating material structure and processing to responsiveness, biomedical function, sustainability, and translational potential, this review highlights the opportunities and limitations that will shape the progression of smart nanocellulose from proof-of-concept materials towards clinically relevant biomedical platforms.",
@@ -3930,59 +4438,6 @@
           "inputTokens": 705,
           "outputTokens": 501,
           "totalTokens": 1206,
-          "cachedInputTokens": 0
-        },
-        "terminologyVersion": "bioscope-bio-glossary-v1",
-        "analysisStatus": "translation_only",
-        "analysisFailureCode": "invalid_evidence"
-      }
-    },
-    {
-      "id": "doi:10.1039/d6cc01792d",
-      "title": "Synthetic biology for sustainable abundance: biomining, electromicrobial production, and hyper-engineerable microbes.",
-      "abstract": "Over the next few decades, there is a compelling need to build a new sustainable energy infrastructure to replace the fossil fuel system that we have relied on since the 1700s. This infrastructure must not only replace what exists but also far exceed its capabilities, delivering more power to more people to meet the growing demands from both developing and advanced economies. But how do we increase energy use without harming the Earth? Biology drives the Earth's geochemical cycles, operating with far greater elemental and energy fluxes than all of human civilization. This suggests that synthetic biology could solve at least some of our environmental problems while providing access to much greater energy. However, leveraging biology remains a formidable challenge, in part because we do not yet understand nearly enough about the basic science underlying the biological systems that bring the most unusual and useful capabilities to sustainability and energy. This challenge is not unique to biology and sustainability - groundbreaking technologies of the past have required not only curiosity-driven basic research but also use-inspired basic research. Over the past decade, our lab has discovered new basic science needed to build synthetic biology technologies and established itself as a leader in sustainability and synthetic biology. This review summarizes breakthroughs from our lab over the past decade in three key areas: biomining, electrically driven metabolism, and hyper-engineerable microbes.",
-      "authors": "Vengerova G, Barstow B.",
-      "journal": "Chemical communications (Cambridge, England)",
-      "doi": "10.1039/d6cc01792d",
-      "pmid": "43006193",
-      "pmcid": "PMC13752747",
-      "source": "MED",
-      "sourceId": "43006193",
-      "url": "https://doi.org/10.1039/d6cc01792d",
-      "publishedAt": "2026-11-10",
-      "discoveredAt": "2026-11-13T03:25:54.797Z",
-      "topics": [
-        "synthetic",
-        "microbial"
-      ],
-      "type": "综述",
-      "status": "期刊记录 · 待核验",
-      "isPreprint": false,
-      "isRetraction": false,
-      "readingScope": "仅摘要",
-      "license": "cc by",
-      "version": null,
-      "collection": "Europe PMC",
-      "enrichment": {
-        "titleZh": "合成生物学以实现可持续的丰裕：生物采矿、电微生物生产和超可工程化微生物。",
-        "abstractZh": "在接下来的几十年里，迫切需要建立一种新的可持续能源基础设施，以取代自17世纪以来我们依赖的化石燃料系统。这种基础设施不仅要取代现有的系统，还要远远超越其能力，为更多人提供更大的电力，以满足发达国家和发展中国家不断增长的需求。但是，我们如何在不对地球造成伤害的情况下增加能源使用呢？生物学驱动着地球的地球化学循环，其元素和能量通量远超整个人类文明。这表明合成生物学可以解决我们的一些环境问题，同时提供获取更大能量的途径。然而，利用生物学仍然是一个巨大的挑战，部分原因是我们对于带来最独特和有用可持续性/能源能力的生物系统背后的基础科学了解得还不够。这一挑战并非生物学和可持续发展所独有——过去的突破性技术不仅需要好奇心驱动的基础研究，还需要应用启发的基础研究。在过去十年中，我们的实验室发现了构建合成生物学技术所需的新基础科学，并确立了自己在可持续发展和合成生物学领域的领先地位。本综述总结了我们在过去十年中在三个关键领域取得的突破：生物采矿、电驱动代谢和超可工程化微生物。",
-        "question": null,
-        "methods": null,
-        "findings": null,
-        "limitations": [],
-        "sourceTitle": "Synthetic biology for sustainable abundance: biomining, electromicrobial production, and hyper-engineerable microbes.",
-        "sourceAbstract": "Over the next few decades, there is a compelling need to build a new sustainable energy infrastructure to replace the fossil fuel system that we have relied on since the 1700s. This infrastructure must not only replace what exists but also far exceed its capabilities, delivering more power to more people to meet the growing demands from both developing and advanced economies. But how do we increase energy use without harming the Earth? Biology drives the Earth's geochemical cycles, operating with far greater elemental and energy fluxes than all of human civilization. This suggests that synthetic biology could solve at least some of our environmental problems while providing access to much greater energy. However, leveraging biology remains a formidable challenge, in part because we do not yet understand nearly enough about the basic science underlying the biological systems that bring the most unusual and useful capabilities to sustainability and energy. This challenge is not unique to biology and sustainability - groundbreaking technologies of the past have required not only curiosity-driven basic research but also use-inspired basic research. Over the past decade, our lab has discovered new basic science needed to build synthetic biology technologies and established itself as a leader in sustainability and synthetic biology. This review summarizes breakthroughs from our lab over the past decade in three key areas: biomining, electrically driven metabolism, and hyper-engineerable microbes.",
-        "sourceFingerprint": "7afaaa4d-1633",
-        "origin": "model",
-        "model": "qwen3.7-flash",
-        "promptVersion": "bioscope-zh-interpret-v2",
-        "createdAt": "2026-11-14T07:49:26.240Z",
-        "reviewed": false,
-        "scope": "abstract_only",
-        "modelUsage": {
-          "inputTokens": 722,
-          "outputTokens": 476,
-          "totalTokens": 1198,
           "cachedInputTokens": 0
         },
         "terminologyVersion": "bioscope-bio-glossary-v1",
@@ -4739,6 +5194,60 @@
       }
     },
     {
+      "id": "doi:10.3390/ph19111774",
+      "title": "Artificial Intelligence and Biotechnology in the Sustainable Design of Polymeric Biomaterials and Hybrid Drug Delivery Systems.",
+      "abstract": "The integration of circular bioeconomy principles, biotechnology, and artificial intelligence (AI) offers new opportunities for the rational design of sustainable polymeric biomaterials and hybrid drug delivery systems. Rather than reviewing these fields independently, this review examines how they can be connected within a feedstock-to-therapy framework, linking the selection and characterization of bio-derived resources with polymer production, material formulation, performance prediction, and biomedical application. Particular attention is given to the challenge of translating variable biological feedstocks, including plant biomass and microbial resources, into materials with reproducible physicochemical and biological properties. The review discusses natural polymers, microbial and enzymatically produced biopolymers, and biomass-derived functional compounds as building blocks for hydrogels, nanocomposites, scaffolds, and controlled drug delivery platforms. It further considers how biotechnology, including metabolic engineering and synthetic biology, can expand the range and improve the consistency of available material components. Within this framework, machine learning, materials informatics, and hybrid mechanistic-data-driven models are evaluated in terms of their potential to support feedstock characterization, formulation optimization, and prediction of material properties and drug-release behavior. The review identifies key barriers to integrating these approaches, including heterogeneous data, limited dataset sizes, feedstock variability, and insufficient experimental validation across different stages of material development.",
+      "authors": "Bialik-Wąs K, Odziomek K, Baka N, Mihilewicz K, Drabczyk AK, Raftopoulos KN.",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "doi": "10.3390/ph19111774",
+      "pmid": "43093360",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43093360",
+      "url": "https://doi.org/10.3390/ph19111774",
+      "publishedAt": "2026-11-08",
+      "discoveredAt": "2026-11-27T05:04:40.707Z",
+      "topics": [
+        "synthetic",
+        "metabolic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.3390/microorganisms14112576",
+      "title": "Solvent Production by the Hyperthermophilic Archaeon Hyperthermus butylicus .",
+      "abstract": "Hyperthermus butylicus is a hyperthermophilic crenarchaeon capable of producing 1-butanol. In this study, it was determined that H. butylicus also produced key solvents, including acetone, isopropanol, and ethanol, using gas chromatography and/or high-performance liquid chromatography. These end-products resemble those produced by solventogenic Clostridium species. Solvent synthesis was growth-dependent and enhanced by supplementation with organic acids, such as acetate and butyrate. Sequence analysis could not show the presence of key homologs of known solvent-producing enzymes from other butanol-producing organisms, such as those of the acetone-butanol-ethanol pathway in Clostridium acetobutylicum . These results suggest that H . butylicus utilizes a metabolic route that is not fully elucidated. This work shows that H. butylicus is the first hyperthermophile that has been found to have the capability of ABE-like fermentation, thereby offering potential in biofuel research and thermophilic metabolic engineering.",
+      "authors": "Kim SD, Tse C, Xue C, Wu Y, Ma K.",
+      "journal": "Microorganisms",
+      "doi": "10.3390/microorganisms14112576",
+      "pmid": "43092440",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43092440",
+      "url": "https://doi.org/10.3390/microorganisms14112576",
+      "publishedAt": "2026-11-08",
+      "discoveredAt": "2026-11-27T05:04:40.707Z",
+      "topics": [
+        "metabolic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.1016/j.tibtech.2026.10.012",
       "title": "Biotechnology has outgrown the organism.",
       "abstract": "Synthetic biology increasingly produces hybrid constructs that blur the boundaries of organism-based biosafety regulation. We propose using the term 'biological entity', defined by its capacity to interact meaningfully with biological systems or to facilitate biological processes, as an initial screening category before regulatory classification, enabling more coherent and proportionate oversight.",
@@ -4971,13 +5480,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 360,
+        "count": 371,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/ploscompbiol/article/metrics?id=10.1371%2Fjournal.pcbi.1014881",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pcbi.1014881/format/json",
-        "fetchedAt": "2026-11-26T05:06:16.610Z",
+        "fetchedAt": "2026-11-27T05:05:24.497Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-11",
         "coverageEnd": "2026-11",
@@ -4991,7 +5500,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-26T05:06:16.470Z"
+        "checkedAt": "2026-11-27T05:05:24.383Z"
       },
       "enrichment": {
         "titleZh": "kinGEMs：通过随机调优深度学习预测的动力学参数，构建稳健且可扩展的资源约束模型框架",
@@ -5004,7 +5513,7 @@
         "reviewed": false,
         "scope": "abstract_only"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-26T05:06:16.470Z"
+      "downloadRefreshLastAttemptAt": "2026-11-27T05:05:24.383Z"
     },
     {
       "id": "doi:10.1007/s00253-026-14083-7",
@@ -17890,13 +18399,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 482,
+        "count": 492,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-26T05:06:16.735Z",
+        "fetchedAt": "2026-11-27T05:05:24.598Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -17921,9 +18430,9 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-26T05:06:16.470Z"
+        "checkedAt": "2026-11-27T05:05:24.383Z"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-26T05:06:16.470Z"
+      "downloadRefreshLastAttemptAt": "2026-11-27T05:05:24.383Z"
     },
     {
       "id": "doi:10.1007/s11274-026-05339-5",
@@ -18417,25 +18926,26 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 131,
-      "count": 50,
-      "truncated": true
+      "hitCount": 134,
+      "count": 25,
+      "truncated": true,
+      "error": "后续分页中断：Europe PMC 连接失败或超时，已保留前面取得的 25 篇。"
     },
     {
       "topic": "代谢工程",
-      "hitCount": 75,
+      "hitCount": 88,
       "count": 50,
       "truncated": true
     },
     {
       "topic": "微生物制造",
-      "hitCount": 107,
+      "hitCount": 121,
       "count": 50,
       "truncated": true
     }
   ],
   "modelUsage": {
-    "date": "2026-11-26",
+    "date": "2026-11-27",
     "requests": 0
   },
   "receipts": {
@@ -23698,11 +24208,11 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "automatic_paused",
-    "lastRunAt": "2026-11-26T05:06:16.768Z",
-    "failedTopics": 0,
+    "lastRunAt": "2026-11-27T05:05:24.639Z",
+    "failedTopics": 1,
     "collectionSource": {
       "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/45759334098"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/45943543042"
     },
     "downloadRefresh": {
       "supported": 2,
@@ -23716,17 +24226,17 @@
     "modelCompletedThisRun": 0,
     "modelFailuresThisRun": 0,
     "analysisFailures": 3,
-    "completedAt": "2026-11-26T05:06:16.833Z"
+    "completedAt": "2026-11-27T05:05:24.730Z"
   },
   "crossrefSupplement": {
     "version": 1,
-    "from": "2026-10-28",
-    "through": "2026-11-26",
+    "from": "2026-10-29",
+    "through": "2026-11-27",
     "directions": [
       {
         "id": "synthetic",
         "status": "ok",
-        "hits": 6094,
+        "hits": 6143,
         "received": 20,
         "eligible": 6,
         "fresh": 5,
@@ -23752,16 +24262,16 @@
             "title": "Artificial intelligence and synthetic biology for integrated crop improvement"
           },
           {
-            "doi": "10.3389/fbioe.2026.1946816",
-            "date": "2026-10-28",
-            "title": "Human-capital architecture for biosafety and responsible synthetic biology"
+            "doi": "10.54254/2753-8818/2027.mb39092",
+            "date": "2026-11-17",
+            "title": "Synthetic Biology-Driven Heterologous Biosynthesis of Cis-abienol in Escherichia coli"
           }
         ]
       },
       {
         "id": "metabolic",
         "status": "ok",
-        "hits": 25489,
+        "hits": 25817,
         "received": 20,
         "eligible": 0,
         "fresh": 0,
