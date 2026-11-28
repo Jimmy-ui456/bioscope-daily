@@ -1,8 +1,115 @@
 {
   "schemaVersion": 2,
   "origin": "live",
-  "fetchedAt": "2026-11-27T05:05:24.638Z",
+  "fetchedAt": "2026-11-28T04:46:06.181Z",
   "papers": [
+    {
+      "id": "doi:10.1186/s40694-026-00230-2",
+      "title": "A synthetic biology tool that utilizes β-estradiol to enable tight and tunable gene expression in aspergilli with a wide dynamic range.",
+      "abstract": "Background Owing to their high protein secretion capacity and low cultivation costs, filamentous fungi, including Aspergillus oryzae, are widely used for the bioproduction of valuable compounds. To date, molecular biology tools for basic biology and biotechnology have been developed for filamentous fungi; however, many of these methods have relied on regulatory systems dependent on the host cell's metabolism. For a more accurate understanding of biological processes and the precise design of bioproduction, there is a need for tunable, metabolism-independent gene expression control systems. Results A versatile drug-inducible gene expression system was established for filamentous fungi. The artificial transcription factor XEV consists of the LexA DNA-binding domain from Escherichia coli, the ligand-binding domain of the human estrogen receptor, and the VP16 activation domain. XEV was introduced into A. oryzae to express genes downstream of the synthetic promoter containing four lexO repeat sequences and the CYC1 core promoter. Under the control of the synthetic promoter, the β-glucuronidase reporter gene uidA showed strict β-estradiol-dependent induction with no detectable expression under basal conditions. Notably, induction levels were similar to those from the strong endogenous α-amylase gene promoter, whereas expression remained unaffected by the major carbon sources. The transcription factor AmyR is a master regulator of amylolytic genes and was expressed in this system. Consequently, β-estradiol-dependent regulation of AmyR led to a dose-dependent increase in the production of multiple amylolytic enzymes, suggesting that the XEV system can precisely regulate the targeted gene network. Furthermore, by expressing XEV under an enhanced promoter, the overall induction level increased along with gene expression at low inducer concentrations. In addition, replacing the CYC1 core promoter downstream of lexO with a potent core promoter derived from A. oryzae further enhanced the induction level. This system also functioned in Aspergillus nidulans, suggesting that it could be applied to other species as well. Conclusions This study established an inducible expression platform that offers low leakage, tunable induction, and a wide dynamic range. This provides a highly useful tool for synthetic biology and industrial applications in filamentous fungi.",
+      "authors": "Yokoyama M, Sagara S, Shintani T, Takebayashi H, Gomi K, Shintani T.",
+      "journal": "Fungal biology and biotechnology",
+      "doi": "10.1186/s40694-026-00230-2",
+      "pmid": "43099678",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43099678",
+      "url": "https://doi.org/10.1186/s40694-026-00230-2",
+      "publishedAt": "2026-11-26",
+      "discoveredAt": "2026-11-28T04:45:09.864Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": "cc by-nc-nd",
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1007/s11274-026-05430-x",
+      "title": "Adaptive laboratory evolution expands microbial substrate utilization for sustainable bioconversion: from conventional sugars to C1 feedstocks.",
+      "abstract": "Adaptive laboratory evolution (ALE) leverages natural selection to enhance microbial substrate utilization. The review summarizes ALE advances across conventional sugars (glucose, xylose, fructose), challenging feedstocks (glycerol, galactose, lignocellulosic biomass), and C1 and other non-traditional substrates (CO₂, methanol, acetic acid, formic acid). Comparative studies show that ALE primarily targets substrate uptake, cofactor balance, and toxicity tolerance, while its efficacy is substantially enhanced by combining metabolic engineering with biosensor-based selection. However, ALE faces several limitations, including lengthy timelines, unintended mutations, scale-up challenges regarding genetic stability, and unpredictable adaptive pathways. Future progress will be driven by advances in prediction through multi-omics data and machine learning, in automation via biosensors and microfluidic platforms, and in integration through synthetic consortia, all aiming to overcome these bottlenecks. Overall, ALE shows significant promise for constructing efficient and sustainable microbial cell factories.",
+      "authors": "Ding LM, Xie ZY, Zhu MY, Duan XY, Yang XN, Tian Y, Lu XY, Sun XM, Liu HH.",
+      "journal": "World journal of microbiology & biotechnology",
+      "doi": "10.1007/s11274-026-05430-x",
+      "pmid": "43097292",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43097292",
+      "url": "https://doi.org/10.1007/s11274-026-05430-x",
+      "publishedAt": "2026-11-26",
+      "discoveredAt": "2026-11-28T04:45:09.799Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1007/s12010-026-05990-6",
+      "title": "Bacterial Valorization of Poultry Feather Waste: Keratinolytic Mechanisms, Bioprocesses, and Biotechnological Products.",
+      "abstract": "Poultry feather waste is a major keratin-rich residue whose recalcitrant β-keratin structure limits its efficient biological utilization. Bacterial biodegradation offers an alternative to conventional feather disposal by converting keratin into soluble peptides, amino acids, and other potentially useful bioproducts. This critical review synthesizes current evidence on bacterial feather valorization and identifies the microbial and process factors that determine degradation efficiency. Comparative analysis indicates that keratin degradation is not governed by keratinase activity alone but by the coordinated action of extracellular keratinases and accessory proteases, disulfide-bond reduction, sulfur metabolism, nutrient transport, and cellular responses to keratin-derived substrates. Bacillus and related keratinolytic bacteria remain the most extensively investigated groups, whereas performance across reported strains varies substantially with substrate characteristics, inoculum, pH, temperature, cultivation mode, and process duration, limiting direct comparison among studies. The review further identifies a recurrent gap between high laboratory scale feather degradation and reproducible bioprocess performance, particularly regarding process standardization, enzyme stability, product composition, and scale-up. Available evidence suggests that controlled microbial consortia, genome- and transcriptome-guided strain selection, metabolic engineering, and integrated bioprocess optimization could improve conversion efficiency and product consistency. The resulting feather hydrolysates have demonstrated potential as sources of bioactive peptides, nitrogen-rich agricultural inputs, feed-related products, and other biomaterials, although application-specific validation and product standardization remain insufficient. Overall, the review proposes a mechanistic view of bacterial feather valorization in which microbial physiology, keratinolytic pathways, and process engineering must be integrated to achieve reliable conversion of feather waste into defined biotechnological products.",
+      "authors": "Dubey N, Singhvi K, Sharma A, Chandra S.",
+      "journal": "Applied biochemistry and biotechnology",
+      "doi": "10.1007/s12010-026-05990-6",
+      "pmid": "43097307",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43097307",
+      "url": "https://doi.org/10.1007/s12010-026-05990-6",
+      "publishedAt": "2026-11-26",
+      "discoveredAt": "2026-11-28T04:45:09.799Z",
+      "topics": [
+        "metabolic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.molp.2026.11.011",
+      "title": "Development of Rubus hirsutus as a woody-plant model system.",
+      "abstract": "Model systems for long-lived woody plants are urgently needed to accelerate research in plant, evolutionary, and synthetic biology. Ideal model systems should combine well-annotated genomes with robust, user-friendly transformation and genome-editing platforms, as well as efficient strategies for multigene pyramiding. Here, we established a model system based on the woody shrub hirsute raspberry (Rubus hirsutus). First, we de novo assembled two telomere-to-telomere (T2T) Rosoideae genomes. Transcriptomic and pan-genomic analyses revealed extensive gene-level and genome-level diversification within these Rosoideae genomes, underpinning remarkable phenotypic variation across hundreds of wild species and thousands of cultivars. We then developed a leaf-based, tissue-culture-free, antibiotic-free transformation method and an Agrobacterium rhizogenes-mediated gene editing approach for R. hirsutus. We used these methods to establish an efficient sequential transformation strategy for multigene pyramiding and also generated early-flowering transgenic lines of R. hirsutus. Using our newly designed system, we rapidly and stably transformed R. hirsutus with approximately 500 genes and functionally characterized a series of genes and regulatory networks. This de novo-designed, long-lived woody-plant model system, which was derived from phylogenetically close but taxonomically diverse lineages, should greatly accelerate the advancement of our fundamental knowledge and advance translational research in plants.",
+      "authors": "Liu H, Chen R, Zeng Z, Xu D, Wang L, Liu J, Zhang Y, Chen H, Liu Z, He Y, Liang M, Zhang T, Shang J, Zhao Q, Yuan YW, Ning G.",
+      "journal": "Molecular plant",
+      "doi": "10.1016/j.molp.2026.11.011",
+      "pmid": "43099931",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43099931",
+      "url": "https://doi.org/10.1016/j.molp.2026.11.011",
+      "publishedAt": "2026-11-26",
+      "discoveredAt": "2026-11-28T04:45:09.864Z",
+      "topics": [
+        "synthetic"
+      ],
+      "type": "期刊论文",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": "cc by-nc-nd",
+      "version": null,
+      "collection": "Europe PMC"
+    },
     {
       "id": "doi:10.21203/rs.3.rs-11746962/v1",
       "title": "Efficient recombinant production of a short silica-forming peptide in Escherichia coli using an intrinsically disordered fusion tag",
@@ -58,6 +165,33 @@
       "collection": "Europe PMC"
     },
     {
+      "id": "doi:10.1080/07388551.2026.2756945",
+      "title": "Engineering live biotherapeutic products (eLBPs): modularization and systematic building strategies.",
+      "abstract": "The continued advancement of synthetic biology and related technologies has reinvigorated traditional probiotic therapies. Researchers can customize the bacterial chassis to construct eLBPs on demand. These can perform a variety of functions, including sensing and processing of disease signals, in situ production or targeted delivery of drugs, and long-term treatment of chronic diseases. The performance of these functions depends on the precise cooperation between the modules and the rational design of the genetic circuit. However, the mechanisms of some microbial-host interactions remain unclear, and modular design approaches are lacking. These problems have largely hindered the further development of eLBPs. Here, we review the current state of development of eLBPs and the problems encountered, followed by possible solutions and potential future research directions. The engineering components in eLBPs are categorized as: sensor module, signal processing module, delivery module, containment module, and colonization module. The modular construction strategy can facilitate the design of eLBPs and expedite their deployment in the diagnosis and treatment of diseases. Finally, we describe the design process of eLBPs based on modularization strategies, discuss the differences between this approach and the traditional drug development process, and provide an outlook on the future development and potential problems associated with this technology.",
+      "authors": "Yang X, Ye M, Wang F, Yang X, Gao X, Yu J, Liu W.",
+      "journal": "Critical reviews in biotechnology",
+      "doi": "10.1080/07388551.2026.2756945",
+      "pmid": "43098558",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43098558",
+      "url": "https://doi.org/10.1080/07388551.2026.2756945",
+      "publishedAt": "2026-11-26",
+      "discoveredAt": "2026-11-28T04:45:09.864Z",
+      "topics": [
+        "synthetic",
+        "microbial"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
       "id": "doi:10.21203/rs.3.rs-9847201/v1",
       "title": "Enzyme-Assisted Fermentation of Lactose for the Recombinant Brazzein Production in Pichia pastoris",
       "abstract": "Abstract Sweet proteins are attractive candidates for reduced-sugar foods because they provide intense sweetness at very low use levels. Brazzein is a particularly promising sweet protein due to its high sweetness potency, thermal and pH stability, and sucrose-like taste profile. Although recombinant production of brazzein has been demonstrated in several heterologous systems, improving the economic and environmental feasibility of microbial production requires attention to the carbon sources used for fermentation. Here, we develop an enzyme-assisted fermentation strategy to produce brazzein from lactose-containing substrates using engineered Pichia pastoris . Because P. pastoris does not efficiently utilize lactose, we supplement cultures with β-galactosidase to hydrolyze lactose in situ into fermentable monosaccharides that support yeast growth and recombinant protein production. We first compare three secretion signals and identify the α-mating factor pre–pro signal as the most effective of those tested for extracellular brazzein production. We then show that lactose alone does not support substantial P. pastoris growth, whereas β-galactosidase supplementation enables growth in lactose-containing medium. Finally, we evaluate lactose concentration and methanol induction strategy and find that brazzein production depends on the balance between lactose-derived carbon availability and methanol-driven expression. The highest specific yield observed in this study is approximately 1847 µg/g biomass under sequential methanol induction with 30 g/L lactose, corresponding to a volumetric yield of approximately 9.5 mg/L. These results indicate that enzyme-assisted lactose hydrolysis can extend the range of carbon sources usable by P. pastoris without additional lactose-metabolism engineering. All experiments were performed with analytical-grade lactose in defined medium and in shake flasks without pH or dissolved-oxygen control; the approach therefore remains a laboratory-scale proof of concept that requires validation with industrial whey permeate.",
@@ -78,6 +212,60 @@
       "type": "预印本",
       "status": "预印本 · 未经同行评审",
       "isPreprint": true,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1016/j.cbpa.2026.102828",
+      "title": "Glycyl radical enzymes: Biocatalytic magicians of the anaerobic biosphere.",
+      "abstract": "Glycyl radical enzymes (GREs) use an O 2 -sensitive peptide-based glycyl radical to catalyse chemically challenging reactions in microorganisms. Since its discovery in pyruvate formate-lyase, characterization of an expanding repertoire of GREs has broadened our understanding of their catalytic mechanisms and functions in anaerobic metabolism. Characterized GREs generally act on abundant substrates including carbohydrates, nucleotides, amino acids, and lipid headgroups, as well as the organosulfonates and aromatic fermentation products derived from them, often connecting their products to central metabolism or energy conservation. In this Review, we highlight a selection of recently characterized GREs, with emphasis on their cellular and metabolic context, how their physiological roles track taxonomic distribution, the environmental and biological sources of their substrates, and their divergent catalytic mechanisms. Continued biochemical and computational studies are needed to discover additional GRE functions, elucidate GRE mechanisms, particularly how stereoelectronic effects fine-tune radical reactions, and develop synthetic biology applications that complement aerobic biocatalysis.",
+      "authors": "Zhang Y, Wei Y, Wang PH, Hu Y.",
+      "journal": "Current opinion in chemical biology",
+      "doi": "10.1016/j.cbpa.2026.102828",
+      "pmid": "43098081",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43098081",
+      "url": "https://doi.org/10.1016/j.cbpa.2026.102828",
+      "publishedAt": "2026-11-26",
+      "discoveredAt": "2026-11-28T04:45:09.864Z",
+      "topics": [
+        "synthetic",
+        "metabolic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
+      "isRetraction": false,
+      "readingScope": "仅摘要",
+      "license": null,
+      "version": null,
+      "collection": "Europe PMC"
+    },
+    {
+      "id": "doi:10.1080/07388551.2026.2758737",
+      "title": "RNA manipulation for synthetic biology: from molecular tools to programmable cellular systems.",
+      "abstract": "Beyond traditional transcriptional regulation, synthetic biology is increasingly turning its focus to the direct manipulation of RNA molecules, leveraging RNA stability, localization, translation, and processing to impose dynamic, reversible, and resource-efficient control over gene expression. This review presents a comprehensive overview of the evolving RNA manipulation toolkit, ranging from fundamental molecular tools to sophisticated and programmable cellular systems. We categorize existing strategies into two primary paradigms: RNA-centric approaches (e.g., synthetic riboregulators) and protein-coupled systems (e.g., RNA-binding proteins and CRISPR-Cas effectors). A central theme of this review is the integration of these tools with functional modules, such as translation control mechanisms, RNA modification enzymes, and synthetic biomolecular condensates, to construct higher-order cellular systems capable of precise spatiotemporal regulation. We discuss the significant potential of these programmable RNA systems in circuit design, metabolic engineering, and RNA modification. Additionally, we critically evaluate challenges related to specificity, orthogonality, and host compatibility, and propose future directions focused on multiplexed RNA circuit design, modular standardization, and the development of closed-loop control architectures. This review aims to highlight the emerging utility of RNA manipulation tools and their integration into synthetic biology frameworks.",
+      "authors": "Ke J, Chen M, Gao Y, Cao Y, Wan L, Zhang W, Mu W.",
+      "journal": "Critical reviews in biotechnology",
+      "doi": "10.1080/07388551.2026.2758737",
+      "pmid": "43098556",
+      "pmcid": null,
+      "source": "MED",
+      "sourceId": "43098556",
+      "url": "https://doi.org/10.1080/07388551.2026.2758737",
+      "publishedAt": "2026-11-26",
+      "discoveredAt": "2026-11-28T04:45:09.798Z",
+      "topics": [
+        "synthetic",
+        "metabolic"
+      ],
+      "type": "综述",
+      "status": "期刊记录 · 待核验",
+      "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
       "license": null,
@@ -545,8 +733,8 @@
     {
       "id": "doi:10.64898/2026.11.22.768453",
       "title": "GinsengMind: An evidence-grounded AI research agent for integrative molecular research in Panax ginseng",
-      "abstract": "Panax ginseng C. A. Meyer is one of the most extensively studied medicinal plants, with substantial pharmaceutical and economic importance owing to its diverse bioactive constituents, particularly ginsenosides. Despite considerable advances in ginseng molecular research, the fragmentation of genomic, transcriptomic, protein structural, and biochemical information remains a major challenge for investigating gene function and specialized metabolism. Here, we developed GinsengMind (https://ginsengai.nrc.ac.cn), an evidence-grounded AI research agent that integrates species-specific molecular knowledge with large language model (LLM)-guided tool orchestration and structured retrieval-augmented generation. Built upon the telomere-to-telomere reference genome of P. ginseng, GinsengMind integrates 77,266 genes, 154,754 transcripts, and 77,266 protein records. Comprehensive functional annotation using Swiss-Prot, eggNOG, and InterProScan covered 97.00% of the 76,947 quality-controlled proteins. The platform further incorporates 71,046 ESMFold-predicted protein structures, 7,263,004 gene expression records across 94 RNA-seq samples, and 4,813 bibliographic records. Six specialized research tools enable autonomous evidence retrieval and source-linked scientific interpretation through natural-language interaction. To evaluate its performance, we established GinsengBench, comprising 50 curated questions across six research categories. In a blinded evaluation by three experts, GinsengMind achieved a mean weighted composite score of 96.18 across ten core questions, substantially exceeding GLM-5.3 without database access (23.24; mean paired difference, 72.94; 95% confidence interval, 65.19-79.87). Across five shared questions, GinsengMind outperformed nine general-purpose LLMs on average and achieved a score (96.56) close to that of GLM-5.3 supplied with predefined evidence packages (96.88), highlighting the importance of domain-specific knowledge and autonomous evidence retrieval. A case study of the ginsenoside biosynthetic enzyme PgUGT94Q2 further illustrates how integrated molecular evidence can reveal unresolved biological relationships and identify priorities for subsequent experimental investigation. Beyond conventional database querying, GinsengMind provides a foundation for exploring potential biological associations, prioritizing candidate biosynthetic genes, and formulating experimentally testable hypotheses. We anticipate that GinsengMind will facilitate research on medicinal plant specialized metabolism, natural product biosynthesis, enzyme discovery and engineering, and synthetic biology, while offering an adaptable framework for developing domain-specialized AI research agents across other medicinal plants and scientific disciplines.",
-      "authors": "Tong Y, Zhang R, Kang C, Chang Z, chen k.",
+      "abstract": "Panax ginseng C. A. Meyer is one of the most extensively studied medicinal plants, with substantial pharmaceutical and economic importance owing to its diverse bioactive constituents, particularly ginsenosides. Despite considerable advances in ginseng molecular research, the fragmentation of genomic, transcriptomic, protein structural, and biochemical information remains a major challenge for investigating gene function and specialized metabolism. Here, we developed GinsengMind ( https://ginsengai.nrc.ac.cn ), an evidence-grounded AI research agent that integrates species-specific molecular knowledge with large language model (LLM)-guided tool orchestration and structured retrieval-augmented generation. Built upon the telomere-to-telomere reference genome of P. ginseng , GinsengMind integrates 77,266 genes, 154,754 transcripts, and 77,266 protein records. Comprehensive functional annotation using Swiss-Prot, eggNOG, and InterProScan covered 97.00% of the 76,947 quality-controlled proteins. The platform further incorporates 71,046 ESMFold-predicted protein structures, 7,263,004 gene expression records across 94 RNA-seq samples, and 4,813 bibliographic records. Six specialized research tools enable autonomous evidence retrieval and source-linked scientific interpretation through natural-language interaction. To evaluate its performance, we established GinsengBench, comprising 50 curated questions across six research categories. In a blinded evaluation by three experts, GinsengMind achieved a mean weighted composite score of 96.18 across ten core questions, substantially exceeding GLM-5.3 without database access (23.24; mean paired difference, 72.94; 95% confidence interval, 65.19-79.87). Across five shared questions, GinsengMind outperformed nine general-purpose LLMs on average and achieved a score (96.56) close to that of GLM-5.3 supplied with predefined evidence packages (96.88), highlighting the importance of domain-specific knowledge and autonomous evidence retrieval. A case study of the ginsenoside biosynthetic enzyme PgUGT94Q2 further illustrates how integrated molecular evidence can reveal unresolved biological relationships and identify priorities for subsequent experimental investigation. Beyond conventional database querying, GinsengMind provides a foundation for exploring potential biological associations, prioritizing candidate biosynthetic genes, and formulating experimentally testable hypotheses. We anticipate that GinsengMind will facilitate research on medicinal plant specialized metabolism, natural product biosynthesis, enzyme discovery and engineering, and synthetic biology, while offering an adaptable framework for developing domain-specialized AI research agents across other medicinal plants and scientific disciplines.",
+      "authors": "Tong Y, Zhang R, Kang C, Chang Z, Chen K.",
       "journal": "预印本平台",
       "doi": "10.64898/2026.11.22.768453",
       "pmid": null,
@@ -565,7 +753,7 @@
       "isPreprint": true,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by-nc-nd",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -652,7 +840,7 @@
       "id": "doi:10.1016/j.biotechadv.2026.109104",
       "title": "Sustainable strategies for converting methane into commodities and high-value products using methanotrophs.",
       "abstract": "Methane, a potent greenhouse gas, has gained increasing attention as a sustainable feedstock for next-generation gas-phase biorefineries. Biological valorisation of CH 4 enables the simultaneous mitigation of greenhouse gas emissions and the production of high-value-added compounds within a circular economy framework. Compared to conventional physicochemical CH 4 abatement technologies, bioprocesses offer lower operational energy demands and reduced environmental impacts. However, the low aqueous solubility of CH 4 imposes severe gas-liquid mass transfer limitations, making bioreactor design a critical factor for process intensification and scalability. This review compiles the state of the art in methane bioconversion processes, with particular emphasis on innovative bioreactor configurations that enhance gas-liquid mass transfer, including Taylor flow bioreactors, U-loop bioreactors, and the use of non-aqueous solvents. Special attention is also given to methanotrophic microorganisms with the potential to simultaneously oxidize methane and convert it into value-added products. Recent advances in genetic and metabolic engineering aimed at improving production yields and expanding the portfolio of commercial bioproducts (bioplastics, single cell protein and ectoines) are discussed. Finally, an overview of recent laboratory-scale developments and the current status of commercialization of this CH 4 -to-value platform is provided.",
-      "authors": "Herrero-Lobo R, Torres-Franco AF, Lebrero R, Del Rosario Rodero M, Muñoz R.",
+      "authors": "Herrero-Lobo R, Torres-Franco AF, Lebrero R, Rodero MDR, Muñoz R.",
       "journal": "Biotechnology advances",
       "doi": "10.1016/j.biotechadv.2026.109104",
       "pmid": "43078255",
@@ -1650,7 +1838,7 @@
       "isPreprint": true,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -1899,7 +2087,7 @@
       "journal": "Journal of fungi (Basel, Switzerland)",
       "doi": "10.3390/jof12110862",
       "pmid": "43082898",
-      "pmcid": null,
+      "pmcid": "PMC13803728",
       "source": "MED",
       "sourceId": "43082898",
       "url": "https://doi.org/10.3390/jof12110862",
@@ -1913,7 +2101,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -2135,7 +2323,7 @@
       "journal": "Biology",
       "doi": "10.3390/biology15222101",
       "pmid": "43088741",
-      "pmcid": null,
+      "pmcid": "PMC13800267",
       "source": "MED",
       "sourceId": "43088741",
       "url": "https://doi.org/10.3390/biology15222101",
@@ -2149,7 +2337,7 @@
       "isPreprint": false,
       "isRetraction": false,
       "readingScope": "仅摘要",
-      "license": null,
+      "license": "cc by",
       "version": null,
       "collection": "Europe PMC"
     },
@@ -5480,13 +5668,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 371,
+        "count": 376,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/ploscompbiol/article/metrics?id=10.1371%2Fjournal.pcbi.1014881",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pcbi.1014881/format/json",
-        "fetchedAt": "2026-11-27T05:05:24.497Z",
+        "fetchedAt": "2026-11-28T04:46:06.018Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-11",
         "coverageEnd": "2026-11",
@@ -5500,7 +5688,7 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-27T05:05:24.383Z"
+        "checkedAt": "2026-11-28T04:46:05.881Z"
       },
       "enrichment": {
         "titleZh": "kinGEMs：通过随机调优深度学习预测的动力学参数，构建稳健且可扩展的资源约束模型框架",
@@ -5513,7 +5701,7 @@
         "reviewed": false,
         "scope": "abstract_only"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-27T05:05:24.383Z"
+      "downloadRefreshLastAttemptAt": "2026-11-28T04:46:05.881Z"
     },
     {
       "id": "doi:10.1007/s00253-026-14083-7",
@@ -18399,13 +18587,13 @@
       "version": null,
       "collection": "Europe PMC",
       "downloadMetric": {
-        "count": 492,
+        "count": 500,
         "kind": "pdf_downloads",
         "platform": "PLOS",
         "window": "cumulative",
         "sourceUrl": "https://journals.plos.org/plosbiology/article/metrics?id=10.1371%2Fjournal.pbio.3003778",
         "dataUrl": "https://counter.plos.org/api/v1.0/stats/doi/10.1371/journal.pbio.3003778/format/json",
-        "fetchedAt": "2026-11-27T05:05:24.598Z",
+        "fetchedAt": "2026-11-28T04:46:06.141Z",
         "provenance": "publisher_api",
         "coverageStart": "2026-10",
         "coverageEnd": "2026-11",
@@ -18430,9 +18618,9 @@
       },
       "downloadRefresh": {
         "status": "updated",
-        "checkedAt": "2026-11-27T05:05:24.383Z"
+        "checkedAt": "2026-11-28T04:46:05.881Z"
       },
-      "downloadRefreshLastAttemptAt": "2026-11-27T05:05:24.383Z"
+      "downloadRefreshLastAttemptAt": "2026-11-28T04:46:05.881Z"
     },
     {
       "id": "doi:10.1007/s11274-026-05339-5",
@@ -18926,26 +19114,27 @@
   "stats": [
     {
       "topic": "合成生物学",
-      "hitCount": 134,
+      "hitCount": 143,
+      "count": 50,
+      "truncated": true
+    },
+    {
+      "topic": "代谢工程",
+      "hitCount": 94,
       "count": 25,
       "truncated": true,
       "error": "后续分页中断：Europe PMC 连接失败或超时，已保留前面取得的 25 篇。"
     },
     {
-      "topic": "代谢工程",
-      "hitCount": 88,
-      "count": 50,
-      "truncated": true
-    },
-    {
       "topic": "微生物制造",
-      "hitCount": 121,
-      "count": 50,
-      "truncated": true
+      "hitCount": 129,
+      "count": 25,
+      "truncated": true,
+      "error": "后续分页中断：Europe PMC 连接失败或超时，已保留前面取得的 25 篇。"
     }
   ],
   "modelUsage": {
-    "date": "2026-11-27",
+    "date": "2026-11-28",
     "requests": 0
   },
   "receipts": {
@@ -24208,11 +24397,11 @@
     "scheduleBeijing": "07:17",
     "modelConfigured": false,
     "modelStatus": "automatic_paused",
-    "lastRunAt": "2026-11-27T05:05:24.639Z",
-    "failedTopics": 1,
+    "lastRunAt": "2026-11-28T04:46:06.181Z",
+    "failedTopics": 2,
     "collectionSource": {
       "trigger": "schedule",
-      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/45943543042"
+      "runUrl": "https://github.com/Jimmy-ui456/bioscope-daily/actions/runs/46108939288"
     },
     "downloadRefresh": {
       "supported": 2,
@@ -24226,19 +24415,19 @@
     "modelCompletedThisRun": 0,
     "modelFailuresThisRun": 0,
     "analysisFailures": 3,
-    "completedAt": "2026-11-27T05:05:24.730Z"
+    "completedAt": "2026-11-28T04:46:06.264Z"
   },
   "crossrefSupplement": {
     "version": 1,
-    "from": "2026-10-29",
-    "through": "2026-11-27",
+    "from": "2026-10-30",
+    "through": "2026-11-28",
     "directions": [
       {
         "id": "synthetic",
         "status": "ok",
-        "hits": 6143,
+        "hits": 6163,
         "received": 20,
-        "eligible": 6,
+        "eligible": 7,
         "fresh": 5,
         "records": [
           {
@@ -24271,7 +24460,7 @@
       {
         "id": "metabolic",
         "status": "ok",
-        "hits": 25817,
+        "hits": 25929,
         "received": 20,
         "eligible": 0,
         "fresh": 0,
@@ -24280,9 +24469,9 @@
       {
         "id": "microbial",
         "status": "ok",
-        "hits": 41,
+        "hits": 39,
         "received": 20,
-        "eligible": 10,
+        "eligible": 11,
         "fresh": 6,
         "records": [
           {
